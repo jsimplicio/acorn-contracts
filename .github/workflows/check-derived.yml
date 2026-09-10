@@ -1,3 +1,6 @@
+# Two derived artifacts are checked in, and both have already gone stale
+# unnoticed. This job regenerates each and fails if it moved.
+#
 # token-api/resolved/ is a derived artifact that is nonetheless checked in:
 # it is generated from base/, components/ and id-map.json by resolve.py, and
 # committed so a consumer can read a final value without reimplementing the
@@ -36,3 +39,19 @@ jobs:
             exit 1
           fi
           echo "token-api/resolved/ matches its sources."
+
+  meta:
+    # component-api/_meta.json and guidance-api/_meta.json record each file's
+    # real last commit. They go stale two ways, both of which have happened:
+    # a history rewrite leaves every entry citing a SHA that no longer exists,
+    # and a newly added file simply never gets an entry (14 were missing).
+    # fetch-depth: 0 because the script reads per-file git history, which a
+    # shallow clone does not have.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Check _meta.json is current
+        run: python3 update-meta.py --check

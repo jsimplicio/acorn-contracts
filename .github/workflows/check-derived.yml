@@ -1,0 +1,38 @@
+# token-api/resolved/ is a derived artifact that is nonetheless checked in:
+# it is generated from base/, components/ and id-map.json by resolve.py, and
+# committed so a consumer can read a final value without reimplementing the
+# resolution algorithm. Nothing forced it to stay current, and it did go
+# stale: re-running the committed resolve.py against the committed inputs
+# once produced a 27-file diff, including a token name from a sync several
+# changes earlier.
+#
+# This is the guard. resolve.py reads only local files, so the check is just
+# "regenerate and see if anything moved".
+name: Check derived files are current
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  resolved:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Regenerate token-api/resolved/
+        run: python3 token-api/resolve.py
+
+      - name: Fail if it differs from what is committed
+        run: |
+          if ! git diff --quiet -- token-api/resolved/; then
+            echo "::error::token-api/resolved/ is out of date. Run 'python3 token-api/resolve.py' and commit the result."
+            git diff --stat -- token-api/resolved/
+            exit 1
+          fi
+          echo "token-api/resolved/ matches its sources."

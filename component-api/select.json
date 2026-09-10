@@ -1,0 +1,126 @@
+{
+  "id": "select",
+  "summary": "A dropdown menu you click to choose one option from a list.",
+  "tagName": "moz-select",
+  "description": "A select dropdown whose options are provided as moz-option light-DOM children. Renders a native <select> when no options have icons, or a panel-list/button combo when at least one moz-option has an icon.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-select/moz-select.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The text of the label element.",
+      "figmaConfig": true
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "The select size. Options: default, small.",
+      "figmaConfig": true,
+      "default": "default"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name of the input control.",
+      "figmaConfig": false
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The value of the selected option.",
+      "figmaConfig": true
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "The disabled state of the input control.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "The src for an optional icon.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Text for the description element that helps describe the input control.",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Name of the SUMO support page to link to.",
+      "figmaConfig": true
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "The aria-label text when there is no visible label.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaDescription",
+      "type": "string",
+      "description": "The aria-description text when there is no visible description.",
+      "figmaConfig": false
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title attribute, mapped onto the inner control.",
+      "figmaConfig": false
+    },
+    {
+      "name": "options",
+      "type": "array",
+      "description": "Internal reactive state (state: true, not reflected): array of options read from <moz-option> children.",
+      "figmaConfig": false
+    },
+    {
+      "name": "selectedOption",
+      "type": "object",
+      "description": "Internal reactive state (state: true, not reflected): the currently selected option object.",
+      "figmaConfig": false
+    },
+    {
+      "name": "selectedIndex",
+      "type": "number",
+      "description": "Internal reactive state (state: true, not reflected): index of the currently selected option.",
+      "figmaConfig": false
+    },
+    {
+      "name": "usePanelList",
+      "type": "boolean",
+      "description": "Internal reactive state (state: true, not reflected): whether to render the panel-list/button combo instead of a native <select>, true when at least one option has an icon.",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "moz-option (and <hr> separator) children that populate the select's options. Read via MutationObserver, not meant to be styled directly."
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Redispatched when the selected value changes, whether via the native <select> or the panel-list path."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "size",
+      "values": [
+        "default",
+        "small"
+      ]
+    }
+  ],
+  "usage": "<moz-select label=\"Search engine\" name=\"search-engine\" value=\"option1\">\n  <moz-option value=\"option1\" label=\"Option 1\"></moz-option>\n  <moz-option value=\"option2\" label=\"Option 2\"></moz-option>\n</moz-select>"
+}

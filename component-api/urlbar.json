@@ -1,0 +1,260 @@
+{
+  "id": "urlbar",
+  "summary": "The address bar where you type or see the current website's URL.",
+  "tagName": "moz-urlbar",
+  "description": "The browser's address bar input. Despite the moz- prefix (which predates the modern naming convention) this is a classic custom element with no JSDoc/Lit conventions; it wraps a plain <input> and drives search mode, autofill, and the results view (UrlbarView). UrlbarInput.mjs now only registers the moz-urlbar tag on a thin subclass (`export class UrlbarInput extends UrlbarInputBase {}`); the real implementation lives in the sibling UrlbarInputBase.mjs.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/urlbar/content/UrlbarInputBase.mjs"
+  },
+  "attributes": [
+    {
+      "name": "sap-name",
+      "type": "string",
+      "description": "Which surface this instance represents: \"urlbar\", \"searchbar\", or \"smartbar\"; backed by the sapName getter."
+    },
+    {
+      "name": "pageproxystate",
+      "type": "string",
+      "description": "\"valid\" when the displayed value matches the loaded page URL, \"invalid\" once the user starts typing/searching; gates autofill and search-mode behavior.",
+      "figmaConfig": true,
+      "default": "invalid"
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Observed attribute; reflects whether the results view (breakout/expanded state) is open. Toggled by UrlbarView.",
+      "figmaConfig": true
+    },
+    {
+      "name": "breakout",
+      "type": "boolean",
+      "description": "Reflects the expanded/breakout layout state used when the results panel is showing.",
+      "default": "false"
+    },
+    {
+      "name": "focused",
+      "type": "boolean",
+      "description": "Reflects focus state on the container for styling purposes.",
+      "default": "false"
+    },
+    {
+      "name": "actiontype",
+      "type": "string",
+      "description": "Reflects a result's action type when autofilling a suggestion."
+    },
+    {
+      "name": "textoverflow",
+      "type": "string",
+      "description": "\"start\" or \"end\"; controls which side the value text-overflow fade appears on."
+    },
+    {
+      "name": "searchmode",
+      "type": "string",
+      "description": "Present while a search mode (e.g. a specific search engine or local scope) is active; removed on exit.",
+      "figmaConfig": true
+    },
+    {
+      "name": "persistsearchterms",
+      "type": "boolean",
+      "description": "Controls whether search terms persist in the input after a search is performed.",
+      "default": "false"
+    },
+    {
+      "name": "action-override",
+      "type": "string",
+      "description": "Internal override used to force a specific action/result type."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "description": "JS getter/setter property (not a plain attribute) that reflects to the underlying input field's readOnly state.",
+      "default": "false"
+    }
+  ],
+  "slots": [
+    {
+      "name": "remote-control-box",
+      "description": "Bespoke slot (via urlbar-slot=\"remote-control-box\" on a child, moved by #populateSlots) shown when the browser is remotely controlled."
+    },
+    {
+      "name": "site-info",
+      "description": "Bespoke slot for site identity/permissions info shown before the input."
+    },
+    {
+      "name": "revert-button",
+      "description": "Bespoke slot for the button that reverts a typed value back to the page URL."
+    },
+    {
+      "name": "page-actions",
+      "description": "Bespoke slot for page action buttons shown after the input (e.g. star/bookmark, extensions)."
+    },
+    {
+      "name": "search-one-offs",
+      "description": "Bespoke slot for the one-off search engine buttons shown in the results view."
+    }
+  ],
+  "events": [
+    {
+      "name": "beforefocus",
+      "description": "Cancelable CustomEvent fired before focus() proceeds."
+    },
+    {
+      "name": "beforeselect",
+      "description": "Cancelable CustomEvent fired before select()/setSelectionRange() proceeds."
+    },
+    {
+      "name": "SetURI",
+      "description": "Bubbling CustomEvent fired on the input field after setURI() updates the displayed value."
+    },
+    {
+      "name": "ValueChange",
+      "description": "Legacy accessibility event fired when the value changes."
+    },
+    {
+      "name": "searchmodechanged",
+      "description": "Bubbling Event fired whenever a search mode is entered or exited."
+    }
+  ],
+  "methods": [
+    {
+      "name": "focus"
+    },
+    {
+      "name": "blur"
+    },
+    {
+      "name": "select"
+    },
+    {
+      "name": "setSelectionRange"
+    },
+    {
+      "name": "setURI"
+    },
+    {
+      "name": "search"
+    },
+    {
+      "name": "startQuery"
+    },
+    {
+      "name": "handleCommand"
+    },
+    {
+      "name": "handleNavigation"
+    },
+    {
+      "name": "handleRevert"
+    },
+    {
+      "name": "handoff"
+    },
+    {
+      "name": "pickResult"
+    },
+    {
+      "name": "getSearchMode"
+    },
+    {
+      "name": "setSearchMode"
+    },
+    {
+      "name": "getSearchSource"
+    },
+    {
+      "name": "setPageProxyState"
+    },
+    {
+      "name": "formatValue"
+    },
+    {
+      "name": "updatePlaceholder"
+    },
+    {
+      "name": "setUnifiedSearchButtonAvailability"
+    },
+    {
+      "name": "incrementBreakoutBlockerCount"
+    },
+    {
+      "name": "decrementBreakoutBlockerCount"
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--urlbar-background-color",
+      "description": "Background color of the urlbar."
+    },
+    {
+      "name": "--urlbar-background-color-focus",
+      "description": "Background color when the urlbar is focused."
+    },
+    {
+      "name": "--urlbar-border-radius",
+      "description": "Border radius of the urlbar."
+    },
+    {
+      "name": "--urlbar-box-background-color",
+      "description": "Background color of the input box."
+    },
+    {
+      "name": "--urlbar-box-background-color-hover",
+      "description": "Background color of the input box on hover."
+    },
+    {
+      "name": "--urlbar-box-background-color-active",
+      "description": "Background color of the input box while active."
+    },
+    {
+      "name": "--urlbar-box-background-color-focus",
+      "description": "Background color of the input box while focused."
+    },
+    {
+      "name": "--urlbar-box-text-color",
+      "description": "Text color inside the input box."
+    },
+    {
+      "name": "--urlbar-box-text-color-hover",
+      "description": "Text color inside the input box on hover."
+    },
+    {
+      "name": "--urlbar-icon-fill-opacity",
+      "description": "Fill opacity applied to icons inside the urlbar."
+    },
+    {
+      "name": "--urlbar-margin-inline",
+      "description": "Inline margin around the urlbar."
+    },
+    {
+      "name": "--urlbar-padding-block",
+      "description": "Block padding of the urlbar."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "pageproxystate",
+      "values": [
+        "valid",
+        "invalid"
+      ]
+    },
+    {
+      "axis": "sap-name",
+      "values": [
+        "urlbar",
+        "searchbar",
+        "smartbar",
+        "newtab_searchbar"
+      ]
+    },
+    {
+      "axis": "textoverflow",
+      "values": [
+        "start",
+        "end"
+      ]
+    }
+  ],
+  "usage": "<moz-urlbar id=\"urlbar-input\" sap-name=\"urlbar\" pageproxystate=\"valid\"></moz-urlbar>"
+}

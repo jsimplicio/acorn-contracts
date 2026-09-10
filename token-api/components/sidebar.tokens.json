@@ -1,0 +1,41 @@
+{
+  "background": {
+    "color": {
+      "$value": "white",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "white",
+          "dark": "rgb(28, 27, 34)",
+          "nativeTheme": "-moz-sidebar"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "text": {
+    "color": {
+      "$value": "rgb(21, 20, 26)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "rgb(21, 20, 26)",
+          "dark": "rgb(249, 249, 250)",
+          "nativeTheme": "-moz-sidebartext"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "border": {
+    "color": {
+      "$value": "{card.border.color}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "{card.border.color}",
+          "nativeTheme": "-moz-sidebarborder",
+          "prefersContrast": "{card.border.color}"
+        }
+      },
+      "$type": "color"
+    }
+  }
+}

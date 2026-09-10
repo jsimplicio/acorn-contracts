@@ -1,0 +1,31 @@
+{
+  "id": "support-link",
+  "summary": "A \"Learn more\" style link that points to a Mozilla support (SUMO) page.",
+  "tagName": "moz-support-link",
+  "description": "A customized built-in <a is=\"moz-support-link\"> (extends HTMLAnchorElement) for linking to Mozilla's SUMO support documentation. Builds its href from a support-page short-hand plus the app's support base URL (optionally appending AMO-only UTM parameters via utm-content), always opens in a new tab/window via openTrustedLinkIn, and fills its own localized text via Fluent when no content or data-l10n-id is supplied.",
+  "implementation": {
+    "kind": "classic",
+    "file": "toolkit/content/widgets/moz-support-link/moz-support-link.mjs"
+  },
+  "attributes": [
+    {
+      "name": "support-page",
+      "type": "string",
+      "description": "Short-hand string identifying the specific SUMO support page; combined with the app's support base URL to build href. Also exposed as the supportPage JS property.",
+      "figmaConfig": true
+    },
+    {
+      "name": "utm-content",
+      "type": "string",
+      "description": "UTM content parameter appended to the URL, only applied when the resulting URL is an AMO (mozilla.org/allizom.org) URL.",
+      "figmaConfig": false
+    },
+    {
+      "name": "data-l10n-id",
+      "type": "string",
+      "description": "Fluent id used to generate the link's text content when none is otherwise provided.",
+      "figmaConfig": true
+    }
+  ],
+  "usage": "<a is=\"moz-support-link\" support-page=\"prefs-search\" data-l10n-id=\"my-support-link\"></a>"
+}

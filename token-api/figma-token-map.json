@@ -1,0 +1,3217 @@
+{
+  "generatedBy": "token-api/figma-check.py",
+  "generatedFrom": "token-api/figma-variables-dump.json",
+  "matchMethod": "codeSyntax checked directly against this Figma file's own variable data and found populated on only 2 of 718 kept variables (nowhere near a usable general signal), so matching is by normalized-word-tuple comparison of the CSS custom property name against every real Figma variable name in Nova Styles (Experimental) (Co6vXnF5SiQMcJ7UoJvZX6), not codeSyntax. This checks a name against its OWN name only -- it deliberately does not follow a token's resolved alias chain to count a match under some other, differently-named Figma variable, since the point of this column is catching Figma and code drifting apart, and backfilling through an alias would hide exactly that. Strict two-state result (yes/no), not three: a one-word-off near miss is still 'no', recorded with matchType 'near-miss' purely as a diagnostic, not a softer status. See this script's own docstring for the full rule and why both the alias-chain approach and a separate 'ambiguous' status were tried and rejected.",
+  "notes": [
+    "Source is a direct Figma REST API pull (GET /v1/files/Co6vXnF5SiQMcJ7UoJvZX6/variables/local), not Supernova. An earlier version of this map was built from a Supernova MCP token-list snapshot; the repo maintainer rejected that as the wrong source for this check because Supernova's sync of this design system has known gaps elsewhere in this project family. See figma-variables-dump.json's own `_comment` for what was fetched and excluded."
+  ],
+  "counts": {
+    "yes_exact": 324,
+    "yes_reordered": 11,
+    "no_near_miss": 127,
+    "no_total_mismatch": 178,
+    "total": 640
+  },
+  "properties": {
+    "--badge-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "badge/background/color"
+    },
+    "--badge-background-color-filled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "badge/background/color/filled"
+    },
+    "--badge-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "badge/border/color"
+    },
+    "--badge-border-color-filled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "badge/border/color/filled"
+    },
+    "--badge-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "badge/border/radius"
+    },
+    "--badge-border-width": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "border/width"
+    },
+    "--badge-font-weight": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "badge/font/weight"
+    },
+    "--badge-padding-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "badge/padding/block"
+    },
+    "--badge-padding-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "badge/padding/inline"
+    },
+    "--badge-padding-nova-inline": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "badge/padding/inline"
+    },
+    "--badge-text-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "badge/text/color"
+    },
+    "--badge-text-color-filled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "badge/text/color/filled"
+    },
+    "--box-border": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "box/border/color"
+    },
+    "--box-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "box/border/color"
+    },
+    "--box-border-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--box-border-radius-inner": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--box-border-width": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "border/width"
+    },
+    "--box-button-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "background/color/box"
+    },
+    "--box-button-background-color-active": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/background/color/active"
+    },
+    "--box-button-background-color-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/background/color/disabled"
+    },
+    "--box-button-background-color-hover": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/background/color/hover"
+    },
+    "--box-button-text-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/text/color"
+    },
+    "--box-button-text-color-active": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/text/color/active"
+    },
+    "--box-button-text-color-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/text/color/disabled"
+    },
+    "--box-button-text-color-hover": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/text/color/hover"
+    },
+    "--box-icon-fill": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--box-icon-size": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "icon/size"
+    },
+    "--box-icon-stroke": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--box-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--breadcrumb-gap": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--breadcrumb-icon-size": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "icon/size"
+    },
+    "--breadcrumb-link-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "link/color"
+    },
+    "--breadcrumb-link-color-active": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "link/color/active"
+    },
+    "--breadcrumb-link-color-hover": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "link/color/hover"
+    },
+    "--breadcrumb-link-color-visited": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "link/color/visited"
+    },
+    "--button-attention-dot-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color"
+    },
+    "--button-background-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/active"
+    },
+    "--button-background-color-destructive": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/destructive"
+    },
+    "--button-background-color-destructive-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/destructive/active"
+    },
+    "--button-background-color-destructive-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/destructive/disabled"
+    },
+    "--button-background-color-destructive-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/destructive/hover"
+    },
+    "--button-background-color-destructive-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/destructive/selected"
+    },
+    "--button-background-color-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/disabled"
+    },
+    "--button-background-color-ghost": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/ghost"
+    },
+    "--button-background-color-ghost-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/ghost/active"
+    },
+    "--button-background-color-ghost-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/ghost/disabled"
+    },
+    "--button-background-color-ghost-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/ghost/hover"
+    },
+    "--button-background-color-ghost-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/ghost/selected"
+    },
+    "--button-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/hover"
+    },
+    "--button-background-color-menu": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/menu"
+    },
+    "--button-background-color-menu-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/menu/active"
+    },
+    "--button-background-color-menu-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/menu/disabled"
+    },
+    "--button-background-color-menu-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/menu/hover"
+    },
+    "--button-background-color-menu-selected": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/background/color/menu"
+    },
+    "--button-background-color-muted": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/muted"
+    },
+    "--button-background-color-muted-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/muted/active"
+    },
+    "--button-background-color-muted-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/muted/disabled"
+    },
+    "--button-background-color-muted-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/muted/hover"
+    },
+    "--button-background-color-muted-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/muted/selected"
+    },
+    "--button-background-color-primary": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/primary"
+    },
+    "--button-background-color-primary-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/primary/active"
+    },
+    "--button-background-color-primary-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/primary/disabled"
+    },
+    "--button-background-color-primary-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/primary/hover"
+    },
+    "--button-background-color-primary-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/primary/selected"
+    },
+    "--button-background-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/selected"
+    },
+    "--button-background-color-toolbar": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/background/color"
+    },
+    "--button-background-color-toolbar-active": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/background/color/active"
+    },
+    "--button-background-color-toolbar-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/background/color/disabled"
+    },
+    "--button-background-color-toolbar-hover": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/background/color/hover"
+    },
+    "--button-background-color-toolbar-selected": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/background/color/selected"
+    },
+    "--button-badge-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "badge/background/color"
+    },
+    "--button-badge-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-border": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/radius"
+    },
+    "--button-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color"
+    },
+    "--button-border-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/active"
+    },
+    "--button-border-color-destructive": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/destructive"
+    },
+    "--button-border-color-destructive-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/destructive/active"
+    },
+    "--button-border-color-destructive-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/destructive/disabled"
+    },
+    "--button-border-color-destructive-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/destructive/hover"
+    },
+    "--button-border-color-destructive-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/destructive/selected"
+    },
+    "--button-border-color-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/disabled"
+    },
+    "--button-border-color-ghost": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/ghost"
+    },
+    "--button-border-color-ghost-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/ghost/active"
+    },
+    "--button-border-color-ghost-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/ghost/disabled"
+    },
+    "--button-border-color-ghost-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/ghost/hover"
+    },
+    "--button-border-color-ghost-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/ghost/selected"
+    },
+    "--button-border-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/hover"
+    },
+    "--button-border-color-menu": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/color"
+    },
+    "--button-border-color-menu-active": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/color/active"
+    },
+    "--button-border-color-menu-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/color/disabled"
+    },
+    "--button-border-color-menu-hover": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/color/hover"
+    },
+    "--button-border-color-menu-selected": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/color/selected"
+    },
+    "--button-border-color-muted": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/muted"
+    },
+    "--button-border-color-muted-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/muted/active"
+    },
+    "--button-border-color-muted-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/muted/disabled"
+    },
+    "--button-border-color-muted-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/muted/hover"
+    },
+    "--button-border-color-muted-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/muted/selected"
+    },
+    "--button-border-color-primary": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/primary"
+    },
+    "--button-border-color-primary-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/primary/active"
+    },
+    "--button-border-color-primary-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/primary/disabled"
+    },
+    "--button-border-color-primary-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/primary/hover"
+    },
+    "--button-border-color-primary-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/primary/selected"
+    },
+    "--button-border-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/color/selected"
+    },
+    "--button-border-color-toolbar": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/color"
+    },
+    "--button-border-color-toolbar-active": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/color/active"
+    },
+    "--button-border-color-toolbar-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/color/disabled"
+    },
+    "--button-border-color-toolbar-hover": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/color/hover"
+    },
+    "--button-border-color-toolbar-selected": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/border/color/selected"
+    },
+    "--button-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/radius"
+    },
+    "--button-border-width-split": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/border/width/split"
+    },
+    "--button-content-alignment": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-font-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-font-size-small": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "font/size/small"
+    },
+    "--button-font-weight": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-gap-split": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/gap/split"
+    },
+    "--button-icon-fill": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-icon-stroke": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-min-height": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/min-height"
+    },
+    "--button-min-height-large": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/min-height/large"
+    },
+    "--button-min-height-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/min-height/small"
+    },
+    "--button-opacity-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/opacity/disabled"
+    },
+    "--button-outer-padding-block": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/padding/block"
+    },
+    "--button-outer-padding-block-end": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-outer-padding-block-start": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-outer-padding-inline": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/padding/inline"
+    },
+    "--button-outer-padding-inline-end": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-outer-padding-inline-start": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--button-padding": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/padding/block"
+    },
+    "--button-padding-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/padding/block"
+    },
+    "--button-padding-block-large": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/padding/block"
+    },
+    "--button-padding-block-small": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/padding/block"
+    },
+    "--button-padding-icon": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/padding/icon"
+    },
+    "--button-padding-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/padding/inline"
+    },
+    "--button-padding-inline-large": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/padding/inline"
+    },
+    "--button-padding-inline-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/padding/inline/small"
+    },
+    "--button-size-icon": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/size/icon"
+    },
+    "--button-size-icon-large": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/size/icon/large"
+    },
+    "--button-size-icon-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/size/icon/small"
+    },
+    "--button-split-separator-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/split/separator/background/color"
+    },
+    "--button-text-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color"
+    },
+    "--button-text-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/active"
+    },
+    "--button-text-color-destructive": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/destructive"
+    },
+    "--button-text-color-destructive-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/destructive/active"
+    },
+    "--button-text-color-destructive-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/destructive/disabled"
+    },
+    "--button-text-color-destructive-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/destructive/hover"
+    },
+    "--button-text-color-destructive-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/destructive/selected"
+    },
+    "--button-text-color-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/disabled"
+    },
+    "--button-text-color-ghost": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/ghost"
+    },
+    "--button-text-color-ghost-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/ghost/active"
+    },
+    "--button-text-color-ghost-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/ghost/disabled"
+    },
+    "--button-text-color-ghost-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/ghost/hover"
+    },
+    "--button-text-color-ghost-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/ghost/selected"
+    },
+    "--button-text-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/hover"
+    },
+    "--button-text-color-menu": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/menu"
+    },
+    "--button-text-color-menu-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/menu/active"
+    },
+    "--button-text-color-menu-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/menu/disabled"
+    },
+    "--button-text-color-menu-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/menu/hover"
+    },
+    "--button-text-color-menu-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/menu/selected"
+    },
+    "--button-text-color-muted": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/muted"
+    },
+    "--button-text-color-muted-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/muted/active"
+    },
+    "--button-text-color-muted-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/muted/disabled"
+    },
+    "--button-text-color-muted-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/muted/hover"
+    },
+    "--button-text-color-muted-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/muted/selected"
+    },
+    "--button-text-color-primary": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/primary"
+    },
+    "--button-text-color-primary-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/primary/active"
+    },
+    "--button-text-color-primary-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/primary/disabled"
+    },
+    "--button-text-color-primary-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/primary/hover"
+    },
+    "--button-text-color-primary-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/primary/selected"
+    },
+    "--button-text-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/text/color/selected"
+    },
+    "--button-text-color-toolbar": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/text/color"
+    },
+    "--button-text-color-toolbar-active": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/text/color/active"
+    },
+    "--button-text-color-toolbar-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/text/color/disabled"
+    },
+    "--button-text-color-toolbar-hover": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/text/color/hover"
+    },
+    "--button-text-color-toolbar-selected": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "button/text/color/selected"
+    },
+    "--card-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/background/color"
+    },
+    "--card-border": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "card/border/radius"
+    },
+    "--card-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/border/color"
+    },
+    "--card-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/border/radius"
+    },
+    "--card-border-radius-compact": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "card/border/radius"
+    },
+    "--card-border-width": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/border/width"
+    },
+    "--card-box-shadow": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--card-box-shadow-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--card-cover-image-border-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--card-cover-image-height-default": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--card-cover-image-object-fit-default": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--card-cover-image-object-position-default": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--card-cover-image-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--card-cover-image-padding-compact": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--card-focus-outline": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "focus/outline"
+    },
+    "--card-font-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--card-font-size-compact": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--card-gap": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/gap"
+    },
+    "--card-gap-article": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/gap/article"
+    },
+    "--card-gap-compact": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "card/gap"
+    },
+    "--card-header-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/header/background/color"
+    },
+    "--card-header-background-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/header/background/color/active"
+    },
+    "--card-header-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/header/background/color/hover"
+    },
+    "--card-header-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/header/border/color"
+    },
+    "--card-header-border-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/header/border/color/active"
+    },
+    "--card-header-border-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/header/border/color/hover"
+    },
+    "--card-header-text-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/header/text/color"
+    },
+    "--card-header-text-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/header/text/color/active"
+    },
+    "--card-header-text-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/header/text/color/hover"
+    },
+    "--card-padding": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "card/padding"
+    },
+    "--card-padding-compact": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "card/padding"
+    },
+    "--checkbox-margin-inline": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--checkbox-size": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "checkbox/size"
+    },
+    "--dragover-tab-group-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--findbar-border-top-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--findbar-container-height": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--findbar-height": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--findbar-padding-block": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--icon-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/color"
+    },
+    "--icon-color-accent-primary-desaturated": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/color/accent/primary/desaturated"
+    },
+    "--icon-color-critical": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/color/critical"
+    },
+    "--icon-color-information": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/color/information"
+    },
+    "--icon-color-success": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/color/success"
+    },
+    "--icon-color-warning": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/color/warning"
+    },
+    "--icon-size": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/size"
+    },
+    "--icon-size-large": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/size/large"
+    },
+    "--icon-size-medium": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/size/medium"
+    },
+    "--icon-size-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/size/small"
+    },
+    "--icon-size-xlarge": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/size/xlarge"
+    },
+    "--icon-size-xsmall": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "icon/size/xsmall"
+    },
+    "--icon-size-xxlarge": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "icon/size"
+    },
+    "--info-bar-background-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--info-bar-background-color-configurable": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--info-bar-border-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--info-bar-box-shadow": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--info-bar-margin-block-end": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--info-bar-margin-block-nova-end": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--info-bar-margin-block-start": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "info-bar/margin/block/start"
+    },
+    "--info-bar-margin-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "info-bar/margin/inline"
+    },
+    "--info-bar-text-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-border-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "input-color/border/radius"
+    },
+    "--input-color-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "input-color/background/color"
+    },
+    "--input-color-background-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "input-color/background/color/active"
+    },
+    "--input-color-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "input-color/background/color/hover"
+    },
+    "--input-color-border-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "input-color/border/radius"
+    },
+    "--input-color-border-color-active": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-color-border-color-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-color-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "input-color/border/radius"
+    },
+    "--input-color-gap": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-color-space-padding-block": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-color-space-padding-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "input-color/space/padding/inline"
+    },
+    "--input-color-swatch-border-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-color-swatch-border-radius": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "input-color/border/radius"
+    },
+    "--input-color-swatch-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-color-text-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "text/color"
+    },
+    "--input-color-text-color-active": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-color-text-color-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-folder-gap": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-height": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-search-border-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-text-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "input-color/background/color"
+    },
+    "--input-text-background-color-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "input-color/background/color/disabled"
+    },
+    "--input-text-border": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "input/text/border/radius"
+    },
+    "--input-text-border-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-text-border-color-disabled": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-text-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "input/text/border/radius"
+    },
+    "--input-text-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "text/color"
+    },
+    "--input-text-color-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "text/color/disabled"
+    },
+    "--input-text-icon-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-text-min-height": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "input/text/min/height"
+    },
+    "--input-text-opacity-disabled": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--link-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "link/color"
+    },
+    "--link-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "link/color/active"
+    },
+    "--link-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "link/color/hover"
+    },
+    "--link-color-visited": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "link/color/visited"
+    },
+    "--link-focus-outline-offset": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "link/focus/outline/offset"
+    },
+    "--message-bar-actions-button-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--message-bar-actions-gap": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/actions/gap"
+    },
+    "--message-bar-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/background/color"
+    },
+    "--message-bar-background-color-critical": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/background/color/critical"
+    },
+    "--message-bar-background-color-success": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/background/color/success"
+    },
+    "--message-bar-background-color-warning": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/background/color/warning"
+    },
+    "--message-bar-border-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--message-bar-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/border/radius"
+    },
+    "--message-bar-border-width": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/border/width"
+    },
+    "--message-bar-container-gap": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/container/gap"
+    },
+    "--message-bar-container-min-height": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/container/min-height"
+    },
+    "--message-bar-container-padding-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/container/padding/block"
+    },
+    "--message-bar-container-padding-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/container/padding/inline"
+    },
+    "--message-bar-content-gap": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--message-bar-icon-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/icon/background/color"
+    },
+    "--message-bar-icon-background-color-critical": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/icon/background/color/critical"
+    },
+    "--message-bar-icon-background-color-success": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/icon/background/color/success"
+    },
+    "--message-bar-icon-background-color-warning": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/icon/background/color/warning"
+    },
+    "--message-bar-icon-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/icon/color"
+    },
+    "--message-bar-icon-container-border": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "message-bar/icon/container/border/color"
+    },
+    "--message-bar-icon-container-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/icon/container/border/color"
+    },
+    "--message-bar-icon-container-border-radius": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "message-bar/icon/container/border/radius-end-end"
+    },
+    "--message-bar-icon-container-height": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "message-bar/icon/height"
+    },
+    "--message-bar-icon-container-margin-block-start": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--message-bar-icon-container-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--message-bar-icon-size": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/icon/size"
+    },
+    "--message-bar-message-margin-inline-end": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/message/margin/inline-end"
+    },
+    "--message-bar-text-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/text/color"
+    },
+    "--message-bar-text-container-gap": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "message-bar/container/gap"
+    },
+    "--message-bar-text-container-padding-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/text/container/padding/block"
+    },
+    "--message-bar-text-content-gap": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--opacity-deemphasized": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--opacity-deemphasized-strong": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--page-main-content-width": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page/main/content/width"
+    },
+    "--page-nav-border-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "page-nav/button/border/color"
+    },
+    "--page-nav-button-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "page-nav/button/background/color/active"
+    },
+    "--page-nav-button-background-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/background/color/active"
+    },
+    "--page-nav-button-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/background/color/hover"
+    },
+    "--page-nav-button-background-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/background/color/selected"
+    },
+    "--page-nav-button-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/border/color"
+    },
+    "--page-nav-button-border-color-active": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "page-nav/button/border/color"
+    },
+    "--page-nav-button-border-color-hover": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "page-nav/button/border/color"
+    },
+    "--page-nav-button-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/border/radius"
+    },
+    "--page-nav-button-border-radius-focused": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/border/radius/focused"
+    },
+    "--page-nav-button-gap": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--page-nav-button-indicator-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/indicator/background/color"
+    },
+    "--page-nav-button-indicator-width": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/indicator/width"
+    },
+    "--page-nav-button-padding": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/padding"
+    },
+    "--page-nav-button-padding-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/padding/small"
+    },
+    "--page-nav-button-text-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "page-nav/button/text/color/selected"
+    },
+    "--page-nav-button-text-color-active": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--page-nav-button-text-color-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--page-nav-button-text-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/button/text/color/selected"
+    },
+    "--page-nav-focus-outline-offset": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/focus/outline/offset"
+    },
+    "--page-nav-focus-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--page-nav-gap": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--page-nav-heading-logo-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--page-nav-hr-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "page-nav/hr/background/color"
+    },
+    "--page-nav-margin-block-start": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--page-nav-margin-inline-start": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--page-space-block-start": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel/background/color"
+    },
+    "--panel-background-color-dimmed": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/background/color"
+    },
+    "--panel-background-color-dimmed-further": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel/border/color"
+    },
+    "--panel-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel/border/radius"
+    },
+    "--panel-box-shadow": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-box-shadow-margin": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/shadow/margin"
+    },
+    "--panel-item-badge-background-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-item-badge-inset-block-start": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-item-badge-inset-inline-start": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-item-badge-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-item-button-border-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-item-button-margin": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-item-button-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-item-button-padding-inline-start": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-item-button-padding-inline-start-offset": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-list-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/background/color"
+    },
+    "--panel-list-border-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/border/color"
+    },
+    "--panel-list-border-radius": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/border/radius"
+    },
+    "--panel-list-box-shadow": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-list-text-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/text/color"
+    },
+    "--panel-menuitem-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel-menuitem/border/radius"
+    },
+    "--panel-menuitem-margin": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel-menuitem/margin/block"
+    },
+    "--panel-menuitem-margin-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel-menuitem/margin/block"
+    },
+    "--panel-menuitem-margin-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel-menuitem/margin/inline"
+    },
+    "--panel-menuitem-padding": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel-menuitem/padding/block"
+    },
+    "--panel-menuitem-padding-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel-menuitem/padding/block"
+    },
+    "--panel-menuitem-padding-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel-menuitem/padding/inline"
+    },
+    "--panel-padding": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel/padding"
+    },
+    "--panel-padding-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel/padding/block"
+    },
+    "--panel-separator-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel/separator/color"
+    },
+    "--panel-separator-padding": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/padding"
+    },
+    "--panel-separator-padding-block": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/padding/block"
+    },
+    "--panel-separator-padding-inline": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-text-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "panel/text/color"
+    },
+    "--panel-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--popup-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "popup/background/color"
+    },
+    "--popup-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "popup/border/color"
+    },
+    "--popup-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "popup/border/radius"
+    },
+    "--popup-box-shadow": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--popup-notification-body-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--promo-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "promo/background/color"
+    },
+    "--promo-background-color-vibrant": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "promo/background/color/vibrant"
+    },
+    "--promo-border": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "promo/border/color"
+    },
+    "--promo-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "promo/border/color"
+    },
+    "--promo-border-color-vibrant": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "promo/border/color/vibrant"
+    },
+    "--promo-border-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--promo-border-width": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "border/width"
+    },
+    "--promo-heading-text-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--promo-heading-text-color-vibrant": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--promo-image-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--promo-image-size-large": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--promo-message-text-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--promo-message-text-color-vibrant": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--promo-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--reorderable-list-indicator-background-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--reorderable-list-indicator-margin": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--reorderable-list-indicator-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--segmented-control-border": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "segmented/control/border/color"
+    },
+    "--segmented-control-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "segmented/control/border/color"
+    },
+    "--segmented-control-border-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--segmented-control-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-background-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-background-color-disabled": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-background-color-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-border": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "select/border/color"
+    },
+    "--select-border-color-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "select/border/color/disabled"
+    },
+    "--select-border-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "select/border/color/hover"
+    },
+    "--select-border-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-font-size": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "select/font/size"
+    },
+    "--select-font-size-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "select/font/size/small"
+    },
+    "--select-font-weight": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-icon-fill": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-min-height": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "select/min/height"
+    },
+    "--select-min-height-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "select/min/height/small"
+    },
+    "--select-opacity-disabled": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-option-font-weight": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-option-text-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-padding-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "select/padding/block"
+    },
+    "--select-padding-icon": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--select-space-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "select/space/inline"
+    },
+    "--select-space-inline-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "select/space/inline/small"
+    },
+    "--select-text-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "text/color"
+    },
+    "--select-text-color-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "text/color/disabled"
+    },
+    "--select-text-color-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--sidebar-background-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--sidebar-border-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "border/color"
+    },
+    "--sidebar-text-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "text/color"
+    },
+    "--split-view-padding-block": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--split-view-tab-padding-inline": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-attention-dot-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/attention/dot/color"
+    },
+    "--tab-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/background/color/hover"
+    },
+    "--tab-background-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/background/color/selected"
+    },
+    "--tab-border-color-accent": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/border/color"
+    },
+    "--tab-border-color-selected-leading": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/border/color/selected/leading"
+    },
+    "--tab-border-color-selected-trailing": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/border/color/selected/trailing"
+    },
+    "--tab-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/border/radius"
+    },
+    "--tab-box-shadow-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/box/shadow/selected"
+    },
+    "--tab-close-button-padding": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/close/button/padding"
+    },
+    "--tab-collapsed-background-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-collapsed-split-pill-offset": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-collapsed-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-context-line-block-offset": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-context-line-inline-offset": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-context-line-split-view-block-offset": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-dragover-outline-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-dragover-transition": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-blue": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/blue"
+    },
+    "--tab-group-blue-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/blue/hover"
+    },
+    "--tab-group-blue-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/blue"
+    },
+    "--tab-group-blue-text": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/blue/text"
+    },
+    "--tab-group-blue-text-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/blue/text"
+    },
+    "--tab-group-counter-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-cyan": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/cyan"
+    },
+    "--tab-group-cyan-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/cyan/hover"
+    },
+    "--tab-group-cyan-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/cyan"
+    },
+    "--tab-group-cyan-text": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/cyan/text"
+    },
+    "--tab-group-cyan-text-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/cyan/text"
+    },
+    "--tab-group-gray": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/gray/active"
+    },
+    "--tab-group-gray-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/gray/hover"
+    },
+    "--tab-group-gray-invert": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-gray-text": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/gray/text"
+    },
+    "--tab-group-gray-text-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/gray/text"
+    },
+    "--tab-group-green": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/green"
+    },
+    "--tab-group-green-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/green/hover"
+    },
+    "--tab-group-green-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/green"
+    },
+    "--tab-group-green-text": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/green/text"
+    },
+    "--tab-group-green-text-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/green/text"
+    },
+    "--tab-group-label-animation-duration": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-label-container-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-label-height": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-label-highlight-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-label-highlight-thickness": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-label-hover-inset": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-label-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-label-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-line-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-line-thickness": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-line-toolbar-border-distance": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-orange": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/orange"
+    },
+    "--tab-group-orange-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/orange/hover"
+    },
+    "--tab-group-orange-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/orange"
+    },
+    "--tab-group-orange-text": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/orange/text"
+    },
+    "--tab-group-orange-text-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/orange/text"
+    },
+    "--tab-group-pink": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/pink"
+    },
+    "--tab-group-pink-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/pink/hover"
+    },
+    "--tab-group-pink-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/pink"
+    },
+    "--tab-group-pink-text": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/pink/text"
+    },
+    "--tab-group-pink-text-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/pink/text"
+    },
+    "--tab-group-purple": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/purple"
+    },
+    "--tab-group-purple-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/purple/hover"
+    },
+    "--tab-group-purple-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/purple"
+    },
+    "--tab-group-purple-text": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/purple/text"
+    },
+    "--tab-group-purple-text-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/purple/text"
+    },
+    "--tab-group-red": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/red"
+    },
+    "--tab-group-red-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/red/hover"
+    },
+    "--tab-group-red-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/red"
+    },
+    "--tab-group-red-text": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/red/text"
+    },
+    "--tab-group-red-text-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/red/text"
+    },
+    "--tab-group-yellow": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/yellow"
+    },
+    "--tab-group-yellow-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/yellow/hover"
+    },
+    "--tab-group-yellow-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/yellow"
+    },
+    "--tab-group-yellow-text": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/yellow/text"
+    },
+    "--tab-group-yellow-text-invert": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/yellow/text"
+    },
+    "--tab-group-{color}": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/icon/color"
+    },
+    "--tab-group-{color}-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-{color}-invert": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-{color}-pale": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-group-{color}-text": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/text/color"
+    },
+    "--tab-group-{color}-text-invert": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-height-with-margin-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-hover-outline-color": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "tab/outline/color/hover"
+    },
+    "--tab-icon-end-margin": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "tab/icon/margin-end"
+    },
+    "--tab-inline-padding": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "tab/padding/inline"
+    },
+    "--tab-inner-inline-margin": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "tab/margin/inline/inner"
+    },
+    "--tab-label-line-height": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/label/line-height"
+    },
+    "--tab-label-mask-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-loading-fill": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/loading/fill"
+    },
+    "--tab-margin-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/margin/block"
+    },
+    "--tab-max-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-min-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-min-width-extra-icons": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-min-width-pref": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-min-width-uidensity": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-note-icon-end-margin": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/note/icon/end/margin"
+    },
+    "--tab-outline": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/outline/offset"
+    },
+    "--tab-outline-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/outline/color/hover"
+    },
+    "--tab-outline-offset": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/outline/offset"
+    },
+    "--tab-overflow-clip-margin": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "tab/margin/overflow/clip"
+    },
+    "--tab-padding-block-end": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-padding-block-start": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-pinned-container-margin-inline-expanded": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "tab/margin/inline/pinned/container/expanded"
+    },
+    "--tab-pinned-expanded-background-width": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/width/pinned/expanded"
+    },
+    "--tab-pinned-margin-inline-expanded": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "tab/margin/inline/pinned/expanded"
+    },
+    "--tab-pinned-min-width-expanded": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/width/pinned/expanded"
+    },
+    "--tab-selected-color-scheme": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-selected-outline-color": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "tab/outline/color/selected"
+    },
+    "--tab-selected-textcolor": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-sharing-icon-animation": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-vertical-block-margin": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "tab/margin/block/vertical"
+    },
+    "--tab-vertical-inline-padding": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/padding/inline"
+    },
+    "--tab-vertical-scrollbar-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-width-transition": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--table-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "table/row/background/color"
+    },
+    "--table-border-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "border/color"
+    },
+    "--table-header-background-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--table-header-text-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--table-row-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "table/row/background/color"
+    },
+    "--table-row-background-color-alternate": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "table/row/background/color/alternate"
+    },
+    "--tabs-navbar-separator-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tabs-navbar-separator-style": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tabstrip-inner-border": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tabstrip-min-height": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toggle-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/background/color"
+    },
+    "--toggle-background-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/background/color/active"
+    },
+    "--toggle-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/background/color/hover"
+    },
+    "--toggle-background-color-pressed": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/background/color/pressed"
+    },
+    "--toggle-background-color-pressed-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/background/color/pressed/active"
+    },
+    "--toggle-background-color-pressed-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/background/color/pressed/hover"
+    },
+    "--toggle-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/border/color"
+    },
+    "--toggle-border-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/border/color/active"
+    },
+    "--toggle-border-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/border/color/hover"
+    },
+    "--toggle-border-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toggle-border-width": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "border/width"
+    },
+    "--toggle-dot-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/dot/background/color"
+    },
+    "--toggle-dot-background-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/dot/background/color/active"
+    },
+    "--toggle-dot-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/dot/background/color/hover"
+    },
+    "--toggle-dot-background-color-on-pressed": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/dot/background/color/on-pressed"
+    },
+    "--toggle-dot-height": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toggle-dot-margin": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toggle-dot-transform-x": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toggle-dot-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toggle-height": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toggle-inset": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toggle-opacity-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toggle/opacity/disabled"
+    },
+    "--toggle-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toolbar-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbar/background/color"
+    },
+    "--toolbar-field-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbar/field/background/color"
+    },
+    "--toolbar-field-background-color-focus": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbar/field/background/color/focus"
+    },
+    "--toolbar-field-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbar/field/border/color"
+    },
+    "--toolbar-field-border-color-focus": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbar/field/border/color/focus"
+    },
+    "--toolbar-field-text-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbar/field/text/color"
+    },
+    "--toolbar-field-text-color-focus": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbar/field/text/color/focus"
+    },
+    "--toolbar-padding-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbar/padding/inline"
+    },
+    "--toolbar-text-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "text/color"
+    },
+    "--toolbarbutton-background-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/background/color/active"
+    },
+    "--toolbarbutton-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/background/color/hover"
+    },
+    "--toolbarbutton-badge-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "badge/background/color"
+    },
+    "--toolbarbutton-badge-font-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toolbarbutton-badge-max-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toolbarbutton-badge-min-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toolbarbutton-badge-padding-block-end": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toolbarbutton-badge-padding-inline": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "badge/padding/inline"
+    },
+    "--toolbarbutton-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/border/radius"
+    },
+    "--toolbarbutton-icon-fill": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/icon/fill"
+    },
+    "--toolbarbutton-icon-fill-attention": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/icon/fill/attention"
+    },
+    "--toolbarbutton-icon-fill-attention-text": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toolbarbutton/icon/fill/attention"
+    },
+    "--toolbarbutton-opacity-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/opacity/disabled"
+    },
+    "--toolbarbutton-outline": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toolbarbutton/outline/offset"
+    },
+    "--toolbarbutton-outline-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/outline/color"
+    },
+    "--toolbarbutton-outline-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/outline/color/active"
+    },
+    "--toolbarbutton-outline-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/outline/color/hover"
+    },
+    "--toolbarbutton-outline-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/outline/color/selected"
+    },
+    "--toolbarbutton-outline-offset": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/outline/offset"
+    },
+    "--toolbarbutton-padding-inner": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/padding/inner"
+    },
+    "--toolbarbutton-padding-inner-compact": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "toolbarbutton/padding/compact/inner"
+    },
+    "--toolbarbutton-padding-inner-narrow": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toolbarbutton/padding/inner"
+    },
+    "--toolbarbutton-padding-inner-touch": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "toolbarbutton/padding/touch/inner"
+    },
+    "--toolbarbutton-padding-inner-touch-narrow": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/padding/inner/touch/narrow"
+    },
+    "--toolbarbutton-padding-outer": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/padding/outer"
+    },
+    "--toolbarbutton-padding-outer-narrow": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toolbarbutton/padding/outer"
+    },
+    "--toolbarseparator-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarseparator/color"
+    },
+    "--toolbox-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toolbox/background/color/inactive"
+    },
+    "--toolbox-background-color-gradient-leading": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbox/background/color/gradient-leading"
+    },
+    "--toolbox-background-color-gradient-trailing": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbox/background/color/gradient-trailing"
+    },
+    "--toolbox-background-color-inactive": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbox/background/color/inactive"
+    },
+    "--toolbox-background-nova-gradient": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--toolbox-text-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbox/text/color"
+    },
+    "--toolbox-text-color-inactive": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbox/text/color/inactive"
+    },
+    "--urlbar-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/background/color"
+    },
+    "--urlbar-background-color-focus": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/background/color/focus"
+    },
+    "--urlbar-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/border/radius"
+    },
+    "--urlbar-box-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/box/background/color"
+    },
+    "--urlbar-box-background-color-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/box/background/color/active"
+    },
+    "--urlbar-box-background-color-focus": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/box/background/color/focus"
+    },
+    "--urlbar-box-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/box/background/color/hover"
+    },
+    "--urlbar-box-text-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/box/text/color"
+    },
+    "--urlbar-box-text-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/box/text/color/hover"
+    },
+    "--urlbar-icon-fill-opacity": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/icon/fill/opacity"
+    },
+    "--urlbar-margin-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/margin/inline"
+    },
+    "--urlbar-padding-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbar/padding/block"
+    },
+    "--urlbarview-action-button-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/action/button/background/color"
+    },
+    "--urlbarview-action-button-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/action/button/background/color/hover"
+    },
+    "--urlbarview-background-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/background/color/hover"
+    },
+    "--urlbarview-background-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/background/color/selected"
+    },
+    "--urlbarview-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/border/radius"
+    },
+    "--urlbarview-favicon-size": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/favicon/size"
+    },
+    "--urlbarview-row-min-height": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/row/min/height"
+    },
+    "--urlbarview-row-padding-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/row/padding/block"
+    },
+    "--urlbarview-separator-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/separator/color"
+    },
+    "--urlbarview-text-color-action": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/text/color/action"
+    },
+    "--urlbarview-text-color-secondary": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/text/color/secondary"
+    },
+    "--urlbarview-text-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "urlbarview/text/color/selected"
+    },
+    "--visual-picker-item-border-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--visual-picker-item-border-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--visual-picker-item-border-width": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--visual-picker-item-border-width-checked": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    }
+  }
+}

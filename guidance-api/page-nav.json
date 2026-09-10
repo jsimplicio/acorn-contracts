@@ -1,0 +1,12 @@
+{
+  "id": "page-nav",
+  "dos": [
+    { "text": "Hide a moz-page-nav-button with CSS (opacity: 0, visibility: hidden, display: none) or the hidden property, checkElementVisibility() checks all of these before treating a button as selectable." },
+    { "text": "Rely on updateNavButtonsState() running in updated() to auto-select the first visible button when currentView matches nothing, you don't need a fallback-selection effect of your own." }
+  ],
+  "donts": [
+    { "text": "Don't assume allowNoSelection=true alone prevents auto-selection, updateNavButtonsState() only skips forcing a selection when currentView already holds a non-matching value; leaving currentView empty still auto-selects the first visible button." },
+    { "text": "Don't set both href and support-page on a moz-page-nav-button expecting href to still work, linkTemplate() checks supportPage first, so support-page silently wins and href is ignored." },
+    { "text": "Don't mix moz-page-nav-buttons with iconSrc and without it in the same nav, the component's own docs note this isn't supported and will look inconsistent." }
+  ]
+}

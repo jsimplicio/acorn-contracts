@@ -1,0 +1,11 @@
+{
+  "id": "panel",
+  "dos": [
+    { "text": "Rely on the automatic focus-restore behavior instead of tracking focus yourself, it already walks back through shadow roots to find and restore whatever had focus before the panel opened." },
+    { "text": "Set neverhidden if content inside genuinely needs to stay laid out and measurable while the panel is closed." }
+  ],
+  "donts": [
+    { "text": "Don't treat hidden as a plain style toggle, its own setter lazily initializes the shadow DOM content the first time the panel is shown, so toggling it does real setup work." },
+    { "text": "Don't hand-roll side or position math for an arrow panel, connectedCallback already defaults it for you unless you explicitly set your own values first." }
+  ]
+}

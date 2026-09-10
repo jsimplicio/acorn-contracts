@@ -1,0 +1,121 @@
+{
+  "id": "stepper",
+  "summary": "One screen in a multi-step onboarding flow, like a welcome tour with next/back navigation.",
+  "tagName": null,
+  "description": "MultiStageProtonScreen (function component) and ProtonScreen (React.PureComponent it renders) implement one step of the multi-screen stepper-style onboarding flow used by about:welcome, Spotlight, and FeatureCallout tours — rendering the step-progress indicator (StepsIndicator or ProgressBar), title/subtitle, hero image/tiles, and action buttons for the current screen's content config. A real React implementation, not a custom element.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/asrouter/content-src/components/MultiStageProtonScreen.jsx"
+  },
+  "attributes": [
+    {
+      "name": "content",
+      "type": "object",
+      "description": "Required per-screen config, read directly in ProtonScreen.render(): title, subtitle, position (\"center\"|\"split\"|\"callout\"|...), background/background_static, hero_image, tiles, primary_button/secondary_button/additional_button, dismiss_button, checkbox, progress_bar, steps_indicator, logo, narrow, fullscreen, zap_border, zap_shadow, video_container, cta_paragraph, info_text, languageSwitcher, and more."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Screen id, used as a CSS class on the rendered <main>."
+    },
+    {
+      "name": "order",
+      "type": "number",
+      "description": "Zero-based index of this screen; used for the steps indicator's current-step count and to alternate the screen-1/screen-2 background class."
+    },
+    {
+      "name": "totalNumberOfScreens",
+      "type": "number",
+      "description": "Total screen count, used by the steps indicator."
+    },
+    {
+      "name": "previousOrder",
+      "type": "number",
+      "description": "Order of the previously shown screen; used for step-transition numbering and to detect the very first screen shown."
+    },
+    {
+      "name": "handleAction",
+      "type": "function",
+      "description": "Callback invoked by buttons/checkbox/tiles with a synthetic event-like object carrying a `value` naming which content-tree action to take."
+    },
+    {
+      "name": "navigate",
+      "type": "function",
+      "description": "Advances or dismisses the tour; called directly by MultiStageProtonScreen's own auto-advance effect."
+    },
+    {
+      "name": "autoAdvance",
+      "type": "object|string",
+      "description": "Optional; when set, MultiStageProtonScreen calls handleAction automatically after a timeout (autoAdvance.actionTimeMS, default 20000ms)."
+    },
+    {
+      "name": "advanceOnExperimentLoad",
+      "type": "object",
+      "description": "Optional; alternative to autoAdvance — waits for window.AWWaitForNimbus() (bounded by minDisplayMs/maxDisplayMs) then calls navigate(false)."
+    },
+    {
+      "name": "isFirstScreen",
+      "type": "boolean",
+      "description": "Affects the dialog-initial CSS class."
+    },
+    {
+      "name": "isLastScreen",
+      "type": "boolean",
+      "description": "Affects the dialog-last CSS class."
+    },
+    {
+      "name": "isSingleScreen",
+      "type": "boolean",
+      "description": "When true, hides the steps indicator."
+    },
+    {
+      "name": "requireAction",
+      "type": "boolean",
+      "description": "When true, focuses the title heading on mount instead of the main content container, and makes the title focusable."
+    },
+    {
+      "name": "ariaRole",
+      "type": "string",
+      "description": "Role for the rendered <main>; defaults to \"alertdialog\".",
+      "default": "alertdialog"
+    },
+    {
+      "name": "forceHideStepsIndicator",
+      "type": "boolean",
+      "description": "Forces the steps indicator to be hidden regardless of other conditions."
+    },
+    {
+      "name": "aboveButtonStepsIndicator",
+      "type": "boolean",
+      "description": "Renders the steps indicator above the action buttons instead of at the end of main content."
+    },
+    {
+      "name": "animationsPaused",
+      "type": "boolean",
+      "description": "Swaps animated background/hero-image assets for their _static counterparts, and reflects a pressed play/pause toggle."
+    },
+    {
+      "name": "toggleAnimationsPaused",
+      "type": "function",
+      "description": "Callback for the animation play/pause button."
+    },
+    {
+      "name": "isRtamo, addonId, addonType, addonName, addonURL, addonIconURL, themeScreenshots, installedAddons",
+      "type": "various",
+      "description": "Props for the 'return to AMO' addon-install flow, used to render an install button/icon in place of the normal primary action."
+    },
+    {
+      "name": "messageId",
+      "type": "string",
+      "description": "Destructured directly in the MultiStageProtonScreen function component's own top-level props (separately from the content-config props it forwards to ProtonScreen).",
+      "figmaConfig": false
+    },
+    {
+      "name": "isWideScreen",
+      "type": "boolean",
+      "description": "Read in ProtonScreen.render(); affects layout for wide-viewport presentations.",
+      "figmaConfig": false
+    }
+  ],
+  "usage": "<MultiStageProtonScreen\n  content={screenContent}\n  id={screenContent.id}\n  order={order}\n  totalNumberOfScreens={screens.length}\n  handleAction={handleAction}\n  navigate={navigate}\n/>"
+}

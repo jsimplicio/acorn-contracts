@@ -1,0 +1,323 @@
+{
+  "id": "tab-group",
+  "basenames": [
+    "tab"
+  ],
+  "tokens": {
+    "tab.group.blue.@base": {
+      "value": "#455fe7",
+      "type": "color",
+      "chain": [
+        "color.blue.50"
+      ]
+    },
+    "tab.group.blue.hover": {
+      "value": "#3246b0",
+      "type": "color",
+      "chain": [
+        "color.blue.60"
+      ]
+    },
+    "tab.group.blue.invert": {
+      "value": "#c5eafe",
+      "type": "color",
+      "chain": [
+        "color.blue.10"
+      ]
+    },
+    "tab.group.blue.text.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "color.white.@base"
+      ]
+    },
+    "tab.group.blue.text.invert": {
+      "value": "#3246b0",
+      "type": "color",
+      "chain": [
+        "color.blue.60"
+      ]
+    },
+    "tab.group.cyan.@base": {
+      "value": "#0a809f",
+      "type": "color",
+      "chain": [
+        "color.cyan.50"
+      ]
+    },
+    "tab.group.cyan.hover": {
+      "value": "#066077",
+      "type": "color",
+      "chain": [
+        "color.cyan.60"
+      ]
+    },
+    "tab.group.cyan.invert": {
+      "value": "#c3eef8",
+      "type": "color",
+      "chain": [
+        "color.cyan.10"
+      ]
+    },
+    "tab.group.cyan.text.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "color.white.@base"
+      ]
+    },
+    "tab.group.cyan.text.invert": {
+      "value": "#066077",
+      "type": "color",
+      "chain": [
+        "color.cyan.60"
+      ]
+    },
+    "tab.group.gray.@base": {
+      "value": "#515054",
+      "type": "color",
+      "chain": [
+        "color.gray.55"
+      ]
+    },
+    "tab.group.gray.hover": {
+      "value": "#312f33",
+      "type": "color",
+      "chain": [
+        "color.gray.65"
+      ]
+    },
+    "tab.group.gray.invert": {
+      "value": "#949297",
+      "type": "color",
+      "chain": [
+        "color.gray.40"
+      ]
+    },
+    "tab.group.gray.text.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "color.white.@base"
+      ]
+    },
+    "tab.group.gray.text.invert": {
+      "value": "#121114",
+      "type": "color",
+      "chain": [
+        "color.gray.90"
+      ]
+    },
+    "tab.group.green.@base": {
+      "value": "#008865",
+      "type": "color",
+      "chain": [
+        "color.green.50"
+      ]
+    },
+    "tab.group.green.hover": {
+      "value": "#06674b",
+      "type": "color",
+      "chain": [
+        "color.green.60"
+      ]
+    },
+    "tab.group.green.invert": {
+      "value": "#c4f1e0",
+      "type": "color",
+      "chain": [
+        "color.green.10"
+      ]
+    },
+    "tab.group.green.text.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "color.white.@base"
+      ]
+    },
+    "tab.group.green.text.invert": {
+      "value": "#06674b",
+      "type": "color",
+      "chain": [
+        "color.green.60"
+      ]
+    },
+    "tab.group.orange.@base": {
+      "value": "#cd4208",
+      "type": "color",
+      "chain": [
+        "color.orange.50"
+      ]
+    },
+    "tab.group.orange.hover": {
+      "value": "#9c2c05",
+      "type": "color",
+      "chain": [
+        "color.orange.60"
+      ]
+    },
+    "tab.group.orange.invert": {
+      "value": "#ffdbc5",
+      "type": "color",
+      "chain": [
+        "color.orange.10"
+      ]
+    },
+    "tab.group.orange.text.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "color.white.@base"
+      ]
+    },
+    "tab.group.orange.text.invert": {
+      "value": "#9c2c05",
+      "type": "color",
+      "chain": [
+        "color.orange.60"
+      ]
+    },
+    "tab.group.pink.@base": {
+      "value": "#b32e9f",
+      "type": "color",
+      "chain": [
+        "color.pink.50"
+      ]
+    },
+    "tab.group.pink.hover": {
+      "value": "#882078",
+      "type": "color",
+      "chain": [
+        "color.pink.60"
+      ]
+    },
+    "tab.group.pink.invert": {
+      "value": "#ffd5ee",
+      "type": "color",
+      "chain": [
+        "color.pink.10"
+      ]
+    },
+    "tab.group.pink.text.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "color.white.@base"
+      ]
+    },
+    "tab.group.pink.text.invert": {
+      "value": "#882078",
+      "type": "color",
+      "chain": [
+        "color.pink.60"
+      ]
+    },
+    "tab.group.purple.@base": {
+      "value": "#9540c8",
+      "type": "color",
+      "chain": [
+        "color.purple.50"
+      ]
+    },
+    "tab.group.purple.hover": {
+      "value": "#702e98",
+      "type": "color",
+      "chain": [
+        "color.purple.60"
+      ]
+    },
+    "tab.group.purple.invert": {
+      "value": "#f6d7ff",
+      "type": "color",
+      "chain": [
+        "color.purple.10"
+      ]
+    },
+    "tab.group.purple.text.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "color.white.@base"
+      ]
+    },
+    "tab.group.purple.text.invert": {
+      "value": "#702e98",
+      "type": "color",
+      "chain": [
+        "color.purple.60"
+      ]
+    },
+    "tab.group.red.@base": {
+      "value": "#c52d4f",
+      "type": "color",
+      "chain": [
+        "color.red.50"
+      ]
+    },
+    "tab.group.red.hover": {
+      "value": "#961e3d",
+      "type": "color",
+      "chain": [
+        "color.red.60"
+      ]
+    },
+    "tab.group.red.invert": {
+      "value": "#ffd9df",
+      "type": "color",
+      "chain": [
+        "color.red.10"
+      ]
+    },
+    "tab.group.red.text.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "color.white.@base"
+      ]
+    },
+    "tab.group.red.text.invert": {
+      "value": "#961e3d",
+      "type": "color",
+      "chain": [
+        "color.red.60"
+      ]
+    },
+    "tab.group.yellow.@base": {
+      "value": "#b26100",
+      "type": "color",
+      "chain": [
+        "color.yellow.50"
+      ]
+    },
+    "tab.group.yellow.hover": {
+      "value": "#854800",
+      "type": "color",
+      "chain": [
+        "color.yellow.60"
+      ]
+    },
+    "tab.group.yellow.invert": {
+      "value": "#fde8b5",
+      "type": "color",
+      "chain": [
+        "color.yellow.10"
+      ]
+    },
+    "tab.group.yellow.text.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "color.white.@base"
+      ]
+    },
+    "tab.group.yellow.text.invert": {
+      "value": "#854800",
+      "type": "color",
+      "chain": [
+        "color.yellow.60"
+      ]
+    }
+  }
+}

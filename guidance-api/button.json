@@ -1,0 +1,11 @@
+{
+  "id": "button",
+  "dos": [
+    { "text": "Use menuId pointing at a <panel-list> instead of writing custom open and close logic, the internal controller handles ARIA and open state for you." },
+    { "text": "Use real slotted content instead of label when you need more than plain text." }
+  ],
+  "donts": [
+    { "text": "Don't set type=\"split\" without also setting menuId, the chevron renders but has nothing to open." },
+    { "text": "Don't expect a plain title HTML attribute to behave like a normal tooltip from outside, the component's own JSDoc notes it is used inside shadow DOM and mapped internally, not a typical reflected attribute." }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "details",
+  "summary": "A native, built-in collapsible section you click to expand and see more content.",
+  "tagName": null,
+  "description": "No dedicated Firefox component exists for a disclosure widget. Chrome UI that needs this behavior uses the native HTML <details>/<summary> elements directly rather than a wrapped Acorn component.",
+  "implementation": {
+    "kind": "missing",
+    "file": "chrome uses the native <details>/<summary> elements directly, no dedicated Firefox component"
+  }
+}

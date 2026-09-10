@@ -1,0 +1,102 @@
+{
+  "color": {
+    "@base": {
+      "$value": "{color.gray.70}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "{color.gray.70}",
+          "dark": "{color.gray.0}",
+          "prefersContrast": "{text.color.@base}"
+        }
+      },
+      "$type": "color"
+    },
+    "accent": {
+      "primary": {
+        "desaturated": {
+          "$value": "unset",
+          "$type": "color",
+          "$extensions": {
+            "org.mozilla.meta": {
+              "override": true
+            }
+          }
+        }
+      }
+    },
+    "information": {
+      "$value": "{color.blue.60}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "{color.blue.60}",
+          "dark": "{color.blue.20}",
+          "prefersContrast": "{icon.color.@base}"
+        }
+      },
+      "$type": "color"
+    },
+    "success": {
+      "$value": "{color.green.60}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "{color.green.60}",
+          "dark": "{color.green.20}",
+          "prefersContrast": "{icon.color.@base}"
+        }
+      },
+      "$type": "color"
+    },
+    "warning": {
+      "$value": "{color.yellow.60}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "{color.yellow.60}",
+          "dark": "{color.yellow.20}",
+          "prefersContrast": "{icon.color.@base}"
+        }
+      },
+      "$type": "color"
+    },
+    "critical": {
+      "$value": "{color.red.60}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "{color.red.60}",
+          "dark": "{color.red.20}",
+          "prefersContrast": "{icon.color.@base}"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "size": {
+    "@base": {
+      "$value": "{icon.size.small}",
+      "$type": "dimension"
+    },
+    "xsmall": {
+      "$value": "12px",
+      "$type": "dimension"
+    },
+    "small": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "medium": {
+      "$value": "20px",
+      "$type": "dimension"
+    },
+    "large": {
+      "$value": "24px",
+      "$type": "dimension"
+    },
+    "xlarge": {
+      "$value": "32px",
+      "$type": "dimension"
+    },
+    "xxlarge": {
+      "$value": "{size.item.xlarge}",
+      "$type": "dimension"
+    }
+  }
+}

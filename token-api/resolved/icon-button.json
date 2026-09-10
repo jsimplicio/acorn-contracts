@@ -1,0 +1,48 @@
+{
+  "id": "icon-button",
+  "basenames": [
+    "button"
+  ],
+  "tokens": {
+    "button.icon.fill": {
+      "value": "currentColor",
+      "type": "color",
+      "chain": []
+    },
+    "button.icon.stroke": {
+      "value": "currentColor",
+      "type": "color",
+      "chain": [
+        "button.icon.fill"
+      ]
+    },
+    "button.padding.icon": {
+      "value": 0,
+      "type": "dimension",
+      "chain": []
+    },
+    "button.size.icon.@base": {
+      "value": "32px",
+      "type": "dimension",
+      "chain": [
+        "button.min-height.@base",
+        "size.item.large"
+      ]
+    },
+    "button.size.icon.large": {
+      "value": "40px",
+      "type": "dimension",
+      "chain": [
+        "button.min-height.large"
+      ]
+    },
+    "button.size.icon.small": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "button.min-height.small",
+        "size.item.medium"
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "panel-manager",
+  "dos": [
+    { "text": "Set disablekeynav deliberately and only when you intend to lose all built-in keyboard navigation, it's checked once in the popupshowing handler, and when set, the keydown/mousemove listeners that drive arrow-key/Tab/Home/End navigation are never attached for that panel's entire lifetime, with no fallback." }
+  ],
+  "donts": [
+    { "text": "Don't call showSubView or goBack before the panel has ever been opened, openViews is only initialized inside connect(), so calling either beforehand throws a raw TypeError instead of the intended \"Cannot show a subview in a closed panel\" console error." },
+    { "text": "Don't assume a second showSubView/goBack call fired mid-transition queues up, both check \"if (!prevPanelView.active) return\" with no error or logging, so a call arriving while a transition is already in flight is just silently dropped." }
+  ]
+}

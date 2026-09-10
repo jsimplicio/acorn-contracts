@@ -1,0 +1,155 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "{button.background.color.@base}",
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "{button.background.color.hover}",
+        "$type": "color"
+      },
+      "active": {
+        "$value": "{button.background.color.active}",
+        "$type": "color"
+      },
+      "pressed": {
+        "@base": {
+          "$value": "{color.accent.primary.@base}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{color.accent.primary.hover}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{color.accent.primary.active}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "@base": {
+        "$value": "{color.gray.70}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.70}",
+            "dark": "{border.color.interactive.@base}",
+            "prefersContrast": "{border.color.interactive.@base}",
+            "forcedColors": "{border.color.interactive.@base}"
+          }
+        },
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "{toggle.border.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{toggle.border.color.@base}",
+            "forcedColors": "{border.color.interactive.hover}"
+          }
+        },
+        "$type": "color"
+      },
+      "active": {
+        "$value": "{toggle.border.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{toggle.border.color.@base}",
+            "forcedColors": "{border.color.interactive.active}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "radius": {
+      "$value": "{border.radius.circle}",
+      "$type": "dimension"
+    },
+    "width": {
+      "$value": "{border.width}",
+      "$type": "dimension"
+    }
+  },
+  "height": {
+    "$value": "{size.item.small}",
+    "$type": "dimension"
+  },
+  "width": {
+    "$value": "{size.item.large}",
+    "$type": "dimension"
+  },
+  "dot": {
+    "background": {
+      "color": {
+        "@base": {
+          "$value": "{toggle.border.color.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{toggle.border.color.@base}",
+              "forcedColors": "{color.accent.primary.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{toggle.dot.background.color.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{toggle.dot.background.color.@base}",
+              "forcedColors": "{color.accent.primary.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{toggle.dot.background.color.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{toggle.dot.background.color.@base}",
+              "forcedColors": "{color.accent.primary.active}"
+            }
+          },
+          "$type": "color"
+        },
+        "on-pressed": {
+          "$value": "{background.color.canvas}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{background.color.canvas}",
+              "forcedColors": "{button.background.color.@base}"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    },
+    "margin": {
+      "$value": "1px",
+      "$type": "dimension"
+    },
+    "height": {
+      "$value": "calc({toggle.height} - 2 * {toggle.dot.margin} - 2 * {toggle.border.width})",
+      "$type": "dimension"
+    },
+    "width": {
+      "$value": "{toggle.dot.height}",
+      "$type": "dimension"
+    },
+    "transform-x": {
+      "$value": "calc({toggle.width} - 2 * {toggle.dot.margin} - 2px - {toggle.dot.width})"
+    }
+  },
+  "inset": {
+    "$value": "-2px",
+    "$type": "dimension"
+  },
+  "opacity": {
+    "disabled": {
+      "$value": "{button.opacity.disabled}",
+      "$type": "number"
+    }
+  }
+}

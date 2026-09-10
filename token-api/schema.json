@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/FirefoxUX/acorn-contracts/token-api/schema.json",
+  "title": "Token API file",
+  "description": "Schema for one base/<name>.tokens.json or components/<name>.tokens.json file: a W3C DTCG-shaped tree (https://tr.designtokens.org/format/). See token-api/README.md for the full conversion-rule rationale and the resolution algorithm; this file is the machine-checkable version of the output shape only, it does not (and can't) encode the resolution algorithm itself.",
+  "$ref": "#/$defs/group",
+  "$defs": {
+    "group": {
+      "description": "A plain nesting group: any object that is not itself a leaf (see \"leaf\"). Recurses arbitrarily deep; a real path segment can also be the literal string \"@base\" (see README's @base note).",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/nodeOrLeaf"
+      }
+    },
+    "nodeOrLeaf": {
+      "oneOf": [
+        { "$ref": "#/$defs/leaf" },
+        { "$ref": "#/$defs/group" }
+      ]
+    },
+    "leaf": {
+      "description": "A single token. Distinguished from a group by having a $value key, DTCG's own convention (mirrors Firefox's native \"any object with a value key is a leaf\" rule that sync.py converts from).",
+      "type": "object",
+      "required": ["$value"],
+      "additionalProperties": false,
+      "properties": {
+        "$value": {
+          "description": "A literal (string/number/boolean), a single {group.path} alias reference string (see README's resolution algorithm), or, for a theme-dimension-keyed token, the single most-typical branch already picked out of $extensions[\"org.mozilla.themes\"] by sync.py.",
+          "type": ["string", "number", "boolean"]
+        },
+        "$type": {
+          "type": "string",
+          "description": "Present when sync.py's infer_type() could determine one (see README \"Conversion rules applied\"). Absent, not guessed, when genuinely ambiguous or when decomposing a composite (border/shadow) would require restructuring $value itself."
+        },
+        "$description": {
+          "type": "string",
+          "description": "From the source token's own \"comment\" field, only when present at the leaf's own top level."
+        },
+        "$extensions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "org.mozilla.themes": {
+              "type": "object",
+              "description": "Present only for a theme-dimension-keyed token: the complete original value object (forcedColors/brand/nativeTheme/platform/light/dark/prefersContrast/default branches), preserved losslessly even though $value above only surfaces the single most-typical one."
+            },
+            "org.mozilla.meta": {
+              "type": "object",
+              "description": "Any non-value/comment sibling key found on the real source leaf (e.g. \"override\": true), preserved verbatim since DTCG has no first-class slot for it."
+            }
+          }
+        }
+      }
+    }
+  }
+}

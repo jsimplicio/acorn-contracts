@@ -1,0 +1,32 @@
+{
+  "gap": {
+    "$value": "{space.small}",
+    "$type": "dimension"
+  },
+  "icon": {
+    "size": {
+      "$value": "{icon.size.xsmall}",
+      "$type": "dimension"
+    }
+  },
+  "link": {
+    "color": {
+      "@base": {
+        "$value": "{link.color.@base}",
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "{link.color.hover}",
+        "$type": "color"
+      },
+      "active": {
+        "$value": "{link.color.active}",
+        "$type": "color"
+      },
+      "visited": {
+        "$value": "{link.color.visited}",
+        "$type": "color"
+      }
+    }
+  }
+}

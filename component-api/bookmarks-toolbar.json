@@ -1,0 +1,10 @@
+{
+  "id": "bookmarks-toolbar",
+  "summary": "The bar just under the address bar where you can pin bookmarks for quick access.",
+  "tagName": null,
+  "description": "PlacesToolbar (extends PlacesViewBase) is a plain JS view class, not a custom element; it is manually instantiated by browser-places.js as `new PlacesToolbar(...)` against the existing #PlacesToolbarItems/#PersonalToolbar markup and attached as `_placesView`, handling rendering, drag-and-drop, overflow chevron, and resize behavior for the bookmarks toolbar.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/places/content/browserPlacesViews.js"
+  }
+}

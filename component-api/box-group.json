@@ -1,0 +1,86 @@
+{
+  "id": "box-group",
+  "summary": "A container that groups related settings rows together with consistent spacing and borders.",
+  "tagName": "moz-box-group",
+  "description": "An element used to group combinations of moz-box-item, moz-box-link, and moz-box-button elements and provide the expected styles, including optional list/reorderable-list layout.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-box-group/moz-box-group.mjs"
+  },
+  "attributes": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "The type of the group, either \"list\", \"reorderable-list\", or undefined. Note that \"reorderable-list\" only works with moz-box-item elements for now.",
+      "figmaConfig": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Slot for rendering various moz-box-* elements."
+    },
+    {
+      "name": "static",
+      "description": "Slot for rendering non-reorderable moz-box-item elements."
+    },
+    {
+      "name": "header",
+      "description": "Slot for header content, rendered above the list."
+    },
+    {
+      "name": "footer",
+      "description": "Slot for footer content, rendered below the list."
+    },
+    {
+      "name": "<index>",
+      "description": "Slots used to assign moz-box-* elements to <li> elements when the group is type=\"list\"."
+    },
+    {
+      "name": "static-<index>",
+      "description": "Slots used to render moz-box-item elements that are not intended to be reorderable when the group is type=\"reorderable-list\"."
+    }
+  ],
+  "events": [
+    {
+      "name": "reorder",
+      "description": "Fired when items are reordered via drag-and-drop or keyboard shortcuts. Detail contains draggedElement, targetElement, position, draggedIndex, targetIndex, and insertAt."
+    },
+    {
+      "name": "scroll",
+      "description": "Re-dispatched on the host when a scroll container in the shadow tree scrolls, so light DOM listeners can observe scrolls that wouldn't otherwise cross the shadow boundary."
+    }
+  ],
+  "methods": [
+    {
+      "name": "getMozBoxElement",
+      "description": "Returns the moz-box element for a list item: either the item itself if it matches, or the first moz-box descendant (e.g. when the item is a setting-control wrapper)."
+    },
+    {
+      "name": "restoreTabindex",
+      "description": "Resets the tabindex on an item so it participates in focus traversal again."
+    },
+    {
+      "name": "updateOptionRole",
+      "description": "Sets role=\"option\" on the item's underlying moz-box element when the group renders as a reorderable list, and removes it otherwise."
+    },
+    {
+      "name": "reorderArrayFromEvent",
+      "description": "Reorders an array based on the reorder event, for consumers that store items in an array."
+    },
+    {
+      "name": "handleReorder",
+      "description": "Handles reordering of items in the list from a moz-reorderable-list event."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "list",
+        "reorderable-list"
+      ]
+    }
+  ],
+  "usage": "<moz-box-group type=\"list\">\n  <moz-box-item label=\"First\"></moz-box-item>\n  <moz-box-item label=\"Second\"></moz-box-item>\n</moz-box-group>"
+}

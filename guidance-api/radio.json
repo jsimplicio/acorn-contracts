@@ -1,0 +1,11 @@
+{
+  "id": "radio",
+  "dos": [
+    { "text": "Set value on moz-radio-group rather than checked on individual moz-radio children, value is the single source of truth and its setter syncs every child's checked state and the form value for you." },
+    { "text": "Remember moz-radio-group's constructor overrides orientation to \"vertical\", unlike sibling SelectControlBaseElement components (moz-segmented-control, moz-visual-picker) which keep the base \"horizontal\" default, so arrow-key navigation direction differs unless overridden." }
+  ],
+  "donts": [
+    { "text": "Don't nest moz-radio anywhere but as a direct child of moz-radio-group, the mixin's connectedCallback checks parentElement and logs \"moz-radio can only be used in moz-radio-group element\" if it isn't, so wrapping it breaks the association." },
+    { "text": "Don't try to re-enable a single moz-radio by clearing its own disabled while the group stays disabled, isDisabled ORs in both parentDisabled and controller.parentDisabled, so the group's disabled state always wins (called out in the component's own docs)." }
+  ]
+}

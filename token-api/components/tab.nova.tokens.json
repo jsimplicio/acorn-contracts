@@ -1,0 +1,321 @@
+{
+  "margin": {
+    "block": {
+      "$value": "6px",
+      "$type": "dimension"
+    }
+  },
+  "border": {
+    "color": {
+      "selected": {
+        "leading": {
+          "$value": "{color.violet.30}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{color.violet.30}",
+              "forcedColors": "{border.color.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "trailing": {
+          "$value": "{color.orange.30}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{color.orange.30}",
+              "forcedColors": "{border.color.@base}"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "box": {
+    "shadow": {
+      "selected": {
+        "$value": "none"
+      }
+    }
+  },
+  "outline": {
+    "offset": {
+      "$value": "-1px",
+      "$type": "dimension"
+    }
+  },
+  "group": {
+    "blue": {
+      "@base": {
+        "$value": "{color.blue.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.blue.50}",
+            "dark": "{color.blue.30}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.blue.90}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.blue.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.blue.60}",
+            "dark": "{color.blue.40}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "purple": {
+      "@base": {
+        "$value": "{color.purple.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.purple.50}",
+            "dark": "{color.purple.30}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.purple.90}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.purple.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.purple.60}",
+            "dark": "{color.purple.40}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "cyan": {
+      "@base": {
+        "$value": "{color.cyan.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.cyan.50}",
+            "dark": "{color.cyan.30}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.cyan.90}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.cyan.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.cyan.60}",
+            "dark": "{color.cyan.40}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "orange": {
+      "@base": {
+        "$value": "{color.orange.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.orange.50}",
+            "dark": "{color.orange.30}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.orange.90}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.orange.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.orange.60}",
+            "dark": "{color.orange.40}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "yellow": {
+      "@base": {
+        "$value": "{color.yellow.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.yellow.50}",
+            "dark": "{color.yellow.30}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.yellow.90}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.yellow.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.yellow.60}",
+            "dark": "{color.yellow.40}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "pink": {
+      "@base": {
+        "$value": "{color.pink.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.pink.50}",
+            "dark": "{color.pink.30}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.pink.90}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.pink.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.pink.60}",
+            "dark": "{color.pink.40}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "green": {
+      "@base": {
+        "$value": "{color.green.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.green.50}",
+            "dark": "{color.green.30}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.green.90}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.green.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.green.60}",
+            "dark": "{color.green.40}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "red": {
+      "@base": {
+        "$value": "{color.red.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.red.50}",
+            "dark": "{color.red.30}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.red.90}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.red.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.red.60}",
+            "dark": "{color.red.40}"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  }
+}

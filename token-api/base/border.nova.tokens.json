@@ -1,0 +1,113 @@
+{
+  "color": {
+    "@base": {
+      "$value": "{color.gray.30}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "{color.gray.30}",
+          "dark": "{color.gray.40}",
+          "forcedColors": "CanvasText"
+        }
+      },
+      "$type": "color"
+    },
+    "transparent": {
+      "$value": "transparent",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "transparent",
+          "forcedColors": "CanvasText"
+        }
+      },
+      "$type": "color"
+    },
+    "deemphasized": {
+      "@base": {
+        "$value": "{color.gray.20}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.20}",
+            "dark": "{color.gray.50}",
+            "forcedColors": "CanvasText"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "interactive": {
+      "@base": {
+        "$value": "{color.gray.35}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.35}",
+            "dark": "{color.gray.40}",
+            "forcedColors": "ButtonText"
+          }
+        },
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "{color.gray.45}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.45}",
+            "dark": "{color.gray.20}",
+            "forcedColors": "SelectedItem"
+          }
+        },
+        "$type": "color"
+      },
+      "active": {
+        "$value": "{color.gray.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.50}",
+            "dark": "{color.gray.15}",
+            "forcedColors": "ButtonText"
+          }
+        },
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "{color.gray.25}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.25}",
+            "dark": "{color.gray.55}",
+            "forcedColors": "GrayText"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "error": {
+      "$value": "{color.red.50}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "{color.red.50}",
+          "dark": "{color.red.20}",
+          "forcedColors": "{border.color.@base}"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "radius": {
+    "xsmall": {
+      "$value": "4px",
+      "$type": "dimension"
+    },
+    "small": {
+      "$value": "8px",
+      "$type": "dimension"
+    },
+    "medium": {
+      "$value": "12px",
+      "$type": "dimension"
+    },
+    "xlarge": {
+      "$value": "24px",
+      "$type": "dimension"
+    }
+  }
+}

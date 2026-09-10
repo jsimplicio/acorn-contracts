@@ -1,0 +1,75 @@
+{
+  "id": "badge",
+  "basenames": [
+    "moz-badge"
+  ],
+  "tokens": {
+    "moz-badge.background.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "moz-badge.background.color.filled": {
+      "value": "#008865",
+      "type": "color",
+      "chain": [
+        "color.green.50"
+      ]
+    },
+    "moz-badge.border.color.@base": {
+      "value": "rgba(21, 20, 26, 0.4)",
+      "type": "color",
+      "chain": []
+    },
+    "moz-badge.border.color.filled": {
+      "value": "rgba(251, 251, 254, 0.4)",
+      "type": "color",
+      "chain": []
+    },
+    "moz-badge.border.radius": {
+      "value": "9999px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.circle"
+      ]
+    },
+    "moz-badge.border.width": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-badge.font.weight": {
+      "value": 600,
+      "type": "fontWeight",
+      "chain": [
+        "font.weight.semibold"
+      ]
+    },
+    "moz-badge.padding.block": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-badge.padding.inline": {
+      "value": "calc({space.xsmall} + {space.xxsmall})",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-badge.text.color.@base": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "moz-badge.text.color.filled": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "button.text.color.primary.@base",
+        "color.white.@base"
+      ]
+    }
+  }
+}

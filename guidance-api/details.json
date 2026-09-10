@@ -1,0 +1,9 @@
+{
+  "id": "details",
+  "dos": [
+    { "text": "Use the native <details>/<summary> elements directly for disclosure widgets, that's the real pattern chrome UI relies on today, not a wrapped Acorn component." }
+  ],
+  "donts": [
+    { "text": "Don't look for an acorn-details or similar wrapper before reaching for native <details>, no dedicated Firefox component exists for this behavior." }
+  ]
+}

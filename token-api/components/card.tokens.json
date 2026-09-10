@@ -1,0 +1,204 @@
+{
+  "background": {
+    "color": {
+      "$value": "{background.color.box.@base}",
+      "$description": "TODO Bug 2030793 - Move card tokens to be used by moz-card rather than globally",
+      "$type": "color"
+    }
+  },
+  "border": {
+    "@base": {
+      "$value": "{card.border.width} solid {card.border.color}"
+    },
+    "width": {
+      "$value": "{border.width}",
+      "$type": "dimension"
+    },
+    "color": {
+      "$value": "color-mix(in srgb, currentColor 10%, transparent)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "color-mix(in srgb, currentColor 10%, transparent)",
+          "dark": "color-mix(in srgb, currentColor 6%, transparent)",
+          "prefersContrast": "color-mix(in srgb, currentColor 41%, transparent)",
+          "forcedColors": "CanvasText"
+        }
+      },
+      "$type": "color"
+    },
+    "radius": {
+      "@base": {
+        "$value": "{border.radius.large}",
+        "$type": "dimension"
+      },
+      "compact": {
+        "$value": "{border.radius.medium}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "box": {
+    "shadow": {
+      "@base": {
+        "$value": "{box-shadow.level-2}"
+      },
+      "hover": {
+        "$value": "{box-shadow.level-4}"
+      }
+    }
+  },
+  "cover": {
+    "image": {
+      "border": {
+        "radius": {
+          "$value": "{border.radius.medium}",
+          "$type": "dimension"
+        }
+      },
+      "height": {
+        "default": {
+          "$value": "160px",
+          "$type": "dimension"
+        }
+      },
+      "padding": {
+        "@base": {
+          "$value": "{space.small}",
+          "$type": "dimension"
+        },
+        "compact": {
+          "$value": "{space.xsmall}",
+          "$type": "dimension"
+        }
+      },
+      "object": {
+        "fit": {
+          "default": {
+            "$value": "cover"
+          }
+        },
+        "position": {
+          "default": {
+            "$value": "center"
+          }
+        }
+      }
+    }
+  },
+  "focus": {
+    "outline": {
+      "$value": "{focus.outline.@base}"
+    }
+  },
+  "font": {
+    "size": {
+      "@base": {
+        "$value": "{font.size.root}",
+        "$type": "dimension"
+      },
+      "compact": {
+        "$value": "{font.size.small}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "padding": {
+    "@base": {
+      "$value": "{space.large}",
+      "$type": "dimension"
+    },
+    "compact": {
+      "$value": "{space.small}",
+      "$type": "dimension"
+    }
+  },
+  "gap": {
+    "@base": {
+      "$value": "{card.padding.@base}",
+      "$type": "dimension"
+    },
+    "compact": {
+      "$value": "{space.small}",
+      "$type": "dimension"
+    },
+    "article": {
+      "$value": "{space.small}",
+      "$type": "dimension"
+    }
+  },
+  "header": {
+    "background": {
+      "color": {
+        "@base": {
+          "$value": "initial",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "initial",
+              "forcedColors": "{button.background.color.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.background.color.hover}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.background.color.active}",
+          "$type": "color"
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "@base": {
+          "$value": "transparent",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "transparent",
+              "forcedColors": "{button.border.color.@base}",
+              "prefersContrast": "{button.border.color.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "transparent",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "transparent",
+              "forcedColors": "{button.border.color.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "transparent",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "transparent",
+              "forcedColors": "{button.border.color.active}"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    },
+    "text": {
+      "color": {
+        "@base": {
+          "$value": "{button.text.color.@base}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.text.color.hover}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.text.color.active}",
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

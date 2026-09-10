@@ -1,0 +1,187 @@
+{
+  "id": "select",
+  "basenames": [
+    "moz-select"
+  ],
+  "tokens": {
+    "moz-select.background.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.@base"
+      ]
+    },
+    "moz-select.background.color.disabled": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.disabled",
+        "button.background.color.@base"
+      ]
+    },
+    "moz-select.background.color.hover": {
+      "value": "#d2c8ec",
+      "type": "color",
+      "chain": [
+        "button.background.color.hover",
+        "color.violet-desaturated.20"
+      ]
+    },
+    "moz-select.border.@base": {
+      "value": "{border.width} solid {button.border.color.@base}",
+      "type": null,
+      "chain": [
+        "button.border.@base"
+      ]
+    },
+    "moz-select.border.color.disabled": {
+      "value": "#c7c6cb",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.disabled",
+        "color.gray.25"
+      ]
+    },
+    "moz-select.border.color.hover": {
+      "value": "#817f84",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.hover",
+        "color.gray.45"
+      ]
+    },
+    "moz-select.border.radius": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "button.border.radius",
+        "border.radius.xlarge"
+      ]
+    },
+    "moz-select.font.size.@base": {
+      "value": "15px",
+      "type": "dimension",
+      "chain": [
+        "font.size.root"
+      ]
+    },
+    "moz-select.font.size.small": {
+      "value": "0.867rem",
+      "type": "dimension",
+      "chain": [
+        "font.size.small"
+      ]
+    },
+    "moz-select.font.weight": {
+      "value": 600,
+      "type": "fontWeight",
+      "chain": [
+        "button.font.weight",
+        "font.weight.semibold"
+      ]
+    },
+    "moz-select.icon.fill": {
+      "value": "currentColor",
+      "type": "color",
+      "chain": [
+        "button.icon.fill"
+      ]
+    },
+    "moz-select.min.height.@base": {
+      "value": "32px",
+      "type": "dimension",
+      "chain": [
+        "button.min-height.@base",
+        "size.item.large"
+      ]
+    },
+    "moz-select.min.height.small": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "button.min-height.small",
+        "size.item.medium"
+      ]
+    },
+    "moz-select.opacity.disabled": {
+      "value": "0.7",
+      "type": "number",
+      "chain": [
+        "button.opacity.disabled"
+      ]
+    },
+    "moz-select.option.font.weight": {
+      "value": "normal",
+      "type": "fontWeight",
+      "chain": [
+        "font.weight.@base"
+      ]
+    },
+    "moz-select.option.text.color": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "moz-select.padding.block": {
+      "value": "0.25rem",
+      "type": "dimension",
+      "chain": [
+        "button.padding.block.@base",
+        "space.xsmall"
+      ]
+    },
+    "moz-select.padding.icon": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "icon.size.@base",
+        "icon.size.small",
+        "size.item.small"
+      ]
+    },
+    "moz-select.space.inline.@base": {
+      "value": "1rem",
+      "type": "dimension",
+      "chain": [
+        "button.padding.inline.@base",
+        "space.large"
+      ]
+    },
+    "moz-select.space.inline.small": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "chain": [
+        "space.medium"
+      ]
+    },
+    "moz-select.text.color.@base": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "moz-select.text.color.disabled": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.disabled",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "moz-select.text.color.hover": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.hover",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    }
+  }
+}

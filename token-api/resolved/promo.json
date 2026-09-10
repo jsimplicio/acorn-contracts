@@ -1,0 +1,106 @@
+{
+  "id": "promo",
+  "basenames": [
+    "moz-promo"
+  ],
+  "tokens": {
+    "moz-promo.background.color.@base": {
+      "value": "#e3e2e7",
+      "type": "color",
+      "chain": [
+        "background.color.box.info",
+        "color.gray.15"
+      ]
+    },
+    "moz-promo.background.color.vibrant": {
+      "value": "#e7e1f8",
+      "type": "color",
+      "chain": [
+        "color.violet-desaturated.10"
+      ]
+    },
+    "moz-promo.border.@base": {
+      "value": "{promo.border.width} solid {promo.border.color.@base}",
+      "type": null,
+      "chain": []
+    },
+    "moz-promo.border.color.@base": {
+      "value": "color-mix(in lch, currentColor 12%, transparent)",
+      "type": "color",
+      "chain": []
+    },
+    "moz-promo.border.color.vibrant": {
+      "value": "color-mix(in lch, currentColor 12%, transparent)",
+      "type": "color",
+      "chain": [
+        "promo.border.color.@base"
+      ]
+    },
+    "moz-promo.border.radius": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.medium"
+      ]
+    },
+    "moz-promo.border.width": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": [
+        "border.width"
+      ]
+    },
+    "moz-promo.heading.text.color.@base": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "promo.message.text.color.@base",
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "moz-promo.heading.text.color.vibrant": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "promo.message.text.color.@base",
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "moz-promo.image.size.@base": {
+      "value": "80px",
+      "type": "dimension",
+      "chain": [
+        "size.image.xlarge"
+      ]
+    },
+    "moz-promo.image.size.large": {
+      "value": "calc(2 * {size.image.xlarge})",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-promo.message.text.color.@base": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "moz-promo.message.text.color.vibrant": {
+      "value": "#271c48",
+      "type": "color",
+      "chain": [
+        "color.violet.80"
+      ]
+    },
+    "moz-promo.padding": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "chain": [
+        "space.medium"
+      ]
+    }
+  }
+}

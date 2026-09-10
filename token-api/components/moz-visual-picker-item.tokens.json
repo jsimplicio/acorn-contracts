@@ -1,0 +1,24 @@
+{
+  "border": {
+    "color": {
+      "$value": "{border.color.interactive.@base}",
+      "$type": "color"
+    },
+    "radius": {
+      "@base": {
+        "$value": "{border.radius.medium}",
+        "$type": "dimension"
+      }
+    },
+    "width": {
+      "@base": {
+        "$value": "{border.width}",
+        "$type": "dimension"
+      },
+      "checked": {
+        "$value": "calc({border.width} * 3)",
+        "$type": "dimension"
+      }
+    }
+  }
+}

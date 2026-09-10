@@ -1,0 +1,2324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- The site's own root, and the only place it is written down. Every URL
+     below (font url()s, every fetch(), every nav href) is relative and
+     resolves against this, so the same file works served from / by
+     serve.sh and from /<repo>/ by GitHub Pages, where a project site is
+     never at the domain root. Relative URLs alone would not do it: this
+     page uses real path routing, so a bare "token-api/x.json" fetched
+     while sitting at /tokens/color would resolve to
+     /tokens/token-api/x.json. The <base> is what pins them to the root
+     instead of to the current path.
+     .github/workflows/pages.yml rewrites this href at deploy time. -->
+<base href="/">
+<title>Firefox Design System Wiki (fake, basic)</title>
+<!-- House rule: no em dashes anywhere in this file, ever. Use commas, colons, or a period instead. -->
+<style>
+  @font-face {
+    font-family: "Freight Sans";
+    /* Absolute, not relative: a relative url() in inline CSS resolves
+       against the page's own URL, and /docs/component-api is two levels
+       deep, so a relative path here would 404 (then get silently masked
+       by serve.sh's SPA fallback, same class of bug as the fetch() paths
+       below). */
+    src: url("Freight-Sans-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Freight Sans";
+    src: url("Freight-Sans-Medium.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Tisa Pro";
+    src: url("TisaPro-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("JetBrains-Mono.woff2") format("woff2");
+    font-style: normal;
+  }
+  /* One palette, two themes. Every colour on this page is a variable
+     declared here and re-declared once under dark, so a new rule can only
+     pick a colour that already has a dark counterpart -- a hardcoded hex
+     anywhere below is how a page ends up half-converted, readable in one
+     theme and not the other.
+     :root carries light. Dark arrives two ways: [data-theme="dark"] when
+     the reader has actually chosen it (see the toggle), and
+     prefers-color-scheme for a reader who has chosen nothing and whose OS
+     says dark. The media query is guarded with :not([data-theme="light"])
+     so an explicit choice of light still wins on a dark-set OS, which a
+     bare media query would silently override. */
+  :root {
+    color-scheme: light;
+    --bg: #ffffff;
+    --bg-sidebar: #fafafa;
+    --bg-raised: #f5f5f5;
+    --bg-code: #f0f0f0;
+    --bg-input: #ffffff;
+    --bg-hover: #eeeeee;
+    --bg-accent-soft: #e6ecff;
+    --bg-row-flag: #fff8e6;
+    --border: #dddddd;
+    --border-soft: #e5e5e5;
+    --border-hairline: #eeeeee;
+    --text: #1a1a1a;
+    --text-secondary: #444444;
+    --text-muted: #666666;
+    --text-faint: #888888;
+    --text-nav: #333333;
+    --accent: #2547d0;
+    --ok: #1a7f37;
+    --err: #cc0000;
+    --warn: #b8860b;
+    --neutral: #999999;
+    --token-pink: #a3238e;
+    --prop-blue: #1a6b96;
+    --value-orange: #b35900;
+    --badge-modern-bg: #d9f2e3; --badge-modern-fg: #1a7f37;
+    --badge-classic-bg: #fdeecb; --badge-classic-fg: #a15c00;
+    --badge-none-bg: #f0d9d9; --badge-none-fg: #a11d1d;
+    --badge-dual-bg: #e2e2fa; --badge-dual-fg: #4433a8;
+    --note-bg: #eef2ff; --note-border: #c3cdfa; --note-text: #2a3a8c; --note-code-bg: #dbe1fa;
+    /* A preview's own sample surface stays light in BOTH themes: these
+       tokens are Firefox's real light-theme values (a shadow token is
+       rgba black authored for a white card), and floating that sample on
+       a dark ground would render a real shadow as an invisible one. The
+       preview is a swatch of the token, not a piece of this page's UI. */
+    --preview-surface: #ffffff;
+    --preview-check: #e4e4e4;
+    --preview-box: #ded7f6;
+    --preview-bar: #764edd;
+    --toggle-track: #e6e6ea;
+    --toggle-icon: #8a8a95;
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #16161a;
+    --bg-sidebar: #1b1b20;
+    --bg-raised: #23232b;
+    --bg-code: #26262e;
+    --bg-input: #1f1f26;
+    --bg-hover: #26262e;
+    --bg-accent-soft: #26304f;
+    --bg-row-flag: #2f2a1c;
+    --border: #34343e;
+    --border-soft: #2c2c35;
+    --border-hairline: #26262e;
+    --text: #e9e9ee;
+    --text-secondary: #c2c2cc;
+    --text-muted: #9b9ba7;
+    --text-faint: #85858f;
+    --text-nav: #cfcfd8;
+    --accent: #9db4ff;
+    --ok: #52c77a;
+    --err: #ff8189;
+    --warn: #e0b64a;
+    --neutral: #8a8a95;
+    --token-pink: #f291d8;
+    --prop-blue: #7cc9f0;
+    --value-orange: #f0ad6a;
+    --badge-modern-bg: #1c3a29; --badge-modern-fg: #7ee0a3;
+    --badge-classic-bg: #3b2f16; --badge-classic-fg: #f0c274;
+    --badge-none-bg: #3d2020; --badge-none-fg: #ff9b9b;
+    --badge-dual-bg: #2a2856; --badge-dual-fg: #b3b0f5;
+    --note-bg: #1e2440; --note-border: #38406e; --note-text: #c3cdfa; --note-code-bg: #2b3357;
+    --preview-surface: #f2f2f5;
+    --preview-check: #cfcfd6;
+    --preview-box: #4a3e7a;
+    --preview-bar: #a78bfa;
+    --toggle-track: #34343e;
+    --toggle-icon: #85858f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #16161a;
+      --bg-sidebar: #1b1b20;
+      --bg-raised: #23232b;
+      --bg-code: #26262e;
+      --bg-input: #1f1f26;
+      --bg-hover: #26262e;
+      --bg-accent-soft: #26304f;
+      --bg-row-flag: #2f2a1c;
+      --border: #34343e;
+      --border-soft: #2c2c35;
+      --border-hairline: #26262e;
+      --text: #e9e9ee;
+      --text-secondary: #c2c2cc;
+      --text-muted: #9b9ba7;
+      --text-faint: #85858f;
+      --text-nav: #cfcfd8;
+      --accent: #9db4ff;
+      --ok: #52c77a;
+      --err: #ff8189;
+      --warn: #e0b64a;
+      --neutral: #8a8a95;
+      --token-pink: #f291d8;
+      --prop-blue: #7cc9f0;
+      --value-orange: #f0ad6a;
+      --badge-modern-bg: #1c3a29; --badge-modern-fg: #7ee0a3;
+      --badge-classic-bg: #3b2f16; --badge-classic-fg: #f0c274;
+      --badge-none-bg: #3d2020; --badge-none-fg: #ff9b9b;
+      --badge-dual-bg: #2a2856; --badge-dual-fg: #b3b0f5;
+      --note-bg: #1e2440; --note-border: #38406e; --note-text: #c3cdfa; --note-code-bg: #2b3357;
+      --preview-surface: #f2f2f5;
+      --preview-check: #cfcfd6;
+      --preview-box: #4a3e7a;
+      --preview-bar: #a78bfa;
+      --toggle-track: #34343e;
+      --toggle-icon: #85858f;
+      }
+  }
+  /* Fixed in both themes, so they never move with the palette: the thumb is
+     the selected side and is always white, and the icon riding on top of
+     that white thumb always needs to be dark to stay legible on it. */
+  :root { --toggle-thumb: #ffffff; --toggle-icon-active: #2a2a32; }
+
+  * { box-sizing: border-box; }
+  body { font-family: "Tisa Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; color: var(--text); background: var(--bg); display: flex; min-height: 100vh; }
+  /* th joins the headings rather than getting its own copy of the stack:
+     a column header is a heading, and the body serif it inherited from
+     <body> otherwise made every table label read as content. */
+  h1, h2, h3, th, #nav { font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+
+  /* Sidebar: #nav itself never scrolls, it's a fixed-height flex column.
+     #nav-title is a fixed-size item so it always stays visible; #nav-scroll
+     is the only part that scrolls, everything below the title. */
+  #nav { width: 240px; flex: 0 0 240px; background: var(--bg-sidebar); border-right: 1px solid var(--border); height: 100vh; position: sticky; top: 0; display: flex; flex-direction: column; }
+  #nav-title { flex: 0 0 auto; font-size: 17px; font-weight: 700; color: var(--text); padding: 20px 20px 14px; margin-bottom: 0; border-bottom: 1px solid var(--border-soft); }
+  #nav-scroll { flex: 1 1 auto; overflow-y: auto; padding: 6px 0 20px; }
+  #nav-search { display: block; width: calc(100% - 32px); margin: 8px 16px 14px; padding: 6px 10px; font-size: 13px; font-family: inherit; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-input); color: var(--text); }
+  #nav-search:focus { outline: none; border-color: var(--accent); }
+  #nav h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-faint); margin: 18px 20px 6px; }
+  #nav h2.hidden, #nav a.hidden { display: none; }
+  #nav h2:first-child { margin-top: 0; }
+  #nav a { display: block; padding: 5px 20px; font-size: 13.5px; color: var(--text-nav); text-decoration: none; cursor: pointer; }
+  #nav a:hover { background: var(--bg-hover); }
+  #nav a.active { background: var(--bg-accent-soft); color: var(--accent); font-weight: 600; }
+  /* Nested nav: a top-level item with real sub-items (e.g. Panel Item under
+     Panel) gets a chevron and a collapsible child list, instead of listing
+     every sub-item flat at the same level as its parent. */
+  .nav-parent-row { display: flex; align-items: stretch; }
+  .nav-parent-row a { flex: 1 1 auto; min-width: 0; }
+  .nav-chevron { flex: 0 0 auto; width: 28px; border: none; background: none; padding: 0; margin: 0; cursor: pointer; color: var(--text-faint); display: flex; align-items: center; justify-content: center; }
+  .nav-chevron:hover { color: var(--text-nav); }
+  .nav-chevron svg { width: 11px; height: 11px; transition: transform 0.12s ease; }
+  .nav-parent-row.expanded .nav-chevron svg { transform: rotate(90deg); }
+  .nav-children { display: none; }
+  .nav-children.expanded { display: block; }
+  /* #nav a's own padding/font-size are set via an id selector, which beats
+     a plain class selector on specificity regardless of source order --
+     has to be qualified under #nav too or this indent silently never
+     applies (it didn't, until this fix). */
+  #nav .nav-children a { font-size: 13px; margin-inline-start: 20px; padding-inline-start: 12px; border-inline-start: 2px solid var(--border-soft); }
+  .nav-children.hidden { display: none !important; }
+  .nav-parent-row.hidden { display: none; }
+
+  /* Theme toggle, fixed to the top right of the page (not of #main, which
+     scrolls its content past it). A track with a sun on one side and a moon
+     on the other, and one white thumb that slides under whichever side is
+     selected. The icons sit above the thumb, so the selected one is read
+     against white in either theme, which is why --toggle-icon-active is the
+     one colour that does not flip with the palette. */
+  /* The 6px gap is what centres the icons ON the thumb rather than merely
+     inside the track. The thumb is 26px and sits at left:3px, or 32px
+     further along when checked, so its two centres are 16px and 48px from
+     the left edge. Two 29px icons filling the 58px padding box would centre
+     at 17.5px and 46.5px: 1.5px out, in opposite directions, which reads as
+     the icon sitting slightly off inside the dot. Matching the icon width
+     to the thumb and spacing them by the same 6px the thumb travels past
+     puts both pairs of centres on exactly the same two points. */
+  #theme-toggle { position: fixed; top: 16px; right: 20px; z-index: 20;
+    display: inline-flex; align-items: center; gap: 6px; width: 64px; height: 32px; padding: 3px;
+    border: none; border-radius: 999px; background: var(--toggle-track); cursor: pointer; }
+  #theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .theme-thumb { position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--toggle-thumb); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.16);
+    transition: transform 0.18s ease; }
+  :root[data-theme="dark"] .theme-thumb { transform: translateX(32px); }
+  .theme-icon { position: relative; z-index: 1; width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--toggle-icon); transition: color 0.18s ease; }
+  .theme-icon svg { display: block; width: 15px; height: 15px; }
+  :root:not([data-theme="dark"]) .theme-icon-light,
+  :root[data-theme="dark"] .theme-icon-dark { color: var(--toggle-icon-active); }
+  /* Keeps a long page title clear of the toggle it would otherwise run
+     under on a narrow window. */
+  .view h1 { padding-right: 84px; }
+
+  /* Main content */
+  /* min-width:0 overrides a flex item's default min-width:auto, which
+     refuses to shrink an item below its own content's minimum. Real tables
+     have a real min-content width now that they lay out as tables again
+     (they used to be display:block, which contributed none), so without
+     this the whole page scrolled sideways on a window under about 1140px
+     instead of the tables narrowing and their cells wrapping. */
+  #main { flex: 1 1 auto; min-width: 0; padding: 40px 48px; max-width: 900px; }
+  .view { display: none; }
+  .view.active { display: block; }
+
+  h1 { font-size: 28px; font-weight: 700; margin: 0 0 4px; }
+  #doc-body h3 { font-size: 18px; font-weight: 700; }
+  .meta { color: var(--text-muted); font-size: 13px; margin-bottom: 24px; }
+  /* Shared instead of each repeating the same font stack: .mono is the
+     stack alone (for anything that just needs monospace, like a link to a
+     real file path), .token-id adds the pink used everywhere a real token
+     or tag identifier is shown (tag pills, the Token column, alias-chain
+     hops), so both properties live in exactly one place each. */
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .tag { background: var(--bg-code); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  .file-link { color: var(--accent); text-decoration: none; }
+  .file-link:hover { text-decoration: underline; }
+
+  .classif { display: inline-block; font-size: 13px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+  .classif.modern { background: var(--badge-modern-bg); color: var(--badge-modern-fg); }
+  .classif.classic { background: var(--badge-classic-bg); color: var(--badge-classic-fg); }
+  .classif.none { background: var(--badge-none-bg); color: var(--badge-none-fg); }
+  .classif.dual { background: var(--badge-dual-bg); color: var(--badge-dual-fg); }
+  td .classif { margin-left: 0; font-size: 13px; padding: 2px 7px; white-space: nowrap; }
+  h3.table-group { font-size: 14px; margin: 24px 0 8px; }
+  .check.na { color: var(--neutral); font-weight: normal; }
+  .legend-table { margin: 4px 0 20px; }
+  .legend-table td { font-size: 13px; color: var(--text-secondary); vertical-align: top; }
+
+  /* Every table on this page: full content width, and every column in it
+     an equal share of that width.
+     table-layout:fixed is what makes both true at once -- it takes the
+     column widths from the first row alone rather than from the widest
+     cell anywhere below, so no single long cell (a giant comma-separated
+     attrs list, seen on Stepper's last row) can stretch one column and
+     squeeze its neighbours. With no per-column width declared anywhere,
+     fixed layout splits the width evenly by itself.
+     This replaced display:block + overflow-x:auto, which let a wide table
+     scroll inside itself but also let it size to its own content, so a
+     narrow table simply didn't reach the right edge. Fixed layout plus
+     overflow-wrap:anywhere below means a long value now wraps inside its
+     own cell instead of needing anywhere to scroll to. */
+  table { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: 14px; margin-bottom: 8px; }
+  th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; overflow-wrap: anywhere; }
+  th { background: var(--bg-raised); }
+  td.check { text-align: center; }
+  .yes { color: var(--ok); font-weight: bold; }
+  .no { color: var(--err); }
+  .unknown { color: var(--warn); font-weight: bold; }
+  tr.gap td { background: var(--bg-row-flag); }
+
+  /* Page sections */
+  h2.section { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); border-bottom: 1px solid var(--border-hairline); padding-bottom: 6px; margin: 32px 0 12px; }
+  h2.section:first-of-type { margin-top: 28px; }
+  .plain-summary { font-size: 17px; color: var(--text); line-height: 1.5; margin: 16px 0 8px; }
+  p { line-height: 1.55; }
+  ul { line-height: 1.6; }
+  /* Absolute, not relative (was 0.92em): a relative size multiplies down
+     against whatever ambient font-size a <code> span happens to sit inside,
+     and several real contexts on this page (.attrs-table td at 13.5px, for
+     instance) pushed the computed result under the 13px floor. */
+  code { background: var(--bg-code); padding: 1px 4px; border-radius: 3px; font-size: 13px; font-family: "JetBrains Mono", ui-monospace, monospace; }
+  pre { background: #1e1e2e; color: #d4d4e0; padding: 14px 16px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.5; }
+  pre code { background: none; padding: 0; color: inherit; }
+  .schema-details summary { cursor: pointer; font-weight: 600; margin-bottom: 10px; }
+
+  .attrs-table th, .attrs-table td { font-size: 13.5px; }
+  /* Purely structural (first cell of any attrs-table row), no class to hang
+     .token-id off of in the generated markup, so it shares the same
+     declaration by joining the selector instead of repeating the values. */
+  .attrs-table td:first-child, .token-id { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--token-pink); }
+  /* CSS custom property column in the merged Design tokens table: its own
+     distinct color, not the Token column's pink, so the two real but
+     different identifiers (a token path vs. its generated --var name)
+     stay visually distinguishable rather than both reading as "the same
+     kind of thing". */
+  .attrs-table td.css-prop-col code { color: var(--prop-blue); }
+  /* Value column gets its own third color for the same reason: a token's
+     resolved value is a third distinct kind of identifier, not the token
+     path or the CSS property name. */
+  /* :not(.token-id) so an alias-chain hop's own real token path (a <code
+     class="token-id"> nested inside this same .value-col cell) doesn't get
+     this orange color fighting .token-id's pink on specificity, the two
+     rules were equally applicable to the same element otherwise. */
+  .attrs-table td.value-col code:not(.token-id) { color: var(--value-orange); }
+  /* A base token page's table has no "In Figma" column (the component
+     page's does): figma-check.py only ever checks component-level custom
+     properties (component-api/*.json's cssProperties plus resolved/*.json,
+     see its own docstring), so every cell here would be an unchecked "?"
+     rather than a real answer. */
+  /* Preview column: the token's resolved value applied to a small sample of
+     the thing that token actually controls -- a radius token bends a
+     corner, a shadow token casts a shadow, a space token is a bar you can
+     compare against the bar one row up. Rendered by the real value (the
+     same string the Value column prints), never by a hand-kept picture of
+     it, so a preview can't show something the token no longer says.
+     A token whose value isn't previewable as anything (a keyword like
+     "unset"/"center", or a value still holding an unresolvable alias) gets
+     an empty cell rather than a placeholder implying a preview failed. */
+  td.preview-col { text-align: center; }
+  .preview { display: inline-block; vertical-align: middle; max-width: 100%; }
+  /* Checkerboard behind the fill, so a translucent or fully transparent
+     colour reads as translucent instead of as "white". */
+  .preview-swatch { width: 38px; height: 22px; border-radius: 3px; border: 1px solid var(--border); overflow: hidden;
+    background-color: var(--preview-surface);
+    background-image: linear-gradient(45deg, var(--preview-check) 25%, transparent 25%, transparent 75%, var(--preview-check) 75%),
+                      linear-gradient(45deg, var(--preview-check) 25%, transparent 25%, transparent 75%, var(--preview-check) 75%);
+    background-size: 10px 10px; background-position: 0 0, 5px 5px; }
+  .preview-fill { display: block; width: 100%; height: 100%; }
+  /* Filled, not outlined: a corner radius is only legible on a solid
+     shape, and the fill doubles as the surface an opacity token dims. */
+  .preview-box { width: 32px; height: 32px; background: var(--preview-box); }
+  /* Its own white ground and a little room around it, or the shadow it
+     exists to show would be clipped by the cell's edge. */
+  .preview-shadow { width: 44px; height: 26px; margin: 6px; background: var(--preview-surface); border-radius: 3px; }
+  .preview-border { width: 44px; height: 26px; background: var(--preview-surface); }
+  .preview-type { color: var(--text); line-height: 1.1; font-family: "Freight Sans", sans-serif; }
+  /* Left-aligned inside its own full-width track, not centred like every
+     other preview: these bars are read by comparing their lengths down the
+     column, which only works off a shared starting edge. */
+  .preview-bar-track { display: block; text-align: left; }
+  .preview-bar { height: 10px; min-width: 1px; border-radius: 2px; background: var(--preview-bar); }
+  /* One alias-chain hop per line, same &#8618; hooked-arrow as a nested
+     sub-component under its parent on the home table, since a resolved
+     value cascading through 2-3 tokens is the same real shape: each hop is
+     a step down to the next real token, not a flat "via A, B, C" list. */
+  .alias-chain { margin-top: 3px; }
+  /* Pink comes from .token-id (added in markup): each hop IS a real token
+     path, same kind of identifier as the Token column, just reached by
+     resolving an alias instead of being the row's own token. */
+  .alias-chain-hop { padding-left: 14px; font-size: 12.5px; }
+
+  /* A section heading doubles as the link to itself, so every section on a
+     component page has a real URL a reader can copy or link to. Inherits
+     the heading's own colour rather than looking like body prose that
+     happens to be a link. */
+  .section-anchor { position: relative; color: inherit; text-decoration: none; }
+  .section-anchor:hover { text-decoration: underline; text-underline-offset: 3px; }
+  /* Hangs in the margin ahead of the title rather than sitting in the text
+     flow, so it marks the heading as addressable without moving it or
+     lining up ragged against headings of different lengths. right:100%
+     pins it to the heading's own left edge, so it stays put whatever the
+     title says. #main's 48px padding is what it hangs into, so it is never
+     clipped. Faint by default rather than hover-only: the point is to say
+     these have URLs before anyone thinks to hover. */
+  .section-anchor::before {
+    content: "#";
+    position: absolute;
+    right: 100%;
+    margin-right: 0.3em;
+    font-weight: 400;
+    color: var(--text-faint);
+    opacity: 0.5;
+    transition: opacity 0.12s ease, color 0.12s ease;
+  }
+  .section-anchor:hover::before,
+  .section-anchor:focus-visible::before { opacity: 1; color: var(--accent); }
+
+  .dodont { display: flex; gap: 20px; flex-wrap: wrap; }
+  .dodont > div { flex: 1 1 280px; }
+  .dodont h3 { font-size: 13px; margin: 0 0 8px; }
+  .dodont .do h3 { color: var(--ok); }
+  .dodont .dont h3 { color: var(--err); }
+  .dodont ul { padding-left: 18px; margin: 0; font-size: 13.5px; }
+
+  .variant-table th, .variant-table td { font-size: 13px; }
+
+  .source-note { background: var(--note-bg); border: 1px solid var(--note-border); color: var(--note-text); padding: 12px 16px; border-radius: 6px; font-size: 13.5px; margin-top: 16px; }
+  .source-note code { background: var(--note-code-bg); }
+
+  /* Auto-rendered classification view (everything not hand-written yet) */
+  .kv-table th, .kv-table td { font-size: 14px; }
+  .kv-table td:first-child { width: 160px; color: var(--text-secondary); }
+</style>
+<script>
+  // Runs before the page paints, deliberately inline and before <body>: the
+  // stylesheet's own prefers-color-scheme fallback would otherwise render a
+  // light flash for a reader whose stored choice is dark (or vice versa)
+  // until the main script at the end of <body> got to run.
+  (function () {
+    var stored = null;
+    try { stored = localStorage.getItem("acorn-theme"); } catch (e) { /* storage blocked, fall through to the OS */ }
+    var theme = (stored === "light" || stored === "dark") ? stored
+      : (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+</head>
+<body>
+
+<!-- Sun on the left, moon on the right, and one white thumb marking which
+     side is live. role="switch" rather than two radios: it is one control
+     with two states, and aria-checked says which. -->
+<button id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark theme">
+  <span class="theme-thumb" aria-hidden="true"></span>
+  <span class="theme-icon theme-icon-light" aria-hidden="true">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <circle cx="8" cy="8" r="3.1"/>
+      <path d="M8 1v1.5M8 13.5V15M15 8h-1.5M2.5 8H1M12.95 3.05l-1.06 1.06M4.11 11.89l-1.06 1.06M12.95 12.95l-1.06-1.06M4.11 4.11L3.05 3.05"/>
+    </svg>
+  </span>
+  <span class="theme-icon theme-icon-dark" aria-hidden="true">
+    <svg viewBox="0 0 16 16" fill="currentColor">
+      <path d="M13.7 10.1A6.1 6.1 0 0 1 5.9 2.3 6.1 6.1 0 1 0 13.7 10.1z"/>
+    </svg>
+  </span>
+</button>
+
+<nav id="nav">
+  <div id="nav-title">Acorn API</div>
+  <div id="nav-scroll">
+    <input id="nav-search" type="search" placeholder="Filter components and tokens&hellip;" autocomplete="off">
+    <a data-show="home" class="active">Home</a>
+    <h2>Docs</h2>
+    <a data-show="doc-component-api">Component API</a>
+    <a data-show="doc-guidance-api">Guidance API</a>
+    <a data-show="doc-token-api">Token API</a>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- HOME: coverage table -->
+  <section id="view-home" class="view active">
+    <h1>Home</h1>
+    <p class="meta">Where each real Firefox component or pattern actually exists today, across Figma, Supernova (documented), and Storybook, plus how it is really implemented (moz-*, classic, or a plain pattern with no dedicated class). A row with no implementation badge at all has no real Firefox equivalent, see its file citation for what actually exists instead.</p>
+    <table class="legend-table">
+      <tbody>
+        <tr><td><span class="check yes">&check;</span></td><td>Real and documented there.</td></tr>
+        <tr><td><span class="check no">&cross;</span></td><td>Not yet, a real, closeable gap.</td></tr>
+        <tr><td><span class="check na">n/a</span></td><td>Not a reusable widget class, this kind of coverage was never going to apply here regardless of effort.</td></tr>
+        <tr><td><span class="check unknown">in: [parent]</span></td><td>Covered under its parent's own entry, not separately (see the Notes below for why).</td></tr>
+      </tbody>
+    </table>
+    <div id="home-tables"></div>
+
+    <h2 class="section">Notes</h2>
+    <ul>
+      <li>No chrome or structural component has a Supernova documentation page or a Storybook story. The only doc coverage for this whole category is one narrative page, Desktop/Patterns/Browser anatomy/Overview.</li>
+      <li>Checkbox and Radio each ship both a modern moz-* version and a classic version at the same time, marked "moz-* + classic" rather than picking one.</li>
+      <li>A row with no real Firefox equivalent (Chip, Details) gets no implementation badge at all, not a "pattern" badge of its own: it isn't an implementation kind, just the absence of one. See its file citation for what actually exists instead (a Figma-only pattern, a distinct real feature that only looks similar, native HTML doing the job, etc.). This is different from the "pattern" badge (red), which means the real thing exists as page wiring with no dedicated class.</li>
+      <li>Figma has some internal duplication for chrome entries (Sidebar, Infobar and Info bar, Bookmarks toolbar and Bookmarks Toolbar, and a few more each show up as two near-identical nodes), most likely stale-versus-current branches rather than distinct concepts.</li>
+      <li>tagName is optional, not universal: most "classic" entries do have a real customElements.define tag (panel, dialog, tab-group), but "pattern" entries never do, and some real implementations (Spotlight, Callout) are plain classes or React, not custom elements at all.</li>
+      <li>A grey "n/a" in the Storybook column is a different claim than a red cross: it means the real implementation isn't a reusable widget class at all (a plain module like Spotlight, a React render method like Stepper, or page wiring with no class like Toolbox), so a story was never going to exist regardless of effort. A red cross means a real widget class exists and simply hasn't been storied yet, a genuine closeable gap (popup-notification, for example).</li>
+      <li>Rows with no Figma node or Storybook story of their own (Panel Item, Panel Separator, Page Nav Item and Separator, Segment, Icon Button, Split Button, Visual Picker Item) are listed indented under the parent whose Figma node or Storybook story actually covers them, marked "in: [parent name]".</li>
+    </ul>
+  </section>
+
+  <!-- DOCS: each of the three API READMEs, rendered live, one per page
+       (split out from a single combined Overview page, which got too long
+       to scan as one scroll). -->
+  <section id="view-doc" class="view">
+    <h1 id="doc-title">-</h1>
+    <p class="meta">Loaded and rendered live from the real README, not copy-pasted, so this page can't drift from the real docs.</p>
+    <div id="doc-body"></div>
+  </section>
+
+  <!-- TOKENS: one page per real base/ token family (color, space, ...),
+       each listing that family's own token groups. Component-level tokens
+       are deliberately absent, they already live on their component's own
+       page and a second home for them could only drift from the first. -->
+  <section id="view-tokens" class="view">
+    <h1 id="tokens-title">-</h1>
+    <p class="meta" id="tokens-meta"></p>
+    <div id="tokens-body"></div>
+    <p class="source-note" id="tokens-note"></p>
+  </section>
+
+  <!-- Hand-written pages for a few components, the format others will eventually match -->
+  <!-- Loaded live from component-api/<id>.json + guidance-api/<id>.json,
+       proof of concept for "button" that the rest of the inventory can move
+       to once this is confirmed good. Requires being served over http, not
+       opened via file://, fetch() of local JSON is unreliable otherwise. -->
+  <section id="view-dynamic" class="view">
+    <h1 id="dyn-title">-</h1>
+    <p class="meta" id="dyn-meta"></p>
+    <div id="dyn-body"></div>
+    <p class="source-note" id="dyn-note"></p>
+  </section>
+
+
+  <!-- Auto-rendered classification view for everything else -->
+  <section id="view-generic" class="view">
+    <h1 id="generic-title">-</h1>
+    <p class="meta" id="generic-meta"></p>
+    <table class="kv-table">
+      <tbody id="generic-body"></tbody>
+    </table>
+    <p class="source-note" id="generic-note"></p>
+  </section>
+
+</main>
+
+<script>
+  // Drives the nav, home tables, and per-item view from one place.
+  const DATA = [
+    // Alphabetized by name: buildNav() below renders every entry in one
+    // flat "Components" list regardless of group, nested by parentId, so
+    // the sidebar's real order is this array's order. The group field
+    // (chrome/generic) still separates the two home-page coverage tables,
+    // independent of this array's physical order.
+    { id: "badge", name: "Badge", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-badge", file: "toolkit/content/widgets/moz-badge/moz-badge.mjs" },
+    { id: "bookmarks-toolbar", name: "Bookmarks Toolbar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/places/content/browserPlacesViews.js, PlacesToolbar" },
+    { id: "box-button", name: "Box Button", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-button", file: "toolkit/content/widgets/moz-box-button/moz-box-button.mjs" },
+    { id: "box-group", name: "Box Group", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-group", file: "toolkit/content/widgets/moz-box-group/moz-box-group.mjs" },
+    { id: "box-item", name: "Box Item", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-item", file: "toolkit/content/widgets/moz-box-item/moz-box-item.mjs" },
+    { id: "box-link", name: "Box Link", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-link", file: "toolkit/content/widgets/moz-box-link/moz-box-link.mjs" },
+    { id: "breadcrumb", name: "Breadcrumb", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-breadcrumb-group", file: "toolkit/content/widgets/moz-breadcrumb-group/moz-breadcrumb-group.mjs" },
+    { id: "button", name: "Button", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-button", file: "toolkit/content/widgets/moz-button/moz-button.mjs", rich: true },
+    { id: "button-group", name: "Button Group", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-button-group", file: "toolkit/content/widgets/moz-button-group/moz-button-group.mjs" },
+    { id: "callout", name: "Callout", group: "generic", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/asrouter/modules/FeatureCallout.sys.mjs, plain class, not a custom element or XUL" },
+    { id: "card", name: "Card", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-card", file: "toolkit/content/widgets/moz-card/moz-card.mjs" },
+    { id: "checkbox", name: "Checkbox", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-checkbox / checkbox", file: "moz-checkbox.mjs and toolkit/content/widgets/checkbox.js both exist" },
+    { id: "chip", name: "Chip", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "missing", tagName: null, file: "closest analog: browser/components/aiwindow/ui/components/ai-website-chip/ai-website-chip.mjs, a distinct feature component" },
+    { id: "details", name: "Details", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "missing", tagName: null, file: "chrome uses the native <details>/<summary> elements directly" },
+    { id: "dialog", name: "Dialog", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "dialog", file: "toolkit/content/widgets/dialog.js (no Storybook story exists at all)" },
+    { id: "fieldset", name: "Fieldset", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-fieldset", file: "toolkit/content/widgets/moz-fieldset/moz-fieldset.mjs" },
+    { id: "findbar", name: "Findbar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "findbar", file: "toolkit/content/widgets/findbar.js, MozFindbar extends MozXULElement" },
+    { id: "five-star", name: "Five Star", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-five-star", file: "toolkit/content/widgets/moz-five-star/moz-five-star.mjs" },
+    { id: "icon-button", name: "Icon Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-button", file: "moz-button.mjs, icon-only variant", parentId: "button" },
+    { id: "infobar", name: "Infobar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "dual", tagName: "notification-message", file: "toolkit/content/widgets/notificationbox.js, notification-message extends the modern moz-message-bar (corrected from old: this is dual, not classic)" },
+    { id: "input-box", name: "Input Box", group: "generic", figma: "no", supernova: "no", storybook: "no", kind: "classic", tagName: "moz-input-box", file: "toolkit/content/widgets/moz-input-box.js" },
+    { id: "input-color", name: "Input Color", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-input-color", file: "toolkit/content/widgets/moz-input-color/moz-input-color.mjs" },
+    { id: "input-email", name: "Input Email", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-email", file: "toolkit/content/widgets/moz-input-email/moz-input-email.mjs" },
+    { id: "input-folder", name: "Input Folder", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-folder", file: "toolkit/content/widgets/moz-input-folder/moz-input-folder.mjs" },
+    { id: "input-number", name: "Input Number", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-number", file: "toolkit/content/widgets/moz-input-number/moz-input-number.mjs" },
+    { id: "input-password", name: "Input Password", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-password", file: "toolkit/content/widgets/moz-input-password/moz-input-password.mjs" },
+    { id: "input-search", name: "Input Search", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-search", file: "toolkit/content/widgets/moz-input-search/moz-input-search.mjs" },
+    { id: "input-tel", name: "Input Tel", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-tel", file: "toolkit/content/widgets/moz-input-tel/moz-input-tel.mjs" },
+    { id: "input-text", name: "Input Text", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-input-text", file: "toolkit/content/widgets/moz-input-text/moz-input-text.mjs" },
+    { id: "input-url", name: "Input Url", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-url", file: "toolkit/content/widgets/moz-input-url/moz-input-url.mjs" },
+    { id: "label", name: "Label", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "classic", tagName: "moz-label", file: "toolkit/content/widgets/moz-label/moz-label.mjs" },
+    { id: "message-bar", name: "Message Bar", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-message-bar", file: "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs" },
+    { id: "page-header", name: "Page Header", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-page-header", file: "toolkit/content/widgets/moz-page-header/moz-page-header.mjs, corrects an earlier prototype-only assumption" },
+    { id: "page-nav", name: "Page Nav", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-page-nav", file: "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs, used in about:preferences and Firefox View" },
+    { id: "page-nav-item", name: "Page Nav Item", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-page-nav-button", file: "same file, class MozPageNavButton", parentId: "page-nav" },
+    { id: "page-nav-separator", name: "Page Nav Separator", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "none", tagName: null, file: "no dedicated separator element found in moz-page-nav", parentId: "page-nav" },
+    { id: "panel", name: "Panel", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "panel", file: "toolkit/content/widgets/panel.js, MozPanel", rich: true },
+    { id: "panel-item", name: "Panel Item", group: "chrome", figma: "nested", supernova: "no", storybook: "no", kind: "modern", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, class PanelItem (corrected from old: no legacy XUL base, a real modern-style custom element)", parentId: "panel" },
+    { id: "panel-list", name: "Panel List", group: "chrome", figma: "yes", supernova: "no", storybook: "yes", kind: "classic", tagName: "panel-list", file: "toolkit/content/widgets/panel-list/panel-list.mjs" },
+    { id: "panel-list-item", name: "Panel List Item", group: "chrome", figma: "nested", supernova: "no", storybook: "nested", kind: "modern", tagName: "panel-item", file: "same panel-item tag as Panel Item, no upstream distinction", parentId: "panel-list" },
+    { id: "panel-manager", name: "Panel Manager", group: "chrome", figma: "no", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/customizableui/PanelMultiView.sys.mjs, real class, not a custom element" },
+    { id: "panel-separator", name: "Panel Separator", group: "chrome", figma: "nested", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "plain <hr>, no dedicated class", parentId: "panel" },
+    { id: "popup-notification", name: "Popup Notification", group: "chrome", figma: "non1to1", supernova: "no", storybook: "no", kind: "classic", tagName: "popupnotification", file: "toolkit/content/widgets/popupnotification.js" },
+    { id: "promo", name: "Promo", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-promo", file: "toolkit/content/widgets/moz-promo/moz-promo.mjs" },
+    { id: "radio", name: "Radio", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-radio-group / radio", file: "moz-radio-group.mjs and toolkit/content/widgets/radio.js both exist" },
+    { id: "reorderable-list", name: "Reorderable List", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-reorderable-list", file: "toolkit/content/widgets/moz-reorderable-list/moz-reorderable-list.mjs" },
+    { id: "segment", name: "Segment", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-segmented-control-item", file: "moz-segmented-control.mjs, class MozSegmentedControlItem", parentId: "segmented-control" },
+    { id: "segmented-control", name: "Segmented Control", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-segmented-control", file: "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs" },
+    { id: "select", name: "Select", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-select", file: "toolkit/content/widgets/moz-select/moz-select.mjs" },
+    { id: "sidebar", name: "Sidebar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/sidebar/browser-sidebar.js, SidebarController singleton" },
+    { id: "sidebar-panel", name: "Sidebar Panel", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "modern", tagName: "sidebar-panel-header", file: "browser/components/sidebar/sidebar-panel-header.mjs" },
+    { id: "sidebar-strip", name: "Sidebar Strip", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "modern", tagName: "sidebar-main", file: "browser/components/sidebar/sidebar-main.mjs, class SidebarMain" },
+    { id: "split-button", name: "Split Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "dual", tagName: "button / moz-button", file: "toolkit/content/widgets/button.js, class MozButton (classic, real dropmarker via type=\"menu\") and moz-button.mjs, type=\"split\" (modern). Corrected: earlier cited toolbarbutton.js, which was checked and has no menu/dropmarker rendering branch at all, so was never the real split-button implementation.", parentId: "button" },
+    { id: "spotlight-modal", name: "Spotlight Modal", group: "generic", figma: "yes", supernova: "yes", storybook: "na", kind: "classic", tagName: null, file: "browser/components/asrouter/modules/Spotlight.sys.mjs, plain exported object, not a custom element" },
+    { id: "stepper", name: "Stepper", group: "generic", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/asrouter/content-src/components/MultiStageProtonScreen.jsx, a React render method" },
+    { id: "support-link", name: "Support Link", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "classic", tagName: "moz-support-link", file: "toolkit/content/widgets/moz-support-link/moz-support-link.mjs" },
+    { id: "tab", name: "Tab", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tabbrowser-tab", file: "browser/components/tabbrowser/content/tab.js" },
+    { id: "tab-group", name: "Tab Group", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tab-group", file: "browser/components/tabbrowser/content/tabgroup.js" },
+    { id: "tab-split", name: "Tab Split", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tab-split-view-wrapper", file: "browser/components/tabbrowser/content/tabsplitview.js" },
+    { id: "tabstrip", name: "Tab Strip", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tabbrowser-tabs", file: "browser/components/tabbrowser/content/tabs.js" },
+    { id: "textarea", name: "Textarea", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-textarea", file: "toolkit/content/widgets/moz-textarea/moz-textarea.mjs" },
+    { id: "toggle", name: "Toggle", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-toggle", file: "toolkit/content/widgets/moz-toggle/moz-toggle.mjs" },
+    { id: "toolbar", name: "Toolbar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "navigator-toolbox.js wiring, no dedicated class" },
+    { id: "toolbar-button", name: "Toolbar Button", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "toolbarbutton", file: "toolkit/content/widgets/toolbarbutton.js" },
+    { id: "toolbox", name: "Toolbox", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "browser/base/content/navigator-toolbox.js" },
+    { id: "urlbar", name: "URL Bar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "moz-urlbar", file: "browser/components/urlbar/content/UrlbarInput.mjs, tag predates the moz-* convention" },
+    { id: "urlbar-action", name: "URL Bar Action", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/urlbar/content/UrlbarView.mjs, plain markup" },
+    { id: "urlbar-identity", name: "URL Bar Identity", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/base/content/browser-siteIdentity.js, gIdentityHandler singleton" },
+    { id: "urlbar-result", name: "URL Bar Result", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "UrlbarView.mjs, plain div rows" },
+    { id: "visual-picker", name: "Visual Picker", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-visual-picker", file: "toolkit/content/widgets/moz-visual-picker/moz-visual-picker.mjs" },
+    { id: "visual-picker-item", name: "Visual Picker Item", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-visual-picker-item", file: "same file, class MozVisualPickerItem", parentId: "visual-picker" },
+  ];
+
+  // "missing" (no real Firefox equivalent) has no entry here on purpose:
+  // it's not an implementation kind like the others, it's the absence of
+  // one, so it gets no badge, just the file column's own citation text.
+  const KIND_LABEL = { modern: "moz-*", classic: "classic", none: "pattern", dual: "moz-* + classic" };
+  const KIND_DEFINITION = {
+    modern: "A real, modern Lit-based custom element, the current convention for new widgets (customElements.define, extends MozLitElement).",
+    classic: "A real, shipping implementation that predates the moz-* convention, an old XUL binding or similar (still often has a real tagName, just not the newer pattern).",
+    none: "Real page structure with no dedicated class behind it, no customElements.define, nothing to document as a component API.",
+    dual: "Both a modern moz-* version and an old classic version exist and ship at the same time, neither has replaced the other yet.",
+  };
+  function kindBadge(kind) {
+    return KIND_LABEL[kind] ? `<span class="classif ${kind}">${KIND_LABEL[kind]}</span>` : "";
+  }
+  // A sub-item (parentId set) is a real part of its parent's own
+  // implementation, not a separate thing that happens to have no class of
+  // its own -- Panel Separator IS part of Panel, the same way Panel Item
+  // is. Badging it "pattern" on its own implied it had nothing to do with
+  // Panel at all, which reads as wrong once it's shown nested under Panel
+  // everywhere else. Walk up to the real parent's kind for display; a
+  // sub-item's OWN kind is still what's used to decide whether it belongs
+  // in the Components vs Patterns nav section in the first place (see
+  // buildNav), this only changes what badge gets shown once placed.
+  function effectiveKind(d) {
+    if (!d || !d.parentId) return d ? d.kind : undefined;
+    const parent = DATA.find(p => p.id === d.parentId);
+    return parent ? effectiveKind(parent) : d.kind;
+  }
+  // Shared symbol logic behind both the home table's cells (checkCell,
+  // wrapped in <td>) and the per-component page's inline coverage line
+  // (checkInline, wrapped in <span>) -- one place for the yes/no/na/nested
+  // rules so the two views can't drift apart on what a badge means.
+  function checkSymbol(v, parentName, kind) {
+    if (v === "yes") return { cls: "yes", text: "&check;" };
+    if (v === "no") return { cls: "no", text: "&cross;" };
+    if (v === "na") {
+      // "na" (storybook only) means "not a reusable widget class" -- always
+      // say what it actually IS instead of leaving that unstated, so the
+      // reader isn't left to guess whether that's a classic implementation,
+      // a plain pattern with no class at all, etc.
+      const kindLabel = KIND_LABEL[kind];
+      const suffix = kindLabel ? ` (${escapeHtml(kindLabel)})` : "";
+      return { cls: "na", text: `n/a${suffix}`, title: "Not a reusable widget class, a story/doc was never going to apply here regardless of effort" };
+    }
+    if (v === "nested" && parentName) return { cls: "unknown", text: `in: ${escapeHtml(parentName)}` };
+    return { cls: "unknown", text: escapeHtml(v) };
+  }
+
+  function checkCell(v, parentName, kind) {
+    const s = checkSymbol(v, parentName, kind);
+    const titleAttr = s.title ? ` title="${escapeHtml(s.title)}"` : "";
+    return `<td class="check ${s.cls}"${titleAttr}>${s.text}</td>`;
+  }
+
+  function checkInline(v, parentName, kind) {
+    const s = checkSymbol(v, parentName, kind);
+    const titleAttr = s.title ? ` title="${escapeHtml(s.title)}"` : "";
+    return `<span class="check ${s.cls}"${titleAttr}>${s.text}</span>`;
+  }
+
+  function renderLegend() {
+    const rows = Object.keys(KIND_LABEL).map(k =>
+      `<tr><td><span class="classif ${k}">${KIND_LABEL[k]}</span></td><td>${KIND_DEFINITION[k]}</td></tr>`
+    ).join("");
+    return `<table class="legend-table"><tbody>${rows}</tbody></table>`;
+  }
+
+  function renderHomeTables() {
+    const groups = [
+      { key: "generic", title: "Generic widgets and controls" },
+      { key: "chrome", title: "Browser chrome and structural pieces" },
+    ];
+    let html = renderLegend();
+    groups.forEach(g => {
+      html += `<h3 class="table-group">${g.title}</h3><table><thead><tr><th>Component</th><th>Figma</th><th>Supernova</th><th>Storybook</th><th>Real Firefox code</th></tr></thead><tbody>`;
+      const items = DATA.filter(d => d.group === g.key);
+      const topLevel = items.filter(d => !d.parentId);
+      topLevel.forEach(d => {
+        html += renderRow(d, false);
+        items.filter(c => c.parentId === d.id).forEach(c => {
+          html += renderRow(c, true, d.name);
+        });
+      });
+      html += `</tbody></table>`;
+    });
+    document.getElementById("home-tables").innerHTML = html;
+  }
+
+  function renderRow(d, indented, parentName) {
+    const rowClass = (d.supernova === "no") ? ' class="gap"' : "";
+    // <code> like every other identifier on this page: a row's name IS the
+    // component, the same kind of thing as the tag and file path beside it,
+    // not prose about it.
+    const name = `<code>${escapeHtml(d.name)}</code>`;
+    const nameCell = indented ? `<td style="padding-left: 28px;">&#8618; ${name}</td>` : `<td>${name}</td>`;
+    return `<tr${rowClass}>${nameCell}` +
+      checkCell(d.figma, parentName) +
+      checkCell(d.supernova, parentName) +
+      checkCell(d.storybook, parentName, effectiveKind(d)) +
+      `<td>${kindBadge(effectiveKind(d))} ${linkifyFilePaths(d.file)}</td>` +
+      `</tr>`;
+  }
+
+  function renderGenericView(d) {
+    document.getElementById("generic-title").innerHTML = `${escapeHtml(d.name)} ${kindBadge(effectiveKind(d))}`;
+    document.getElementById("generic-meta").textContent = d.tagName ? `<${d.tagName}>` : "(no custom element tag)";
+    const rows = [
+      ["Figma", d.figma],
+      ["Supernova documented", d.supernova],
+      ["Storybook", d.storybook],
+      ["Tag name", d.tagName || "none, not a registered custom element"],
+      ["Source file", d.file],
+    ];
+    document.getElementById("generic-body").innerHTML = rows.map(([k, v]) => `<tr><td>${escapeHtml(k)}</td><td>${escapeHtml(v)}</td></tr>`).join("");
+    document.getElementById("generic-note").textContent = "Not written up in full yet, classification and source only. Panel, moz-button, and navigator-toolbox on the left have the complete format this will eventually match for every item.";
+  }
+
+  function buildNav() {
+    const nav = document.getElementById("nav-scroll");
+    // One unified section, not a Components/Patterns split: every entry in
+    // this inventory is a real, citable Figma component (even Toolbar and
+    // Toolbox, kind "none", which just have no dedicated Firefox class
+    // behind them) -- the per-item kind badge already tells that story on
+    // each item's own page, so a separate "is this a pattern" nav bucket
+    // was redundant with a system that now labels the real distinction
+    // directly. effectiveKind() (defined above, next to kindBadge) still
+    // matters here: it keeps a whole parent/child family (e.g. Panel
+    // Separator under Panel) grouped and ordered together.
+    const groups = [
+      { title: "Components", match: () => true },
+    ];
+    groups.forEach(g => {
+      const h2 = document.createElement("h2");
+      h2.textContent = g.title;
+      // buildTokenNav() inserts the whole Tokens section immediately above
+      // this header, so it needs a stable handle on it that isn't the
+      // header's own visible text.
+      h2.dataset.navSection = "components";
+      nav.appendChild(h2);
+      const groupItems = DATA.filter(g.match);
+      // Sub-items (parentId set, e.g. Panel Item -> Panel) nest under their
+      // real parent instead of listing flat at the same level, matching how
+      // most docs sites show a chevron next to a section that has pages
+      // buried inside it. Since effectiveKind() above already keeps every
+      // parent/child family in the same group, every item with a parentId
+      // has its real parent present in this same groupItems set.
+      const topLevel = groupItems.filter(d => !d.parentId);
+      topLevel.forEach(d => {
+        const children = groupItems.filter(c => c.parentId === d.id);
+        appendNavItem(node => nav.appendChild(node), { id: d.id, name: d.name },
+          children.map(c => ({ id: c.id, name: c.name })));
+      });
+    });
+  }
+
+  // The one place a nav entry gets built, shared by the Components section
+  // above and the Tokens section below (buildTokenNav). Both need the exact
+  // same chevron/collapsed-children behaviour, and both are read by the
+  // same two consumers -- expandNavTo() (via data-parent-id) and the filter
+  // box (via the H2 / A / .nav-parent-row shapes it walks) -- so a second
+  // copy of this could only drift out of agreement with them.
+  //
+  // `place` rather than a plain parent element because the two callers
+  // insert differently: Components appends to the end of the nav, Tokens
+  // has to land above the Components header that already exists by then.
+  function appendNavItem(place, parent, children) {
+    if (!children.length) {
+      const a = document.createElement("a");
+      a.textContent = parent.name;
+      wireNavLink(a, parent.id);
+      place(a);
+      return;
+    }
+    const row = document.createElement("div");
+    row.className = "nav-parent-row";
+    const a = document.createElement("a");
+    a.textContent = parent.name;
+    wireNavLink(a, parent.id);
+    const chevron = document.createElement("button");
+    chevron.className = "nav-chevron";
+    chevron.type = "button";
+    chevron.setAttribute("aria-label", `Toggle ${parent.name} sub-items`);
+    chevron.innerHTML = `<svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    row.appendChild(a);
+    row.appendChild(chevron);
+    place(row);
+
+    const childWrap = document.createElement("div");
+    childWrap.className = "nav-children";
+    children.forEach(c => {
+      const ca = document.createElement("a");
+      ca.textContent = c.name;
+      wireNavLink(ca, c.id);
+      childWrap.appendChild(ca);
+    });
+    // Land-on-a-child-directly (deep link, or clicking a row inside the
+    // home tables) should reveal it rather than leave it collapsed and
+    // invisible; expandNavTo (below) calls this for the active id.
+    childWrap.dataset.parentId = parent.id;
+    place(childWrap);
+
+    function setExpanded(expanded) {
+      row.classList.toggle("expanded", expanded);
+      childWrap.classList.toggle("expanded", expanded);
+    }
+    chevron.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setExpanded(!childWrap.classList.contains("expanded"));
+    });
+  }
+
+  // The TOKENS section: one entry per real base/ token family, each with
+  // that family's own token groups nested underneath (Color -> gray, red,
+  // ...; Border -> color, radius). A family whose file has no groups at all
+  // (Space) gets a plain link, exactly like a component with no sub-items.
+  //
+  // Async, unlike buildNav(), because the family list and its groups are
+  // read from the real token files rather than declared here -- so this
+  // lands in the nav a moment after first paint, and inserts itself above
+  // the Components header that buildNav() has already written.
+  async function buildTokenNav() {
+    const families = await loadBaseFamilies();
+    if (!families.length) return;
+    const nav = document.getElementById("nav-scroll");
+    const anchor = nav.querySelector('h2[data-nav-section="components"]');
+    const place = node => (anchor ? nav.insertBefore(node, anchor) : nav.appendChild(node));
+
+    const h2 = document.createElement("h2");
+    h2.textContent = "Tokens";
+    h2.dataset.navSection = "tokens";
+    place(h2);
+    families.forEach(f => {
+      appendNavItem(place, { id: `tokens/${f.stem}`, name: f.title },
+        f.groups.map(g => ({ id: `tokens/${f.stem}/${g}`, name: g })));
+    });
+
+    // show() already ran (and found no token links to mark) before these
+    // existed; re-apply against the current URL so a hard refresh of
+    // /tokens/color/gray still arrives with its own link highlighted and
+    // its parent expanded.
+    highlightNav(pathToId(location.pathname));
+  }
+
+  // Called from show() so a direct link to a nested id (e.g. /panel-item)
+  // always arrives with its parent's chevron already open, not collapsed
+  // and technically present but invisible.
+  function expandNavTo(id) {
+    let parentId = null;
+    if (isTokenId(id)) {
+      // tokens/color/gray sits under tokens/color; tokens/color itself is
+      // already a top-level entry with nothing to expand.
+      const parts = id.split("/");
+      if (parts.length === 3) parentId = `${parts[0]}/${parts[1]}`;
+    } else {
+      const d = DATA.find(x => x.id === id);
+      parentId = d ? d.parentId : null;
+    }
+    if (!parentId) return;
+    const childWrap = document.querySelector(`.nav-children[data-parent-id="${parentId}"]`);
+    if (!childWrap) return;
+    childWrap.classList.add("expanded");
+    const row = childWrap.previousElementSibling;
+    if (row && row.classList.contains("nav-parent-row")) row.classList.add("expanded");
+  }
+
+  // Hand-written sections, if any ever get added back. Empty for now.
+  const richIds = new Set([]);
+  // Every real component in the inventory now loads live from
+  // component-api/ (all 57 have a file, confirmed) plus guidance-api/
+  // and token-api/ when those exist for a given id (most don't yet, those
+  // sections just don't render, same as any other optional section).
+  const dynamicIds = new Set(DATA.map(d => d.id));
+
+  // ── Token API loading + alias resolution ──────────────────────────────
+  // Some real descriptions contain literal HTML (e.g. "details" mentions
+  // <details>/<summary>); escape every data-sourced value before interpolating.
+  function escapeHtml(value) {
+    if (value === null || value === undefined) return "";
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  // Wraps inline code mentioned in prose (tags, attrs, filenames, etc.) in
+  // <code>. Order matters: earlier patterns win a span first.
+  const CODE_SPAN_RE = new RegExp([
+    "`[^`]+`",                                        // `already-marked` code span
+    "<\\/?[A-Za-z][\\w-]*(?:\\s+[\\w-]+(?:=\"[^\"]*\")?)*\\s*\\/?>", // <tag>, </tag>, <tag attr="x">
+    "\\b[A-Za-z][\\w-]*=\"[^\"]*\"",                  // bare attr="value", not inside a tag above
+    "\\b[\\w.-]+\\.(?:mjs|jsx?|json|xhtml|html|css|py|sh)\\b", // a/file/path.ext
+    "\\b[A-Za-z_$][\\w]*\\(\\)",                      // functionCall()
+    "\\.[a-z][a-z0-9]*(?:-[a-z0-9]+)+\\b",            // .css-class-name (hyphenated, so a plain sentence-ending period never matches)
+  ].join("|"), "g");
+
+  function formatProse(value) {
+    if (value === null || value === undefined) return "";
+    const str = String(value);
+    let out = "";
+    let lastIndex = 0;
+    str.replace(CODE_SPAN_RE, (match, offset) => {
+      out += escapeHtml(str.slice(lastIndex, offset));
+      const inner = (match.startsWith("`") && match.endsWith("`")) ? match.slice(1, -1) : match;
+      out += `<code>${escapeHtml(inner)}</code>`;
+      lastIndex = offset + match.length;
+      return match;
+    });
+    out += escapeHtml(str.slice(lastIndex));
+    return out;
+  }
+
+  // Small, purpose-built markdown renderer covering what the three real
+  // READMEs actually use: headers, bold, inline code, fenced code, lists,
+  // links, tables, paragraphs.
+  function inlineMd(text) {
+    let out = escapeHtml(text);
+    out = out.replace(/`([^`]+)`/g, (m, code) => `<code>${code}</code>`);
+    out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, label, url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`);
+    out = out.replace(/\*\*([^*]+)\*\*/g, (m, b) => `<strong>${b}</strong>`);
+    return out;
+  }
+
+  // A pipe can be escaped (\|) to mean a literal pipe inside a cell, not a
+  // column separator (real case: component-api/README.md's own "string \|
+  // null" cell). Split on an un-escaped pipe only, then unescape each cell.
+  function splitTableRow(line) {
+    const trimmed = line.trim().replace(/^\|/, "").replace(/\|$/, "");
+    return trimmed.split(/(?<!\\)\|/).map(c => c.trim().replace(/\\\|/g, "|"));
+  }
+
+  const TABLE_SEPARATOR_RE = /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$/;
+
+  function renderMarkdown(md) {
+    const lines = md.split("\n");
+    let html = "";
+    let inCode = false;
+    let codeLines = [];
+    let listType = null;
+    let paraLines = [];
+    let tableRows = null;
+
+    const flushPara = () => {
+      if (paraLines.length) { html += `<p>${inlineMd(paraLines.join(" "))}</p>`; paraLines = []; }
+    };
+    const closeList = () => { if (listType) { html += `</${listType}>`; listType = null; } };
+    const flushTable = () => {
+      if (!tableRows || !tableRows.length) { tableRows = null; return; }
+      const [header, ...body] = tableRows;
+      html += `<table class="md-table"><thead><tr>${header.map(c => `<th>${inlineMd(c)}</th>`).join("")}</tr></thead><tbody>`;
+      body.forEach(row => { html += `<tr>${row.map(c => `<td>${inlineMd(c)}</td>`).join("")}</tr>`; });
+      html += `</tbody></table>`;
+      tableRows = null;
+    };
+
+    for (const line of lines) {
+      if (line.trim().startsWith("```")) {
+        flushTable();
+        if (!inCode) { flushPara(); closeList(); inCode = true; codeLines = []; }
+        else { inCode = false; html += `<pre><code>${escapeHtml(codeLines.join("\n"))}</code></pre>`; }
+        continue;
+      }
+      if (inCode) { codeLines.push(line); continue; }
+
+      // A GFM-style table: a row of |-separated cells, immediately
+      // followed by a |---|---| separator row, then zero or more data rows.
+      // The separator row itself is consumed, not rendered as a data row.
+      if (/^\s*\|.*\|\s*$/.test(line)) {
+        if (tableRows === null) {
+          flushPara(); closeList();
+          tableRows = [splitTableRow(line)];
+        } else if (tableRows.length === 1 && TABLE_SEPARATOR_RE.test(line)) {
+          // separator row, skip
+        } else {
+          tableRows.push(splitTableRow(line));
+        }
+        continue;
+      }
+      flushTable();
+
+      const h = line.match(/^(#{1,6})\s+(.*)$/);
+      if (h) {
+        flushPara(); closeList();
+        // Map the README's own h1/h2 onto this page's existing section
+        // heading style instead of introducing a second native <h1>, which
+        // would visually clash with this view's own top-of-page <h1>.
+        const tag = h[1].length === 1 ? "h2" : "h3";
+        const cls = h[1].length === 1 ? ' class="section"' : "";
+        html += `<${tag}${cls}>${inlineMd(h[2])}</${tag}>`;
+        continue;
+      }
+
+      const ul = line.match(/^\s*[-*]\s+(.*)$/);
+      const ol = line.match(/^\s*\d+\.\s+(.*)$/);
+      if (ul) {
+        flushPara();
+        if (listType !== "ul") { closeList(); html += "<ul>"; listType = "ul"; }
+        html += `<li>${inlineMd(ul[1])}</li>`;
+        continue;
+      }
+      if (ol) {
+        flushPara();
+        if (listType !== "ol") { closeList(); html += "<ol>"; listType = "ol"; }
+        html += `<li>${inlineMd(ol[1])}</li>`;
+        continue;
+      }
+      if (line.trim() === "") { flushPara(); closeList(); continue; }
+      paraLines.push(line.trim());
+    }
+    flushTable();
+    flushPara();
+    closeList();
+    return html;
+  }
+
+  // One doc per real README, cached after first fetch. Paths are relative
+  // and resolve against <base href> (see the note on it in <head>), which
+  // is what keeps them pointed at the site root rather than at whatever
+  // routed path the reader happens to be on.
+  const DOC_FILES = {
+    "doc-component-api": { title: "Component API", file: "component-api/README.md", schema: "component-api/schema.json" },
+    "doc-guidance-api": { title: "Guidance API", file: "guidance-api/README.md", schema: "guidance-api/schema.json" },
+    "doc-token-api": { title: "Token API", file: "token-api/README.md", schema: "token-api/schema.json" },
+  };
+  const docHtmlCache = {};
+
+  // /tokens/<family> and /tokens/<family>/<group>, the two real shapes a
+  // token page URL takes.
+  const TOKEN_PATH_RE = /^tokens\/[^/]+(?:\/[^/]+)?$/;
+  function isTokenId(id) { return TOKEN_PATH_RE.test(id); }
+
+  // Real path-based URLs, not a #hash: /button, /docs/token-api, home at /.
+  // A hash would work with zero server changes, but a real path looks
+  // right in the address bar AND survives a hard refresh or a pasted link
+  // only if the server falls back to index.html for any path that isn't a
+  // real file, which serve.sh now does (see its own comment for why).
+  // Where this site's root actually is, read from the one <base href> in
+  // <head> rather than assumed to be "/": on GitHub Pages a project site
+  // lives at /<repo>/, so every path this router builds or reads has to be
+  // relative to that, not to the domain root. Always ends in a slash.
+  const SITE_BASE = (() => {
+    const el = document.querySelector("base");
+    const href = el ? el.getAttribute("href") : "/";
+    const path = new URL(href, location.origin).pathname;
+    return path.endsWith("/") ? path : path + "/";
+  })();
+
+  function idToPath(id) {
+    if (id === "home") return SITE_BASE;
+    if (DOC_FILES[id]) return SITE_BASE + "docs/" + id.replace(/^doc-/, "");
+    // A token id IS its path (tokens/color, tokens/color/gray) -- the only
+    // ids with a slash in them, which is also what keeps them from ever
+    // colliding with a component id.
+    return SITE_BASE + id;
+  }
+
+  function pathToId(pathname) {
+    // Strip the site root before reading the route out of the path, or
+    // every id would come back prefixed with the repo name on Pages.
+    const withoutBase = pathname.startsWith(SITE_BASE) ? pathname.slice(SITE_BASE.length) : pathname;
+    const clean = withoutBase.replace(/^\/|\/$/g, "");
+    if (clean === "" || clean === "index.html") return "home";
+    const docMatch = clean.match(/^docs\/(.+)$/);
+    if (docMatch) {
+      const candidate = "doc-" + docMatch[1];
+      if (DOC_FILES[candidate]) return candidate;
+    }
+    // Structural, not checked against the real family list: that list only
+    // exists after sync-manifest.json has been fetched, and this runs
+    // synchronously on first paint. loadTokenPage() below is where an id
+    // naming a family that doesn't exist gets reported, the same way an
+    // unfetchable component page reports itself.
+    if (TOKEN_PATH_RE.test(clean)) return clean;
+    if (dynamicIds.has(clean) || richIds.has(clean) || DATA.some(d => d.id === clean)) return clean;
+    // /button/usage and friends. Checked after the plain-id cases so a real
+    // component id is never mistaken for a section of something else.
+    if (componentSectionOf(clean)) return clean;
+    return "home";
+  }
+
+  async function loadDocPage(id) {
+    const doc = DOC_FILES[id];
+    document.getElementById("doc-title").textContent = doc.title;
+    if (docHtmlCache[id]) {
+      document.getElementById("doc-body").innerHTML = docHtmlCache[id];
+      return;
+    }
+    document.getElementById("doc-body").innerHTML = "";
+    try {
+      const res = await fetch(doc.file);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const md = await res.text();
+      // The README's own top-level "# Title" line is real and needed for
+      // anyone reading the raw file (on GitHub, in an editor), but this
+      // page already shows an <h1> with the same title, so re-rendering it
+      // as an h2 right below would just repeat it. Strip only that one
+      // leading line, not any other heading.
+      const withoutTitle = md.replace(/^#[^#\n][^\n]*\n+/, "");
+      let html = renderMarkdown(withoutTitle);
+      html += await loadSchemaBlock(doc.schema);
+      docHtmlCache[id] = html;
+      document.getElementById("doc-body").innerHTML = html;
+    } catch (e) {
+      document.getElementById("doc-body").innerHTML = `<p class="meta">Could not load ${escapeHtml(doc.file)} (${escapeHtml(e.message)}).</p>`;
+    }
+  }
+
+  // The README's own prose mentions schema.json exists; this actually shows
+  // it, fetched and pretty-printed live, same "loaded live, not copy-pasted"
+  // rule as the README fetch right above. Collapsed by default since it's
+  // long and most readers want the prose first, not the raw schema.
+  async function loadSchemaBlock(schemaPath) {
+    if (!schemaPath) return "";
+    try {
+      const res = await fetch(schemaPath);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      const pretty = JSON.stringify(json, null, 2);
+      return `<h2 class="section">schema.json</h2>
+        <details class="schema-details">
+          <summary>View the real, live <code>${escapeHtml(schemaPath)}</code></summary>
+          <pre><code>${escapeHtml(pretty)}</code></pre>
+        </details>`;
+    } catch (e) {
+      return `<h2 class="section">schema.json</h2><p class="meta">Could not load ${escapeHtml(schemaPath)} (${escapeHtml(e.message)}).</p>`;
+    }
+  }
+
+  // Links a real repo-relative path mentioned in a file citation to that
+  // file on mozilla-central. A dual-kind citation can mention two files;
+  // each gets linked independently.
+  const FILE_PATH_RE = /\b[\w.-]+(?:\/[\w.-]+)+\.(?:mjs|jsx?|json|xhtml)\b/g;
+  const GITHUB_BLOB_BASE = "https://github.com/mozilla-firefox/firefox/blob/main/";
+
+  function linkifyFilePaths(value) {
+    if (value === null || value === undefined) return "";
+    const str = String(value);
+    let out = "";
+    let lastIndex = 0;
+    str.replace(FILE_PATH_RE, (match, offset) => {
+      out += escapeHtml(str.slice(lastIndex, offset));
+      const url = GITHUB_BLOB_BASE + match;
+      out += `<a class="file-link mono" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(match)}</a>`;
+      lastIndex = offset + match.length;
+      return match;
+    });
+    out += escapeHtml(str.slice(lastIndex));
+    return out;
+  }
+
+  // A token leaf is any node with a $value key. Base tokens keep their own
+  // group name as the path root ("space.large"); component tokens get
+  // prefixed with their filename stem, matching how real aliases reference them.
+  function flattenTokens(node, pathParts, out) {
+    if (node && typeof node === "object" && "$value" in node) {
+      out[pathParts.join(".")] = node;
+      return;
+    }
+    if (node && typeof node === "object") {
+      Object.keys(node).forEach(key => flattenTokens(node[key], [...pathParts, key], out));
+    }
+  }
+
+  // ── Which theme's value a token is showing ────────────────────────────
+  // These tokens carry their own light and dark values: a token's real
+  // $extensions["org.mozilla.themes"] holds { light, dark } (or the same
+  // pair nested under "brand"), and $value is the light one. So the
+  // toggle at the top right does not just restyle this page, it picks
+  // which of a token's real values every Value cell, alias hop and preview
+  // on it is showing. Nothing here invents a dark value: a token with no
+  // dark variant declared shows its one real value in both themes.
+  //
+  // The other keys in that extension (forcedColors, prefersContrast,
+  // nativeTheme, platform, nova) are real too, but they answer a different
+  // question than "light or dark" and none of them is what this toggle
+  // switches, so they are left alone rather than folded in here.
+  function activeTokenTheme() {
+    return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+  }
+
+  // Picks the light or dark branch out of one theme object.
+  function pickThemeBranch(themes, want) {
+    if (!themes || typeof themes !== "object") return undefined;
+    // A string or number is a real value; "brand" and "platform" are
+    // nested objects holding their own light/dark pair one level down.
+    const direct = themes[want];
+    if (typeof direct === "string" || typeof direct === "number") return direct;
+    const brand = themes.brand;
+    if (brand && (typeof brand[want] === "string" || typeof brand[want] === "number")) return brand[want];
+    return undefined;
+  }
+
+  function themedValue(token, theme) {
+    if (!token) return undefined;
+    const themes = token.$extensions && token.$extensions["org.mozilla.themes"];
+    if (!themes) return token.$value;
+    const want = theme || activeTokenTheme();
+
+    // A token that declares its own "nova" branch has a real Nova value that
+    // is NOT its $value: $value is the Proton-era one sync.py picked as the
+    // most typical (see pick_default), and the nova branch is what actually
+    // replaces it. text.color.@base is the clearest case: its $value is
+    // {color.gray.100}, a Proton grey, while its real Nova value is
+    // {color.violet-desaturated.90} light / {color.violet-desaturated.0}
+    // dark. Nova is the truth this whole page is written against, so the
+    // nova branch wins wherever a token has one. 38 tokens do.
+    // Its shape is {comment?, value} where value is either a plain literal
+    // or another theme object with its own light/dark inside.
+    const nova = themes.nova;
+    if (nova && nova.value !== undefined) {
+      const inner = nova.value;
+      if (typeof inner === "string" || typeof inner === "number") return inner;
+      const branch = pickThemeBranch(inner, want);
+      if (branch !== undefined) return branch;
+      // A nova branch that carries no light/dark of its own (only
+      // forcedColors, say) still overrides, via its own default.
+      if (typeof inner === "object" && typeof inner.default === "string") return inner.default;
+    }
+
+    const branch = pickThemeBranch(themes, want);
+    if (branch !== undefined) return branch;
+    return token.$value;
+  }
+
+  // Published data, not logic buried here: token-api/id-map.json alone
+  // tells an outside reader which real basename(s) an id maps to.
+  let idMapPromise = null;
+  async function loadIdMap() {
+    if (idMapPromise) return idMapPromise;
+    idMapPromise = fetch("token-api/id-map.json").then(r => r.json()).catch(() => ({ foundational: [], map: {} }));
+    return idMapPromise;
+  }
+
+  // Baked once by token-api/figma-check.py (see that script's docstring and
+  // token-api/README.md's "Figma existence check" section for exactly how
+  // "yes"/"no" are decided), not a live Figma call: index.html is a static
+  // page with no server-side code, so this has to be
+  // a build-time lookup file, the same reason id-map.json and
+  // sync-manifest.json are files instead of inline logic. Cached across
+  // every component page visit for the same reason loadBaseTokenLookup() is.
+  let figmaTokenMapPromise = null;
+  async function loadFigmaTokenMap() {
+    if (figmaTokenMapPromise) return figmaTokenMapPromise;
+    figmaTokenMapPromise = fetch("token-api/figma-token-map.json")
+      .then(r => r.json())
+      .then(data => data.properties || {})
+      .catch(() => ({}));
+    return figmaTokenMapPromise;
+  }
+
+  // Every token file this page reads, fetched at most once per session and
+  // shared by both readers of them: loadBaseTokenLookup() (which flattens
+  // them into one merged alias-resolution lookup) and loadBaseFamilies()
+  // (which keeps them apart, one family at a time, for the Tokens pages).
+  // Without this the two would fetch the same 13 base files twice over,
+  // and serve.sh deliberately sends no-store so the browser wouldn't
+  // collapse the duplicates either.
+  const tokenJsonCache = {};
+  async function fetchTokenJson(relPath) {
+    if (!(relPath in tokenJsonCache)) {
+      tokenJsonCache[relPath] = fetch(`token-api/${relPath}`)
+        .then(r => (r.ok ? r.json() : null))
+        .catch(() => null);
+    }
+    return tokenJsonCache[relPath];
+  }
+
+  // "base/border.nova.tokens.json" -> "border". A nova sibling flattens
+  // under its NON-nova stem so its entries land on the exact same keys the
+  // plain file wrote and can overwrite them (see loadBaseTokenLookup's
+  // two-phase comment, and loadBaseFamilies below, for why that matters).
+  function baseStem(relPath) {
+    return relPath.split("/").pop().replace(/\.tokens\.json$/, "").replace(/\.nova$/, "");
+  }
+
+  // ── Base token families: the TOKENS nav section and its pages ─────────
+  // One family per real base/ file (color, space, border, ...). Which files
+  // exist comes from sync-manifest.json, the same published manifest
+  // loadBaseTokenLookup() reads, so a base file added upstream by sync.py
+  // shows up in the nav on its own with no edit to this page.
+  //
+  // components/ is deliberately excluded: a component's tokens are already
+  // rendered in full on that component's own page, and giving them a second
+  // home under a parallel Tokens tree would be one fact with two places to
+  // disagree. The two foundational component files (button, icon, see
+  // id-map.json) stay excluded for the same reason -- Button's page owns
+  // them -- even though loadBaseTokenLookup() does load them for alias
+  // resolution.
+  let baseFamiliesPromise = null;
+  async function loadBaseFamilies() {
+    if (baseFamiliesPromise) return baseFamiliesPromise;
+    baseFamiliesPromise = (async () => {
+      let manifest;
+      try {
+        const res = await fetch("token-api/sync-manifest.json");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        manifest = await res.json();
+      } catch (e) {
+        return [];
+      }
+      const stems = [...new Set(manifest.files_converted
+        .filter(f => f.startsWith("base/"))
+        .map(baseStem))].sort();
+      return Promise.all(stems.map(async stem => {
+        // The same nova-wins merge loadBaseTokenLookup() does, but kept
+        // per-family and strictly ordered for the same reason: the plain
+        // file and its nova sibling write the SAME keys, so awaiting them
+        // one after the other is what makes "nova always wins" a rule
+        // rather than a race between two fetches.
+        const flat = {};
+        const base = await fetchTokenJson(`base/${stem}.tokens.json`);
+        if (base) flattenTokens(base, [stem], flat);
+        const nova = await fetchTokenJson(`base/${stem}.nova.tokens.json`);
+        if (nova) flattenTokens(nova, [stem], flat);
+
+        // A group is a real nested object in the source file, not just any
+        // path segment: space.tokens.json's top level is seven bare tokens,
+        // so Space genuinely has no groups (and gets a plain nav link with
+        // no chevron) rather than seven one-token ones. box-shadow has
+        // both -- four bare level-N tokens AND a real color group -- so a
+        // family keeps its loose tokens and its groups side by side.
+        const groups = [];
+        const loose = [];
+        Object.keys(flat).forEach(path => {
+          const rest = path.slice(stem.length + 1);
+          if (!rest.includes(".")) { loose.push(path); return; }
+          const group = rest.split(".")[0];
+          if (!groups.includes(group)) groups.push(group);
+        });
+        // Source order, never alphabetized: the real files order a color
+        // ramp gray/red/orange/... and its steps 0/05/10/.../100, both of
+        // which sorting would scramble into something actively misleading
+        // ("100" before "15"). Object key order here is the file's own.
+        return { stem, title: titleizeStem(stem), flat, groups, loose };
+      }));
+    })();
+    return baseFamiliesPromise;
+  }
+
+  // "box-shadow" -> "Box Shadow". The nav shows a family under a real title
+  // while every id, path and token row keeps the file's own real stem.
+  function titleizeStem(stem) {
+    return stem.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+  }
+
+  // Which family a flattened path belongs to: "color.gray.50" -> "gray",
+  // "space.large" -> null (a loose top-level token, not in any group).
+  function tokenGroupOf(stem, path) {
+    const rest = path.slice(stem.length + 1);
+    return rest.includes(".") ? rest.split(".")[0] : null;
+  }
+
+  // JSON.parse does not preserve a file's own key order for integer-like
+  // keys: color.tokens.json really does list gray as 0, 05, 10, ... 100,
+  // but every JS engine re-orders those to 0, 10, ... 100, 05 (integer-like
+  // keys first in numeric order, everything else after). Sorting a ramp
+  // numerically on its last segment restores the file's real order rather
+  // than imposing a new one; a group whose steps aren't all numeric
+  // (color.white -> @base, alpha) is left exactly as it arrived, since
+  // there the arrival order IS the file's order.
+  function orderTokenPaths(paths) {
+    const step = path => path.split(".").pop();
+    if (!paths.every(path => /^\d+$/.test(step(path)))) return paths;
+    return [...paths].sort((a, b) => Number(step(a)) - Number(step(b)));
+  }
+
+  function groupAnchorId(stem, group) {
+    return `token-group-${stem}-${group}`;
+  }
+
+  // Substitutes EVERY {alias} inside a value, including ones embedded in a
+  // longer string. resolveAlias() above deliberately only handles a value
+  // that is entirely one alias, which is the right rule for the Value
+  // column (it has a real alias chain to show, hop by hop). A preview needs
+  // something different: a composite like box-shadow.level-1's
+  // "0 0 1px {box-shadow.color.darker.layer-1}, 0 1px 2px {...}" is not an
+  // alias, it's real CSS with real aliases inside it, and nothing can be
+  // drawn from it until those are filled in. Used only to build a preview's
+  // inline style, never to print a value.
+  function substituteAliases(value, lookup, depth) {
+    if (typeof value !== "string" || !value.includes("{") || (depth || 0) > 12) return value;
+    const next = value.replace(/\{([^}]+)\}/g, (whole, path) => {
+      const target = lookup[path];
+      const inner = themedValue(target);
+      return inner !== undefined ? String(inner) : whole;
+    });
+    // Nothing left to resolve, or nothing resolvable: stop rather than
+    // spin through the remaining depth on a value that can't improve.
+    if (next === value) return value;
+    return substituteAliases(next, lookup, (depth || 0) + 1);
+  }
+
+  // Values that are real and correct but have nothing to draw: "unset" and
+  // "none" are the absence of the thing, and "center"/"cover" name a
+  // behaviour rather than an appearance.
+  const UNPREVIEWABLE = /^(unset|none|inherit|initial|revert|auto|center|cover|contain|currentcolor)$/i;
+  // A border/outline shorthand only previews as a border if it actually
+  // carries a line style -- without this, border.width's bare "1px" would
+  // satisfy CSS.supports("border", ...) and draw a styleless, invisible box.
+  const BORDER_STYLE = /\b(solid|dashed|dotted|double|groove|ridge|inset|outset)\b/;
+
+  // The token's own resolved value applied to whatever it really controls.
+  // Ordered most-specific-first: several of these tests would accept a
+  // value the one below it also accepts (a radius IS a valid width; a
+  // shadow IS a valid... nothing else, but a border shorthand is), so the
+  // first match has to be the most specific reading, not merely a legal one.
+  // `path` is the token path when there is one, and otherwise the CSS
+  // custom property name -- both spell out the same words (radius, shadow,
+  // weight), which is all this uses them for.
+  function tokenPreview(path, token, lookup) {
+    const raw = themedValue(token);
+    if (raw === undefined) return "";
+    const value = substituteAliases(String(raw), lookup, 0);
+    // A leftover {alias} means the real value is genuinely unknown here
+    // (see loadComponentTokens's KNOWN GAP) -- drawing a preview from the
+    // half-substituted string would be inventing one.
+    if (!value || value.includes("{") || UNPREVIEWABLE.test(value.trim())) return "";
+    const ok = (prop, v) => window.CSS && CSS.supports(prop, v);
+    const sample = (cls, style) =>
+      `<span class="preview ${cls}" style="${escapeHtml(style)}" title="${escapeHtml(value)}"></span>`;
+
+    if (/shadow/.test(path) && ok("box-shadow", value)) return sample("preview-shadow", `box-shadow: ${value}`);
+    if (/radius/.test(path) && ok("border-radius", value)) return sample("preview-box", `border-radius: ${value}`);
+    if (BORDER_STYLE.test(value) && ok("border", value)) return sample("preview-border", `border: ${value}`);
+    if ((token.$type === "fontWeight" || /weight/.test(path)) && ok("font-weight", value)) {
+      return `<span class="preview preview-type" style="font-weight: ${escapeHtml(value)}" title="${escapeHtml(value)}">Aa</span>`;
+    }
+    if (/font/.test(path) && /size/.test(path) && ok("font-size", value)) {
+      // Capped: font.size tops out around 2rem here, but a component page's
+      // table sits beside 4 other columns and a 32px sample would set the
+      // row height for every plain swatch next to it.
+      return `<span class="preview preview-type" style="font-size: min(${escapeHtml(value)}, 26px)" title="${escapeHtml(value)}">Aa</span>`;
+    }
+    if (/opacity/.test(path) && ok("opacity", value)) return sample("preview-box", `opacity: ${value}`);
+    if (token.$type === "color" || ok("color", value)) {
+      return `<span class="preview preview-swatch" title="${escapeHtml(value)}">` +
+        `<span class="preview-fill" style="background: ${escapeHtml(value)}"></span></span>`;
+    }
+    if (ok("width", value)) {
+      // min() against the track rather than a hard px cap: these are read
+      // against each other, and clamping only the few that would overflow
+      // keeps every smaller bar's length honest.
+      return `<span class="preview-bar-track"><span class="preview preview-bar" ` +
+        `style="width: min(${escapeHtml(value)}, 100%)" title="${escapeHtml(value)}"></span></span>`;
+    }
+    return "";
+  }
+
+  function previewCell(path, token, lookup) {
+    return `<td class="preview-col">${tokenPreview(path || "", token, lookup)}</td>`;
+  }
+
+  // Same three identifier colours as a component page's Design tokens
+  // table (Token pink, Value orange, CSS custom property blue, all from
+  // .attrs-table), minus its "In Figma" column -- see the
+  // .base-tokens-table CSS comment for why that column can't be answered
+  // here rather than being answered with a shrug.
+  function renderBaseTokenTable(paths, flat, lookup) {
+    const trs = paths.map(path =>
+      `<tr><td><code>${escapeHtml(path)}</code></td>` +
+      `<td class="value-col">${formatResolvedValue(flat[path], lookup)}</td>` +
+      previewCell(path, flat[path], lookup) +
+      `<td class="css-prop-col"><code>${escapeHtml(deriveCssVarName(path))}</code></td></tr>`
+    ).join("");
+    return `<table class="attrs-table base-tokens-table"><thead><tr><th>Token</th><th>Value</th>` +
+      `<th>Preview</th><th>CSS custom property</th></tr></thead><tbody>${trs}</tbody></table>`;
+  }
+
+  // One page per family, cached after the first render: switching between
+  // two groups of the same family is a scroll, not a re-fetch and re-render
+  // of the same 163 color tokens.
+  const tokenPageCache = {};
+
+  async function loadTokenPage(id, opts) {
+    const inPlace = !!(opts && opts.inPlace);
+    const [, stem, group] = id.split("/");
+    const titleEl = document.getElementById("tokens-title");
+    const metaEl = document.getElementById("tokens-meta");
+    const bodyEl = document.getElementById("tokens-body");
+    const noteEl = document.getElementById("tokens-note");
+    titleEl.textContent = "Loading...";
+    metaEl.textContent = "";
+    bodyEl.innerHTML = "";
+    noteEl.textContent = "";
+
+    const families = await loadBaseFamilies();
+    const family = families.find(f => f.stem === stem);
+    if (!family) {
+      titleEl.textContent = "No such token family";
+      metaEl.textContent = "";
+      bodyEl.innerHTML = `<p class="stub-note">token-api/sync-manifest.json lists no ` +
+        `<code>base/${escapeHtml(stem)}.tokens.json</code>. The real families are: ` +
+        `${families.map(f => escapeHtml(f.stem)).join(", ") || "none, sync-manifest.json could not be read"}.</p>`;
+      return;
+    }
+
+    titleEl.textContent = family.title;
+    // Counted from the real files, not asserted: "the toggle does nothing on
+    // this page" and "these tokens have no dark value" look identical
+    // otherwise, and for Colour, Space, Size, Font and Focus the second one
+    // is the true answer.
+    const paths = Object.keys(family.flat);
+    const withDark = paths.filter(path =>
+      themedValue(family.flat[path], "light") !== themedValue(family.flat[path], "dark")).length;
+    const themeLine = withDark === 0
+      ? ` None of this family's ${paths.length} tokens declares its own dark value, so every row below reads the same in both themes; the semantic families (Background, Border, Text) are where the toggle changes what you see.`
+      : ` ${withDark} of this family's ${paths.length} tokens declare their own dark value; the rest have one real value and read the same in both themes.`;
+    metaEl.textContent = `Real Firefox base tokens, loaded live from token-api/base/${family.stem}` +
+      `.tokens.json, merged with its .nova sibling where one exists (Nova wins, the same rule every ` +
+      `component page's Design tokens table follows). Alias values are resolved against the whole ` +
+      `base token set, each hop shown, and taken from this page's current theme: these tokens carry their ` +
+      `own real light and dark values, so the toggle at the top right picks which one every row below is ` +
+      `showing (a token with no dark value declared shows its one value in both). The preview applies that ` +
+      `resolved value to a sample of whatever the ` +
+      `token really controls. The CSS custom property column is derived from the token's own ` +
+      `path by the same rule the component pages use. Component-level tokens are not listed here: they ` +
+      `belong to one component and are rendered on that component's own page.` + themeLine;
+
+    if (!tokenPageCache[stem]) {
+      const lookup = await loadBaseTokenLookup();
+      let html = "";
+      // Loose top-level tokens first, under no heading of their own: the
+      // Token column already spells out each full path, so a heading
+      // repeating the family name above them would say nothing new.
+      if (family.loose.length) html += renderBaseTokenTable(orderTokenPaths(family.loose), family.flat, lookup);
+      family.groups.forEach(g => {
+        const paths = orderTokenPaths(Object.keys(family.flat).filter(path => tokenGroupOf(stem, path) === g));
+        html += `<h2 class="section" id="${groupAnchorId(stem, g)}">${escapeHtml(g)}</h2>`;
+        html += renderBaseTokenTable(paths, family.flat, lookup);
+      });
+      tokenPageCache[stem] = html;
+    }
+    bodyEl.innerHTML = tokenPageCache[stem];
+    // Each group heading already has a real URL (/tokens/<family>/<group>);
+    // this makes the heading itself that link.
+    decorateSections(bodyEl, slug => `tokens/${stem}/${slug}`);
+
+    const files = [`token-api/base/${family.stem}.tokens.json`];
+    if (await fetchTokenJson(`base/${family.stem}.nova.tokens.json`)) {
+      files.push(`token-api/base/${family.stem}.nova.tokens.json`);
+    }
+    noteEl.textContent = `Source: ${files.join(", ")}`;
+
+    if (inPlace) {
+      // Re-rendered the page the reader is already reading. Jumping to the
+      // group anchor, or to the top, would both throw away their place.
+    } else if (group) {
+      const section = document.getElementById(groupAnchorId(stem, group));
+      if (section) {
+        section.scrollIntoView({ block: "start" });
+      } else {
+        // A real URL naming a group this family doesn't have -- say so
+        // instead of silently showing the whole family as if nothing was
+        // asked for.
+        bodyEl.insertAdjacentHTML("afterbegin",
+          `<p class="stub-note">${escapeHtml(family.title)} has no <code>${escapeHtml(group)}</code> ` +
+          `group. Showing the whole family.</p>`);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  let baseTokenLookupPromise = null;
+  // Cached across every component page visit in one session, base tokens
+  // don't change per-component and re-fetching 16 files on every click
+  // would be wasteful.
+  async function loadBaseTokenLookup() {
+    if (baseTokenLookupPromise) return baseTokenLookupPromise;
+    baseTokenLookupPromise = (async () => {
+      const lookup = {};
+      try {
+        const res = await fetch("token-api/sync-manifest.json");
+        const manifest = await res.json();
+        // button.tokens.json and icon.tokens.json live in components/, not
+        // base/, but real mozilla-central treats them as de-facto
+        // foundational (referenced by many unrelated components), so
+        // they're loaded unconditionally here too.
+        const idMap = await loadIdMap();
+        const baseFiles = manifest.files_converted.filter(f => f.startsWith("base/") && !f.includes(".nova."));
+        const novaBaseFiles = manifest.files_converted.filter(f => f.startsWith("base/") && f.includes(".nova."));
+        const extraFoundational = idMap.foundational.map(name => `components/${name}.tokens.json`);
+        // ...and their nova siblings, which phase 2 below layers on exactly
+        // like a base file's. Without these the shared lookup held Proton
+        // values for button.* and icon.*, so anything resolving through them
+        // showed Proton: icon.color.information is {color.blue.60} in
+        // icon.tokens.json and {color.violet.50} in icon.nova.tokens.json,
+        // which is why Message Bar's icon colour read blue.
+        const extraFoundationalNova = idMap.foundational.map(name => `components/${name}.nova.tokens.json`);
+
+        async function loadInto(relPath) {
+          try {
+            const json = await fetchTokenJson(relPath);
+            if (!json) return;
+            // A base file's own top level is NOT wrapped in a group key
+            // matching its filename (space.tokens.json's top level is
+            // {xxsmall, ..., large, ...}, not {space: {...}}), but every
+            // alias elsewhere references it as "{space.large}". So the
+            // group prefix has to come from the filename stem, exactly
+            // the same rule already applied to component files below. A
+            // nova sibling (border.nova.tokens.json) is flattened under its
+            // NON-nova stem ("border", stripping ".nova"), same convention
+            // as component-level nova files, so its entries land on the
+            // exact same keys and can overwrite them in phase 2 below.
+            const stem = baseStem(relPath);
+            flattenTokens(json, [stem], lookup);
+          } catch (e) { /* skip a file that fails to fetch, resolution just stays partial */ }
+        }
+
+        // Two strict phases, not one flat Promise.all: nova genuinely wins
+        // over base (border.radius.xlarge is "0" in border.tokens.json but
+        // "24px" in the real border.nova.tokens.json, confirmed against
+        // Firefox's own compiled CSS), but nova and its own non-nova sibling
+        // write the SAME keys, so combining both sets in one concurrent
+        // batch would leave the outcome to whichever fetch happened to
+        // resolve last, not "nova always wins". Phase 2 runs only after
+        // phase 1 fully completes, so it always overwrites, deterministically.
+        await Promise.all([...baseFiles, ...extraFoundational].map(loadInto));
+        await Promise.all([...novaBaseFiles, ...extraFoundationalNova].map(loadInto));
+      } catch (e) { /* no manifest, no base lookup, aliases just won't resolve */ }
+      return lookup;
+    })();
+    return baseTokenLookupPromise;
+  }
+
+  // Walks a {group.path} alias chain to its final literal value. Guards
+  // against runaway chains (a real cap, not expected to ever trigger on
+  // real data) rather than looping forever on an accidental cycle.
+  function resolveAlias(value, lookup, depth, theme) {
+    if (depth > 12 || typeof value !== "string") return { value, chain: [] };
+    const m = value.match(/^\{([^}]+)\}$/);
+    if (!m) return { value, chain: [] };
+    const path = m[1];
+    const target = lookup[path];
+    if (!target) return { value: `${value} (unresolved)`, chain: [] };
+    // themedValue, not $value: a chain like border.color.@base ->
+    // color.gray.50 has to take the dark branch at EVERY hop, not just the
+    // first, or the last hop quietly hands back a light value.
+    const inner = resolveAlias(themedValue(target, theme), lookup, depth + 1, theme);
+    return { value: inner.value, chain: [path, ...inner.chain] };
+  }
+
+  // Firefox's real token filenames don't reliably match this wiki's own
+  // component ids (its own file/tag naming predates ours, e.g. "info-bar"
+  // vs our "infobar", "toolbarbutton" vs our "toolbar-button"), and some ids
+  // genuinely pull from more than one real file at once. panel-item is the
+  // clearest case: its CSS consumes both --panel-menuitem-* (shared layout,
+  // from the central design-system tree) and --panel-item-* (its own
+  // badge/button extras, colocated next to panel-list.mjs), confirmed by
+  // grepping which component's CSS actually references each file's
+  // generated custom properties, not guessed from filename similarity.
+  // The real mapping lives in token-api/id-map.json, not hardcoded here, so
+  // it's published data an outside agent can read on its own (see
+  // loadIdMap). Ids not in that map fall back to trying `${id}.tokens.json`
+  // directly, in case a future sync adds a file that happens to match the
+  // wiki's own id.
+
+  // Namespace prefix used to flatten a file must be the file's OWN real
+  // basename, never our wiki id: real cross-references inside these files
+  // (e.g. tab.tokens.json aliasing "{tab.outline.color}", or the colocated
+  // panel-item.tokens.json aliasing "{panel-menuitem.padding.inline}" into
+  // the OTHER real file it shares a component with) only resolve if the
+  // lookup key matches Firefox's own naming, not whatever id this wiki
+  // happens to call the component.
+  async function loadTokenFile(basename, lookup, suffix) {
+    try {
+      const res = await fetch(`token-api/components/${basename}${suffix}.tokens.json`);
+      if (!res.ok) return null;
+      const data = await res.json();
+      const flat = {};
+      flattenTokens(data, [basename], flat);
+      promoteInlineNova(flat, basename);
+      Object.assign(lookup, flat);
+      // Firefox's own files refer to a moz-* component by its UNPREFIXED
+      // name: moz-message-bar.tokens.json contains
+      // "oklch(from {message-bar.icon.color} l c h / 20%)", and
+      // moz-toggle.tokens.json aliases {toggle.dot.height}. That is the same
+      // convention deriveCssVarName already follows for --var names
+      // (moz-select -> --select-*). Registering a second set of lookup keys
+      // under the bare name is what lets those resolve instead of reporting
+      // "(unresolved)". Lookup only, never merged into `flat`, so the
+      // displayed token path stays the file's own real name.
+      if (basename.startsWith("moz-")) {
+        const bare = basename.slice(4);
+        const alias = {};
+        flattenTokens(data, [bare], alias);
+        promoteInlineNova(alias, bare);
+        Object.assign(lookup, alias);
+      }
+      return flat;
+    } catch (e) { return null; }
+  }
+
+  // input/moz-select/panel-item/panel-list nest Nova overrides under a
+  // literal "nova" key inside the base file instead of a sibling
+  // .nova.tokens.json. Promote onto the real path so it wins like any
+  // other Nova value, instead of showing up as a second, unmerged row.
+  function promoteInlineNova(flat, basename) {
+    const prefix = `${basename}.nova.`;
+    Object.keys(flat).filter(k => k.startsWith(prefix)).forEach(k => {
+      flat[basename + "." + k.slice(prefix.length)] = flat[k];
+      delete flat[k];
+    });
+  }
+
+  // A map entry's basenames are "own" (displayed) or "resolve" (lookup
+  // only, e.g. button aliases into toolbarbutton but Toolbar Button has
+  // its own page). An "own" entry can also filter one shared file by exact
+  // path segment: onlySegment for a subset (Icon Button's icon.* inside
+  // button.tokens.json), excludeSegments for the complement (Tab excludes
+  // group.* so Tab Group can own it). Segment match, not position, since
+  // the real Acorn taxonomy doesn't require every level in every name.
+  // KNOWN GAP: no fully general cross-component alias resolution -- a ref
+  // into a file not otherwise loaded on this page shows "(unresolved)".
+  async function loadComponentTokens(id, lookup, suffix) {
+    const idMap = await loadIdMap();
+    const entry = idMap.map[id] || [id];
+    const ownEntries = Array.isArray(entry) ? entry : entry.own;
+    const resolveBasenames = Array.isArray(entry) ? [] : (entry.resolve || []);
+    let combined = null;
+    const ownBasenames = [];
+    for (const ownEntry of ownEntries) {
+      const basename = typeof ownEntry === "string" ? ownEntry : ownEntry.basename;
+      const onlySegment = typeof ownEntry === "string" ? null : ownEntry.onlySegment;
+      const excludeSegments = typeof ownEntry === "string" ? null : ownEntry.excludeSegments;
+      ownBasenames.push(basename);
+      const flat = await loadTokenFile(basename, lookup, suffix);
+      if (!flat) continue;
+      let toDisplay = flat;
+      if (onlySegment) {
+        toDisplay = Object.fromEntries(Object.entries(toDisplay).filter(([path]) => path.split(".").includes(onlySegment)));
+      }
+      if (excludeSegments) {
+        toDisplay = Object.fromEntries(Object.entries(toDisplay).filter(([path]) => !excludeSegments.some(s => path.split(".").includes(s))));
+      }
+      combined = Object.assign(combined || {}, toDisplay);
+    }
+    for (const basename of resolveBasenames) {
+      await loadTokenFile(basename, lookup, suffix);
+    }
+    return { flat: combined, basenames: ownBasenames };
+  }
+
+  // `flat` is just this component's own tokens (what to list as rows);
+  // `resolveLookup` is the full merged base+component lookup (what to
+  // resolve {alias} references against) -- a component's own token very
+  // often points at a base token like {space.large}, which only exists in
+  // the merged lookup, not in `flat` alone.
+  const ALIAS_PATTERN = /^\{([^}]+)\}$/;
+
+  // E.g. "urlbar.background.color.@base" -> "--urlbar-background-color".
+  // A "moz-" basename drops that prefix too (moz-select -> --select-*,
+  // moz-box -> --box-*, verified against real component CSS).
+  function deriveCssVarName(path) {
+    const segs = path.split(".");
+    const first = segs[0].startsWith("moz-") ? segs[0].slice(4) : segs[0];
+    const rest = segs.slice(1).filter(s => s !== "@base");
+    return `--${first}-${rest.join("-")}`;
+  }
+
+  // Nova ships in about a month and is treated as the only real truth
+  // throughout this table (see loadComponentPage), so a value doesn't get
+  // an editorial note explaining that it's "an override": there's nothing
+  // left to contrast it against once Nova is just the answer.
+  function formatResolvedValue(t, lookup) {
+    const raw = themedValue(t);
+    if (typeof raw === "string" && ALIAS_PATTERN.test(raw)) {
+      const resolved = resolveAlias(raw, lookup, 0);
+      if (!resolved.chain.length) return `<code>${escapeHtml(resolved.value)}</code>`;
+      // Same &#8618; hooked-arrow used for a nested sub-component under its
+      // parent on the home table, one per line, since an alias chain is the
+      // same shape: each hop is a real step down to the next real token,
+      // not one flat "via A, B, C" list.
+      const hops = resolved.chain.map(hop => `<div class="alias-chain-hop">&#8618; <code class="token-id">${escapeHtml(hop)}</code></div>`).join("");
+      return `<code>${escapeHtml(resolved.value)}</code><div class="alias-chain">${hops}</div>`;
+    }
+    return `<code>${escapeHtml(raw)}</code>`;
+  }
+
+
+  // One row per distinct custom property name, joined by deriveCssVarName
+  // across a documented cssProperty and/or a real token.
+  function buildCssPropertyRows(cssProperties, effectiveTokens) {
+    const rows = new Map();
+    (cssProperties || []).forEach(c => {
+      rows.set(c.name, { name: c.name, tokenPath: null, default: c.default || null });
+    });
+    Object.keys(effectiveTokens || {}).forEach(path => {
+      const varName = deriveCssVarName(path);
+      if (!rows.has(varName)) rows.set(varName, { name: varName, tokenPath: null, default: null });
+      rows.get(varName).tokenPath = path;
+    });
+    return [...rows.values()].sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  // "In Figma" cell: looks up this row's own CSS custom property name in
+  // the figma-token-map (keyed by that exact name, see loadFigmaTokenMap
+  // and token-api/figma-check.py). Reuses the SAME .check/.yes/.no/.unknown
+  // classes and &check;/&cross; glyphs the home coverage table already uses
+  // for Figma/Supernova/Storybook (see checkSymbol/checkCell above), so
+  // "confirmed in Figma" reads as visually the same kind of fact here as it
+  // does there, instead of introducing a second, different-looking
+  // yes/no vocabulary for the same concept. A strict two-state check, not
+  // three: figma-check.py only ever emits "yes" (an exact or reordered
+  // word-tuple match against a real Figma variable name) or "no" (anything
+  // else, including a one-word-off near miss -- deliberately NOT treated as
+  // "close enough," see that script's own docstring for why a near miss
+  // stays a real "no" rather than a hedge). .unknown/amber "?" is reserved
+  // for a name genuinely absent from the map (it failed to load, or was
+  // generated before this property existed), a "not checked" state, not a
+  // third answer to "does this exist in Figma."
+  function figmaCheckCell(name, figmaMap) {
+    // Note: escapeHtml() only escapes &, <, > (see its own definition), not
+    // a literal " -- every title string built here has to avoid embedding
+    // a double quote itself (a backtick-quoted Figma variable name instead
+    // of a double-quoted one), or it would silently truncate this
+    // attribute at the first embedded quote instead of erroring loudly.
+    const entry = figmaMap[name];
+    if (!entry) {
+      return `<td class="check unknown" title="Not checked against the Figma token map">?</td>`;
+    }
+    if (entry.status === "yes") {
+      const title = entry.matchType === "reordered"
+        ? `Matches Figma variable \`${entry.matchedPath}\` (same taxonomy words, different order)`
+        : `Matches Figma variable \`${entry.matchedPath}\``;
+      return `<td class="check yes" title="${escapeHtml(title)}">&check;</td>`;
+    }
+    const title = entry.matchType === "near-miss"
+      ? `No matching variable in the Nova Styles (Experimental) Figma file (closest is \`${entry.matchedPath}\`, but that's a different name, not a match)`
+      : "No matching variable found in the Nova Styles (Experimental) Figma file";
+    return `<td class="check no" title="${escapeHtml(title)}">&cross;</td>`;
+  }
+
+  // effectiveTokens is already the Nova-wins merge, so a token's value here
+  // needs no separate "override" column. A property with no token but a
+  // real CEM "default" (its literal CSS-set value) shows that instead of a
+  // blank Value cell.
+  function renderCssPropertyTable(rows, effectiveTokens, resolveLookup, figmaMap) {
+    const trs = rows.map(r => {
+      const tokenCell = r.tokenPath ? `<code>${escapeHtml(r.tokenPath)}</code>` : `<span class="meta">not a design token</span>`;
+      const valueCell = r.tokenPath ? formatResolvedValue(effectiveTokens[r.tokenPath], resolveLookup)
+        : r.default ? `<code>${escapeHtml(r.default)}</code>` : "";
+      // A row with no token but a real CEM default still has a real value
+      // to draw, so it previews off that; its own --var name stands in for
+      // the token path this row doesn't have (both spell out the same
+      // words a preview reads, see tokenPreview).
+      const previewToken = r.tokenPath ? effectiveTokens[r.tokenPath] : (r.default ? { $value: r.default } : null);
+      return `<tr><td>${tokenCell}</td><td class="value-col">${valueCell}</td>` +
+        previewCell(r.tokenPath || r.name, previewToken, resolveLookup) +
+        `<td class="css-prop-col"><code>${escapeHtml(r.name)}</code></td>${figmaCheckCell(r.name, figmaMap)}</tr>`;
+    }).join("");
+    return `<table class="attrs-table tokens-table"><thead><tr><th>Token</th><th>Value</th><th>Preview</th><th>CSS custom property</th><th>In Figma</th></tr></thead><tbody>${trs}</tbody></table>`;
+  }
+
+  // "Attributes and properties" -> "attributes-and-properties",
+  // "Do's and don'ts" -> "dos-and-donts". Apostrophes are dropped rather
+  // than turned into separators, so the slug reads as the words do.
+  function sectionSlug(text) {
+    return String(text).toLowerCase()
+      .replace(/['\u2019]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  // Gives every rendered section on a component page an id and makes its
+  // heading a link to itself. Done here, once, against the rendered DOM
+  // rather than in each of the eleven template strings that build those
+  // headings: a section added later gets an anchor without anyone
+  // remembering to add one, and the slug can't drift from the text.
+  // `routeFor` maps a heading's slug to the id of the route that lands on
+  // it, which differs per view: a component section is "<component>/<slug>"
+  // while a token group is "tokens/<family>/<slug>". An id already on the
+  // heading is left alone, since the token page sets its own (and scrolls
+  // to it) before this runs.
+  function decorateSections(container, routeFor) {
+    container.querySelectorAll("h2.section").forEach(h2 => {
+      const label = h2.textContent;
+      const slug = sectionSlug(label);
+      if (!slug) return;
+      if (!h2.id) h2.id = slug;
+      const a = document.createElement("a");
+      a.className = "section-anchor";
+      a.textContent = label;
+      // wireNavLink gives it a real href plus this page's own SPA click
+      // handling, so it behaves like every other link in the nav.
+      wireNavLink(a, routeFor(slug));
+      h2.textContent = "";
+      h2.appendChild(a);
+    });
+  }
+
+  // "button/usage" -> {id: "button", section: "usage"}, and null for
+  // anything that isn't one: a plain component id (no slash), a token id
+  // (those own the "tokens/" prefix), or a first segment that names no real
+  // component. Component ids never contain a slash, which is what keeps
+  // these two route shapes from ever being ambiguous.
+  function componentSectionOf(id) {
+    if (isTokenId(id)) return null;
+    const slash = id.indexOf("/");
+    if (slash < 0) return null;
+    const base = id.slice(0, slash);
+    const section = id.slice(slash + 1);
+    if (!section || section.includes("/") || !dynamicIds.has(base)) return null;
+    return { id: base, section };
+  }
+
+  // Parses the Component API (required) and Guidance API (optional,
+  // most components don't have one yet) JSON for one id and renders the
+  // same section shape the hand-written pages use (Description, Attributes,
+  // Slots, Events, Methods, CSS custom properties, Design tokens,
+  // Do's and don'ts, Variants, Usage), skipping any section whose data is
+  // absent rather than showing an empty header.
+  async function loadComponentPage(id, opts) {
+    const inPlace = !!(opts && opts.inPlace);
+    const section = opts && opts.section;
+    document.getElementById("dyn-title").textContent = "Loading...";
+    document.getElementById("dyn-meta").textContent = "";
+    document.getElementById("dyn-body").innerHTML = "";
+    document.getElementById("dyn-note").textContent = "";
+
+    let api;
+    try {
+      const res = await fetch(`component-api/${id}.json`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      api = await res.json();
+    } catch (err) {
+      document.getElementById("dyn-title").textContent = "Failed to load";
+      document.getElementById("dyn-body").innerHTML =
+        `<p class="stub-note">Could not fetch component-api/${id}.json (${err.message}). ` +
+        `This page must be served over http (for example "python3 -m http.server" from ` +
+        `inside acorn-contracts/), fetch() of local JSON generally does not work when the ` +
+        `file is opened directly via file://.</p>`;
+      return;
+    }
+
+    let guidance = null;
+    try {
+      const gRes = await fetch(`guidance-api/${id}.json`);
+      if (gRes.ok) guidance = await gRes.json();
+    } catch (err) { /* no guidance file yet for this id, that's expected for most */ }
+
+    // Design tokens: most components don't have a matching token-api file
+    // (only ones that are also a real design-system component in Firefox's
+    // own token source do), skip silently when there's no match rather
+    // than treating it as an error the way a missing Component API file is.
+    //
+    // Nova is a real, currently-shipping pref-gated override layer, not a
+    // hypothetical alternate universe worth showing side by side with a
+    // value it has already superseded. Where a nova entry exists for a
+    // token, it wins, merged into ONE effective set (nova assigned on top
+    // of base) instead of two parallel tables/columns. The resolve lookup
+    // is that same nova-wins merge, so alias chains resolve against
+    // whichever value is actually true, not the pre-nova one. Each copies
+    // the shared base cache rather than mutating it, so one component's
+    // entries never leak into another's lookup on a later page visit.
+    const baseTokenLookup = { ...(await loadBaseTokenLookup()) };
+    const { flat: componentTokens, basenames } = await loadComponentTokens(id, baseTokenLookup, "");
+    const novaTokenLookup = { ...baseTokenLookup };
+    const { flat: novaTokens } = await loadComponentTokens(id, novaTokenLookup, ".nova");
+    const effectiveTokens = { ...(componentTokens || {}), ...(novaTokens || {}) };
+    const effectiveLookup = novaTokenLookup;
+
+    // Title leads with THIS wiki's own name, not the real tag: several ids
+    // deliberately share one real tag on purpose (split-button and
+    // toolbar-button both really are <toolbarbutton>, split-button is
+    // documented as a usage mode of it, not a separate element) and a
+    // tag-only title made those pages visually indistinguishable at a
+    // glance even though their body content genuinely differs. The shared
+    // tag is still fully visible right below, in the meta line.
+    const d = DATA.find(x => x.id === id) || {};
+    const displayName = d.name || api.id;
+    document.getElementById("dyn-title").innerHTML =
+      `${escapeHtml(displayName)} ${kindBadge(effectiveKind(d))}`;
+    document.getElementById("dyn-meta").innerHTML =
+      `<span class="tag${api.tagName ? " token-id" : ""}">${api.tagName ? "&lt;" + escapeHtml(api.tagName) + "&gt;" : "(no custom element tag)"}</span> &middot; ${linkifyFilePaths(api.implementation.file)}`;
+
+    let html = "";
+    // Same Figma/Supernova/Storybook coverage already shown on the home
+    // table, surfaced right here too so it doesn't take a trip back to the
+    // coverage table to see whether THIS component is actually documented
+    // anywhere real. Uses the exact same DATA row and badge rules.
+    if (d.name) {
+      const parentName = d.parentId ? (DATA.find(p => p.id === d.parentId) || {}).name : null;
+      html += `<p class="meta">Figma ${checkInline(d.figma, parentName)} &nbsp; Supernova ${checkInline(d.supernova, parentName)} &nbsp; Storybook ${checkInline(d.storybook, parentName, effectiveKind(d))}</p>`;
+    }
+    // Plain-language, one sentence, no implementation detail -- the
+    // technical Description below is written for someone reading the real
+    // source; this is written for someone who just wants to know what the
+    // thing is before deciding whether to keep reading.
+    if (api.summary) {
+      html += `<p class="plain-summary">${formatProse(api.summary)}</p>`;
+    }
+    if (api.description) {
+      html += `<h2 class="section">Description</h2><p>${formatProse(api.description)}</p>`;
+    }
+    if (api.usage) {
+      html += `<h2 class="section">Usage</h2><pre><code>${escapeHtml(api.usage)}</code></pre>`;
+    }
+    if (api.attributes && api.attributes.length) {
+      html += `<h2 class="section">Attributes and properties</h2><table class="attrs-table"><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>`;
+      api.attributes.forEach(a => {
+        const def = a.default ? `<code>${escapeHtml(a.default)}</code>` : "";
+        html += `<tr><td>${escapeHtml(a.name)}</td><td><code>${escapeHtml(a.type)}</code></td><td>${def}</td><td>${formatProse(a.description)}</td></tr>`;
+      });
+      html += `</tbody></table>`;
+    }
+    if (api.slots && api.slots.length) {
+      html += `<h2 class="section">Slots</h2><ul>` + api.slots.map(s => `<li><code>${escapeHtml(s.name)}</code> ${formatProse(s.description)}</li>`).join("") + `</ul>`;
+    }
+    if (api.events && api.events.length) {
+      html += `<h2 class="section">Events</h2><ul>` + api.events.map(e => `<li><code>${escapeHtml(e.name)}</code> ${formatProse(e.description)}</li>`).join("") + `</ul>`;
+    }
+    if (api.methods && api.methods.length) {
+      html += `<h2 class="section">Methods</h2><ul>` + api.methods.map(m => `<li><code>${escapeHtml(m.name)}()</code> ${formatProse(m.description)}</li>`).join("") + `</ul>`;
+    }
+    // CSS custom properties and design tokens used to be two separate
+    // sections, on the theory that a documented override hook usually has
+    // no token backing (true for Button: 0 of its 6 hooks match a real
+    // token by name). That theory doesn't hold for every component though
+    // -- Urlbar's 12 documented hooks match a real token 12 for 12, Toolbar
+    // Button 6 for 6, Tab 21 of 36 -- checked directly, not assumed. Where
+    // the overlap is real, two tables just showed the same fact twice under
+    // different headings. One merged table now: a row exists for every
+    // name found in EITHER source (a documented hook, a real token, or
+    // both), cross-referenced by the mechanical naming rule Firefox's own
+    // build uses (a token path's dot-segments, minus its basename and any
+    // literal "@base", dash-joined and prefixed "--" is exactly its
+    // generated custom property name).
+    if ((api.cssProperties && api.cssProperties.length) || Object.keys(effectiveTokens).length) {
+      const rows = buildCssPropertyRows(api.cssProperties, effectiveTokens);
+      const figmaMap = await loadFigmaTokenMap();
+      html += `<h2 class="section">Design tokens</h2>`;
+      if (Object.keys(effectiveTokens).length) {
+        html += `<p class="meta">Real tokens from token-api/components/{${escapeHtml(basenames.join(", "))}}.tokens.json, alias chains resolved against the base token set, cross-referenced against this component's documented CSS custom properties (the generated handle for consuming a token in real CSS, not a separate source of truth). "In Figma" is a build-time check (token-api/figma-check.py) against a direct pull of the real Nova Styles (Experimental) Figma file, not a live query; &check; means an exact name match, &cross; means no match (including a close-but-not-exact one -- this is a strict sync check, not a "probably the same" guess), ? means this property wasn't checked at all, see token-api/README.md.</p>`;
+      }
+      html += renderCssPropertyTable(rows, effectiveTokens, effectiveLookup, figmaMap);
+      const hasAnyToken = rows.some(r => r.tokenPath);
+      if (api.cssProperties && api.cssProperties.length && !hasAnyToken) {
+        html += `<p class="meta">No matching entry in token-api/components/ for this component (checked: ${escapeHtml(basenames.join(", "))}). These CSS custom properties are real, but this component's styling is not wired into Firefox's shared design-token source yet, that is a gap in Firefox itself, not a fetch failure here.</p>`;
+      }
+    }
+    if (api.cssParts && api.cssParts.length) {
+      html += `<h2 class="section">CSS parts</h2><ul>` + api.cssParts.map(p => `<li><code>::part(${escapeHtml(p.name)})</code>${p.description ? " " + formatProse(p.description) : ""}</li>`).join("") + `</ul>`;
+    }
+    if (guidance && ((guidance.dos && guidance.dos.length) || (guidance.donts && guidance.donts.length))) {
+      html += `<h2 class="section">Do's and don'ts</h2><div class="dodont">`;
+      html += `<div class="do"><h3>Do</h3><ul>` + (guidance.dos || []).map(d => `<li>${formatProse(d.text)}</li>`).join("") + `</ul></div>`;
+      html += `<div class="dont"><h3>Don't</h3><ul>` + (guidance.donts || []).map(d => `<li>${formatProse(d.text)}</li>`).join("") + `</ul></div>`;
+      html += `</div>`;
+    }
+    if (api.variants && api.variants.length) {
+      html += `<h2 class="section">Variants</h2><table class="variant-table"><thead><tr><th>Axis</th><th>Values</th></tr></thead><tbody>`;
+      api.variants.forEach(v => { html += `<tr><td>${escapeHtml(v.axis)}</td><td>${escapeHtml(v.values.join(", "))}</td></tr>`; });
+      html += `</tbody></table>`;
+    }
+    const body = document.getElementById("dyn-body");
+    body.innerHTML = html;
+    decorateSections(body, slug => `${id}/${slug}`);
+
+    if (inPlace) {
+      // Re-rendered the page the reader is already reading (theme toggle);
+      // moving them would throw away their place.
+    } else if (section) {
+      const target = document.getElementById(section);
+      if (target) {
+        target.scrollIntoView({ block: "start" });
+      } else {
+        // A real URL naming a section this component doesn't have. Say so
+        // rather than silently showing the top as if nothing was asked for.
+        body.insertAdjacentHTML("afterbegin",
+          `<p class="stub-note">This component has no <code>${escapeHtml(section)}</code> section. ` +
+          `Showing the whole page.</p>`);
+        window.scrollTo(0, 0);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+
+    const src = [`Component API: component-api/${id}.json`];
+    if (guidance) src.push(`Guidance API: guidance-api/${id}.json`);
+    if (componentTokens && Object.keys(componentTokens).length) src.push(`Token API: token-api/components/{${basenames.join(", ")}}.tokens.json`);
+    if (novaTokens && Object.keys(novaTokens).length) src.push(`token-api/components/{${basenames.join(", ")}}.nova.tokens.json`);
+    document.getElementById("dyn-note").textContent =
+      `Loaded live from ${src.join(" and ")}. Not hand-written, this page is a direct render of that data.`;
+  }
+
+  // `opts.inPlace` marks a re-render of the page the reader is already on
+  // (the theme toggle re-resolves every token value, see its handler) as
+  // opposed to a navigation to a different one. The two want opposite
+  // scroll behaviour: a navigation starts at the top, a re-render must not
+  // move at all. Returns the loader's promise where there is one, so a
+  // caller can act once the new content is actually in the DOM.
+  function show(id, opts) {
+    const inPlace = !!(opts && opts.inPlace);
+    document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+    document.querySelectorAll("#nav a").forEach(a => a.classList.remove("active"));
+
+    const compSection = componentSectionOf(id);
+
+    let pending;
+    if (id === "home") {
+      document.getElementById("view-home").classList.add("active");
+    } else if (DOC_FILES[id]) {
+      document.getElementById("view-doc").classList.add("active");
+      pending = loadDocPage(id);
+    } else if (isTokenId(id)) {
+      document.getElementById("view-tokens").classList.add("active");
+      pending = loadTokenPage(id, { inPlace });
+    } else if (compSection) {
+      document.getElementById("view-dynamic").classList.add("active");
+      pending = loadComponentPage(compSection.id, { section: compSection.section, inPlace });
+    } else if (dynamicIds.has(id)) {
+      document.getElementById("view-dynamic").classList.add("active");
+      pending = loadComponentPage(id, { inPlace });
+    } else if (richIds.has(id)) {
+      document.getElementById("view-" + id).classList.add("active");
+    } else {
+      const d = DATA.find(x => x.id === id);
+      if (d) {
+        renderGenericView(d);
+        document.getElementById("view-generic").classList.add("active");
+      } else {
+        document.getElementById("view-home").classList.add("active");
+      }
+    }
+
+    highlightNav(id);
+    return pending;
+  }
+
+  // Split out of show() because the Tokens section of the nav is built
+  // asynchronously and can arrive after show() has already run once.
+  //
+  // Resolves a section route to its component here rather than leaving it
+  // to callers: the nav has an entry per component and none per section, and
+  // buildTokenNav re-highlights from the raw URL when it finishes. With the
+  // mapping only at show()'s call site, that later call passed
+  // "button/usage", matched nothing, and cleared the highlight show() had
+  // just set correctly.
+  function highlightNav(id) {
+    const compSection = componentSectionOf(id);
+    const target = compSection ? compSection.id : id;
+    document.querySelectorAll("#nav a").forEach(a => a.classList.remove("active"));
+    const link = [...document.querySelectorAll("#nav a")].find(a => a.dataset.show === target);
+    if (link) link.classList.add("active");
+    expandNavTo(target);
+  }
+
+  // Real navigation: push a real history entry with a real path (idToPath),
+  // so the address bar shows /button, not just this SPA's internal id, and
+  // back/forward genuinely work. show() itself never touches history, so
+  // the popstate handler below can call it directly without double-pushing.
+  function navigate(id) {
+    const path = idToPath(id);
+    if (location.pathname !== path) history.pushState({ id }, "", path);
+    show(id);
+  }
+
+  // A real click (plain left click, no modifier) does SPA-style in-page
+  // navigation. Anything else, middle-click, ctrl/cmd-click, right-click,
+  // is left completely alone so "open in new tab" and "copy link" keep
+  // working exactly like a normal link, since every nav <a> now has a real
+  // href (see buildNav and the two static links below).
+  function wireNavLink(a, id) {
+    a.href = idToPath(id);
+    a.dataset.show = id;
+    a.addEventListener("click", (e) => {
+      if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      navigate(id);
+    });
+  }
+
+  wireNavLink(document.querySelector('#nav a[data-show="home"]'), "home");
+  Object.keys(DOC_FILES).forEach(id => {
+    wireNavLink(document.querySelector(`#nav a[data-show="${id}"]`), id);
+  });
+
+  window.addEventListener("popstate", () => show(pathToId(location.pathname)));
+
+  // Live filter, not a real search index: substring match against each
+  // link's own visible text. A group's <h2> hides too once every link
+  // under it is hidden, so filtering never leaves an orphaned empty header.
+  document.getElementById("nav-search").addEventListener("input", (e) => {
+    const q = e.target.value.trim().toLowerCase();
+    const matches = text => !q || text.toLowerCase().includes(q);
+    const groups = [];
+    let current = null;
+    [...document.getElementById("nav-scroll").children].forEach(el => {
+      if (el.tagName === "H2") {
+        current = { h2: el, visible: [] };
+        groups.push(current);
+      } else if (el.tagName === "A") {
+        const show = matches(el.textContent);
+        el.classList.toggle("hidden", !show);
+        if (current && show) current.visible.push(el);
+      } else if (el.classList.contains("nav-parent-row")) {
+        const a = el.querySelector("a");
+        const parentMatches = matches(a.textContent);
+        const childWrap = el.nextElementSibling;
+        const children = childWrap ? [...childWrap.querySelectorAll("a")] : [];
+        let anyChildMatches = false;
+        children.forEach(ca => {
+          const show = matches(ca.textContent);
+          ca.classList.toggle("hidden", !show);
+          if (show) anyChildMatches = true;
+        });
+        const rowVisible = parentMatches || anyChildMatches;
+        el.classList.toggle("hidden", !rowVisible);
+        if (childWrap) {
+          // While filtering, auto-reveal children so a match on a nested
+          // item (e.g. searching "separator") isn't hidden behind a
+          // collapsed parent; clearing the box collapses back to closed.
+          childWrap.classList.toggle("hidden", !rowVisible);
+          if (q && anyChildMatches) {
+            childWrap.classList.add("expanded");
+            el.classList.add("expanded");
+          } else if (!q) {
+            childWrap.classList.remove("expanded");
+            el.classList.remove("expanded");
+          }
+        }
+        if (current && rowVisible) current.visible.push(el);
+      }
+    });
+    groups.forEach(g => {
+      g.h2.classList.toggle("hidden", g.visible.length === 0);
+    });
+  });
+
+  // ── Theme toggle ──────────────────────────────────────────────────────
+  // The inline script in <head> has already resolved and applied a theme
+  // before first paint; this only wires the control that changes it.
+  const THEME_KEY = "acorn-theme";
+  const themeToggle = document.getElementById("theme-toggle");
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    themeToggle.setAttribute("aria-checked", theme === "dark" ? "true" : "false");
+    themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+  }
+
+  applyTheme(activeTokenTheme());
+
+  // Every rendered token value on the page was resolved against the theme
+  // that was current when it rendered (see themedValue), so the cached HTML
+  // is stale the moment the theme changes. Drop it and re-render the page
+  // the reader is on, without moving them.
+  function rerenderForTheme() {
+    Object.keys(tokenPageCache).forEach(key => delete tokenPageCache[key]);
+    // Two separate things keep the page still. inPlace stops the render
+    // from scrolling on purpose (see loadTokenPage), and restoring scrollY
+    // afterwards undoes the browser's own clamp: swapping a view's
+    // innerHTML briefly shortens the document, and the scroll position gets
+    // pinned to that shorter page rather than restored when content returns.
+    const y = window.scrollY;
+    Promise.resolve(show(pathToId(location.pathname), { inPlace: true }))
+      .then(() => window.scrollTo(0, y));
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const theme = activeTokenTheme() === "dark" ? "light" : "dark";
+    applyTheme(theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) { /* storage blocked, the choice just won't outlive this page */ }
+    rerenderForTheme();
+  });
+
+  // Only while the reader has made no explicit choice: once they have, a
+  // later OS switch must not silently overrule them.
+  if (window.matchMedia) {
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+      let stored = null;
+      try { stored = localStorage.getItem(THEME_KEY); } catch (err) { /* treated as no choice */ }
+      if (stored === "light" || stored === "dark") return;
+      applyTheme(e.matches ? "dark" : "light");
+      rerenderForTheme();
+    });
+  }
+
+  renderHomeTables();
+  buildNav();
+  show(pathToId(location.pathname));
+  // Not awaited: the Components nav and the current page are already
+  // usable, and the Tokens section fills itself in (and re-highlights)
+  // once the real token files have been read.
+  buildTokenNav();
+</script>
+
+</body>
+</html>

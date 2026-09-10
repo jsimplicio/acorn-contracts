@@ -1,0 +1,18 @@
+{
+  "border": {
+    "radius": {
+      "$value": "{popup.border.radius}",
+      "$type": "dimension"
+    }
+  },
+  "box": {
+    "background": {
+      "color": {
+        "focus": {
+          "$value": "{urlbar.box.background.color.@base}",
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

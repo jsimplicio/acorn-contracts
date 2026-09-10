@@ -1,0 +1,29 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "{background.color.box.info}",
+        "$type": "color"
+      },
+      "vibrant": {
+        "$value": "{color.violet-desaturated.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.violet-desaturated.10}",
+            "dark": "{color.violet-desaturated.70}",
+            "forcedColors": "Canvas"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "vibrant": {
+        "$value": "{promo.border.color.@base}",
+        "$type": "color"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "panel-list-item",
+  "dos": [
+    { "text": "Follow panel-item's own guidance here too, this is the exact same class (PanelItem) and the exact same customElements.define(\"panel-item\", PanelItem) registration, not a separate implementation." },
+    { "text": "Use badge-type instead of manually inserting a <moz-badge>, same as panel-item, it lazily creates and removes the element for you." }
+  ],
+  "donts": [
+    { "text": "Don't go looking for a separate source file or distinct behavior under this name, panel-list.mjs is the only real source for both this id and panel-item." },
+    { "text": "Don't set submenu after the item has already connected, it's a presence flag read once in connectedCallback, not an observed attribute." }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "bookmarks-toolbar",
+  "dos": [
+    { "text": "Instantiate PlacesToolbar directly against the real #PlacesToolbarItems/#PersonalToolbar markup already in the document, it's manually constructed (new PlacesToolbar(...)) by browser-places.js, not something that self-initializes from a custom element." }
+  ],
+  "donts": [
+    { "text": "Don't look elsewhere for drag-and-drop, the overflow chevron, or resize handling, PlacesToolbar (extends PlacesViewBase) is the one real place all of that lives." }
+  ]
+}

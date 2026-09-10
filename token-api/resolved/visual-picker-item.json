@@ -1,0 +1,35 @@
+{
+  "id": "visual-picker-item",
+  "basenames": [
+    "moz-visual-picker-item"
+  ],
+  "tokens": {
+    "moz-visual-picker-item.border.color": {
+      "value": "#a6a4a9",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.@base",
+        "color.gray.35"
+      ]
+    },
+    "moz-visual-picker-item.border.radius.@base": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.medium"
+      ]
+    },
+    "moz-visual-picker-item.border.width.@base": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": [
+        "border.width"
+      ]
+    },
+    "moz-visual-picker-item.border.width.checked": {
+      "value": "calc({border.width} * 3)",
+      "type": "dimension",
+      "chain": []
+    }
+  }
+}

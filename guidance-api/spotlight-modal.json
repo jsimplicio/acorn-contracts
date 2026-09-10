@@ -1,0 +1,11 @@
+{
+  "id": "spotlight-modal",
+  "dos": [
+    { "text": "Check the boolean returned by showSpotlightDialog() before assuming the dialog displayed, it returns false without opening anything when win.gDialogBox.isOpen is already true (the lastWindowClose trigger is the sole exception, which force-replaces/aborts existing dialogs first)." },
+    { "text": "Remember _dialog/_dialogWindow are module-level singleton state, not per-window, so Spotlight.isOpen and the open-check in showSpotlightDialog() apply across all browser windows, not just the one calling it." }
+  ],
+  "donts": [
+    { "text": "Don't call Spotlight.close(window) from a window other than the one that opened the dialog expecting it to close, close() only acts when no window is passed or when window strictly matches the stored _dialogWindow." },
+    { "text": "Don't expect IMPRESSION/DISMISS telemetry to fire when message.content.metrics === \"block\", sendUserEventTelemetry() bails out immediately and dispatchCFRAction becomes a no-op for that message." }
+  ]
+}

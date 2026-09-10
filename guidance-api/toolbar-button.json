@@ -1,0 +1,10 @@
+{
+  "id": "toolbar-button",
+  "dos": [
+    { "text": "Set badged=\"true\" as the literal string, not just an empty boolean attribute, since render() checks getAttribute(\"badged\") == \"true\" verbatim to decide whether to build the badge-stack fragment." },
+    { "text": "Expect a toolbarbutton placed inside an unopened <panel> to stay unrendered until the panel first opens, connectedCallback deliberately skips render() until the panel gets its hasbeenopened attribute, which the shared popupshowing listener sets." }
+  ],
+  "donts": [
+    { "text": "Don't add arbitrary child elements to a non-badged toolbarbutton before it first renders, render() only tolerates observes/template/menupopup/panel/tooltip/box children and returns early on anything else, leaving the icon and label fragment never created." }
+  ]
+}

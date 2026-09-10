@@ -1,0 +1,105 @@
+{
+  "id": "message-bar",
+  "summary": "A banner that shows a message with an icon and optional actions, like a warning or success notice.",
+  "tagName": "moz-message-bar",
+  "description": "A message bar element used to display important information to users, with an icon derived from its type, optional heading, dismiss button, actions, and support link.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs"
+  },
+  "attributes": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "The type of the displayed message, drives the icon shown. Values with dedicated icon/l10n mappings in code: info, warning, success, error, critical (critical uses the same icon/l10n as error and is a legacy alias — Storybook's documented options list only info/warning/success/error, while the Figma Code Connect file also references \"critical\" and \"information\" as design-side type names).",
+      "figmaConfig": true,
+      "default": "info"
+    },
+    {
+      "name": "heading",
+      "type": "string",
+      "description": "The heading of the message.",
+      "figmaConfig": true
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "description": "The message text.",
+      "figmaConfig": true
+    },
+    {
+      "name": "dismissable",
+      "type": "boolean",
+      "description": "Whether the message bar shows a close/dismiss button.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "SUMO support page stub; when set, renders a built-in support link after the message.",
+      "figmaConfig": true
+    },
+    {
+      "name": "messageL10nId",
+      "type": "string",
+      "description": "Fluent l10n ID for the message.",
+      "figmaConfig": false
+    },
+    {
+      "name": "messageL10nArgs",
+      "type": "string",
+      "description": "JSON-stringified args for the message l10n ID.",
+      "figmaConfig": false
+    },
+    {
+      "name": "role",
+      "type": "string",
+      "description": "ARIA role for the message bar, reflected as an attribute. Defaults to \"alert\".",
+      "figmaConfig": false,
+      "default": "alert"
+    }
+  ],
+  "slots": [
+    {
+      "name": "message",
+      "description": "Overrides the message/messageL10nId text content with custom markup (e.g. a message containing an inline link)."
+    },
+    {
+      "name": "actions",
+      "description": "Action buttons (e.g. moz-button elements) shown at the end of the message bar."
+    },
+    {
+      "name": "support-link",
+      "description": "Rendered when supportPage is unset, letting callers supply a custom support link."
+    }
+  ],
+  "events": [
+    {
+      "name": "message-bar:close",
+      "description": "Fired when the message bar is removed from the DOM (disconnectedCallback), regardless of cause."
+    },
+    {
+      "name": "message-bar:user-dismissed",
+      "description": "Fired when the user clicks the dismiss/close button, before the element removes itself; cancelable — calling preventDefault() stops the automatic close()."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "info",
+        "warning",
+        "success",
+        "error"
+      ]
+    }
+  ],
+  "usage": "<moz-message-bar type=\"warning\" heading=\"Heads up\" message=\"Something needs your attention.\" dismissable></moz-message-bar>",
+  "cssParts": [
+    {
+      "name": "support-link",
+      "description": "The optional \"Learn more\"-style support link."
+    }
+  ]
+}

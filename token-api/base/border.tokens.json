@@ -1,0 +1,154 @@
+{
+  "color": {
+    "@base": {
+      "$value": "{color.gray.50}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "brand": {
+            "light": "{color.gray.50}",
+            "dark": "{color.gray.70}"
+          },
+          "prefersContrast": "CanvasText",
+          "platform": {
+            "default": "color-mix(in srgb, currentColor 50%, transparent)"
+          }
+        }
+      },
+      "$type": "color"
+    },
+    "transparent": {
+      "$value": "transparent",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "transparent",
+          "prefersContrast": "CanvasText"
+        }
+      },
+      "$type": "color"
+    },
+    "deemphasized": {
+      "@base": {
+        "$value": "{color.gray.30}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "brand": {
+              "light": "{color.gray.30}",
+              "dark": "{color.gray.70}"
+            },
+            "platform": {
+              "default": "color-mix(in srgb, currentColor 24%, transparent)"
+            },
+            "prefersContrast": "currentColor",
+            "forcedColors": "ButtonText"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "interactive": {
+      "@base": {
+        "$value": "{color.gray.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "prefersContrast": "{text.color.@base}",
+            "forcedColors": "ButtonText",
+            "brand": {
+              "light": "{color.gray.60}",
+              "dark": "{color.gray.50}"
+            },
+            "platform": {
+              "default": "color-mix(in srgb, currentColor 15%, {color.gray.60})"
+            }
+          }
+        },
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "{border.color.interactive.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{border.color.interactive.@base}",
+            "forcedColors": "SelectedItem"
+          }
+        },
+        "$type": "color"
+      },
+      "active": {
+        "$value": "{border.color.interactive.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{border.color.interactive.@base}",
+            "forcedColors": "ButtonText"
+          }
+        },
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "{border.color.interactive.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{border.color.interactive.@base}",
+            "forcedColors": "GrayText"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "selected": {
+      "$value": "{color.accent.primary.@base}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "{color.accent.primary.@base}",
+          "forcedColors": "SelectedItem"
+        }
+      },
+      "$type": "color"
+    },
+    "error": {
+      "$value": "{color.red.70}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "{color.red.70}",
+          "dark": "{color.red.20}",
+          "prefersContrast": "{border.color.@base}"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "radius": {
+    "circle": {
+      "$value": "9999px",
+      "$type": "dimension"
+    },
+    "xsmall": {
+      "$value": "2px",
+      "$type": "dimension"
+    },
+    "small": {
+      "$value": "4px",
+      "$type": "dimension"
+    },
+    "medium": {
+      "$value": "8px",
+      "$type": "dimension"
+    },
+    "large": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "xlarge": {
+      "$value": "0",
+      "$type": "dimension",
+      "$extensions": {
+        "org.mozilla.meta": {
+          "override": true
+        }
+      }
+    }
+  },
+  "width": {
+    "$value": "1px",
+    "$type": "dimension"
+  }
+}

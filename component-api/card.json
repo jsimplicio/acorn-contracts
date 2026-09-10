@@ -1,0 +1,111 @@
+{
+  "id": "card",
+  "summary": "A boxed container used to group related content together, with its own border and padding.",
+  "tagName": "moz-card",
+  "description": "Cards contain content and actions about a single subject. The default type has no extra functionality; the \"accordion\" type initially hides its content behind a collapsed summary and can be expanded/collapsed by the user (or forced open via the expanded attribute).",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-card/moz-card.mjs"
+  },
+  "attributes": [
+    {
+      "name": "heading",
+      "type": "string",
+      "description": "The heading text used for the card.",
+      "figmaConfig": true
+    },
+    {
+      "name": "headingLevel",
+      "type": "number",
+      "description": "Specifies whether the heading renders as h1-h6 instead of a plain span (0/unset = span).",
+      "figmaConfig": true,
+      "default": "0"
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "Path to an optional icon shown next to the heading.",
+      "figmaConfig": true
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "The card type. Default (unset) or \"accordion\".",
+      "figmaConfig": true,
+      "default": "default"
+    },
+    {
+      "name": "spacing",
+      "type": "string",
+      "description": "The spacing level applied to the card. Default or \"compact\" (reduced spacing).",
+      "figmaConfig": true,
+      "default": "default"
+    },
+    {
+      "name": "expanded",
+      "type": "boolean",
+      "description": "For accordion cards, whether the content section is expanded on initial render (and reflects current open/closed state after user toggling).",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "role",
+      "type": "string",
+      "description": "Optional ARIA role for the card's article element.",
+      "figmaConfig": false
+    },
+    {
+      "name": "summaryTabIndex",
+      "type": "number",
+      "description": "Optional tabindex for the accordion summary element.",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "cover-image",
+      "description": "Named slot for an optional cover image shown above the heading/content."
+    },
+    {
+      "name": "(default)",
+      "description": "The card's content. Note: the class JSDoc labels this slot \"content\", but the rendered <slot> in both the default and accordion templates has no name attribute — it is the unnamed/default slot, not a named \"content\" slot."
+    }
+  ],
+  "events": [
+    {
+      "name": "toggle",
+      "description": "Fired (as a ToggleEvent with newState/oldState) when an accordion-type card's expanded state changes via user interaction with the <details> element."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "default",
+        "accordion"
+      ]
+    },
+    {
+      "axis": "spacing",
+      "values": [
+        "default",
+        "compact"
+      ]
+    }
+  ],
+  "usage": "<moz-card type=\"accordion\" heading=\"Section title\">\n  <p>Card content goes here.</p>\n</moz-card>",
+  "cssParts": [
+    {
+      "name": "heading",
+      "description": "The card heading element."
+    },
+    {
+      "name": "moz-card-heading-wrapper",
+      "description": "The heading's wrapping container."
+    },
+    {
+      "name": "summary",
+      "description": "The <summary> element, only present when the card is expandable."
+    }
+  ]
+}

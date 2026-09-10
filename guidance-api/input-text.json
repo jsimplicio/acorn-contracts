@@ -1,0 +1,9 @@
+{
+  "id": "input-text",
+  "dos": [
+    { "text": "Set the value HTML attribute (not just the JS property) before the element connects if you need form-reset to return to a specific default, connectedCallback captures getAttribute(\"value\") || this.value as defaultValue exactly once, at connection time." }
+  ],
+  "donts": [
+    { "text": "Don't set both description and ariaDescription expecting both to apply, inputTemplate() only emits aria-description when hasDescription is false, so a visible description silently wins and your ariaDescription is dropped." }
+  ]
+}

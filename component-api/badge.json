@@ -1,0 +1,48 @@
+{
+  "id": "badge",
+  "summary": "A small colored label used to flag status or a count, like a notification dot or a count bubble.",
+  "tagName": "moz-badge",
+  "description": "A simple badge element that can be used to indicate status or convey simple messages.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-badge/moz-badge.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Text to display on the badge, by default inferred from type (falls back to a fluent id per type when unset).",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "The src for an optional icon shown next to the label.",
+      "figmaConfig": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title of the badge, appears as a tooltip on hover.",
+      "figmaConfig": true
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "The type of badge.",
+      "figmaConfig": true,
+      "default": "default"
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "default",
+        "beta",
+        "new"
+      ]
+    }
+  ],
+  "usage": "<moz-badge label=\"New\" type=\"new\"></moz-badge>"
+}

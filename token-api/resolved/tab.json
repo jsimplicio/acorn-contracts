@@ -1,0 +1,170 @@
+{
+  "id": "tab",
+  "basenames": [
+    "tab"
+  ],
+  "tokens": {
+    "tab.attention.dot.color": {
+      "value": "#11ae84",
+      "type": "color",
+      "chain": [
+        "color.accent.attention",
+        "color.green.40"
+      ]
+    },
+    "tab.background.color.hover": {
+      "value": "color-mix(in srgb, currentColor 17%, transparent)",
+      "type": "color",
+      "chain": [
+        "toolbarbutton.background.color.hover"
+      ]
+    },
+    "tab.background.color.selected": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "tab.border.color.accent": {
+      "value": "linear-gradient(96deg, {tab.border.color.selected.leading} 20.68%, {tab.border.color.selected.trailing} 79.34%)",
+      "type": "color",
+      "chain": []
+    },
+    "tab.border.color.selected.leading": {
+      "value": "#b89cff",
+      "type": "color",
+      "chain": [
+        "color.violet.30"
+      ]
+    },
+    "tab.border.color.selected.trailing": {
+      "value": "#ff9565",
+      "type": "color",
+      "chain": [
+        "color.orange.30"
+      ]
+    },
+    "tab.border.radius": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "toolbarbutton.border.radius",
+        "button.border.radius",
+        "border.radius.xlarge"
+      ]
+    },
+    "tab.box.shadow.selected": {
+      "value": "none",
+      "type": null,
+      "chain": []
+    },
+    "tab.close.button.padding": {
+      "value": "6px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.hover.outline.color": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "tab.icon.end.margin": {
+      "value": "5.5px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.inline.padding": {
+      "value": "8px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.inner.inline.margin": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "chain": [
+        "space.medium"
+      ]
+    },
+    "tab.label.line.height": {
+      "value": 1.7,
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.loading.fill": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    },
+    "tab.margin.block": {
+      "value": "6px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.outline.@base": {
+      "value": "{border.width} solid {tab.outline.color}",
+      "type": null,
+      "chain": []
+    },
+    "tab.outline.color": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "tab.outline.offset": {
+      "value": "-1px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.overflow.clip.margin": {
+      "value": "2px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.pinned.container.margin.inline.expanded": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "tab.pinned.expanded.background.width": {
+      "value": "40px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.pinned.margin.inline.expanded": {
+      "value": "0.25rem",
+      "type": "dimension",
+      "chain": [
+        "space.xsmall"
+      ]
+    },
+    "tab.selected.outline.color": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "tab.selected.textcolor": {
+      "value": "rgb(21, 20, 26)",
+      "type": "color",
+      "chain": []
+    },
+    "tab.vertical.block.margin": {
+      "value": "2px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.vertical.inline.padding": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "chain": [
+        "space.medium"
+      ]
+    }
+  }
+}

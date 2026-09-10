@@ -1,0 +1,89 @@
+{
+  "padding": {
+    "inline": {
+      "$value": "6px",
+      "$type": "dimension"
+    }
+  },
+  "field": {
+    "border": {
+      "color": {
+        "@base": {
+          "$value": "{color.gray.20}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "nativeTheme": "{border.color.transparent}",
+              "light": "{color.gray.20}",
+              "dark": "{color.gray.60}",
+              "forcedColors": "ButtonText"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    },
+    "background": {
+      "color": {
+        "@base": {
+          "$value": "{toolbar.background.color}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "nativeTheme": "light-dark(rgba(0, 0, 0, 0.05), {color.black.alpha.30})",
+              "default": "{toolbar.background.color}"
+            }
+          },
+          "$type": "color"
+        },
+        "focus": {
+          "$value": "{background.color.box.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "nativeTheme": "Field",
+              "default": "{background.color.box.@base}"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    },
+    "text": {
+      "color": {
+        "@base": {
+          "$value": "{color.violet-desaturated.70}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "nativeTheme": "inherit",
+              "light": "{color.violet-desaturated.70}",
+              "dark": "{color.violet-desaturated.10}",
+              "forcedColors": "{text.color.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "focus": {
+          "$value": "{toolbar.field.text.color.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "nativeTheme": "FieldText",
+              "default": "{toolbar.field.text.color.@base}"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "background": {
+    "color": {
+      "$value": "{background.color.box.@base}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "nativeTheme": "color-mix(in srgb, -moz-dialog 85%, {color.white.@base})",
+          "default": "{background.color.box.@base}",
+          "forcedColors": "Canvas"
+        }
+      },
+      "$type": "color"
+    }
+  }
+}

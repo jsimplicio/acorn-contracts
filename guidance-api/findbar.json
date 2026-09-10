@@ -1,0 +1,10 @@
+{
+  "id": "findbar",
+  "dos": [
+    { "text": "Pass an explicit mode such as this.FIND_NORMAL when calling open(), called bare it only sets findMode \"if (mode != undefined)\" and otherwise silently keeps whatever mode was left over from the previous session." }
+  ],
+  "donts": [
+    { "text": "Don't expect setting the browserid attribute alone, or reading the browser getter, to register the finder, connectedCallback only wires up finder.addResultListener and setFindbarInActor as a side effect of actually assigning to the browser property." },
+    { "text": "Don't call toggleHighlight(true) again expecting a re-highlight after page content changes, the method short-circuits with \"if (highlight === this._highlightAll) return\" before ever calling finder.highlight(), so toggling to the same value twice in a row does nothing." }
+  ]
+}

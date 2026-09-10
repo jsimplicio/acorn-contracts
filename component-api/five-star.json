@@ -1,0 +1,53 @@
+{
+  "id": "five-star",
+  "summary": "A five-star rating display, like you'd see for reviews, that can also be made clickable to set a rating.",
+  "tagName": "moz-five-star",
+  "description": "Renders five stars (empty, half, or full) derived from a numeric rating rounded to the nearest half. When selectable is set, clicking a star updates the rating and dispatches a select event with the new rating in its detail.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-five-star/moz-five-star.mjs"
+  },
+  "attributes": [
+    {
+      "name": "rating",
+      "type": "number",
+      "description": "The rating out of 5. Rounded to the nearest half to decide each star's fill state.",
+      "figmaConfig": true,
+      "default": "0"
+    },
+    {
+      "name": "selectable",
+      "type": "boolean",
+      "description": "Whether the stars can be clicked to set a new rating.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Not rendered directly; when truthy (or when selectable is true) it suppresses the component's default localized \"rating out of 5\" label, on the assumption a real accessible name is supplied elsewhere.",
+      "figmaConfig": false
+    }
+  ],
+  "events": [
+    {
+      "name": "select",
+      "description": "CustomEvent dispatched (detail: { rating }) when a star is clicked and selectable is true."
+    }
+  ],
+  "methods": [
+    {
+      "name": "getStars",
+      "description": "Returns the current five-item array of { rating, fill } used to render each star ('full' | 'half' | 'empty')."
+    },
+    {
+      "name": "getStarElementRating",
+      "description": "Reads the rating value off a given star element's rating attribute."
+    },
+    {
+      "name": "onClick",
+      "description": "Click handler for an individual star; updates rating and dispatches select when selectable is true."
+    }
+  ],
+  "usage": "<moz-five-star rating=\"3.5\" selectable></moz-five-star>"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "panel-separator",
+  "basenames": [
+    "panel"
+  ],
+  "tokens": {
+    "panel.separator.color": {
+      "value": "color-mix(in srgb, currentColor 25%, transparent)",
+      "type": "color",
+      "chain": []
+    },
+    "panel.separator.padding.@base": {
+      "value": "{panel.separator.padding.block} {panel.separator.padding.inline}",
+      "type": "dimension",
+      "chain": []
+    },
+    "panel.separator.padding.block": {
+      "value": "4px",
+      "type": "dimension",
+      "chain": []
+    },
+    "panel.separator.padding.inline": {
+      "value": "8px",
+      "type": "dimension",
+      "chain": []
+    }
+  }
+}

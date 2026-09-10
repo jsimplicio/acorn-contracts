@@ -1,0 +1,211 @@
+{
+  "id": "infobar",
+  "summary": "A thin notification bar that appears at the top of the content area, like a permission request.",
+  "tagName": "notification-message",
+  "description": "A dismissable, prioritized notification bar shown at the top of browser content (e.g. permission prompts, site warnings). Managed by a NotificationBox container and rendered as a <notification-message> element that extends the modern Lit-based moz-message-bar component; the notification-message layer itself is classic (no JSDoc), lazily registered the first time a notification is shown.",
+  "implementation": {
+    "kind": "dual",
+    "file": "toolkit/content/widgets/notificationbox.js"
+  },
+  "attributes": [
+    {
+      "name": "value",
+      "type": "string",
+      "description": "Notification id, set via setAttribute(\"value\", type); used to look up a specific open notification.",
+      "figmaConfig": true
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Derived from priority: \"system\", \"critical\", \"info\", or \"warning\"; drives icon/color styling. Inherited property from moz-message-bar.",
+      "figmaConfig": true
+    },
+    {
+      "name": "message-bar-type",
+      "type": "string",
+      "description": "Set unconditionally to \"infobar\" by appendNotification(); internal CSS-targeting hook, not caller-facing config."
+    },
+    {
+      "name": "dismissable",
+      "type": "boolean",
+      "description": "Inherited from moz-message-bar; controls whether the close button is shown.",
+      "figmaConfig": true,
+      "default": "true"
+    },
+    {
+      "name": "heading",
+      "type": "string",
+      "description": "Inherited property from moz-message-bar for an optional bold heading line.",
+      "figmaConfig": true
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "description": "Inherited property from moz-message-bar; the notification's body text (also settable via the label setter, which accepts a string or an {l10n-id, l10n-args} object).",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Inherited from moz-message-bar; when set, renders a \"Learn more\" support link."
+    },
+    {
+      "name": "priority",
+      "type": "number",
+      "description": "Plain JS instance property (0-9, PRIORITY_SYSTEM through PRIORITY_CRITICAL_HIGH) set by appendNotification(); determines the type attribute.",
+      "figmaConfig": true,
+      "default": "0"
+    },
+    {
+      "name": "persistence",
+      "type": "number",
+      "description": "Plain JS instance property; number of location changes the notification survives before auto-removal.",
+      "default": "0"
+    },
+    {
+      "name": "timeout",
+      "type": "number",
+      "description": "Plain JS instance property; a timestamp after which the notification is treated as expired.",
+      "default": "0"
+    },
+    {
+      "name": "role",
+      "type": "string",
+      "description": "Managed internally via setAlertRole(); typically \"alert\", not caller-set."
+    }
+  ],
+  "slots": [
+    {
+      "name": "message",
+      "description": "Inherited from moz-message-bar; falls back to the internal message span if empty."
+    },
+    {
+      "name": "support-link",
+      "description": "Inherited from moz-message-bar; link-type buttons added via setButtons() are placed here."
+    },
+    {
+      "name": "actions",
+      "description": "Light-DOM span (class notification-button-container) populated by setButtons() with command/primary buttons."
+    }
+  ],
+  "events": [
+    {
+      "name": "AlertActive",
+      "description": "Plain Event dispatched right after a notification is shown, for accessibility APIs."
+    },
+    {
+      "name": "message-bar:close",
+      "description": "Inherited from moz-message-bar; CustomEvent dispatched in disconnectedCallback()."
+    },
+    {
+      "name": "message-bar:user-dismissed",
+      "description": "Inherited from moz-message-bar; cancelable CustomEvent dispatched from dismiss(); if not defaultPrevented, the bar closes and removes itself."
+    }
+  ],
+  "methods": [
+    {
+      "name": "appendNotification",
+      "description": "On the owning NotificationBox; creates and shows a notification-message."
+    },
+    {
+      "name": "removeNotification"
+    },
+    {
+      "name": "removeCurrentNotification"
+    },
+    {
+      "name": "removeAllNotifications"
+    },
+    {
+      "name": "removeTransientNotifications"
+    },
+    {
+      "name": "getNotificationWithValue"
+    },
+    {
+      "name": "close"
+    },
+    {
+      "name": "setButtons"
+    },
+    {
+      "name": "dismiss"
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--info-bar-background-color",
+      "description": "Infobar background color.",
+      "default": "light-dark(var(--color-white), rgb(66, 65, 77))"
+    },
+    {
+      "name": "--info-bar-background-color-configurable",
+      "description": "Per-notification override, settable via element.style on the instance."
+    },
+    {
+      "name": "--info-bar-text-color",
+      "description": "Infobar text color.",
+      "default": "light-dark(var(--color-gray-100), var(--color-gray-0))"
+    },
+    {
+      "name": "--info-bar-box-shadow",
+      "description": "Infobar box shadow.",
+      "default": "0 1px 2px rgba(58, 57, 68, 0.1)"
+    },
+    {
+      "name": "--info-bar-border-color",
+      "description": "Infobar border color."
+    },
+    {
+      "name": "--info-bar-margin-block-start",
+      "description": "Top margin of the infobar."
+    },
+    {
+      "name": "--info-bar-margin-inline",
+      "description": "Inline margin of the infobar."
+    },
+    {
+      "name": "--info-bar-margin-block-end",
+      "description": "Bottom margin of the infobar."
+    },
+    {
+      "name": "--message-bar-border-color",
+      "description": "Shared with moz-message-bar; border color.",
+      "default": "oklch(from {message-bar.icon.color} l c h / 20%)"
+    },
+    {
+      "name": "--message-bar-border-radius",
+      "description": "Shared with moz-message-bar; border radius.",
+      "default": "12px"
+    },
+    {
+      "name": "--message-bar-icon-container-margin-block-start",
+      "description": "Top margin of the icon container.",
+      "default": "0"
+    },
+    {
+      "name": "--message-bar-icon-container-padding",
+      "description": "Padding of the icon container.",
+      "default": "calc({space.small} - 1px)"
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "system",
+        "critical",
+        "info",
+        "warning"
+      ]
+    },
+    {
+      "axis": "dismissable",
+      "values": [
+        "true",
+        "false"
+      ]
+    }
+  ],
+  "usage": "<notification-message type=\"warning\" dismissable=\"true\" message=\"Firefox prevented this site from asking you to install software.\" supportPage=\"unwanted-software\"></notification-message>"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "stepper",
+  "dos": [
+    { "text": "When using a progress_bar screen, know that ProgressBar's useEffect has an intentionally empty dependency array (eslint-disabled) so it only recalculates progress on mount, relying on the whole screen remounting a fresh ProgressBar instance on every step change rather than the same instance re-rendering." }
+  ],
+  "donts": [
+    { "text": "Don't assume the steps indicator always renders in one place, ProtonScreen.render() calls renderStepsIndicator() from up to three different spots depending on aboveButtonStepsIndicator, content.progress_bar, and content.fullscreen." },
+    { "text": "Don't expect a steps indicator to render at all when autoAdvance, content.video_container, isSingleScreen, or forceHideStepsIndicator is set, hideStepsIndicator ORs all four together unconditionally." },
+    { "text": "Don't set both autoAdvance and advanceOnExperimentLoad expecting them to combine, the effect checks autoAdvance first, so if it's truthy, advanceOnExperimentLoad's min/max-display-time and Nimbus-wait logic never runs at all." }
+  ]
+}

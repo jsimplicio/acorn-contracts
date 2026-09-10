@@ -1,0 +1,152 @@
+{
+  "id": "toolbar-button",
+  "basenames": [
+    "toolbarbutton"
+  ],
+  "tokens": {
+    "toolbarbutton.background.color.active": {
+      "value": "color-mix(in srgb, currentColor 30%, transparent)",
+      "type": "color",
+      "chain": []
+    },
+    "toolbarbutton.background.color.hover": {
+      "value": "color-mix(in srgb, currentColor 17%, transparent)",
+      "type": "color",
+      "chain": []
+    },
+    "toolbarbutton.badge.background.color": {
+      "value": "#961e3d",
+      "type": "color",
+      "chain": [
+        "color.red.60"
+      ]
+    },
+    "toolbarbutton.badge.font.size": {
+      "value": "10px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.badge.max.width": {
+      "value": "20px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.badge.min.width": {
+      "value": "14px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.badge.padding.block.end": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.badge.padding.inline": {
+      "value": "2px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.border.radius": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "button.border.radius",
+        "border.radius.xlarge"
+      ]
+    },
+    "toolbarbutton.icon.fill.@base": {
+      "value": "#75669f",
+      "type": "color",
+      "chain": [
+        "color.violet-desaturated.50"
+      ]
+    },
+    "toolbarbutton.icon.fill.attention.@base": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    },
+    "toolbarbutton.icon.fill.attention.text": {
+      "value": "#d6d5da",
+      "type": "color",
+      "chain": [
+        "color.gray.20"
+      ]
+    },
+    "toolbarbutton.opacity.disabled": {
+      "value": "0.4",
+      "type": "number",
+      "chain": []
+    },
+    "toolbarbutton.outline.@base": {
+      "value": "{border.width} solid {toolbarbutton.outline.color.@base}",
+      "type": null,
+      "chain": []
+    },
+    "toolbarbutton.outline.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "toolbarbutton.outline.color.active": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "toolbarbutton.outline.color.hover": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "toolbarbutton.outline.color.selected": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "toolbarbutton.outline.color.active"
+      ]
+    },
+    "toolbarbutton.outline.offset": {
+      "value": "-1px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.padding.inner.@base": {
+      "value": "8px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.padding.inner.compact": {
+      "value": "6px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.padding.inner.narrow": {
+      "value": "7px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.padding.inner.touch.@base": {
+      "value": "9px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.padding.inner.touch.narrow": {
+      "value": "8px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.padding.outer.@base": {
+      "value": "2px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarbutton.padding.outer.narrow": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": []
+    }
+  }
+}

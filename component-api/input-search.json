@@ -1,0 +1,126 @@
+{
+  "id": "input-search",
+  "summary": "A search box that fires a search event a moment after you stop typing.",
+  "tagName": "moz-input-search",
+  "description": "A MozInputText subclass rendering a native <input type=\"search\">. Debounces input by 500ms before dispatching its own MozInputSearch:search custom event, and exposes a clear() method that empties the value and fires the search event immediately.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-input-search/moz-input-search.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The text of the label element. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name of the input control. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The value of the input control. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "The disabled state of the input control. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "The required state of the input control. Inherited from MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "The src for an optional icon. If unset, a default search icon is still shown (own inputTemplate() treats iconSrc === undefined as \"has icon\"). Inherited from MozBaseInputElement.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Text for the description element that helps describe the input control. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Text to display when the input has no value. Inherited from MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "The aria-label text when there is no visible label. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaDescription",
+      "type": "string",
+      "description": "The aria-description text when there is no visible description. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": false
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title attribute, mapped onto the inner input. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "description",
+      "description": "Inherited from MozBaseInputElement: rendered when the description property is unset, letting callers supply richer description markup."
+    },
+    {
+      "name": "support-link",
+      "description": "Inherited from MozBaseInputElement: rendered when supportPage is unset, letting callers supply a custom support link element."
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "description": "Native input event as the user types; own handleInput() calls the inherited handler to update value, then restarts a 500ms debounce timer."
+    },
+    {
+      "name": "change",
+      "description": "Redispatched from the native input's change event so it crosses the shadow boundary."
+    },
+    {
+      "name": "MozInputSearch:search",
+      "description": "Bubbling, composed CustomEvent (detail: { query: value }) dispatched 500ms after the user stops typing, or immediately/synchronously by clear() if the field had a value."
+    }
+  ],
+  "methods": [
+    {
+      "name": "clear",
+      "description": "Clears the value (on both the property and the underlying input element) and synchronously dispatches MozInputSearch:search if the field had a value."
+    }
+  ],
+  "cssParts": [
+    {
+      "name": "label",
+      "description": "The internal <label is=\"moz-label\">, inherited from MozBaseInputElement's shared render()."
+    },
+    {
+      "name": "support-link",
+      "description": "The optional support link, inherited from MozBaseInputElement's shared render()."
+    }
+  ],
+  "usage": "<moz-input-search name=\"search\" label=\"Search\" placeholder=\"Search settings\"></moz-input-search>"
+}

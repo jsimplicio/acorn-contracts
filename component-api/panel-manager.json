@@ -1,0 +1,130 @@
+{
+  "id": "panel-manager",
+  "summary": "The system that manages panels made of multiple linked pages, like the app menu's forward/back subviews.",
+  "tagName": null,
+  "description": "PanelMultiView and PanelView are plain ES classes (not custom elements) that attach behavior to <panelmultiview> and <panelview> XUL elements via a WeakMap-backed lazy association (AssociatedToNode.forNode). PanelMultiView manages a XUL <panel>'s open/close lifecycle and slide transitions between a main view and stacked subviews; PanelView wraps a single <panelview> and its header/sizing state.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/customizableui/PanelMultiView.sys.mjs"
+  },
+  "attributes": [
+    {
+      "name": "mainViewId",
+      "type": "string",
+      "description": "Attribute on <panelmultiview>; id of the <panelview> shown as the main view when the panel opens."
+    },
+    {
+      "name": "viewCacheId",
+      "type": "string",
+      "description": "Attribute on <panelmultiview>; id of an element that subviews are moved into (via _moveOutKids()) before the panel is removed, so they survive removePopup()."
+    },
+    {
+      "name": "disablekeynav",
+      "type": "boolean",
+      "description": "Attribute on <panelmultiview>; when present, arrow-key/Tab view navigation (the capturing keydown listener added on popupshowing) is not registered.",
+      "default": "false"
+    },
+    {
+      "name": "lockpanelvertical",
+      "type": "string",
+      "description": "Attribute read from the first open view's node (openViews[0].node); when \"true\", a subview's height is locked to the previous view's height instead of resizing to fit."
+    },
+    {
+      "name": "mainview",
+      "type": "boolean",
+      "description": "Set on a <panelview>'s node by the mainview setter, true while that view is being shown as the panel's main view (vs. a pushed subview).",
+      "default": "false"
+    },
+    {
+      "name": "no-back-button",
+      "type": "boolean",
+      "description": "Attribute on a <panelview>; suppresses the automatic back button that headerText would otherwise prepend.",
+      "default": "false"
+    },
+    {
+      "name": "has-custom-header",
+      "type": "boolean",
+      "description": "Attribute on a <panelview>; keeps a custom header element from being removed when headerText is cleared.",
+      "default": "false"
+    },
+    {
+      "name": "mainview-with-header",
+      "type": "boolean",
+      "description": "Attribute on a <panelview>; same effect as has-custom-header, keeps the header even with no title.",
+      "default": "false"
+    }
+  ],
+  "events": [
+    {
+      "name": "ViewShowing",
+      "description": "Dispatched (async, cancelable via addBlocker on the detail) on a <panelview> when it is about to be opened as the main view or a subview; handlers can populate the view or cancel showing it."
+    },
+    {
+      "name": "ViewShown",
+      "description": "Dispatched on a <panelview> once it becomes the active, visible view."
+    },
+    {
+      "name": "ViewHiding",
+      "description": "Dispatched on a <panelview> when it is closed (navigated away from or the panel is closing)."
+    },
+    {
+      "name": "PanelMultiViewHidden",
+      "description": "Dispatched on the <panelmultiview> node after the underlying panel's popuphidden handling and view teardown complete."
+    }
+  ],
+  "methods": [
+    {
+      "name": "PanelMultiView.openPopup",
+      "description": "static(panelNode, ...args): opens the <panel> containing a <panelmultiview>, showing its mainViewId view; if the panel has no <panelmultiview>, opens the panel directly."
+    },
+    {
+      "name": "PanelMultiView.hidePopup",
+      "description": "static(panelNode, animate): closes the <panel>, or the <panelmultiview> instance's hidePopup if present."
+    },
+    {
+      "name": "PanelMultiView.removePopup",
+      "description": "static(panelNode): moves any child subviews to the view cache (if configured) and removes the panel from the document."
+    },
+    {
+      "name": "PanelMultiView.getViewNode",
+      "description": "static(doc, id): returns the DOM node for a view id, falling back to the appMenu-viewCache template content."
+    },
+    {
+      "name": "connect",
+      "description": "Instance: builds the viewcontainer/viewstack elements and wires popupshowing/popupshown/popuphidden listeners."
+    },
+    {
+      "name": "disconnect",
+      "description": "Instance: removes event listeners set up by connect()."
+    },
+    {
+      "name": "openPopup",
+      "description": "Instance: openPopup(anchor, options, ...args), async; shows the main view then calls the panel's native openPopup."
+    },
+    {
+      "name": "hidePopup",
+      "description": "Instance: hidePopup(animate); closes the panel and synchronously closes all open views."
+    },
+    {
+      "name": "showSubView",
+      "description": "Instance: showSubView(viewIdOrNode, anchor); slides in a subview."
+    },
+    {
+      "name": "goBack",
+      "description": "Instance: navigates back to the previous view in the stack."
+    },
+    {
+      "name": "closeAllViews",
+      "description": "Instance: raises ViewHiding for every open view, in reverse order."
+    },
+    {
+      "name": "PanelView.isOpenIn",
+      "description": "Instance (PanelView): isOpenIn(panelMultiView); whether this view is the one currently open in the given PanelMultiView."
+    },
+    {
+      "name": "PanelView.headerText",
+      "description": "Instance (PanelView) setter; adds, updates, or removes the view's .panel-header (with back button and separator) based on the given title."
+    }
+  ],
+  "usage": "<panelmultiview mainViewId=\"appMenu-mainView\" viewCacheId=\"appMenu-viewCache\">\n  <panelview id=\"appMenu-mainView\">...</panelview>\n</panelmultiview>"
+}

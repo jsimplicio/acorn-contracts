@@ -1,0 +1,11 @@
+{
+  "id": "popup-notification",
+  "dos": [
+    { "text": "Use popupnotificationcontent for extra body content, appendNotificationContent() is real and repeatable, so more than one is fine." },
+    { "text": "Set dropmarkerhidden when you want a plain secondary button, the secondary button defaults to a split-type chevron/menu affordance otherwise." }
+  ],
+  "donts": [
+    { "text": "Don't rely on native <slot> projection for popupnotificationheader/popupnotificationcontent/popupnotificationfooter children, they're matched by tag name via querySelector, not real slot assignment, so an unrelated element sharing one of those tag names would also get picked up." },
+    { "text": "Don't assume buttoncommand/secondarybuttoncommand automatically do something, both are cancelable CustomEvents only forwarded to PopupNotifications._onButtonEvent if a listener doesn't cancel them first." }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "background": {
+    "color": {
+      "hover": {
+        "$value": "rgb(240, 240, 244)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "{background.color.dimmed.@base}",
+            "light": "rgb(240, 240, 244)",
+            "dark": "{background.color.dimmed.@base}"
+          }
+        },
+        "$type": "color"
+      },
+      "selected": {
+        "$value": "#e0e0e6",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "SelectedItem",
+            "light": "#e0e0e6",
+            "dark": "rgb(43, 42, 51)"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "border": {
+    "radius": {
+      "$value": "calc({button.border.radius} + 2px)",
+      "$type": "dimension"
+    }
+  },
+  "separator": {
+    "color": {
+      "$value": "rgb(240, 240, 244)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "rgb(240, 240, 244)",
+          "dark": "rgb(82, 82, 94)",
+          "nativeTheme": "color-mix(in srgb, currentColor 14%, transparent)",
+          "prefersContrast": "color-mix(in srgb, currentColor 86%, transparent)"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "action": {
+    "button": {
+      "background": {
+        "color": {
+          "@base": {
+            "$value": "color-mix(in srgb, var(--urlbarview-background-color-hover) 50%, transparent)",
+            "$type": "color"
+          },
+          "hover": {
+            "$value": "var(--urlbarview-background-color-hover)",
+            "$type": "color"
+          }
+        }
+      }
+    }
+  },
+  "favicon": {
+    "size": {
+      "$value": "{icon.size.@base}",
+      "$type": "dimension"
+    }
+  },
+  "row": {
+    "min": {
+      "height": {
+        "$value": "{size.item.large}",
+        "$type": "dimension"
+      }
+    },
+    "padding": {
+      "block": {
+        "$value": "{space.small}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "text": {
+    "color": {
+      "action": {
+        "$value": "rgb(91, 91, 102)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "rgb(91, 91, 102)",
+            "dark": "rgb(191, 191, 201)",
+            "nativeTheme": "LinkText"
+          }
+        },
+        "$type": "color"
+      },
+      "secondary": {
+        "$value": "color-mix(in srgb, currentColor 73%, transparent)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "color-mix(in srgb, currentColor 73%, transparent)",
+            "default": "color-mix(in srgb, currentColor 73%, transparent)",
+            "forcedColors": "currentColor"
+          }
+        },
+        "$type": "color"
+      },
+      "selected": {
+        "$value": "rgb(21, 20, 26)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "rgb(21, 20, 26)",
+            "dark": "rgb(251, 251, 254)",
+            "nativeTheme": "SelectedItemText"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  }
+}

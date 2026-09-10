@@ -1,0 +1,39 @@
+{
+  "outline": {
+    "@base": {
+      "$value": "{focus.outline.width} solid {focus.outline.color}",
+      "$extensions": {
+        "org.mozilla.meta": {
+          "ignoreFigma": "Figma only includes the width for this token value"
+        }
+      }
+    },
+    "color": {
+      "$value": "{color.accent.primary.@base}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "{color.accent.primary.@base}",
+          "forcedColors": "{text.color.@base}"
+        }
+      },
+      "$type": "color"
+    },
+    "inset": {
+      "$value": "calc(-1 * {focus.outline.width})",
+      "$type": "dimension",
+      "$extensions": {
+        "org.mozilla.meta": {
+          "ignoreFigma": "Preserve the calc in case the focus outline width is changed via CSS"
+        }
+      }
+    },
+    "offset": {
+      "$value": "2px",
+      "$type": "dimension"
+    },
+    "width": {
+      "$value": "2px",
+      "$type": "dimension"
+    }
+  }
+}

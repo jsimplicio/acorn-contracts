@@ -1,0 +1,56 @@
+{
+  "color": {
+    "@base": {
+      "$value": "{color.accent.primary.@base}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "forcedColors": "LinkText",
+          "default": "{color.accent.primary.@base}",
+          "nativeTheme": "LinkText"
+        }
+      },
+      "$type": "color"
+    },
+    "hover": {
+      "$value": "{color.accent.primary.hover}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "forcedColors": "LinkText",
+          "default": "{color.accent.primary.hover}",
+          "nativeTheme": "color-mix(in srgb, black 10%, {link.color.@base})"
+        }
+      },
+      "$type": "color"
+    },
+    "active": {
+      "$value": "{color.accent.primary.active}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "forcedColors": "ActiveText",
+          "default": "{color.accent.primary.active}",
+          "nativeTheme": "color-mix(in srgb, black 20%, {link.color.@base})"
+        }
+      },
+      "$type": "color"
+    },
+    "visited": {
+      "$value": "{link.color.@base}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "forcedColors": "VisitedText",
+          "default": "{link.color.@base}"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "focus": {
+    "outline": {
+      "offset": {
+        "$value": "1px",
+        "$description": "Not using --force-outline-offset for links because that's intended for elements with a background, and we only want a slight offset here while not overlapping adjacent text",
+        "$type": "dimension"
+      }
+    }
+  }
+}

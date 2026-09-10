@@ -1,0 +1,210 @@
+{
+  "id": "button",
+  "summary": "A standard clickable button, available in several visual styles like primary, ghost, and icon-only.",
+  "tagName": "moz-button",
+  "description": "A button with multiple types and three sizes.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-button/moz-button.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The button's label, will be overridden by slotted content.",
+      "figmaConfig": true
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "The button type. Options: default, primary, destructive, icon, icon ghost, ghost, split (plus icon neutral/neutral seen in Figma Code Connect).",
+      "figmaConfig": true,
+      "default": "default"
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "The button size. Options: default, small, large.",
+      "figmaConfig": true,
+      "default": "default"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "The disabled state.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The button's title attribute, used in shadow DOM and therefore not as an attribute on moz-button.",
+      "figmaConfig": false
+    },
+    {
+      "name": "tooltipText",
+      "type": "string",
+      "description": "Set the title property; the title attribute will be used first.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "The button's aria-label attribute, used in shadow DOM and therefore not as an attribute on moz-button.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaHasPopup",
+      "type": "string",
+      "description": "The button's aria-haspopup attribute, indicates a popup element can be triggered by the button.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaExpanded",
+      "type": "string",
+      "description": "The button's aria-expanded attribute, indicates whether the controlled elements are displayed or hidden.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaPressed",
+      "type": "string",
+      "description": "The button's aria-pressed attribute, used in shadow DOM and therefore not as an attribute on moz-button.",
+      "figmaConfig": false
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "Path to the icon that should be displayed in the button.",
+      "figmaConfig": true
+    },
+    {
+      "name": "attention",
+      "type": "boolean",
+      "description": "Show a dot notification on the button if true.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "iconPosition",
+      "type": "string",
+      "description": "The icon's position relative to the button label. Options: start, end.",
+      "figmaConfig": true,
+      "default": "start"
+    },
+    {
+      "name": "menuId",
+      "type": "string",
+      "description": "A CSS selector string that identifies the associated panel-list menu element controlled by the button.",
+      "figmaConfig": true
+    },
+    {
+      "name": "parentDisabled",
+      "type": "boolean",
+      "description": "When the parent of this component is disabled.",
+      "figmaConfig": false
+    },
+    {
+      "name": "accessKey",
+      "type": "string",
+      "description": "Internal, maps the accesskey attribute to the accessKey JS property (mapped, not in the top JSDoc block but declared in static properties).",
+      "figmaConfig": false
+    },
+    {
+      "name": "hasVisibleLabel",
+      "type": "boolean",
+      "description": "Internal, tracks whether or not the button has a visible label (state property, not a real attribute).",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "The button's content, overrides label property."
+    }
+  ],
+  "events": [
+    {
+      "name": "click",
+      "description": "The click event."
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--button-outer-padding-inline",
+      "description": "Used to set the outer inline padding of toolbar style buttons.",
+      "default": "var(--toolbarbutton-padding-outer)"
+    },
+    {
+      "name": "--button-outer-padding-block",
+      "description": "Used to set the outer block padding of toolbar style buttons.",
+      "default": "4px"
+    },
+    {
+      "name": "--button-outer-padding-inline-start",
+      "description": "Used to set the outer inline-start padding of toolbar style buttons.",
+      "default": "var(--button-outer-padding-inline, 0)"
+    },
+    {
+      "name": "--button-outer-padding-inline-end",
+      "description": "Used to set the outer inline-end padding of toolbar style buttons.",
+      "default": "var(--button-outer-padding-inline, 0)"
+    },
+    {
+      "name": "--button-outer-padding-block-start",
+      "description": "Used to set the outer block-start padding of toolbar style buttons.",
+      "default": "var(--button-outer-padding-block, 0)"
+    },
+    {
+      "name": "--button-outer-padding-block-end",
+      "description": "Used to set the outer block-end padding of toolbar style buttons.",
+      "default": "var(--button-outer-padding-block, 0)"
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "default",
+        "primary",
+        "destructive",
+        "icon",
+        "icon ghost",
+        "icon primary",
+        "icon neutral",
+        "ghost",
+        "neutral",
+        "split"
+      ]
+    },
+    {
+      "axis": "size",
+      "values": [
+        "default",
+        "small",
+        "large"
+      ]
+    },
+    {
+      "axis": "iconPosition",
+      "values": [
+        "start",
+        "end"
+      ]
+    }
+  ],
+  "usage": "<moz-button type=\"primary\">Save</moz-button>",
+  "cssParts": [
+    {
+      "name": "button",
+      "description": "The internal <button> element."
+    },
+    {
+      "name": "chevron-button",
+      "description": "The dropdown-opening chevron on a split-type button."
+    },
+    {
+      "name": "moz-button-label",
+      "description": "The button's internal label element."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "panel-separator",
+  "summary": "A thin divider line used to group related items inside a panel's menu.",
+  "tagName": null,
+  "description": "panel-list.mjs never creates a separator itself, only a default <slot>; a plain <hr> is author-supplied light-DOM content placed inside <panel-list> by consumers, matched and styled purely via the `::slotted(hr:not([hidden]))` rule in panel-list.css (using --panel-separator-color/--panel-separator-padding tokens) with no dedicated class or tagName of its own.",
+  "implementation": {
+    "kind": "none",
+    "file": "toolkit/content/widgets/panel-list/panel-list.mjs"
+  }
+}

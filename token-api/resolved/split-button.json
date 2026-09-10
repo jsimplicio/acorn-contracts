@@ -1,0 +1,27 @@
+{
+  "id": "split-button",
+  "basenames": [
+    "button"
+  ],
+  "tokens": {
+    "button.border.width.split": {
+      "value": "0",
+      "type": "dimension",
+      "chain": []
+    },
+    "button.gap.split": {
+      "value": "0",
+      "type": "dimension",
+      "chain": []
+    },
+    "button.split.separator.background.color": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "button.border.color.@base",
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "toolbox",
+  "basenames": [
+    "toolbox"
+  ],
+  "tokens": {
+    "toolbox.background.color.@base": {
+      "value": "rgb(234, 234, 237)",
+      "type": "color",
+      "chain": []
+    },
+    "toolbox.background.color.gradient-leading": {
+      "value": "#eaddff",
+      "type": "color",
+      "chain": [
+        "color.violet.10"
+      ]
+    },
+    "toolbox.background.color.gradient-trailing": {
+      "value": "#ffdbc5",
+      "type": "color",
+      "chain": [
+        "color.orange.10"
+      ]
+    },
+    "toolbox.background.color.inactive": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "toolbox.background.gradient": {
+      "value": "linear-gradient(96deg, color-mix({toolbox.background.color.gradient-leading} 50%, transparent) 39.84%, color-mix({toolbox.background.color.gradient-trailing} 50%, transparent) 101.72%)",
+      "type": null,
+      "chain": []
+    },
+    "toolbox.text.color.@base": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "toolbox.text.color.inactive": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "toolbox.text.color.@base",
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    }
+  }
+}

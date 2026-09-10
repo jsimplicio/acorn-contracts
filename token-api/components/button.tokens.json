@@ -1,0 +1,1095 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "color-mix(in srgb, currentColor 7%, transparent)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "forcedColors": "ButtonFace",
+            "brand": {
+              "default": "color-mix(in srgb, currentColor 7%, transparent)"
+            },
+            "nativeTheme": "color-mix(in srgb, currentColor 13%, transparent)",
+            "platform": {
+              "light": "rgba(207, 207, 216, 0.33)",
+              "dark": "rgba(0, 0, 0, 0.33)"
+            }
+          }
+        },
+        "$description": "TODO Bug 1821203 - Gray use needs to be consolidated",
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "color-mix(in srgb, currentColor 14%, transparent)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "forcedColors": "SelectedItemText",
+            "brand": {
+              "default": "color-mix(in srgb, currentColor 14%, transparent)"
+            },
+            "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)",
+            "platform": {
+              "light": "rgba(207, 207, 216, 0.66)",
+              "dark": "rgba(207, 207, 216, 0.2)"
+            }
+          }
+        },
+        "$type": "color"
+      },
+      "active": {
+        "$value": "color-mix(in srgb, currentColor 21%, transparent)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "forcedColors": "SelectedItemText",
+            "brand": {
+              "default": "color-mix(in srgb, currentColor 21%, transparent)"
+            },
+            "nativeTheme": "color-mix(in srgb, currentColor 30%, transparent)",
+            "platform": {
+              "light": "rgb(207, 207, 216)",
+              "dark": "rgba(207, 207, 216, 0.4)"
+            }
+          }
+        },
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "{button.background.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{button.background.color.@base}",
+            "forcedColors": "ButtonFace"
+          }
+        },
+        "$type": "color"
+      },
+      "primary": {
+        "@base": {
+          "$value": "{color.accent.primary.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{color.accent.primary.@base}",
+              "forcedColors": "ButtonText"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{color.accent.primary.hover}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{color.accent.primary.hover}",
+              "forcedColors": "SelectedItem"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{color.accent.primary.active}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{color.accent.primary.active}",
+              "forcedColors": "{button.background.color.primary.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.background.color.primary.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.background.color.primary.@base}",
+              "forcedColors": "{button.text.color.disabled}"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.background.color.primary.active}",
+          "$type": "color"
+        }
+      },
+      "destructive": {
+        "@base": {
+          "$value": "{color.red.60}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.red.60}",
+              "dark": "{color.red.30}",
+              "forcedColors": "{button.background.color.primary.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{color.red.80}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.red.80}",
+              "dark": "{color.red.10}",
+              "forcedColors": "{button.background.color.primary.active}"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.background.color.destructive.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.background.color.destructive.@base}",
+              "forcedColors": "{button.background.color.primary.disabled}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{color.red.70}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.red.70}",
+              "dark": "{color.red.20}",
+              "forcedColors": "{button.background.color.primary.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.background.color.destructive.active}",
+          "$type": "color"
+        }
+      },
+      "ghost": {
+        "@base": {
+          "$value": "transparent",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "transparent",
+              "forcedColors": "ButtonFace",
+              "brand": {
+                "forcedColors": "ButtonFace"
+              },
+              "nativeTheme": "transparent"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.background.color.active}",
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.background.color.ghost.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.background.color.ghost.@base}",
+              "brand": {
+                "forcedColors": "{button.background.color.disabled}"
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.background.color.hover}",
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.background.color.ghost.active}",
+          "$type": "color"
+        }
+      },
+      "muted": {
+        "@base": {
+          "$value": "{button.background.color.@base}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.background.color.active}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.background.color.hover}",
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.background.color.disabled}",
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.background.color.muted.active}",
+          "$type": "color"
+        }
+      },
+      "menu": {
+        "@base": {
+          "$value": "{button.background.color.ghost.@base}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.background.color.ghost.active}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.background.color.ghost.active}",
+              "forcedColors": "{button.background.color.primary.@base}",
+              "nova": {
+                "comment": "The HCM value in Figma needs to be updated",
+                "value": {
+                  "forcedColors": "ButtonText"
+                }
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.background.color.ghost.disabled}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.background.color.ghost.hover}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.background.color.ghost.hover}",
+              "forcedColors": "{button.background.color.primary.@base}",
+              "nova": {
+                "comment": "The HCM value in Figma needs to be updated",
+                "value": {
+                  "forcedColors": "ButtonText"
+                }
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.background.color.ghost.selected}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.background.color.ghost.selected}",
+              "forcedColors": "{button.background.color.primary.selected}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "selected": {
+        "$value": "{button.background.color.active}",
+        "$type": "color"
+      },
+      "toolbar": {
+        "@base": {
+          "$value": "transparent",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "transparent",
+              "brand": {
+                "forcedColors": "{button.background.color.@base}"
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{toolbarbutton.background.color.active}",
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.background.color.ghost.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.background.color.ghost.@base}",
+              "brand": {
+                "forcedColors": "{button.background.color.disabled}"
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{toolbarbutton.background.color.hover}",
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.background.color.ghost.active}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "badge": {
+    "background": {
+      "color": {
+        "$value": "{color.accent.attention}",
+        "$type": "color"
+      }
+    },
+    "size": {
+      "$value": "6px",
+      "$type": "dimension"
+    }
+  },
+  "border": {
+    "@base": {
+      "$value": "{border.width} solid {button.border.color.@base}"
+    },
+    "color": {
+      "@base": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "prefersContrast": "{button.text.color.@base}",
+            "forcedColors": "{border.color.interactive.@base}"
+          }
+        },
+        "$type": "color"
+      },
+      "active": {
+        "$value": "{button.border.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{button.border.color.@base}",
+            "forcedColors": "{border.color.interactive.active}"
+          }
+        },
+        "$type": "color"
+      },
+      "destructive": {
+        "@base": {
+          "$value": "transparent",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "transparent",
+              "forcedColors": "{button.border.color.primary.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.border.color.destructive.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.destructive.@base}",
+              "forcedColors": "{button.border.color.primary.active}"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.border.color.destructive.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.destructive.@base}",
+              "forcedColors": "{button.border.color.primary.disabled}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.border.color.destructive.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.destructive.@base}",
+              "forcedColors": "{button.border.color.primary.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.border.color.destructive.active}",
+          "$type": "color"
+        }
+      },
+      "disabled": {
+        "$value": "{button.border.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{button.border.color.@base}",
+            "forcedColors": "{border.color.interactive.disabled}"
+          }
+        },
+        "$type": "color"
+      },
+      "ghost": {
+        "@base": {
+          "$value": "{button.border.color.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.@base}",
+              "prefersContrast": "{button.border.color.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.border.color.active}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.active}"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.border.color.disabled}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.disabled}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.border.color.hover}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.border.color.ghost.active}",
+          "$type": "color"
+        }
+      },
+      "menu": {
+        "@base": {
+          "$value": "{button.border.color.ghost.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.ghost.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.border.color.ghost.active}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.ghost.active}"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.border.color.ghost.disabled}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.ghost.disabled}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.border.color.ghost.hover}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.ghost.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.border.color.menu.active}",
+          "$type": "color"
+        }
+      },
+      "muted": {
+        "@base": {
+          "$value": "{button.border.color.@base}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.border.color.active}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.border.color.hover}",
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.border.color.disabled}",
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.border.color.muted.active}",
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{button.border.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{button.border.color.@base}",
+            "forcedColors": "{border.color.interactive.hover}"
+          }
+        },
+        "$type": "color"
+      },
+      "primary": {
+        "@base": {
+          "$value": "transparent",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "transparent",
+              "forcedColors": "ButtonFace"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.border.color.primary.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.primary.@base}",
+              "forcedColors": "ButtonText"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.border.color.primary.@base}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.border.color.primary.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.primary.@base}",
+              "forcedColors": "SelectedItemText"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.border.color.primary.active}",
+          "$type": "color"
+        }
+      },
+      "selected": {
+        "$value": "{button.border.color.active}",
+        "$type": "color"
+      },
+      "toolbar": {
+        "@base": {
+          "$value": "{button.border.color.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.border.color.active}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.active}"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.border.color.disabled}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.disabled}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.border.color.hover}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.border.color.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.border.color.ghost.active}",
+          "$type": "color"
+        }
+      }
+    },
+    "radius": {
+      "$value": "{border.radius.medium}",
+      "$type": "dimension"
+    },
+    "width": {
+      "split": {
+        "$value": "{border.width}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "content": {
+    "alignment": {
+      "$value": "center"
+    }
+  },
+  "font": {
+    "size": {
+      "@base": {
+        "$value": "{font.size.root}",
+        "$type": "dimension"
+      },
+      "small": {
+        "$value": "{font.size.small}",
+        "$type": "dimension"
+      }
+    },
+    "weight": {
+      "$value": "{font.weight.semibold}",
+      "$type": "fontWeight"
+    }
+  },
+  "gap": {
+    "split": {
+      "$value": "{space.xxsmall}",
+      "$type": "dimension"
+    }
+  },
+  "icon": {
+    "fill": {
+      "$value": "currentColor",
+      "$type": "color"
+    },
+    "stroke": {
+      "$value": "{button.icon.fill}",
+      "$type": "color"
+    }
+  },
+  "min-height": {
+    "@base": {
+      "$value": "{size.item.large}",
+      "$type": "dimension"
+    },
+    "small": {
+      "$value": "{size.item.medium}",
+      "$type": "dimension"
+    },
+    "large": {
+      "$value": "40px",
+      "$type": "dimension"
+    }
+  },
+  "opacity": {
+    "disabled": {
+      "$value": "0.5",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "0.5",
+          "forcedColors": "1"
+        }
+      },
+      "$type": "number"
+    }
+  },
+  "padding": {
+    "@base": {
+      "$value": "{button.padding.block.@base} {button.padding.inline.@base}",
+      "$type": "dimension"
+    },
+    "block": {
+      "@base": {
+        "$value": "{space.xsmall}",
+        "$type": "dimension"
+      },
+      "large": {
+        "$value": "{space.small}",
+        "$type": "dimension"
+      },
+      "small": {
+        "$value": "{space.xxsmall}",
+        "$type": "dimension"
+      }
+    },
+    "inline": {
+      "@base": {
+        "$value": "{space.large}",
+        "$type": "dimension"
+      },
+      "large": {
+        "$value": "{space.xlarge}",
+        "$type": "dimension"
+      },
+      "small": {
+        "$value": "{button.padding.inline.@base}",
+        "$type": "dimension"
+      }
+    },
+    "icon": {
+      "$value": 0,
+      "$type": "dimension"
+    }
+  },
+  "size": {
+    "icon": {
+      "@base": {
+        "$value": "{button.min-height.@base}",
+        "$type": "dimension"
+      },
+      "small": {
+        "$value": "{button.min-height.small}",
+        "$type": "dimension"
+      },
+      "large": {
+        "$value": "{button.min-height.large}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "split": {
+    "separator": {
+      "background": {
+        "color": {
+          "$value": "transparent",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "text": {
+    "color": {
+      "@base": {
+        "$value": "{color.gray.100}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "forcedColors": "ButtonText",
+            "brand": {
+              "light": "{color.gray.100}",
+              "dark": "{color.gray.0}"
+            },
+            "nativeTheme": "currentColor",
+            "platform": {
+              "light": "rgb(21, 20, 26)",
+              "dark": "rgb(251, 251, 254)"
+            }
+          }
+        },
+        "$type": "color"
+      },
+      "active": {
+        "$value": "{button.text.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{button.text.color.@base}",
+            "forcedColors": "SelectedItem"
+          }
+        },
+        "$type": "color"
+      },
+      "destructive": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.gray.100}",
+              "forcedColors": "{button.text.color.primary.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.text.color.destructive.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.text.color.destructive.@base}",
+              "forcedColors": "{button.text.color.primary.active}"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.text.color.destructive.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.text.color.destructive.@base}",
+              "forcedColors": "{button.text.color.primary.disabled}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.text.color.destructive.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.text.color.destructive.@base}",
+              "forcedColors": "{button.text.color.primary.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.text.color.destructive.active}",
+          "$type": "color"
+        }
+      },
+      "disabled": {
+        "$value": "{button.text.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{button.text.color.@base}",
+            "forcedColors": "GrayText"
+          }
+        },
+        "$type": "color"
+      },
+      "ghost": {
+        "@base": {
+          "$value": "inherit",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "inherit",
+              "brand": {
+                "prefersContrast": "{button.text.color.@base}",
+                "forcedColors": "{button.text.color.@base}"
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "inherit",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "inherit",
+              "prefersContrast": "{button.text.color.active}",
+              "forcedColors": "{button.text.color.active}"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "inherit",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "inherit",
+              "brand": {
+                "prefersContrast": "{button.text.color.disabled}",
+                "forcedColors": "{button.text.color.disabled}"
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "inherit",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "inherit",
+              "prefersContrast": "{button.text.color.hover}",
+              "forcedColors": "{button.text.color.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.text.color.ghost.active}",
+          "$type": "color"
+        }
+      },
+      "muted": {
+        "@base": {
+          "$value": "{button.text.color.@base}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.text.color.active}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.text.color.hover}",
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.text.color.disabled}",
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.text.color.muted.active}",
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{button.text.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{button.text.color.@base}",
+            "forcedColors": "SelectedItem"
+          }
+        },
+        "$type": "color"
+      },
+      "menu": {
+        "@base": {
+          "$value": "{button.text.color.ghost.@base}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.text.color.ghost.active}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.text.color.ghost.active}",
+              "forcedColors": "{button.text.color.primary.@base}",
+              "nova": {
+                "comment": "The HCM value in Figma needs to be updated",
+                "value": {
+                  "light": "{button.text.color.ghost.active}",
+                  "dark": "{button.text.color.active}",
+                  "forcedColors": "ButtonFace"
+                }
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.text.color.ghost.disabled}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.text.color.ghost.hover}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.text.color.ghost.hover}",
+              "forcedColors": "{button.text.color.primary.@base}",
+              "nova": {
+                "comment": "The HCM value in Figma needs to be updated",
+                "value": {
+                  "light": "{button.text.color.ghost.hover}",
+                  "dark": "{button.text.color.hover}",
+                  "forcedColors": "ButtonFace"
+                }
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.text.color.ghost.selected}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.text.color.ghost.selected}",
+              "forcedColors": "{button.text.color.primary.selected}",
+              "nativeTheme": "currentColor"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "primary": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "forcedColors": "ButtonFace",
+              "brand": {
+                "light": "{color.white.@base}",
+                "dark": "{color.gray.100}"
+              },
+              "nativeTheme": "AccentColorText",
+              "platform": {
+                "light": "rgb(251, 251, 254)",
+                "dark": "rgb(43, 42, 51)"
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.text.color.primary.hover}",
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.text.color.primary.@base}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.text.color.primary.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.text.color.primary.@base}",
+              "forcedColors": "SelectedItemText"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.text.color.primary.active}",
+          "$type": "color"
+        }
+      },
+      "selected": {
+        "$value": "{button.text.color.active}",
+        "$type": "color"
+      },
+      "toolbar": {
+        "@base": {
+          "$value": "inherit",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "inherit",
+              "brand": {
+                "prefersContrast": "{button.text.color.@base}",
+                "forcedColors": "{button.text.color.@base}"
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "active": {
+          "$value": "inherit",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "inherit",
+              "prefersContrast": "{button.text.color.active}",
+              "forcedColors": "{button.text.color.active}"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "inherit",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "inherit",
+              "brand": {
+                "prefersContrast": "{button.text.color.disabled}",
+                "forcedColors": "{button.text.color.disabled}"
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "inherit",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "inherit",
+              "prefersContrast": "{button.text.color.hover}",
+              "forcedColors": "{button.text.color.hover}"
+            }
+          },
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{button.text.color.ghost.active}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "attention": {
+    "dot": {
+      "color": {
+        "$value": "{color.accent.attention}",
+        "$type": "color"
+      }
+    }
+  }
+}

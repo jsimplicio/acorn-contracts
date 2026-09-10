@@ -1,0 +1,29 @@
+{
+  "id": "button-group",
+  "summary": "A row of buttons, like OK and Cancel, that keeps the primary button in the right place for each platform.",
+  "tagName": "moz-button-group",
+  "description": "A light layout wrapper around a group of buttons: watches its default slot for <button>/<moz-button> children and automatically moves whichever one is primary (class=\"primary\", type=\"submit\", the autofocus/default attribute, or moz-button type=\"primary\"/\"destructive\") into the primary slot, then reorders the primary button to the platform-correct end of the group (start on Windows, end on macOS/Linux).",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-button-group/moz-button-group.mjs"
+  },
+  "attributes": [
+    {
+      "name": "platform",
+      "type": "string",
+      "description": "The detected platform (\"linux\" | \"macosx\" | \"win\"), set automatically from AppConstants.platform (falling back to navigator.platform sniffing). Not user-configurable.",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Buttons in their natural order. On slotchange, any child recognized as a primary button is automatically moved to the primary slot."
+    },
+    {
+      "name": "primary",
+      "description": "Explicit slot for a primary-styled button that lacks primary styling of its own, to control its position. Reordered to the platform-appropriate end of the group whenever platform changes."
+    }
+  ],
+  "usage": "<moz-button-group><button>Cancel</button><button class=\"primary\">Save</button></moz-button-group>"
+}

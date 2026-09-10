@@ -1,0 +1,131 @@
+{
+  "id": "input-color",
+  "basenames": [
+    "moz-input-color"
+  ],
+  "tokens": {
+    "moz-input-color.background.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.@base"
+      ]
+    },
+    "moz-input-color.background.color.active": {
+      "value": "#b6aad9",
+      "type": "color",
+      "chain": [
+        "button.background.color.active",
+        "color.violet-desaturated.30"
+      ]
+    },
+    "moz-input-color.background.color.hover": {
+      "value": "#d2c8ec",
+      "type": "color",
+      "chain": [
+        "button.background.color.hover",
+        "color.violet-desaturated.20"
+      ]
+    },
+    "moz-input-color.border.color.@base": {
+      "value": "#a6a4a9",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.@base",
+        "color.gray.35"
+      ]
+    },
+    "moz-input-color.border.color.active": {
+      "value": "#67666a",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.active",
+        "color.gray.50"
+      ]
+    },
+    "moz-input-color.border.color.hover": {
+      "value": "#817f84",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.hover",
+        "color.gray.45"
+      ]
+    },
+    "moz-input-color.border.radius": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.medium"
+      ]
+    },
+    "moz-input-color.gap": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "moz-input-color.space.padding.block": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "moz-input-color.space.padding.inline": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "moz-input-color.swatch.border.color": {
+      "value": "#d6d5da",
+      "type": "color",
+      "chain": [
+        "border.color.deemphasized.@base",
+        "color.gray.20"
+      ]
+    },
+    "moz-input-color.swatch.border.radius": {
+      "value": "9999px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.circle"
+      ]
+    },
+    "moz-input-color.swatch.size": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "size.item.medium"
+      ]
+    },
+    "moz-input-color.text.color.@base": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "moz-input-color.text.color.active": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.active",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "moz-input-color.text.color.hover": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.hover",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    }
+  }
+}

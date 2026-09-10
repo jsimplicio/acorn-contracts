@@ -1,0 +1,68 @@
+{
+  "id": "page-nav-item",
+  "summary": "A single clickable link inside the page navigation menu.",
+  "tagName": "moz-page-nav-button",
+  "description": "A navigation button intended to change the selected view within a moz-page-nav. Renders as a tab-role button by default, or as a link (external href or SUMO support-page) when href/supportPage is set. Defined as a second customElements.define in the same file as moz-page-nav (class MozPageNavButton), documented here as its own component.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs"
+  },
+  "attributes": [
+    {
+      "name": "href",
+      "type": "string",
+      "description": "Optional URL for an external link if not a support page URL; when set, the button renders as an <a target=\"_blank\"> instead of a <button>.",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "The chrome:// URL for the icon used for the button (reflected attribute).",
+      "figmaConfig": true
+    },
+    {
+      "name": "selected",
+      "type": "boolean",
+      "description": "Whether the button is currently selected; managed by the parent moz-page-nav based on currentView, but reflects the button's own state.",
+      "default": "false",
+      "figmaConfig": false
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Optional short name for a support page a secondary link should launch to (attribute: support-page); when set, renders as a moz-support-link anchor.",
+      "figmaConfig": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Title used for the button or link; should always be set so the control is still identifiable when moz-page-nav is collapsed and its slotted text is hidden. Used in shadow DOM, not reflected as an attribute on the host.",
+      "figmaConfig": true
+    },
+    {
+      "name": "view",
+      "type": "string",
+      "description": "Read via getAttribute(\"view\") (not a declared Lit property) — identifies which view this button activates; compared against the parent moz-page-nav's currentView.",
+      "figmaConfig": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Used to append the button's (typically l10n) label text."
+    }
+  ],
+  "events": [
+    {
+      "name": "change-view",
+      "description": "Fired (bubbles, composed) when the button is activated, so the parent moz-page-nav can update currentView/selection."
+    }
+  ],
+  "methods": [
+    {
+      "name": "activate",
+      "description": "Dispatches the change-view event and focuses the underlying button/link element. Accepts an options object with an optional focusVisible flag; called by moz-page-nav for keyboard arrow navigation between buttons."
+    }
+  ],
+  "usage": "<moz-page-nav-button view=\"general\" iconsrc=\"chrome://global/skin/icons/settings.svg\">General</moz-page-nav-button>"
+}

@@ -1,0 +1,164 @@
+{
+  "id": "findbar",
+  "summary": "The bar that shows up when you search for text on the current page, usually opened with Ctrl+F.",
+  "tagName": "findbar",
+  "description": "The in-page find toolbar (Ctrl+F). A classic, template-string XUL widget with no JSDoc; builds its UI from anonymous-content markup addressed by anonid rather than shadow-DOM slots, and drives find state via a FindBar JSActor.",
+  "implementation": {
+    "kind": "classic",
+    "file": "toolkit/content/widgets/findbar.js"
+  },
+  "attributes": [
+    {
+      "name": "browserid",
+      "type": "string",
+      "description": "Read via getAttribute to resolve the associated <browser> the findbar operates on; set by embedding chrome.",
+      "figmaConfig": true
+    },
+    {
+      "name": "prefillwithselection",
+      "type": "boolean",
+      "description": "Backs the prefillWithSelection JS property (getter returns getAttribute(...) != \"false\"); controls whether the find field is prefilled with the current selection.",
+      "default": "true"
+    },
+    {
+      "name": "hidden",
+      "type": "boolean",
+      "description": "Standard DOM property toggled by open()/close() to show or hide the bar.",
+      "figmaConfig": true
+    },
+    {
+      "name": "noanim",
+      "type": "boolean",
+      "description": "Internal animation-suppression flag set during open()/close(), consumed by CSS."
+    }
+  ],
+  "slots": [],
+  "events": [
+    {
+      "name": "findbaropen",
+      "description": "Plain Event dispatched from open()."
+    },
+    {
+      "name": "findbarclose",
+      "description": "Plain Event dispatched from close()."
+    },
+    {
+      "name": "find",
+      "description": "Cancelable CustomEvent fired from _find() before executing a search; detail includes query, caseSensitive, matchDiacritics, entireWord, highlightAll, findPrevious."
+    },
+    {
+      "name": "findagain",
+      "description": "Cancelable CustomEvent fired from onFindAgainCommand()."
+    },
+    {
+      "name": "findhighlightallchange",
+      "description": "Cancelable CustomEvent fired from toggleHighlight()."
+    },
+    {
+      "name": "findcasesensitivitychange",
+      "description": "Cancelable CustomEvent fired from _setCaseSensitivity()."
+    },
+    {
+      "name": "finddiacriticmatchingchange",
+      "description": "Cancelable CustomEvent fired from _setDiacriticMatching()."
+    },
+    {
+      "name": "findmatchescount",
+      "description": "Cancelable CustomEvent fired from _updateMatchesCount() with the current match count in detail."
+    }
+  ],
+  "methods": [
+    {
+      "name": "open"
+    },
+    {
+      "name": "close"
+    },
+    {
+      "name": "clear"
+    },
+    {
+      "name": "startFind"
+    },
+    {
+      "name": "onFindCommand"
+    },
+    {
+      "name": "onFindAgainCommand"
+    },
+    {
+      "name": "onFindSelectionCommand"
+    },
+    {
+      "name": "toggleHighlight"
+    },
+    {
+      "name": "toggleEntireWord"
+    },
+    {
+      "name": "updateControlState"
+    },
+    {
+      "name": "onFindResult"
+    },
+    {
+      "name": "onMatchesCountResult"
+    },
+    {
+      "name": "onHighlightFinished"
+    },
+    {
+      "name": "onCurrentSelection"
+    },
+    {
+      "name": "shouldFocusContent"
+    },
+    {
+      "name": "destroy"
+    },
+    {
+      "name": "getElement"
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--findbar-border-top-width",
+      "description": "Top border width of the findbar.",
+      "default": "1px"
+    },
+    {
+      "name": "--findbar-container-height",
+      "description": "Height of the findbar's inner container.",
+      "default": "32px"
+    },
+    {
+      "name": "--findbar-padding-block",
+      "description": "Block padding of the findbar.",
+      "default": "6px"
+    },
+    {
+      "name": "--findbar-height",
+      "description": "Overall computed height of the findbar.",
+      "default": "calc(var(--findbar-border-top-width) + var(--findbar-container-height) + (var(--findbar-padding-block) * 2))"
+    }
+  ],
+  "variants": [
+    {
+      "axis": "findMode",
+      "values": [
+        "FIND_NORMAL",
+        "FIND_TYPEAHEAD",
+        "FIND_LINKS"
+      ]
+    },
+    {
+      "axis": "status",
+      "values": [
+        "wrapped",
+        "notfound",
+        "pending"
+      ]
+    }
+  ],
+  "usage": "<findbar browserid=\"content-browser\" prefillwithselection=\"true\"></findbar>"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "callout",
+  "dos": [
+    { "text": "Provide multiple anchors per screen when you can, _getAnchor() walks the anchors array and silently skips any whose selector doesn't resolve to a visible element, returning null (no callout rendered) only once every anchor has failed." },
+    { "text": "Use panel_position only for context: \"chrome\" and arrow_position only for content pages, _createContainer() picks between a real XUL <panel> and an absolutely-positioned <div> based on which one is present, and needsPanel additionally requires MozXULElement to exist on the window." }
+  ],
+  "donts": [
+    { "text": "Don't call endTour() expecting the same FeatureCallout instance to be fully reusable afterward, it nulls this.pref via teardownFeatureTourProgress(), but setupFeatureTourProgress() (which registers the pref observer) only ever runs from the constructor, so tour-progress tracking never comes back on that instance." },
+    { "text": "Don't assume a content (div-based) callout repositions itself when its scroll container scrolls, _addPositionListeners() only wires up window \"resize\" and popup \"toggle\" events to call _positionCallout(), not scroll on an ancestor." }
+  ]
+}

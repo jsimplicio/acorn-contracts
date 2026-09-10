@@ -1,0 +1,10 @@
+{
+  "id": "infobar",
+  "dos": [
+    { "text": "Await appendNotification()'s returned promise before touching the notification further, it resolves only after the Lit-based moz-message-bar has flushed its update (and, for l10n labels, after document.l10n.translateFragment), so the shadow DOM and alert role aren't guaranteed to exist before that." }
+  ],
+  "donts": [
+    { "text": "Don't insert a notification-message element outside the stack a NotificationBox created, its close()/control getter walks up via this.closest(\".notificationbox-stack\")._notificationBox, a back-reference only set inside NotificationBox's own stack getter, so a manually-placed notification throws when closed." },
+    { "text": "Don't give a button a popup id and expect a graceful no-op if it's wrong, setButtons calls document.getElementById(popup).openPopup(...) directly with no null check, so a missing popup id throws at click time." }
+  ]
+}

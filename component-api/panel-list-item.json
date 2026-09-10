@@ -1,0 +1,138 @@
+{
+  "id": "panel-list-item",
+  "summary": "A single clickable row inside a panel-list menu.",
+  "tagName": "panel-item",
+  "description": "The Acorn API's coverage table lists 'Panel List Item' separately from 'Panel Item', but there is no upstream distinction: both ids refer to the exact same class (PanelItem) and the exact same customElements.define(\"panel-item\", PanelItem) registration, in the same file as panel-list. There is no separate implementation for panel-list-item; this entry documents the same underlying class as the panel-item id. Corrected kind: PanelItem extends plain HTMLElement (no XUL/MozElementMixin base), so it is modern, matching the panel-item id's own classification of the identical class.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/panel-list/panel-list.mjs"
+  },
+  "attributes": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Observed attribute. \"checkbox\" gives the internal button role=\"menuitemcheckbox\" and an aria-checked reflection; any other value (default \"button\") gives role=\"menuitem\".",
+      "figmaConfig": true,
+      "default": "button"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Observed attribute; get/set property. Toggles the disabled attribute on the internal button.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "get/set property (not in observedAttributes). Only meaningful when type=\"checkbox\"; toggles the checked attribute and the internal button's aria-checked.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "accesskey",
+      "type": "string",
+      "description": "Observed attribute. Moved onto an internal XUL <label> for display; temporarily cleared while the parent panel-list is closed and restored when it reopens (bug 1588156 workaround).",
+      "figmaConfig": true
+    },
+    {
+      "name": "badge-type",
+      "type": "string",
+      "description": "Observed attribute. When set, inserts a <moz-badge type=\"...\"> element right after the label; removed when the attribute is cleared.",
+      "figmaConfig": true
+    },
+    {
+      "name": "submenu",
+      "type": "boolean",
+      "description": "Presence flag (hasAttribute(\"submenu\")), read once in connectedCallback. When present, adds a submenu-icon and a named \"submenu\" slot for a nested panel-list, and sets has-submenu on the parent panel-list.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "aria-haspopup",
+      "type": "string",
+      "description": "Observed attribute; forwarded verbatim to the internal button's aria-haspopup."
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Text content; read via a MutationObserver and copied into the internal <label> element (the assigned nodes themselves stay hidden)."
+    },
+    {
+      "name": "support-link",
+      "description": "Named slot rendered alongside the button, e.g. for a 'Learn more' link next to the item."
+    },
+    {
+      "name": "submenu",
+      "description": "Named slot, only created when the submenu attribute is present; holds a nested panel-list acting as this item's submenu."
+    }
+  ],
+  "methods": [
+    {
+      "name": "click",
+      "description": "Synthesizes a click on the internal button."
+    },
+    {
+      "name": "focus",
+      "description": "Focuses the internal button."
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--panel-item-badge-inset-block-start",
+      "description": "Block-start inset of the badge relative to the item.",
+      "default": "0.25rem"
+    },
+    {
+      "name": "--panel-item-badge-inset-inline-start",
+      "description": "Inline-start inset of the badge relative to the item.",
+      "default": "calc({panel-menuitem.padding.inline} + {icon.size.@base})"
+    },
+    {
+      "name": "--panel-item-badge-size",
+      "description": "Size of the CSS-only badge dot, set inline on :host([badged]) button::after.",
+      "default": "5px"
+    },
+    {
+      "name": "--panel-item-badge-background-color",
+      "description": "Background color of the CSS-only badge dot, set inline to var(--color-accent-primary).",
+      "default": "var(--color-accent-primary)"
+    },
+    {
+      "name": "--panel-item-button-border-radius",
+      "description": "Corner radius of the internal button.",
+      "default": "16px"
+    },
+    {
+      "name": "--panel-item-button-margin",
+      "description": "Margin of the internal button.",
+      "default": "{panel-menuitem.margin.block} {panel-menuitem.margin.inline}"
+    },
+    {
+      "name": "--panel-item-button-padding",
+      "description": "Padding of the internal button.",
+      "default": "{panel-menuitem.padding.block} {panel-menuitem.padding.inline}"
+    },
+    {
+      "name": "--panel-item-button-padding-inline-start",
+      "description": "Inline-start padding of the internal button (accommodates a leading icon).",
+      "default": "calc({panel-menuitem.padding.inline} + {icon.size.@base} + {space.small})"
+    },
+    {
+      "name": "--panel-item-button-padding-inline-start-offset",
+      "description": "Added on top of --panel-item-button-padding-inline-start; lets a subclass/consumer nudge the icon-accommodating inline-start padding without overriding the whole value."
+    }
+  ],
+  "cssParts": [
+    {
+      "name": "button",
+      "description": "The internal <button> element."
+    },
+    {
+      "name": "label",
+      "description": "The internal label element showing the item's text."
+    }
+  ],
+  "usage": "<panel-list>\n  <panel-item accesskey=\"s\">Settings</panel-item>\n  <panel-item type=\"checkbox\" checked>Show toolbar</panel-item>\n</panel-list>"
+}

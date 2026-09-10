@@ -1,0 +1,10 @@
+{
+  "id": "sidebar",
+  "summary": "The panel that slides out on the side of the browser window, showing things like bookmarks or history.",
+  "tagName": null,
+  "description": "SidebarController is a plain singleton object (var SidebarController = {...}), not a class or custom element; it manages sidebar panel visibility/toggling, builds the View > Sidebar menu items, tracks per-tool notification badges, and exposes the sidebar API used by extensions.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/sidebar/browser-sidebar.js"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "id": "textarea",
+  "summary": "A multi-line text field, like you'd use for a comment or message.",
+  "tagName": "moz-textarea",
+  "description": "A MozInputText subclass rendering a native <textarea> instead of an <input>, adding a rows property (default 2) for the number of visible text rows.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-textarea/moz-textarea.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The text of the label element. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name of the textarea control. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The value of the textarea control. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "description": "The number of visible text rows, reflected as an attribute. Declared directly on MozTextarea, not inherited.",
+      "figmaConfig": true,
+      "default": "2"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "The disabled state of the textarea control. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "The readonly state of the textarea control. Inherited from MozInputText.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "The required state of the textarea control. Inherited from MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "The src for an optional icon. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Text for the description element that helps describe the textarea control. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Text to display when the textarea has no value. Inherited from MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "The aria-label text when there is no visible label. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaDescription",
+      "type": "string",
+      "description": "The aria-description text when there is no visible description. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": false
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title attribute, mapped onto the inner textarea. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "description",
+      "description": "Inherited from MozBaseInputElement: rendered when the description property is unset, letting callers supply richer description markup."
+    },
+    {
+      "name": "support-link",
+      "description": "Inherited from MozBaseInputElement: rendered when supportPage is unset, letting callers supply a custom support link element."
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "description": "Native input event as the user types; handled internally (inherited handleInput) to update value."
+    },
+    {
+      "name": "change",
+      "description": "Redispatched from the native textarea's change event so it crosses the shadow boundary."
+    }
+  ],
+  "cssParts": [
+    {
+      "name": "label",
+      "description": "The internal <label is=\"moz-label\">, inherited from MozBaseInputElement's shared render()."
+    },
+    {
+      "name": "support-link",
+      "description": "The optional support link, inherited from MozBaseInputElement's shared render()."
+    }
+  ],
+  "usage": "<moz-textarea name=\"notes\" label=\"Notes\" rows=\"4\"></moz-textarea>"
+}

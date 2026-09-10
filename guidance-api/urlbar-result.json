@@ -1,0 +1,9 @@
+{
+  "id": "urlbar-result",
+  "dos": [
+    { "text": "Remember a real result row can contain a urlbar-action (a label or button) as a sub-element, they're related but distinct concepts in UrlbarView.mjs." }
+  ],
+  "donts": [
+    { "text": "Don't assume every row looks the same, #createRowContent/#createRowContentForRichSuggestion/etc are genuinely different code paths for different result shapes." }
+  ]
+}

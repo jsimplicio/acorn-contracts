@@ -1,0 +1,9 @@
+{
+  "id": "box-button",
+  "dos": [
+    { "text": "Call the button's own click() method (it just forwards to buttonEl.click()) rather than dispatching synthetic events at the host, since that's the only interaction API MozBoxButton exposes." }
+  ],
+  "donts": [
+    { "text": "Don't assume the built-in arrow-right.svg chevron means the component navigates anywhere on its own, MozBoxButton renders it unconditionally to match its \"navigating between sub-pages\" JSDoc framing but has no href or default click handler, so you must wire up navigation yourself." }
+  ]
+}

@@ -1,0 +1,4368 @@
+{
+  "_comment": [
+    "Direct pull of every real Figma VARIABLE in Mozilla's authoritative 'Nova Styles",
+    "(Experimental)' file (key Co6vXnF5SiQMcJ7UoJvZX6), via a single unauthenticated-",
+    "except-for-a-token REST call: GET /v1/files/{FILE_ID}/variables/local. This",
+    "REPLACES an earlier Supernova-MCP-sourced dump (see git history for",
+    "figma-token-dump.json) that the repo maintainer rejected as the wrong source for",
+    "this check: Supernova's sync of this file is known to have gaps elsewhere in this",
+    "project family (it mislabeled its own source file as 'Desktop Styles' and could",
+    "not confirm it was even the same file as 'Nova Styles'), so token-existence checks",
+    "against Figma must hit the Figma REST API directly, never Supernova. This is the",
+    "exact file/endpoint prototype/design-system/scripts/gen_tokens_css.py in the",
+    "sibling ai-native-ux-hub repo already pulls from to generate that project's own",
+    "tokens.css, confirmed by reading that script directly rather than assumed.",
+    "",
+    "This is a FULL dump: every one of the file's 720 raw variables across all 9",
+    "variable collections in the file (HCM Theme, Theme, Operating System, Surface,",
+    "Colors x2 [one is a single remote/external-library alias target, kept because it",
+    "is still a real resolvable entry in this file], Primitives, Tab Group Theme,",
+    "Components), minus the 2 variables Figma itself flags 'deletedButReferenced'",
+    "(background/color/box/accent/primary, border/color/overlay): these no longer",
+    "exist as live variables, only as dangling references something else still points",
+    "at, so counting them as 'exists in Figma' would be a false positive. Only `name`,",
+    "`type` (resolvedType), `collection`, and `remote` are kept per variable -- values,",
+    "modes, aliasing, and descriptions are dropped because figma-check.py's matching is",
+    "purely name-based and doesn't need them (see figma-check.py's own docstring for",
+    "why). Re-running the fetch (see token-api/README.md's 'Figma existence check'",
+    "section) regenerates this file from scratch; there is no incremental update path.",
+    "",
+    "codeSyntax was checked here too, the same way the earlier Supernova pass checked",
+    "it, not assumed unusable just because the prior connection lacked it: this direct",
+    "Figma API response DOES include a `codeSyntax` field per variable, but only 2 of",
+    "720 have it populated (button/background/color, tab/border/color), nowhere near",
+    "enough to be a general match signal. Matching is still by normalized name, exactly",
+    "as before; see figma-check.py's docstring for the exact rule."
+  ],
+  "fetchedAt": "2026-09-03T20:56:30Z",
+  "fetchedBy": "GET https://api.figma.com/v1/files/Co6vXnF5SiQMcJ7UoJvZX6/variables/local (X-Figma-Token header, see token-api/README.md)",
+  "sourceFile": {
+    "name": "Nova Styles (Experimental)",
+    "key": "Co6vXnF5SiQMcJ7UoJvZX6"
+  },
+  "totalVariablesInFile": 720,
+  "excludedDeletedButReferenced": [
+    "background/color/box/accent/primary",
+    "border/color/overlay"
+  ],
+  "variableCountByCollection": {
+    "Colors": 121,
+    "Components": 101,
+    "HCM Theme": 20,
+    "Operating System": 32,
+    "Primitives": 68,
+    "Surface": 14,
+    "Tab Group Theme": 7,
+    "Theme": 355
+  },
+  "variables": [
+    {
+      "name": "color/blue/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/blue/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/blue/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/blue/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/blue/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/blue/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/blue/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/blue/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/blue/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/blue/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/cyan/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/cyan/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/cyan/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/cyan/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/cyan/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/cyan/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/cyan/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/cyan/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/cyan/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/cyan/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/05",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/100",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": true
+    },
+    {
+      "name": "color/gray/15",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/25",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/35",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/45",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/55",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/65",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/75",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/85",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/gray/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/green/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/green/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/green/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/green/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/green/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/green/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/green/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/green/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/green/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/green/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/orange/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/orange/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/orange/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/orange/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/orange/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/orange/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/orange/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/orange/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/orange/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/orange/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/pink/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/pink/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/pink/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/pink/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/pink/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/pink/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/pink/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/pink/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/pink/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/pink/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/purple/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/purple/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/purple/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/purple/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/purple/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/purple/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/purple/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/purple/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/purple/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/purple/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/red/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/red/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/red/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/red/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/red/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/red/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/red/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/red/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/red/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/red/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet-desaturated/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet-desaturated/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet-desaturated/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet-desaturated/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet-desaturated/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet-desaturated/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet-desaturated/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet-desaturated/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet-desaturated/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet-desaturated/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/violet/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/white",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/yellow/0",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/yellow/10",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/yellow/20",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/yellow/30",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/yellow/40",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/yellow/50",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/yellow/60",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/yellow/70",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/yellow/80",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "color/yellow/90",
+      "type": "COLOR",
+      "collection": "Colors",
+      "remote": false
+    },
+    {
+      "name": "badge/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "badge/font/weight",
+      "type": "STRING",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "badge/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "badge/padding/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/border/width",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/border/width/split",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/gap/split",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/min-height",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/min-height/large",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/min-height/small",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/padding/icon",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/padding/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/padding/inline/small",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/size/icon",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/size/icon/large",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "button/size/icon/small",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "card/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "card/border/width",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "card/gap",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "card/gap/article",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "card/padding",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "checkbox/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "checkbox/size",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "dialog/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "dialog/padding",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "icon/size",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "info-bar/margin/block/start",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "info-bar/margin/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "input-color/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "input-color/space/padding/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "input/text/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "input/text/min/height",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/actions/gap",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/border/width",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/close/margin/block-start",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/close/margin/inline-end",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/container/gap",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/container/min-height",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/container/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/container/padding/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/content/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/content/padding/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/icon/container/border/radius-end-end",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/icon/container/border/radius-start-end",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/icon/height",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/icon/size",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/margin/block/start",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/message/margin/inline-end",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/text/container/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "message-bar/text/container/padding/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/border/radius/focused",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/indicator/width",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/padding",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/padding/small",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "page-nav/focus/outline/offset",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel-menuitem/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel-menuitem/margin/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel-menuitem/margin/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel-menuitem/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel-menuitem/padding/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel/header/info/icon/padding",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel/padding",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel/shadow/margin",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "panel/subview/body/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "popup/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "select/font/size",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "select/font/size/small",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "select/min/height",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "select/min/height/small",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "select/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "select/space/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "select/space/inline/small",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "tab/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "tab/box/shadow",
+      "type": "STRING",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "tab/box/shadow/selected",
+      "type": "STRING",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "tab/icon/margin-end",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "tab/label/line-height",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "tab/margin/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "toolbar/padding/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/opacity/disabled",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/outline/offset",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/padding/compact/inner",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/padding/inner",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/padding/inner/touch/narrow",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/padding/outer",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/padding/touch/inner",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "urlbar/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "urlbar/margin/inline",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "urlbar/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/border/radius",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/button/opacity/result",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/favicon/size",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/row/min/height",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/row/padding/block",
+      "type": "FLOAT",
+      "collection": "Components",
+      "remote": false
+    },
+    {
+      "name": "AccentColor",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "AccentColorText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "ActiveText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "ButtonBorder",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "ButtonFace",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "ButtonText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "Canvas",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "CanvasText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "Color",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "Field",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "FieldText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "GrayText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "Highlight",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "HighlightText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "LinkText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "Mark",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "MarkText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "SelectedItem",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "SelectedItemText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "VisitedText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "brand/font/size/heading/large",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/font/size/heading/medium",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/font/size/heading/xlarge",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/font/size/root",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/font/size/small",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/font/size/xsmall",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/space/large",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/space/medium",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/space/small",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/space/xlarge",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/space/xsmall",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/space/xxlarge",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/space/xxsmall",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "brand/space/xxxlarge",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/border-radius/chrome",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/border-radius/window",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/font/family",
+      "type": "STRING",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/font/size/heading/medium",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/font/size/root",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/font/size/small",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/font/size/xsmall",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/space/large",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/space/medium",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/space/small",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/space/xlarge",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/space/xsmall",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/space/xxlarge",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/space/xxsmall",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "platform/space/xxxlarge",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "system/is-linux",
+      "type": "BOOLEAN",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "system/is-mac",
+      "type": "BOOLEAN",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "system/is-windows",
+      "type": "BOOLEAN",
+      "collection": "Operating System",
+      "remote": false
+    },
+    {
+      "name": "border/radius/circle",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "border/radius/large",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "border/radius/medium",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "border/radius/small",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "border/radius/xlarge",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "border/radius/xsmall",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "border/width",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-1/shadow-1/blur",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-1/shadow-1/spread",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-1/shadow-1/x",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-1/shadow-1/y",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-1/shadow-2/blur",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-1/shadow-2/spread",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-1/shadow-2/x",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-1/shadow-2/y",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-2/shadow-1/blur",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-2/shadow-1/spread",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-2/shadow-1/x",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-2/shadow-1/y",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-2/shadow-2/blur",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-2/shadow-2/spread",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-2/shadow-2/x",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-2/shadow-2/y",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-3/shadow-1/blur",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-3/shadow-1/spread",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-3/shadow-1/x",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-3/shadow-1/y",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-3/shadow-2/blur",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-3/shadow-2/spread",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-3/shadow-2/x",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-3/shadow-2/y",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-4/shadow-1/blur",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-4/shadow-1/spread",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-4/shadow-1/x",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-4/shadow-1/y",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-4/shadow-2/blur",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-4/shadow-2/spread",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-4/shadow-2/x",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-4/shadow-2/y",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "focus/outline/inset",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "focus/outline/offset",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "focus/outline/width",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "font/weight/bold",
+      "type": "STRING",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "font/weight/semibold",
+      "type": "STRING",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "icon/size",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "icon/size/large",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "icon/size/medium",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "icon/size/small",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "icon/size/xlarge",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "icon/size/xsmall",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "link/focus/outline/border/radius",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "link/focus/outline/offset",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "page/main/content/width",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "size/item/large",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "size/item/medium",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "size/item/small",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "size/item/xlarge",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "size/item/xsmall",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "tab/close/button/padding",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "tab/margin/block",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "tab/margin/block/vertical",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "tab/margin/inline/inner",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "tab/margin/inline/pinned/container/expanded",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "tab/margin/inline/pinned/expanded",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "tab/margin/overflow/clip",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "tab/outline/offset",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "tab/padding/inline",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "tab/width/pinned/expanded",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": false
+    },
+    {
+      "name": "font/size/heading/large",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "font/size/heading/medium",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "font/size/heading/xlarge",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "font/size/root",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "font/size/small",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "font/size/xsmall",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "space/large",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "space/medium",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "space/small",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "space/xlarge",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "space/xsmall",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "space/xxlarge",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "space/xxsmall",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "space/xxxlarge",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": false
+    },
+    {
+      "name": "theme-color-active",
+      "type": "COLOR",
+      "collection": "Tab Group Theme",
+      "remote": false
+    },
+    {
+      "name": "theme-color-count",
+      "type": "COLOR",
+      "collection": "Tab Group Theme",
+      "remote": false
+    },
+    {
+      "name": "theme-color-default",
+      "type": "COLOR",
+      "collection": "Tab Group Theme",
+      "remote": false
+    },
+    {
+      "name": "theme-color-focus",
+      "type": "COLOR",
+      "collection": "Tab Group Theme",
+      "remote": false
+    },
+    {
+      "name": "theme-color-hover",
+      "type": "COLOR",
+      "collection": "Tab Group Theme",
+      "remote": false
+    },
+    {
+      "name": "theme-color-hover-closed",
+      "type": "COLOR",
+      "collection": "Tab Group Theme",
+      "remote": false
+    },
+    {
+      "name": "theme-color-text",
+      "type": "COLOR",
+      "collection": "Tab Group Theme",
+      "remote": false
+    },
+    {
+      "name": "background/color/backdrop",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "background/color/box",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "background/color/box/info",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "background/color/canvas",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "background/color/critical",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "background/color/information",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "background/color/success",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "background/color/warning",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "badge/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "badge/background/color/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "badge/background/color/filled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "badge/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "badge/border/color/filled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "badge/text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "badge/text/color/filled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "border/color/deemphasized",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "border/color/error",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "border/color/interactive",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "border/color/interactive/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "border/color/interactive/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "border/color/interactive/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "border/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "border/color/transparent",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/color/accent/primary",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/color/darker/layer-1",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/color/darker/layer-2",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/color/lighter/layer-1",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/color/lighter/layer-2",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-1/shadow-1/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-1/shadow-2/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-2/shadow-1/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-2/shadow-2/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-3/shadow-1/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-3/shadow-2/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-4/shadow-1/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box-shadow/level-4/shadow-2/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "box/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/destructive",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/destructive/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/destructive/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/destructive/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/destructive/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/ghost",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/ghost/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/ghost/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/ghost/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/ghost/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/menu",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/menu/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/menu/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/menu/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/muted",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/muted/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/muted/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/muted/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/muted/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/primary",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/primary/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/primary/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/primary/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/primary/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/deemphasized",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/destructive",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/destructive/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/destructive/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/destructive/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/destructive/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/ghost",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/ghost/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/ghost/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/ghost/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/ghost/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/muted",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/muted/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/muted/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/muted/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/muted/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/primary",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/primary/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/primary/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/primary/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/primary/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/border/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/opacity/disabled",
+      "type": "FLOAT",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/split/separator/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/destructive",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/destructive/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/destructive/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/destructive/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/destructive/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/ghost",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/ghost/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/ghost/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/ghost/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/ghost/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/menu",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/menu/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/menu/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/menu/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/menu/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/muted",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/muted/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/muted/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/muted/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/muted/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/primary",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/primary/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/primary/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/primary/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/primary/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/text/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/header/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/header/background/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/header/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/header/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/header/border/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/header/border/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/header/text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/header/text/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "card/header/text/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "chrome/box/shadow",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "chrome/content/separator/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "color/accent/attention",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "color/accent/primary",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "color/accent/primary/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "color/accent/primary/deemphasized",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "color/accent/primary/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "color/accent/primary/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "dialog/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "dialog/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "divider/color/tinted",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "focus/outline",
+      "type": "FLOAT",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "focus/outline/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "glow/background/linear/gradient/layer-leading",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "glow/background/linear/gradient/layer-trailing",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "glow/background/linear/gradient/scrim-layer-leading",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "glow/background/linear/gradient/scrim-layer-trailing",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "icon/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "icon/color/accent/primary/desaturated",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "icon/color/critical",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "icon/color/information",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "icon/color/success",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "icon/color/warning",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "input-color/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "input-color/background/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "input-color/background/color/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "input-color/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "link/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "link/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "link/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "link/color/visited",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/background/color/critical",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/background/color/success",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/background/color/warning",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/icon/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/icon/background/color/critical",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/icon/background/color/success",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/icon/background/color/warning",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/icon/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/icon/container/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "message-bar/text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "newtab/background/color/box",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/background/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/background/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/indicator/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "page-nav/button/text/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "page-nav/hr/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "panel/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "panel/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "panel/separator/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "panel/text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "popup/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "popup/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "promo/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "promo/background/color/vibrant",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "promo/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "promo/border/color/vibrant",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "scrim/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "segmented/control/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "segmented/control/segment/background/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "segmented/control/text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "segmented/control/text/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "select/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "select/border/color/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "select/border/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "switcher/button/icon/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "switcher/button/icon/background/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "switcher/button/icon/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/attention/dot/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/background/color/pinned/vertical",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/background/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/background/color/split-hover-non-active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/border/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/border/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/border/color/selected/leading",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/border/color/selected/trailing",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/blue",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/blue/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/blue/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/blue/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/blue/text",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/cyan",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/cyan/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/cyan/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/cyan/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/cyan/text",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/gray/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/gray/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/gray/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/gray/text",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/green",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/green/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/green/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/green/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/green/text",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/grey",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/hover-closed-vertical",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/icon/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/orange",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/orange/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/orange/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/orange/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/orange/text",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/pink",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/pink/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/pink/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/pink/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/pink/text",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/purple",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/purple/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/purple/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/purple/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/purple/text",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/red",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/red/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/red/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/red/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/red/text",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/violet",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/violet/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/violet/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/violet/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/violet/text",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/yellow",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/yellow/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/yellow/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/yellow/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/group/yellow/text",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/loading/fill",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/margin/inline/pinned/container/expanded",
+      "type": "FLOAT",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/margin/inline/pinned/expanded",
+      "type": "FLOAT",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/note/icon/end/margin",
+      "type": "STRING",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/outline/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/outline/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/padding/inline",
+      "type": "STRING",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/text/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "tab/text/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "table/row/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "table/row/background/color/alternate",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "text/color/accent/primary/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "text/color/deemphasized",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "text/color/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "text/color/error",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/background/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/background/color/pressed",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/background/color/pressed/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/background/color/pressed/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/border/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/border/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/border/color/pressed",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/border/color/pressed/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/border/color/pressed/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/dot/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/dot/background/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/dot/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/dot/background/color/on-pressed",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toggle/opacity/disabled",
+      "type": "FLOAT",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbar/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbar/field/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbar/field/background/color/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbar/field/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbar/field/border/color/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbar/field/text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbar/field/text/color/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/background/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/border/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/icon/fill",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/icon/fill/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/icon/fill/attention",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/icon/fill/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/icon/fill/ghost",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/icon/fill/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/icon/fill/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/outline/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/outline/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/outline/color/disabled",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/outline/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/outline/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarbutton/text/color/attention",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbarseparator/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbox/background/color/gradient-leading",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbox/background/color/gradient-trailing",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbox/background/color/inactive",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbox/text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbox/text/color/current",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "toolbox/text/color/inactive",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbar/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbar/background/color/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbar/box/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbar/box/background/color/active",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbar/box/background/color/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbar/box/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbar/box/text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbar/box/text/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbar/icon/fill/opacity",
+      "type": "FLOAT",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/action/button/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/action/button/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/background/color/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/background/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/separator/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/text/color/action",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/text/color/secondary",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "urlbarview/text/color/selected",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "window-type/Window type",
+      "type": "STRING",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "window-type/is-classic",
+      "type": "BOOLEAN",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "window-type/is-private",
+      "type": "BOOLEAN",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "window-type/is-smart",
+      "type": "BOOLEAN",
+      "collection": "Theme",
+      "remote": false
+    }
+  ]
+}

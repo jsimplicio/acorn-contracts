@@ -1,0 +1,9 @@
+{
+  "id": "placeholder-id",
+  "dos": [
+    { "text": "Describe one thing to do when using this component, worded as a specific, actionable sentence." }
+  ],
+  "donts": [
+    { "text": "Describe one thing to avoid, ideally naming the concrete symptom of getting it wrong." }
+  ]
+}

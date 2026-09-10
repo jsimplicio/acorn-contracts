@@ -1,0 +1,37 @@
+{
+  "id": "input-color",
+  "summary": "A form field for picking a color, showing a swatch you click to open a color picker.",
+  "tagName": "moz-input-color",
+  "description": "A labeled color swatch input backed by a native <input type=\"color\">, used to pick a CSS color value.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-input-color/moz-input-color.mjs"
+  },
+  "attributes": [
+    {
+      "name": "value",
+      "type": "string",
+      "description": "A CSS hex value shown in the swatch area.",
+      "figmaConfig": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Name associated with the nested native input element; useful in forms.",
+      "figmaConfig": false
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The text of the label shown next to the swatch.",
+      "figmaConfig": true
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Redispatched from the native input's change event when the user commits a new color value (this.value is updated first, then the change event is re-fired from the host so it crosses the shadow boundary)."
+    }
+  ],
+  "usage": "<moz-input-color label=\"Background\" value=\"#7293C9\"></moz-input-color>"
+}

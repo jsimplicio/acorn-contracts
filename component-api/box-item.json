@@ -1,0 +1,82 @@
+{
+  "id": "box-item",
+  "summary": "A single row inside a settings-style list, usually with a label and an optional icon or description.",
+  "tagName": "moz-box-item",
+  "description": "A custom element used for highlighting important information and/or providing context for specific settings, rendered as a box row with an optional icon, label, description, support link, and start/end action slots.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-box-item/moz-box-item.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Label for the item. Inherited from MozBoxBase (toolkit/content/widgets/lit-utils.mjs).",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Descriptive text for the item. Inherited from MozBoxBase.",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "The src for an optional icon shown next to the label. Inherited from MozBoxBase.",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "The name of the SUMO support page to link to (attribute support-page).",
+      "figmaConfig": true
+    },
+    {
+      "name": "layout",
+      "type": "string",
+      "description": "Layout style for the box content, reflected attribute.",
+      "figmaConfig": true,
+      "default": "default"
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Slot for the box item's content, which overrides label and description."
+    },
+    {
+      "name": "support-link",
+      "description": "Slot for a custom support link element."
+    },
+    {
+      "name": "description",
+      "description": "Slot for custom description content."
+    },
+    {
+      "name": "actions",
+      "description": "Slot for the actions positioned at the end of the component container."
+    },
+    {
+      "name": "actions-start",
+      "description": "Slot for the actions positioned at the start of the component container."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "layout",
+      "values": [
+        "default",
+        "medium-icon",
+        "large-icon"
+      ]
+    }
+  ],
+  "usage": "<moz-box-item label=\"Setting name\" description=\"Setting description\">\n  <moz-button slot=\"actions\" type=\"icon ghost\" iconsrc=\"chrome://example.svg\" aria-label=\"end action\"></moz-button>\n</moz-box-item>",
+  "cssParts": [
+    {
+      "name": "support-link",
+      "description": "The optional \"Learn more\"-style support link, own render (not inherited from MozBoxBase, which has no shared parts)."
+    }
+  ]
+}

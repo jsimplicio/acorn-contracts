@@ -1,0 +1,9 @@
+{
+  "id": "toggle",
+  "dos": [
+    { "text": "Use the nested slot for dependent fields and let updateNestedElements() handle disabling them, nested elements get parentDisabled whenever the toggle itself is disabled OR whenever pressed is false, since activatedProperty is \"pressed\", not only when explicitly disabled." }
+  ],
+  "donts": [
+    { "text": "Don't expect the \"toggle\" event to fire synchronously on click, handleClick() dispatches it via dispatchOnUpdateComplete(), which awaits this.updateComplete first, so it fires only after Lit's update cycle for that click has finished." }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "xxsmall": {
+    "$value": "0.125rem",
+    "$type": "dimension"
+  },
+  "xsmall": {
+    "$value": "0.25rem",
+    "$type": "dimension"
+  },
+  "small": {
+    "$value": "0.5rem",
+    "$type": "dimension"
+  },
+  "medium": {
+    "$value": "0.75rem",
+    "$type": "dimension"
+  },
+  "large": {
+    "$value": "1rem",
+    "$type": "dimension"
+  },
+  "xlarge": {
+    "$value": "1.5rem",
+    "$type": "dimension"
+  },
+  "xxlarge": {
+    "$value": "2rem",
+    "$type": "dimension"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "icon-button",
+  "summary": "A button that shows only an icon, with no visible text label.",
+  "tagName": "moz-button",
+  "description": "The icon-only usage mode of moz-button: an iconSrc is set with no visible label text, and type includes the \"icon\" token (optionally combined with \"ghost\") so the button renders as a square icon-only control. This is not a separate registered custom element — it is documented separately here because it is a distinct, commonly-used configuration of moz-button (see the \"button\" component for the full element API).",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-button/moz-button.mjs"
+  },
+  "attributes": [
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "Path to the icon displayed in the button. Required for icon-button usage — with no slotted/label text, this is the only visible content.",
+      "figmaConfig": true
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Must include the \"icon\" token to get icon-only sizing/layout (CSS selector `[type~=\"icon\"]:not(.labelled)`). Supported combinations in moz-button.mjs/.css: \"icon\" (default theme) and \"icon ghost\" (ghost theme, via `[type~=\"ghost\"]`). Figma Code Connect (moz-button.figma.ts) also lists \"icon primary\" and \"icon neutral\", but no matching CSS rule exists for those combos — `[type=\"primary\"]` is an exact match, not a `~=` token match, so \"icon primary\" does not pick up primary styling.",
+      "figmaConfig": true,
+      "default": "default"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Used as the accessible/tooltip label when there is no visible text label (common for icon-only buttons since title is rendered on the shadow-DOM button element).",
+      "figmaConfig": true
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "Accessible name for the button when there is no visible label text.",
+      "figmaConfig": true
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Options: default, small, large. Affects icon-button square dimensions via --button-size-icon(-small|-large).",
+      "figmaConfig": true,
+      "default": "default"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "The disabled state.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "attention",
+      "type": "boolean",
+      "description": "Shows a notification dot on the icon button (badged class applied when iconSrc or type includes \"icon\" and attention is true).",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "menuId",
+      "type": "string",
+      "description": "CSS selector identifying an associated panel-list menu; integrates the icon button with panel-list open/close and aria-expanded/aria-haspopup state.",
+      "figmaConfig": false
+    }
+  ],
+  "events": [
+    {
+      "name": "click",
+      "description": "The click event."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "icon",
+        "icon ghost"
+      ]
+    },
+    {
+      "axis": "size",
+      "values": [
+        "default",
+        "small",
+        "large"
+      ]
+    }
+  ],
+  "usage": "<moz-button type=\"icon ghost\" iconsrc=\"chrome://global/skin/icons/edit-copy.svg\" title=\"Copy\"></moz-button>"
+}

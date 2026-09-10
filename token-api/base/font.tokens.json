@@ -1,0 +1,85 @@
+{
+  "size": {
+    "root": {
+      "$value": "15px",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "brand": {
+            "default": "15px"
+          },
+          "platform": {
+            "default": "unset"
+          }
+        }
+      },
+      "$type": "dimension"
+    },
+    "small": {
+      "$value": "0.867rem",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "brand": {
+            "default": "0.867rem"
+          },
+          "platform": {
+            "default": "unset"
+          }
+        }
+      },
+      "$description": "13px in-content, unset in platform (we want to avoid going too small when the root font size is already quite small)",
+      "$type": "dimension"
+    },
+    "large": {
+      "$value": "1.133rem",
+      "$description": "17px (in-content)",
+      "$type": "dimension"
+    },
+    "xlarge": {
+      "$value": "1.467rem",
+      "$description": "22px (in-content)",
+      "$type": "dimension"
+    },
+    "xxlarge": {
+      "$value": "1.6rem",
+      "$description": "24px (in-content)",
+      "$type": "dimension"
+    },
+    "xxxlarge": {
+      "$value": "2.2rem",
+      "$description": "33px (in-content)",
+      "$type": "dimension"
+    },
+    "heading": {
+      "xlarge": {
+        "$value": "{font.size.xxlarge}",
+        "$type": "dimension"
+      },
+      "large": {
+        "$value": "{font.size.xlarge}",
+        "$type": "dimension"
+      },
+      "medium": {
+        "$value": "{font.size.large}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "weight": {
+    "@base": {
+      "$value": "normal",
+      "$type": "fontWeight"
+    },
+    "semibold": {
+      "$value": 600,
+      "$type": "fontWeight"
+    },
+    "bold": {
+      "$value": 700,
+      "$type": "fontWeight"
+    },
+    "heading": {
+      "$value": "{font.weight.semibold}",
+      "$type": "fontWeight"
+    }
+  }
+}

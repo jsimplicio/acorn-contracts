@@ -1,0 +1,10 @@
+{
+  "id": "chip",
+  "summary": "A small rounded tag used to show a short piece of info, like a website's icon and name in a list.",
+  "tagName": null,
+  "description": "No generic 'chip' component exists in mozilla-central. The closest analog is ai-website-chip (browser/components/aiwindow/ui/components/ai-website-chip/ai-website-chip.mjs), but that is a distinct, single-purpose feature component (an AI-window website-reference chip), not a reusable generic chip primitive.",
+  "implementation": {
+    "kind": "missing",
+    "file": "browser/components/aiwindow/ui/components/ai-website-chip/ai-website-chip.mjs (closest analog; distinct single-purpose feature component, not a generic chip)"
+  }
+}

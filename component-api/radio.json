@@ -1,0 +1,84 @@
+{
+  "id": "radio",
+  "summary": "A round selectable button used to pick one option from a group, with a label next to it.",
+  "tagName": "moz-radio-group / radio",
+  "description": "Modern Lit-based radio group (moz-radio-group) that groups and associates moz-radio items so they function as a single form control. A legacy XUL-style <radiogroup>/<radio> pair (toolkit/content/widgets/radio.js, registered as tags \"radiogroup\" and \"radio\") also still exists in the tree for older UI: it implements roving-tabindex keyboard navigation (arrow keys, wrapping), a selectedItem/selectedIndex/value API, and dispatches a plain \"select\" event on selection, with attribute inheritance for disabled/selected/label/accesskey/crop/src. The attrs/slots/events below describe the actively-recommended moz-radio-group and its moz-radio children.",
+  "implementation": {
+    "kind": "dual",
+    "file": "toolkit/content/widgets/moz-radio-group/moz-radio-group.mjs"
+  },
+  "attributes": [
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether or not the fieldset is disabled.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Label for the group of moz-radio elements.",
+      "figmaConfig": true
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "Accessible name for the group when no visible label is provided.",
+      "figmaConfig": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Description for the group of moz-radio elements.",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Support page for the group of moz-radio elements.",
+      "figmaConfig": true
+    },
+    {
+      "name": "headingLevel",
+      "type": "number",
+      "description": "Render the label in a heading of this level.",
+      "figmaConfig": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Input name of the radio group. Propagates to moz-radio children.",
+      "figmaConfig": false
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "Selected value for the group. Changing the value updates the checked state of moz-radio children and vice versa.",
+      "figmaConfig": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "The radio group's content, intended for moz-radio elements."
+    },
+    {
+      "name": "support-link",
+      "description": "The radio group's support link, intended to be associated with moz-radio elements."
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Bubbles up from a selected moz-radio child; the group updates its value accordingly."
+    }
+  ],
+  "usage": "<moz-radio-group label=\"Choose an option\" name=\"example\" value=\"1\">\n  <moz-radio value=\"1\" label=\"Option 1\"></moz-radio>\n  <moz-radio value=\"2\" label=\"Option 2\"></moz-radio>\n</moz-radio-group>",
+  "cssParts": [
+    {
+      "name": "fieldset",
+      "description": "The wrapping <fieldset>, inherited from SelectControlBaseElement (on the radio group, moz-radio-group.mjs)."
+    }
+  ]
+}

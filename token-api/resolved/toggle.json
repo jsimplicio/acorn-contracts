@@ -1,0 +1,179 @@
+{
+  "id": "toggle",
+  "basenames": [
+    "moz-toggle"
+  ],
+  "tokens": {
+    "moz-toggle.background.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.@base"
+      ]
+    },
+    "moz-toggle.background.color.active": {
+      "value": "#b6aad9",
+      "type": "color",
+      "chain": [
+        "button.background.color.active",
+        "color.violet-desaturated.30"
+      ]
+    },
+    "moz-toggle.background.color.hover": {
+      "value": "#d2c8ec",
+      "type": "color",
+      "chain": [
+        "button.background.color.hover",
+        "color.violet-desaturated.20"
+      ]
+    },
+    "moz-toggle.background.color.pressed.@base": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "button.background.color.primary.@base",
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    },
+    "moz-toggle.background.color.pressed.active": {
+      "value": "#3e2976",
+      "type": "color",
+      "chain": [
+        "button.background.color.primary.active",
+        "color.accent.primary.active",
+        "color.violet.70"
+      ]
+    },
+    "moz-toggle.background.color.pressed.hover": {
+      "value": "#5939a8",
+      "type": "color",
+      "chain": [
+        "button.background.color.primary.hover",
+        "color.accent.primary.hover",
+        "color.violet.60"
+      ]
+    },
+    "moz-toggle.border.color.@base": {
+      "value": "#a6a4a9",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.@base",
+        "color.gray.35"
+      ]
+    },
+    "moz-toggle.border.color.active": {
+      "value": "#67666a",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.active",
+        "color.gray.50"
+      ]
+    },
+    "moz-toggle.border.color.hover": {
+      "value": "#817f84",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.hover",
+        "color.gray.45"
+      ]
+    },
+    "moz-toggle.border.radius": {
+      "value": "9999px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.circle"
+      ]
+    },
+    "moz-toggle.border.width": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": [
+        "border.width"
+      ]
+    },
+    "moz-toggle.dot.background.color.@base": {
+      "value": "#a6a4a9",
+      "type": "color",
+      "chain": [
+        "toggle.border.color.@base",
+        "border.color.interactive.@base",
+        "color.gray.35"
+      ]
+    },
+    "moz-toggle.dot.background.color.active": {
+      "value": "#67666a",
+      "type": "color",
+      "chain": [
+        "toggle.border.color.active",
+        "border.color.interactive.active",
+        "color.gray.50"
+      ]
+    },
+    "moz-toggle.dot.background.color.hover": {
+      "value": "#817f84",
+      "type": "color",
+      "chain": [
+        "toggle.border.color.hover",
+        "border.color.interactive.hover",
+        "color.gray.45"
+      ]
+    },
+    "moz-toggle.dot.background.color.on-pressed": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "moz-toggle.dot.height": {
+      "value": "calc({toggle.height} - 2 * {toggle.dot.margin} - 2 * {toggle.border.width})",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-toggle.dot.margin": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-toggle.dot.transform-x": {
+      "value": "calc({toggle.width} - 2 * {toggle.dot.margin} - 2px - {toggle.dot.width})",
+      "type": null,
+      "chain": []
+    },
+    "moz-toggle.dot.width": {
+      "value": "calc({toggle.height} - 2 * {toggle.dot.margin} - 2 * {toggle.border.width})",
+      "type": "dimension",
+      "chain": [
+        "toggle.dot.height"
+      ]
+    },
+    "moz-toggle.height": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "size.item.small"
+      ]
+    },
+    "moz-toggle.inset": {
+      "value": "-2px",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-toggle.opacity.disabled": {
+      "value": "0.7",
+      "type": "number",
+      "chain": [
+        "button.opacity.disabled"
+      ]
+    },
+    "moz-toggle.width": {
+      "value": "32px",
+      "type": "dimension",
+      "chain": [
+        "size.item.large"
+      ]
+    }
+  }
+}

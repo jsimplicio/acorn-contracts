@@ -1,0 +1,11 @@
+{
+  "id": "panel-item",
+  "dos": [
+    { "text": "Use badge-type instead of manually inserting a <moz-badge>, it lazily creates and removes the badge element for you." },
+    { "text": "Set accesskey normally even inside a panel that opens and closes often, it's stashed and restored automatically across the owning panel's open/close cycle (a real workaround for bug 1588156)." }
+  ],
+  "donts": [
+    { "text": "Don't rely on badged alone to show a notification dot with real content, it's a pure CSS attribute-selector hook with no JS behavior at all, distinct from badge-type which actually creates the badge element." },
+    { "text": "Don't set submenu after the item has already connected, it's only read once in connectedCallback, not an observed attribute." }
+  ]
+}

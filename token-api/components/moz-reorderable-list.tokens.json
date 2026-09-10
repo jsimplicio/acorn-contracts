@@ -1,0 +1,18 @@
+{
+  "indicator": {
+    "background": {
+      "color": {
+        "$value": "{color.accent.primary.@base}",
+        "$type": "color"
+      }
+    },
+    "margin": {
+      "$value": "{reorderable-list.indicator.size}",
+      "$type": "dimension"
+    },
+    "size": {
+      "$value": "2px",
+      "$type": "dimension"
+    }
+  }
+}

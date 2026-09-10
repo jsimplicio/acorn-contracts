@@ -1,0 +1,233 @@
+{
+  "id": "tabstrip",
+  "summary": "The row of tabs across the top of the browser window.",
+  "tagName": "tabbrowser-tabs",
+  "description": "The container that holds and manages all open tabs, tab groups, and split-view wrappers in a browser window. A customized built-in element extending the toolkit <tabs> element (is=\"tabbrowser-tabs\"); handles layout (horizontal/vertical), overflow scrolling, drag and drop, and keyboard navigation across tabs/groups/split views.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/tabbrowser/content/tabs.js"
+  },
+  "attributes": [
+    {
+      "name": "orient",
+      "type": "string",
+      "description": "The only observedAttribute; \"horizontal\" or \"vertical\" tab layout. Backs the verticalMode getter and is propagated to the pinned-tabs container.",
+      "figmaConfig": true,
+      "default": "horizontal"
+    },
+    {
+      "name": "overflow",
+      "type": "boolean",
+      "description": "Reflected state attribute set when the tabstrip's scrollbox is overflowing; not meant to be set by a consumer.",
+      "default": "false"
+    },
+    {
+      "name": "closebuttons",
+      "type": "string",
+      "description": "Controls close-button visibility policy, e.g. \"activetab\" shows the close button only on the active tab.",
+      "figmaConfig": true
+    },
+    {
+      "name": "expanded",
+      "type": "boolean",
+      "description": "Reflected state for the vertical-tabs sidebar expanded/collapsed layout."
+    },
+    {
+      "name": "tablist-has-focus",
+      "type": "boolean",
+      "description": "Internal accessibility-focus bookkeeping, backed by the tablistHasFocus getter/setter.",
+      "default": "false"
+    },
+    {
+      "name": "movingtab",
+      "type": "boolean",
+      "description": "Internal state set while a tab drag is in progress.",
+      "default": "false"
+    },
+    {
+      "name": "using-closing-tabs-spacer",
+      "type": "boolean",
+      "description": "Internal state used while a closing-tab width-preserving spacer is active."
+    },
+    {
+      "name": "hiddensoundplaying",
+      "type": "boolean",
+      "description": "Internal state reflecting whether a hidden tab is currently playing audio."
+    }
+  ],
+  "events": [
+    {
+      "name": "TabAnimationEnd",
+      "description": "Bubbling CustomEvent dispatched by this component on a tab element once its open/close max-width transition finishes."
+    },
+    {
+      "name": "SplitViewCreated",
+      "description": "Bubbling CustomEvent dispatched on this element by tabbrowser.js (gBrowser) when a split view is created; listened for here to react to layout changes, not dispatched by tabs.js itself."
+    },
+    {
+      "name": "SplitViewRemoved",
+      "description": "Bubbling CustomEvent dispatched on this element by tabbrowser.js when a split view is removed."
+    },
+    {
+      "name": "TabGroupCreate",
+      "description": "Dispatched by tabbrowser.js, not this file; listened for here to update tabstrip layout/animation state."
+    },
+    {
+      "name": "TabGroupRemoved",
+      "description": "Dispatched by tabbrowser.js, not this file; listened for here."
+    },
+    {
+      "name": "TabGroupExpand",
+      "description": "Dispatched elsewhere (tab-group); captured here (capture phase) to mark animating groups before overflow handlers run."
+    },
+    {
+      "name": "TabGroupCollapse",
+      "description": "Dispatched elsewhere (tab-group); captured here (capture phase)."
+    }
+  ],
+  "methods": [
+    {
+      "name": "init"
+    },
+    {
+      "name": "advanceSelectedTab"
+    },
+    {
+      "name": "advanceSelectedItem"
+    },
+    {
+      "name": "appendChild"
+    },
+    {
+      "name": "insertBefore"
+    },
+    {
+      "name": "ensureTabPreviewPanelLoaded"
+    },
+    {
+      "name": "cancelTabGroupPreview"
+    },
+    {
+      "name": "showTabGroupPreview"
+    },
+    {
+      "name": "isContainerVerticalPinnedGrid"
+    },
+    {
+      "name": "getRelatedElement"
+    },
+    {
+      "name": "updateWheelListeners"
+    },
+    {
+      "name": "updateTabSoundLabel"
+    },
+    {
+      "name": "destroy"
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--tab-min-width",
+      "description": "Set dynamically by #updateTabMinWidth() based on density/pref/icon settings.",
+      "default": "76px"
+    },
+    {
+      "name": "--tab-min-width-pref",
+      "description": "Minimum tab width sourced from a preference."
+    },
+    {
+      "name": "--tab-min-width-extra-icons",
+      "description": "Extra min-width reserved when a tab shows extra icons.",
+      "default": "0px"
+    },
+    {
+      "name": "--tab-min-width-uidensity",
+      "description": "Minimum tab width adjustment for UI density.",
+      "default": "0px"
+    },
+    {
+      "name": "--tab-max-width",
+      "description": "Maximum tab width.",
+      "default": "225px"
+    },
+    {
+      "name": "--tab-height-with-margin-padding",
+      "description": "Computed tab height including margin and padding.",
+      "default": "calc(5px + var(--tab-min-height) + (2 * var(--tab-margin-block)))"
+    },
+    {
+      "name": "--tab-vertical-scrollbar-color",
+      "description": "Scrollbar color in vertical tabs mode.",
+      "default": "auto"
+    },
+    {
+      "name": "--tabstrip-min-height",
+      "description": "Minimum height of the tabstrip.",
+      "default": "calc(var(--tab-min-height) + 2 * var(--tab-margin-block))"
+    },
+    {
+      "name": "--tabstrip-inner-border",
+      "description": "Inner border of the tabstrip.",
+      "default": "1px solid color-mix(in srgb, currentColor 25%, transparent)"
+    },
+    {
+      "name": "--tab-margin-block",
+      "description": "Block margin between tabs."
+    },
+    {
+      "name": "--tab-vertical-block-margin",
+      "description": "Block margin between tabs in vertical mode.",
+      "default": "var(--dimension-2)"
+    },
+    {
+      "name": "--tab-vertical-inline-padding",
+      "description": "Inline padding in vertical mode.",
+      "default": "var(--space-medium)"
+    },
+    {
+      "name": "--tab-pinned-container-margin-inline-expanded",
+      "description": "Margin for the pinned-tabs container when the sidebar is expanded.",
+      "default": "var(--space-small)"
+    },
+    {
+      "name": "--tab-pinned-expanded-background-width",
+      "description": "Background width for pinned tabs when expanded.",
+      "default": "var(--dimension-40)"
+    },
+    {
+      "name": "--tab-pinned-margin-inline-expanded",
+      "description": "Inline margin for pinned tabs when expanded.",
+      "default": "var(--space-xsmall)"
+    },
+    {
+      "name": "--tab-pinned-min-width-expanded",
+      "description": "Minimum width for pinned tabs when expanded.",
+      "default": "calc(var(--tab-pinned-expanded-background-width) + 2 * var(--tab-pinned-margin-inline-expanded))"
+    },
+    {
+      "name": "--tabs-navbar-separator-color",
+      "description": "Color of the separator between the tabstrip and nav bar."
+    },
+    {
+      "name": "--tabs-navbar-separator-style",
+      "description": "Style of the separator between the tabstrip and nav bar."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "orient",
+      "values": [
+        "horizontal",
+        "vertical"
+      ]
+    },
+    {
+      "axis": "closebuttons",
+      "values": [
+        "activetab"
+      ]
+    }
+  ],
+  "usage": "<tabs is=\"tabbrowser-tabs\" id=\"tabbrowser-tabs\" orient=\"horizontal\" closebuttons=\"activetab\">\n  <tab is=\"tabbrowser-tab\"/>\n  <tab-group>...</tab-group>\n</tabs>"
+}

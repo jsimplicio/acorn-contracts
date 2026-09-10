@@ -1,0 +1,10 @@
+{
+  "id": "segmented-control",
+  "dos": [
+    { "text": "Set deck to the id of a named-deck that shares the same root node as the moz-segmented-control, setupDeckListener() only calls getRootNode().querySelector(), so a deck living in a different shadow root silently fails to wire up with no error." }
+  ],
+  "donts": [
+    { "text": "Don't expect items to get role=\"tab\" just because the control looks like a tab switcher, getChildRole() only returns \"tab\" when a deck attribute is actually set; without it items stay role=\"radio\" regardless of visual usage." },
+    { "text": "Don't rely on a native input/change event.target being an <input>, moz-segmented-control-item isn't a real form input, handleClick() manually dispatches synthetic bubbling input and change events from the button element itself." }
+  ]
+}

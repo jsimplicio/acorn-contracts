@@ -1,0 +1,77 @@
+{
+  "id": "box-link",
+  "summary": "A clickable settings-style row that navigates somewhere, like box-item but acting as a link.",
+  "tagName": "moz-box-link",
+  "description": "A link with a box-like shape that allows for custom title and description, rendering as an anchor with a trailing external-link nav icon.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-box-link/moz-box-link.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Label for the link. Inherited from MozBoxBase (toolkit/content/widgets/lit-utils.mjs).",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Descriptive text for the link. Inherited from MozBoxBase.",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "The src for an optional icon. Inherited from MozBoxBase.",
+      "figmaConfig": true
+    },
+    {
+      "name": "href",
+      "type": "string",
+      "description": "The href of the link. Ignored when supportPage is set (a support-link anchor is rendered instead).",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Name of a SUMO support page; when set, renders an is=\"moz-support-link\" anchor instead of a plain href anchor (attribute support-page).",
+      "figmaConfig": true
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--box-button-background-color",
+      "description": "Background color of the link row (shared with box-button, both render class=\"button\")."
+    },
+    {
+      "name": "--box-button-background-color-hover",
+      "description": "Background color on hover."
+    },
+    {
+      "name": "--box-button-background-color-active",
+      "description": "Background color while pressed."
+    },
+    {
+      "name": "--box-button-background-color-disabled",
+      "description": "Background color when disabled."
+    },
+    {
+      "name": "--box-button-text-color",
+      "description": "Text color of the link row."
+    },
+    {
+      "name": "--box-button-text-color-hover",
+      "description": "Text color on hover."
+    },
+    {
+      "name": "--box-button-text-color-active",
+      "description": "Text color while pressed."
+    },
+    {
+      "name": "--box-button-text-color-disabled",
+      "description": "Text color when disabled."
+    }
+  ],
+  "usage": "<moz-box-link label=\"Learn more\" href=\"https://support.mozilla.org\"></moz-box-link>"
+}

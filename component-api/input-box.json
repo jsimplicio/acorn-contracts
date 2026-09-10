@@ -1,0 +1,36 @@
+{
+  "id": "input-box",
+  "summary": "The right-click edit/spell-check context menu wired onto a text input.",
+  "tagName": "moz-input-box",
+  "description": "A classic (pre-Lit) custom element that wraps a nested .textbox-input child and wires up its right-click context menu (undo/redo, cut/copy/paste/select-all, plus a real spell-check submenu when the spellcheck attribute is set), reading command state from the document's command dispatcher/controller. It is a standalone widget, not a base class the other moz-input-* elements extend; those are unrelated Lit components built on MozBaseInputElement (toolkit/content/widgets/lit-utils.mjs).",
+  "implementation": {
+    "kind": "classic",
+    "file": "toolkit/content/widgets/moz-input-box.js"
+  },
+  "attributes": [
+    {
+      "name": "spellcheck",
+      "type": "boolean",
+      "description": "Whether the input is spell-checked; when true, the context menu includes the spell-check submenu (suggestions, add/undo add to dictionary, toggle, dictionary list) instead of the plain edit menu.",
+      "figmaConfig": true,
+      "default": "false"
+    }
+  ],
+  "events": [
+    {
+      "name": "moz-input-box-rebuilt",
+      "description": "Bubbling CustomEvent dispatched whenever the context menu is (re)built, i.e. on connect and whenever the spellcheck attribute changes."
+    }
+  ],
+  "methods": [
+    {
+      "name": "getMenuItem",
+      "description": "Returns the context-menu item with the given anonid."
+    },
+    {
+      "name": "doCommand",
+      "description": "Looks up the command controller for a command id and runs it."
+    }
+  ],
+  "usage": "<moz-input-box><html:input class=\"textbox-input\"/></moz-input-box>"
+}

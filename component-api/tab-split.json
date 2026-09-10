@@ -1,0 +1,107 @@
+{
+  "id": "tab-split",
+  "summary": "Two tabs shown side by side in a split view within the same window.",
+  "tagName": "tab-split-view-wrapper",
+  "description": "A wrapper that holds exactly two tabs shown side-by-side in a split view. A classic XUL custom element with no internal template or shadow root; its only real content is the two wrapped <tab> elements.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/tabbrowser/content/tabsplitview.js"
+  },
+  "attributes": [
+    {
+      "name": "hasactivetab",
+      "type": "boolean",
+      "description": "Reflects whether one of the two wrapped tabs is currently active; drives internal activate()/suspend() behavior.",
+      "default": "false"
+    },
+    {
+      "name": "multiselected",
+      "type": "boolean",
+      "description": "Get-only in this file; set externally by multi-select code elsewhere.",
+      "default": "false"
+    },
+    {
+      "name": "splitViewId",
+      "type": "number",
+      "description": "Mixed-case attribute holding a numeric session-restore identity for the split view, exposed via the state getter.",
+      "figmaConfig": true
+    },
+    {
+      "name": "hidden",
+      "type": "boolean",
+      "description": "Toggled based on the visible getter; watched by the element's own subtree MutationObserver."
+    },
+    {
+      "name": "dragtarget",
+      "type": "boolean",
+      "description": "External-only hook: referenced in tabs.css for drag styling but never set or read inside this file; managed by drag-and-drop code elsewhere."
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Exactly two tab elements (the two tabs being viewed side-by-side), added/removed via addTabs()/unsplitTabs()/replaceTab(). No static template or shadow DOM."
+    }
+  ],
+  "events": [
+    {
+      "name": "SplitViewTabChange",
+      "description": "Dispatched on this element (bubbles) from a mutation-observer callback whenever the child-tab composition changes and at least one tab remains. tab-group.js listens for this event."
+    },
+    {
+      "name": "SplitViewRemoved",
+      "description": "Dispatched on this.container (gBrowser.tabContainer), bubbles and composed, in disconnectedCallback."
+    },
+    {
+      "name": "TabSplitViewActivate",
+      "description": "Dispatched on this.container; detail: {tabs, splitview: this}; fired from the private #activate() method."
+    },
+    {
+      "name": "TabSplitViewDeactivate",
+      "description": "Dispatched on this.container; detail: {tabs, splitview: this}; fired from both real teardown (#deactivate()) and temporary hide-while-switching (#suspend()) — same event name covers both cases."
+    }
+  ],
+  "methods": [
+    {
+      "name": "addTabs"
+    },
+    {
+      "name": "unsplitTabs",
+      "description": "trigger values: menu_separate | icon_separate | icon_close | tab_close | footer_separate"
+    },
+    {
+      "name": "replaceTab"
+    },
+    {
+      "name": "reverseTabs"
+    },
+    {
+      "name": "close"
+    },
+    {
+      "name": "resetRightPanelWidth"
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--split-view-padding-block",
+      "description": "Block padding of the split view (default 2px), set in tabs.css.",
+      "default": "2px"
+    },
+    {
+      "name": "--split-view-tab-padding-inline",
+      "description": "Inline padding of each split-view tab (default 2px), set in tabs.css.",
+      "default": "2px"
+    }
+  ],
+  "variants": [
+    {
+      "axis": "hasactivetab",
+      "values": [
+        "true",
+        "false"
+      ]
+    }
+  ],
+  "usage": "<tab-split-view-wrapper splitViewId=\"1\">\n  <tab is=\"tabbrowser-tab\"/>\n  <tab is=\"tabbrowser-tab\"/>\n</tab-split-view-wrapper>"
+}

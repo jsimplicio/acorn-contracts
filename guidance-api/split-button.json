@@ -1,0 +1,11 @@
+{
+  "id": "split-button",
+  "dos": [
+    { "text": "Use <moz-button type=\"split\"> for new code, it's the modern, actively-maintained implementation; the classic <button type=\"menu\"> still ships and works but is the older pattern." },
+    { "text": "Always pair the classic type=\"menu\" with a real <menupopup> child, open()/hasMenu() depend on one actually being present." }
+  ],
+  "donts": [
+    { "text": "Don't cite toolbarbutton.js as a split-button implementation, it has no menu-button/split rendering branch at all, only plain icon+label and a badged icon+label." },
+    { "text": "Don't expect the classic dropmarker fragment to render for type=\"checkbox\" or type=\"radio\", those are unrelated modes of the same MozButtonBase class, not split-button variants." }
+  ]
+}

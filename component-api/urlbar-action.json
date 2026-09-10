@@ -1,0 +1,10 @@
+{
+  "id": "urlbar-action",
+  "summary": "A quick action suggestion shown in the address bar's dropdown, like \"Search with Google\".",
+  "tagName": null,
+  "description": "Plain markup created by UrlbarView.mjs (a JS class, not a custom element): a `.urlbarView-action` span holding the inline action label (e.g. \"Search with Google\") shown within a result row, or a `.urlbarView-action-btn` secondary-action button created by #createSecondaryAction (e.g. switch-to-tab, pin, dismiss); distinct from the row itself, which is the 'urlbar-result' concept.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/urlbar/content/UrlbarView.mjs"
+  }
+}

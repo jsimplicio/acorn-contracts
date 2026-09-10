@@ -1,0 +1,60 @@
+{
+  "id": "split-button",
+  "summary": "A button with two parts: a main clickable action, and an attached arrow that opens a small menu of related options.",
+  "tagName": "button (classic) / moz-button (modern)",
+  "description": "Two separately-implemented split-button-shaped patterns exist at once, not one. Classic: a customized-built-in element registered as plain <button> (customElements.define(\"button\", MozButton), toolkit/content/widgets/button.js), where type=\"menu\" renders a .button-menu-dropmarker fragment alongside icon+label (MozButton.menuFragment) with a <menupopup> child, used in historySidebar.xhtml, customizeMode.inc.xhtml, and others. Modern: <moz-button type=\"split\">, a mode of moz-button already documented under the \"button\" component (its own type variant list includes \"split\"). toolkit/content/widgets/toolbarbutton.js has no menu-button/split rendering branch (only plain icon+label and a badged icon+label, no dropmarker), so it is not the split-button implementation; <button> (this entry) is.",
+  "implementation": {
+    "kind": "dual",
+    "file": "toolkit/content/widgets/button.js, class MozButton (classic); toolkit/content/widgets/moz-button/moz-button.mjs, type=\"split\" (modern, see the \"button\" component)"
+  },
+  "attributes": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "On classic <button>: \"menu\" renders the real dropmarker split-button fragment (MozButton.menuFragment). Other classic values (checkbox, radio) are unrelated modes of the same MozButtonBase class, not split-button variants."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Classic <button>'s visible text; inherited onto .button-text along with accesskey and crop (static inheritedAttributes)."
+    },
+    {
+      "name": "image",
+      "type": "string",
+      "description": "Path to the icon image; inherited onto .button-icon's src (inheritedAttributes: \"src=image\")."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Classic <button>'s disabled state, reflected via MozButtonBase and inherited onto the dropmarker too.",
+      "default": "false"
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Reflects/controls the associated <menupopup>'s open state via hasMenu()/openMenu().",
+      "default": "false"
+    }
+  ],
+  "methods": [
+    {
+      "name": "icon",
+      "description": "Getter: this.querySelector(\".button-icon\"), the classic <button>'s icon image element."
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--button-gap-split",
+      "description": "Gap between the main action and the chevron, on the modern <moz-button type=\"split\">."
+    },
+    {
+      "name": "--button-border-width-split",
+      "description": "Border width of the inner divider between the main action and the chevron, on the modern <moz-button type=\"split\">."
+    },
+    {
+      "name": "--button-split-separator-background-color",
+      "description": "Color of the divider line between the main action and the chevron, on the modern <moz-button type=\"split\">."
+    }
+  ],
+  "usage": "<button type=\"menu\" label=\"View\">\n  <menupopup>...</menupopup>\n</button>\n<!-- classic dropmarker split button (button.js, class MozButton). -->\n<!-- for the modern equivalent, see <moz-button type=\"split\"> under the \"button\" component -->"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "box-group",
+  "basenames": [
+    "moz-box"
+  ],
+  "tokens": {
+    "moz-box.border.@base": {
+      "value": "{box.border.width} solid {box.border.color}",
+      "type": null,
+      "chain": []
+    },
+    "moz-box.border.color": {
+      "value": "#b7b6ba",
+      "type": "color",
+      "chain": [
+        "border.color.@base",
+        "color.gray.30"
+      ]
+    },
+    "moz-box.border.radius.@base": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.medium"
+      ]
+    },
+    "moz-box.border.radius.inner": {
+      "value": "calc({box.border.radius.@base} - {box.border.width})",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-box.border.width": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": [
+        "border.width"
+      ]
+    },
+    "moz-box.icon.fill": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "icon.color.@base",
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "moz-box.icon.size": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "icon.size.@base",
+        "icon.size.small",
+        "size.item.small"
+      ]
+    },
+    "moz-box.icon.stroke": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "box.icon.fill",
+        "icon.color.@base",
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "moz-box.padding": {
+      "value": "1rem",
+      "type": "dimension",
+      "chain": [
+        "space.large"
+      ]
+    }
+  }
+}

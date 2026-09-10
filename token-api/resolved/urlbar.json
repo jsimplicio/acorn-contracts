@@ -1,0 +1,122 @@
+{
+  "id": "urlbar",
+  "basenames": [
+    "urlbar",
+    "popup"
+  ],
+  "tokens": {
+    "popup.background.color": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "popup.border.color": {
+      "value": "#efedf2",
+      "type": "color",
+      "chain": [
+        "color.gray.10"
+      ]
+    },
+    "popup.border.radius": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.xlarge"
+      ]
+    },
+    "popup.box.shadow": {
+      "value": "0 0.375px 1.5px {box-shadow.color.lighter.layer-1}, 0 3px 12px {box-shadow.color.lighter.layer-2}",
+      "type": null,
+      "chain": [
+        "box-shadow.level-3"
+      ]
+    },
+    "urlbar.background.color.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "toolbar.field.background.color.@base",
+        "toolbar.background.color",
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "urlbar.background.color.focus": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "toolbar.field.background.color.focus",
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "urlbar.border.radius": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "popup.border.radius",
+        "border.radius.xlarge"
+      ]
+    },
+    "urlbar.box.background.color.@base": {
+      "value": "color-mix(in srgb, currentColor 17%, transparent)",
+      "type": "color",
+      "chain": [
+        "urlbarview.background.color.hover",
+        "toolbarbutton.background.color.hover"
+      ]
+    },
+    "urlbar.box.background.color.active": {
+      "value": "rgba(117, 102, 159, 0.6)",
+      "type": "color",
+      "chain": []
+    },
+    "urlbar.box.background.color.focus": {
+      "value": "color-mix(in srgb, currentColor 17%, transparent)",
+      "type": "color",
+      "chain": [
+        "urlbar.box.background.color.@base",
+        "urlbarview.background.color.hover",
+        "toolbarbutton.background.color.hover"
+      ]
+    },
+    "urlbar.box.background.color.hover": {
+      "value": "color-mix(in srgb, currentColor 30%, transparent)",
+      "type": "color",
+      "chain": [
+        "urlbarview.background.color.selected",
+        "toolbarbutton.background.color.active"
+      ]
+    },
+    "urlbar.box.text.color.@base": {
+      "value": "inherit",
+      "type": "color",
+      "chain": []
+    },
+    "urlbar.box.text.color.hover": {
+      "value": "inherit",
+      "type": "color",
+      "chain": [
+        "urlbar.box.text.color.@base"
+      ]
+    },
+    "urlbar.icon.fill.opacity": {
+      "value": "0.7",
+      "type": "color",
+      "chain": []
+    },
+    "urlbar.margin.inline": {
+      "value": "5px",
+      "type": "dimension",
+      "chain": []
+    },
+    "urlbar.padding.block": {
+      "value": "4px",
+      "type": "dimension",
+      "chain": []
+    }
+  }
+}

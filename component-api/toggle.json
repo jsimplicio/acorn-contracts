@@ -1,0 +1,75 @@
+{
+  "id": "toggle",
+  "summary": "An on/off switch, like a light switch, used to turn a setting on or off.",
+  "tagName": "moz-toggle",
+  "description": "A simple toggle switch used to switch between two states (on/off), with an optional label and description.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-toggle/moz-toggle.mjs"
+  },
+  "attributes": [
+    {
+      "name": "pressed",
+      "type": "boolean",
+      "description": "Whether or not the element is pressed (on).",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether or not the element is disabled.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The label text.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description text.",
+      "figmaConfig": true
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "The aria-label text when there is no visible label.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaDescription",
+      "type": "string",
+      "description": "The aria-description text when there is no visible description.",
+      "figmaConfig": false
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title attribute, mapped onto the inner button.",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "support-link",
+      "description": "Used to append a moz-support-link to the description."
+    }
+  ],
+  "events": [
+    {
+      "name": "toggle",
+      "description": "Custom event (bubbles, composed) indicating that the toggle's pressed state has changed."
+    }
+  ],
+  "usage": "<moz-toggle label=\"Enable feature\" pressed></moz-toggle>",
+  "cssParts": [
+    {
+      "name": "button",
+      "description": "The internal toggle button element."
+    }
+  ]
+}

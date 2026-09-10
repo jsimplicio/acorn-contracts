@@ -1,0 +1,56 @@
+{
+  "id": "spotlight-modal",
+  "summary": "A full-screen overlay used for onboarding or feature-announcement flows.",
+  "tagName": null,
+  "description": "Spotlight is a plain exported object (export const Spotlight = {...}), not a class or custom element, that opens ASRouter/onboarding 'spotlight' messages as an HTML dialog (chrome://browser/content/spotlight.html) rendered either tab-modal or window-modal, via the browser's tab dialog box or gDialogBox.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/asrouter/modules/Spotlight.sys.mjs"
+  },
+  "attributes": [
+    {
+      "name": "message.content.modal",
+      "type": "string",
+      "description": "\"tab\" opens the dialog tab-modal via gBrowser's tab dialog box; any other value (or omitted) opens it window-modal via gDialogBox."
+    },
+    {
+      "name": "message.content.metrics",
+      "type": "string",
+      "description": "\"block\" suppresses IMPRESSION/DISMISS telemetry dispatch and CFR action dispatch for this message."
+    },
+    {
+      "name": "message.content.write_in_microsurvey",
+      "type": "boolean",
+      "description": "When true, added to the telemetry event_context for user-event telemetry.",
+      "default": "false"
+    },
+    {
+      "name": "message.trigger.id",
+      "type": "string",
+      "description": "When \"lastWindowClose\", replaces any already-open dialog and aborts other tab dialogs on the selected browser so this modal takes priority before the window closes."
+    }
+  ],
+  "methods": [
+    {
+      "name": "showSpotlightDialog",
+      "description": "async showSpotlightDialog(browser, message, dispatch = defaultDispatch): opens the dialog for the given message; returns a Promise<boolean> resolving once the dialog is closed (false if it couldn't be opened)."
+    },
+    {
+      "name": "close",
+      "description": "close(window?): closes the open dialog if no window is given, or if the given window owns it."
+    },
+    {
+      "name": "isOpen",
+      "description": "Getter: whether a spotlight dialog is currently open."
+    },
+    {
+      "name": "sendUserEventTelemetry",
+      "description": "sendUserEventTelemetry(event, message, dispatch): dispatches a SPOTLIGHT_TELEMETRY action for IMPRESSION/DISMISS events (skipped when message.content.metrics === \"block\")."
+    },
+    {
+      "name": "defaultDispatch",
+      "description": "defaultDispatch(message): default dispatch handler, forwards SPOTLIGHT_TELEMETRY messages to AboutWelcomeTelemetry."
+    }
+  ],
+  "usage": "await Spotlight.showSpotlightDialog(browser, {\n  content: { modal: \"tab\" },\n  trigger: { id: \"defaultBrowserCheck\" },\n});"
+}

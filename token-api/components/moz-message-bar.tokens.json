@@ -1,0 +1,253 @@
+{
+  "actions": {
+    "button": {
+      "padding": {
+        "$value": "{space.xsmall} {space.large}",
+        "$type": "dimension"
+      }
+    },
+    "gap": {
+      "$value": "{space.small}",
+      "$type": "dimension"
+    }
+  },
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "{background.color.information}",
+        "$type": "color"
+      },
+      "warning": {
+        "$value": "{background.color.warning}",
+        "$type": "color"
+      },
+      "success": {
+        "$value": "{background.color.success}",
+        "$type": "color"
+      },
+      "critical": {
+        "$value": "{background.color.critical}",
+        "$type": "color"
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "$value": "oklch(from {message-bar.icon.color} l c h / 20%)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "oklch(from {message-bar.icon.color} l c h / 20%)",
+          "prefersContrast": "{border.color.@base}"
+        }
+      },
+      "$type": "color"
+    },
+    "radius": {
+      "$value": "{border.radius.medium}",
+      "$type": "dimension"
+    },
+    "width": {
+      "$value": "{border.width}",
+      "$type": "dimension"
+    }
+  },
+  "container": {
+    "gap": {
+      "$value": "{space.small}",
+      "$type": "dimension"
+    },
+    "min-height": {
+      "$value": "{size.item.large}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "block": {
+        "$value": "{space.small}",
+        "$type": "dimension"
+      },
+      "inline": {
+        "$value": "{space.medium} {space.small}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{space.medium} {space.small}"
+          }
+        },
+        "$type": "dimension"
+      }
+    }
+  },
+  "content": {
+    "gap": {
+      "$value": "{space.small} {space.medium}",
+      "$type": "dimension"
+    }
+  },
+  "icon": {
+    "background": {
+      "color": {
+        "@base": {
+          "$value": "{background.color.information}",
+          "$type": "color"
+        },
+        "warning": {
+          "$value": "{background.color.warning}",
+          "$type": "color"
+        },
+        "success": {
+          "$value": "{background.color.success}",
+          "$type": "color"
+        },
+        "critical": {
+          "$value": "{background.color.critical}",
+          "$type": "color"
+        }
+      }
+    },
+    "color": {
+      "$value": "{icon.color.information}",
+      "$type": "color"
+    },
+    "container": {
+      "border": {
+        "@base": {
+          "$value": "none",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "none",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "1px solid {message-bar.icon.container.border.color}"
+              }
+            }
+          }
+        },
+        "color": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "radius": {
+          "$value": "{border.radius.circle}",
+          "$type": "dimension"
+        }
+      },
+      "height": {
+        "$value": "min-content",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "min-content",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "{message-bar.icon.size}"
+            }
+          }
+        },
+        "$type": "dimension"
+      },
+      "margin": {
+        "block": {
+          "start": {
+            "@base": {
+              "$value": "{space.small}",
+              "$extensions": {
+                "org.mozilla.themes": {
+                  "default": "{space.small}",
+                  "nova": {
+                    "comment": "There is no equivalent value for this token in Figma, and we need the unit for calculations",
+                    "value": "0px"
+                  }
+                }
+              },
+              "$type": "dimension"
+            },
+            "offset": {
+              "$value": "2px",
+              "$extensions": {
+                "org.mozilla.themes": {
+                  "default": "2px",
+                  "nova": {
+                    "comment": "There is no equivalent value for this token in Figma, and we need the unit for calculations",
+                    "value": "0px"
+                  }
+                }
+              },
+              "$type": "dimension"
+            }
+          }
+        }
+      },
+      "padding": {
+        "@base": {
+          "$value": "0px",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "0px",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "{space.small}"
+              }
+            }
+          },
+          "$type": "dimension"
+        },
+        "offset": {
+          "$value": "0px",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "0px",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "1px"
+              }
+            }
+          },
+          "$type": "dimension"
+        }
+      }
+    },
+    "size": {
+      "$value": "{icon.size.@base}",
+      "$type": "dimension"
+    }
+  },
+  "message": {
+    "margin": {
+      "inline-end": {
+        "$value": "{space.xsmall}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "text": {
+    "color": {
+      "$value": "{text.color.@base}",
+      "$type": "color"
+    },
+    "container": {
+      "gap": {
+        "$value": "{space.xsmall} {space.small}",
+        "$type": "dimension"
+      },
+      "padding": {
+        "block": {
+          "$value": "calc(({message-bar.container.min-height} - {message-bar.icon.size}) / 2)",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "calc(({message-bar.container.min-height} - {message-bar.icon.size}) / 2)",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "0"
+              }
+            }
+          },
+          "$type": "dimension"
+        }
+      }
+    },
+    "content": {
+      "gap": {
+        "$value": "{space.xsmall} {space.small}",
+        "$type": "dimension"
+      }
+    }
+  }
+}

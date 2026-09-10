@@ -5,7 +5,7 @@
   "description": "A named, colorable, collapsible container that groups related tabs (and split-view wrappers) together in the tabstrip. A classic XUL custom element with a static light-DOM template (label + overflow-count areas) and no shadow root.",
   "implementation": {
     "kind": "classic",
-    "file": "browser/components/tabbrowser/content/tabgroup.js"
+    "file": "browser/components/tabbrowser/content/tabgroup.mjs"
   },
   "attributes": [
     {

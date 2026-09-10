@@ -1,0 +1,28 @@
+{
+  "id": "moz-reorderable-list",
+  "basenames": [
+    "moz-reorderable-list"
+  ],
+  "tokens": {
+    "moz-reorderable-list.indicator.background.color": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    },
+    "moz-reorderable-list.indicator.margin": {
+      "value": "2px",
+      "type": "dimension",
+      "chain": [
+        "reorderable-list.indicator.size"
+      ]
+    },
+    "moz-reorderable-list.indicator.size": {
+      "value": "2px",
+      "type": "dimension",
+      "chain": []
+    }
+  }
+}

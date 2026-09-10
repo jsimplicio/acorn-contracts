@@ -1,0 +1,9 @@
+{
+  "id": "input-color",
+  "dos": [
+    { "text": "Treat this as a thin wrapper around the native color input rather than a full moz-input-* control, MozInputColor doesn't extend MozBaseInputElement and only declares value, name, and label, so disabled, description, and support-page from sibling inputs simply don't exist here." }
+  ],
+  "donts": [
+    { "text": "Don't pass a non-hex or invalid value expecting the component to validate or normalize it, MozInputColor binds .value straight to the native <input type=\"color\"> with no validation of its own, so whatever the browser does with a bad value is all you get." }
+  ]
+}

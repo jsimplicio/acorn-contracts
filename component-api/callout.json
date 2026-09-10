@@ -1,0 +1,83 @@
+{
+  "id": "callout",
+  "summary": "A small pop-up tip that points at part of the browser to highlight or explain a feature.",
+  "tagName": null,
+  "description": "FeatureCallout is a plain ES class (not a custom element) that renders ASRouter/onboarding tour messages as a popup anchored to a CSS-selected element — a XUL <panel> in the browser chrome (when a panel_position is configured), or an absolutely/relatively positioned <div> in content pages such as Firefox View. Manages multi-screen tour progress via a pref, screen advancement, and focus/positioning lifecycle.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/asrouter/modules/FeatureCallout.sys.mjs"
+  },
+  "attributes": [
+    {
+      "name": "win",
+      "type": "Window",
+      "description": "Constructor option; the window the callout will render into."
+    },
+    {
+      "name": "pref",
+      "type": "{ name: string, defaultValue?: string }",
+      "description": "Constructor option; optional pref used to track progress through a multi-screen tour, e.g. { name: \"browser.pdfjs.feature-tour\" }."
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "description": "Constructor option; string passed as the page when requesting messages from ASRouter and sending telemetry."
+    },
+    {
+      "name": "context",
+      "type": "string",
+      "description": "Constructor option; \"chrome\" when shown in the browser chrome, \"content\" when shown in a content page (e.g. Firefox View)."
+    },
+    {
+      "name": "browser",
+      "type": "MozBrowser",
+      "description": "Constructor option; the <browser> element the callout is being shown in/for. Defaults to win.docShell.chromeEventHandler.",
+      "default": "win.docShell.chromeEventHandler"
+    },
+    {
+      "name": "listener",
+      "type": "function",
+      "description": "Constructor option; callback invoked on various callout lifecycle events to keep an external broker informed of state."
+    },
+    {
+      "name": "theme",
+      "type": "object",
+      "description": "Constructor option; see FeatureCallout's themePresets for accepted shapes."
+    }
+  ],
+  "methods": [
+    {
+      "name": "showFeatureCallout",
+      "description": "async showFeatureCallout(message?): requests (or accepts) a message from ASRouter and renders the callout for it; returns a Promise<boolean> for whether a message ended up shown."
+    },
+    {
+      "name": "endTour",
+      "description": "endTour(skipFadeOut = false): tears down the current callout and its listeners, notifying the listener callback with 'end'."
+    },
+    {
+      "name": "setupFeatureTourProgress",
+      "description": "Starts observing the configured pref (if any) to track/advance tour progress."
+    },
+    {
+      "name": "teardownFeatureTourProgress",
+      "description": "Stops observing the pref and clears cached progress."
+    },
+    {
+      "name": "featureTourProgress",
+      "description": "Getter returning the parsed current progress value read from the pref."
+    },
+    {
+      "name": "onViewOpen",
+      "description": "Called by the urlbar controller listener; ends the tour when the urlbar view opens, to avoid overlapping popups."
+    },
+    {
+      "name": "handleEvent",
+      "description": "Central DOM event handler for focus, keypress (Escape), visibilitychange, resize, popupshowing/popuphiding, and unload."
+    },
+    {
+      "name": "getAutoFocusElement",
+      "description": "getAutoFocusElement({ selector, use_defaults }): resolves which element inside the callout should receive focus when it renders."
+    }
+  ],
+  "usage": "const callout = new FeatureCallout({\n  win: window,\n  pref: { name: \"browser.example.feature-tour\" },\n  location: \"toolbar\",\n  context: \"chrome\",\n});\nawait callout.showFeatureCallout();"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "sidebar",
+  "basenames": [
+    "sidebar"
+  ],
+  "tokens": {
+    "sidebar.background.color": {
+      "value": "white",
+      "type": "color",
+      "chain": []
+    },
+    "sidebar.border.color": {
+      "value": "rgba(0, 0, 0, 0.06)",
+      "type": "color",
+      "chain": [
+        "card.border.color"
+      ]
+    },
+    "sidebar.text.color": {
+      "value": "rgb(21, 20, 26)",
+      "type": "color",
+      "chain": []
+    }
+  }
+}

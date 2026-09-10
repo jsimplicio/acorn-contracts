@@ -1,0 +1,37 @@
+{
+  "id": "label",
+  "summary": "A form label that underlines its keyboard shortcut letter and focuses its control when clicked.",
+  "tagName": "moz-label",
+  "description": "A customized built-in <label is=\"moz-label\"> (extends HTMLLabelElement). Underlines (or appends in parentheses) the character in its text content matching its accesskey, following the platform convention of whether accesskeys are shown underlined at all, and focuses/activates the control referenced by its control attribute (or the labelable control it wraps) when clicked.",
+  "implementation": {
+    "kind": "classic",
+    "file": "toolkit/content/widgets/moz-label/moz-label.mjs"
+  },
+  "attributes": [
+    {
+      "name": "accesskey",
+      "type": "string",
+      "description": "Key used for keyboard access; also propagated onto the labeled control element. Only the first character is used.",
+      "figmaConfig": true
+    },
+    {
+      "name": "shownaccesskey",
+      "type": "string",
+      "description": "A key to underline for display purposes without registering it as the real accesskey; works around multiple-accesskey elements being focused instead of activated.",
+      "figmaConfig": false
+    },
+    {
+      "name": "control",
+      "type": "string",
+      "description": "The id of the control this label is for; used to look up labeledControlElement.",
+      "figmaConfig": true
+    }
+  ],
+  "methods": [
+    {
+      "name": "formatAccessKey",
+      "description": "Re-renders the underlined/parenthesized accesskey markup inside the label's text content; runs automatically on connect and whenever the label's content or accesskey attribute changes."
+    }
+  ],
+  "usage": "<label is=\"moz-label\" accesskey=\"s\" control=\"save-button\">Save</label>"
+}

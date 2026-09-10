@@ -1,0 +1,10 @@
+{
+  "id": "urlbar",
+  "dos": [
+    { "text": "Chain off the promise the searchMode setter stashes rather than reading this.searchMode immediately after assigning to it, the setter kicks off the async setSearchMode() without awaiting it, so the new engine or mode isn't guaranteed to be applied yet." }
+  ],
+  "donts": [
+    { "text": "Don't assign to .value expecting only display text to change, the setter always calls setValue(val, {allowTrim:true}), which unconditionally sets valueIsTyped to false and nulls _resultForCurrentValue, disassociating the input from whatever result was previously selected." },
+    { "text": "Don't call setURI() on anything but the address bar instance, it throws \"Cannot set URI for UrlbarInput that is not an address bar\" when #isAddressbar is false, it's a hard runtime constraint rather than a silent no-op." }
+  ]
+}

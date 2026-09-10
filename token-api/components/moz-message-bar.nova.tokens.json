@@ -1,0 +1,46 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "{background.color.box.@base}",
+        "$type": "color"
+      },
+      "warning": {
+        "$value": "{message-bar.background.color.@base}",
+        "$type": "color"
+      },
+      "success": {
+        "$value": "{message-bar.background.color.@base}",
+        "$type": "color"
+      },
+      "critical": {
+        "$value": "{message-bar.background.color.@base}",
+        "$type": "color"
+      }
+    }
+  },
+  "container": {
+    "padding": {
+      "inline": {
+        "$value": "8px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "icon": {
+    "container": {
+      "border": {
+        "color": {
+          "$value": "transparent",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "transparent",
+              "forcedColors": "{message-bar.icon.color}"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

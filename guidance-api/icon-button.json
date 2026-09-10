@@ -1,0 +1,11 @@
+{
+  "id": "icon-button",
+  "dos": [
+    { "text": "Always set title or ariaLabel, there's no visible text label at all in this mode, so one of the two is the only accessible name a screen reader gets." },
+    { "text": "Use type=\"icon ghost\" for a lower-emphasis icon button, it's a supported combination in moz-button.mjs/.css." }
+  ],
+  "donts": [
+    { "text": "Don't use \"icon primary\" or \"icon neutral\", even though Figma Code Connect shows them as options: no matching CSS rule was found for either combo, [type=\"primary\"] is an exact match not a ~= token match, so \"icon primary\" won't actually pick up primary styling." },
+    { "text": "Don't leave menuId unset if you need a dropdown affordance, without it there's no real panel-list wiring for open/close state or aria-expanded/aria-haspopup." }
+  ]
+}

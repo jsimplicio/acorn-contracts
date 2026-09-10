@@ -1,0 +1,9 @@
+{
+  "id": "badge",
+  "dos": [
+    { "text": "Leave label empty if you want the built-in Fluent text, since labelL10nId only supplies \"moz-badge-beta2\"/\"moz-badge-new2\" strings for type=\"beta\"/\"new\" when there is no explicit label to override it." }
+  ],
+  "donts": [
+    { "text": "Don't expect the title attribute to behave like a normal reflected tooltip afterward, MozLitElement's mapped-attribute handling moves it into an internal titleAttribute and clears the host attribute the first time it's set, and per lit-utils.mjs's own comment the attribute can not be unset once it is set." }
+  ]
+}

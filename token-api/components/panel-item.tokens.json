@@ -1,0 +1,111 @@
+{
+  "badge": {
+    "inset": {
+      "block": {
+        "start": {
+          "$value": "4px",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "4px",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "{space.xsmall}"
+              }
+            }
+          },
+          "$type": "dimension"
+        }
+      },
+      "inline": {
+        "start": {
+          "$value": "24px",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "24px",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "calc({panel-menuitem.padding.inline} + {icon.size.@base})"
+              }
+            }
+          },
+          "$type": "dimension"
+        }
+      }
+    }
+  },
+  "button": {
+    "border": {
+      "radius": {
+        "$value": "0",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "0",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "{panel-menuitem.border.radius}"
+            }
+          }
+        },
+        "$type": "dimension"
+      }
+    },
+    "margin": {
+      "$value": "0",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "0",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma",
+            "value": "{panel-menuitem.margin.@base}"
+          }
+        }
+      },
+      "$type": "dimension"
+    },
+    "padding": {
+      "@base": {
+        "$value": "{space.xsmall} {space.small}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{space.xsmall} {space.small}",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "{panel-menuitem.padding.@base}"
+            }
+          }
+        },
+        "$type": "dimension"
+      },
+      "inline": {
+        "start": {
+          "@base": {
+            "$value": "{space.xxlarge}",
+            "$extensions": {
+              "org.mozilla.themes": {
+                "default": "{space.xxlarge}",
+                "nova": {
+                  "comment": "There is no equivalent value for this token in Figma",
+                  "value": "calc({panel-menuitem.padding.inline} + {icon.size.@base})"
+                }
+              }
+            },
+            "$type": "dimension"
+          },
+          "offset": {
+            "$value": "0px",
+            "$extensions": {
+              "org.mozilla.themes": {
+                "default": "0px",
+                "nova": {
+                  "comment": "There is no equivalent value for this token in Figma",
+                  "value": "{space.small}"
+                }
+              }
+            },
+            "$type": "dimension"
+          }
+        }
+      }
+    }
+  }
+}

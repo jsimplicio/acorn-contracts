@@ -1,0 +1,10 @@
+{
+  "id": "visual-picker",
+  "dos": [
+    { "text": "Call .focus()/.click()/.blur() directly on moz-visual-picker-item, they're overridden to delegate into the inner shadow DOM button (itemEl) rather than acting on the light DOM host." }
+  ],
+  "donts": [
+    { "text": "Don't expect an aria-labelledby fallback wired from slotted content to update after the fact, handleSlotchange() only assigns itemEl.ariaLabelledByElements once, in response to a slotchange event, and only when neither label nor ariaLabel was set at that time." },
+    { "text": "Don't expect the title attribute to work as a normal tooltip directly on moz-visual-picker-item, it's mapped (mapped: true) onto the inner shadow DOM button and stripped from the host element." }
+  ]
+}

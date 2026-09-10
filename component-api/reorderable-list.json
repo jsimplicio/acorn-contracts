@@ -1,0 +1,102 @@
+{
+  "id": "reorderable-list",
+  "summary": "A wrapper that lets you drag and drop its children to reorder them.",
+  "tagName": "moz-reorderable-list",
+  "description": "A light wrapper that makes its slotted children (matched by itemSelector, or a narrower dragSelector for a drag handle) draggable and reorderable via native HTML5 drag-and-drop. Shows a drop-position indicator and dispatches dragstarted/dragended/reorder events carrying the dragged/target elements and computed indices; consumers perform the actual DOM reordering in response. Also exports a standalone isReorderKeyboardEvent(event) helper (ctrl+shift+up/down) for wiring an equivalent keyboard-driven reorder outside the component's own automatic handling.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-reorderable-list/moz-reorderable-list.mjs"
+  },
+  "attributes": [
+    {
+      "name": "itemSelector",
+      "type": "string",
+      "description": "Selector for slotted elements that should be reorderable. Reflected as the lowercase HTML attribute itemselector (no explicit attribute name is set on the property, so Lit uses its lowercased default).",
+      "figmaConfig": true,
+      "default": "li"
+    },
+    {
+      "name": "dragSelector",
+      "type": "string",
+      "description": "Selector used when only part of a reorderable item should be the drag handle (e.g. a button or icon), instead of the whole item. Reflected as the lowercase HTML attribute dragselector.",
+      "figmaConfig": true
+    }
+  ],
+  "events": [
+    {
+      "name": "reorder",
+      "description": "Dispatched when an item is dropped in a new position. detail: { draggedElement, targetElement, position (-1 before / 0 after target), draggedIndex, targetIndex, insertAt }."
+    },
+    {
+      "name": "dragstarted",
+      "description": "Dispatched when an item drag begins. detail: { draggedElement }."
+    },
+    {
+      "name": "dragended",
+      "description": "Dispatched when a drag ends (drop or otherwise). detail: { draggedElement }."
+    }
+  ],
+  "methods": [
+    {
+      "name": "getItems",
+      "description": "Re-queries the assigned elements matching itemSelector, marks them draggable, and records their reorder indices; called on slotchange and DOM mutation."
+    },
+    {
+      "name": "getAssignedElementsBySelector",
+      "description": "Returns all elements matching a selector among the given root elements (default: the default slot's assigned elements), recursing into shadow roots, children, and nested slots."
+    },
+    {
+      "name": "getDropTargetInfo",
+      "description": "Computes the current drop target element, its index, and whether the drop is before/after it, based on the dragover/drop event position."
+    },
+    {
+      "name": "getItemIndex",
+      "description": "Returns an item's recorded reorder index, or -1 if not tracked."
+    },
+    {
+      "name": "getTargetItemFromEvent",
+      "description": "Finds the closest ancestor matching itemSelector for a given event's target."
+    },
+    {
+      "name": "evaluateKeyDownEvent",
+      "description": "Given a keydown event, returns the reorder move it represents (dragged/target elements, indices) for ctrl+shift+up/down, or undefined if it isn't a reorder shortcut or there's nowhere to move."
+    },
+    {
+      "name": "emitEvent",
+      "description": "Dispatches a CustomEvent with the given name and detail on the host element."
+    },
+    {
+      "name": "addDraggableAttribute",
+      "description": "Sets the draggable attribute on non-XUL items so native drag-and-drop is enabled for them."
+    },
+    {
+      "name": "isXULElement",
+      "description": "Reports whether a given element is a XUL element (which is draggable by default, unlike HTML elements)."
+    },
+    {
+      "name": "getBounds",
+      "description": "Returns an element's bounding rect, preferring the flush-free windowUtils API when available."
+    },
+    {
+      "name": "onDragStart",
+      "description": "dragstart listener: identifies the dragged item, dispatches dragstarted, and (in privileged documents) builds a custom drag image."
+    },
+    {
+      "name": "onDragOver",
+      "description": "dragover listener: computes and displays the drop-position indicator."
+    },
+    {
+      "name": "onDragLeave",
+      "description": "dragleave listener: hides the drop-position indicator once the pointer truly leaves the list."
+    },
+    {
+      "name": "onDrop",
+      "description": "drop listener: dispatches reorder (unless dropped on itself or into a no-op position) and cleans up."
+    },
+    {
+      "name": "onDragEnd",
+      "description": "dragend listener (also called from onDrop): dispatches dragended and clears drag state."
+    }
+  ],
+  "usage": "<moz-reorderable-list itemselector=\"li\"><li>One</li><li>Two</li><li>Three</li></moz-reorderable-list>"
+}

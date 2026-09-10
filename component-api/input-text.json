@@ -1,0 +1,138 @@
+{
+  "id": "input-text",
+  "summary": "A standard single-line text input field, like you'd use for a name or search box.",
+  "tagName": "moz-input-text",
+  "description": "A single-line text input custom element with an associated label, optional description/icon/support link, and form-association support. Extends the shared MozBaseInputElement base class (toolkit/content/widgets/lit-utils.mjs), which supplies most of its attrs, slots, and layout.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-input-text/moz-input-text.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The text of the label element. Inherited from MozBaseInputElement.",
+      "figmaConfig": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name of the input control. Inherited from MozBaseInputElement.",
+      "figmaConfig": true
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The value of the input control. Inherited from MozBaseInputElement.",
+      "figmaConfig": true
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "The disabled state of the input control. Inherited from MozBaseInputElement.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "The readonly state of the input control.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "The required state of the input control. Declared directly in moz-input-text.mjs's own static properties, not inherited from MozBaseInputElement.",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "The src for an optional icon. Inherited from MozBaseInputElement.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Text for the description element that helps describe the input control. Inherited from MozBaseInputElement.",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited from MozBaseInputElement.",
+      "figmaConfig": true
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Text to display when the input has no value.",
+      "figmaConfig": true
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "The aria-label text when there is no visible label. Inherited from MozBaseInputElement.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaDescription",
+      "type": "string",
+      "description": "The aria-description text when there is no visible description. Inherited from MozBaseInputElement.",
+      "figmaConfig": false
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "description": "Plain HTML attribute (not a declared Lit reactive property) toggled by the consumer to show an error state, styled via the :host([invalid]) CSS selector (red border/accent-color). Used in moz-input-text.stories.mjs; not documented in the class JSDoc.",
+      "figmaConfig": true
+    },
+    {
+      "name": "parentDisabled",
+      "type": "boolean",
+      "description": "Internal: set by a parent input/fieldset to cascade a disabled state. Inherited from MozBaseInputElement.",
+      "figmaConfig": false
+    },
+    {
+      "name": "inputLayout",
+      "type": "string",
+      "description": "Internal layout mode (\"inline\" | \"block\" | \"inline-end\"); moz-input-text overrides the base default to \"block\". Inherited from MozBaseInputElement.",
+      "figmaConfig": false,
+      "default": "block"
+    },
+    {
+      "name": "accessKey",
+      "type": "string",
+      "description": "Mapped accesskey attribute. Inherited from MozBaseInputElement.",
+      "figmaConfig": false
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title attribute, mapped onto the inner input. Inherited from MozBaseInputElement (`title: { type: String, mapped: true }`).",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "description",
+      "description": "Inherited from MozBaseInputElement: rendered when the description property is unset, letting callers supply richer description markup."
+    },
+    {
+      "name": "support-link",
+      "description": "Inherited from MozBaseInputElement: rendered when supportPage is unset, letting callers supply a custom support link element."
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "description": "Native input event as the user types; handled internally to update value and (being composed) naturally crosses the shadow boundary."
+    },
+    {
+      "name": "change",
+      "description": "Redispatched from the native input's change event (native change does not cross shadow boundaries by default, so MozBaseInputElement.redispatchEvent re-fires it on the host)."
+    }
+  ],
+  "usage": "<moz-input-text name=\"example\" label=\"Display name\" placeholder=\"Enter a name\"></moz-input-text>"
+}

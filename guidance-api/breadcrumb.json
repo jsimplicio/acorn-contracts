@@ -1,0 +1,9 @@
+{
+  "id": "breadcrumb",
+  "dos": [
+    { "text": "Let MozBreadcrumbGroup manage slot assignment and aria-current, update() calls setupBreadcrumbs() on every update, which always re-slots every moz-breadcrumb child by document order and stamps aria-current=\"page\" onto the last one." }
+  ],
+  "donts": [
+    { "text": "Don't expect the final breadcrumb to stay a clickable link, once the group marks it aria-current=\"page\", MozBreadcrumb's own render() drops the <a href> wrapper for any breadcrumb with ariaCurrent set and renders plain text instead." }
+  ]
+}

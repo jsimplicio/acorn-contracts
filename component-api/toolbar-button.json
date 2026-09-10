@@ -1,0 +1,169 @@
+{
+  "id": "toolbar-button",
+  "summary": "A single clickable icon button that lives inside a toolbar.",
+  "tagName": "toolbarbutton",
+  "description": "A XUL toolbar button widget supporting icon, label, badge, and menu display modes. Inherits click/keyboard activation and checked/radio/menu semantics from the shared button base class.",
+  "implementation": {
+    "kind": "classic",
+    "file": "toolkit/content/widgets/toolbarbutton.js"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Text label rendered in .toolbarbutton-text; re-rendered on change via attributeChangedCallback.",
+      "figmaConfig": true
+    },
+    {
+      "name": "wrap",
+      "type": "boolean",
+      "description": "If \"true\", label text wraps onto multiple lines instead of using a single-line value attribute.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "image",
+      "type": "string",
+      "description": "Inherited as src on .toolbarbutton-icon; the icon image URL.",
+      "figmaConfig": true
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Inherited from MozButtonBase; e.g. \"menu\", \"checkbox\", \"radio\" changes activation/rendering behavior.",
+      "figmaConfig": true
+    },
+    {
+      "name": "consumeanchor",
+      "type": "string",
+      "description": "Inherited attribute forwarded to .toolbarbutton-icon; used for anchoring popups to the button."
+    },
+    {
+      "name": "badged",
+      "type": "boolean",
+      "description": "When \"true\", renders the badged fragment (icon + badge stack) instead of the plain icon/label fragment.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "badge",
+      "type": "string",
+      "description": "Inherited as text content of .toolbarbutton-badge; the badge label text.",
+      "figmaConfig": true
+    },
+    {
+      "name": "badgeStyle",
+      "type": "string",
+      "description": "Inherited as the style attribute of .toolbarbutton-badge for custom badge styling."
+    },
+    {
+      "name": "accesskey",
+      "type": "string",
+      "description": "Inherited attribute forwarded to .toolbarbutton-text; keyboard access key.",
+      "figmaConfig": true
+    },
+    {
+      "name": "crop",
+      "type": "string",
+      "description": "Inherited attribute forwarded to .toolbarbutton-text controlling label text cropping (default \"end\").",
+      "default": "end"
+    },
+    {
+      "name": "dragover-top",
+      "type": "string",
+      "description": "Inherited attribute forwarded to .toolbarbutton-text, used for drag-and-drop visual state."
+    },
+    {
+      "name": "move-after-stack",
+      "type": "boolean",
+      "description": "On a child element, when \"true\" the child is appended after the badge stack rather than inserted before the icon (badged mode only).",
+      "default": "false"
+    },
+    {
+      "name": "validate",
+      "type": "string",
+      "description": "Inherited attribute forwarded to .toolbarbutton-icon."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Inherited from MozButtonBase; disables the button and blocks click/keypress activation.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Inherited from MozButtonBase; toggled for checkbox/radio type buttons.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "group",
+      "type": "string",
+      "description": "Inherited from MozButtonBase; groups radio-type buttons so only one in the group is checked."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Inherited from MozButtonBase; reflects/controls whether the button's menu is open.",
+      "default": "false"
+    },
+    {
+      "name": "hasbeenopened",
+      "type": "boolean",
+      "description": "Set on the parent panel by the popupshowing listener; triggers deferred render() of buttons inside popups."
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Child elements (menupopup, panel, tooltip, template, observes, or a plain box) are kept in place; other children are moved into the icon/label or badge-stack fragment on render."
+    }
+  ],
+  "methods": [
+    {
+      "name": "render"
+    },
+    {
+      "name": "connectedCallback"
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--toolbarbutton-badge-background-color",
+      "description": "Background color of the badge stack."
+    },
+    {
+      "name": "--toolbarbutton-badge-font-size",
+      "description": "Font size of the badge text (overridden to 9px on macOS)."
+    },
+    {
+      "name": "--toolbarbutton-badge-padding-inline",
+      "description": "Inline padding of the badge."
+    },
+    {
+      "name": "--toolbarbutton-badge-padding-block-end",
+      "description": "Block-end padding of the badge."
+    },
+    {
+      "name": "--toolbarbutton-badge-min-width",
+      "description": "Minimum width of the badge."
+    },
+    {
+      "name": "--toolbarbutton-badge-max-width",
+      "description": "Maximum width of the badge."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "menu",
+        "checkbox",
+        "radio"
+      ]
+    }
+  ],
+  "usage": "<toolbarbutton label=\"Bookmarks\" image=\"chrome://browser/skin/bookmark.svg\" badged=\"true\" badge=\"3\" oncommand=\"doSomething();\"/>"
+}

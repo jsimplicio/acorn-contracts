@@ -1,0 +1,48 @@
+{
+  "id": "table",
+  "basenames": [
+    "table"
+  ],
+  "tokens": {
+    "table.background.color": {
+      "value": "#f8f8fa",
+      "type": "color",
+      "chain": []
+    },
+    "table.border.color": {
+      "value": "color-mix(in srgb, currentColor 41%, transparent)",
+      "type": "color",
+      "chain": []
+    },
+    "table.header.background.color": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    },
+    "table.header.text.color.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "color.white.@base"
+      ]
+    },
+    "table.row.background.color.@base": {
+      "value": "#f7f6fb",
+      "type": "color",
+      "chain": [
+        "background.color.canvas",
+        "color.gray.05"
+      ]
+    },
+    "table.row.background.color.alternate": {
+      "value": "#d6d5da",
+      "type": "color",
+      "chain": [
+        "color.gray.20"
+      ]
+    }
+  }
+}

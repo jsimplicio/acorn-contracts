@@ -1,0 +1,10 @@
+{
+  "id": "checkbox",
+  "dos": [
+    { "text": "Put dependent controls in the slot=\"nested\" slot instead of manually disabling them, MozBaseInputElement's updateNestedElements() sets their parentDisabled from `!this.checked || this.disabled` because moz-checkbox declares static activatedProperty = \"checked\", so nested elements go disabled whenever the box is unchecked, not only when the checkbox itself is disabled." }
+  ],
+  "donts": [
+    { "text": "Don't rely on form.reset() restoring a checked value you assigned with JS after the element connected, defaultChecked is captured exactly once in connectedCallback from the initial checked attribute/property, so later `.checked` assignments change the current value but not what formResetCallback() reverts to." },
+    { "text": "Don't expect the classic <checkbox> element (toolkit/content/widgets/checkbox.js, which still ships alongside moz-checkbox) to have any interactive behavior, its checked getter/setter only toggles the checked attribute for CSS/image purposes, there's no click handler, keyboard toggling, or form participation built in." }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "rgb(234, 234, 237)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "rgb(234, 234, 237)",
+            "dark": "{color.gray.90}",
+            "nativeTheme": "-moz-headerbar"
+          }
+        },
+        "$type": "color"
+      },
+      "inactive": {
+        "$value": "{toolbox.background.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{toolbox.background.color.@base}",
+            "nativeTheme": "-moz-headerbarinactive"
+          }
+        },
+        "$type": "color"
+      },
+      "gradient-leading": {
+        "$value": "unset",
+        "$type": "color",
+        "$extensions": {
+          "org.mozilla.meta": {
+            "override": true
+          }
+        }
+      },
+      "gradient-trailing": {
+        "$value": "unset",
+        "$type": "color",
+        "$extensions": {
+          "org.mozilla.meta": {
+            "override": true
+          }
+        }
+      }
+    },
+    "gradient": {
+      "$value": "unset",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "unset",
+          "nova": {
+            "comment": "This linear-gradient cannot be expressed in Figma",
+            "value": {
+              "default": "linear-gradient(96deg, color-mix({toolbox.background.color.gradient-leading} 50%, transparent) 39.84%, color-mix({toolbox.background.color.gradient-trailing} 50%, transparent) 101.72%)",
+              "nativeTheme": "image(transparent)",
+              "forcedColors": "image(transparent)"
+            }
+          }
+        },
+        "org.mozilla.meta": {
+          "override": true
+        }
+      },
+      "$description": "This gradient is only used for Nova"
+    }
+  },
+  "text": {
+    "color": {
+      "@base": {
+        "$value": "{color.gray.100}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.100}",
+            "dark": "{color.gray.0}",
+            "nativeTheme": "-moz-headerbartext"
+          }
+        },
+        "$type": "color"
+      },
+      "inactive": {
+        "$value": "{toolbox.text.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{toolbox.text.color.@base}",
+            "nativeTheme": "-moz-headerbarinactivetext"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  }
+}

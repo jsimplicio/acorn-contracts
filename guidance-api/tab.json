@@ -1,0 +1,10 @@
+{
+  "id": "tab",
+  "dos": [
+    { "text": "Check the visible getter rather than just hidden when determining if a tab is actually rendered, visible also folds in isOpen and the tab's group's isTabVisibleInGroup, so a tab can be unhidden but still invisible inside a collapsed group." }
+  ],
+  "donts": [
+    { "text": "Don't assign to tab.hidden directly, the class defines only a getter (\"This getter makes hidden read-only\") with no matching setter, so a plain assignment throws." },
+    { "text": "Don't read elementIndex on a tab that isn't currently visible, the getter explicitly throws \"Tab is not visible, so does not have an elementIndex\" rather than returning null." }
+  ]
+}

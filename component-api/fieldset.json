@@ -1,0 +1,113 @@
+{
+  "id": "fieldset",
+  "summary": "A labeled group of related form fields, with the group's own heading.",
+  "tagName": "moz-fieldset",
+  "description": "Fieldset wrapper used to lay out form inputs consistently, with an optional legend (label), description, icon, badge, and support link.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-fieldset/moz-fieldset.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The label for the fieldset's legend.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description text for the fieldset.",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Name of the SUMO support page to link to (attribute: support-page). When unset, a named \"support-link\" slot is rendered instead so callers can supply their own link.",
+      "figmaConfig": true
+    },
+    {
+      "name": "headingLevel",
+      "type": "number",
+      "description": "Renders the legend as h1-h6 instead of plain legend text. Default is -1 (no heading).",
+      "figmaConfig": true,
+      "default": "-1"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disables the fieldset and, via a MutationObserver-style pass over children, propagates a disabled/parentDisabled state to nested form controls that support it.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "Src for an optional icon shown next to the legend.",
+      "figmaConfig": true
+    },
+    {
+      "name": "badge",
+      "type": "string",
+      "description": "Includes a moz-badge of this type next to the legend. Options: beta, new.",
+      "figmaConfig": true
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "Accessible label, mapped from the aria-label attribute.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaOrientation",
+      "type": "string",
+      "description": "Mapped aria-orientation attribute for the fieldset.",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "The form inputs laid out inside the fieldset."
+    },
+    {
+      "name": "support-link",
+      "description": "Rendered only when supportPage is not set; lets callers supply a custom support link element in place of the built-in moz-support-link."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "badge",
+      "values": [
+        "beta",
+        "new"
+      ]
+    },
+    {
+      "axis": "headingLevel",
+      "values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    }
+  ],
+  "usage": "<moz-fieldset label=\"Related settings\" description=\"Optional supporting text\">\n  <moz-checkbox label=\"Option one\"></moz-checkbox>\n</moz-fieldset>",
+  "cssParts": [
+    {
+      "name": "label",
+      "description": "The <legend> element."
+    },
+    {
+      "name": "support-link",
+      "description": "The optional \"Learn more\"-style support link."
+    },
+    {
+      "name": "inputs",
+      "description": "The wrapper around the fieldset's slotted inputs."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "visual-picker",
+  "summary": "A grid of selectable image options, like choosing a theme.",
+  "tagName": "moz-visual-picker",
+  "description": "A container that groups related moz-visual-picker-item children and allows a user to navigate between them to select one item. The appearance of each item is determined by the consumer's slotted content.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-visual-picker/moz-visual-picker.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Label for the group of elements.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Description for the group of elements.",
+      "figmaConfig": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Name used to associate items in the group. Propagates to moz-visual-picker-item children.",
+      "figmaConfig": false
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "Selected value for the group. Changing the value updates the checked state of moz-visual-picker-item children and vice versa.",
+      "figmaConfig": true
+    },
+    {
+      "name": "orientation",
+      "type": "string",
+      "description": "Layout orientation of the picker, \"horizontal\" (default) or \"vertical\". Propagates to moz-visual-picker-item children.",
+      "figmaConfig": true,
+      "default": "horizontal"
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "The picker's content, intended for moz-visual-picker-item children."
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Bubbles up from a selected child item; the picker updates its value accordingly."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "orientation",
+      "values": [
+        "horizontal",
+        "vertical"
+      ]
+    }
+  ],
+  "usage": "<moz-visual-picker value=\"1\" name=\"theme\">\n  <moz-visual-picker-item value=\"1\" label=\"Light\"></moz-visual-picker-item>\n  <moz-visual-picker-item value=\"2\" label=\"Dark\"></moz-visual-picker-item>\n</moz-visual-picker>",
+  "cssParts": [
+    {
+      "name": "fieldset",
+      "description": "The wrapping <fieldset>, inherited from SelectControlBaseElement."
+    }
+  ]
+}

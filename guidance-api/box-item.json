@@ -1,0 +1,9 @@
+{
+  "id": "box-item",
+  "dos": [
+    { "text": "Use label/description/iconSrc or the default slot, never both, render() picks textTemplate() when label is set and falls back to <slot></slot> only when it's empty, so slotted custom content is silently dropped as soon as label has a value." }
+  ],
+  "donts": [
+    { "text": "Don't assume item.focus() focuses the item element itself, focus() only calls super.focus() when isFocusable (i.e. the item has a tabindex attribute, which moz-box-group sets in list-type groups); otherwise it delegates to the first or last slotted action element instead." }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "message-bar",
+  "dos": [
+    { "text": "Rely on dismiss()'s cancelable \"message-bar:user-dismissed\" event instead of wiring your own close-button handler, close() (and the resulting removal) only runs when that event isn't preventDefault()-ed." },
+    { "text": "Use the default role=\"alert\" only for messages that truly need to interrupt, it reflects as an attribute so you can see exactly what's driving the announcement behavior." }
+  ],
+  "donts": [
+    { "text": "Don't set supportPage together with slotted support-link content expecting them to combine, supportLinkTemplate() renders the generated moz-support-link anchor or the slot, never both, so supportPage silently drops your slotted content." },
+    { "text": "Don't treat \"message-bar:close\" (fired from disconnectedCallback) as proof the user dismissed the bar, it fires on any removal from the DOM, not just a close-button click." }
+  ]
+}

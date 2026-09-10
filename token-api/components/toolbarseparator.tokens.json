@@ -1,0 +1,6 @@
+{
+  "color": {
+    "$value": "{text.color.deemphasized}",
+    "$type": "color"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "urlbar-result",
+  "summary": "A single suggestion row shown in the address bar's dropdown list, like a bookmark or history match.",
+  "tagName": null,
+  "description": "Plain `.urlbarView-row` divs (role=option) created by UrlbarView.mjs (a JS class, not a custom element) via #createRowContent/#createRowContentForRichSuggestion/etc.; each row represents one full search/suggestion result in the dropdown and can contain an 'urlbar-action' label or button as a sub-element, so result (the row) and action (a piece within it) are related but distinct concepts in this file.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/urlbar/content/UrlbarView.mjs"
+  }
+}

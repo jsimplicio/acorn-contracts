@@ -1,0 +1,18 @@
+{
+  "id": "opacity",
+  "basenames": [
+    "opacity"
+  ],
+  "tokens": {
+    "opacity.deemphasized": {
+      "value": "0.8",
+      "type": "number",
+      "chain": []
+    },
+    "opacity.deemphasized-strong": {
+      "value": "0.6",
+      "type": "number",
+      "chain": []
+    }
+  }
+}

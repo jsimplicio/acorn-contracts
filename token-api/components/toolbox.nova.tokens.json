@@ -1,0 +1,52 @@
+{
+  "background": {
+    "color": {
+      "inactive": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "-moz-headerbarinactive",
+            "default": "transparent"
+          }
+        },
+        "$type": "color"
+      },
+      "gradient-leading": {
+        "$value": "{color.violet.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.violet.10}",
+            "dark": "{color.violet-desaturated.70}",
+            "forcedColors": "Canvas"
+          }
+        },
+        "$type": "color"
+      },
+      "gradient-trailing": {
+        "$value": "{color.orange.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.orange.10}",
+            "dark": "{color.orange.70}",
+            "forcedColors": "Canvas"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "text": {
+    "color": {
+      "@base": {
+        "$value": "{text.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "-moz-headerbartext",
+            "default": "{text.color.@base}"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  }
+}

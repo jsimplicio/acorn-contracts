@@ -1,0 +1,10 @@
+{
+  "id": "tabstrip",
+  "dos": [
+    { "text": "Make sure init() has already run before inserting tabs directly, appendChild/insertBefore assume the arrowscrollbox already has its trailing periphery element as its last child, and inserting before init() throws \"Shouldn't call this without arrowscrollbox.\"" }
+  ],
+  "donts": [
+    { "text": "Don't expect removing this element from the DOM to release its listeners, there's no disconnectedCallback, only a manually-invoked destroy() that removes the pref observer and CustomizableUI listener." },
+    { "text": "Don't mutate tab or tab-group DOM directly and expect allTabs, openTabs, visibleTabs, or ariaFocusableItems to reflect it immediately, these are memoized fields only invalidated by specific custom events like TabGroupCreate, TabGroupRemoved, SplitViewCreated, and SplitViewRemoved." }
+  ]
+}

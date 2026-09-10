@@ -1,0 +1,79 @@
+{
+  "id": "panel-list",
+  "basenames": [
+    "panel-list",
+    "popup"
+  ],
+  "tokens": {
+    "panel-list.background.color.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "panel-list.border.color": {
+      "value": "#efedf2",
+      "type": "color",
+      "chain": [
+        "panel.border.color",
+        "popup.border.color",
+        "color.gray.10"
+      ]
+    },
+    "panel-list.border.radius": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "panel.border.radius",
+        "popup.border.radius",
+        "border.radius.xlarge"
+      ]
+    },
+    "panel-list.box.shadow.@base": {
+      "value": "0 0 {panel.box.shadow.margin} hsla(0, 0%, 0%, 0.2)",
+      "type": null,
+      "chain": [
+        "panel.box.shadow.@base"
+      ]
+    },
+    "panel-list.text.color": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "popup.background.color": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "popup.border.color": {
+      "value": "#efedf2",
+      "type": "color",
+      "chain": [
+        "color.gray.10"
+      ]
+    },
+    "popup.border.radius": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.xlarge"
+      ]
+    },
+    "popup.box.shadow": {
+      "value": "0 0.375px 1.5px {box-shadow.color.lighter.layer-1}, 0 3px 12px {box-shadow.color.lighter.layer-2}",
+      "type": null,
+      "chain": [
+        "box-shadow.level-3"
+      ]
+    }
+  }
+}

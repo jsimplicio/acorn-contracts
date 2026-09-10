@@ -1,0 +1,116 @@
+{
+  "id": "visual-picker-item",
+  "summary": "A single selectable image option inside a visual picker grid.",
+  "tagName": "moz-visual-picker-item",
+  "description": "A single option within a moz-visual-picker. Visual appearance is determined by slotted content, or by the built-in label/description/imageSrc rendering.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-visual-picker/moz-visual-picker.mjs"
+  },
+  "attributes": [
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Whether or not the item is selected.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether or not the item is disabled.",
+      "figmaConfig": true
+    },
+    {
+      "name": "itemTabIndex",
+      "type": "number",
+      "description": "Tabindex of the input element. Only one item is focusable at a time (roving tabindex).",
+      "figmaConfig": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Name of the item, set by the associated moz-visual-picker parent element.",
+      "figmaConfig": false
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "Value of the item.",
+      "figmaConfig": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Visible label for the picker item.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Additional text shown beneath the label.",
+      "figmaConfig": true
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "Value for the aria-label attribute.",
+      "figmaConfig": false
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Native title tooltip. Mapped onto the inner shadow DOM item and removed from moz-visual-picker-item itself.",
+      "figmaConfig": false
+    },
+    {
+      "name": "imageSrc",
+      "type": "string",
+      "description": "Path to an image to display in the picker item.",
+      "figmaConfig": true
+    },
+    {
+      "name": "labelPosition",
+      "type": "string",
+      "description": "Position of the label: \"inside\" (default, rendered inside the picker item button) or \"outside\" (rendered as a clickable label element that activates the item).",
+      "figmaConfig": true,
+      "default": "inside"
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "The item's content, used for what gets displayed (e.g. a custom card or avatar)."
+    }
+  ],
+  "events": [
+    {
+      "name": "click",
+      "description": "Re-dispatched (bubbles, composed) from the internal button, including for Space/Enter keyboard activation."
+    },
+    {
+      "name": "input",
+      "description": "Manually dispatched (bubbles, composed) on selection, since the item is not backed by a native input."
+    },
+    {
+      "name": "change",
+      "description": "Manually dispatched (bubbles, composed) on selection, alongside input."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "labelPosition",
+      "values": [
+        "inside",
+        "outside"
+      ]
+    }
+  ],
+  "usage": "<moz-visual-picker-item value=\"1\" label=\"Light\" imageSrc=\"chrome://example.svg\"></moz-visual-picker-item>",
+  "cssParts": [
+    {
+      "name": "image",
+      "description": "The item's own <img>, rendered when imageSrc is set."
+    }
+  ]
+}

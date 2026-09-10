@@ -1,0 +1,112 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "color-mix(in lch, currentColor 8%, transparent)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "color-mix(in lch, currentColor 8%, transparent)",
+            "prefersContrast": "{background.color.canvas}"
+          }
+        },
+        "$type": "color"
+      },
+      "vibrant": {
+        "$value": "{color.violet.0}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.violet.0}",
+            "dark": "{color.violet.90}"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "border": {
+    "@base": {
+      "$value": "{promo.border.width} solid {promo.border.color.@base}"
+    },
+    "color": {
+      "@base": {
+        "$value": "color-mix(in lch, currentColor 8%, transparent)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "color-mix(in lch, currentColor 8%, transparent)",
+            "prefersContrast": "{border.color.@base}",
+            "nova": {
+              "comment": "color-mix with currentColor cannot be expressed in Figma",
+              "value": {
+                "default": "color-mix(in lch, currentColor 12%, transparent)",
+                "forcedColors": "CanvasText"
+              }
+            }
+          }
+        },
+        "$type": "color"
+      },
+      "vibrant": {
+        "$value": "{color.violet.30}",
+        "$type": "color"
+      }
+    },
+    "width": {
+      "$value": "{border.width}",
+      "$type": "dimension"
+    },
+    "radius": {
+      "$value": "{border.radius.medium}",
+      "$type": "dimension"
+    }
+  },
+  "heading": {
+    "text": {
+      "color": {
+        "@base": {
+          "$value": "{promo.message.text.color.@base}",
+          "$type": "color"
+        },
+        "vibrant": {
+          "$value": "{promo.message.text.color.@base}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "image": {
+    "size": {
+      "@base": {
+        "$value": "{size.image.xlarge}",
+        "$type": "dimension"
+      },
+      "large": {
+        "$value": "calc(2 * {size.image.xlarge})",
+        "$type": "dimension"
+      }
+    }
+  },
+  "message": {
+    "text": {
+      "color": {
+        "@base": {
+          "$value": "{text.color.@base}",
+          "$type": "color"
+        },
+        "vibrant": {
+          "$value": "{color.violet.80}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.violet.80}",
+              "dark": "{color.violet.0}"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "padding": {
+    "$value": "{space.medium}",
+    "$type": "dimension"
+  }
+}

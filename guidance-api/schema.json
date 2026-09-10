@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/FirefoxUX/acorn-contracts/guidance-api/schema.json",
+  "title": "Guidance API entry",
+  "description": "Schema for one guidance-api/<id>.json file. See guidance-api/README.md for the full rationale (why this is a separate API from component-api), this file is the machine-checkable version of that same schema.",
+  "type": "object",
+  "required": ["id", "dos", "donts"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Must match the id used for the same component in component-api exactly, this is the join key. Not a tag name: some entries (like toolbox) have no real custom element behind them at all."
+    },
+    "dos": {
+      "type": "array",
+      "description": "Things to do. May be empty. Not padded to hit a count, if only one real thing is worth saying, there's one entry.",
+      "items": { "$ref": "#/$defs/entry" }
+    },
+    "donts": {
+      "type": "array",
+      "description": "Things to avoid, ideally naming the concrete symptom of getting it wrong, not just \"don't do X\".",
+      "items": { "$ref": "#/$defs/entry" }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["text"],
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "One sentence, citing something concrete and specific to this component's real implementation (a method, property, or lifecycle behavior), not generic UX advice."
+        }
+      }
+    }
+  }
+}

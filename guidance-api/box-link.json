@@ -1,0 +1,9 @@
+{
+  "id": "box-link",
+  "dos": [
+    { "text": "Use supportPage for internal SUMO articles rather than passing that URL through href, render() branches on supportPage first and renders the is=\"moz-support-link\" anchor exclusively, completely ignoring href when both are set." }
+  ],
+  "donts": [
+    { "text": "Don't expect the href-based link to stay in the current tab, the template hardcodes target=\"_blank\" on that anchor with no property to override it, so it always opens a new tab/window." }
+  ]
+}

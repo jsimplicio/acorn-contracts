@@ -1,0 +1,88 @@
+{
+  "id": "checkbox",
+  "summary": "A standard checkbox you can check or uncheck, with a label next to it.",
+  "tagName": "moz-checkbox / checkbox",
+  "description": "Modern Lit-based checkbox input with a label, description, and optional icon/support link. A legacy XUL-style <checkbox> (toolkit/content/widgets/checkbox.js, registered as tag \"checkbox\") also still exists in the tree for older UI: it renders a checkbox-check image plus a checkbox-label-box (icon + label) and exposes only a simple reflected `checked` boolean, with attribute inheritance for disabled/checked/native/label/accesskey/src. The attrs/slots/events below describe the actively-recommended moz-checkbox.",
+  "implementation": {
+    "kind": "dual",
+    "file": "toolkit/content/widgets/moz-checkbox/moz-checkbox.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The text of the label element.",
+      "figmaConfig": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name of the checkbox input control.",
+      "figmaConfig": false
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The value of the checkbox input control. Defaults to \"on\" if unset.",
+      "figmaConfig": false,
+      "default": "on"
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "The state of the checkbox element; also controls whether the checkbox is initially rendered as checked.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "The disabled state of the checkbox input.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "The src for an optional icon.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Text for the description element that helps describe the checkbox.",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Name of the SUMO support page to link to.",
+      "figmaConfig": true
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "The aria-label text when there is no visible label.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaDescription",
+      "type": "string",
+      "description": "The aria-description text when there is no visible description.",
+      "figmaConfig": false
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title attribute, mapped onto the inner input.",
+      "figmaConfig": false
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Redispatched when the checked state changes via user interaction."
+    }
+  ],
+  "usage": "<moz-checkbox label=\"Enable feature\" checked></moz-checkbox>"
+}

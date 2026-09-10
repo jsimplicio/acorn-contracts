@@ -1,0 +1,20 @@
+{
+  "border": {
+    "color": {
+      "$value": "{color.gray.10}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "nativeTheme": "{border.color.deemphasized.@base}",
+          "light": "{color.gray.10}",
+          "dark": "{color.gray.65}",
+          "forcedColors": "{border.color.@base}"
+        }
+      },
+      "$type": "color"
+    },
+    "radius": {
+      "$value": "{border.radius.xlarge}",
+      "$type": "dimension"
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "panel-item",
+  "summary": "A single clickable row inside a panel's dropdown menu.",
+  "tagName": "panel-item",
+  "description": "A single actionable row inside a panel-list menu (button, checkbox item, or submenu trigger). A plain modern custom element (no JSDoc) with its own shadow root; coordinates with its owning panel-list for keyboard navigation and accesskey lifecycle.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/panel-list/panel-list.mjs"
+  },
+  "attributes": [
+    {
+      "name": "accesskey",
+      "type": "string",
+      "description": "Observed attribute; mirrored to the internal label's accessKey. Stashed and blanked while the owning panel is closed, restored on the panel's shown event (workaround for bug 1588156).",
+      "figmaConfig": true
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Observed attribute, getter/setter, defaults to \"button\". Only recognized special value is \"checkbox\", which sets role=menuitemcheckbox and enables the checked property.",
+      "figmaConfig": true,
+      "default": "button"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Observed attribute, getter/setter; reflected onto the internal button.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "badge-type",
+      "type": "string",
+      "description": "Observed attribute; lazily creates a <moz-badge> element after the label and sets its type, or removes it when cleared.",
+      "figmaConfig": true
+    },
+    {
+      "name": "aria-haspopup",
+      "type": "string",
+      "description": "Observed attribute; mirrored onto the internal button as an ARIA passthrough."
+    },
+    {
+      "name": "submenu",
+      "type": "string",
+      "description": "Not observed (read only once at connectedCallback via the hasSubmenu getter). Identifies the id of a nested panel-list placed in the submenu slot.",
+      "figmaConfig": true
+    },
+    {
+      "name": "badged",
+      "type": "boolean",
+      "description": "Pure CSS attribute-selector hook (:host([badged]) button::after draws a small dot); not read by any JS in this component. Distinct from badge-type.",
+      "figmaConfig": true
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Getter/setter, only meaningful when type=\"checkbox\"; otherwise the getter always returns false and the setter is a no-op.",
+      "default": "false"
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Hidden default slot; its assigned text content is harvested via MutationObserver into the internal label, since a real <slot> can't be used directly for the label."
+    },
+    {
+      "name": "support-link",
+      "description": "Named slot for an inline link element."
+    },
+    {
+      "name": "submenu",
+      "description": "Named slot for a nested panel-list; its assigned node is moved directly into the shadow root when hasSubmenu is true."
+    }
+  ],
+  "events": [],
+  "methods": [
+    {
+      "name": "click"
+    },
+    {
+      "name": "focus"
+    },
+    {
+      "name": "setArrowKeyRTL"
+    },
+    {
+      "name": "setSubmenuContents"
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--panel-item-badge-inset-block-start",
+      "description": "Position of the CSS-only badge dot."
+    },
+    {
+      "name": "--panel-item-badge-inset-inline-start",
+      "description": "Position of the CSS-only badge dot."
+    },
+    {
+      "name": "--panel-item-badge-size",
+      "description": "Size of the CSS-only badge dot.",
+      "default": "5px"
+    },
+    {
+      "name": "--panel-item-badge-background-color",
+      "description": "Background color of the CSS-only badge dot, set inline to var(--color-accent-primary).",
+      "default": "var(--color-accent-primary)"
+    },
+    {
+      "name": "--panel-item-button-border-radius",
+      "description": "Border radius of the internal button."
+    },
+    {
+      "name": "--panel-item-button-margin",
+      "description": "Margin of the internal button."
+    },
+    {
+      "name": "--panel-item-button-padding",
+      "description": "Padding of the internal button."
+    },
+    {
+      "name": "--panel-item-button-padding-inline-start",
+      "description": "Inline-start padding of the internal button."
+    },
+    {
+      "name": "--panel-item-button-padding-inline-start-offset",
+      "description": "Added on top of --panel-item-button-padding-inline-start; lets a subclass/consumer nudge the icon-accommodating inline-start padding without overriding the whole value."
+    }
+  ],
+  "cssParts": [
+    {
+      "name": "button",
+      "description": "The internal <button> element."
+    },
+    {
+      "name": "label",
+      "description": "The internal label element showing the item's text."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "button",
+        "checkbox"
+      ]
+    }
+  ],
+  "usage": "<panel-list>\n  <panel-item accesskey=\"N\">New</panel-item>\n  <panel-item type=\"checkbox\" checked>Toggle Setting</panel-item>\n  <panel-item badge-type=\"new\">Save</panel-item>\n  <panel-item submenu=\"example-sub-menu\">\n    Has a submenu\n    <panel-list slot=\"submenu\" id=\"example-sub-menu\">\n      <panel-item>Submenu Item One</panel-item>\n    </panel-list>\n  </panel-item>\n</panel-list>"
+}

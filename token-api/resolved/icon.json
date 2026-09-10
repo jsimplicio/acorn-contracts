@@ -1,0 +1,99 @@
+{
+  "id": "icon",
+  "basenames": [
+    "icon"
+  ],
+  "tokens": {
+    "icon.color.@base": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "icon.color.accent.primary.desaturated": {
+      "value": "#584a7d",
+      "type": "color",
+      "chain": [
+        "color.violet-desaturated.60"
+      ]
+    },
+    "icon.color.critical": {
+      "value": "#c52d4f",
+      "type": "color",
+      "chain": [
+        "color.red.50"
+      ]
+    },
+    "icon.color.information": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "color.violet.50"
+      ]
+    },
+    "icon.color.success": {
+      "value": "#008865",
+      "type": "color",
+      "chain": [
+        "color.green.50"
+      ]
+    },
+    "icon.color.warning": {
+      "value": "#b26100",
+      "type": "color",
+      "chain": [
+        "color.yellow.50"
+      ]
+    },
+    "icon.size.@base": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "icon.size.small",
+        "size.item.small"
+      ]
+    },
+    "icon.size.large": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "size.item.medium"
+      ]
+    },
+    "icon.size.medium": {
+      "value": "20px",
+      "type": "dimension",
+      "chain": []
+    },
+    "icon.size.small": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "size.item.small"
+      ]
+    },
+    "icon.size.xlarge": {
+      "value": "32px",
+      "type": "dimension",
+      "chain": [
+        "size.item.large"
+      ]
+    },
+    "icon.size.xsmall": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "size.item.xsmall"
+      ]
+    },
+    "icon.size.xxlarge": {
+      "value": "48px",
+      "type": "dimension",
+      "chain": [
+        "size.item.xlarge"
+      ]
+    }
+  }
+}

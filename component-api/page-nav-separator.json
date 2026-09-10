@@ -1,0 +1,10 @@
+{
+  "id": "page-nav-separator",
+  "summary": "A thin divider line used to group related links inside the page navigation menu.",
+  "tagName": null,
+  "description": "Correction to the 'no separator implementation' citation: moz-page-nav.mjs does render a real separator, `${when(this.hasSecondaryNav, () => html`<hr />`)}`, placed between the primary-nav-group and secondary-nav-group in its own render() output; it's just a plain <hr> with no dedicated class/tagName, not a distinct sub-component.",
+  "implementation": {
+    "kind": "none",
+    "file": "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs"
+  }
+}

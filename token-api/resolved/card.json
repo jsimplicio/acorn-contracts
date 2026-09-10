@@ -1,0 +1,217 @@
+{
+  "id": "card",
+  "basenames": [
+    "card"
+  ],
+  "tokens": {
+    "card.background.color": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "card.border.@base": {
+      "value": "{card.border.width} solid {card.border.color}",
+      "type": null,
+      "chain": []
+    },
+    "card.border.color": {
+      "value": "rgba(0, 0, 0, 0.06)",
+      "type": "color",
+      "chain": []
+    },
+    "card.border.radius.@base": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.large"
+      ]
+    },
+    "card.border.radius.compact": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.medium"
+      ]
+    },
+    "card.border.width": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": [
+        "border.width"
+      ]
+    },
+    "card.box.shadow.@base": {
+      "value": "0 0.25px 0.75px {box-shadow.color.lighter.layer-1}, 0 2px 6px {box-shadow.color.lighter.layer-2}",
+      "type": null,
+      "chain": [
+        "box-shadow.level-2"
+      ]
+    },
+    "card.box.shadow.hover": {
+      "value": "0 0.5px 2px {box-shadow.color.lighter.layer-1}, 0 4px 16px {box-shadow.color.lighter.layer-2}",
+      "type": null,
+      "chain": [
+        "box-shadow.level-4"
+      ]
+    },
+    "card.cover.image.border.radius": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.medium"
+      ]
+    },
+    "card.cover.image.height.default": {
+      "value": "160px",
+      "type": "dimension",
+      "chain": []
+    },
+    "card.cover.image.object.fit.default": {
+      "value": "cover",
+      "type": null,
+      "chain": []
+    },
+    "card.cover.image.object.position.default": {
+      "value": "center",
+      "type": null,
+      "chain": []
+    },
+    "card.cover.image.padding.@base": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "card.cover.image.padding.compact": {
+      "value": "0.25rem",
+      "type": "dimension",
+      "chain": [
+        "space.xsmall"
+      ]
+    },
+    "card.focus.outline": {
+      "value": "{focus.outline.width} solid {focus.outline.color}",
+      "type": null,
+      "chain": [
+        "focus.outline.@base"
+      ]
+    },
+    "card.font.size.@base": {
+      "value": "15px",
+      "type": "dimension",
+      "chain": [
+        "font.size.root"
+      ]
+    },
+    "card.font.size.compact": {
+      "value": "0.867rem",
+      "type": "dimension",
+      "chain": [
+        "font.size.small"
+      ]
+    },
+    "card.gap.@base": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "chain": [
+        "space.medium"
+      ]
+    },
+    "card.gap.article": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "card.gap.compact": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "card.header.background.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.@base"
+      ]
+    },
+    "card.header.background.color.active": {
+      "value": "#b6aad9",
+      "type": "color",
+      "chain": [
+        "button.background.color.active",
+        "color.violet-desaturated.30"
+      ]
+    },
+    "card.header.background.color.hover": {
+      "value": "#d2c8ec",
+      "type": "color",
+      "chain": [
+        "button.background.color.hover",
+        "color.violet-desaturated.20"
+      ]
+    },
+    "card.header.border.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "card.header.border.color.active": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "card.header.border.color.hover": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "card.header.text.color.@base": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "card.header.text.color.active": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.active",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "card.header.text.color.hover": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.hover",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "card.padding.@base": {
+      "value": "1rem",
+      "type": "dimension",
+      "chain": [
+        "space.large"
+      ]
+    },
+    "card.padding.compact": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    }
+  }
+}

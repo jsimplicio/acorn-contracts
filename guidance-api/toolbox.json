@@ -1,0 +1,9 @@
+{
+  "id": "toolbox",
+  "dos": [
+    { "text": "Treat #navigator-toolbox as page structure, not a reusable widget, when reading or touching this code." }
+  ],
+  "donts": [
+    { "text": "Don't expect a moz-toolbox or similar custom element to exist. Reusing this same visual container elsewhere means replicating markup and CSS, not importing a component." }
+  ]
+}

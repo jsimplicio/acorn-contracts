@@ -1,0 +1,10 @@
+{
+  "id": "toolbox",
+  "summary": "The whole top area of the browser window: the tab strip, navigation toolbar, and bookmarks bar together.",
+  "tagName": null,
+  "description": "No class or customElements.define; navigator-toolbox.js attaches a single DOMContentLoaded listener to the #navigator-toolbox and #widget-overflow elements that delegates command/click/mousedown/mouseup/keypress/drag-and-drop events (by target id/selector) to the right chrome handler for buttons like back/forward/reload, bookmarks star, identity/tracking-protection icons, downloads, sync, and unified extensions.",
+  "implementation": {
+    "kind": "none",
+    "file": "browser/base/content/navigator-toolbox.js"
+  }
+}

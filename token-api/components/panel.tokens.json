@@ -1,0 +1,114 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "{color.white.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.white.@base}",
+            "dark": "rgb(66, 65, 77)",
+            "nativeTheme": "Field",
+            "forcedColors": "Menu"
+          }
+        },
+        "$type": "color"
+      },
+      "dimmed": {
+        "@base": {
+          "$value": "{background.color.dimmed.@base}",
+          "$type": "color"
+        },
+        "further": {
+          "$value": "{background.color.dimmed.further}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "$value": "rgb(240, 240, 244)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "rgb(240, 240, 244)",
+          "dark": "rgb(82, 82, 94)",
+          "nativeTheme": "{border.color.deemphasized.@base}"
+        }
+      },
+      "$type": "color"
+    },
+    "radius": {
+      "$value": "{border.radius.medium}",
+      "$type": "dimension"
+    }
+  },
+  "box": {
+    "shadow": {
+      "@base": {
+        "$value": "0 0 {panel.box.shadow.margin} hsla(0, 0%, 0%, 0.2)"
+      },
+      "margin": {
+        "$value": "4px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "padding": {
+    "@base": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "block": {
+      "$value": "4px",
+      "$type": "dimension"
+    }
+  },
+  "separator": {
+    "color": {
+      "$value": "color-mix(in srgb, currentColor 25%, transparent)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "color-mix(in srgb, currentColor 25%, transparent)",
+          "prefersContrast": "currentColor",
+          "forcedColors": "{border.color.@base}"
+        },
+        "org.mozilla.meta": {
+          "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+        }
+      },
+      "$type": "color"
+    },
+    "padding": {
+      "@base": {
+        "$value": "{panel.separator.padding.block} {panel.separator.padding.inline}",
+        "$type": "dimension"
+      },
+      "block": {
+        "$value": "4px",
+        "$type": "dimension"
+      },
+      "inline": {
+        "$value": "8px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "text": {
+    "color": {
+      "$value": "{color.black.@base}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "{color.black.@base}",
+          "dark": "rgb(251, 251, 254)",
+          "nativeTheme": "FieldText",
+          "forcedColors": "MenuText"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "width": {
+    "$value": "initial",
+    "$type": "dimension"
+  }
+}

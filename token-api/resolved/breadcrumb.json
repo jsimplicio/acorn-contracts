@@ -1,0 +1,99 @@
+{
+  "id": "breadcrumb",
+  "basenames": [
+    "moz-breadcrumb",
+    "link"
+  ],
+  "tokens": {
+    "link.color.@base": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    },
+    "link.color.active": {
+      "value": "#3e2976",
+      "type": "color",
+      "chain": [
+        "color.accent.primary.active",
+        "color.violet.70"
+      ]
+    },
+    "link.color.hover": {
+      "value": "#5939a8",
+      "type": "color",
+      "chain": [
+        "color.accent.primary.hover",
+        "color.violet.60"
+      ]
+    },
+    "link.color.visited": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "link.color.@base",
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    },
+    "link.focus.outline.offset": {
+      "value": "1px",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-breadcrumb.gap": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "moz-breadcrumb.icon.size": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "icon.size.xsmall",
+        "size.item.xsmall"
+      ]
+    },
+    "moz-breadcrumb.link.color.@base": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "link.color.@base",
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    },
+    "moz-breadcrumb.link.color.active": {
+      "value": "#3e2976",
+      "type": "color",
+      "chain": [
+        "link.color.active",
+        "color.accent.primary.active",
+        "color.violet.70"
+      ]
+    },
+    "moz-breadcrumb.link.color.hover": {
+      "value": "#5939a8",
+      "type": "color",
+      "chain": [
+        "link.color.hover",
+        "color.accent.primary.hover",
+        "color.violet.60"
+      ]
+    },
+    "moz-breadcrumb.link.color.visited": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "link.color.visited",
+        "link.color.@base",
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    }
+  }
+}

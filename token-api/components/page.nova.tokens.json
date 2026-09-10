@@ -1,0 +1,10 @@
+{
+  "main": {
+    "content": {
+      "width": {
+        "$value": "664px",
+        "$type": "dimension"
+      }
+    }
+  }
+}

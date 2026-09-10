@@ -1,0 +1,10 @@
+{
+  "id": "panel-list",
+  "dos": [
+    { "text": "Open a panel-list via show()/toggle() rather than setting the open attribute directly when correct positioning matters, show() is what populates lastAnchorNode and triggeringEvent that setAlign() uses, a bare open = true still renders but falls back to positioning against the host element itself." }
+  ],
+  "donts": [
+    { "text": "Don't expect a panel-item with type=\"checkbox\" to toggle its own checked state on click, #setButtonAttributes only reflects whatever .checked already is, there's no built-in click handler that flips it." },
+    { "text": "Don't rely on stay-open for shipping UI, addHideListeners() skips all click-outside/Escape/focus-loss/scroll/resize dismiss handling when it's set, and the inline comment notes it's intended only for Storybook inspection." }
+  ]
+}

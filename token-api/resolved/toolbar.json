@@ -1,0 +1,76 @@
+{
+  "id": "toolbar",
+  "basenames": [
+    "toolbar"
+  ],
+  "tokens": {
+    "toolbar.background.color": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "toolbar.field.background.color.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "toolbar.background.color",
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "toolbar.field.background.color.focus": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "toolbar.field.border.color.@base": {
+      "value": "#d6d5da",
+      "type": "color",
+      "chain": [
+        "color.gray.20"
+      ]
+    },
+    "toolbar.field.border.color.focus": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "focus.outline.color",
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    },
+    "toolbar.field.text.color.@base": {
+      "value": "#3e315f",
+      "type": "color",
+      "chain": [
+        "color.violet-desaturated.70"
+      ]
+    },
+    "toolbar.field.text.color.focus": {
+      "value": "#3e315f",
+      "type": "color",
+      "chain": [
+        "toolbar.field.text.color.@base",
+        "color.violet-desaturated.70"
+      ]
+    },
+    "toolbar.padding.inline": {
+      "value": "6px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbar.text.color": {
+      "value": "#15141a",
+      "type": "color",
+      "chain": [
+        "color.gray.100"
+      ]
+    }
+  }
+}

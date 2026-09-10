@@ -1,0 +1,10 @@
+{
+  "id": "tab-split",
+  "dos": [
+    { "text": "Let the tab-change MutationObserver call unsplitTabs(\"tab_close\") automatically when a split view is reduced to one tab, there's no need to call it yourself after removing a tab since the observer detects the single-tab case and moves the remaining tab out for you." }
+  ],
+  "donts": [
+    { "text": "Don't include a pinned tab in the array passed to addTabs(), the per-tab loop does \"if (tab.pinned) return\" which aborts the entire call as soon as it reaches a pinned tab, silently leaving any tabs already processed before it in place while dropping the rest." },
+    { "text": "Don't assume more than two tabs are handled uniformly, resetRightPanelWidth() only ever operates on this.panels[1], hardcoding a two-panel structure even though addTabs technically allows arbitrary counts." }
+  ]
+}

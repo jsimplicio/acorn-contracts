@@ -1,0 +1,370 @@
+{
+  "id": "tab",
+  "summary": "A single open tab in the browser's tab strip.",
+  "tagName": "tabbrowser-tab",
+  "description": "A single browser tab: icon, title label, audio/sharing/note indicators, and close button. A customized built-in element extending the toolkit <tab> element (is=\"tabbrowser-tab\"); builds its light-DOM structure once from a static template and drives it via an attribute-inheritance map.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/tabbrowser/content/tab.js"
+  },
+  "attributes": [
+    {
+      "name": "pinned",
+      "type": "boolean",
+      "description": "Whether the tab is pinned to the start of the tabstrip.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "selected",
+      "type": "boolean",
+      "description": "Whether the tab is the active tab; set via the internal _selected setter, actual selection is driven by gBrowser.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "multiselected",
+      "type": "boolean",
+      "description": "Whether the tab is part of a multi-selection.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "muted",
+      "type": "boolean",
+      "description": "Whether audio playback on the tab is muted.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "soundplaying",
+      "type": "boolean",
+      "description": "Whether the tab is currently playing audio.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "pictureinpicture",
+      "type": "boolean",
+      "description": "Whether the tab has an active picture-in-picture window.",
+      "default": "false"
+    },
+    {
+      "name": "activemedia-blocked",
+      "type": "boolean",
+      "description": "Whether autoplay media on the tab was blocked.",
+      "default": "false"
+    },
+    {
+      "name": "usercontextid",
+      "type": "number",
+      "description": "The container (contextual identity) id the tab belongs to.",
+      "figmaConfig": true,
+      "default": "0"
+    },
+    {
+      "name": "undiscardable",
+      "type": "boolean",
+      "description": "Whether the tab is protected from automatic memory-saving discard.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "attention",
+      "type": "boolean",
+      "description": "Whether the tab is showing an attention dot (e.g. a background alert).",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The tab's title text, inherited onto the internal .tab-label element.",
+      "figmaConfig": true
+    },
+    {
+      "name": "tab-note",
+      "type": "boolean",
+      "description": "Whether the tab has an attached note, backed by the hasTabNote getter/setter.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "visuallyselected",
+      "type": "boolean",
+      "description": "Internal e10s tab-switch visual state, distinct from logical selection.",
+      "default": "false"
+    },
+    {
+      "name": "busy",
+      "type": "boolean",
+      "description": "Internal loading-state flag driving the throbber."
+    },
+    {
+      "name": "bursting",
+      "type": "boolean",
+      "description": "Internal flag driving the throbber's completion \"burst\" animation."
+    },
+    {
+      "name": "textoverflow",
+      "type": "string",
+      "description": "Internal CSS hook for label text-overflow fade direction."
+    },
+    {
+      "name": "soundplaying-scheduledremoval",
+      "type": "boolean",
+      "description": "Internal grace-period flag before the sound icon is removed; drives --soundplaying-removal-delay."
+    },
+    {
+      "name": "customizemode",
+      "type": "boolean",
+      "description": "Internal state reflecting whether the browser is in toolbar customize mode."
+    }
+  ],
+  "slots": [],
+  "events": [
+    {
+      "name": "TabHoverStart",
+      "description": "Bubbling Event dispatched from an internal mouseenter handler when the pointer enters the tab."
+    },
+    {
+      "name": "TabHoverEnd",
+      "description": "Bubbling Event dispatched from an internal mouseleave handler."
+    },
+    {
+      "name": "TabNoteIconHoverStart",
+      "description": "Bubbling CustomEvent with detail {noteIconElement}, dispatched when the pointer enters the tab-note icon."
+    },
+    {
+      "name": "TabNoteIconHoverEnd",
+      "description": "Bubbling CustomEvent with detail {returningToTab}, dispatched when the pointer leaves the tab-note icon."
+    },
+    {
+      "name": "TabGrouped",
+      "description": "Bubbling CustomEvent dispatched on the tab's new tab-group (detail: the tab) when the tab newly belongs to that group."
+    },
+    {
+      "name": "TabUngrouped",
+      "description": "Bubbling CustomEvent dispatched on the tab-group being left (detail: the tab) when the tab leaves it."
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize"
+    },
+    {
+      "name": "updateLastAccessed"
+    },
+    {
+      "name": "updateLastSeenActive"
+    },
+    {
+      "name": "updateLastUnloadedByTabUnloader"
+    },
+    {
+      "name": "recordTimeFromUnloadToReload"
+    },
+    {
+      "name": "resumeDelayedMedia"
+    },
+    {
+      "name": "toggleMuteAudio"
+    },
+    {
+      "name": "registerAudibleChangeHandler"
+    },
+    {
+      "name": "unregisterAudibleChangeHandler"
+    },
+    {
+      "name": "setUserContextId"
+    },
+    {
+      "name": "updateA11yDescription"
+    },
+    {
+      "name": "updateSplitViewAriaLabel"
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--tab-background-color-hover",
+      "description": "Background color on hover."
+    },
+    {
+      "name": "--tab-background-color-selected",
+      "description": "Background color when selected."
+    },
+    {
+      "name": "--tab-border-radius",
+      "description": "Tab border radius."
+    },
+    {
+      "name": "--tab-border-color-accent",
+      "description": "Accent border color (e.g. for group color)."
+    },
+    {
+      "name": "--tab-border-color-selected-leading",
+      "description": "Leading-edge border color when selected."
+    },
+    {
+      "name": "--tab-border-color-selected-trailing",
+      "description": "Trailing-edge border color when selected."
+    },
+    {
+      "name": "--tab-box-shadow-selected",
+      "description": "Box shadow when selected."
+    },
+    {
+      "name": "--tab-close-button-padding",
+      "description": "Padding around the close button."
+    },
+    {
+      "name": "--tab-hover-outline-color",
+      "description": "Outline color on hover."
+    },
+    {
+      "name": "--tab-selected-outline-color",
+      "description": "Outline color when selected."
+    },
+    {
+      "name": "--tab-selected-textcolor",
+      "description": "Text color when selected."
+    },
+    {
+      "name": "--tab-selected-color-scheme",
+      "description": "Color scheme when selected.",
+      "default": "var(--toolbar-color-scheme)"
+    },
+    {
+      "name": "--tab-outline",
+      "description": "Default outline."
+    },
+    {
+      "name": "--tab-outline-color",
+      "description": "Default outline color."
+    },
+    {
+      "name": "--tab-outline-offset",
+      "description": "Outline offset."
+    },
+    {
+      "name": "--tab-inline-padding",
+      "description": "Inline padding of the tab."
+    },
+    {
+      "name": "--tab-inner-inline-margin",
+      "description": "Inline margin between internal elements."
+    },
+    {
+      "name": "--tab-icon-end-margin",
+      "description": "Margin after the tab icon."
+    },
+    {
+      "name": "--tab-note-icon-end-margin",
+      "description": "Margin after the tab-note icon.",
+      "default": "var(--dimension-4)"
+    },
+    {
+      "name": "--tab-label-line-height",
+      "description": "Line height of the tab label."
+    },
+    {
+      "name": "--tab-label-mask-size",
+      "description": "Mask size used for label text-overflow fade.",
+      "default": "1em"
+    },
+    {
+      "name": "--tab-attention-dot-color",
+      "description": "Color of the attention dot."
+    },
+    {
+      "name": "--tab-loading-fill",
+      "description": "Fill color of the loading throbber."
+    },
+    {
+      "name": "--tab-overflow-clip-margin",
+      "description": "Overflow clip margin."
+    },
+    {
+      "name": "--tab-dragover-outline-color",
+      "description": "Outline color while a drag hovers over the tab.",
+      "default": "var(--focus-outline-color)"
+    },
+    {
+      "name": "--tab-dragover-transition",
+      "description": "Transition used during drag-over state.",
+      "default": "transform 200ms var(--animation-easing-function)"
+    },
+    {
+      "name": "--tab-width-transition",
+      "description": "Transition used when tab width changes (open/close animation).",
+      "default": "min-width 100ms ease-out, max-width 100ms ease-out"
+    },
+    {
+      "name": "--tab-sharing-icon-animation",
+      "description": "Animation for the screen-sharing icon.",
+      "default": "3s linear tab-sharing-icon-pulse infinite"
+    },
+    {
+      "name": "--tab-padding-block-start",
+      "description": "Block-start padding.",
+      "default": "3px"
+    },
+    {
+      "name": "--tab-padding-block-end",
+      "description": "Block-end padding.",
+      "default": "2px"
+    },
+    {
+      "name": "--tab-context-line-block-offset",
+      "description": "Offset of the group color context line.",
+      "default": "3px"
+    },
+    {
+      "name": "--tab-context-line-inline-offset",
+      "description": "Inline offset of the group color context line.",
+      "default": "calc(var(--tab-inline-padding) + 2px)"
+    },
+    {
+      "name": "--tab-context-line-split-view-block-offset",
+      "description": "Context-line offset variant for split-view tabs.",
+      "default": "1px"
+    },
+    {
+      "name": "--tab-collapsed-width",
+      "description": "Width of a tab collapsed into an overflow container (e.g. collapsed group).",
+      "default": "calc(var(--tab-collapsed-background-width) + 2 * var(--tab-inner-inline-margin))"
+    },
+    {
+      "name": "--tab-collapsed-background-width",
+      "description": "Background width of a collapsed tab.",
+      "default": "var(--tab-min-height)"
+    },
+    {
+      "name": "--tab-collapsed-split-pill-offset",
+      "description": "Offset for the collapsed split-view pill indicator.",
+      "default": "0px"
+    }
+  ],
+  "variants": [
+    {
+      "axis": "selection",
+      "values": [
+        "selected",
+        "visuallyselected",
+        "multiselected"
+      ]
+    },
+    {
+      "axis": "media",
+      "values": [
+        "muted",
+        "soundplaying",
+        "activemedia-blocked",
+        "pictureinpicture"
+      ]
+    }
+  ],
+  "usage": "<tab is=\"tabbrowser-tab\" label=\"Example Domain\" pinned usercontextid=\"1\" soundplaying=\"true\"></tab>"
+}

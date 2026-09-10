@@ -1,0 +1,122 @@
+{
+  "id": "promo",
+  "summary": "A promotional banner or card, usually pointing out a new feature with an image and a call-to-action button.",
+  "tagName": "moz-promo",
+  "description": "A promotional callout element with an optional heading, image, actions and support link, and an optional dismiss button.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-promo/moz-promo.mjs"
+  },
+  "attributes": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "The type of promo, either \"default\" or \"vibrant\". Determines the colors of the promotional element.",
+      "figmaConfig": true,
+      "default": "default"
+    },
+    {
+      "name": "heading",
+      "type": "string",
+      "description": "The heading of the promo element.",
+      "figmaConfig": true
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "description": "The message of the promo element.",
+      "figmaConfig": true
+    },
+    {
+      "name": "imageSrc",
+      "type": "string",
+      "description": "The main image of the promo element.",
+      "figmaConfig": true
+    },
+    {
+      "name": "imageAlignment",
+      "type": "string",
+      "description": "How the image should be aligned. Can be \"start\", \"end\", or \"center\".",
+      "figmaConfig": true,
+      "default": "start"
+    },
+    {
+      "name": "imageWidth",
+      "type": "string",
+      "description": "How big the image is sized. Can be \"default\", \"small\" or \"large\".",
+      "figmaConfig": true,
+      "default": "small"
+    },
+    {
+      "name": "imageDisplay",
+      "type": "string",
+      "description": "Whether the image touches the edge of the promo or has a little padding around it. Can be \"cover\" or \"padded\".",
+      "figmaConfig": true,
+      "default": "padded"
+    },
+    {
+      "name": "dismissable",
+      "type": "boolean",
+      "description": "Whether the promo can be dismissed via a close button.",
+      "figmaConfig": true,
+      "default": "false"
+    }
+  ],
+  "slots": [
+    {
+      "name": "actions",
+      "description": "Action controls (e.g. a moz-button) shown after the message."
+    },
+    {
+      "name": "support-link",
+      "description": "A moz-support-link shown after the message/actions."
+    }
+  ],
+  "events": [
+    {
+      "name": "promo:user-dismissed",
+      "description": "Fired when the promo is dismissed by the user via the close button. Cancelable; if defaultPrevented, the element does not remove itself."
+    }
+  ],
+  "methods": [
+    {
+      "name": "dismiss"
+    },
+    {
+      "name": "close"
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "default",
+        "vibrant"
+      ]
+    },
+    {
+      "axis": "imageAlignment",
+      "values": [
+        "start",
+        "end",
+        "center"
+      ]
+    },
+    {
+      "axis": "imageWidth",
+      "values": [
+        "default",
+        "small",
+        "large"
+      ]
+    },
+    {
+      "axis": "imageDisplay",
+      "values": [
+        "cover",
+        "padded"
+      ]
+    }
+  ],
+  "usage": "<moz-promo heading=\"Try this feature\" message=\"A short description of the feature.\" dismissable>\n  <moz-button slot=\"actions\">Get started</moz-button>\n</moz-promo>"
+}

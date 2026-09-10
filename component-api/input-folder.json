@@ -1,0 +1,157 @@
+{
+  "id": "input-folder",
+  "summary": "A form field for picking a folder on disk, with a button that opens a folder picker.",
+  "tagName": "moz-input-folder",
+  "description": "A labeled, read-only text field paired with a moz-button that opens the native folder picker (nsIFilePicker). Resolves the chosen path to a real nsIFile via IOUtils and shows a folder icon (a real per-folder icon when the chrome Services module is available, otherwise a generic fallback) next to the value.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-input-folder/moz-input-folder.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The text of the label element. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name of the input control. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The path to the selected folder. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "displayValue",
+      "type": "string",
+      "description": "The value shown in the input, when it should differ from the real value.",
+      "figmaConfig": true,
+      "default": ""
+    },
+    {
+      "name": "dialogTitle",
+      "type": "string",
+      "description": "Text to display as the file-picker dialog's title.",
+      "figmaConfig": true,
+      "default": ""
+    },
+    {
+      "name": "folder",
+      "type": "object",
+      "description": "Read-only getter for the nsIFile representing the currently selected folder (or null). Not a settable property.",
+      "figmaConfig": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "The disabled state of the component. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "The readonly state of the input control; forced back to true on every update (willUpdate always resets it), since the value is only ever set via the folder picker, not typed directly.",
+      "figmaConfig": false,
+      "default": "true"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "The required state of the input control. Inherited from MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "The src for an optional icon in the label. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Text for the description element that helps describe the input control. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Text to display when the input has no value. Inherited from MozInputText.",
+      "figmaConfig": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "The title attribute, mapped onto the inner input. Inherited from MozBaseInputElement via MozInputText.",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "description",
+      "description": "Inherited from MozBaseInputElement: rendered when the description property is unset, letting callers supply richer description markup."
+    },
+    {
+      "name": "support-link",
+      "description": "Inherited from MozBaseInputElement: rendered when supportPage is unset, letting callers supply a custom support link element."
+    },
+    {
+      "name": "actions",
+      "description": "Own slot alongside the choose-folder button, for additional actions."
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "description": "Native Event (bubbles) dispatched by openFolderPicker() after a folder is chosen, since the field itself is readonly and not directly typed into."
+    },
+    {
+      "name": "change",
+      "description": "Native Event (bubbles) dispatched by openFolderPicker() after a folder is chosen."
+    },
+    {
+      "name": "moz-input-folder-picker-close",
+      "description": "Test-only CustomEvent dispatched (only when Cu.isInAutomation) when the picker dialog closes without a value change, so tests can wait for the dialog to finish closing."
+    }
+  ],
+  "methods": [
+    {
+      "name": "hasServices",
+      "description": "Safely reports whether the privileged Services module is available in this context."
+    },
+    {
+      "name": "getFolderFromPath",
+      "description": "Resolves a filesystem path string to a real nsIFile/IOUtils directory object."
+    },
+    {
+      "name": "getInputIconSrc",
+      "description": "Computes the moz-icon:// URL for a given folder, or a generic folder icon fallback."
+    },
+    {
+      "name": "openFolderPicker",
+      "description": "Opens the native folder picker (nsIFilePicker) and, if a new folder is chosen, updates value/folder and dispatches input/change."
+    }
+  ],
+  "cssParts": [
+    {
+      "name": "label",
+      "description": "The internal <label is=\"moz-label\">, inherited from MozBaseInputElement's shared render()."
+    },
+    {
+      "name": "support-link",
+      "description": "The optional support link, inherited from MozBaseInputElement's shared render()."
+    }
+  ],
+  "usage": "<moz-input-folder name=\"download-dir\" label=\"Download folder\"></moz-input-folder>"
+}

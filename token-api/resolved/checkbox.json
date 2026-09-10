@@ -1,0 +1,22 @@
+{
+  "id": "checkbox",
+  "basenames": [
+    "checkbox"
+  ],
+  "tokens": {
+    "checkbox.margin.inline": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "checkbox.size": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "size.item.small"
+      ]
+    }
+  }
+}

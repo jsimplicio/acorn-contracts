@@ -1,0 +1,98 @@
+{
+  "background": {
+    "color": {
+      "hover": {
+        "$value": "{toolbarbutton.background.color.hover}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "{background.color.dimmed.@base}",
+            "default": "{toolbarbutton.background.color.hover}"
+          }
+        },
+        "$type": "color"
+      },
+      "selected": {
+        "$value": "{toolbarbutton.background.color.active}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "SelectedItem",
+            "default": "{toolbarbutton.background.color.active}"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "border": {
+    "radius": {
+      "$value": "{urlbar.border.radius}",
+      "$type": "dimension"
+    }
+  },
+  "separator": {
+    "color": {
+      "$value": "{color.gray.20}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "nativeTheme": "color-mix(in srgb, currentColor 14%, transparent)",
+          "light": "{color.gray.20}",
+          "dark": "{color.gray.60}",
+          "forcedColors": "#ffffff"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "action": {
+    "button": {
+      "background": {
+        "color": {
+          "@base": {
+            "$value": "{urlbar.box.background.color.@base}",
+            "$type": "color"
+          },
+          "hover": {
+            "$value": "{urlbar.box.background.color.hover}",
+            "$type": "color"
+          }
+        }
+      }
+    }
+  },
+  "text": {
+    "color": {
+      "action": {
+        "$value": "{toolbar.field.text.color.focus}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "LinkText",
+            "default": "{toolbar.field.text.color.focus}"
+          }
+        },
+        "$type": "color"
+      },
+      "secondary": {
+        "$value": "#3e315f",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "color-mix(in srgb, currentColor 73%, transparent)",
+            "light": "#3e315f",
+            "dark": "#e7e1f8",
+            "forcedColors": "#ffffff"
+          }
+        },
+        "$type": "color"
+      },
+      "selected": {
+        "$value": "{toolbar.field.text.color.focus}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "SelectedItemText",
+            "default": "{toolbar.field.text.color.focus}"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  }
+}

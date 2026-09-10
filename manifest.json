@@ -1,0 +1,621 @@
+{
+  "generated_at": "2026-08-18T00:05:25Z",
+  "apis": {
+    "componentApi": "component-api/<id>.json",
+    "guidanceApi": "guidance-api/<id>.json",
+    "tokenApi": "token-api/components/<basename>.tokens.json (see token-api/id-map.json for id -> basename)"
+  },
+  "components": {
+    "badge": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-badge"
+      ],
+      "novaTokenBasenames": [
+        "moz-badge"
+      ]
+    },
+    "bookmarks-toolbar": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "box-button": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-box"
+      ],
+      "novaTokenBasenames": []
+    },
+    "box-group": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-box"
+      ],
+      "novaTokenBasenames": []
+    },
+    "box-item": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-box"
+      ],
+      "novaTokenBasenames": []
+    },
+    "box-link": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-box"
+      ],
+      "novaTokenBasenames": []
+    },
+    "breadcrumb": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-breadcrumb",
+        "link"
+      ],
+      "novaTokenBasenames": []
+    },
+    "button": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "button"
+      ],
+      "novaTokenBasenames": [
+        "button"
+      ]
+    },
+    "button-group": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "callout": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "card": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "card"
+      ],
+      "novaTokenBasenames": [
+        "card"
+      ]
+    },
+    "checkbox": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "checkbox"
+      ],
+      "novaTokenBasenames": []
+    },
+    "chip": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "details": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "dialog": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "fieldset": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "findbar": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "five-star": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "icon-button": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "button"
+      ],
+      "novaTokenBasenames": [
+        "button"
+      ]
+    },
+    "infobar": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "info-bar",
+        "toolbarseparator"
+      ],
+      "novaTokenBasenames": []
+    },
+    "input-box": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "input-color": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-input-color"
+      ],
+      "novaTokenBasenames": [
+        "moz-input-color"
+      ]
+    },
+    "input-email": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "input-folder": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "input-number": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "input-password": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "input-search": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "input-tel": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "input-text": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "input"
+      ],
+      "novaTokenBasenames": []
+    },
+    "input-url": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "label": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "message-bar": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-message-bar"
+      ],
+      "novaTokenBasenames": [
+        "moz-message-bar"
+      ]
+    },
+    "page-header": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "page-nav": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "page",
+        "moz-page-nav"
+      ],
+      "novaTokenBasenames": [
+        "page",
+        "moz-page-nav"
+      ]
+    },
+    "page-nav-item": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "page-nav-separator": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "panel": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "panel",
+        "popup"
+      ],
+      "novaTokenBasenames": [
+        "panel",
+        "popup"
+      ]
+    },
+    "panel-item": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "panel-menuitem",
+        "panel-item"
+      ],
+      "novaTokenBasenames": [
+        "panel-menuitem"
+      ]
+    },
+    "panel-list": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "panel-list",
+        "popup"
+      ],
+      "novaTokenBasenames": [
+        "popup"
+      ]
+    },
+    "panel-list-item": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "panel-manager": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "panel-separator": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "panel"
+      ],
+      "novaTokenBasenames": []
+    },
+    "popup-notification": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "promo": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-promo"
+      ],
+      "novaTokenBasenames": [
+        "moz-promo"
+      ]
+    },
+    "radio": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "reorderable-list": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-reorderable-list"
+      ],
+      "novaTokenBasenames": []
+    },
+    "segment": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "segmented-control": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-segmented-control"
+      ],
+      "novaTokenBasenames": []
+    },
+    "select": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-select"
+      ],
+      "novaTokenBasenames": [
+        "moz-select"
+      ]
+    },
+    "sidebar": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "sidebar"
+      ],
+      "novaTokenBasenames": []
+    },
+    "sidebar-panel": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "sidebar-strip": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "split-button": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "spotlight-modal": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "stepper": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "support-link": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "tab": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "tab"
+      ],
+      "novaTokenBasenames": [
+        "tab"
+      ]
+    },
+    "tab-group": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "tab-split": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "tabstrip": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "tabs-navbar"
+      ],
+      "novaTokenBasenames": []
+    },
+    "textarea": {
+      "componentApi": true,
+      "guidanceApi": false,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "toggle": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-toggle"
+      ],
+      "novaTokenBasenames": [
+        "moz-toggle"
+      ]
+    },
+    "toolbar": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "toolbar"
+      ],
+      "novaTokenBasenames": [
+        "toolbar"
+      ]
+    },
+    "toolbar-button": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "toolbarbutton"
+      ],
+      "novaTokenBasenames": [
+        "toolbarbutton"
+      ]
+    },
+    "toolbox": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "toolbox"
+      ],
+      "novaTokenBasenames": [
+        "toolbox"
+      ]
+    },
+    "urlbar": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "urlbar",
+        "popup"
+      ],
+      "novaTokenBasenames": [
+        "urlbar",
+        "popup"
+      ]
+    },
+    "urlbar-action": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "urlbar-identity": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "urlbar-result": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "urlbarview"
+      ],
+      "novaTokenBasenames": [
+        "urlbarview"
+      ]
+    },
+    "visual-picker": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": false,
+      "tokenBasenames": [],
+      "novaTokenBasenames": []
+    },
+    "visual-picker-item": {
+      "componentApi": true,
+      "guidanceApi": true,
+      "tokenApi": true,
+      "tokenBasenames": [
+        "moz-visual-picker-item"
+      ],
+      "novaTokenBasenames": []
+    }
+  }
+}

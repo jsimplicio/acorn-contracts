@@ -1,0 +1,31 @@
+{
+  "id": "sidebar-panel",
+  "summary": "The header area at the top of whatever content is currently showing in the sidebar.",
+  "tagName": "sidebar-panel-header",
+  "description": "Per-panel header for a sidebar panel, showing the panel title and a close button, plus each panel's own toolbar content (search boxes, options menus, etc.) via its default slot. In horizontal-tabs \"hide-launcher\" mode the title is replaced by the sidebar-panel-switcher dropdown, since there is no launcher to switch panels with.",
+  "implementation": {
+    "kind": "modern",
+    "file": "browser/components/sidebar/sidebar-panel-header.mjs"
+  },
+  "attributes": [
+    {
+      "name": "view",
+      "type": "string",
+      "description": "The view id of the panel this header belongs to; forwarded to the internal close moz-button and the sidebar-panel-switcher.",
+      "figmaConfig": false
+    },
+    {
+      "name": "heading",
+      "type": "string",
+      "description": "The panel title text rendered in the header.",
+      "figmaConfig": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Each panel's own toolbar content (search boxes, options menus, etc.), rendered below the heading row."
+    }
+  ],
+  "usage": "<sidebar-panel-header view=\"viewBookmarksSidebar\" heading=\"Bookmarks\"></sidebar-panel-header>"
+}

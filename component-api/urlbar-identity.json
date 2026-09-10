@@ -1,0 +1,10 @@
+{
+  "id": "urlbar-identity",
+  "summary": "The site information icons shown at the start of the address bar, like the lock/permissions icon.",
+  "tagName": null,
+  "description": "gIdentityHandler is a plain singleton object (var gIdentityHandler = {...}), not a class or custom element; it computes and renders the site identity/security state (lock icon, identity box label, permission indicators) for the current page and handles clicks/keypresses on those icons in the url bar.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/base/content/browser-siteIdentity.js"
+  }
+}

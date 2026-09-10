@@ -1,0 +1,535 @@
+{
+  "source": {
+    "repo": "https://github.com/mozilla-firefox/firefox",
+    "source_roots": [
+      "toolkit/themes/shared/design-system/src/tokens/base (base)",
+      "toolkit/themes/shared/design-system/src/tokens/components (components)",
+      "browser/themes/shared/tabbrowser (components)",
+      "browser/themes/shared/urlbar (components)",
+      "toolkit/content/widgets (components)",
+      "toolkit/content/widgets/* (components, one level deep)"
+    ],
+    "ref_requested": "(default branch)",
+    "commit": "8a99ef927ea16827f2089e2bdf6a1188ddf645e7",
+    "commit_date": "2026-09-01T21:50:16Z",
+    "fetch_method": "github-sparse-clone:https://github.com/mozilla-firefox/firefox"
+  },
+  "generated_at": "2026-09-01T22:52:29.116955+00:00",
+  "files_converted": [
+    "base/background.nova.tokens.json",
+    "base/background.tokens.json",
+    "base/border.nova.tokens.json",
+    "base/border.tokens.json",
+    "base/box-shadow.nova.tokens.json",
+    "base/box-shadow.tokens.json",
+    "base/color.nova.tokens.json",
+    "base/color.tokens.json",
+    "base/focus.tokens.json",
+    "base/font.tokens.json",
+    "base/size.tokens.json",
+    "base/space.tokens.json",
+    "base/text.tokens.json",
+    "components/button.nova.tokens.json",
+    "components/button.tokens.json",
+    "components/card.nova.tokens.json",
+    "components/card.tokens.json",
+    "components/checkbox.tokens.json",
+    "components/icon.nova.tokens.json",
+    "components/icon.tokens.json",
+    "components/info-bar.tokens.json",
+    "components/input.tokens.json",
+    "components/link.tokens.json",
+    "components/opacity.tokens.json",
+    "components/page.nova.tokens.json",
+    "components/page.tokens.json",
+    "components/panel-menuitem.nova.tokens.json",
+    "components/panel-menuitem.tokens.json",
+    "components/panel.nova.tokens.json",
+    "components/panel.tokens.json",
+    "components/popup.nova.tokens.json",
+    "components/popup.tokens.json",
+    "components/sidebar.tokens.json",
+    "components/table.nova.tokens.json",
+    "components/table.tokens.json",
+    "components/toolbar.nova.tokens.json",
+    "components/toolbar.tokens.json",
+    "components/toolbarbutton.nova.tokens.json",
+    "components/toolbarbutton.tokens.json",
+    "components/toolbarseparator.tokens.json",
+    "components/toolbox.nova.tokens.json",
+    "components/toolbox.tokens.json",
+    "components/tab.nova.tokens.json",
+    "components/tab.tokens.json",
+    "components/tabs-navbar.tokens.json",
+    "components/urlbar.nova.tokens.json",
+    "components/urlbar.tokens.json",
+    "components/urlbarview.nova.tokens.json",
+    "components/urlbarview.tokens.json",
+    "components/moz-box.tokens.json",
+    "components/moz-badge.nova.tokens.json",
+    "components/moz-badge.tokens.json",
+    "components/moz-breadcrumb.tokens.json",
+    "components/moz-input-color.nova.tokens.json",
+    "components/moz-input-color.tokens.json",
+    "components/moz-message-bar.nova.tokens.json",
+    "components/moz-message-bar.tokens.json",
+    "components/moz-page-nav.nova.tokens.json",
+    "components/moz-page-nav.tokens.json",
+    "components/moz-promo.nova.tokens.json",
+    "components/moz-promo.tokens.json",
+    "components/moz-reorderable-list.tokens.json",
+    "components/moz-segmented-control.tokens.json",
+    "components/moz-select.nova.tokens.json",
+    "components/moz-select.tokens.json",
+    "components/moz-toggle.nova.tokens.json",
+    "components/moz-toggle.tokens.json",
+    "components/moz-visual-picker-item.tokens.json",
+    "components/panel-item.tokens.json",
+    "components/panel-list.tokens.json"
+  ],
+  "source_paths": {
+    "base/background.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/background.nova.tokens.json",
+    "base/background.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/background.tokens.json",
+    "base/border.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+    "base/border.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+    "base/box-shadow.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.nova.tokens.json",
+    "base/box-shadow.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.tokens.json",
+    "base/color.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+    "base/color.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+    "base/focus.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/focus.tokens.json",
+    "base/font.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/font.tokens.json",
+    "base/size.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/size.tokens.json",
+    "base/space.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/space.tokens.json",
+    "base/text.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/text.tokens.json",
+    "components/button.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+    "components/button.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+    "components/card.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/card.nova.tokens.json",
+    "components/card.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/card.tokens.json",
+    "components/checkbox.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/checkbox.tokens.json",
+    "components/icon.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+    "components/icon.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+    "components/info-bar.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/info-bar.tokens.json",
+    "components/input.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/input.tokens.json",
+    "components/link.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/link.tokens.json",
+    "components/opacity.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/opacity.tokens.json",
+    "components/page.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/page.nova.tokens.json",
+    "components/page.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/page.tokens.json",
+    "components/panel-menuitem.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/panel-menuitem.nova.tokens.json",
+    "components/panel-menuitem.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/panel-menuitem.tokens.json",
+    "components/panel.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/panel.nova.tokens.json",
+    "components/panel.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/panel.tokens.json",
+    "components/popup.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/popup.nova.tokens.json",
+    "components/popup.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/popup.tokens.json",
+    "components/sidebar.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/sidebar.tokens.json",
+    "components/table.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/table.nova.tokens.json",
+    "components/table.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/table.tokens.json",
+    "components/toolbar.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
+    "components/toolbar.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
+    "components/toolbarbutton.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+    "components/toolbarbutton.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+    "components/toolbarseparator.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/toolbarseparator.tokens.json",
+    "components/toolbox.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.nova.tokens.json",
+    "components/toolbox.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.tokens.json",
+    "components/tab.nova.tokens.json": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+    "components/tab.tokens.json": "browser/themes/shared/tabbrowser/tab.tokens.json",
+    "components/tabs-navbar.tokens.json": "browser/themes/shared/tabbrowser/tabs-navbar.tokens.json",
+    "components/urlbar.nova.tokens.json": "browser/themes/shared/urlbar/urlbar.nova.tokens.json",
+    "components/urlbar.tokens.json": "browser/themes/shared/urlbar/urlbar.tokens.json",
+    "components/urlbarview.nova.tokens.json": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+    "components/urlbarview.tokens.json": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+    "components/moz-box.tokens.json": "toolkit/content/widgets/moz-box.tokens.json",
+    "components/moz-badge.nova.tokens.json": "toolkit/content/widgets/moz-badge/moz-badge.nova.tokens.json",
+    "components/moz-badge.tokens.json": "toolkit/content/widgets/moz-badge/moz-badge.tokens.json",
+    "components/moz-breadcrumb.tokens.json": "toolkit/content/widgets/moz-breadcrumb-group/moz-breadcrumb.tokens.json",
+    "components/moz-input-color.nova.tokens.json": "toolkit/content/widgets/moz-input-color/moz-input-color.nova.tokens.json",
+    "components/moz-input-color.tokens.json": "toolkit/content/widgets/moz-input-color/moz-input-color.tokens.json",
+    "components/moz-message-bar.nova.tokens.json": "toolkit/content/widgets/moz-message-bar/moz-message-bar.nova.tokens.json",
+    "components/moz-message-bar.tokens.json": "toolkit/content/widgets/moz-message-bar/moz-message-bar.tokens.json",
+    "components/moz-page-nav.nova.tokens.json": "toolkit/content/widgets/moz-page-nav/moz-page-nav.nova.tokens.json",
+    "components/moz-page-nav.tokens.json": "toolkit/content/widgets/moz-page-nav/moz-page-nav.tokens.json",
+    "components/moz-promo.nova.tokens.json": "toolkit/content/widgets/moz-promo/moz-promo.nova.tokens.json",
+    "components/moz-promo.tokens.json": "toolkit/content/widgets/moz-promo/moz-promo.tokens.json",
+    "components/moz-reorderable-list.tokens.json": "toolkit/content/widgets/moz-reorderable-list/moz-reorderable-list.tokens.json",
+    "components/moz-segmented-control.tokens.json": "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.tokens.json",
+    "components/moz-select.nova.tokens.json": "toolkit/content/widgets/moz-select/moz-select.nova.tokens.json",
+    "components/moz-select.tokens.json": "toolkit/content/widgets/moz-select/moz-select.tokens.json",
+    "components/moz-toggle.nova.tokens.json": "toolkit/content/widgets/moz-toggle/moz-toggle.nova.tokens.json",
+    "components/moz-toggle.tokens.json": "toolkit/content/widgets/moz-toggle/moz-toggle.tokens.json",
+    "components/moz-visual-picker-item.tokens.json": "toolkit/content/widgets/moz-visual-picker/moz-visual-picker-item.tokens.json",
+    "components/panel-item.tokens.json": "toolkit/content/widgets/panel-list/panel-item.tokens.json",
+    "components/panel-list.tokens.json": "toolkit/content/widgets/panel-list/panel-list.tokens.json"
+  },
+  "leaf_token_total": 1147,
+  "theme_object_total": 402,
+  "type_counts": {
+    "color": 824,
+    "dimension": 277,
+    "fontWeight": 8,
+    "number": 9
+  },
+  "omitted_type_count": 29,
+  "omitted_type_examples": [
+    {
+      "path": "box-shadow.level-1",
+      "reason": "composite shadow (multiple comma-separated layers as a flat string, not decomposed into DTCG's shadow type)"
+    },
+    {
+      "path": "box-shadow.level-2",
+      "reason": "composite shadow (multiple comma-separated layers as a flat string, not decomposed into DTCG's shadow type)"
+    },
+    {
+      "path": "box-shadow.level-3",
+      "reason": "composite shadow (multiple comma-separated layers as a flat string, not decomposed into DTCG's shadow type)"
+    },
+    {
+      "path": "box-shadow.level-4",
+      "reason": "composite shadow (multiple comma-separated layers as a flat string, not decomposed into DTCG's shadow type)"
+    },
+    {
+      "path": "focus.outline.@base",
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+    },
+    {
+      "path": "button.border.@base",
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+    },
+    {
+      "path": "button.content.alignment",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "card.border.@base",
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+    },
+    {
+      "path": "card.box.shadow.@base",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "card.box.shadow.hover",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "card.cover.image.object.fit.default",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "card.cover.image.object.position.default",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "card.focus.outline",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "input.text.border.@base",
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+    },
+    {
+      "path": "panel.box.shadow.@base",
+      "reason": "composite shadow (multiple comma-separated layers as a flat string, not decomposed into DTCG's shadow type)"
+    },
+    {
+      "path": "popup.box.shadow",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "toolbarbutton.outline.@base",
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+    },
+    {
+      "path": "toolbox.background.gradient",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "tab.nova.box.shadow.selected",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "tab.box.shadow.selected",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "tab.outline.@base",
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+    },
+    {
+      "path": "tabs-navbar.separator.style",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "moz-box.border.@base",
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+    },
+    {
+      "path": "moz-message-bar.icon.container.border.@base",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "moz-promo.border.@base",
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+    },
+    {
+      "path": "moz-segmented-control.border.@base",
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+    },
+    {
+      "path": "moz-select.border.@base",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "moz-toggle.dot.transform-x",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "panel-list.box.shadow.@base",
+      "reason": "ambiguous group path, no type rule matched"
+    }
+  ],
+  "extra_key_flags": [
+    {
+      "path": "border.radius.xlarge",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "border.radius.xxlarge",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.05",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.10",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.15",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.25",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.35",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.40",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.45",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.55",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.65",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.75",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.gray.85",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.violet-desaturated.0",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.violet-desaturated.10",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.violet-desaturated.20",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.violet-desaturated.30",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.violet-desaturated.40",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.violet-desaturated.50",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.violet-desaturated.60",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.violet-desaturated.70",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.violet-desaturated.80",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "color.violet-desaturated.90",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "focus.outline.@base",
+      "keys": {
+        "ignoreFigma": "Figma only includes the width for this token value"
+      }
+    },
+    {
+      "path": "focus.outline.inset",
+      "keys": {
+        "ignoreFigma": "Preserve the calc in case the focus outline width is changed via CSS"
+      }
+    },
+    {
+      "path": "text.color.deemphasized",
+      "keys": {
+        "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+      }
+    },
+    {
+      "path": "text.color.disabled",
+      "keys": {
+        "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+      }
+    },
+    {
+      "path": "icon.color.accent.primary.desaturated",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "panel.separator.color",
+      "keys": {
+        "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+      }
+    },
+    {
+      "path": "toolbarbutton.background.color.hover",
+      "keys": {
+        "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+      }
+    },
+    {
+      "path": "toolbarbutton.background.color.active",
+      "keys": {
+        "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+      }
+    },
+    {
+      "path": "toolbox.background.color.gradient-leading",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "toolbox.background.color.gradient-trailing",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "toolbox.background.gradient",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "tab.border.color.accent",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "tab.border.color.selected.leading",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "tab.border.color.selected.trailing",
+      "keys": {
+        "override": true
+      }
+    },
+    {
+      "path": "tab.outline.color",
+      "keys": {
+        "ignoreFigma": "Tab HCM overrides are handled in CSS, so we don't want the forcedColors value from Figma"
+      }
+    },
+    {
+      "path": "urlbar.box.text.color.@base",
+      "keys": {
+        "ignoreFigma": "Figma stores a token reference that would overwrite 'inherit'"
+      }
+    }
+  ],
+  "verification": {
+    "chain": "button.padding.inline.@base -> space.large -> dimension.relative.100",
+    "trail": [
+      "button.padding.inline.@base",
+      "space.large"
+    ],
+    "resolved_value": "1rem",
+    "expected": "1rem",
+    "ok": true
+  }
+}

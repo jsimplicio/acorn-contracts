@@ -1,0 +1,9 @@
+{
+  "id": "sidebar",
+  "dos": [
+    { "text": "Treat SidebarController as the single real source of truth for visibility, toggling, and the View > Sidebar menu, it's a plain singleton object, not a class you instantiate per sidebar instance." }
+  ],
+  "donts": [
+    { "text": "Don't build a separate subsystem for per-tool notification badges, SidebarController itself tracks and exposes them alongside visibility state." }
+  ]
+}

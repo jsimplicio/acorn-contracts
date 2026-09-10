@@ -1,0 +1,68 @@
+{
+  "id": "sidebar-strip",
+  "summary": "The narrow strip of icon buttons along the edge of the sidebar used to switch between its panels.",
+  "tagName": "sidebar-main",
+  "description": "Sidebar launcher strip with expanded and collapsed states that provides entry points to various sidebar panels and sidebar extensions, plus bottom actions like \"Customize sidebar\". Default export SidebarMain, registered as custom element sidebar-main.",
+  "implementation": {
+    "kind": "modern",
+    "file": "browser/components/sidebar/sidebar-main.mjs"
+  },
+  "attributes": [
+    {
+      "name": "expanded",
+      "type": "boolean",
+      "description": "Reflected attribute; whether the launcher strip is in its expanded (labelled, vertical-tabs) state versus collapsed icon-only state.",
+      "default": "false",
+      "figmaConfig": true
+    },
+    {
+      "name": "selectedView",
+      "type": "string",
+      "description": "The view id of the currently selected/open sidebar panel; initialized from window.SidebarController.currentID.",
+      "figmaConfig": false
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Whether the sidebar is currently open; initialized from window.SidebarController.isOpen.",
+      "figmaConfig": false
+    },
+    {
+      "name": "bottomActions",
+      "type": "array",
+      "description": "Internal list of bottom action entries (e.g. \"Customize sidebar\"), populated by setCustomize().",
+      "figmaConfig": false
+    },
+    {
+      "name": "sidebarItems",
+      "type": "array",
+      "description": "Declared in static properties but not read or written anywhere else in the file; appears to be unused/vestigial in the current implementation.",
+      "figmaConfig": false
+    },
+    {
+      "name": "shouldShowOverflowButton",
+      "type": "boolean",
+      "description": "Internal computed state controlling visibility of the tools overflow (\"more tools\") button.",
+      "default": "false",
+      "figmaConfig": false
+    },
+    {
+      "name": "isOverflowMenuOpen",
+      "type": "boolean",
+      "description": "Internal state tracking whether the tools overflow popup menu is open.",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "tabstrip",
+      "description": "Slot for the tab strip content (used in vertical-tabs mode)."
+    }
+  ],
+  "events": [
+    {
+      "name": "sidebar-contextmenu-ready",
+      "description": "Dispatched on the host after the sidebar context menu has finished being populated asynchronously (see onSidebarPopupShowing)."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "breadcrumb",
+  "summary": "A trail of links showing where you are in a hierarchy, like Settings > Privacy > History.",
+  "tagName": "moz-breadcrumb-group",
+  "description": "A breadcrumb navigation group. Renders its child moz-breadcrumb elements inside a <nav><ol> list, automatically assigning positional slots and marking the last breadcrumb as the current page via aria-current. Defined alongside a related moz-breadcrumb element (the individual breadcrumb link/label) in the same file.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-breadcrumb-group/moz-breadcrumb-group.mjs"
+  },
+  "attributes": [],
+  "slots": [
+    {
+      "name": "<index>",
+      "description": "Positional slots (0, 1, 2, ...) that each moz-breadcrumb child is automatically assigned to, one per <li> in the rendered <ol>."
+    }
+  ],
+  "usage": "<moz-breadcrumb-group>\n  <moz-breadcrumb label=\"Home\" href=\"/\"></moz-breadcrumb>\n  <moz-breadcrumb label=\"Settings\" href=\"/settings\"></moz-breadcrumb>\n  <moz-breadcrumb label=\"General\"></moz-breadcrumb>\n</moz-breadcrumb-group>"
+}

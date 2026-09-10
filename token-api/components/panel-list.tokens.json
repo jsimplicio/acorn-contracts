@@ -1,0 +1,51 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "{background.color.box.@base}",
+        "$type": "color"
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "$value": "{border.color.deemphasized.@base}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "{border.color.deemphasized.@base}",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma",
+            "value": "{panel.border.color}"
+          }
+        }
+      },
+      "$type": "color"
+    },
+    "radius": {
+      "$value": "{panel.border.radius}",
+      "$type": "dimension"
+    }
+  },
+  "box": {
+    "shadow": {
+      "@base": {
+        "$value": "{popup.box.shadow}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{popup.box.shadow}",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "{panel.box.shadow.@base}"
+            }
+          }
+        }
+      }
+    }
+  },
+  "text": {
+    "color": {
+      "$value": "{text.color.@base}",
+      "$type": "color"
+    }
+  }
+}

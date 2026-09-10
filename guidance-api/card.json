@@ -1,0 +1,9 @@
+{
+  "id": "card",
+  "dos": [
+    { "text": "Slot content as direct, unslotted children, despite the JSDoc's \"@slot content\" label, the actual template only renders an unnamed default slot (id=\"content-slot\" for accordion cards, bare <slot> otherwise), so adding slot=\"content\" to children keeps them from rendering at all." }
+  ],
+  "donts": [
+    { "text": "Don't pass a headingLevel outside 1-6 expecting an error, headingTextTemplate() falls back silently to a plain <span> via `headingLevels[this.headingLevel] || headingLevels[0]`, so a typo like headingLevel=\"7\" just loses heading semantics with no warning." }
+  ]
+}

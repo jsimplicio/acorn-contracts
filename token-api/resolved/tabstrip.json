@@ -1,0 +1,18 @@
+{
+  "id": "tabstrip",
+  "basenames": [
+    "tabs-navbar"
+  ],
+  "tokens": {
+    "tabs-navbar.separator.color": {
+      "value": "ThreeDShadow",
+      "type": "color",
+      "chain": []
+    },
+    "tabs-navbar.separator.style": {
+      "value": "none",
+      "type": null,
+      "chain": []
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "box-group",
+  "dos": [
+    { "text": "Listen for \"scroll\" on the moz-box-group host itself, since #forwardScroll re-dispatches internal shadow-tree scroll events as a composed Event on the host specifically so listeners like a panel-list's hide-on-scroll can see them." },
+    { "text": "Only use moz-box-item children when type=\"reorderable-list\", the JSDoc and the itemselector (\"moz-box-item:not([static])\") passed to moz-reorderable-list both restrict dragging to that element, so moz-box-link/moz-box-button children won't become draggable." }
+  ],
+  "donts": [
+    { "text": "Don't manually set a slot attribute on children inside a type=\"list\" or \"reorderable-list\" group, updated() overwrites item.slot to a numeric index (or `static-${i}`) for every list/static item on every re-render." }
+  ]
+}

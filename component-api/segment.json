@@ -1,0 +1,90 @@
+{
+  "id": "segment",
+  "summary": "A single clickable option inside a segmented control, like one button in a set of toggle buttons.",
+  "tagName": "moz-segmented-control-item",
+  "description": "A single item within a moz-segmented-control, rendered as a button that can be selected. Implemented as MozSegmentedControlItem, which mixes SelectControlItemMixin into MozButton, in the same file as moz-segmented-control. Note: the Acorn API's coverage table lists this tagName as null/unregistered, but the file does call customElements.define(\"moz-segmented-control-item\", MozSegmentedControlItem), so it is a real registered custom element.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Label text for the button.",
+      "figmaConfig": true
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "Value for this option.",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "Optional icon to display.",
+      "figmaConfig": true
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Whether this item is selected. Internally toggles the underlying moz-button's type between \"primary\" (checked) and \"ghost\" (unchecked).",
+      "figmaConfig": false,
+      "default": "false"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether this item is disabled.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "parentDisabled",
+      "type": "boolean",
+      "description": "Set by the parent moz-segmented-control when it is disabled.",
+      "figmaConfig": false,
+      "default": "false"
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Button size, \"default\" or \"small\".",
+      "figmaConfig": true,
+      "default": "default"
+    },
+    {
+      "name": "accessKey",
+      "type": "string",
+      "description": "Access key for keyboard shortcut.",
+      "figmaConfig": false
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "description": "Accessible label when no visible label is present.",
+      "figmaConfig": false
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "description": "Manually dispatched (bubbles, composed) on click, since the item is not backed by a native input."
+    },
+    {
+      "name": "change",
+      "description": "Manually dispatched (bubbles, composed) on click, alongside input."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "size",
+      "values": [
+        "default",
+        "small"
+      ]
+    }
+  ],
+  "usage": "<moz-segmented-control-item value=\"list\" label=\"List\"></moz-segmented-control-item>"
+}

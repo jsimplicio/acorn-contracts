@@ -1,0 +1,120 @@
+{
+  "id": "input-text",
+  "basenames": [
+    "input"
+  ],
+  "tokens": {
+    "input.border.color": {
+      "value": "#a6a4a9",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.@base",
+        "color.gray.35"
+      ]
+    },
+    "input.folder.gap": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "chain": [
+        "space.medium"
+      ]
+    },
+    "input.height": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "size.item.small"
+      ]
+    },
+    "input.search.border.radius": {
+      "value": "9999px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.circle"
+      ]
+    },
+    "input.text.background.color.@base": {
+      "value": "Field",
+      "type": "color",
+      "chain": []
+    },
+    "input.text.background.color.disabled": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.disabled",
+        "button.background.color.@base"
+      ]
+    },
+    "input.text.border.@base": {
+      "value": "{border.width} solid {input.text.border.color.@base}",
+      "type": null,
+      "chain": []
+    },
+    "input.text.border.color.@base": {
+      "value": "#b7b6ba",
+      "type": "color",
+      "chain": [
+        "border.color.@base",
+        "color.gray.30"
+      ]
+    },
+    "input.text.border.color.disabled": {
+      "value": "#c7c6cb",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.disabled",
+        "color.gray.25"
+      ]
+    },
+    "input.text.border.radius": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.medium"
+      ]
+    },
+    "input.text.color.@base": {
+      "value": "FieldText",
+      "type": "color",
+      "chain": []
+    },
+    "input.text.color.disabled": {
+      "value": "FieldText",
+      "type": "color",
+      "chain": [
+        "input.text.color.@base"
+      ]
+    },
+    "input.text.icon.size": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "icon.size.xsmall",
+        "size.item.xsmall"
+      ]
+    },
+    "input.text.min-height": {
+      "value": "32px",
+      "type": "dimension",
+      "chain": [
+        "button.min-height.@base",
+        "size.item.large"
+      ]
+    },
+    "input.text.opacity.disabled": {
+      "value": "0.7",
+      "type": "number",
+      "chain": [
+        "button.opacity.disabled"
+      ]
+    },
+    "input.width": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "size.item.small"
+      ]
+    }
+  }
+}

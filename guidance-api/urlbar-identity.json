@@ -1,0 +1,9 @@
+{
+  "id": "urlbar-identity",
+  "dos": [
+    { "text": "Route all site-identity/security-state UI (lock icon, identity box label, permission indicators) through gIdentityHandler, it's the one real singleton computing and rendering all of it together." }
+  ],
+  "donts": [
+    { "text": "Don't wire up clicks/keypresses on these icons separately, gIdentityHandler already owns that interaction." }
+  ]
+}

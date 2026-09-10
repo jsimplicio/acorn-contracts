@@ -1,0 +1,74 @@
+{
+  "id": "page-nav",
+  "summary": "The sidebar-style navigation menu used to move between sections of a settings page.",
+  "tagName": "moz-page-nav",
+  "description": "A grouping of navigation buttons displayed at the page level, used to change the selected view, provide a heading, and link to external resources. Manages selection state across its slotted moz-page-nav-button children and supports a secondary/footer nav group.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs"
+  },
+  "attributes": [
+    {
+      "name": "currentView",
+      "type": "string",
+      "description": "The currently selected view; matched against each moz-page-nav-button's view attribute.",
+      "figmaConfig": true
+    },
+    {
+      "name": "heading",
+      "type": "string",
+      "description": "A heading displayed at the top of the navigation.",
+      "figmaConfig": true
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "The type of the component. \"mobile\" shows a hamburger menu button before the logo/heading; default (unset) shows the standard nav.",
+      "default": "default",
+      "figmaConfig": true
+    },
+    {
+      "name": "allowNoSelection",
+      "type": "boolean",
+      "description": "When false (default), the component auto-selects the first visible button whenever currentView does not match any button. When true, a non-matching currentView is allowed to persist without forcing a selection (used by about:preferences for sub-pages/search-results states where no category should be highlighted).",
+      "default": "false",
+      "figmaConfig": false
+    },
+    {
+      "name": "pageNavButtons",
+      "type": "array",
+      "description": "Internal/read state: the array of all slotted primary moz-page-nav-button elements, derived from slotchange.",
+      "figmaConfig": false
+    },
+    {
+      "name": "secondaryNavButtons",
+      "type": "array",
+      "description": "Internal/read state: the array of all slotted secondary-nav moz-page-nav-button elements, derived from slotchange.",
+      "figmaConfig": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Used to append moz-page-nav-button elements to the primary navigation."
+    },
+    {
+      "name": "subheading",
+      "description": "Used to append page-specific search input or notification content below the heading."
+    },
+    {
+      "name": "secondary-nav",
+      "description": "Used to append a secondary/footer group of moz-page-nav-button elements, separated from the primary group by an <hr> when present. Found in render()/onSecondaryNavChange but not documented in the class JSDoc."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "default",
+        "mobile"
+      ]
+    }
+  ],
+  "usage": "<moz-page-nav heading=\"Settings\">\n  <moz-page-nav-button view=\"general\">General</moz-page-nav-button>\n  <moz-page-nav-button view=\"privacy\">Privacy</moz-page-nav-button>\n</moz-page-nav>"
+}

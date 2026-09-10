@@ -1,0 +1,240 @@
+{
+  "id": "tab-group",
+  "summary": "A set of tabs bundled together and labeled as a group, so they can be collapsed or moved as one.",
+  "tagName": "tab-group",
+  "description": "A named, colorable, collapsible container that groups related tabs (and split-view wrappers) together in the tabstrip. A classic XUL custom element with a static light-DOM template (label + overflow-count areas) and no shadow root.",
+  "implementation": {
+    "kind": "classic",
+    "file": "browser/components/tabbrowser/content/tabgroup.js"
+  },
+  "attributes": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The group's display name; setter falls back to a zero-width space so layout stays stable, updates aria/tooltip, and fires TabGroupUpdate on change. Aliased as \"name\".",
+      "figmaConfig": true,
+      "default": "\\u200b (zero-width space, used when label is empty)"
+    },
+    {
+      "name": "collapsed",
+      "type": "boolean",
+      "description": "Whether the group's tabs are collapsed/hidden; setter unlocks tab widths, updates aria/tooltip/overflow, and fires TabGroupCollapse/TabGroupExpand.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "description": "Not attribute-backed: the setter writes six CSS custom properties (--tab-group-color, -color-invert, -color-pale, -background-color, -background-color-hover, -text-color, -text-color-invert) pointing at the matching palette token set. Valid values: blue, cyan, gray, green, orange, pink, purple, red, yellow.",
+      "figmaConfig": true
+    },
+    {
+      "name": "hasactivetab",
+      "type": "boolean",
+      "description": "Reflects whether one of the group's member tabs is currently active; updated in response to TabSelect/SplitViewTabChange.",
+      "default": "false"
+    },
+    {
+      "name": "movingtabgroup",
+      "type": "boolean",
+      "description": "Internal drag/drop coordination flag, backed by the isBeingDragged getter/setter.",
+      "default": "false"
+    },
+    {
+      "name": "previewpanelactive",
+      "type": "boolean",
+      "description": "Internal flag for the hover-preview panel, gated behind the browser.tabs.groups.hoverPreview.enabled pref.",
+      "default": "false"
+    },
+    {
+      "name": "hasmultipletabs",
+      "type": "boolean",
+      "description": "Internal CSS hook toggled by #updateOverflowLabel() to control overflow-count display."
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Real children (tab and tab-split-view-wrapper elements) are always inserted, via an overridden appendChild, immediately before the overflow-count container, giving DOM order [label-container, ...tabs/split-views..., overflow-count-container]. There is no shadow root, so the <html:slot/> in the static markup is a positional placeholder only, not a functioning slot."
+    }
+  ],
+  "events": [
+    {
+      "name": "TabGroupCreate",
+      "description": "Fired once in connectedCallback on first mount; detail: {isAdoptingGroup} when created via adoption."
+    },
+    {
+      "name": "TabGroupUpdate",
+      "description": "Fired from the color and label setters whenever the value actually changes."
+    },
+    {
+      "name": "TabGroupRemoved",
+      "description": "Fired by a mutation observer when the group's tab count hits 0, just before the group removes itself."
+    },
+    {
+      "name": "TabGroupCollapse",
+      "description": "Fired from the collapsed setter when collapsing."
+    },
+    {
+      "name": "TabGroupExpand",
+      "description": "Fired from the collapsed setter when expanding."
+    },
+    {
+      "name": "TabGroupAnimationComplete",
+      "description": "Fired after all pending member-tab width-transition animations settle following a collapse/expand."
+    },
+    {
+      "name": "TabGroupUngroup",
+      "description": "Fired at the start of ungroupTabs(); detail: {metricsContext}."
+    },
+    {
+      "name": "TabGroupSaved",
+      "description": "Fired in save() after the group is added to SessionStore as a saved tab group; detail: {metricsContext}."
+    },
+    {
+      "name": "TabGroupLabelHoverStart",
+      "description": "Dispatched on the internal label element (not the host) on mouseover."
+    },
+    {
+      "name": "TabGroupLabelHoverEnd",
+      "description": "Dispatched on the internal label element (not the host) on mouseout."
+    }
+  ],
+  "methods": [
+    {
+      "name": "addTabs"
+    },
+    {
+      "name": "ungroupTabs"
+    },
+    {
+      "name": "save"
+    },
+    {
+      "name": "saveAndClose"
+    },
+    {
+      "name": "isTabVisibleInGroup"
+    },
+    {
+      "name": "select"
+    },
+    {
+      "name": "appendChild"
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--tab-group-label-size",
+      "description": "Font size of the group label.",
+      "default": "var(--tab-min-height)"
+    },
+    {
+      "name": "--tab-group-label-container-size",
+      "description": "Size of the label container.",
+      "default": "var(--tab-group-label-size)"
+    },
+    {
+      "name": "--tab-group-counter-size",
+      "description": "Size of the overflow-count label.",
+      "default": "24px"
+    },
+    {
+      "name": "--tab-group-label-height",
+      "description": "Height of the label.",
+      "default": "max(1.5em, var(--tab-min-height) - 14px)"
+    },
+    {
+      "name": "--tab-group-label-padding",
+      "description": "Padding of the label.",
+      "default": "4px"
+    },
+    {
+      "name": "--tab-group-label-highlight-thickness",
+      "description": "Thickness of the label's hover/active highlight.",
+      "default": "3px"
+    },
+    {
+      "name": "--tab-group-label-highlight-radius",
+      "description": "Border radius of the label's hover/active highlight (horizontal tabstrip; 4px for vertical).",
+      "default": "2px"
+    },
+    {
+      "name": "--tab-group-label-hover-inset",
+      "description": "Inset of the label hover highlight (vertical tabstrip only).",
+      "default": "var(--dimension-2)"
+    },
+    {
+      "name": "--tab-group-label-animation-duration",
+      "description": "Duration of label-related animations.",
+      "default": "150ms"
+    },
+    {
+      "name": "--tab-group-line-thickness",
+      "description": "Thickness of the colored context line under grouped tabs.",
+      "default": "2px"
+    },
+    {
+      "name": "--tab-group-line-toolbar-border-distance",
+      "description": "Distance of the context line from the toolbar border.",
+      "default": "1px"
+    },
+    {
+      "name": "--tab-group-line-color",
+      "description": "Color of the context line.",
+      "default": "var(--tab-group-color)"
+    },
+    {
+      "name": "--tab-group-{color}",
+      "description": "Per-color palette base token; color is one of blue, cyan, gray, green, orange, pink, purple, red, yellow."
+    },
+    {
+      "name": "--tab-group-{color}-hover",
+      "description": "Per-color hover variant."
+    },
+    {
+      "name": "--tab-group-{color}-invert",
+      "description": "Per-color inverted variant."
+    },
+    {
+      "name": "--tab-group-{color}-text",
+      "description": "Per-color text variant."
+    },
+    {
+      "name": "--tab-group-{color}-text-invert",
+      "description": "Per-color inverted text variant."
+    },
+    {
+      "name": "--tab-group-{color}-pale",
+      "description": "Per-color pale/muted variant."
+    },
+    {
+      "name": "--dragover-tab-group-color",
+      "description": "Drag-feedback color, set by drag-and-drop.js and consumed in tabs.css."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "color",
+      "values": [
+        "blue",
+        "cyan",
+        "gray",
+        "green",
+        "orange",
+        "pink",
+        "purple",
+        "red",
+        "yellow"
+      ]
+    },
+    {
+      "axis": "collapsed",
+      "values": [
+        "true",
+        "false"
+      ]
+    }
+  ],
+  "usage": "<tab-group id=\"group-1\" label=\"Research\" color=\"blue\">\n  <tab is=\"tabbrowser-tab\"/>\n  <tab is=\"tabbrowser-tab\"/>\n</tab-group>"
+}

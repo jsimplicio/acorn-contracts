@@ -1,0 +1,44 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "{popup.background.color}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "Field",
+            "default": "{popup.background.color}"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "$value": "{popup.border.color}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "nativeTheme": "{border.color.deemphasized.@base}",
+          "default": "{popup.border.color}"
+        }
+      },
+      "$type": "color"
+    },
+    "radius": {
+      "$value": "{popup.border.radius}",
+      "$type": "dimension"
+    }
+  },
+  "text": {
+    "color": {
+      "$value": "{text.color.@base}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "nativeTheme": "FieldText",
+          "default": "{text.color.@base}"
+        }
+      },
+      "$type": "color"
+    }
+  }
+}

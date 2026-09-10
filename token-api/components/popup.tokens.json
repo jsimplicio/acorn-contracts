@@ -1,0 +1,30 @@
+{
+  "background": {
+    "color": {
+      "$value": "{background.color.box.@base}",
+      "$type": "color"
+    }
+  },
+  "border": {
+    "color": {
+      "$value": "rgb(240, 240, 244)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "rgb(240, 240, 244)",
+          "dark": "rgb(82, 82, 94)",
+          "nativeTheme": "{border.color.deemphasized.@base}"
+        }
+      },
+      "$type": "color"
+    },
+    "radius": {
+      "$value": "{border.radius.medium}",
+      "$type": "dimension"
+    }
+  },
+  "box": {
+    "shadow": {
+      "$value": "{box-shadow.level-3}"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "id": "panel-item",
+  "basenames": [
+    "panel-menuitem",
+    "panel-item"
+  ],
+  "tokens": {
+    "panel-item.badge.inset.block.start": {
+      "value": "0.25rem",
+      "type": "dimension",
+      "chain": [
+        "space.xsmall"
+      ]
+    },
+    "panel-item.badge.inset.inline.start": {
+      "value": "calc({panel-menuitem.padding.inline} + {icon.size.@base})",
+      "type": "dimension",
+      "chain": []
+    },
+    "panel-item.button.border.radius": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "panel-menuitem.border.radius",
+        "border.radius.large"
+      ]
+    },
+    "panel-item.button.margin": {
+      "value": "{panel-menuitem.margin.block} {panel-menuitem.margin.inline}",
+      "type": "dimension",
+      "chain": [
+        "panel-menuitem.margin.@base"
+      ]
+    },
+    "panel-item.button.padding.@base": {
+      "value": "{panel-menuitem.padding.block} {panel-menuitem.padding.inline}",
+      "type": "dimension",
+      "chain": [
+        "panel-menuitem.padding.@base"
+      ]
+    },
+    "panel-item.button.padding.inline.start.@base": {
+      "value": "calc({panel-menuitem.padding.inline} + {icon.size.@base})",
+      "type": "dimension",
+      "chain": []
+    },
+    "panel-item.button.padding.inline.start.offset": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "panel-menuitem.border.radius": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.large"
+      ]
+    },
+    "panel-menuitem.margin.@base": {
+      "value": "{panel-menuitem.margin.block} {panel-menuitem.margin.inline}",
+      "type": "dimension",
+      "chain": []
+    },
+    "panel-menuitem.margin.block": {
+      "value": "0",
+      "type": "dimension",
+      "chain": []
+    },
+    "panel-menuitem.margin.inline": {
+      "value": "8px",
+      "type": "dimension",
+      "chain": []
+    },
+    "panel-menuitem.padding.@base": {
+      "value": "{panel-menuitem.padding.block} {panel-menuitem.padding.inline}",
+      "type": "dimension",
+      "chain": []
+    },
+    "panel-menuitem.padding.block": {
+      "value": "8px",
+      "type": "dimension",
+      "chain": []
+    },
+    "panel-menuitem.padding.inline": {
+      "value": "8px",
+      "type": "dimension",
+      "chain": []
+    }
+  }
+}

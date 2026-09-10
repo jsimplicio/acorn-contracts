@@ -1,0 +1,56 @@
+{
+  "id": "segmented-control",
+  "summary": "A row of connected buttons where only one can be selected at a time, like a toggle switch group.",
+  "tagName": "moz-segmented-control",
+  "description": "A segmented control that groups moz-segmented-control-item children and lets a user switch between them, functioning as either a tab switcher (when wired to a named-deck via the deck attribute) or a radio button group. Extends the shared SelectControlBaseElement, so it also inherits label, description, name, and orientation handling from that base class even though this subclass's own JSDoc only documents deck/value/name/disabled.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs"
+  },
+  "attributes": [
+    {
+      "name": "deck",
+      "type": "string",
+      "description": "Optional ID of a named-deck to control for tab switching.",
+      "figmaConfig": true
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "Currently selected value.",
+      "figmaConfig": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Form control name.",
+      "figmaConfig": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the control is disabled.",
+      "figmaConfig": true,
+      "default": "false"
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "The control's items, intended for moz-segmented-control-item children."
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Bubbles up from a selected child item; the control updates its value and (if deck is set) switches the linked named-deck's view."
+    }
+  ],
+  "usage": "<moz-segmented-control value=\"list\">\n  <moz-segmented-control-item value=\"list\" label=\"List\"></moz-segmented-control-item>\n  <moz-segmented-control-item value=\"grid\" label=\"Grid\"></moz-segmented-control-item>\n</moz-segmented-control>",
+  "cssParts": [
+    {
+      "name": "fieldset",
+      "description": "The wrapping <fieldset>, inherited from SelectControlBaseElement."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "forcedColors": "Canvas"
+          }
+        },
+        "$type": "color"
+      },
+      "filled": {
+        "$value": "{color.green.70}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.green.70}",
+            "dark": "{color.green.40}",
+            "forcedColors": "AccentColor"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "@base": {
+        "$value": "{border.color.@base}",
+        "$type": "color"
+      },
+      "filled": {
+        "$value": "rgba(251, 251, 254, 0.4)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "rgba(251, 251, 254, 0.4)",
+            "dark": "rgba(21, 20, 26, 0.4)",
+            "forcedColors": "CanvasText"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "radius": {
+      "$value": "{border.radius.small}",
+      "$type": "dimension"
+    },
+    "width": {
+      "$value": "1px",
+      "$type": "dimension"
+    }
+  },
+  "font": {
+    "weight": {
+      "$value": "{font.weight.semibold}",
+      "$type": "fontWeight"
+    }
+  },
+  "padding": {
+    "block": {
+      "$value": "0",
+      "$type": "dimension"
+    },
+    "inline": {
+      "$value": "{space.xsmall}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "{space.xsmall}",
+          "nova": {
+            "comment": "This calculation with rem values cannot be expressed in Figma",
+            "value": "calc({space.xsmall} + {space.xxsmall})"
+          }
+        }
+      },
+      "$type": "dimension"
+    }
+  },
+  "text": {
+    "color": {
+      "@base": {
+        "$value": "{text.color.deemphasized}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{text.color.deemphasized}",
+            "forcedColors": "CanvasText"
+          }
+        },
+        "$type": "color"
+      },
+      "filled": {
+        "$value": "{color.white.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.white.@base}",
+            "dark": "{color.gray.100}",
+            "forcedColors": "AccentColorText"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "margin": {
+    "inline": {
+      "$value": "{space.small}",
+      "$type": "dimension"
+    }
+  },
+  "size": {
+    "$value": "{size.item.small}",
+    "$description": "TODO Bug 1876537: Make this em-based, probably?",
+    "$type": "dimension"
+  }
+}

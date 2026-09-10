@@ -1,0 +1,17 @@
+{
+  "separator": {
+    "color": {
+      "$value": "ThreeDShadow",
+      "$type": "color"
+    },
+    "style": {
+      "$value": "none",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "none",
+          "nativeTheme": "solid"
+        }
+      }
+    }
+  }
+}

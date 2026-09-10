@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/FirefoxUX/acorn-contracts/component-api/schema.json",
+  "title": "Component API entry",
+  "description": "Schema for one component-api/<id>.json file. See component-api/README.md for the full field-by-field rationale, this file is the machine-checkable version of that same schema.",
+  "type": "object",
+  "required": ["id", "description", "implementation"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable slug, matches index.html's DATA array id and the same-named guidance-api/token-api entries. Never null."
+    },
+    "summary": {
+      "type": "string",
+      "description": "One plain-language sentence, no implementation detail, for someone who wants to know what the thing is before reading the technical description."
+    },
+    "tagName": {
+      "type": ["string", "null"],
+      "description": "The real, registered custom element tag name, if one exists. null for none/missing kinds, and sometimes for modern/classic kinds where no distinct tag was ever registered. A dual-kind entry may record both real tags in one string (e.g. \"button (classic) / moz-button (modern)\")."
+    },
+    "description": {
+      "type": "string",
+      "description": "One or two sentences, grounded in the actual source file, not a generic restatement of the component's name."
+    },
+    "implementation": {
+      "type": "object",
+      "required": ["kind", "file"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["modern", "classic", "none", "missing", "dual"]
+        },
+        "file": {
+          "type": "string",
+          "description": "Path relative to the mozilla-central root. The primary source-of-truth file this JSON was derived from."
+        }
+      }
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string" },
+          "description": { "type": "string" },
+          "default": {
+            "type": "string",
+            "description": "CEM's own field name. This attribute's real default value/state when not otherwise set. Omitted, not guessed, when source doesn't establish one explicitly."
+          },
+          "figmaConfig": {
+            "type": "boolean",
+            "description": "Whether this attribute is real user-facing configuration vs. internal/plumbing-only state. Omitted, not guessed, when genuinely unclear."
+          }
+        }
+      }
+    },
+    "slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "description": "The default slot is named \"(default)\"." },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "cssProperties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "default": {
+            "type": "string",
+            "description": "CEM's own field for this property's real literal value, used here for a property with no backing design token. Omitted, not guessed, when no such real default exists."
+          }
+        }
+      }
+    },
+    "cssParts": {
+      "type": "array",
+      "description": "CEM's own field name. Real `::part()` names found in the component's own shadow-DOM render output (or a shared base class it genuinely extends), for shadow-DOM components only. Acorn is mostly light-DOM by design, so most entries have none.",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["axis", "values"],
+        "additionalProperties": false,
+        "properties": {
+          "axis": { "type": "string" },
+          "values": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "usage": {
+      "type": "string",
+      "description": "A realistic, real-attribute usage example. Not a hypothetical."
+    }
+  }
+}

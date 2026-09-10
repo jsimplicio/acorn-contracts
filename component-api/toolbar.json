@@ -1,0 +1,10 @@
+{
+  "id": "toolbar",
+  "summary": "A row of buttons and controls, like the main navigation bar with back/forward/reload.",
+  "tagName": null,
+  "description": "No dedicated class exists for the generic XUL <toolbar> tag itself; navigator-toolbox.js's event delegation is attached to the outer #navigator-toolbox container (the toolbox), not to any individual <toolbar> (nav-bar, PersonalToolbar, TabsToolbar), so there is no meaningful implementation distinct from 'toolbox' in this file beyond the fact that events bubble up from buttons inside those toolbars to the container's listeners.",
+  "implementation": {
+    "kind": "none",
+    "file": "browser/base/content/navigator-toolbox.js"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "button": {
+    "background": {
+      "color": {
+        "hover": {
+          "$value": "{button.background.color.hover}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.background.color.active}",
+          "$type": "color"
+        },
+        "selected": {
+          "$value": "{color.accent.primary.@base}",
+          "$type": "color"
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "@base": {
+          "$value": "{border.color.transparent}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{border.color.transparent}",
+              "forcedColors": "ButtonText"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "radius": {
+        "@base": {
+          "$value": "{border.radius.circle}",
+          "$type": "dimension"
+        },
+        "focused": {
+          "$value": "{border.radius.circle}",
+          "$type": "dimension"
+        }
+      }
+    },
+    "indicator": {
+      "background": {
+        "color": {
+          "$value": "transparent",
+          "$type": "color"
+        }
+      },
+      "width": {
+        "$value": "0",
+        "$type": "dimension"
+      }
+    },
+    "padding": {
+      "@base": {
+        "$value": "{space.medium}",
+        "$type": "dimension"
+      },
+      "small": {
+        "$value": "{space.medium}",
+        "$type": "dimension"
+      }
+    },
+    "text": {
+      "color": {
+        "selected": {
+          "$value": "{button.text.color.primary.@base}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "focus": {
+    "outline": {
+      "offset": {
+        "$value": "{focus.outline.offset}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "hr": {
+    "background": {
+      "color": {
+        "$value": "{border.color.deemphasized.@base}",
+        "$type": "color"
+      }
+    }
+  }
+}

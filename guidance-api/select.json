@@ -1,0 +1,11 @@
+{
+  "id": "select",
+  "dos": [
+    { "text": "Let updated() auto-wire panelTrigger.popoverTargetElement to the panel-list whenever usePanelList is true, you don't need to set the popover target yourself." },
+    { "text": "Explicitly set a valid value when any moz-option has an iconSrc, populateOptions() only auto-defaults to the first option to mimic native <select> behavior in that panel-list mode; the plain <select> fallback relies on the browser's own default selection instead." }
+  ],
+  "donts": [
+    { "text": "Don't assume mixing icon-less and icon-bearing moz-option children keeps the native <select> rendering, usePanelList flips the whole control to the panel-list/button combobox the moment any single option has an iconSrc." },
+    { "text": "Don't expect ArrowUp/ArrowDown to behave the same across platforms once usePanelList is active, handlePanelKeydown() opens the panel on Mac but directly changes the selection via selectNextOption() on Windows/Linux, per navigator.platform checks (see also the Mac-only focus workaround in handlePanelMousedown for Bug 2017668)." }
+  ]
+}

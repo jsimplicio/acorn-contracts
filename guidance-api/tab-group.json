@@ -1,0 +1,10 @@
+{
+  "id": "tab-group",
+  "dos": [
+    { "text": "Read back an empty group name expecting a zero-width space character, not an empty string, the label setter deliberately writes label || \"\\u200b\" \"so we always create a text node and get consistent layout.\"" }
+  ],
+  "donts": [
+    { "text": "Don't toggle the collapsed attribute directly instead of setting the collapsed property, the property setter is what unlocks locked tab max-widths, updates aria attributes/tooltip/overflow label, deactivates the hover-preview panel, and fires TabGroupCollapse/Expand events, none of which run if you bypass it." },
+    { "text": "Don't assume appendChild adds to the very end, it's overridden to always insertBefore the tab-group-overflow-count-container sentinel, so hand-appended content ends up before that overflow counter." }
+  ]
+}

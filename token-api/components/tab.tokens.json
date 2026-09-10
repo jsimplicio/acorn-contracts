@@ -1,0 +1,753 @@
+{
+  "margin": {
+    "block": {
+      "$value": "4px",
+      "$type": "dimension"
+    }
+  },
+  "border": {
+    "radius": {
+      "$value": "{toolbarbutton.border.radius}",
+      "$type": "dimension"
+    },
+    "color": {
+      "accent": {
+        "$value": "unset",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "unset",
+            "nova": {
+              "comment": "This linear-gradient cannot be expressed in Figma",
+              "value": "linear-gradient(96deg, {tab.border.color.selected.leading} 20.68%, {tab.border.color.selected.trailing} 79.34%)"
+            }
+          },
+          "org.mozilla.meta": {
+            "override": true
+          }
+        },
+        "$type": "color"
+      },
+      "selected": {
+        "leading": {
+          "$value": "unset",
+          "$type": "color",
+          "$extensions": {
+            "org.mozilla.meta": {
+              "override": true
+            }
+          }
+        },
+        "trailing": {
+          "$value": "unset",
+          "$type": "color",
+          "$extensions": {
+            "org.mozilla.meta": {
+              "override": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "box": {
+    "shadow": {
+      "selected": {
+        "$value": "{box-shadow.level-1}"
+      }
+    }
+  },
+  "attention": {
+    "dot": {
+      "color": {
+        "$value": "{color.accent.attention}",
+        "$type": "color"
+      }
+    }
+  },
+  "close": {
+    "button": {
+      "padding": {
+        "$value": "6px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "hover": {
+    "outline": {
+      "color": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "prefersContrast": "currentColor"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "background": {
+    "color": {
+      "hover": {
+        "$value": "color-mix(in srgb, currentColor 11%, transparent)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "color-mix(in srgb, currentColor 11%, transparent)",
+            "nova": {
+              "comment": "color-mix with currentColor cannot be expressed in Figma",
+              "value": {
+                "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)",
+                "default": "{toolbarbutton.background.color.hover}"
+              }
+            }
+          }
+        },
+        "$type": "color"
+      },
+      "selected": {
+        "$value": "{color.white.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.white.@base}",
+            "dark": "rgba(106, 106, 120, 0.7)",
+            "nativeTheme": "{toolbar.background.color}",
+            "nova": {
+              "comment": "Tab HCM overrides are handled in CSS, so we don't want the forcedColors value from Figma",
+              "value": {
+                "nativeTheme": "{toolbar.background.color}",
+                "default": "{background.color.box.@base}"
+              }
+            }
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "icon": {
+    "end": {
+      "margin": {
+        "$value": "5.5px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "inline": {
+    "padding": {
+      "$value": "8px",
+      "$type": "dimension"
+    }
+  },
+  "inner": {
+    "inline": {
+      "margin": {
+        "$value": "{space.medium}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "label": {
+    "line": {
+      "height": {
+        "$value": 1.7,
+        "$type": "dimension"
+      }
+    }
+  },
+  "loading": {
+    "fill": {
+      "$value": "{color.blue.50}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "{color.blue.50}",
+          "nova": {
+            "comment": "Tab HCM overrides are handled in CSS, so we don't want the forcedColors value from Figma",
+            "value": "{color.accent.primary.@base}"
+          }
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "outline": {
+    "@base": {
+      "$value": "{border.width} solid {tab.outline.color}"
+    },
+    "color": {
+      "$value": "transparent",
+      "$type": "color",
+      "$extensions": {
+        "org.mozilla.meta": {
+          "ignoreFigma": "Tab HCM overrides are handled in CSS, so we don't want the forcedColors value from Figma"
+        }
+      }
+    },
+    "offset": {
+      "$value": "calc(-1 * {border.width})",
+      "$type": "dimension"
+    }
+  },
+  "overflow": {
+    "clip": {
+      "margin": {
+        "$value": "2px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "pinned": {
+    "container": {
+      "margin": {
+        "inline": {
+          "expanded": {
+            "$value": "{space.small}",
+            "$type": "dimension"
+          }
+        }
+      }
+    },
+    "expanded": {
+      "background": {
+        "width": {
+          "$value": "40px",
+          "$type": "dimension"
+        }
+      }
+    },
+    "margin": {
+      "inline": {
+        "expanded": {
+          "$value": "{space.xsmall}",
+          "$type": "dimension"
+        }
+      }
+    }
+  },
+  "selected": {
+    "outline": {
+      "color": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "prefersContrast": "currentColor"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "textcolor": {
+      "$value": "rgb(21, 20, 26)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "rgb(21, 20, 26)",
+          "dark": "{color.white.@base}",
+          "nativeTheme": "{toolbar.text.color}"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "vertical": {
+    "block": {
+      "margin": {
+        "$value": "2px",
+        "$type": "dimension"
+      }
+    },
+    "inline": {
+      "padding": {
+        "$value": "{space.medium}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "group": {
+    "blue": {
+      "@base": {
+        "$value": "{color.blue.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.blue.50}",
+            "dark": "{color.blue.10}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.blue.60}"
+            }
+          },
+          "$type": "color"
+        },
+        "invert": {
+          "$value": "{color.blue.60}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "dark": "{color.white.@base}",
+              "light": "{color.blue.60}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.blue.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.blue.60}",
+            "dark": "{color.blue.20}"
+          }
+        },
+        "$type": "color"
+      },
+      "invert": {
+        "$value": "{color.blue.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.blue.10}",
+            "dark": "{color.blue.50}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "purple": {
+      "@base": {
+        "$value": "{color.purple.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.purple.50}",
+            "dark": "{color.purple.10}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.purple.60}"
+            }
+          },
+          "$type": "color"
+        },
+        "invert": {
+          "$value": "{color.purple.60}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "dark": "{color.white.@base}",
+              "light": "{color.purple.60}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.purple.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.purple.60}",
+            "dark": "{color.purple.20}"
+          }
+        },
+        "$type": "color"
+      },
+      "invert": {
+        "$value": "{color.purple.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.purple.10}",
+            "dark": "{color.purple.50}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "cyan": {
+      "@base": {
+        "$value": "{color.cyan.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.cyan.50}",
+            "dark": "{color.cyan.10}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.cyan.60}"
+            }
+          },
+          "$type": "color"
+        },
+        "invert": {
+          "$value": "{color.cyan.60}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "dark": "{color.white.@base}",
+              "light": "{color.cyan.60}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.cyan.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.cyan.60}",
+            "dark": "{color.cyan.20}"
+          }
+        },
+        "$type": "color"
+      },
+      "invert": {
+        "$value": "{color.cyan.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.cyan.10}",
+            "dark": "{color.cyan.50}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "orange": {
+      "@base": {
+        "$value": "{color.orange.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.orange.50}",
+            "dark": "{color.orange.10}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.orange.60}"
+            }
+          },
+          "$type": "color"
+        },
+        "invert": {
+          "$value": "{color.orange.60}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "dark": "{color.white.@base}",
+              "light": "{color.orange.60}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.orange.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.orange.60}",
+            "dark": "{color.orange.20}"
+          }
+        },
+        "$type": "color"
+      },
+      "invert": {
+        "$value": "{color.orange.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.orange.10}",
+            "dark": "{color.orange.50}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "yellow": {
+      "@base": {
+        "$value": "{color.yellow.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.yellow.50}",
+            "dark": "{color.yellow.10}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.yellow.60}"
+            }
+          },
+          "$type": "color"
+        },
+        "invert": {
+          "$value": "{color.yellow.60}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "dark": "{color.white.@base}",
+              "light": "{color.yellow.60}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.yellow.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.yellow.60}",
+            "dark": "{color.yellow.20}"
+          }
+        },
+        "$type": "color"
+      },
+      "invert": {
+        "$value": "{color.yellow.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.yellow.10}",
+            "dark": "{color.yellow.50}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "pink": {
+      "@base": {
+        "$value": "{color.pink.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.pink.50}",
+            "dark": "{color.pink.10}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.pink.60}"
+            }
+          },
+          "$type": "color"
+        },
+        "invert": {
+          "$value": "{color.pink.60}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "dark": "{color.white.@base}",
+              "light": "{color.pink.60}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.pink.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.pink.60}",
+            "dark": "{color.pink.20}"
+          }
+        },
+        "$type": "color"
+      },
+      "invert": {
+        "$value": "{color.pink.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.pink.10}",
+            "dark": "{color.pink.50}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "green": {
+      "@base": {
+        "$value": "{color.green.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.green.50}",
+            "dark": "{color.green.10}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.green.60}"
+            }
+          },
+          "$type": "color"
+        },
+        "invert": {
+          "$value": "{color.green.60}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "dark": "{color.white.@base}",
+              "light": "{color.green.60}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.green.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.green.60}",
+            "dark": "{color.green.20}"
+          }
+        },
+        "$type": "color"
+      },
+      "invert": {
+        "$value": "{color.green.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.green.10}",
+            "dark": "{color.green.50}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "red": {
+      "@base": {
+        "$value": "{color.red.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.red.50}",
+            "dark": "{color.red.10}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.red.60}"
+            }
+          },
+          "$type": "color"
+        },
+        "invert": {
+          "$value": "{color.red.60}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "dark": "{color.white.@base}",
+              "light": "{color.red.60}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.red.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.red.60}",
+            "dark": "{color.red.20}"
+          }
+        },
+        "$type": "color"
+      },
+      "invert": {
+        "$value": "{color.red.10}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.red.10}",
+            "dark": "{color.red.50}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "gray": {
+      "@base": {
+        "$value": "{color.gray.55}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.55}",
+            "dark": "{color.gray.40}"
+          }
+        },
+        "$type": "color"
+      },
+      "text": {
+        "@base": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.white.@base}",
+              "dark": "{color.gray.90}"
+            }
+          },
+          "$type": "color"
+        },
+        "invert": {
+          "$value": "{color.gray.90}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "dark": "{color.white.@base}",
+              "light": "{color.gray.90}"
+            }
+          },
+          "$type": "color"
+        }
+      },
+      "hover": {
+        "$value": "{color.gray.65}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.65}",
+            "dark": "{color.gray.50}"
+          }
+        },
+        "$type": "color"
+      },
+      "invert": {
+        "$value": "{color.gray.40}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.40}",
+            "dark": "{color.gray.55}"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  }
+}

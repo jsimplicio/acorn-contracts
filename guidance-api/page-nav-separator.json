@@ -1,0 +1,9 @@
+{
+  "id": "page-nav-separator",
+  "dos": [
+    { "text": "Rely on moz-page-nav.mjs's own hasSecondaryNav check to get the separator, it renders a real <hr> between the primary-nav-group and secondary-nav-group automatically once a secondary nav exists." }
+  ],
+  "donts": [
+    { "text": "Don't author this <hr> yourself or give it a class, moz-page-nav.mjs places it directly in its own render() output with no dedicated sub-component." }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "urlbar-result",
+  "basenames": [
+    "urlbarview"
+  ],
+  "tokens": {
+    "urlbarview.action.button.background.color.@base": {
+      "value": "color-mix(in srgb, currentColor 17%, transparent)",
+      "type": "color",
+      "chain": [
+        "urlbar.box.background.color.@base",
+        "urlbarview.background.color.hover",
+        "toolbarbutton.background.color.hover"
+      ]
+    },
+    "urlbarview.action.button.background.color.hover": {
+      "value": "color-mix(in srgb, currentColor 30%, transparent)",
+      "type": "color",
+      "chain": [
+        "urlbar.box.background.color.hover",
+        "urlbarview.background.color.selected",
+        "toolbarbutton.background.color.active"
+      ]
+    },
+    "urlbarview.background.color.hover": {
+      "value": "color-mix(in srgb, currentColor 17%, transparent)",
+      "type": "color",
+      "chain": [
+        "toolbarbutton.background.color.hover"
+      ]
+    },
+    "urlbarview.background.color.selected": {
+      "value": "color-mix(in srgb, currentColor 30%, transparent)",
+      "type": "color",
+      "chain": [
+        "toolbarbutton.background.color.active"
+      ]
+    },
+    "urlbarview.border.radius": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "urlbar.border.radius",
+        "popup.border.radius",
+        "border.radius.xlarge"
+      ]
+    },
+    "urlbarview.favicon.size": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "icon.size.@base",
+        "icon.size.small",
+        "size.item.small"
+      ]
+    },
+    "urlbarview.row.min.height": {
+      "value": "32px",
+      "type": "dimension",
+      "chain": [
+        "size.item.large"
+      ]
+    },
+    "urlbarview.row.padding.block": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "urlbarview.separator.color": {
+      "value": "#d6d5da",
+      "type": "color",
+      "chain": [
+        "color.gray.20"
+      ]
+    },
+    "urlbarview.text.color.action": {
+      "value": "#3e315f",
+      "type": "color",
+      "chain": [
+        "toolbar.field.text.color.focus",
+        "toolbar.field.text.color.@base",
+        "color.violet-desaturated.70"
+      ]
+    },
+    "urlbarview.text.color.secondary": {
+      "value": "#3e315f",
+      "type": "color",
+      "chain": []
+    },
+    "urlbarview.text.color.selected": {
+      "value": "#3e315f",
+      "type": "color",
+      "chain": [
+        "toolbar.field.text.color.focus",
+        "toolbar.field.text.color.@base",
+        "color.violet-desaturated.70"
+      ]
+    }
+  }
+}

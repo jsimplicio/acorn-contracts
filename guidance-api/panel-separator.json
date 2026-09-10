@@ -1,0 +1,9 @@
+{
+  "id": "panel-separator",
+  "dos": [
+    { "text": "Just place a plain <hr> inside <panel-list>, panel-list.mjs never creates a separator itself, this is real author-supplied light-DOM content matched by the ::slotted(hr:not([hidden])) rule." }
+  ],
+  "donts": [
+    { "text": "Don't look for a dedicated separator class or tagName, there isn't one, styling is entirely via --panel-separator-color/--panel-separator-padding on the plain <hr> itself." }
+  ]
+}

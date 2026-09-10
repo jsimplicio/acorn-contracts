@@ -1,0 +1,22 @@
+{
+  "deemphasized-strong": {
+    "$value": "0.6",
+    "$extensions": {
+      "org.mozilla.themes": {
+        "default": "0.6",
+        "prefersContrast": "1"
+      }
+    },
+    "$type": "number"
+  },
+  "deemphasized": {
+    "$value": "0.8",
+    "$extensions": {
+      "org.mozilla.themes": {
+        "default": "0.8",
+        "prefersContrast": "1"
+      }
+    },
+    "$type": "number"
+  }
+}

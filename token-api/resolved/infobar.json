@@ -1,0 +1,38 @@
+{
+  "id": "infobar",
+  "basenames": [
+    "info-bar",
+    "toolbarseparator"
+  ],
+  "tokens": {
+    "info-bar.border.color": {
+      "value": "#d2c8ec",
+      "type": "color",
+      "chain": [
+        "color.violet-desaturated.20"
+      ]
+    },
+    "info-bar.margin.block.end": {
+      "value": "0",
+      "type": "dimension",
+      "chain": []
+    },
+    "info-bar.margin.block.start": {
+      "value": "4px",
+      "type": "dimension",
+      "chain": []
+    },
+    "info-bar.margin.inline": {
+      "value": "4px",
+      "type": "dimension",
+      "chain": []
+    },
+    "toolbarseparator.color": {
+      "value": "color-mix(in srgb, currentColor 69%, transparent)",
+      "type": "color",
+      "chain": [
+        "text.color.deemphasized"
+      ]
+    }
+  }
+}

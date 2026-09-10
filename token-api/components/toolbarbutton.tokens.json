@@ -1,0 +1,224 @@
+{
+  "badge": {
+    "background": {
+      "color": {
+        "$value": "{color.red.60}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.red.60}",
+            "dark": "{color.red.40}"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "font": {
+      "size": {
+        "$value": "10px",
+        "$type": "dimension"
+      }
+    },
+    "min": {
+      "width": {
+        "$value": "14px",
+        "$type": "dimension"
+      }
+    },
+    "max": {
+      "width": {
+        "$value": "20px",
+        "$type": "dimension"
+      }
+    },
+    "padding": {
+      "inline": {
+        "$value": "2px",
+        "$type": "dimension"
+      },
+      "block": {
+        "end": {
+          "$value": "1px",
+          "$type": "dimension"
+        }
+      }
+    }
+  },
+  "padding": {
+    "outer": {
+      "@base": {
+        "$value": "2px",
+        "$type": "dimension"
+      },
+      "narrow": {
+        "$value": "1px",
+        "$type": "dimension"
+      }
+    },
+    "inner": {
+      "@base": {
+        "$value": "8px",
+        "$type": "dimension"
+      },
+      "narrow": {
+        "$value": "7px",
+        "$type": "dimension"
+      },
+      "compact": {
+        "$value": "6px",
+        "$type": "dimension"
+      },
+      "touch": {
+        "@base": {
+          "$value": "9px",
+          "$type": "dimension"
+        },
+        "narrow": {
+          "$value": "8px",
+          "$type": "dimension"
+        }
+      }
+    }
+  },
+  "icon": {
+    "fill": {
+      "@base": {
+        "$value": "{color.gray.70}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.gray.70}",
+            "dark": "{color.gray.0}",
+            "nativeTheme": "currentColor"
+          }
+        },
+        "$type": "color"
+      },
+      "attention": {
+        "@base": {
+          "$value": "{color.blue.60}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.blue.60}",
+              "dark": "{color.cyan.30}",
+              "nativeTheme": "AccentColor"
+            }
+          },
+          "$type": "color"
+        },
+        "text": {
+          "$value": "{color.gray.20}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{color.gray.20}",
+              "dark": "{color.gray.90}",
+              "nativeTheme": "AccentColorText"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "opacity": {
+    "disabled": {
+      "$value": "{button.opacity.disabled}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "{button.opacity.disabled}",
+          "prefersContrast": 0.3
+        }
+      },
+      "$type": "number"
+    }
+  },
+  "border": {
+    "radius": {
+      "$value": "{button.border.radius}",
+      "$type": "dimension"
+    }
+  },
+  "background": {
+    "color": {
+      "hover": {
+        "$value": "color-mix(in srgb, currentColor 17%, transparent)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "color-mix(in srgb, currentColor 17%, transparent)",
+            "forcedColors": "{button.background.color.hover}",
+            "nativeTheme": "{button.background.color.ghost.hover}"
+          },
+          "org.mozilla.meta": {
+            "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+          }
+        },
+        "$type": "color"
+      },
+      "active": {
+        "$value": "color-mix(in srgb, currentColor 30%, transparent)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "color-mix(in srgb, currentColor 30%, transparent)",
+            "forcedColors": "{button.background.color.active}",
+            "nativeTheme": "{button.background.color.ghost.active}"
+          },
+          "org.mozilla.meta": {
+            "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "outline": {
+    "@base": {
+      "$value": "{border.width} solid {toolbarbutton.outline.color.@base}"
+    },
+    "color": {
+      "@base": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "forcedColors": "ButtonText"
+          }
+        },
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "prefersContrast": "currentColor",
+            "forcedColors": "SelectedItem"
+          }
+        },
+        "$type": "color"
+      },
+      "active": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "prefersContrast": "currentColor",
+            "forcedColors": "ButtonText"
+          }
+        },
+        "$type": "color"
+      },
+      "selected": {
+        "$value": "{toolbarbutton.outline.color.active}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{toolbarbutton.outline.color.active}",
+            "forcedColors": "SelectedItem"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "offset": {
+      "$value": "calc(-1 * {border.width})",
+      "$type": "dimension"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "id": "dialog",
+  "summary": "A modal window that pops up over the page and requires a response before you can continue.",
+  "tagName": "dialog",
+  "description": "MozDialog wraps the top-level <dialog> element used by XUL/HTML dialog windows and in-content subdialogs: renders the button box (accept/cancel/extra1/extra2/disclosure) and a content slot, wires Enter/Escape handling, default-button focus and snapping, and window sizing/positioning helpers.",
+  "implementation": {
+    "kind": "classic",
+    "file": "toolkit/content/widgets/dialog.js"
+  },
+  "attributes": [
+    {
+      "name": "subdialog",
+      "type": "boolean",
+      "description": "Observed attribute, set on the document root; switches the dialog into subdialog-embedded styling by appending the in-content stylesheet."
+    },
+    {
+      "name": "extra1-is-secondary",
+      "type": "boolean",
+      "description": "Observed attribute; on non-Windows Unix platforms, moves the extra1 button to appear after the cancel button."
+    },
+    {
+      "name": "buttons",
+      "type": "string",
+      "description": "get/set property. Comma-delimited list of dlgtype values (accept, cancel, extra1, extra2, disclosure) to show; any dlgtype not listed is hidden."
+    },
+    {
+      "name": "defaultButton",
+      "type": "string",
+      "description": "get/set property, defaults to \"accept\". Which button's command fires when Enter is pressed; toggles the default attribute on that button.",
+      "figmaConfig": true,
+      "default": "accept"
+    },
+    {
+      "name": "buttonlabel<dlgtype>",
+      "type": "string",
+      "description": "e.g. buttonlabelaccept, buttonlabelcancel, buttonlabelextra1, buttonlabelextra2, buttonlabeldisclosure. Per-button label override, read in _configureButtons(); falls back to dialog.properties localized defaults for accept/cancel/disclosure.",
+      "figmaConfig": true
+    },
+    {
+      "name": "buttonaccesskey<dlgtype>",
+      "type": "string",
+      "description": "e.g. buttonaccesskeyaccept, buttonaccesskeycancel. Per-button accesskey override, paired with the corresponding buttonlabel<dlgtype> attribute."
+    },
+    {
+      "name": "buttonid<dlgtype>",
+      "type": "string",
+      "description": "e.g. buttonidaccept, buttonidcancel. Per-button Fluent id override, used via document.l10n.setAttributes() when no explicit label is set."
+    },
+    {
+      "name": "buttondisabledaccept",
+      "type": "boolean",
+      "description": "Inherited to [dlgtype='accept']: disabled state of the accept button."
+    },
+    {
+      "name": "buttonpack",
+      "type": "string",
+      "description": "Inherited to .dialog-button-box as pack, for platform-specific button layout."
+    },
+    {
+      "name": "buttonalign",
+      "type": "string",
+      "description": "Inherited to .dialog-button-box as align."
+    },
+    {
+      "name": "buttondir",
+      "type": "string",
+      "description": "Inherited to .dialog-button-box as dir."
+    },
+    {
+      "name": "buttonorient",
+      "type": "string",
+      "description": "Inherited to .dialog-button-box as orient."
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Dialog body content, rendered via an <html:slot> inside the shadow DOM's .box-inherit[part=content-box]."
+    }
+  ],
+  "events": [
+    {
+      "name": "dialogaccept",
+      "description": "Cancelable Events-type event fired when the accept button (or Enter) is activated."
+    },
+    {
+      "name": "dialogcancel",
+      "description": "Cancelable Events-type event fired when the cancel button (or Escape) is activated."
+    },
+    {
+      "name": "dialogextra1",
+      "description": "Cancelable Events-type event fired when the extra1 button is activated."
+    },
+    {
+      "name": "dialogextra2",
+      "description": "Cancelable Events-type event fired when the extra2 button is activated."
+    },
+    {
+      "name": "dialogdisclosure",
+      "description": "Cancelable Events-type event fired when the disclosure button is activated."
+    },
+    {
+      "name": "dialogclosing",
+      "description": "CustomEvent with detail { button }, fired immediately before window.close() on an uncanceled accept or cancel."
+    }
+  ],
+  "methods": [
+    {
+      "name": "acceptDialog",
+      "description": "Programmatically triggers the accept button's command."
+    },
+    {
+      "name": "cancelDialog",
+      "description": "Programmatically triggers the cancel button's command."
+    },
+    {
+      "name": "getButton",
+      "description": "getButton(dlgtype): returns the button element for the given dlgtype."
+    },
+    {
+      "name": "buttonBox",
+      "description": "Getter returning the shadow DOM's .dialog-button-box element."
+    },
+    {
+      "name": "moveToAlertPosition",
+      "description": "Positions the dialog window relative to its opener, alert-style."
+    },
+    {
+      "name": "centerWindowOnScreen",
+      "description": "Centers the dialog window on the screen."
+    }
+  ],
+  "usage": "<dialog buttons=\"accept,cancel\" defaultButton=\"accept\" buttonlabelaccept=\"Save\">\n  <p>Body content</p>\n</dialog>"
+}

@@ -1,0 +1,45 @@
+{
+  "border": {
+    "color": {
+      "$value": "rgba(0, 0, 0, 0.06)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "rgba(0, 0, 0, 0.06)",
+          "dark": "rgba(255, 255, 255, 0.04)",
+          "forcedColors": "CanvasText"
+        }
+      },
+      "$type": "color"
+    }
+  },
+  "gap": {
+    "@base": {
+      "$value": "{space.medium}",
+      "$type": "dimension"
+    }
+  },
+  "header": {
+    "background": {
+      "color": {
+        "@base": {
+          "$value": "{button.background.color.@base}",
+          "$type": "color"
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "@base": {
+          "$value": "transparent",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "transparent",
+              "forcedColors": "{button.border.color.@base}"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

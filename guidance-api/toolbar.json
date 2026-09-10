@@ -1,0 +1,10 @@
+{
+  "id": "toolbar",
+  "dos": [
+    { "text": "Attach real interactive behavior at the outer toolbox container level, not per individual <toolbar>, that's how navigator-toolbox.js's own event delegation actually works." },
+    { "text": "Treat nav-bar, PersonalToolbar, and TabsToolbar as the same real pattern, events just bubble up from buttons inside them to one shared container listener." }
+  ],
+  "donts": [
+    { "text": "Don't look for a distinct \"toolbar\" implementation separate from \"toolbox\", there isn't one in this file, it's the same underlying event delegation either way." }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "fieldset",
+  "dos": [
+    { "text": "Set headingLevel to 1-6 if you want the legend rendered as a heading element, anything else (including the default -1) falls through to a plain legend since HEADING_LEVEL_TEMPLATES only has entries for 1 through 6." }
+  ],
+  "donts": [
+    { "text": "Don't toggle disabled off on the fieldset expecting individually-disabled children to stay disabled, #updateChildDisabledState() runs querySelectorAll(\"*\") over every descendant exposing a disabled or parentDisabled property and unconditionally clears/sets disabled on all of them with no per-child state tracking." }
+  ]
+}

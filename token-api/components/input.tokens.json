@@ -1,0 +1,121 @@
+{
+  "border": {
+    "color": {
+      "$value": "{border.color.interactive.@base}",
+      "$type": "color"
+    }
+  },
+  "folder": {
+    "gap": {
+      "$value": "{space.medium}",
+      "$type": "dimension"
+    }
+  },
+  "height": {
+    "$value": "{size.item.small}",
+    "$type": "dimension"
+  },
+  "text": {
+    "background": {
+      "color": {
+        "@base": {
+          "$value": "Field",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "nativeTheme": "Field",
+              "platform": {
+                "light": "{color.white.@base}",
+                "dark": "#42414d"
+              }
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.background.color.disabled}",
+          "$type": "color"
+        }
+      }
+    },
+    "border": {
+      "@base": {
+        "$value": "{border.width} solid {input.text.border.color.@base}"
+      },
+      "color": {
+        "@base": {
+          "$value": "{border.color.@base}",
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{border.color.interactive.disabled}",
+          "$type": "color"
+        }
+      },
+      "radius": {
+        "$value": "{border.radius.medium}",
+        "$type": "dimension"
+      }
+    },
+    "color": {
+      "@base": {
+        "$value": "FieldText",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "FieldText",
+            "platform": {
+              "light": "rgb(21, 20, 26)",
+              "dark": "rgb(251, 251, 254)"
+            }
+          }
+        },
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "{input.text.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{input.text.color.@base}",
+            "forcedColors": "GrayText"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "icon": {
+      "size": {
+        "$value": "{icon.size.xsmall}",
+        "$type": "dimension"
+      }
+    },
+    "min-height": {
+      "$value": "{button.min-height.@base}",
+      "$type": "dimension"
+    },
+    "opacity": {
+      "disabled": {
+        "$value": "{button.opacity.disabled}",
+        "$type": "number"
+      }
+    }
+  },
+  "search": {
+    "border": {
+      "radius": {
+        "$value": "{input.text.border.radius}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{input.text.border.radius}",
+            "nova": {
+              "value": "{border.radius.circle}"
+            }
+          }
+        },
+        "$type": "dimension"
+      }
+    }
+  },
+  "width": {
+    "$value": "{size.item.small}",
+    "$type": "dimension"
+  }
+}

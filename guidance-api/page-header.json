@@ -1,0 +1,10 @@
+{
+  "id": "page-header",
+  "dos": [
+    { "text": "Attach any \"navigate-back\" listener directly on the moz-page-header element, handleBack() dispatches a plain non-bubbling Event, so a delegated listener higher up the tree will never catch it." }
+  ],
+  "donts": [
+    { "text": "Don't pass a headingLevel outside 1-6, headingTemplate()'s switch silently falls back to rendering an <h2> for anything unrecognized instead of warning." },
+    { "text": "Don't be surprised when adding or removing description moves the support link, supportLinkTemplate() renders next to the heading only when there's no description, and after the description text otherwise." }
+  ]
+}

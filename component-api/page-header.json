@@ -1,0 +1,95 @@
+{
+  "id": "page-header",
+  "summary": "The heading area at the top of a settings-style page, with a title and optional description.",
+  "tagName": "moz-page-header",
+  "description": "A header component for providing context about a specific page: a heading, optional icon, badge, description, support link, back button, and breadcrumbs.",
+  "implementation": {
+    "kind": "modern",
+    "file": "toolkit/content/widgets/moz-page-header/moz-page-header.mjs"
+  },
+  "attributes": [
+    {
+      "name": "heading",
+      "type": "string",
+      "description": "The page title text.",
+      "figmaConfig": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Secondary text shown under the heading.",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "description": "Src for an optional icon shown next to the heading.",
+      "figmaConfig": true
+    },
+    {
+      "name": "supportPage",
+      "type": "string",
+      "description": "Optional SUMO support page slug (attribute: support-page) for a related support article link.",
+      "figmaConfig": true
+    },
+    {
+      "name": "backButton",
+      "type": "boolean",
+      "description": "Whether the header includes a back button; fires navigate-back when clicked.",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "badge",
+      "type": "string",
+      "description": "Includes a moz-badge of this type with matching text. Options: beta, new.",
+      "figmaConfig": true
+    },
+    {
+      "name": "headingLevel",
+      "type": "number",
+      "description": "Heading level to render (1-6). Defaults to 2.",
+      "figmaConfig": true,
+      "default": "2"
+    }
+  ],
+  "slots": [
+    {
+      "name": "breadcrumbs",
+      "description": "Container for a moz-breadcrumb-group, shown above the heading."
+    }
+  ],
+  "events": [
+    {
+      "name": "navigate-back",
+      "description": "Fired when the back button is clicked, indicating backwards navigation should occur."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "badge",
+      "values": [
+        "beta",
+        "new"
+      ]
+    },
+    {
+      "axis": "headingLevel",
+      "values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    }
+  ],
+  "usage": "<moz-page-header heading=\"Settings\" description=\"Manage your preferences\" backbutton></moz-page-header>",
+  "cssParts": [
+    {
+      "name": "support-link",
+      "description": "The optional \"Learn more\"-style support link."
+    }
+  ]
+}

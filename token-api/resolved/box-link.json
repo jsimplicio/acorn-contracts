@@ -1,0 +1,84 @@
+{
+  "id": "box-link",
+  "basenames": [
+    "moz-box"
+  ],
+  "tokens": {
+    "moz-box.button.background.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.menu.@base",
+        "button.background.color.ghost.@base",
+        "button.background.color.@base"
+      ]
+    },
+    "moz-box.button.background.color.active": {
+      "value": "ButtonText",
+      "type": "color",
+      "chain": [
+        "button.background.color.menu.active"
+      ]
+    },
+    "moz-box.button.background.color.disabled": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.menu.disabled",
+        "button.background.color.ghost.disabled",
+        "button.background.color.ghost.@base",
+        "button.background.color.@base"
+      ]
+    },
+    "moz-box.button.background.color.hover": {
+      "value": "ButtonText",
+      "type": "color",
+      "chain": [
+        "button.background.color.menu.hover"
+      ]
+    },
+    "moz-box.button.text.color.@base": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.menu.@base",
+        "button.text.color.ghost.@base",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "moz-box.button.text.color.active": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.menu.active",
+        "button.text.color.ghost.active",
+        "button.text.color.ghost.@base",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "moz-box.button.text.color.disabled": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.menu.disabled",
+        "button.text.color.ghost.disabled",
+        "button.text.color.ghost.@base",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "moz-box.button.text.color.hover": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.menu.hover",
+        "button.text.color.ghost.hover",
+        "button.text.color.ghost.@base",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    }
+  }
+}

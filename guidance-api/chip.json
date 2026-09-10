@@ -1,0 +1,9 @@
+{
+  "id": "chip",
+  "dos": [
+    { "text": "Treat this as a dismissible chip-style UI, not a reusable Acorn primitive, the one real analog in mozilla-central (ai-website-chip) is purpose-built for a single feature, not a generic component to extend." }
+  ],
+  "donts": [
+    { "text": "Don't go looking for a generic chip class or shared styles to reuse, no such component exists yet, a new one needs its own real implementation rather than assuming one is hiding somewhere." }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "urlbar-action",
+  "dos": [
+    { "text": "Distinguish the two real shapes UrlbarView.mjs actually creates: a plain .urlbarView-action label span for inline text (e.g. \"Search with Google\"), versus a .urlbarView-action-btn for a real secondary action (switch-to-tab, pin, dismiss) built via #createSecondaryAction." }
+  ],
+  "donts": [
+    { "text": "Don't confuse this with the row itself, a urlbar-action is a sub-element inside a urlbar-result row, not the row." }
+  ]
+}

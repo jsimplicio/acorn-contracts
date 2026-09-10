@@ -1,0 +1,121 @@
+{
+  "color": {
+    "@base": {
+      "$value": "{color.gray.100}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "prefersContrast": "CanvasText",
+          "brand": {
+            "light": "{color.gray.100}",
+            "dark": "{color.gray.0}"
+          },
+          "platform": {
+            "default": "currentColor"
+          },
+          "nova": {
+            "comment": "Figma flattens the platform structure that this token needs",
+            "value": {
+              "prefersContrast": "CanvasText",
+              "nativeTheme": "currentColor",
+              "light": "{color.violet-desaturated.90}",
+              "dark": "{color.violet-desaturated.0}"
+            }
+          }
+        }
+      },
+      "$type": "color"
+    },
+    "deemphasized": {
+      "$value": "color-mix(in srgb, currentColor 69%, transparent)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "color-mix(in srgb, currentColor 69%, transparent)",
+          "prefersContrast": "inherit"
+        },
+        "org.mozilla.meta": {
+          "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+        }
+      },
+      "$type": "color"
+    },
+    "disabled": {
+      "$value": "color-mix(in srgb, currentColor 40%, transparent)",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "color-mix(in srgb, currentColor 40%, transparent)",
+          "forcedColors": "GrayText"
+        },
+        "org.mozilla.meta": {
+          "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+        }
+      },
+      "$type": "color"
+    },
+    "error": {
+      "$value": "{color.red.70}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "light": "{color.red.70}",
+          "dark": "{color.red.20}",
+          "prefersContrast": "inherit",
+          "nova": {
+            "comment": "Figma flattens the platform structure that this token needs",
+            "value": {
+              "light": "{color.red.50}",
+              "dark": "{color.red.20}",
+              "prefersContrast": "inherit"
+            }
+          }
+        }
+      },
+      "$type": "color"
+    },
+    "accent": {
+      "primary": {
+        "selected": {
+          "$value": "{color.white.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "forcedColors": "SelectedItemText",
+              "brand": {
+                "light": "{color.white.@base}",
+                "dark": "{color.gray.100}"
+              },
+              "platform": {
+                "default": "SelectedItemText"
+              },
+              "nova": {
+                "comment": "Figma flattens the platform structure that this token needs",
+                "value": {
+                  "forcedColors": "SelectedItemText",
+                  "brand": {
+                    "light": "{color.white.@base}",
+                    "dark": "{color.gray.55}"
+                  },
+                  "platform": {
+                    "default": "SelectedItemText"
+                  }
+                }
+              }
+            }
+          },
+          "$type": "color"
+        }
+      }
+    },
+    "list": {
+      "item": {
+        "hover": {
+          "$value": "{text.color.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{text.color.@base}",
+              "prefersContrast": "SelectedItemText"
+            }
+          },
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

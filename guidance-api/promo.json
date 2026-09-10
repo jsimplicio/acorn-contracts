@@ -1,0 +1,10 @@
+{
+  "id": "promo",
+  "dos": [
+    { "text": "Listen for the cancelable \"promo:user-dismissed\" event if you need to intercept dismissal, dismiss() only calls close()/remove() when the event isn't preventDefault()-ed." }
+  ],
+  "donts": [
+    { "text": "Don't expect imageAlignment=\"center\" to get its own placement logic, render() only special-cases imageAlignment==\"start\" to put the image before the text; \"center\" and \"end\" are both placed after the text and rely on CSS alone for the visual difference." },
+    { "text": "Don't set imageAlignment, imageWidth, or imageDisplay expecting a visible effect without also setting imageSrc, imageTemplate() only renders when imageSrc is truthy, so those reflected attributes are inert without it." }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "id": "page-nav",
+  "basenames": [
+    "page",
+    "moz-page-nav"
+  ],
+  "tokens": {
+    "moz-page-nav.border.color": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "border.color.transparent"
+      ]
+    },
+    "moz-page-nav.button.background.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.ghost.@base",
+        "button.background.color.@base"
+      ]
+    },
+    "moz-page-nav.button.background.color.active": {
+      "value": "#b6aad9",
+      "type": "color",
+      "chain": [
+        "button.background.color.active",
+        "color.violet-desaturated.30"
+      ]
+    },
+    "moz-page-nav.button.background.color.hover": {
+      "value": "#d2c8ec",
+      "type": "color",
+      "chain": [
+        "button.background.color.hover",
+        "color.violet-desaturated.20"
+      ]
+    },
+    "moz-page-nav.button.background.color.selected": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "color.accent.primary.@base",
+        "color.violet.50"
+      ]
+    },
+    "moz-page-nav.button.border.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "border.color.transparent"
+      ]
+    },
+    "moz-page-nav.button.border.color.active": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.border.color.ghost.active",
+        "button.border.color.ghost.@base"
+      ]
+    },
+    "moz-page-nav.button.border.color.hover": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.border.color.ghost.hover",
+        "button.border.color.ghost.@base"
+      ]
+    },
+    "moz-page-nav.button.border.radius.@base": {
+      "value": "9999px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.circle"
+      ]
+    },
+    "moz-page-nav.button.border.radius.focused": {
+      "value": "9999px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.circle"
+      ]
+    },
+    "moz-page-nav.button.gap": {
+      "value": "0.25rem",
+      "type": "dimension",
+      "chain": [
+        "space.xsmall"
+      ]
+    },
+    "moz-page-nav.button.indicator.background.color": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "moz-page-nav.button.indicator.width": {
+      "value": "0",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-page-nav.button.padding.@base": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "chain": [
+        "space.medium"
+      ]
+    },
+    "moz-page-nav.button.padding.small": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "chain": [
+        "space.medium"
+      ]
+    },
+    "moz-page-nav.button.text.color.@base": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.ghost.@base",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "moz-page-nav.button.text.color.active": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.ghost.active",
+        "button.text.color.ghost.@base",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "moz-page-nav.button.text.color.hover": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.ghost.hover",
+        "button.text.color.ghost.@base",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
+    },
+    "moz-page-nav.button.text.color.selected": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "button.text.color.primary.@base",
+        "color.white.@base"
+      ]
+    },
+    "moz-page-nav.focus.outline.offset": {
+      "value": "2px",
+      "type": "dimension",
+      "chain": [
+        "focus.outline.offset"
+      ]
+    },
+    "moz-page-nav.focus.padding": {
+      "value": "calc({focus.outline.offset} + {focus.outline.width})",
+      "type": "dimension",
+      "chain": []
+    },
+    "moz-page-nav.gap": {
+      "value": "1rem",
+      "type": "dimension",
+      "chain": [
+        "space.large"
+      ]
+    },
+    "moz-page-nav.heading.logo.size": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "icon.size.large",
+        "size.item.medium"
+      ]
+    },
+    "moz-page-nav.hr.background.color": {
+      "value": "#d6d5da",
+      "type": "color",
+      "chain": [
+        "border.color.deemphasized.@base",
+        "color.gray.20"
+      ]
+    },
+    "moz-page-nav.margin.block.start": {
+      "value": "64px",
+      "type": "dimension",
+      "chain": [
+        "page.space.block.start"
+      ]
+    },
+    "moz-page-nav.margin.inline.start": {
+      "value": "40px",
+      "type": "dimension",
+      "chain": []
+    },
+    "page.main.content.width": {
+      "value": "664px",
+      "type": "dimension",
+      "chain": []
+    },
+    "page.space.block.start": {
+      "value": "64px",
+      "type": "dimension",
+      "chain": []
+    }
+  }
+}

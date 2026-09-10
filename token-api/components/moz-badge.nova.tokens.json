@@ -1,0 +1,54 @@
+{
+  "background": {
+    "color": {
+      "filled": {
+        "$value": "{color.green.50}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.green.50}",
+            "dark": "{color.green.20}",
+            "forcedColors": "AccentColor"
+          }
+        },
+        "$type": "color"
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "@base": {
+        "$value": "rgba(21, 20, 26, 0.4)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "rgba(21, 20, 26, 0.4)",
+            "dark": "rgba(251, 251, 254, 0.4)",
+            "forcedColors": "CanvasText"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "radius": {
+      "$value": "{border.radius.circle}",
+      "$type": "dimension"
+    }
+  },
+  "padding": {
+    "block": {
+      "$value": "1px",
+      "$type": "dimension"
+    }
+  },
+  "text": {
+    "color": {
+      "@base": {
+        "$value": "{text.color.@base}",
+        "$type": "color"
+      },
+      "filled": {
+        "$value": "{button.text.color.primary.@base}",
+        "$type": "color"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "page-nav-item",
+  "dos": [
+    { "text": "Always set title even though it isn't shown by default, moz-page-nav can collapse and hide the slotted label text, and title is what keeps the button identifiable once that happens." },
+    { "text": "Set view to a value that really matches one of the parent moz-page-nav's view ids, activate() compares it directly against the parent's currentView." }
+  ],
+  "donts": [
+    { "text": "Don't try to control selected from outside to force a switch, it's managed by the parent moz-page-nav based on currentView, not a real standalone toggle." },
+    { "text": "Don't set both href and supportPage expecting one to layer on the other, href only takes effect when supportPage isn't set." }
+  ]
+}

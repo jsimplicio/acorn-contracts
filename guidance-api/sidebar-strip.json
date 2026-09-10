@@ -1,0 +1,10 @@
+{
+  "id": "sidebar-strip",
+  "dos": [
+    { "text": "Expect requestUpdate() to have effect only while the sidebar is visible, shouldUpdate() unconditionally returns false when the sidebar container's hidden is true, so property changes made while hidden won't render until it's shown again." }
+  ],
+  "donts": [
+    { "text": "Don't treat getEntrypointValues(action) as a pure read, for the GenAI chat entry it mutates the passed-in action object's iconUrl and tooltiptext in place, rewriting data on the shared SidebarController.toolsAndExtensions action rather than just local render state." },
+    { "text": "Don't rely on Lit's reactivity for the overflow-panel's copy buttons, they're plain DOM clones created in createCopyButton because \"Lit will lose the original references,\" so any state change not followed by an explicit resetPanelButtonValues() call leaves their aria-pressed/type stale." }
+  ]
+}

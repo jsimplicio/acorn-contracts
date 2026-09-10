@@ -1,0 +1,121 @@
+{
+  "id": "panel",
+  "summary": "A floating popup menu or box that appears anchored to a button, like a dropdown menu.",
+  "tagName": "panel",
+  "description": "A XUL popup panel used for menus, dropdowns, and arrow-anchored callouts. No JSDoc; wraps the native XULPopupElement and adds arrow-panel defaulting, animation lifecycle, and focus-restore behavior on top of it.",
+  "implementation": {
+    "kind": "classic",
+    "file": "toolkit/content/widgets/panel.js"
+  },
+  "attributes": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "The sole gate for arrow-panel behavior: \"arrow\" enables default flip/side/position/consumeoutsideclicks values, side auto-recalculation, and the panelopen/animate lifecycle. Any other value is a plain popup.",
+      "figmaConfig": true
+    },
+    {
+      "name": "flip",
+      "type": "string",
+      "description": "Defaulted to \"both\" for arrow panels if unset; actual flip behavior is implemented natively by XULPopupElement, not in this file.",
+      "figmaConfig": true,
+      "default": "both"
+    },
+    {
+      "name": "side",
+      "type": "string",
+      "description": "Defaulted to \"top\" for arrow panels; also recomputed dynamically to left/right/top/bottom by _setSideAttribute() on popuppositioned, based on alignmentPosition and text direction.",
+      "figmaConfig": true,
+      "default": "top"
+    },
+    {
+      "name": "position",
+      "type": "string",
+      "description": "Defaulted to \"bottomleft topleft\" for arrow panels; positioning itself is implemented natively.",
+      "figmaConfig": true,
+      "default": "bottomleft topleft"
+    },
+    {
+      "name": "consumeoutsideclicks",
+      "type": "boolean",
+      "description": "Defaulted to \"false\" for arrow panels (arrow panels do NOT consume outside clicks by default).",
+      "figmaConfig": true,
+      "default": "false"
+    },
+    {
+      "name": "neverhidden",
+      "type": "boolean",
+      "description": "When present, the shadow-root content slot is never forced to display:none on hide.",
+      "default": "false"
+    },
+    {
+      "name": "no-open-on-anchor",
+      "type": "boolean",
+      "description": "When present, skips toggling the open attribute on the anchor's root (toolbarbutton or .anchor-root) while the panel is shown.",
+      "default": "false"
+    },
+    {
+      "name": "animate",
+      "type": "string",
+      "description": "Opt out of open/close animation by setting to \"false\"; the component itself also writes \"open\"/\"cancel\" values as internal transition state.",
+      "figmaConfig": true
+    },
+    {
+      "name": "norestorefocus",
+      "type": "boolean",
+      "description": "When set to \"true\", focus is not restored to the pre-open element after the panel closes.",
+      "default": "false"
+    },
+    {
+      "name": "panelopen",
+      "type": "boolean",
+      "description": "Read-only, state-reflecting: set true on popupshown and removed on popuphidden (arrow panels only). Consumers may select on it in CSS but should not set it."
+    },
+    {
+      "name": "hidden",
+      "type": "boolean",
+      "description": "Overridden getter/setter: setting hidden=false (or removing the attribute) lazily initializes the shadow DOM via ensureInitialized()."
+    },
+    {
+      "name": "animating",
+      "type": "boolean",
+      "description": "Internal-only transition lock, set true on popupshowing and removed on popupshown; not consumer-facing config."
+    }
+  ],
+  "slots": [
+    {
+      "name": "(default)",
+      "description": "Default shadow-DOM slot with part=\"content\"; panel children render here."
+    }
+  ],
+  "events": [
+    {
+      "name": "AlertActive",
+      "description": "Legacy Events-type event dispatched unconditionally from on_popupshown when event.target == this, for accessibility APIs."
+    }
+  ],
+  "methods": [
+    {
+      "name": "ensureInitialized"
+    },
+    {
+      "name": "panelContent",
+      "description": "Getter returning shadowRoot.querySelector('[part=content]')."
+    }
+  ],
+  "variants": [
+    {
+      "axis": "type",
+      "values": [
+        "arrow"
+      ]
+    }
+  ],
+  "usage": "<panel type=\"arrow\" neverhidden=\"true\">\n  <vbox class=\"panel-content\">...</vbox>\n</panel>",
+  "cssParts": [
+    {
+      "name": "content",
+      "description": "The default content slot (<html:slot part=\"content\"/>), also returned by the panelContent getter."
+    }
+  ]
+}

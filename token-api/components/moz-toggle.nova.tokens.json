@@ -1,0 +1,58 @@
+{
+  "background": {
+    "color": {
+      "pressed": {
+        "@base": {
+          "$value": "{button.background.color.primary.@base}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.background.color.primary.hover}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{button.background.color.primary.active}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "@base": {
+        "$value": "{border.color.interactive.@base}",
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "{border.color.interactive.hover}",
+        "$type": "color"
+      },
+      "active": {
+        "$value": "{border.color.interactive.active}",
+        "$type": "color"
+      }
+    }
+  },
+  "dot": {
+    "background": {
+      "color": {
+        "@base": {
+          "$value": "{toggle.border.color.@base}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{toggle.border.color.hover}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{toggle.border.color.active}",
+          "$type": "color"
+        },
+        "on-pressed": {
+          "$value": "{background.color.box.@base}",
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

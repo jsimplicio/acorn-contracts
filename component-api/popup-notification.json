@@ -1,0 +1,181 @@
+{
+  "id": "popup-notification",
+  "summary": "A popup that asks for a decision, like allowing a permission, anchored under the address bar.",
+  "tagName": "popupnotification",
+  "description": "A XUL widget rendering a single doorhanger notification (icon, origin, description, optional checkbox/warning/hint, close button, and primary/secondary moz-button pair) inside the panel managed by PopupNotifications.sys.mjs. Light-DOM widget: child elements are placed by tag-name lookup (querySelector) rather than native <slot> projection.",
+  "implementation": {
+    "kind": "classic",
+    "file": "toolkit/content/widgets/popupnotification.js"
+  },
+  "attributes": [
+    {
+      "name": "popupid",
+      "type": "string",
+      "description": "Forwarded to the icon, body, and description parts; used to build data-l10n-id-style identifiers for the notification.",
+      "figmaConfig": true
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Inherited as src on .popup-notification-icon.",
+      "figmaConfig": true
+    },
+    {
+      "name": "iconclass",
+      "type": "string",
+      "description": "Inherited as an additional class on .popup-notification-icon."
+    },
+    {
+      "name": "hasicon",
+      "type": "boolean",
+      "description": "Inherited presence flag forwarded to .popup-notification-icon."
+    },
+    {
+      "name": "origin",
+      "type": "string",
+      "description": "Inherited as both the value and tooltiptext of the .popup-notification-origin link (the site/origin the notification is about).",
+      "figmaConfig": true
+    },
+    {
+      "name": "descriptionid",
+      "type": "string",
+      "description": "Inherited as the id of .popup-notification-description."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Inherited as the first text span in the compound description sentence.",
+      "figmaConfig": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Inherited as the bold '.popup-notification-description-name' span (e.g. a site or permission name)."
+    },
+    {
+      "name": "endlabel",
+      "type": "string",
+      "description": "Inherited as the second text span in the description."
+    },
+    {
+      "name": "secondname",
+      "type": "string",
+      "description": "Inherited as the trailing bold span in the description."
+    },
+    {
+      "name": "secondendlabel",
+      "type": "string",
+      "description": "Inherited as the final text span in the description."
+    },
+    {
+      "name": "hinttext",
+      "type": "string",
+      "description": "Inherited as the text of .popup-notification-hint-text, a secondary line below the main description."
+    },
+    {
+      "name": "closebuttonhidden",
+      "type": "boolean",
+      "description": "Inherited as hidden on the close toolbarbutton."
+    },
+    {
+      "name": "learnmoreurl",
+      "type": "string",
+      "description": "Inherited as href on the 'Learn more' link.",
+      "figmaConfig": true
+    },
+    {
+      "name": "warninghidden",
+      "type": "boolean",
+      "description": "Inherited as hidden on the warning description."
+    },
+    {
+      "name": "warninglabel",
+      "type": "string",
+      "description": "Inherited as the text of the warning description."
+    },
+    {
+      "name": "secondarybuttonlabel",
+      "type": "string",
+      "description": "Inherited as the label of the secondary moz-button.",
+      "figmaConfig": true
+    },
+    {
+      "name": "secondarybuttonaccesskey",
+      "type": "string",
+      "description": "Inherited as the accesskey of the secondary moz-button."
+    },
+    {
+      "name": "secondarybuttonhidden",
+      "type": "boolean",
+      "description": "Inherited as hidden on both the secondary button and the 'more actions' menupopup."
+    },
+    {
+      "name": "buttonlabel",
+      "type": "string",
+      "description": "Inherited as the label of the primary moz-button.",
+      "figmaConfig": true
+    },
+    {
+      "name": "buttonaccesskey",
+      "type": "string",
+      "description": "Inherited as the accesskey of the primary moz-button."
+    },
+    {
+      "name": "mainactiondisabled",
+      "type": "boolean",
+      "description": "Inherited as disabled on the primary moz-button."
+    },
+    {
+      "name": "dropmarkerhidden",
+      "type": "boolean",
+      "description": "When present, forces the secondary button's type to \"default\" instead of \"split\" (hiding its chevron/menu affordance).",
+      "default": "false"
+    }
+  ],
+  "slots": [
+    {
+      "name": "popupnotificationheader",
+      "description": "Not a real <slot> — a child element with this tag name is moved into the header container above the icon/body row, if present."
+    },
+    {
+      "name": "popupnotificationcontent",
+      "description": "Not a real <slot> — each child element with this tag name is appended before .popup-notification-bottom-content via appendNotificationContent(); repeatable."
+    },
+    {
+      "name": "popupnotificationfooter",
+      "description": "Not a real <slot> — a child element with this tag name is moved into the footer container below the body, if present."
+    }
+  ],
+  "events": [
+    {
+      "name": "buttoncommand",
+      "description": "Cancelable CustomEvent dispatched on primary-button click; if not canceled, forwarded to PopupNotifications._onButtonEvent."
+    },
+    {
+      "name": "secondarybuttoncommand",
+      "description": "Cancelable CustomEvent dispatched on secondary-button click (when the click wasn't on the chevron); forwarded to PopupNotifications._onButtonEvent if not canceled."
+    },
+    {
+      "name": "learnmoreclick",
+      "description": "Cancelable CustomEvent dispatched when the 'Learn more' link is clicked."
+    }
+  ],
+  "methods": [
+    {
+      "name": "show",
+      "description": "Lazily slots content (slotContents()) on first call, applies checkbox state, and un-hides the notification."
+    },
+    {
+      "name": "appendNotificationContent",
+      "description": "appendNotificationContent(el): inserts an extra content element before the bottom-content box."
+    }
+  ],
+  "cssProperties": [
+    {
+      "name": "--popup-notification-body-width",
+      "description": "Default width basis for the notification body and icon/body max-width calculations; defined globally in toolkit/themes/shared/global-shared.css, consumed in popupnotification.css.",
+      "default": "calc(31em - calc(2 * var(--panel-padding)))"
+    }
+  ],
+  "usage": "<popupnotification popupid=\"geolocation\" label=\"Share your location?\" buttonlabel=\"Allow\" secondarybuttonlabel=\"Block\">\n  <popupnotificationcontent>...</popupnotificationcontent>\n</popupnotification>"
+}

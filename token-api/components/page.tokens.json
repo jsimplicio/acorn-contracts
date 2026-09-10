@@ -1,0 +1,32 @@
+{
+  "main": {
+    "content": {
+      "width": {
+        "$value": "664px",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "brand": {
+              "default": "664px"
+            }
+          }
+        },
+        "$type": "dimension"
+      }
+    }
+  },
+  "space": {
+    "block": {
+      "start": {
+        "$value": "64px",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "brand": {
+              "default": "64px"
+            }
+          }
+        },
+        "$type": "dimension"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "sidebar-panel",
+  "dos": [
+    { "text": "Reach the outer browser window the same way getWindow() does (window.browsingContext.embedderWindowGlobal.browsingContext.window) rather than assuming this document's own window has SidebarController, since this header typically renders in an embedded document." }
+  ],
+  "donts": [
+    { "text": "Don't assume the close button always reveals the launcher, closeSidebarPanel's dismissPanel flag is computed from controller._state.launcherHiddenWithPanel, in hide-launcher mode it keeps the panel remembered instead of dismissing it since there's no launcher to return to." }
+  ]
+}

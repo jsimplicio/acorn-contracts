@@ -1536,19 +1536,16 @@
     const paths = Object.keys(family.flat);
     const withDark = paths.filter(path =>
       themedValue(family.flat[path], "light") !== themedValue(family.flat[path], "dark")).length;
+    // Kept to what a reader cannot work out by looking: where the numbers
+    // come from, and whether the theme toggle will change anything on this
+    // particular page. The preview column and the CSS custom property
+    // column explain themselves; they used to be described here too, and
+    // the paragraph was longer than some of the tables.
     const themeLine = withDark === 0
-      ? ` None of this family's ${paths.length} tokens declares its own dark value, so every row below reads the same in both themes; the semantic families (Background, Border, Text) are where the toggle changes what you see.`
-      : ` ${withDark} of this family's ${paths.length} tokens declare their own dark value; the rest have one real value and read the same in both themes.`;
-    metaEl.textContent = `Real Firefox base tokens, loaded live from token-api/base/${family.stem}` +
-      `.tokens.json, merged with its .nova sibling where one exists (Nova wins, the same rule every ` +
-      `component page's Design tokens table follows). Alias values are resolved against the whole ` +
-      `base token set, each hop shown, and taken from this page's current theme: these tokens carry their ` +
-      `own real light and dark values, so the toggle at the top right picks which one every row below is ` +
-      `showing (a token with no dark value declared shows its one value in both). The preview applies that ` +
-      `resolved value to a sample of whatever the ` +
-      `token really controls. The CSS custom property column is derived from the token's own ` +
-      `path by the same rule the component pages use. Component-level tokens are not listed here: they ` +
-      `belong to one component and are rendered on that component's own page.` + themeLine;
+      ? `None of them declares a dark value, so every row reads the same in both themes.`
+      : `${withDark} of them declare their own dark value, which the theme toggle switches between.`;
+    metaEl.textContent = `${paths.length} real Firefox base tokens, live from ` +
+      `token-api/base/${family.stem}.tokens.json and its .nova sibling, Nova winning. ` + themeLine;
 
     if (!tokenPageCache[stem]) {
       const lookup = await loadBaseTokenLookup();
@@ -2065,7 +2062,7 @@
       const figmaMap = await loadFigmaTokenMap();
       html += `<h2 class="section">Design tokens</h2>`;
       if (Object.keys(effectiveTokens).length) {
-        html += `<p class="meta">Real tokens from token-api/components/{${escapeHtml(basenames.join(", "))}}.tokens.json, alias chains resolved against the base token set, cross-referenced against this component's documented CSS custom properties (the generated handle for consuming a token in real CSS, not a separate source of truth). "In Figma" is a build-time check (token-api/figma-check.py) against a direct pull of the real Nova Styles (Experimental) Figma file, not a live query; &check; means an exact name match, &cross; means no match (including a close-but-not-exact one -- this is a strict sync check, not a "probably the same" guess), ? means this property wasn't checked at all, see token-api/README.md.</p>`;
+        html += `<p class="meta">Real tokens from token-api/components/{${escapeHtml(basenames.join(", "))}}.tokens.json, alias chains resolved against the base token set. "In Figma" is a build-time name check against the real Nova Styles (Experimental) file, not a live query: &check; means an exact match, &cross; means none (a near miss counts as none, deliberately), ? means unchecked. See token-api/README.md.</p>`;
       }
       html += renderCssPropertyTable(rows, effectiveTokens, effectiveLookup, figmaMap);
       const hasAnyToken = rows.some(r => r.tokenPath);

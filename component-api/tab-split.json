@@ -5,7 +5,7 @@
   "description": "A wrapper that holds exactly two tabs shown side-by-side in a split view. A classic XUL custom element with no internal template or shadow root; its only real content is the two wrapped <tab> elements.",
   "implementation": {
     "kind": "classic",
-    "file": "browser/components/tabbrowser/content/tabsplitview.js"
+    "file": "browser/components/tabbrowser/content/tabsplitview.mjs"
   },
   "attributes": [
     {

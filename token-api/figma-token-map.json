@@ -8,8 +8,8 @@
   "counts": {
     "yes_exact": 324,
     "yes_reordered": 11,
-    "no_near_miss": 127,
-    "no_total_mismatch": 178,
+    "no_near_miss": 126,
+    "no_total_mismatch": 179,
     "total": 640
   },
   "properties": {
@@ -56,11 +56,6 @@
     "--badge-padding-inline": {
       "status": "yes",
       "matchType": "exact",
-      "matchedPath": "badge/padding/inline"
-    },
-    "--badge-padding-nova-inline": {
-      "status": "no",
-      "matchType": "near-miss",
       "matchedPath": "badge/padding/inline"
     },
     "--badge-text-color": {
@@ -1168,11 +1163,6 @@
       "matchType": null,
       "matchedPath": null
     },
-    "--info-bar-margin-block-nova-end": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
     "--info-bar-margin-block-start": {
       "status": "yes",
       "matchType": "exact",
@@ -1493,7 +1483,17 @@
       "matchType": null,
       "matchedPath": null
     },
+    "--message-bar-icon-container-margin-block-start-offset": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
     "--message-bar-icon-container-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--message-bar-icon-container-padding-offset": {
       "status": "no",
       "matchType": null,
       "matchedPath": null
@@ -3058,7 +3058,7 @@
       "matchType": "exact",
       "matchedPath": "toolbox/background/color/inactive"
     },
-    "--toolbox-background-nova-gradient": {
+    "--toolbox-background-gradient": {
       "status": "no",
       "matchType": null,
       "matchedPath": null

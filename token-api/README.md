@@ -56,10 +56,9 @@ Useful flags:
 
 ## Where these files really live
 
-Firefox's tokens are **not** all under one central directory. The obvious
-location, `toolkit/themes/shared/design-system/src/tokens/{base,components}/`,
-is the only one most people would think to check. Two more real patterns
-also feed real components:
+Firefox's tokens are **not** all under one central directory. Besides the
+obvious `toolkit/themes/shared/design-system/src/tokens/{base,components}/`,
+two more patterns feed real components:
 
 - **Feature-area-owned files**: `browser/themes/shared/tabbrowser/*.tokens.json`
   (tab, tab.nova, tabs-navbar) and `browser/themes/shared/urlbar/*.tokens.json`
@@ -73,18 +72,14 @@ also feed real components:
   `moz-box.tokens.json` sitting directly in `toolkit/content/widgets/`
   itself (consumed by both moz-box-item and moz-box-group).
 
-All of these are the exact same real Style-Dictionary-flavored format (a
-`value` key marks a leaf, same `@base`/theme-object/alias conventions), so
-none of the conversion logic below needed to change, only `SOURCE_ROOTS` in
-`sync.py` needed to widen. See **`id-map.json`** for how each component
-id maps to its real basename(s), since Firefox's own naming frequently
-doesn't match the id used in this inventory (`info-bar` vs `infobar`, `toolbarbutton` vs
-`toolbar-button`) and a few ids genuinely pull from more than one real file
-at once (`panel-item` uses both `panel-menuitem.tokens.json`, shared layout
-tokens from the central tree, and its own colocated `panel-item.tokens.json`
-for badge/button extras). This is a real, published data file, not just logic living in
-`index.html`: an agent reading only `token-api/` can see the exact mapping
-without touching `index.html`'s own JavaScript. Schema:
+All of them use the same Style-Dictionary-flavored format, so only
+`SOURCE_ROOTS` in `sync.py` has to widen to pick up a new location.
+
+**`id-map.json`** maps each component id to its real basename(s), because
+Firefox's naming often differs from the id used here (`info-bar` vs
+`infobar`, `toolbarbutton` vs `toolbar-button`) and some ids draw from more
+than one file. It is published data rather than logic inside `index.html`,
+so a consumer reading only `token-api/` can see the mapping. Schema:
 
 ```jsonc
 {
@@ -260,168 +255,80 @@ be true of `index.html`. Any consumer reading only `token-api/`'s files, no
 
 ## Figma existence check: figma-check.py
 
-Every component page's "Design tokens" table (built by `index.html`'s
-`buildCssPropertyRows()`/`renderCssPropertyTable()`) has a 4th column, "In
-Figma": does this row's own CSS custom property name also exist as a real
-variable in Mozilla's actual "Nova Styles (Experimental)" Figma file (key
-`Co6vXnF5SiQMcJ7UoJvZX6`)? This is that same "verify with real evidence"
-discipline `AGENTS.md`'s "Verify figma/supernova with real evidence" section
-uses for `component-api/`'s own `figma`/`supernova` fields, applied one level
-down, at the individual token/CSS custom property level instead of the
-whole-component level.
+The "In Figma" column on every component page answers one narrow question:
+does this row's own CSS custom property name also exist as a real variable in
+Mozilla's "Nova Styles (Experimental)" Figma file (key
+`Co6vXnF5SiQMcJ7UoJvZX6`)? It is a name-vs-name sync check, not "can this
+value be traced back to Figma somehow."
 
-**Source is the direct Figma REST API, not Supernova.** An earlier version
-of this check matched against a Supernova MCP token-list snapshot instead.
-The repo maintainer rejected that as the wrong source for this kind of
-check: Supernova's sync of this design system has known gaps elsewhere in
-this project family (its own token detail reported its source file as
-`Desktop Styles` and there was no way to independently confirm that was even
-the same file as `Nova Styles`). The rule for this whole project family is
-now: a token/variable-existence-in-Figma check always hits the Figma REST
-API directly, never Supernova. `Co6vXnF5SiQMcJ7UoJvZX6` is confirmed as the
-right file by cross-reference, not assumption: it's the exact file and
-endpoint (`GET /v1/files/{FILE_ID}/variables/local`) the sibling
-`ai-native-ux-hub` repo's `prototype/design-system/scripts/gen_tokens_css.py`
-already pulls from to generate that project's own `tokens.css`.
+**Always the Figma REST API directly, never Supernova.** Supernova's sync of
+this design system has known gaps, and its token detail could not confirm
+which Figma file it was even reading. This is a standing rule for the whole
+project family.
 
-**codeSyntax was checked first, not assumed useless**, same discipline as
-the earlier Supernova-based pass, just re-verified against the new source
-rather than carried over as an assumption. This direct Figma API response
-DOES include a `codeSyntax` field per variable (Supernova's schema didn't
-expose one at all) -- but only 2 of the 718 kept variables in the file have
-it populated (`button/background/color`, `tab/border/color`; see
-`figma-variables-dump.json`'s `_comment`), nowhere near enough of the file
-to be a general match signal. Matching is still by normalized name instead
-(below). If a future Figma publish starts populating `codeSyntax` broadly,
-that should become the primary signal and this file should say so
-explicitly, not silently keep using name matching once a better one exists.
+**Matching is by name, because `codeSyntax` is nearly empty.** The API does
+return a `codeSyntax` field, but only 2 of the file's 718 variables populate
+it. If a future publish fills it in broadly, that should become the primary
+signal and this section should say so rather than quietly keeping name
+matching once something better exists.
 
-**The pipeline, three files:**
+**The three files.**
 
-1. `figma-variables-dump.json`: every real variable in the "Nova Styles
-   (Experimental)" file, fetched with one REST call:
+1. **`figma-variables-dump.json`**: every variable in the file, one REST call.
+   Needs a Figma personal access token; this repo has none of its own.
 
    ```sh
-   set -a && source prototype/design-system/.env && set +a  # in ai-native-ux-hub, for FIGMA_TOKEN
    curl -s -H "X-Figma-Token: $FIGMA_TOKEN" \
      "https://api.figma.com/v1/files/Co6vXnF5SiQMcJ7UoJvZX6/variables/local" \
      -o /tmp/figma-variables-raw.json
    ```
 
-   Unlike the Supernova snapshot it replaces, this **is** a standalone,
-   credential-scoped, fully rerunnable fetch, the same way `sync.py`'s git
-   clone is: no agent session or MCP connection needed, just a Figma
-   personal access token (this repo has none of its own; the token used to
-   build the current dump lives in the sibling `ai-native-ux-hub` repo's
-   `prototype/design-system/.env`, read there once and never written to this
-   repo). See the file's own leading `_comment` for the exact endpoint,
-   what's kept per variable (`name`, `type`, `collection`, `remote`; values,
-   modes, and aliasing are dropped since matching is purely name-based), and
-   what's excluded (2 of the file's 720 raw variables are Figma's own
-   `deletedButReferenced` ghosts and don't count as "exists in Figma").
-2. `figma-check.py`: pure local computation, no network. Builds the exact
-   same universe of distinct CSS custom property names `index.html`'s own
-   `buildCssPropertyRows()` would show as rows across EVERY component page
-   (token-backed names from `resolved/*.json`, plus documented-but-not-
-   necessarily-token-backed names from every `component-api/*.json`'s
-   `cssProperties`), normalizes each one and every real Figma variable name
-   in `figma-variables-dump.json` down to a plain tuple of lowercase words
-   (splitting on every non-alphanumeric character, so an acorn-contracts
-   basename's own internal hyphen, like `box-shadow`, collides correctly
-   with Figma nesting the same two words as separate path segments,
-   `box / shadow`, instead of needing a hard-coded list of which basenames
-   are "really" two words), and compares:
-   - **exact match** (same words, same order) -> `yes`
-   - **reordered match** (same words, different order) -> `yes`, flagged
-     `matchType: "reordered"` so a maintainer can tell an exact hit from a
-     looser one. Real precedent for this in the taxonomy itself (see "Why a
-     segment match, not a fixed position" above): the same taxonomy level
-     can land at a different position in different token names.
-   - anything else -> `no`, a strict two-state result, not three. This
-     includes a **near-miss** (one tuple is the other's word set plus or
-     minus exactly one word, e.g. `--box-button-background-color` vs. the
-     real `button/background/color/menu` variable): an earlier version
-     gave this its own third state, `ambiguous`. The repo maintainer
-     rejected that: "if it doesn't match something we see in figma/the
-     import file then it doesn't exist... that's the goal, are these
-     syncing." A near miss is still not a match, and hedging on it hides
-     the exact drift this check exists to surface. It's recorded as `no`
-     with `matchType: "near-miss"` and a `matchedPath` (the close-but-not-
-     matching variable) purely as a diagnostic -- useful for spotting a
-     systematic gap (e.g. every `--tab-group-*-invert` name misses on the
-     same word, "invert", across an entire family), never treated as a
-     softer status than a total mismatch. This and the common, expected
-     outcome of entire component families this Figma file doesn't cover at
-     all (no urlbar/panel/toolbar/sidebar/checkbox/moz-* semantic *color*
-     groups were found in it, only some of their Dimension-type
-     size/spacing tokens) are the two flavors of `no`, not a bug in the
-     matching.
+   See the file's own `_comment` for what is kept per variable and why 2 of
+   the 720 raw variables (Figma's `deletedButReferenced` ghosts) are dropped.
 
-   Rerun any time `resolved/*.json`, `component-api/*.json`, or
-   `figma-variables-dump.json` change:
+2. **`figma-check.py`**: pure local computation, no network. Rerun it any time
+   `resolved/*.json`, `component-api/*.json` or the dump changes:
 
    ```sh
    python3 token-api/figma-check.py
    ```
 
-3. `figma-token-map.json`: the output, `{"--custom-property-name": {status,
-   matchType, matchedPath}}` for every distinct name plus a `counts`
-   summary. This is what `index.html` actually fetches at render time (see
-   `loadFigmaTokenMap()`); it is a baked lookup file, not a live query,
-   since `index.html` is a static page with no server-side code, the same
-   reason `id-map.json` and `sync-manifest.json` are files instead of
-   inline logic. Schema is unchanged from the Supernova-sourced version, so
-   `index.html`'s consumption of it needed no changes when the source
-   underneath it swapped.
+   It builds the same universe of property names `index.html` would render
+   across every component page, then normalizes each name and each Figma
+   variable name to a tuple of lowercase words, splitting on every
+   non-alphanumeric character. That split is what makes `box-shadow` collide
+   correctly with Figma's `box / shadow` without a hardcoded list of which
+   basenames are "really" two words.
 
-**Recomputed from scratch against a fuller universe, not assumed to match
-the old counts.** The direct Figma pull covers 718 real variables (after
-excluding the 2 `deletedButReferenced` ghosts) across every collection in
-the file, versus 269 tokens in the old Supernova snapshot, so the counts
-moved a lot, not just at the margins: 324 exact + 11 reordered = 335 `yes`
-(was 103 + 5 = 108), 305 `no` (was 424, before folding `ambiguous` in --
-see below), out of the same 640 distinct CSS custom property names. Treat
-the higher `yes` count as the direct pull finding real coverage the
-Supernova snapshot missed, not as the matching rule having gotten looser
-(the rule itself is unchanged; see
-`figma-check.py`'s own docstring).
+3. **`figma-token-map.json`**: the output that `index.html` fetches at render
+   time. A baked lookup file rather than a live query, for the same reason
+   `id-map.json` and `sync-manifest.json` are files: the page is static.
 
-**Why this doesn't follow alias chains.** A tempting way to shrink the
-`ambiguous`/`no` buckets: `resolve.py` already recorded every token's real
-alias chain in `resolved/*.json` (e.g. `--box-button-background-color`'s
-value resolves through `button.background.color.menu.@base`), so checking
-whether any hop of that chain matches a Figma variable turns a lot of
-near-misses into a "yes." This was tried and explicitly rejected by the repo
-maintainer: the point of this column is to catch Figma and code drifting
-apart, and counting a match through a differently-named variable an
-indirect alias happens to touch hides exactly the drift this check exists
-to surface. `--box-button-background-color` not having its own matching
-Figma variable is the real, correct finding, even though its value is
-reachable through `button/background/color/menu` under the hood -- that's a
-different question (does this value trace back to Figma at all) from the
-one this column answers (does Figma and code agree on this name). Keep this
-script comparing a name to its own name only.
+**How a match is decided.**
 
-**Why `ambiguous` got folded into `no`.** A separate, earlier decision (not
-the alias-chain one above) gave a one-word-off near miss its own third
-status, reasoning that it was too close to call either way. Also rejected,
-for the same underlying principle: "if it doesn't match something we see in
-figma/the import file then it doesn't exist... that's the goal, are these
-syncing." A near miss is real signal that the name has drifted, not an
-unresolved maybe -- it's recorded as `no` with `matchType: "near-miss"` so
-the close call is still visible in the data and in each row's tooltip, but
-it never renders as anything other than `&cross;`.
+| result | meaning |
+| --- | --- |
+| same words, same order | `yes` |
+| same words, different order | `yes`, `matchType: "reordered"` |
+| anything else | `no` |
 
-**Spot-checked, not blindly trusted**: a handful of matches (`badge/*`,
-`button/background/color/*`, `border/color/interactive*`, `focus/outline*`,
-`text/color*`, `box/shadow/level-*`) were independently verified by reading
-the actual `token-api/base/*.tokens.json` and `token-api/components/*.tokens.json`
-source for those paths and confirming the real token structure justifies the
-match, not just the string comparison. The initial version of this script
-had a real bug (it derived `--moz-badge-background-color` instead of the
-correct `--badge-background-color`, missing `deriveCssVarName()`'s "moz-"
-stripping rule) caught exactly this way, by cross-checking the script's own
-output against the live-rendered page in a browser.
+**Strictly two states, never three.** A near miss (one word off) is recorded
+as `no` with `matchType: "near-miss"` and the close variable in
+`matchedPath`, as a diagnostic only. It is still a miss. Hedging on it would
+hide the exact drift this check exists to surface.
+
+**No alias-chain following.** `--box-button-background-color` has no matching
+Figma variable even though its value resolves through
+`button/background/color/menu`. That is the correct finding: counting a match
+through a differently-named variable answers a different question than the
+one this column asks.
+
+Two kinds of `no` are expected rather than bugs: near misses, and entire
+component families this Figma file simply does not cover (no urlbar, panel,
+toolbar, sidebar, checkbox or `moz-*` semantic colour groups appear in it).
+
+Current totals: 640 property names against 718 variables, 335 `yes`
+(324 exact + 11 reordered), 305 `no`.
 
 ## Source format (Firefox's native tokens)
 

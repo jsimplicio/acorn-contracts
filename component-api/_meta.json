@@ -1,8 +1,8 @@
 {
   "note": "lastModified/lastCommit are this file's real last commit in this repo's own git history (git log -1 -- <file>), not a fabricated timestamp. This says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.",
   "repoHead": {
-    "commit": "312dcdd0eded2feef943c3e59584bb1e905205db",
-    "date": "2026-09-11T15:50:55-05:00"
+    "commit": "b117faebe22942e5013f8265e2cebe570414c3e3",
+    "date": "2026-09-11T16:30:47-05:00"
   },
   "files": {
     "badge": {
@@ -122,8 +122,8 @@
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "label": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
-      "lastModified": "2026-09-10T14:56:23-05:00"
+      "lastCommit": "b117faebe22942e5013f8265e2cebe570414c3e3",
+      "lastModified": "2026-09-11T16:30:47-05:00"
     },
     "message-bar": {
       "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",

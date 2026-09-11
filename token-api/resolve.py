@@ -238,17 +238,13 @@ def resolve_component(id_, entry, base_lookup):
             "type": token.get("$type"),
             "chain": chain,
         }
-        # ALIAS_RE is anchored, so a value holding more than one ref
-        # ("{border.width} solid {button.border.color.@base}") is returned
-        # untouched with an empty chain -- identical to how a plain literal
-        # like "1px" is returned. A chain can also END on a composite, which
-        # reads as more resolved than it is. Neither case is substituted
-        # here: printing a composite unsubstituted is this project's
-        # deliberate choice in two other places (resolve_alias above, and
-        # index.html's substituteAliases, which is scoped to previews and
-        # says so). What was wrong is claiming there was nothing to resolve,
-        # so the refs left behind are stated instead. Read off the final
-        # value, which covers both cases in one rule.
+        # ALIAS_RE is anchored, so a value holding a ref inside a longer
+        # string comes back untouched with an empty chain, indistinguishable
+        # from a plain literal like "1px". A chain can also end ON a
+        # composite. Neither is substituted here, which is deliberate (see
+        # resolve_alias, and index.html's substituteAliases); the refs left
+        # behind are stated instead. Read off the final value so both cases
+        # are covered by one rule.
         refs = ALIAS_REF_RE.findall(value) if isinstance(value, str) else []
         if refs:
             resolved[path]["unresolvedRefs"] = list(dict.fromkeys(refs))

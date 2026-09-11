@@ -1948,7 +1948,7 @@
       const a = document.createElement("a");
       a.className = "section-anchor";
       a.textContent = label;
-      linkSection(a, routeFor, slug);
+      linkSection(a, routeFor, slug, heading);
       heading.textContent = "";
       heading.appendChild(a);
       // The element, not its slug: a token page sets its own heading ids
@@ -1963,9 +1963,22 @@
   // does not: the router knows docs/<id>, not docs/<id>/<section>, so those
   // get a plain in-page anchor rather than a route that would resolve to
   // nothing.
-  function linkSection(a, routeFor, slug) {
-    if (routeFor) wireNavLink(a, routeFor(slug));
-    else a.setAttribute("href", "#" + slug);
+  function linkSection(a, routeFor, slug, el) {
+    if (routeFor) {
+      wireNavLink(a, routeFor(slug));
+      return;
+    }
+    // <base href="/"> (see the note in <head>) makes a bare "#frag" resolve
+    // against the site root, not the current page, so a plain hash link
+    // navigates to /#frag and the router reads that as home. The href has
+    // to carry the current path, and the click scrolls directly rather than
+    // going through the router for what is a same-page move.
+    a.href = location.pathname + "#" + slug;
+    a.addEventListener("click", (e) => {
+      if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      el.scrollIntoView({ block: "start" });
+    });
   }
 
   // How many rows a section holds, for the rail's count. Counts up to the
@@ -2018,7 +2031,7 @@
         count.textContent = s.count;
         a.appendChild(count);
       }
-      linkSection(a, routeFor, s.slug);
+      linkSection(a, routeFor, s.slug, s.el);
       list.appendChild(a);
     });
     aside.hidden = false;

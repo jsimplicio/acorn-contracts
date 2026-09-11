@@ -49,7 +49,11 @@
     "input.text.border.@base": {
       "value": "{border.width} solid {input.text.border.color.@base}",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "border.width",
+        "input.text.border.color.@base"
+      ]
     },
     "input.text.border.color.@base": {
       "value": "#b7b6ba",

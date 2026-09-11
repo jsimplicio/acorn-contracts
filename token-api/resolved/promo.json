@@ -22,7 +22,11 @@
     "moz-promo.border.@base": {
       "value": "{promo.border.width} solid {promo.border.color.@base}",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "promo.border.width",
+        "promo.border.color.@base"
+      ]
     },
     "moz-promo.border.color.@base": {
       "value": "color-mix(in lch, currentColor 12%, transparent)",
@@ -78,7 +82,10 @@
     "moz-promo.image.size.large": {
       "value": "calc(2 * {size.image.xlarge})",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "size.image.xlarge"
+      ]
     },
     "moz-promo.message.text.color.@base": {
       "value": "#180e30",

@@ -12,7 +12,11 @@
     "panel.separator.padding.@base": {
       "value": "{panel.separator.padding.block} {panel.separator.padding.inline}",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "panel.separator.padding.block",
+        "panel.separator.padding.inline"
+      ]
     },
     "panel.separator.padding.block": {
       "value": "4px",

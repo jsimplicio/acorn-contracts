@@ -289,7 +289,11 @@
     "button.border.@base": {
       "value": "{border.width} solid {button.border.color.@base}",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "border.width",
+        "button.border.color.@base"
+      ]
     },
     "button.border.color.@base": {
       "value": "#764edd",
@@ -654,7 +658,11 @@
     "button.padding.@base": {
       "value": "{button.padding.block.@base} {button.padding.inline.@base}",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "button.padding.block.@base",
+        "button.padding.inline.@base"
+      ]
     },
     "button.padding.block.@base": {
       "value": "0.25rem",

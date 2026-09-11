@@ -159,7 +159,11 @@
     "moz-page-nav.focus.padding": {
       "value": "calc({focus.outline.offset} + {focus.outline.width})",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "focus.outline.offset",
+        "focus.outline.width"
+      ]
     },
     "moz-page-nav.gap": {
       "value": "1rem",

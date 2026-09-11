@@ -29,7 +29,10 @@
     "moz-visual-picker-item.border.width.checked": {
       "value": "calc({border.width} * 3)",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "border.width"
+      ]
     }
   }
 }

@@ -31,7 +31,11 @@
     "toolbox.background.gradient": {
       "value": "linear-gradient(96deg, color-mix({toolbox.background.color.gradient-leading} 50%, transparent) 39.84%, color-mix({toolbox.background.color.gradient-trailing} 50%, transparent) 101.72%)",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "toolbox.background.color.gradient-leading",
+        "toolbox.background.color.gradient-trailing"
+      ]
     },
     "toolbox.text.color.@base": {
       "value": "#180e30",

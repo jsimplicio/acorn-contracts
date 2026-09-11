@@ -15,7 +15,11 @@
     "card.border.@base": {
       "value": "{card.border.width} solid {card.border.color}",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "card.border.width",
+        "card.border.color"
+      ]
     },
     "card.border.color": {
       "value": "rgba(0, 0, 0, 0.06)",
@@ -48,6 +52,10 @@
       "type": null,
       "chain": [
         "box-shadow.level-2"
+      ],
+      "unresolvedRefs": [
+        "box-shadow.color.lighter.layer-1",
+        "box-shadow.color.lighter.layer-2"
       ]
     },
     "card.box.shadow.hover": {
@@ -55,6 +63,10 @@
       "type": null,
       "chain": [
         "box-shadow.level-4"
+      ],
+      "unresolvedRefs": [
+        "box-shadow.color.lighter.layer-1",
+        "box-shadow.color.lighter.layer-2"
       ]
     },
     "card.cover.image.border.radius": {
@@ -98,6 +110,10 @@
       "type": null,
       "chain": [
         "focus.outline.@base"
+      ],
+      "unresolvedRefs": [
+        "focus.outline.width",
+        "focus.outline.color"
       ]
     },
     "card.font.size.@base": {

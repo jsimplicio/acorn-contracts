@@ -7,7 +7,11 @@
     "moz-message-bar.actions.button.padding": {
       "value": "{space.xsmall} {space.large}",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "space.xsmall",
+        "space.large"
+      ]
     },
     "moz-message-bar.actions.gap": {
       "value": "0.5rem",
@@ -54,7 +58,10 @@
     "moz-message-bar.border.color": {
       "value": "oklch(from {message-bar.icon.color} l c h / 20%)",
       "type": "color",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "message-bar.icon.color"
+      ]
     },
     "moz-message-bar.border.radius": {
       "value": "12px",
@@ -99,7 +106,11 @@
     "moz-message-bar.content.gap": {
       "value": "{space.small} {space.medium}",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "space.small",
+        "space.medium"
+      ]
     },
     "moz-message-bar.icon.background.color.@base": {
       "value": "#eaddff",
@@ -144,7 +155,10 @@
     "moz-message-bar.icon.container.border.@base": {
       "value": "1px solid {message-bar.icon.container.border.color}",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "message-bar.icon.container.border.color"
+      ]
     },
     "moz-message-bar.icon.container.border.color": {
       "value": "transparent",
@@ -217,7 +231,11 @@
     "moz-message-bar.text.container.gap": {
       "value": "{space.xsmall} {space.small}",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "space.xsmall",
+        "space.small"
+      ]
     },
     "moz-message-bar.text.container.padding.block": {
       "value": "0",
@@ -227,7 +245,11 @@
     "moz-message-bar.text.content.gap": {
       "value": "{space.xsmall} {space.small}",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "space.xsmall",
+        "space.small"
+      ]
     }
   }
 }

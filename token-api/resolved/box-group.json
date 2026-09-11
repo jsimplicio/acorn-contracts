@@ -7,7 +7,11 @@
     "moz-box.border.@base": {
       "value": "{box.border.width} solid {box.border.color}",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "box.border.width",
+        "box.border.color"
+      ]
     },
     "moz-box.border.color": {
       "value": "#b7b6ba",
@@ -27,7 +31,11 @@
     "moz-box.border.radius.inner": {
       "value": "calc({box.border.radius.@base} - {box.border.width})",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "box.border.radius.@base",
+        "box.border.width"
+      ]
     },
     "moz-box.border.width": {
       "value": "1px",

@@ -47,7 +47,10 @@
     "panel.box.shadow.@base": {
       "value": "0 0 {panel.box.shadow.margin} hsla(0, 0%, 0%, 0.2)",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "panel.box.shadow.margin"
+      ]
     },
     "panel.box.shadow.margin": {
       "value": "4px",
@@ -72,7 +75,11 @@
     "panel.separator.padding.@base": {
       "value": "{panel.separator.padding.block} {panel.separator.padding.inline}",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "panel.separator.padding.block",
+        "panel.separator.padding.inline"
+      ]
     },
     "panel.separator.padding.block": {
       "value": "4px",
@@ -124,6 +131,10 @@
       "type": null,
       "chain": [
         "box-shadow.level-3"
+      ],
+      "unresolvedRefs": [
+        "box-shadow.color.lighter.layer-1",
+        "box-shadow.color.lighter.layer-2"
       ]
     }
   }

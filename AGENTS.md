@@ -4,7 +4,9 @@ Procedural rules for working in this repo. See `README.md` for what each API is 
 
 ## Adding a new component
 
-Writing `component-api/<id>.json` and updating `manifest.json` is not enough to make a component show up on the live site (`index.html`). The nav, home tables, and per-item view are all driven by a separate, hardcoded `DATA` array inside `index.html`'s own `<script>` block, alphabetized by name. Add a matching entry there too (`id`, `name`, `group`, `figma`, `supernova`, `storybook`, `kind`, `tagName`, `file`), in alphabetical position. Without it, the component is fully documented in the data but invisible in the UI, a real gap that's easy to miss since nothing errors.
+Writing `component-api/<id>.json` and updating `manifest.json` is not enough to make a component show up on the live site (`index.html`). The nav, home tables, and per-item view are all driven by a separate, hardcoded `DATA` array inside `index.html`'s own `<script>` block, alphabetized by name. Add a matching entry there too (`id`, `name`, `group`, `figma`, `supernova`, `storybook`, `kind`, `tagName`, `file`), in alphabetical position. Without it, the component is fully documented in the data but invisible in the UI.
+
+`check-index-data.py` now errors on exactly that (run by `check-contracts.yml`): it asserts the two id sets match and that `kind`, `tagName` and `file` agree wherever both sides name them. It does not remove the need to write the `DATA` entry by hand, it just means forgetting fails CI instead of failing silently. Deliberate divergences go in that script's `EXCEPTIONS` with a reason, and are printed on every run rather than passing quietly.
 
 **Verify `figma`/`supernova` with real evidence, don't guess.** These mean whether the real Firefox component (not Acorn's own) has a citation in Firefox's own internal Figma/Supernova instance. Check via the Supernova MCP:
 - `sn_get_component_list` (paginate via `cursor`) for canonical Supernova components.

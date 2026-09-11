@@ -16,6 +16,8 @@ A component with no matching name in either list gets `figma: "no"` / `supernova
 
 **Verify `storybook` with a real check, don't infer from directory structure.** A component's own subdirectory existing under `toolkit/content/widgets/` doesn't mean it has a story; check for a real `<name>.stories.mjs` file specifically (a quick sparse `git fetch` scoped to `toolkit/content/widgets/*/*.stories.mjs` works, see `component-api/check-drift.py` for the same clone technique).
 
+**Editing a `component-api/` or `guidance-api/` entry takes two commits, in this order.** Commit the entry first, then run `python3 update-meta.py` and commit the result separately. `_meta.json` records each file's real last commit, so regenerating it before the content commit records the *previous* commit and `update-meta.py --check` fails in CI. Bundling both into one commit fails the same way. The error names the offending ids, so recovery is just the second commit, but it costs a red X on a commit that is otherwise fine.
+
 ## Syncing with upstream
 
 `token-api/sync.py` is a real rerunnable pipeline (see `token-api/README.md`). `component-api/` has no equivalent full-regeneration script; `component-api/check-drift.py` only detects which tracked components' real source changed and which real `toolkit/content/widgets/` components have no entry yet (see `component-api/README.md`). Writing or updating an actual `component-api/<id>.json` entry still means reading the real current source yourself (or delegating to an agent) and following the schema, same as before drift detection existed.

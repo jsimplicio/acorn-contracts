@@ -1168,6 +1168,7 @@
     document.getElementById("doc-title").textContent = doc.title;
     if (docHtmlCache[id]) {
       document.getElementById("doc-body").innerHTML = docHtmlCache[id];
+      decorateDocSections();
       return;
     }
     document.getElementById("doc-body").innerHTML = "";
@@ -1185,6 +1186,7 @@
       html += await loadSchemaBlock(doc.schema);
       docHtmlCache[id] = html;
       document.getElementById("doc-body").innerHTML = html;
+      decorateDocSections();
     } catch (e) {
       document.getElementById("doc-body").innerHTML = `<p class="meta">Could not load ${escapeHtml(doc.file)} (${escapeHtml(e.message)}).</p>`;
     }
@@ -1972,42 +1974,69 @@
   // while a token group is "tokens/<family>/<slug>". An id already on the
   // heading is left alone, since the token page sets its own (and scrolls
   // to it) before this runs.
-  function decorateSections(container, routeFor) {
+  // `selector` says what counts as a section heading on this kind of page,
+  // because the four views do not agree: a component page renders
+  // h2.section, a docs page renders a README's own "##" as a plain h3 (its
+  // single "#" title is stripped before rendering, so it has no h2.section
+  // except the appended schema block), and the home page has one
+  // h3.table-group per coverage table plus its Notes h2.
+  //
+  // `routeFor` may be null for a page whose sections have no route of their
+  // own; see linkSection.
+  function decorateSections(container, routeFor, selector) {
+    const headings = [...container.querySelectorAll(selector || "h2.section")];
     const sections = [];
-    container.querySelectorAll("h2.section").forEach(h2 => {
-      const label = h2.textContent;
+    headings.forEach((heading, i) => {
+      const label = heading.textContent;
       const slug = sectionSlug(label);
       if (!slug) return;
-      if (!h2.id) h2.id = slug;
+      if (!heading.id) heading.id = slug;
       const a = document.createElement("a");
       a.className = "section-anchor";
       a.textContent = label;
-      // wireNavLink gives it a real href plus this page's own SPA click
-      // handling, so it behaves like every other link in the nav.
-      wireNavLink(a, routeFor(slug));
-      h2.textContent = "";
-      h2.appendChild(a);
+      linkSection(a, routeFor, slug);
+      heading.textContent = "";
+      heading.appendChild(a);
       // The element, not just its slug: a token page sets its own heading
       // ids (token-group-<stem>-<group>) before this runs, so the id and
       // the slug are not the same string there and re-deriving one from
       // the other finds nothing.
-      sections.push({ label, slug, el: h2, count: countSectionItems(h2) });
+      sections.push({ label, slug, el: heading, count: countBetween(heading, headings[i + 1]) });
     });
     renderSectionNav(sections, routeFor);
   }
 
-  // How many real rows a section holds, for the rail's count. Walks forward
-  // to the next section heading instead of reading a wrapper element,
-  // because a section is a flat run of h2-then-content rather than a
-  // container: there is nothing to query inside.
-  function countSectionItems(h2) {
+  // A component or token page has a real route per section, so its links go
+  // through the SPA router and survive a hard refresh. A docs or home page
+  // does not: the router knows docs/<id>, not docs/<id>/<section>, so those
+  // get a plain in-page anchor rather than a route that would resolve to
+  // nothing.
+  function linkSection(a, routeFor, slug) {
+    if (routeFor) wireNavLink(a, routeFor(slug));
+    else a.setAttribute("href", "#" + slug);
+  }
+
+  // How many real rows a section holds, for the rail's count. Counts up to
+  // the next heading in the collected list rather than sniffing forward for
+  // a stop tag, so it works for any heading level without being told which
+  // one this page used. A section is a flat run of heading-then-content,
+  // not a container, so there is nothing to query inside.
+  function countBetween(from, next) {
     let n = 0;
-    for (let el = h2.nextElementSibling;
-         el && !(el.tagName === "H2" && el.classList.contains("section"));
-         el = el.nextElementSibling) {
+    for (let el = from.nextElementSibling; el && el !== next; el = el.nextElementSibling) {
       n += el.querySelectorAll("tbody tr, li").length;
     }
     return n;
+  }
+
+  // One place each for what a docs page and the home page call a section,
+  // since both are decorated from more than one call site.
+  function decorateDocSections() {
+    decorateSections(document.getElementById("doc-body"), null, "h2.section, h3");
+  }
+
+  function decorateHomeSections() {
+    decorateSections(document.getElementById("view-home"), null, "h3.table-group, h2.section");
   }
 
   // The rail only earns its space once a page has enough sections to be
@@ -2036,7 +2065,7 @@
         count.textContent = s.count;
         a.appendChild(count);
       }
-      wireNavLink(a, routeFor(s.slug));
+      linkSection(a, routeFor, s.slug);
       list.appendChild(a);
     });
     aside.hidden = false;
@@ -2287,6 +2316,9 @@
     let pending;
     if (id === "home") {
       document.getElementById("view-home").classList.add("active");
+      // Re-decorated on every navigation back, not once at boot, because
+      // show() clears the rail up front.
+      decorateHomeSections();
     } else if (DOC_FILES[id]) {
       document.getElementById("view-doc").classList.add("active");
       pending = loadDocPage(id);

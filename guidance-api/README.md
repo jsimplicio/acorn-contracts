@@ -1,6 +1,6 @@
 # Guidance API
 
-The Guidance API captures do's and don'ts for Acorn components: usage advice, common mistakes, and the kind of thing an experienced maintainer would tell you before you shipped a bug. This is the second half of a two-part documentation-data effort. The first half is the **Component API** (`/home/jules/Documents/acorn-contracts/component-api/`), a Custom Elements Manifest (CEM)-based structural spec: real attributes, slots, events, and methods, mechanically derived from source.
+The Guidance API captures do's and don'ts for Acorn components: usage advice, common mistakes, and the kind of thing an experienced maintainer would tell you before you shipped a bug. This is the second half of a two-part documentation-data effort. The first half is the **[Component API](../component-api/README.md)**, a Custom Elements Manifest (CEM)-based structural spec: real attributes, slots, events, and methods, mechanically derived from source.
 
 ## Why this is a separate API, not a field inside the Component API
 
@@ -37,10 +37,12 @@ That's the whole schema. No `severity`, `tags`, `author`, `dates`, or similar me
 ## Files in this directory
 
 - `_skeleton.json`: empty/templated example showing the shape, for someone about to author a new component's guidance.
-- `schema.json`: the shape above as a real, machine-checkable JSON Schema (draft 2020-12), not just this README's prose. Validated against all 57 real entries.
+- `schema.json`: the shape above as a real, machine-checkable JSON Schema (draft 2020-12), not just this README's prose. Enforced by `validate-schemas.py`, run on every push by `check-contracts.yml`.
 - `_meta.json`: per-id `lastCommit`/`lastModified`, each one's real last commit in this repo's own git history (not a fabricated timestamp), plus the repo `HEAD` this was generated against. Says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.
 - One `<id>.json` per component with real, populated guidance, matching the same `id` used in the Component API. `toolbox` is included deliberately as a "pattern" case: its guidance is about not expecting a component to exist at all, not about component props. Several other entries (Toolbar, Sidebar, Bookmarks Toolbar, URL Bar Action/Identity/Result, Panel Separator, Page Nav Separator, Chip, Details) are the same kind of case: real, user-facing patterns worth documenting even though no dedicated widget class backs them.
 
 ## Coverage
 
-All 57 components in this inventory have a written guidance file. Every entry is grounded in the component's real source (a specific method, property, or lifecycle behavior), not generic UX advice, including the pattern entries that have no dedicated widget class: their guidance points to the real file or singleton that actually owns the behavior instead.
+57 components have a written guidance file. That is not the whole inventory: `component-api/` now covers 71, and the 14 found later by `check-drift.py` have no guidance entry yet (`button-group`, `five-star`, `input-box`, `input-email`, `input-folder`, `input-number`, `input-password`, `input-search`, `input-tel`, `input-url`, `label`, `reorderable-list`, `support-link`, `textarea`).
+
+Every entry that does exist is grounded in the component's real source (a specific method, property, or lifecycle behavior), not generic UX advice, including the pattern entries that have no dedicated widget class: their guidance points to the real file or singleton that actually owns the behavior instead.

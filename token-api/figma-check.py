@@ -10,42 +10,30 @@ property against a real token-api/*.tokens.json value. This script adds a
 third leg: does that same name ALSO exist as a real Figma variable?
 
 The actual question this answers is "are Figma and code in sync," not "can
-this value be traced back to Figma somehow." An earlier version of this
-script also resolved each token's real resolve.py alias chain and counted a
-match if ANY hop of that chain hit a Figma variable under a DIFFERENT name
-(e.g. counting --box-button-background-color as a match because it aliases
-to button.background.color.menu, a real but differently-named Figma
-variable). The repo maintainer rejected that: the goal is to catch Figma and
-code drifting apart, and backfilling a match through an indirect alias hides
-exactly the drift this check exists to surface. If Figma doesn't have a
-variable matching a CSS custom property's OWN name, that's a real "not
-synced" finding, even if the value happens to be reachable through some
-other, differently-named variable under the hood. This script only ever
-compares a name against its own name -- no chain-following.
+this value be traced back to Figma somehow." If Figma doesn't have a variable
+matching a CSS custom property's OWN name, that's a real "not synced"
+finding, even if the value happens to be reachable through some other,
+differently-named variable under the hood. This script only ever compares a
+name against its own name -- no chain-following.
 
-Source of truth: the direct Figma REST API, not Supernova. An earlier version
-of this script matched against a Supernova MCP token-list snapshot instead;
-the repo maintainer rejected that as the wrong source for this check, because
-Supernova's sync of this same design system has known gaps elsewhere in this
-project family (its own token detail couldn't confirm its source file, named
-"Desktop Styles", was even the same file as "Nova Styles"). The rule for this
-whole project family is now: a token/variable-existence-in-Figma check always
-hits the Figma REST API directly, never Supernova. See
+Source of truth: the direct Figma REST API, never Supernova, whose sync of
+this same design system has known gaps elsewhere in this project family (its
+own token detail couldn't confirm its source file, named "Desktop Styles",
+was even the same file as "Nova Styles"). That rule holds for every
+token/variable-existence-in-Figma check in this project family. See
 figma-variables-dump.json's own `_comment` for exactly what was fetched and
 why, and token-api/README.md's "Figma existence check" section for the full
 pipeline.
 
 How the match is decided (read this before trusting a "yes"):
 
-1. codeSyntax was checked first, not assumed absent, same discipline as the
-   prior Supernova-based pass. Unlike that pass, this direct Figma API
-   response DOES include a `codeSyntax` field per variable -- but only 2 of
-   718 kept variables have it populated (button/background/color,
-   tab/border/color; see figma-variables-dump.json's `_comment`), nowhere
-   near enough of the file to be a general match signal. So codeSyntax is
-   STILL not the match signal here; every match below is by normalized name
-   instead. If a future Figma publish starts populating codeSyntax broadly,
-   prefer it over this name-matching and say so explicitly in `matchMethod`.
+1. codeSyntax was checked first, not assumed absent. The Figma API response
+   DOES include a `codeSyntax` field per variable -- but only 2 of 718 kept
+   variables have it populated (button/background/color, tab/border/color;
+   see figma-variables-dump.json's `_comment`), nowhere near enough to be a
+   general match signal. So every match below is by normalized name instead.
+   If a future Figma publish starts populating codeSyntax broadly, prefer it
+   over this name-matching and say so explicitly in `matchMethod`.
 
 2. Name matching normalizes BOTH sides down to a plain tuple of lowercase
    words and compares those, instead of trying to reconstruct one naming
@@ -82,16 +70,11 @@ How the match is decided (read this before trusting a "yes"):
      acorn name that's a real Figma variable's name plus one additional
      qualifier, or vice versa -- --box-button-background-color vs. the
      real button/background/color/menu variable, --badge-border-width vs.
-     the real generic border/width variable). An earlier version of this
-     script gave a near miss its own third state, "ambiguous", reasoning
-     that one word off could be a real match reached under a slightly
-     different name. The repo maintainer rejected that explicitly: "if it
-     doesn't match something we see in figma/the import file then it
-     doesn't exist... that's the goal, are these syncing." A near miss is,
-     by that standard, still not a match -- it's real, useful signal that
-     these two names have drifted, not a coin flip to hedge on. Folding it
-     into "no" is what that correction asked for, not a simplification for
-     its own sake.
+     the real generic border/width variable). A near miss does NOT get its
+     own third state: if it doesn't match something in Figma then it
+     doesn't exist, which is the whole question. It is real, useful signal
+     that two names have drifted, not a coin flip to hedge on, so it is
+     recorded as "no" with matchType "near-miss" as a diagnostic.
 
      "No" overall is a real, common, and expected outcome beyond near
      misses too: this Figma file does not cover every acorn-contracts
@@ -105,14 +88,13 @@ How the match is decided (read this before trusting a "yes"):
    (resolved/*.json already records one, e.g. --box-button-background-
    color's real value aliases through button.background.color.menu.@base)
    and counting a hit under that DIFFERENT name as a match for the
-   original name. That was tried and explicitly rejected too, for the same
-   underlying reason as folding "ambiguous" into "no": this check's whole
-   point is catching Figma and code drifting apart by name, and
-   backfilling a match through an indirectly-aliased, differently-named
-   variable hides exactly the kind of drift it exists to surface. A CSS
-   custom property either has a same-named Figma variable or it doesn't;
-   what its resolved value happens to alias to under the hood is a
-   separate question this column does not answer.
+   original name. This check's whole point is catching Figma and code
+   drifting apart by name, and backfilling a match through an
+   indirectly-aliased, differently-named variable hides exactly the kind
+   of drift it exists to surface. A CSS custom property either has a
+   same-named Figma variable or it doesn't; what its resolved value
+   happens to alias to under the hood is a separate question this column
+   does not answer.
 
 4. The design-system file itself: this now hits `Co6vXnF5SiQMcJ7UoJvZX6`,
    Figma's own "Nova Styles (Experimental)" file, directly -- no Supernova
@@ -133,13 +115,9 @@ Inputs (all read-only, nothing here re-fetches from Figma):
 
 Output:
   - figma-token-map.json: { "--custom-property-name": {status, matchType,
-    matchedPath} } for every distinct name, plus a `counts` summary. Same
-    schema as the earlier Supernova-based version -- index.html's
-    loadFigmaTokenMap()/figmaCheckCell() consume this unchanged. An
-    alias-chain match (matchType "alias-exact"/"alias-reordered") adds one
-    extra field, `aliasHop`, the real resolve.py chain entry that matched
-    (e.g. "button.background.color.menu.@base") -- index.html doesn't read
-    this today, it's here for a maintainer inspecting the JSON directly.
+    matchedPath} } for every distinct name, plus a `counts` summary.
+    matchType is one of "exact", "reordered", "near-miss" or null, and
+    index.html's loadFigmaTokenMap()/figmaCheckCell() consume it.
 
 Rerunning: this script is pure local computation (no network), so re-run it
 any time resolved/*.json, component-api/*.json, or figma-variables-dump.json
@@ -310,16 +288,13 @@ def main():
             "apart, and backfilling through an alias would hide exactly that. Strict "
             "two-state result (yes/no), not three: a one-word-off near miss is still 'no', "
             "recorded with matchType 'near-miss' purely as a diagnostic, not a softer status. "
-            "See this script's own docstring for the full rule and why both the alias-chain "
-            "approach and a separate 'ambiguous' status were tried and rejected."
+            "See this script's own docstring for the full rule."
         ),
         "notes": [
             "Source is a direct Figma REST API pull (GET /v1/files/Co6vXnF5SiQMcJ7UoJvZX6/"
-            "variables/local), not Supernova. An earlier version of this map was built from "
-            "a Supernova MCP token-list snapshot; the repo maintainer rejected that as the "
-            "wrong source for this check because Supernova's sync of this design system has "
-            "known gaps elsewhere in this project family. See figma-variables-dump.json's "
-            "own `_comment` for what was fetched and excluded."
+            "variables/local), never Supernova, whose sync of this design system has known "
+            "gaps elsewhere in this project family. See figma-variables-dump.json's own "
+            "`_comment` for what was fetched and excluded."
         ],
         "counts": {**counts, "total": len(names)},
         "properties": results,

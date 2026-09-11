@@ -4,7 +4,7 @@
   "tagName": "panel-item",
   "description": "A single actionable row inside a panel-list menu (button, checkbox item, or submenu trigger). A plain modern custom element (no JSDoc) with its own shadow root; coordinates with its owning panel-list for keyboard navigation and accesskey lifecycle.",
   "implementation": {
-    "kind": "modern",
+    "kind": "classic",
     "file": "toolkit/content/widgets/panel-list/panel-list.mjs"
   },
   "attributes": [

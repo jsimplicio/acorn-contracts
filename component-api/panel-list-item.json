@@ -4,7 +4,7 @@
   "tagName": "panel-item",
   "description": "The Acorn API's coverage table lists 'Panel List Item' separately from 'Panel Item', but there is no upstream distinction: both ids refer to the exact same class (PanelItem) and the exact same customElements.define(\"panel-item\", PanelItem) registration, in the same file as panel-list. There is no separate implementation for panel-list-item; this entry documents the same underlying class as the panel-item id. Corrected kind: PanelItem extends plain HTMLElement (no XUL/MozElementMixin base), so it is modern, matching the panel-item id's own classification of the identical class.",
   "implementation": {
-    "kind": "modern",
+    "kind": "classic",
     "file": "toolkit/content/widgets/panel-list/panel-list.mjs"
   },
   "attributes": [

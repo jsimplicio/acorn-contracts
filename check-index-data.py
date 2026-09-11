@@ -51,14 +51,6 @@ FILE_PATH_RE = re.compile(r"\b[\w.-]+(?:/[\w.-]+)+\.(?:mjs|jsx?|json|xhtml)\b")
 # (id, field) -> why the two sides differ on purpose. Each is printed on
 # every run; removing one should make the check pass, not fail.
 EXCEPTIONS = {
-    ("panel-list", "kind"): (
-        "Unresolved, not accepted. panel-list.mjs is `class PanelList extends "
-        "HTMLElement`, plain and pre-Lit, so DATA's `classic` looks right and "
-        "component-api's `modern` looks wrong. Left failing-but-known because "
-        "panel-item and panel-list-item come from the same file in the same "
-        "style and are `modern` on both sides, so fixing one entry in "
-        "isolation would just move the inconsistency."
-    ),
     ("urlbar", "file"): (
         "Both are right about different things. DATA cites UrlbarInput.mjs, "
         "where moz-urlbar is really registered; component-api cites "

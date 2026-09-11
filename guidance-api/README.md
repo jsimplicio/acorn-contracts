@@ -43,6 +43,13 @@ That's the whole schema. No `severity`, `tags`, `author`, `dates`, or similar me
 
 ## Coverage
 
-57 components have a written guidance file. That is not the whole inventory: `component-api/` now covers 71, and the 14 found later by `check-drift.py` have no guidance entry yet (`button-group`, `five-star`, `input-box`, `input-email`, `input-folder`, `input-number`, `input-password`, `input-search`, `input-tel`, `input-url`, `label`, `reorderable-list`, `support-link`, `textarea`).
+Guidance does not cover every component in the inventory. The components
+still missing one are enumerated in `check-index-data.py`'s `GUIDANCE_GAPS`,
+which is also what enforces the list: a new component with no guidance, or a
+guidance entry whose id matches no contract, fails that check. Deliberately
+not restated here as a count or a list, because the last version of this
+sentence said all 57 components were covered and went quietly wrong the
+moment the inventory grew to 71. Run `python3 check-index-data.py` for the
+current numbers.
 
 Every entry that does exist is grounded in the component's real source (a specific method, property, or lifecycle behavior), not generic UX advice, including the pattern entries that have no dedicated widget class: their guidance points to the real file or singleton that actually owns the behavior instead.

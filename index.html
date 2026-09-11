@@ -597,9 +597,9 @@
     { id: "page-nav-item", name: "Page Nav Item", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-page-nav-button", file: "same file, class MozPageNavButton", parentId: "page-nav" },
     { id: "page-nav-separator", name: "Page Nav Separator", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "none", tagName: null, file: "no dedicated separator element found in moz-page-nav", parentId: "page-nav" },
     { id: "panel", name: "Panel", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "panel", file: "toolkit/content/widgets/panel.js, MozPanel", rich: true },
-    { id: "panel-item", name: "Panel Item", group: "chrome", figma: "nested", supernova: "no", storybook: "no", kind: "modern", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, class PanelItem (corrected from old: no legacy XUL base, a real modern-style custom element)", parentId: "panel" },
+    { id: "panel-item", name: "Panel Item", group: "chrome", figma: "nested", supernova: "no", storybook: "no", kind: "classic", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, class PanelItem (plain custom element: no legacy XUL base, but no Lit either)", parentId: "panel" },
     { id: "panel-list", name: "Panel List", group: "chrome", figma: "yes", supernova: "no", storybook: "yes", kind: "classic", tagName: "panel-list", file: "toolkit/content/widgets/panel-list/panel-list.mjs" },
-    { id: "panel-list-item", name: "Panel List Item", group: "chrome", figma: "nested", supernova: "no", storybook: "nested", kind: "modern", tagName: "panel-item", file: "same panel-item tag as Panel Item, no upstream distinction", parentId: "panel-list" },
+    { id: "panel-list-item", name: "Panel List Item", group: "chrome", figma: "nested", supernova: "no", storybook: "nested", kind: "classic", tagName: "panel-item", file: "same panel-item tag as Panel Item, no upstream distinction", parentId: "panel-list" },
     { id: "panel-manager", name: "Panel Manager", group: "chrome", figma: "no", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/customizableui/PanelMultiView.sys.mjs, real class, not a custom element" },
     { id: "panel-separator", name: "Panel Separator", group: "chrome", figma: "nested", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "plain <hr>, no dedicated class", parentId: "panel" },
     { id: "popup-notification", name: "Popup Notification", group: "chrome", figma: "non1to1", supernova: "no", storybook: "no", kind: "classic", tagName: "popupnotification", file: "toolkit/content/widgets/popupnotification.js" },
@@ -639,7 +639,7 @@
   const KIND_LABEL = { modern: "moz-*", classic: "classic", none: "pattern", dual: "moz-* + classic" };
   const KIND_DEFINITION = {
     modern: "A real, modern Lit-based custom element, the current convention for new widgets (customElements.define, extends MozLitElement).",
-    classic: "A real, shipping implementation that predates the moz-* convention, an old XUL binding or similar (still often has a real tagName, just not the newer pattern).",
+    classic: "A real, shipping implementation that isn't Lit: usually an old XUL binding, sometimes a plain custom element in a current module (still often has a real tagName, just not the newer pattern).",
     none: "Real page structure with no dedicated class behind it, no customElements.define, nothing to document as a component API.",
     dual: "Both a modern moz-* version and an old classic version exist and ship at the same time, neither has replaced the other yet.",
   };

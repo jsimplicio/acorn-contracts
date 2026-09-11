@@ -4,7 +4,7 @@
   "tagName": "panel-list",
   "description": "A menu/list container custom element that renders panel-item children, either as a native popover or, when embedded in a XUL <panel>, deferring positioning and open/close to that panel. No JSDoc; class PanelList is defined in the same file as PanelItem (panel-item). Corrected kind: PanelList extends plain HTMLElement (no XUL/MozElementMixin base), the same non-XUL heritage as panel-item, which this inventory already classifies as modern.",
   "implementation": {
-    "kind": "modern",
+    "kind": "classic",
     "file": "toolkit/content/widgets/panel-list/panel-list.mjs"
   },
   "attributes": [

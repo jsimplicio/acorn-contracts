@@ -1809,6 +1809,35 @@
   }
 
 
+  // Slots, events, methods and CSS parts each used to render as a <ul> with
+  // the name and its whole description on one line, while attributes got a
+  // real table. Four of the five API sections being flat lists left no
+  // column of names to scan down, worst exactly where it matters most:
+  // Urlbar documents 19 methods, Findbar 17, Reorderable List 15. All four
+  // share this table now, reusing .attrs-table so the name column picks
+  // up its existing mono/pink first-cell rule. Unconditional
+  // rather than only above some item count, since switching shape partway
+  // down a page is the inconsistency that made it hard to read to begin
+  // with. `format` returns already-escaped HTML for the name cell.
+  //
+  // The Description column is dropped when nothing in the collection has
+  // one, rather than rendered empty: slots, events and CSS parts are
+  // described 100% of the time, but only 75 of 166 methods are, and for
+  // nine components every single method is bare (Urlbar 19, Findbar 17,
+  // Tabstrip 13, Tab 12). A blank column down 19 rows reads worse than the
+  // list this replaced. Same "omitted, not padded" rule the schema already
+  // applies to the data itself.
+  function renderNameTable(items, format) {
+    const described = items.some(i => i.description);
+    const head = described ? `<tr><th>Name</th><th>Description</th></tr>` : `<tr><th>Name</th></tr>`;
+    const row = i => described
+      ? `<tr><td>${format(i)}</td><td>${i.description ? formatProse(i.description) : ""}</td></tr>`
+      : `<tr><td>${format(i)}</td></tr>`;
+    return `<table class="attrs-table"><thead>${head}</thead><tbody>`
+      + items.map(row).join("")
+      + `</tbody></table>`;
+  }
+
   // One row per distinct custom property name, joined by deriveCssVarName
   // across a documented cssProperty and/or a real token.
   function buildCssPropertyRows(cssProperties, effectiveTokens) {
@@ -2036,13 +2065,13 @@
       html += `</tbody></table>`;
     }
     if (api.slots && api.slots.length) {
-      html += `<h2 class="section">Slots</h2><ul>` + api.slots.map(s => `<li><code>${escapeHtml(s.name)}</code> ${formatProse(s.description)}</li>`).join("") + `</ul>`;
+      html += `<h2 class="section">Slots</h2>` + renderNameTable(api.slots, s => escapeHtml(s.name));
     }
     if (api.events && api.events.length) {
-      html += `<h2 class="section">Events</h2><ul>` + api.events.map(e => `<li><code>${escapeHtml(e.name)}</code> ${formatProse(e.description)}</li>`).join("") + `</ul>`;
+      html += `<h2 class="section">Events</h2>` + renderNameTable(api.events, e => escapeHtml(e.name));
     }
     if (api.methods && api.methods.length) {
-      html += `<h2 class="section">Methods</h2><ul>` + api.methods.map(m => `<li><code>${escapeHtml(m.name)}()</code> ${formatProse(m.description)}</li>`).join("") + `</ul>`;
+      html += `<h2 class="section">Methods</h2>` + renderNameTable(api.methods, m => `${escapeHtml(m.name)}()`);
     }
     // CSS custom properties and design tokens used to be two separate
     // sections, on the theory that a documented override hook usually has
@@ -2071,7 +2100,7 @@
       }
     }
     if (api.cssParts && api.cssParts.length) {
-      html += `<h2 class="section">CSS parts</h2><ul>` + api.cssParts.map(p => `<li><code>::part(${escapeHtml(p.name)})</code>${p.description ? " " + formatProse(p.description) : ""}</li>`).join("") + `</ul>`;
+      html += `<h2 class="section">CSS parts</h2>` + renderNameTable(api.cssParts, p => `::part(${escapeHtml(p.name)})`);
     }
     if (guidance && ((guidance.dos && guidance.dos.length) || (guidance.donts && guidance.donts.length))) {
       html += `<h2 class="section">Do's and don'ts</h2><div class="dodont">`;

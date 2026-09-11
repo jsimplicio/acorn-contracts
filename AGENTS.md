@@ -16,7 +16,15 @@ A component with no matching name in either list gets `figma: "no"` / `supernova
 
 **Verify `storybook` with a real check, don't infer from directory structure.** A component's own subdirectory existing under `toolkit/content/widgets/` doesn't mean it has a story; check for a real `<name>.stories.mjs` file specifically (a quick sparse `git fetch` scoped to `toolkit/content/widgets/*/*.stories.mjs` works, see `component-api/check-drift.py` for the same clone technique).
 
-**Editing a `component-api/` or `guidance-api/` entry takes two commits, in this order.** Commit the entry first, then run `python3 update-meta.py` and commit the result separately. `_meta.json` records each file's real last commit, so regenerating it before the content commit records the *previous* commit and `update-meta.py --check` fails in CI. Bundling both into one commit fails the same way. The error names the offending ids, so recovery is just the second commit, but it costs a red X on a commit that is otherwise fine.
+**Editing a `component-api/` or `guidance-api/` entry takes two commits, in this order.** Commit the entry first, then run `python3 update-meta.py` and commit the result separately. `_meta.json` records each file's real last commit, so regenerating it before the content commit records the *previous* commit and `update-meta.py --check` fails in CI. Bundling both into one commit fails the same way, and `--amend` cannot rescue it either: amending mints a new SHA that `_meta.json` would then not be citing. Two commits is structural, not a style preference.
+
+`hooks/pre-push` catches forgetting the second one. It runs the read-only checks (schema validation, `check-index-data.py`, `update-meta.py --check`) before a push leaves the machine, so the failure lands locally instead of as a red X on a public commit. It is not installed by cloning, because `.git/hooks` is not versioned:
+
+```sh
+git config core.hooksPath hooks
+```
+
+It only reads. `token-api/resolved/` and `figma-token-map.json` are verified in CI by regenerating and diffing, and are left out deliberately: a hook that rewrites files under you mid-push is worse than the red X it would prevent. `git push --no-verify` skips it when a red push is intentional.
 
 ## Syncing with upstream
 

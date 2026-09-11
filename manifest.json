@@ -178,13 +178,6 @@
       ],
       "novaTokenBasenames": []
     },
-    "input-box": {
-      "componentApi": true,
-      "guidanceApi": false,
-      "tokenApi": false,
-      "tokenBasenames": [],
-      "novaTokenBasenames": []
-    },
     "input-color": {
       "componentApi": true,
       "guidanceApi": true,

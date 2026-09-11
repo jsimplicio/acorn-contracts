@@ -939,7 +939,33 @@
     return String(value)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  // Scans a string for a pattern and wraps every hit, escaping all the text
+  // around it. `wrap` receives the matched text and owns whatever escaping
+  // happens inside its own output.
+  //
+  // matchAll rather than String.replace used as an offset scanner: replace
+  // shifts its `offset` argument along as soon as a pattern gains a capture
+  // group, which is a live trap for whoever edits one of these patterns
+  // next. Both patterns happen to use only (?:...) groups today.
+  //
+  // formatProse and linkifyFilePaths were this same block twice over,
+  // differing only in their pattern and their one-line wrapper, which left
+  // the escape-every-gap invariant stated in two places at once.
+  function wrapMatches(value, re, wrap) {
+    if (value === null || value === undefined) return "";
+    const str = String(value);
+    let out = "";
+    let lastIndex = 0;
+    for (const m of str.matchAll(re)) {
+      out += escapeHtml(str.slice(lastIndex, m.index));
+      out += wrap(m[0]);
+      lastIndex = m.index + m[0].length;
+    }
+    return out + escapeHtml(str.slice(lastIndex));
   }
 
   // Wraps inline code mentioned in prose (tags, attrs, filenames, etc.) in
@@ -954,19 +980,10 @@
   ].join("|"), "g");
 
   function formatProse(value) {
-    if (value === null || value === undefined) return "";
-    const str = String(value);
-    let out = "";
-    let lastIndex = 0;
-    str.replace(CODE_SPAN_RE, (match, offset) => {
-      out += escapeHtml(str.slice(lastIndex, offset));
+    return wrapMatches(value, CODE_SPAN_RE, match => {
       const inner = (match.startsWith("`") && match.endsWith("`")) ? match.slice(1, -1) : match;
-      out += `<code>${escapeHtml(inner)}</code>`;
-      lastIndex = offset + match.length;
-      return match;
+      return `<code>${escapeHtml(inner)}</code>`;
     });
-    out += escapeHtml(str.slice(lastIndex));
-    return out;
   }
 
   // Small, purpose-built markdown renderer covering what the three real
@@ -1192,19 +1209,9 @@
   const GITHUB_BLOB_BASE = "https://github.com/mozilla-firefox/firefox/blob/main/";
 
   function linkifyFilePaths(value) {
-    if (value === null || value === undefined) return "";
-    const str = String(value);
-    let out = "";
-    let lastIndex = 0;
-    str.replace(FILE_PATH_RE, (match, offset) => {
-      out += escapeHtml(str.slice(lastIndex, offset));
-      const url = GITHUB_BLOB_BASE + match;
-      out += `<a class="file-link mono" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(match)}</a>`;
-      lastIndex = offset + match.length;
-      return match;
-    });
-    out += escapeHtml(str.slice(lastIndex));
-    return out;
+    return wrapMatches(value, FILE_PATH_RE, match =>
+      `<a class="file-link mono" href="${escapeHtml(GITHUB_BLOB_BASE + match)}" ` +
+      `target="_blank" rel="noopener noreferrer">${escapeHtml(match)}</a>`);
   }
 
   // A token leaf is any node with a $value key. Base tokens keep their own
@@ -1895,11 +1902,10 @@
   // generated before this property existed), a "not checked" state, not a
   // third answer to "does this exist in Figma."
   function figmaCheckCell(name, figmaMap) {
-    // Note: escapeHtml() only escapes &, <, > (see its own definition), not
-    // a literal " -- every title string built here has to avoid embedding
-    // a double quote itself (a backtick-quoted Figma variable name instead
-    // of a double-quoted one), or it would silently truncate this
-    // attribute at the first embedded quote instead of erroring loudly.
+    // The backtick-quoted Figma variable names in these titles are a
+    // readability choice now, not a requirement: escapeHtml() escapes a
+    // literal " as well, so an embedded quote can no longer truncate the
+    // attribute.
     const entry = figmaMap[name];
     if (!entry) {
       return `<td class="check unknown" title="Not checked against the Figma token map">?</td>`;

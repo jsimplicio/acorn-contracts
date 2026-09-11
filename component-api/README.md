@@ -75,5 +75,5 @@ It only reports; it never writes to any `<id>.json`. Use its output as the workl
 ## Files in this directory
 
 - One `<id>.json` per component (71 total), the real, populated entries described above.
-- `schema.json`: the schema above as a real, machine-checkable JSON Schema (draft 2020-12), not just this README's prose. Validated against all real entries.
+- `schema.json`: the schema above as a real, machine-checkable JSON Schema (draft 2020-12), not just this README's prose. Enforced by `validate-schemas.py`, run on every push by `check-contracts.yml`.
 - `_meta.json`: per-id `lastCommit`/`lastModified`, each one's real last commit in this repo's own git history (not a fabricated timestamp), plus the repo `HEAD` this was generated against. Says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.

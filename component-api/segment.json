@@ -70,11 +70,11 @@
   "events": [
     {
       "name": "input",
-      "description": "Manually dispatched (bubbles, composed) on click, since the item is not backed by a native input."
+      "description": "Manually dispatched (bubbles, composed) on click, since the item is not backed by a native input. Not dispatched when the item is disabled or already checked, since handleClick returns before dispatching."
     },
     {
       "name": "change",
-      "description": "Manually dispatched (bubbles, composed) on click, alongside input."
+      "description": "Manually dispatched (bubbles, composed) on click, alongside input. Not dispatched when the item is disabled or already checked, since handleClick returns before dispatching."
     }
   ],
   "variants": [

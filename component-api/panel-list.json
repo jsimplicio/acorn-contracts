@@ -22,6 +22,11 @@
       "default": "false"
     },
     {
+      "name": "suppress-contextmenu",
+      "type": "boolean",
+      "description": "When present, addHideListeners() also registers a contextmenu listener so context menus are suppressed inside the open panel. Never wired up when stay-open short-circuits addHideListeners()."
+    },
+    {
       "name": "min-width-from-anchor",
       "type": "boolean",
       "description": "When present, setAlign() uses the anchor element's width (instead of the panel's own measured width) as the effective width for alignment, and sets min-width to the anchor's width.",

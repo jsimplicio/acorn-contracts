@@ -27,12 +27,6 @@
       "figmaConfig": true
     },
     {
-      "name": "breakout",
-      "type": "boolean",
-      "description": "Reflects the expanded/breakout layout state used when the results panel is showing.",
-      "default": "false"
-    },
-    {
       "name": "focused",
       "type": "boolean",
       "description": "Reflects focus state on the container for styling purposes.",
@@ -173,12 +167,6 @@
     },
     {
       "name": "setUnifiedSearchButtonAvailability"
-    },
-    {
-      "name": "incrementBreakoutBlockerCount"
-    },
-    {
-      "name": "decrementBreakoutBlockerCount"
     }
   ],
   "cssProperties": [

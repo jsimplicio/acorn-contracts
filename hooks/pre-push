@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+# Run the read-only half of CI before a push, so a failure shows up here
+# instead of as a red X on a commit that is already public.
+#
+# The one that actually keeps happening is _meta.json. It records each
+# file's real last commit, so it can only be generated AFTER the commit it
+# describes: regenerating before, or folding it into the same commit, is
+# off by one either way, and --amend cannot fix it because amending mints a
+# new SHA that _meta.json would then not be citing. Editing an entry is
+# structurally two commits, and this is what catches forgetting the second.
+#
+# Deliberately only the checks that read. token-api/resolved/ and
+# figma-token-map.json are verified in CI by regenerating and diffing, and
+# a hook that rewrites files under you during a push is worse than a red X.
+#
+# Install (per clone, since .git/hooks is not versioned):
+#     git config core.hooksPath hooks
+# Bypass for a push you know is red:
+#     git push --no-verify
+
+set -uo pipefail
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+fail=0
+
+run() {
+  local label="$1"
+  shift
+  local out
+  if out=$("$@" 2>&1); then
+    printf '  ok   %s\n' "$label"
+  else
+    printf '  FAIL %s\n' "$label"
+    printf '%s\n' "$out" | sed 's/^/         /'
+    fail=1
+  fi
+}
+
+echo "pre-push: running the read-only checks"
+
+if python3 -c 'import jsonschema' 2>/dev/null; then
+  run "entries validate against their schema" python3 validate-schemas.py
+else
+  printf '  skip entries validate against their schema (no jsonschema: python3 -m pip install jsonschema)\n'
+fi
+
+run "index.html DATA agrees with component-api, guidance coverage" python3 check-index-data.py
+run "_meta.json is current" python3 update-meta.py --check
+
+if [ "$fail" -ne 0 ]; then
+  cat <<'MSG'
+
+pre-push: blocked. Nothing has been pushed.
+
+If _meta.json is the failure, the fix is the second commit:
+    python3 update-meta.py && git add '*_meta.json' && git commit
+
+Push anyway with: git push --no-verify
+MSG
+  exit 1
+fi
+
+echo "pre-push: clean"

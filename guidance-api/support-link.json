@@ -1,0 +1,19 @@
+{
+  "id": "support-link",
+  "dos": [
+    {
+      "text": "Give it a data-l10n-id or a real element child when you want your own link text, connectedCallback substitutes the default \"moz-support-link-text\" string whenever there is no l10n id and childElementCount is 0, so a plain text node gets replaced."
+    },
+    {
+      "text": "Reserve it for SUMO pages, its own JSDoc says other \"Learn more\" links should use a plain anchor element."
+    }
+  ],
+  "donts": [
+    {
+      "text": "Don't set href yourself, #setHref rebuilds it from the app's support base URL on connect and again on every support-page or utm-content change, overwriting whatever you assigned."
+    },
+    {
+      "text": "Don't assume a click follows the href normally in chrome, handleEvent calls preventDefault and routes through openTrustedLinkIn, rewriting a \"current\" destination to \"tab\"."
+    }
+  ]
+}

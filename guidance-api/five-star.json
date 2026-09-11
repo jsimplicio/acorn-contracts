@@ -1,0 +1,25 @@
+{
+  "id": "five-star",
+  "dos": [
+    {
+      "text": "Set selectable before listening for select, onClick returns early when it is false so the event never fires."
+    },
+    {
+      "text": "Set title whenever you set selectable, render() suppresses the component's own data-l10n-id=\"moz-five-star-rating\" as soon as either is truthy, leaving the role=\"img\" wrapper with no accessible name if title is empty."
+    },
+    {
+      "text": "Read the new value from the select event's detail.rating or from the reflected rating attribute, onClick assigns this.rating before dispatching."
+    }
+  ],
+  "donts": [
+    {
+      "text": "Don't listen for select on an ancestor, the CustomEvent is dispatched without bubbles or composed, so it only fires on the moz-five-star element itself."
+    },
+    {
+      "text": "Don't expect a selectable widget to produce the half values it can display, getStars() rounds to the nearest half for rendering but onClick reads the star's rating attribute with parseInt, so a click always yields a whole number."
+    },
+    {
+      "text": "Don't treat selectable as keyboard accessible, the stars are plain <span>s with a click handler and no tabindex or button role, so they can only be operated with a pointer."
+    }
+  ]
+}

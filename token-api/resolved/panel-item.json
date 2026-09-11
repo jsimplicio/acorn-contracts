@@ -15,7 +15,11 @@
     "panel-item.badge.inset.inline.start": {
       "value": "calc({panel-menuitem.padding.inline} + {icon.size.@base})",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "panel-menuitem.padding.inline",
+        "icon.size.@base"
+      ]
     },
     "panel-item.button.border.radius": {
       "value": "16px",
@@ -30,6 +34,10 @@
       "type": "dimension",
       "chain": [
         "panel-menuitem.margin.@base"
+      ],
+      "unresolvedRefs": [
+        "panel-menuitem.margin.block",
+        "panel-menuitem.margin.inline"
       ]
     },
     "panel-item.button.padding.@base": {
@@ -37,12 +45,20 @@
       "type": "dimension",
       "chain": [
         "panel-menuitem.padding.@base"
+      ],
+      "unresolvedRefs": [
+        "panel-menuitem.padding.block",
+        "panel-menuitem.padding.inline"
       ]
     },
     "panel-item.button.padding.inline.start.@base": {
       "value": "calc({panel-menuitem.padding.inline} + {icon.size.@base})",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "panel-menuitem.padding.inline",
+        "icon.size.@base"
+      ]
     },
     "panel-item.button.padding.inline.start.offset": {
       "value": "0.5rem",
@@ -61,7 +77,11 @@
     "panel-menuitem.margin.@base": {
       "value": "{panel-menuitem.margin.block} {panel-menuitem.margin.inline}",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "panel-menuitem.margin.block",
+        "panel-menuitem.margin.inline"
+      ]
     },
     "panel-menuitem.margin.block": {
       "value": "0",
@@ -76,7 +96,11 @@
     "panel-menuitem.padding.@base": {
       "value": "{panel-menuitem.padding.block} {panel-menuitem.padding.inline}",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "panel-menuitem.padding.block",
+        "panel-menuitem.padding.inline"
+      ]
     },
     "panel-menuitem.padding.block": {
       "value": "8px",

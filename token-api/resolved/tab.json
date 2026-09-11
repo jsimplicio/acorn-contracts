@@ -30,7 +30,11 @@
     "tab.border.color.accent": {
       "value": "linear-gradient(96deg, {tab.border.color.selected.leading} 20.68%, {tab.border.color.selected.trailing} 79.34%)",
       "type": "color",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "tab.border.color.selected.leading",
+        "tab.border.color.selected.trailing"
+      ]
     },
     "tab.border.color.selected.leading": {
       "value": "#b89cff",
@@ -108,7 +112,11 @@
     "tab.outline.@base": {
       "value": "{border.width} solid {tab.outline.color}",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "border.width",
+        "tab.outline.color"
+      ]
     },
     "tab.outline.color": {
       "value": "transparent",

@@ -26,6 +26,10 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 ALIAS_RE = re.compile(r"^\{([^{}]+)\}$")
+# Every {ref} anywhere in a value, not just a value that is entirely one.
+# Used to report what resolution left behind, never to substitute: see the
+# comment at the write site in resolve_component.
+ALIAS_REF_RE = re.compile(r"\{([^{}]+)\}")
 MAX_DEPTH = 12
 
 
@@ -234,6 +238,20 @@ def resolve_component(id_, entry, base_lookup):
             "type": token.get("$type"),
             "chain": chain,
         }
+        # ALIAS_RE is anchored, so a value holding more than one ref
+        # ("{border.width} solid {button.border.color.@base}") is returned
+        # untouched with an empty chain -- identical to how a plain literal
+        # like "1px" is returned. A chain can also END on a composite, which
+        # reads as more resolved than it is. Neither case is substituted
+        # here: printing a composite unsubstituted is this project's
+        # deliberate choice in two other places (resolve_alias above, and
+        # index.html's substituteAliases, which is scoped to previews and
+        # says so). What was wrong is claiming there was nothing to resolve,
+        # so the refs left behind are stated instead. Read off the final
+        # value, which covers both cases in one rule.
+        refs = ALIAS_REF_RE.findall(value) if isinstance(value, str) else []
+        if refs:
+            resolved[path]["unresolvedRefs"] = list(dict.fromkeys(refs))
     return resolved
 
 

@@ -527,6 +527,19 @@ so there's no reason to expect others to behave differently).
   convenience, re-run `python3 token-api/resolve.py` any time those change.
   Cross-checked against `index.html`'s own live-rendered values before being
   trusted, and kept in sync the same way after any change to the algorithm.
+
+  "Already walked to its final literal" has one real exception, and the
+  export now states it. A value holding a reference inside a longer string
+  (`{border.width} solid {button.border.color.@base}`, or `oklch(from
+  {message-bar.icon.color} l c h / 20%)`) is not substituted: the resolver
+  only walks a value that is entirely one alias, which is the same
+  deliberate rule `index.html` follows when printing a value. 45 tokens are
+  in this position, and each carries an `unresolvedRefs` array naming the
+  references still present in its `value`. Before, those were
+  indistinguishable from a plain literal, because both reported an empty
+  `chain`. A consumer wanting a fully-substituted string has to substitute
+  those refs itself; `unresolvedRefs` is how it knows it needs to, and
+  which ones.
 - `figma-variables-dump.json` / `figma-check.py` / `figma-token-map.json`:
   the "In Figma" column on every component page's Design tokens table (see
   "Figma existence check" above for the full pipeline and matching rule).

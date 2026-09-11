@@ -130,7 +130,12 @@
     "moz-toggle.dot.height": {
       "value": "calc({toggle.height} - 2 * {toggle.dot.margin} - 2 * {toggle.border.width})",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "toggle.height",
+        "toggle.dot.margin",
+        "toggle.border.width"
+      ]
     },
     "moz-toggle.dot.margin": {
       "value": "1px",
@@ -140,13 +145,23 @@
     "moz-toggle.dot.transform-x": {
       "value": "calc({toggle.width} - 2 * {toggle.dot.margin} - 2px - {toggle.dot.width})",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "toggle.width",
+        "toggle.dot.margin",
+        "toggle.dot.width"
+      ]
     },
     "moz-toggle.dot.width": {
       "value": "calc({toggle.height} - 2 * {toggle.dot.margin} - 2 * {toggle.border.width})",
       "type": "dimension",
       "chain": [
         "toggle.dot.height"
+      ],
+      "unresolvedRefs": [
+        "toggle.height",
+        "toggle.dot.margin",
+        "toggle.border.width"
       ]
     },
     "moz-toggle.height": {

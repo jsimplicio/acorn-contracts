@@ -84,7 +84,11 @@
     "toolbarbutton.outline.@base": {
       "value": "{border.width} solid {toolbarbutton.outline.color.@base}",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "border.width",
+        "toolbarbutton.outline.color.@base"
+      ]
     },
     "toolbarbutton.outline.color.@base": {
       "value": "transparent",

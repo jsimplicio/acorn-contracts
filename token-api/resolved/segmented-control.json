@@ -7,7 +7,11 @@
     "moz-segmented-control.border.@base": {
       "value": "{border.width} solid {segmented-control.border.color}",
       "type": null,
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "border.width",
+        "segmented-control.border.color"
+      ]
     },
     "moz-segmented-control.border.color": {
       "value": "#a6a4a9",
@@ -20,7 +24,13 @@
     "moz-segmented-control.border.radius": {
       "value": "calc({button.border.radius} + {focus.outline.width} + {focus.outline.offset} + {border.width})",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "button.border.radius",
+        "focus.outline.width",
+        "focus.outline.offset",
+        "border.width"
+      ]
     },
     "moz-segmented-control.padding": {
       "value": "0.25rem",

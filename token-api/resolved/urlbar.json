@@ -32,6 +32,10 @@
       "type": null,
       "chain": [
         "box-shadow.level-3"
+      ],
+      "unresolvedRefs": [
+        "box-shadow.color.lighter.layer-1",
+        "box-shadow.color.lighter.layer-2"
       ]
     },
     "urlbar.background.color.@base": {

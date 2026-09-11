@@ -36,6 +36,9 @@
       "type": null,
       "chain": [
         "panel.box.shadow.@base"
+      ],
+      "unresolvedRefs": [
+        "panel.box.shadow.margin"
       ]
     },
     "panel-list.text.color": {
@@ -73,6 +76,10 @@
       "type": null,
       "chain": [
         "box-shadow.level-3"
+      ],
+      "unresolvedRefs": [
+        "box-shadow.color.lighter.layer-1",
+        "box-shadow.color.lighter.layer-2"
       ]
     }
   }

@@ -53,7 +53,11 @@
     "moz-badge.padding.inline": {
       "value": "calc({space.xsmall} + {space.xxsmall})",
       "type": "dimension",
-      "chain": []
+      "chain": [],
+      "unresolvedRefs": [
+        "space.xsmall",
+        "space.xxsmall"
+      ]
     },
     "moz-badge.text.color.@base": {
       "value": "#180e30",

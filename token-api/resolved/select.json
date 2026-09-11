@@ -32,6 +32,10 @@
       "type": null,
       "chain": [
         "button.border.@base"
+      ],
+      "unresolvedRefs": [
+        "border.width",
+        "button.border.color.@base"
       ]
     },
     "moz-select.border.color.disabled": {

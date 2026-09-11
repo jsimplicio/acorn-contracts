@@ -1,0 +1,22 @@
+{
+  "id": "input-search",
+  "dos": [
+    {
+      "text": "Listen for MozInputSearch:search rather than input if you are running a query, handleInput debounces it by 500ms and passes the current text as detail.query."
+    },
+    {
+      "text": "Set iconSrc to an empty string to remove the magnifier, the icon check treats an undefined iconSrc as having an icon, so leaving it unset keeps the default one."
+    }
+  ],
+  "donts": [
+    {
+      "text": "Don't set readonly on a search input, its inputTemplate overrides the base and never passes readonly to the inner input, so the property reflects onto the host and changes nothing."
+    },
+    {
+      "text": "Don't rely on input or change to observe clear(), it only dispatches MozInputSearch:search, and only when the value was non-empty to begin with."
+    },
+    {
+      "text": "Don't remove the element within 500ms of the last keystroke and expect the final search, disconnectedCallback clears the pending debounce timer."
+    }
+  ]
+}

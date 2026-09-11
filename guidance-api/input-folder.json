@@ -1,0 +1,25 @@
+{
+  "id": "input-folder",
+  "dos": [
+    {
+      "text": "Read folder in a change or input listener after a user picks, not after assigning value yourself, openFolderPicker sets the private folder before it assigns value and dispatches, whereas a programmatic value assignment resolves the folder asynchronously in willUpdate."
+    },
+    {
+      "text": "Set dialogTitle, it is passed straight to nsIFilePicker.init as the dialog's title and the constructor defaults it to an empty string."
+    }
+  ],
+  "donts": [
+    {
+      "text": "Don't set readonly to false, willUpdate forces it back to true on every change to that property, so the inner input can never be made editable."
+    },
+    {
+      "text": "Don't treat displayValue as the value, inputTemplate renders displayValue || value but value stays the real folder path that the folder getter and form submission use."
+    },
+    {
+      "text": "Don't expect input or change when the user cancels the picker or re-picks the folder already selected, openFolderPicker returns early on both."
+    },
+    {
+      "text": "Don't assume a non-empty value means a real directory, getFolderFromPath catches an invalid path and returns null, leaving folder null while value keeps the bad string."
+    }
+  ]
+}

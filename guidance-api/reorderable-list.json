@@ -1,0 +1,25 @@
+{
+  "id": "reorderable-list",
+  "dos": [
+    {
+      "text": "Perform the actual move yourself in a reorder listener, the element reports the drop and draws the indicator but never mutates the list."
+    },
+    {
+      "text": "Use detail.insertAt rather than deriving an index from targetIndex and position, it already compensates for the left-shift of splicing the dragged item out of its old position."
+    },
+    {
+      "text": "Call evaluateKeyDownEvent(event) from your own keydown handler for keyboard reordering, nothing calls it internally, and it returns the same detail shape as the reorder event or undefined when the move would be a no-op."
+    }
+  ],
+  "donts": [
+    {
+      "text": "Don't leave itemSelector unset unless your items really are <li>, the constructor defaults it to \"li\" and anything else is silently never made draggable."
+    },
+    {
+      "text": "Don't treat reorder as firing on every drop, onDrop returns early when an item is dropped on itself or into an adjacent position that changes nothing, and only dragended fires in those cases."
+    },
+    {
+      "text": "Don't read getItemIndex right after inserting items, onMutation defers getItems to the next requestAnimationFrame so the stamped indices are a frame stale."
+    }
+  ]
+}

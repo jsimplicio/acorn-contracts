@@ -1,0 +1,13 @@
+{
+  "id": "textarea",
+  "dos": [
+    {
+      "text": "Set rows when you need more than two visible lines, the constructor defaults it to 2 and reflects it onto the host."
+    }
+  ],
+  "donts": [
+    {
+      "text": "Don't put the initial text between the tags the way you would with a native textarea, the shared input base only renders named description, support-link and nested slots, so unslotted children are never shown, set value instead."
+    }
+  ]
+}

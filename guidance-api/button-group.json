@@ -1,0 +1,25 @@
+{
+  "id": "button-group",
+  "dos": [
+    {
+      "text": "Set slot=\"primary\" yourself on a primary button that does not carry primary styling, onSlotchange only auto-promotes a plain <button> with class=\"primary\", type=\"submit\", autofocus or default, or a <moz-button> whose type is primary or destructive."
+    },
+    {
+      "text": "Assert on slot assignment rather than DOM or visual order in tests, #reorderLightDom() puts primary buttons first on Windows and last everywhere else and render() swaps the two slots to match."
+    }
+  ],
+  "donts": [
+    {
+      "text": "Don't set platform in markup, it is declared as { state: true } and assigned by #detectPlatform() in the constructor, so an attribute you write is ignored."
+    },
+    {
+      "text": "Don't wrap the buttons in a container element, onSlotchange switches on child.localName and only ever promotes button and moz-button, so a wrapper leaves every child in the default slot unordered."
+    },
+    {
+      "text": "Don't put class=\"primary\" on a <moz-button> expecting promotion, that branch reads the type property instead, so only type=\"primary\" or type=\"destructive\" moves it."
+    },
+    {
+      "text": "Don't rely on the light-DOM order you authored, #reorderLightDom() calls prepend or append on your own children, so the element rewrites its child order after every slotchange."
+    }
+  ]
+}

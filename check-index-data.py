@@ -51,28 +51,28 @@ COMPONENT_API = ROOT / "component-api"
 GUIDANCE_API = ROOT / "guidance-api"
 SKIP_NAMES = {"schema.json", "_meta.json", "drift-manifest.json"}
 
-# component-api ids with no guidance-api entry. Guidance is authored by
-# hand and these were all found later by check-drift.py, so the gap is real
-# and expected. Recorded here rather than described in guidance-api/README.md
-# so that a new uncovered component fails this check instead of quietly
-# making a sentence wrong. A decision point, not a permanent allowance:
-# writing an entry's guidance and clearing it from this set is the
-# intended direction.
+# component-api ids with no guidance-api entry, and why each one is left.
+# Recorded here rather than described in guidance-api/README.md so that a
+# new uncovered component fails this check instead of quietly making a
+# sentence wrong.
+#
+# The moz-input-* five are empty subclasses of MozInputText: each is under
+# 30 lines and its whole body is super.inputTemplate({ type: "email" }) or
+# the equivalent. Every pitfall they have is MozInputText's, and
+# input-text's own entry already records those two, so separate entries
+# would be five copies of it.
+#
+# input-box is different: moz-input-box was removed from mozilla-central
+# entirely, so there is nothing left to advise anyone about. Its
+# component-api entry still describes the deleted element and needs its
+# own decision.
 GUIDANCE_GAPS = {
-    "button-group",
-    "five-star",
     "input-box",
     "input-email",
-    "input-folder",
     "input-number",
     "input-password",
-    "input-search",
     "input-tel",
     "input-url",
-    "label",
-    "reorderable-list",
-    "support-link",
-    "textarea",
 }
 
 # Same pattern index.html uses at FILE_PATH_RE to decide what to linkify, so

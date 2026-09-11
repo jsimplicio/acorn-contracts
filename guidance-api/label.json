@@ -1,0 +1,25 @@
+{
+  "id": "label",
+  "dos": [
+    {
+      "text": "Set the accessKey property rather than the accesskey attribute when the key should also register on the control, only the property setter forwards it via control.setAttribute(\"accesskey\", val)."
+    },
+    {
+      "text": "Use shownaccesskey instead of accesskey when the control already registers its own, it underlines the character for display without adding a second real accesskey to the element."
+    }
+  ],
+  "donts": [
+    {
+      "text": "Don't point control at an element inside the same shadow root, labeledControlElement resolves it with document.getElementById, so it comes back null and the click handler silently does nothing."
+    },
+    {
+      "text": "Don't expect clicking the label to toggle an HTML checkbox referenced by control, _onClick only focuses it and special-cases XUL checkbox/radio localNames, so use the native for attribute if you want real label activation."
+    },
+    {
+      "text": "Don't rely on the accesskey underline being visible everywhere, formatAccessKey returns early unless the platform underline check passes, which is off on macOS."
+    },
+    {
+      "text": "Don't read textContent after setting enable-center-crop, the getter is overridden to return the value attribute instead of the element's real text."
+    }
+  ]
+}

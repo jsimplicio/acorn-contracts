@@ -63,6 +63,12 @@
       "type": "string",
       "description": "Mapped aria-orientation attribute for the fieldset.",
       "figmaConfig": false
+    },
+    {
+      "name": "role",
+      "type": "string",
+      "description": "Mapped role attribute for the inner fieldset element, applied only when set.",
+      "figmaConfig": false
     }
   ],
   "slots": [

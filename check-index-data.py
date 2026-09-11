@@ -10,7 +10,7 @@ AGENTS.md opens by warning that adding a component means editing both and
 that nothing errors if you forget, leaving it "fully documented in the data
 but invisible in the UI". This is that missing error.
 
-Three assertions, in descending order of how badly a violation hurts:
+Four assertions, in descending order of how badly a violation hurts:
 
 1. The id sets match exactly. An id in component-api/ but not DATA is the
    invisible-in-the-UI case AGENTS.md describes; the reverse is a nav entry
@@ -26,18 +26,15 @@ Three assertions, in descending order of how badly a violation hurts:
    skipped entirely: DATA legitimately cites the classic implementation
    where component-api cites the modern one.
 
+4. guidance-api coverage still matches GUIDANCE_GAPS. Guidance is authored
+   by hand and does not cover every component, so the gap itself is
+   expected; the gap changing without anyone noticing is not. Also catches
+   an orphan: a guidance entry whose id matches no contract, meaning the
+   join key points at nothing.
+
 Known divergences live in EXCEPTIONS with a reason each, and are printed as
 notes on every run rather than silently passing, so they stay visible until
 someone decides them.
-
-4. guidance-api coverage still matches GUIDANCE_GAPS. Guidance is authored
-   by hand and does not cover every component, so the gap is expected; what
-   is not expected is the gap changing without anyone noticing. This
-   directory's own README used to state coverage in prose and the sentence
-   went stale, claiming all 57 components had guidance once the inventory
-   had grown to 71. A new component with no guidance now fails here
-   instead. Also catches an orphan: a guidance entry whose id matches no
-   contract, meaning the join key points at nothing.
 
 Usage: python3 check-index-data.py
 Exits non-zero on any unexplained disagreement.
@@ -55,15 +52,12 @@ GUIDANCE_API = ROOT / "guidance-api"
 SKIP_NAMES = {"schema.json", "_meta.json", "drift-manifest.json"}
 
 # component-api ids with no guidance-api entry. Guidance is authored by
-# hand, and these 14 components were all found later by check-drift.py,
-# after that authoring pass, so the gap is real and expected right now.
-#
-# They are listed here rather than described in guidance-api/README.md so
-# that a fifteenth uncovered component fails this check instead of quietly
-# making a sentence in that README wrong -- which is exactly what happened
-# to its previous claim that all 57 components had guidance. This is a
-# decision point, not a permanent allowance: clearing an entry from this
-# set by writing its guidance is the intended direction.
+# hand and these were all found later by check-drift.py, so the gap is real
+# and expected. Recorded here rather than described in guidance-api/README.md
+# so that a new uncovered component fails this check instead of quietly
+# making a sentence wrong. A decision point, not a permanent allowance:
+# writing an entry's guidance and clearing it from this set is the
+# intended direction.
 GUIDANCE_GAPS = {
     "button-group",
     "five-star",

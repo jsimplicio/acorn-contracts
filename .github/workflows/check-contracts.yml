@@ -1,16 +1,12 @@
 # Guards on the contracts themselves, as opposed to check-derived.yml, which
 # guards files regenerated from them.
 #
-# Each API ships a real draft 2020-12 JSON Schema, and component-api/README.md
-# describes its one as "validated against all real entries" — but no script
-# and no job ever ran that validation, so the claim rested on someone having
-# checked by hand once. A schema nothing invokes is documentation, not a guard.
+# schemas: every entry validated against the draft 2020-12 schema its own
+# directory ships. A schema no job invokes is documentation, not a guard.
 #
-# index.html's DATA array is a second full inventory of the same 71
-# components, duplicating id, kind, tagName and file from component-api/.
-# AGENTS.md opens by warning that adding a component means editing both and
-# that nothing errors if you forget, leaving it documented but invisible in
-# the UI. This is that missing error.
+# index-data: index.html's DATA array is a second full inventory of the same
+# components, duplicating id, kind, tagName and file from component-api/, and
+# AGENTS.md warns that forgetting one side does not error. This errors.
 name: Check contracts are consistent
 
 on:

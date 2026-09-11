@@ -187,9 +187,7 @@
      a column header is a heading, and the body serif it inherited from
      <body> otherwise made every table label read as content. */
   /* .coverage-line is the Figma/Supernova/Storybook row at the top of a
-     component page: three labels with a status glyph each, which is chrome
-     like a column header rather than prose, so it takes the heading stack
-     instead of body's serif. */
+     component page: labelled status glyphs, chrome rather than prose. */
   h1, h2, h3, th, #nav, #section-nav, .coverage-line { font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 
   /* Sidebar: #nav itself never scrolls, it's a fixed-height flex column.
@@ -269,23 +267,19 @@
   .view.active { display: block; }
 
   /* Right rail listing the sections of the page being read, with a row
-     count each. A component page carries up to eight sections and a token
-     page one per group, and neither showed its own shape without scrolling
-     the whole thing first. It costs #main nothing: #main is already capped
-     at 900px, so on a wide viewport this occupies space that was empty.
-     Sticky rather than fixed, so a viewport too short to hold the whole
-     list scrolls it with the document instead of clipping it. The top
-     padding clears #theme-toggle, which is fixed at top:16px right:20px. */
+     count each. Sticky rather than fixed, so a viewport too short to hold
+     the whole list scrolls it with the document instead of clipping it.
+     The top padding clears #theme-toggle, fixed at top:16px right:20px. */
   #section-nav { flex: 0 0 200px; align-self: flex-start; position: sticky; top: 0; max-height: 100vh; overflow-y: auto; padding: 64px 20px 40px 0; }
   #section-nav-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-faint); margin-bottom: 8px; padding-left: 11px; }
-  /* baseline, not the default stretch: "Attributes and properties" wraps to
-     two lines at this width, and the count should sit on the first one. */
+  /* baseline, not stretch: a two-line label should keep its count on the
+     first line. */
   .section-nav-link { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 4px 0 4px 10px; font-size: 13px; line-height: 1.35; color: var(--text-nav); text-decoration: none; border-left: 1px solid var(--border-soft); }
   .section-nav-link:hover { color: var(--accent); border-left-color: var(--accent); }
   .section-nav-link.current { color: var(--accent); border-left-color: var(--accent); }
   .section-nav-count { flex: 0 0 auto; color: var(--text-faint); font-variant-numeric: tabular-nums; }
-  /* Narrower than this and the rail would start squeezing #main, which
-     already gives up 240px to the left nav. */
+  /* Narrower than this the rail would squeeze #main, which already gives
+     240px to the left nav. */
   @media (max-width: 1180px) { #section-nav { display: none; } }
 
   h1 { font-size: 28px; font-weight: 700; margin: 0 0 4px; }
@@ -662,14 +656,8 @@
     { id: "visual-picker-item", name: "Visual Picker Item", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-visual-picker-item", file: "same file, class MozVisualPickerItem", parentId: "visual-picker" },
   ];
 
-  // "missing" (no real Firefox equivalent) has no entry here on purpose:
-  // it's not an implementation kind like the others, it's the absence of
-  // one, so it gets no badge, just the file column's own citation text.
-  // "modern"/"classic" rather than "moz-*"/"classic": the axis is whether a
-  // component is Lit, not whether it carries the moz-* prefix (see
-  // component-api/README.md), and sidebar-main.mjs is real Lit without it.
-  // The old label named a naming convention and read as a contrast with
-  // something other than "classic".
+  // The axis is whether a component is Lit, not whether it carries the
+  // moz-* prefix; see component-api/README.md.
   const KIND_LABEL = { modern: "modern", classic: "classic", none: "pattern", dual: "modern + classic" };
   const KIND_DEFINITION = {
     modern: "A real, modern Lit-based custom element, the current convention for new widgets (customElements.define, extends MozLitElement).",
@@ -956,14 +944,9 @@
   // around it. `wrap` receives the matched text and owns whatever escaping
   // happens inside its own output.
   //
-  // matchAll rather than String.replace used as an offset scanner: replace
-  // shifts its `offset` argument along as soon as a pattern gains a capture
-  // group, which is a live trap for whoever edits one of these patterns
-  // next. Both patterns happen to use only (?:...) groups today.
-  //
-  // formatProse and linkifyFilePaths were this same block twice over,
-  // differing only in their pattern and their one-line wrapper, which left
-  // the escape-every-gap invariant stated in two places at once.
+  // matchAll, not String.replace used as an offset scanner: replace shifts
+  // its `offset` argument along as soon as a pattern gains a capture group,
+  // and both patterns here are alternation lists someone will edit.
   function wrapMatches(value, re, wrap) {
     if (value === null || value === undefined) return "";
     const str = String(value);
@@ -1852,24 +1835,11 @@
   }
 
 
-  // Slots, events, methods and CSS parts each used to render as a <ul> with
-  // the name and its whole description on one line, while attributes got a
-  // real table. Four of the five API sections being flat lists left no
-  // column of names to scan down, worst exactly where it matters most:
-  // Urlbar documents 19 methods, Findbar 17, Reorderable List 15. All four
-  // share this table now, reusing .attrs-table so the name column picks
-  // up its existing mono/pink first-cell rule. Unconditional
-  // rather than only above some item count, since switching shape partway
-  // down a page is the inconsistency that made it hard to read to begin
-  // with. `format` returns already-escaped HTML for the name cell.
-  //
-  // The Description column is dropped when nothing in the collection has
-  // one, rather than rendered empty: slots, events and CSS parts are
-  // described 100% of the time, but only 75 of 166 methods are, and for
-  // nine components every single method is bare (Urlbar 19, Findbar 17,
-  // Tabstrip 13, Tab 12). A blank column down 19 rows reads worse than the
-  // list this replaced. Same "omitted, not padded" rule the schema already
-  // applies to the data itself.
+  // Shared by the slots, events, methods and CSS parts sections, which are
+  // all a name plus an optional description. `format` returns
+  // already-escaped HTML for the name cell. The Description column is
+  // omitted when nothing in the collection has one: most methods carry no
+  // description, and a blank column reads worse than no column.
   function renderNameTable(items, format) {
     const described = items.some(i => i.description);
     const head = described ? `<tr><th>Name</th><th>Description</th></tr>` : `<tr><th>Name</th></tr>`;
@@ -1913,10 +1883,6 @@
   // generated before this property existed), a "not checked" state, not a
   // third answer to "does this exist in Figma."
   function figmaCheckCell(name, figmaMap) {
-    // The backtick-quoted Figma variable names in these titles are a
-    // readability choice now, not a requirement: escapeHtml() escapes a
-    // literal " as well, so an embedded quote can no longer truncate the
-    // attribute.
     const entry = figmaMap[name];
     if (!entry) {
       return `<td class="check unknown" title="Not checked against the Figma token map">?</td>`;
@@ -1964,25 +1930,13 @@
       .replace(/^-+|-+$/g, "");
   }
 
-  // Gives every rendered section on a component page an id and makes its
-  // heading a link to itself. Done here, once, against the rendered DOM
-  // rather than in each of the eleven template strings that build those
-  // headings: a section added later gets an anchor without anyone
-  // remembering to add one, and the slug can't drift from the text.
-  // `routeFor` maps a heading's slug to the id of the route that lands on
-  // it, which differs per view: a component section is "<component>/<slug>"
-  // while a token group is "tokens/<family>/<slug>". An id already on the
-  // heading is left alone, since the token page sets its own (and scrolls
-  // to it) before this runs.
-  // `selector` says what counts as a section heading on this kind of page,
-  // because the four views do not agree: a component page renders
-  // h2.section, a docs page renders a README's own "##" as a plain h3 (its
-  // single "#" title is stripped before rendering, so it has no h2.section
-  // except the appended schema block), and the home page has one
-  // h3.table-group per coverage table plus its Notes h2.
+  // `selector` says what counts as a section heading, because the views do
+  // not agree: h2.section on a component page, a plain h3 on a docs page
+  // (a README's own "##"; its single "#" title is stripped before
+  // rendering), and h3.table-group plus the Notes h2 on home.
   //
-  // `routeFor` may be null for a page whose sections have no route of their
-  // own; see linkSection.
+  // `routeFor` may be null for a page whose sections have no route of
+  // their own; see linkSection.
   function decorateSections(container, routeFor, selector) {
     const headings = [...container.querySelectorAll(selector || "h2.section")];
     const sections = [];
@@ -1997,10 +1951,8 @@
       linkSection(a, routeFor, slug);
       heading.textContent = "";
       heading.appendChild(a);
-      // The element, not just its slug: a token page sets its own heading
-      // ids (token-group-<stem>-<group>) before this runs, so the id and
-      // the slug are not the same string there and re-deriving one from
-      // the other finds nothing.
+      // The element, not its slug: a token page sets its own heading ids
+      // (token-group-<stem>-<group>), so id and slug differ there.
       sections.push({ label, slug, el: heading, count: countBetween(heading, headings[i + 1]) });
     });
     renderSectionNav(sections, routeFor);
@@ -2016,11 +1968,9 @@
     else a.setAttribute("href", "#" + slug);
   }
 
-  // How many real rows a section holds, for the rail's count. Counts up to
-  // the next heading in the collected list rather than sniffing forward for
-  // a stop tag, so it works for any heading level without being told which
-  // one this page used. A section is a flat run of heading-then-content,
-  // not a container, so there is nothing to query inside.
+  // How many rows a section holds, for the rail's count. Counts up to the
+  // next heading in the collected list, so it works at any heading level
+  // without being told which one this page used.
   function countBetween(from, next) {
     let n = 0;
     for (let el = from.nextElementSibling; el && el !== next; el = el.nextElementSibling) {
@@ -2029,8 +1979,8 @@
     return n;
   }
 
-  // One place each for what a docs page and the home page call a section,
-  // since both are decorated from more than one call site.
+  // What a docs page and the home page each call a section. Both are
+  // decorated from more than one call site.
   function decorateDocSections() {
     decorateSections(document.getElementById("doc-body"), null, "h2.section, h3");
   }
@@ -2074,15 +2024,11 @@
 
   let sectionObserver = null;
 
-  // Highlights whichever section the reader is actually in. rootMargin
-  // discounts the bottom 78% of the viewport so the highlight tracks the
-  // heading nearest the top of the screen, not whichever one happens to
-  // have scrolled into view at the bottom.
-  //
-  // Observes the elements decorateSections already collected, and keys the
-  // seen set on each element's real id. Looking headings back up by slug
-  // silently observed nothing on token pages, whose ids are written by
-  // groupAnchorId and so never equal their heading's slug.
+  // Highlights whichever section the reader is in. rootMargin discounts the
+  // bottom 78% of the viewport so the highlight tracks the heading nearest
+  // the top of the screen rather than one scrolling in at the bottom.
+  // Observes the elements decorateSections collected and keys on their real
+  // ids, which on a token page never equal their heading's slug.
   function observeSections(sections) {
     if (sectionObserver) sectionObserver.disconnect();
     if (!("IntersectionObserver" in window)) return;
@@ -2305,10 +2251,9 @@
     const inPlace = !!(opts && opts.inPlace);
     document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
     document.querySelectorAll("#nav a").forEach(a => a.classList.remove("active"));
-    // Hidden here rather than in each branch: only component and token
-    // pages call decorateSections, and that call is what shows it again.
-    // Doing it up front also means the rail is never briefly showing the
-    // previous page's sections while an async page load is in flight.
+    // Cleared up front rather than per branch: whichever view is about to
+    // render shows it again by calling decorateSections, and the rail is
+    // never left showing the previous page's sections mid-load.
     document.getElementById("section-nav").hidden = true;
 
     const compSection = componentSectionOf(id);

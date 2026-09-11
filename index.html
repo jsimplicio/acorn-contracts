@@ -1972,7 +1972,11 @@
       wireNavLink(a, routeFor(slug));
       h2.textContent = "";
       h2.appendChild(a);
-      sections.push({ label, slug, count: countSectionItems(h2) });
+      // The element, not just its slug: a token page sets its own heading
+      // ids (token-group-<stem>-<group>) before this runs, so the id and
+      // the slug are not the same string there and re-deriving one from
+      // the other finds nothing.
+      sections.push({ label, slug, el: h2, count: countSectionItems(h2) });
     });
     renderSectionNav(sections, routeFor);
   }
@@ -2030,6 +2034,11 @@
   // discounts the bottom 78% of the viewport so the highlight tracks the
   // heading nearest the top of the screen, not whichever one happens to
   // have scrolled into view at the bottom.
+  //
+  // Observes the elements decorateSections already collected, and keys the
+  // seen set on each element's real id. Looking headings back up by slug
+  // silently observed nothing on token pages, whose ids are written by
+  // groupAnchorId and so never equal their heading's slug.
   function observeSections(sections) {
     if (sectionObserver) sectionObserver.disconnect();
     if (!("IntersectionObserver" in window)) return;
@@ -2040,14 +2049,11 @@
     sectionObserver = new IntersectionObserver(records => {
       records.forEach(r => r.isIntersecting ? seen.add(r.target.id) : seen.delete(r.target.id));
       // Document order, so overlapping headings resolve to the topmost.
-      const current = sections.map(s => s.slug).find(slug => seen.has(slug));
+      const current = sections.find(s => seen.has(s.el.id));
       links.forEach(a => a.classList.remove("current"));
-      if (current && links.has(current)) links.get(current).classList.add("current");
+      if (current && links.has(current.slug)) links.get(current.slug).classList.add("current");
     }, { rootMargin: "0px 0px -78% 0px" });
-    sections.forEach(s => {
-      const h2 = document.getElementById(s.slug);
-      if (h2) sectionObserver.observe(h2);
-    });
+    sections.forEach(s => sectionObserver.observe(s.el));
   }
 
   // "button/usage" -> {id: "button", section: "usage"}, and null for

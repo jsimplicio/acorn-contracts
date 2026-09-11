@@ -186,7 +186,7 @@
   /* th joins the headings rather than getting its own copy of the stack:
      a column header is a heading, and the body serif it inherited from
      <body> otherwise made every table label read as content. */
-  h1, h2, h3, th, #nav { font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1, h2, h3, th, #nav, #section-nav { font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 
   /* Sidebar: #nav itself never scrolls, it's a fixed-height flex column.
      #nav-title is a fixed-size item so it always stays visible; #nav-scroll
@@ -263,6 +263,26 @@
   #main { flex: 1 1 auto; min-width: 0; padding: 40px 48px; max-width: 900px; }
   .view { display: none; }
   .view.active { display: block; }
+
+  /* Right rail listing the sections of the page being read, with a row
+     count each. A component page carries up to eight sections and a token
+     page one per group, and neither showed its own shape without scrolling
+     the whole thing first. It costs #main nothing: #main is already capped
+     at 900px, so on a wide viewport this occupies space that was empty.
+     Sticky rather than fixed, so a viewport too short to hold the whole
+     list scrolls it with the document instead of clipping it. The top
+     padding clears #theme-toggle, which is fixed at top:16px right:20px. */
+  #section-nav { flex: 0 0 200px; align-self: flex-start; position: sticky; top: 0; max-height: 100vh; overflow-y: auto; padding: 64px 20px 40px 0; }
+  #section-nav-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-faint); margin-bottom: 8px; padding-left: 11px; }
+  /* baseline, not the default stretch: "Attributes and properties" wraps to
+     two lines at this width, and the count should sit on the first one. */
+  .section-nav-link { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 4px 0 4px 10px; font-size: 13px; line-height: 1.35; color: var(--text-nav); text-decoration: none; border-left: 1px solid var(--border-soft); }
+  .section-nav-link:hover { color: var(--accent); border-left-color: var(--accent); }
+  .section-nav-link.current { color: var(--accent); border-left-color: var(--accent); }
+  .section-nav-count { flex: 0 0 auto; color: var(--text-faint); font-variant-numeric: tabular-nums; }
+  /* Narrower than this and the rail would start squeezing #main, which
+     already gives up 240px to the left nav. */
+  @media (max-width: 1180px) { #section-nav { display: none; } }
 
   h1 { font-size: 28px; font-weight: 700; margin: 0 0 4px; }
   #doc-body h3 { font-size: 18px; font-weight: 700; }
@@ -551,6 +571,11 @@
   </section>
 
 </main>
+
+<aside id="section-nav" hidden aria-label="Sections on this page">
+  <div id="section-nav-title">On this page</div>
+  <div id="section-nav-list"></div>
+</aside>
 
 <script>
   // Drives the nav, home tables, and per-item view from one place.
@@ -1933,6 +1958,7 @@
   // heading is left alone, since the token page sets its own (and scrolls
   // to it) before this runs.
   function decorateSections(container, routeFor) {
+    const sections = [];
     container.querySelectorAll("h2.section").forEach(h2 => {
       const label = h2.textContent;
       const slug = sectionSlug(label);
@@ -1946,6 +1972,81 @@
       wireNavLink(a, routeFor(slug));
       h2.textContent = "";
       h2.appendChild(a);
+      sections.push({ label, slug, count: countSectionItems(h2) });
+    });
+    renderSectionNav(sections, routeFor);
+  }
+
+  // How many real rows a section holds, for the rail's count. Walks forward
+  // to the next section heading instead of reading a wrapper element,
+  // because a section is a flat run of h2-then-content rather than a
+  // container: there is nothing to query inside.
+  function countSectionItems(h2) {
+    let n = 0;
+    for (let el = h2.nextElementSibling;
+         el && !(el.tagName === "H2" && el.classList.contains("section"));
+         el = el.nextElementSibling) {
+      n += el.querySelectorAll("tbody tr, li").length;
+    }
+    return n;
+  }
+
+  // The rail only earns its space once a page has enough sections to be
+  // worth jumping between; below that it is a list of one or two things
+  // already on screen. Sections with no countable rows (Description,
+  // Usage) still get a link, just no number.
+  function renderSectionNav(sections, routeFor) {
+    const aside = document.getElementById("section-nav");
+    const list = document.getElementById("section-nav-list");
+    list.textContent = "";
+    if (sections.length < 3) {
+      aside.hidden = true;
+      if (sectionObserver) sectionObserver.disconnect();
+      return;
+    }
+    sections.forEach(s => {
+      const a = document.createElement("a");
+      a.className = "section-nav-link";
+      a.dataset.slug = s.slug;
+      const label = document.createElement("span");
+      label.textContent = s.label;
+      a.appendChild(label);
+      if (s.count) {
+        const count = document.createElement("span");
+        count.className = "section-nav-count";
+        count.textContent = s.count;
+        a.appendChild(count);
+      }
+      wireNavLink(a, routeFor(s.slug));
+      list.appendChild(a);
+    });
+    aside.hidden = false;
+    observeSections(sections);
+  }
+
+  let sectionObserver = null;
+
+  // Highlights whichever section the reader is actually in. rootMargin
+  // discounts the bottom 78% of the viewport so the highlight tracks the
+  // heading nearest the top of the screen, not whichever one happens to
+  // have scrolled into view at the bottom.
+  function observeSections(sections) {
+    if (sectionObserver) sectionObserver.disconnect();
+    if (!("IntersectionObserver" in window)) return;
+    const links = new Map(
+      [...document.querySelectorAll(".section-nav-link")].map(a => [a.dataset.slug, a])
+    );
+    const seen = new Set();
+    sectionObserver = new IntersectionObserver(records => {
+      records.forEach(r => r.isIntersecting ? seen.add(r.target.id) : seen.delete(r.target.id));
+      // Document order, so overlapping headings resolve to the topmost.
+      const current = sections.map(s => s.slug).find(slug => seen.has(slug));
+      links.forEach(a => a.classList.remove("current"));
+      if (current && links.has(current)) links.get(current).classList.add("current");
+    }, { rootMargin: "0px 0px -78% 0px" });
+    sections.forEach(s => {
+      const h2 = document.getElementById(s.slug);
+      if (h2) sectionObserver.observe(h2);
     });
   }
 
@@ -2154,6 +2255,11 @@
     const inPlace = !!(opts && opts.inPlace);
     document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
     document.querySelectorAll("#nav a").forEach(a => a.classList.remove("active"));
+    // Hidden here rather than in each branch: only component and token
+    // pages call decorateSections, and that call is what shows it again.
+    // Doing it up front also means the rail is never briefly showing the
+    // previous page's sections while an async page load is in flight.
+    document.getElementById("section-nav").hidden = true;
 
     const compSection = componentSectionOf(id);
 

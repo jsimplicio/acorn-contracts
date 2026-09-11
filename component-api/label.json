@@ -21,6 +21,12 @@
       "figmaConfig": false
     },
     {
+      "name": "enable-center-crop",
+      "type": "boolean",
+      "description": "Presence-only. Sets crop=\"center\" and, if no value attribute is set yet, copies the element's current textContent into it. While present, the overridden textContent getter returns the value attribute instead of the element's real text.",
+      "figmaConfig": false
+    },
+    {
       "name": "control",
       "type": "string",
       "description": "The id of the control this label is for; used to look up labeledControlElement.",

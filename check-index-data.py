@@ -4,7 +4,7 @@ still agree about the components they both describe.
 
 The site's nav, home tables and per-item view are driven by a hardcoded
 DATA array inside index.html, not by component-api/. That makes it a second
-full inventory of the same 71 components, and four of its nine fields (id,
+full inventory of the same components, and four of its nine fields (id,
 kind, tagName, file) duplicate what component-api/<id>.json already says.
 AGENTS.md opens by warning that adding a component means editing both and
 that nothing errors if you forget, leaving it "fully documented in the data
@@ -61,13 +61,7 @@ SKIP_NAMES = {"schema.json", "_meta.json", "drift-manifest.json"}
 # the equivalent. Every pitfall they have is MozInputText's, and
 # input-text's own entry already records those two, so separate entries
 # would be five copies of it.
-#
-# input-box is different: moz-input-box was removed from mozilla-central
-# entirely, so there is nothing left to advise anyone about. Its
-# component-api entry still describes the deleted element and needs its
-# own decision.
 GUIDANCE_GAPS = {
-    "input-box",
     "input-email",
     "input-number",
     "input-password",

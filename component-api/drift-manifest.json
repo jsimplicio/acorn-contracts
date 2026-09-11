@@ -73,10 +73,6 @@
       "file": "toolkit/content/widgets/notificationbox.js",
       "hash": "07e18a3cf4225e25ad6885a92b610d7db26f7a99104362d1030d59a82107d1e7"
     },
-    "input-box": {
-      "file": "toolkit/content/widgets/moz-input-box.js",
-      "hash": "f4cef0132d308a23efdc2c575c100afe487586ecf626d70d6202c0106b759027"
-    },
     "input-color": {
       "file": "toolkit/content/widgets/moz-input-color/moz-input-color.mjs",
       "hash": "a7930dc48c23f3fa11848773af12958bd281f014887220dffc445dce9524aed3"

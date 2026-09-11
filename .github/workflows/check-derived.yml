@@ -40,6 +40,23 @@ jobs:
           fi
           echo "token-api/resolved/ matches its sources."
 
+      # figma-token-map.json is derived the same deterministic way and was
+      # guarded by nothing. figma-check.py reads resolved/*.json among its
+      # inputs, so it runs here, after resolve.py, rather than in a job that
+      # would have to regenerate resolved/ again just to have it current.
+      # No network: the Figma side is the committed figma-variables-dump.json.
+      - name: Regenerate token-api/figma-token-map.json
+        run: python3 token-api/figma-check.py
+
+      - name: Fail if it differs from what is committed
+        run: |
+          if ! git diff --quiet -- token-api/figma-token-map.json; then
+            echo "::error::token-api/figma-token-map.json is out of date. Run 'python3 token-api/figma-check.py' and commit the result."
+            git diff --stat -- token-api/figma-token-map.json
+            exit 1
+          fi
+          echo "token-api/figma-token-map.json matches its sources."
+
   meta:
     # component-api/_meta.json and guidance-api/_meta.json record each file's
     # real last commit. They go stale two ways, both of which have happened:

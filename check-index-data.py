@@ -30,6 +30,15 @@ Known divergences live in EXCEPTIONS with a reason each, and are printed as
 notes on every run rather than silently passing, so they stay visible until
 someone decides them.
 
+4. guidance-api coverage still matches GUIDANCE_GAPS. Guidance is authored
+   by hand and does not cover every component, so the gap is expected; what
+   is not expected is the gap changing without anyone noticing. This
+   directory's own README used to state coverage in prose and the sentence
+   went stale, claiming all 57 components had guidance once the inventory
+   had grown to 71. A new component with no guidance now fails here
+   instead. Also catches an orphan: a guidance entry whose id matches no
+   contract, meaning the join key points at nothing.
+
 Usage: python3 check-index-data.py
 Exits non-zero on any unexplained disagreement.
 """
@@ -42,7 +51,35 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 INDEX = ROOT / "index.html"
 COMPONENT_API = ROOT / "component-api"
+GUIDANCE_API = ROOT / "guidance-api"
 SKIP_NAMES = {"schema.json", "_meta.json", "drift-manifest.json"}
+
+# component-api ids with no guidance-api entry. Guidance is authored by
+# hand, and these 14 components were all found later by check-drift.py,
+# after that authoring pass, so the gap is real and expected right now.
+#
+# They are listed here rather than described in guidance-api/README.md so
+# that a fifteenth uncovered component fails this check instead of quietly
+# making a sentence in that README wrong -- which is exactly what happened
+# to its previous claim that all 57 components had guidance. This is a
+# decision point, not a permanent allowance: clearing an entry from this
+# set by writing its guidance is the intended direction.
+GUIDANCE_GAPS = {
+    "button-group",
+    "five-star",
+    "input-box",
+    "input-email",
+    "input-folder",
+    "input-number",
+    "input-password",
+    "input-search",
+    "input-tel",
+    "input-url",
+    "label",
+    "reorderable-list",
+    "support-link",
+    "textarea",
+}
 
 # Same pattern index.html uses at FILE_PATH_RE to decide what to linkify, so
 # this check agrees with the page about what counts as a real path.
@@ -88,6 +125,34 @@ def contracts():
         data = json.loads(path.read_text(encoding="utf-8"))
         out[data["id"]] = data
     return out
+
+
+def guidance_ids():
+    """Every id with a real guidance-api entry."""
+    return {
+        path.stem
+        for path in GUIDANCE_API.glob("*.json")
+        if path.name not in SKIP_NAMES and not path.name.startswith("_")
+    }
+
+
+def guidance_problems(component_ids):
+    """Where guidance coverage no longer matches what GUIDANCE_GAPS says.
+
+    Two directions. An id with guidance but no contract is an orphan: the
+    join key points at nothing. An id with neither guidance nor a place in
+    GUIDANCE_GAPS is a new component whose guidance nobody has decided
+    about yet, which is the case worth failing on."""
+    have = guidance_ids()
+    problems = []
+    for cid in sorted(have - component_ids):
+        problems.append((cid, "guidance entry with no component-api entry"))
+    uncovered = component_ids - have
+    for cid in sorted(uncovered - GUIDANCE_GAPS):
+        problems.append((cid, "no guidance entry, and not a known gap"))
+    for cid in sorted(GUIDANCE_GAPS - uncovered):
+        problems.append((cid, "listed in GUIDANCE_GAPS but now has guidance; remove it from that set"))
+    return problems, have, uncovered
 
 
 def tag_set(value):
@@ -147,17 +212,28 @@ def main():
             print(f"  {cid}.{field}: index.html={a!r} component-api={b!r}")
             print(f"    {EXCEPTIONS[(cid, field)]}")
 
+    gaps, have, uncovered = guidance_problems(set(real))
     print()
-    if unknown:
-        print(f"DISAGREEMENT ({len(unknown)}), index.html and component-api/ differ:")
-        for cid, field, a, b in unknown:
-            if field == "id":
-                print(f"  {cid}: {a} ({b})")
-            else:
-                print(f"  {cid}.{field}: index.html={a!r} component-api={b!r}")
+    print(f"guidance-api/: {len(have)} entries, covering {len(real) - len(uncovered)} "
+          f"of {len(real)} components, {len(uncovered)} known gap(s).")
+
+    print()
+    if unknown or gaps:
+        if unknown:
+            print(f"DISAGREEMENT ({len(unknown)}), index.html and component-api/ differ:")
+            for cid, field, a, b in unknown:
+                if field == "id":
+                    print(f"  {cid}: {a} ({b})")
+                else:
+                    print(f"  {cid}.{field}: index.html={a!r} component-api={b!r}")
+        if gaps:
+            print(f"GUIDANCE COVERAGE ({len(gaps)}), changed since GUIDANCE_GAPS was written:")
+            for cid, why in gaps:
+                print(f"  {cid}: {why}")
         sys.exit(1)
 
-    print("index.html DATA and component-api/ agree on every shared field.")
+    print("index.html DATA and component-api/ agree on every shared field, "
+          "and guidance coverage matches GUIDANCE_GAPS.")
 
 
 if __name__ == "__main__":

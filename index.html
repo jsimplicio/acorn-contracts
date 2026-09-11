@@ -1997,9 +1997,12 @@
     const aside = document.getElementById("section-nav");
     const list = document.getElementById("section-nav-list");
     list.textContent = "";
-    if (sections.length < 3) {
+    // Two is enough to be worth a rail: most token families have exactly
+    // one group (Background, Focus, Text) or none (Space), where the page
+    // is the section and a rail would just restate the h1.
+    if (sections.length < 2) {
       aside.hidden = true;
-      if (sectionObserver) sectionObserver.disconnect();
+      stopSectionSpy();
       return;
     }
     sections.forEach(s => {
@@ -2022,28 +2025,64 @@
     observeSections(sections);
   }
 
-  let sectionObserver = null;
+  // How far down the viewport a heading has to pass before its section
+  // counts as the one being read. Roughly one heading's height, so the
+  // highlight changes as a heading leaves rather than as it arrives.
+  const SECTION_SPY_LINE = 120;
 
-  // Highlights whichever section the reader is in. rootMargin discounts the
-  // bottom 78% of the viewport so the highlight tracks the heading nearest
-  // the top of the screen rather than one scrolling in at the bottom.
-  // Observes the elements decorateSections collected and keys on their real
-  // ids, which on a token page never equal their heading's slug.
+  let sectionSpy = null;
+
+  function stopSectionSpy() {
+    if (!sectionSpy) return;
+    window.removeEventListener("scroll", sectionSpy);
+    window.removeEventListener("resize", sectionSpy);
+    sectionSpy = null;
+  }
+
+  // Highlights the section the reader is inside: the last heading whose top
+  // has passed a line near the top of the viewport, falling back to the
+  // first so something is always marked.
+  //
+  // Deliberately a scroll handler rather than an IntersectionObserver on the
+  // headings. An observer only reports while a heading is inside its
+  // margin-shrunk band, so on a page with sections taller than that band --
+  // Urlbar's Methods table is 19 rows -- nothing is highlighted for most of
+  // the scroll. Reading rects for the handful of headings on a page is
+  // cheap, and it answers "which section am I in" instead of "is a heading
+  // on screen".
   function observeSections(sections) {
-    if (sectionObserver) sectionObserver.disconnect();
-    if (!("IntersectionObserver" in window)) return;
+    stopSectionSpy();
+    if (!sections.length) return;
     const links = new Map(
       [...document.querySelectorAll(".section-nav-link")].map(a => [a.dataset.slug, a])
     );
-    const seen = new Set();
-    sectionObserver = new IntersectionObserver(records => {
-      records.forEach(r => r.isIntersecting ? seen.add(r.target.id) : seen.delete(r.target.id));
-      // Document order, so overlapping headings resolve to the topmost.
-      const current = sections.find(s => seen.has(s.el.id));
+    let queued = false;
+    const update = () => {
+      queued = false;
+      let current = sections[0];
+      for (const s of sections) {
+        if (s.el.getBoundingClientRect().top <= SECTION_SPY_LINE) current = s;
+      }
+      // At the bottom of the document the trailing sections can never reach
+      // the line, because there is not enough content below them left to
+      // scroll. Without this the last one or two are unreachable: on Urlbar
+      // the highlight stopped at Design tokens and never got to Variants.
+      const doc = document.documentElement;
+      if (window.innerHeight + window.scrollY >= doc.scrollHeight - 2) {
+        current = sections[sections.length - 1];
+      }
       links.forEach(a => a.classList.remove("current"));
-      if (current && links.has(current.slug)) links.get(current.slug).classList.add("current");
-    }, { rootMargin: "0px 0px -78% 0px" });
-    sections.forEach(s => sectionObserver.observe(s.el));
+      const link = links.get(current.slug);
+      if (link) link.classList.add("current");
+    };
+    sectionSpy = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", sectionSpy, { passive: true });
+    window.addEventListener("resize", sectionSpy, { passive: true });
+    update();
   }
 
   // "button/usage" -> {id: "button", section: "usage"}, and null for

@@ -186,7 +186,11 @@
   /* th joins the headings rather than getting its own copy of the stack:
      a column header is a heading, and the body serif it inherited from
      <body> otherwise made every table label read as content. */
-  h1, h2, h3, th, #nav, #section-nav { font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  /* .coverage-line is the Figma/Supernova/Storybook row at the top of a
+     component page: three labels with a status glyph each, which is chrome
+     like a column header rather than prose, so it takes the heading stack
+     instead of body's serif. */
+  h1, h2, h3, th, #nav, #section-nav, .coverage-line { font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 
   /* Sidebar: #nav itself never scrolls, it's a fixed-height flex column.
      #nav-title is a fixed-size item so it always stays visible; #nav-scroll
@@ -504,7 +508,7 @@
   <!-- HOME: coverage table -->
   <section id="view-home" class="view active">
     <h1>Home</h1>
-    <p class="meta">Where each real Firefox component or pattern actually exists today, across Figma, Supernova (documented), and Storybook, plus how it is really implemented (moz-*, classic, or a plain pattern with no dedicated class). A row with no implementation badge at all has no real Firefox equivalent, see its file citation for what actually exists instead.</p>
+    <p class="meta">Where each real Firefox component or pattern actually exists today, across Figma, Supernova (documented), and Storybook, plus how it is really implemented (modern, classic, or a plain pattern with no dedicated class). A row with no implementation badge at all has no real Firefox equivalent, see its file citation for what actually exists instead.</p>
     <table class="legend-table">
       <tbody>
         <tr><td><span class="check yes">&check;</span></td><td>Real and documented there.</td></tr>
@@ -518,7 +522,7 @@
     <h2 class="section">Notes</h2>
     <ul>
       <li>No chrome or structural component has a Supernova documentation page or a Storybook story. The only doc coverage for this whole category is one narrative page, Desktop/Patterns/Browser anatomy/Overview.</li>
-      <li>Checkbox and Radio each ship both a modern moz-* version and a classic version at the same time, marked "moz-* + classic" rather than picking one.</li>
+      <li>Checkbox and Radio each ship both a modern version and a classic version at the same time, marked "modern + classic" rather than picking one.</li>
       <li>A row with no real Firefox equivalent (Chip, Details) gets no implementation badge at all, not a "pattern" badge of its own: it isn't an implementation kind, just the absence of one. See its file citation for what actually exists instead (a Figma-only pattern, a distinct real feature that only looks similar, native HTML doing the job, etc.). This is different from the "pattern" badge (red), which means the real thing exists as page wiring with no dedicated class.</li>
       <li>Figma has some internal duplication for chrome entries (Sidebar, Infobar and Info bar, Bookmarks toolbar and Bookmarks Toolbar, and a few more each show up as two near-identical nodes), most likely stale-versus-current branches rather than distinct concepts.</li>
       <li>tagName is optional, not universal: most "classic" entries do have a real customElements.define tag (panel, dialog, tab-group), but "pattern" entries never do, and some real implementations (Spotlight, Callout) are plain classes or React, not custom elements at all.</li>
@@ -661,12 +665,17 @@
   // "missing" (no real Firefox equivalent) has no entry here on purpose:
   // it's not an implementation kind like the others, it's the absence of
   // one, so it gets no badge, just the file column's own citation text.
-  const KIND_LABEL = { modern: "moz-*", classic: "classic", none: "pattern", dual: "moz-* + classic" };
+  // "modern"/"classic" rather than "moz-*"/"classic": the axis is whether a
+  // component is Lit, not whether it carries the moz-* prefix (see
+  // component-api/README.md), and sidebar-main.mjs is real Lit without it.
+  // The old label named a naming convention and read as a contrast with
+  // something other than "classic".
+  const KIND_LABEL = { modern: "modern", classic: "classic", none: "pattern", dual: "modern + classic" };
   const KIND_DEFINITION = {
     modern: "A real, modern Lit-based custom element, the current convention for new widgets (customElements.define, extends MozLitElement).",
     classic: "A real, shipping implementation that isn't Lit: usually an old XUL binding, sometimes a plain custom element in a current module (still often has a real tagName, just not the newer pattern).",
     none: "Real page structure with no dedicated class behind it, no customElements.define, nothing to document as a component API.",
-    dual: "Both a modern moz-* version and an old classic version exist and ship at the same time, neither has replaced the other yet.",
+    dual: "Both a modern Lit version and an older non-Lit version exist and ship at the same time, neither has replaced the other yet.",
   };
   function kindBadge(kind) {
     return KIND_LABEL[kind] ? `<span class="classif ${kind}">${KIND_LABEL[kind]}</span>` : "";
@@ -2154,7 +2163,7 @@
     // anywhere real. Uses the exact same DATA row and badge rules.
     if (d.name) {
       const parentName = d.parentId ? (DATA.find(p => p.id === d.parentId) || {}).name : null;
-      html += `<p class="meta">Figma ${checkInline(d.figma, parentName)} &nbsp; Supernova ${checkInline(d.supernova, parentName)} &nbsp; Storybook ${checkInline(d.storybook, parentName, effectiveKind(d))}</p>`;
+      html += `<p class="meta coverage-line">Figma ${checkInline(d.figma, parentName)} &nbsp; Supernova ${checkInline(d.supernova, parentName)} &nbsp; Storybook ${checkInline(d.storybook, parentName, effectiveKind(d))}</p>`;
     }
     // Plain-language, one sentence, no implementation detail -- the
     // technical Description below is written for someone reading the real
@@ -2222,7 +2231,7 @@
       html += `</div>`;
     }
     if (api.variants && api.variants.length) {
-      html += `<h2 class="section">Variants</h2><table class="variant-table"><thead><tr><th>Axis</th><th>Values</th></tr></thead><tbody>`;
+      html += `<h2 class="section">Variants</h2><table class="variant-table"><thead><tr><th>Name</th><th>Values</th></tr></thead><tbody>`;
       api.variants.forEach(v => { html += `<tr><td>${escapeHtml(v.axis)}</td><td>${escapeHtml(v.values.join(", "))}</td></tr>`; });
       html += `</tbody></table>`;
     }

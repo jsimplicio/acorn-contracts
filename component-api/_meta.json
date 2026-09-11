@@ -1,8 +1,8 @@
 {
   "note": "lastModified/lastCommit are this file's real last commit in this repo's own git history (git log -1 -- <file>), not a fabricated timestamp. This says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.",
   "repoHead": {
-    "commit": "22af93e926930dc78f27e024f91161e8c211c06e",
-    "date": "2026-09-10T15:05:55-05:00"
+    "commit": "433b0da57bfc68e23e29dda46271be5338deb9b3",
+    "date": "2026-09-10T21:10:48-05:00"
   },
   "files": {
     "badge": {
@@ -66,8 +66,8 @@
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "fieldset": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
-      "lastModified": "2026-09-10T14:56:23-05:00"
+      "lastCommit": "dd957ee5f556487a4514abf35a68ae24ec497c78",
+      "lastModified": "2026-09-10T21:10:39-05:00"
     },
     "findbar": {
       "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
@@ -158,8 +158,8 @@
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "panel-list": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
-      "lastModified": "2026-09-10T14:56:23-05:00"
+      "lastCommit": "dd957ee5f556487a4514abf35a68ae24ec497c78",
+      "lastModified": "2026-09-10T21:10:39-05:00"
     },
     "panel-list-item": {
       "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
@@ -190,8 +190,8 @@
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "segment": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
-      "lastModified": "2026-09-10T14:56:23-05:00"
+      "lastCommit": "dd957ee5f556487a4514abf35a68ae24ec497c78",
+      "lastModified": "2026-09-10T21:10:39-05:00"
     },
     "segmented-control": {
       "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
@@ -266,8 +266,8 @@
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "urlbar": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
-      "lastModified": "2026-09-10T14:56:23-05:00"
+      "lastCommit": "dd957ee5f556487a4514abf35a68ae24ec497c78",
+      "lastModified": "2026-09-10T21:10:39-05:00"
     },
     "urlbar-action": {
       "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",

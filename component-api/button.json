@@ -72,6 +72,12 @@
       "figmaConfig": false
     },
     {
+      "name": "ariaChecked",
+      "type": "string",
+      "description": "The button's aria-checked attribute, used in shadow DOM and therefore not as an attribute on moz-button.",
+      "figmaConfig": false
+    },
+    {
       "name": "iconSrc",
       "type": "string",
       "description": "Path to the icon that should be displayed in the button.",

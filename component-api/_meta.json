@@ -1,288 +1,288 @@
 {
   "note": "lastModified/lastCommit are this file's real last commit in this repo's own git history (git log -1 -- <file>), not a fabricated timestamp. This says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.",
   "repoHead": {
-    "commit": "ecea17568c2aef670493548cdbb3ec00ec1e4bb9",
-    "date": "2026-09-14T09:35:42-05:00"
+    "commit": "0d57bcbf9d0b2e8b3b462c6f505ff18916217e93",
+    "date": "2026-09-14T18:41:40-05:00"
   },
   "files": {
     "badge": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "bookmarks-toolbar": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "box-button": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "box-group": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "box-item": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "box-link": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "breadcrumb": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "button": {
-      "lastCommit": "ecea17568c2aef670493548cdbb3ec00ec1e4bb9",
+      "lastCommit": "a0fb2fdc50e31963b341b97cf77e0e2b0aff7230",
       "lastModified": "2026-09-14T09:35:42-05:00"
     },
     "button-group": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "callout": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "card": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "checkbox": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "chip": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "details": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "dialog": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "fieldset": {
-      "lastCommit": "dd957ee5f556487a4514abf35a68ae24ec497c78",
+      "lastCommit": "7dfe339692bc57855c84f21846b2f1f92fa3d471",
       "lastModified": "2026-09-10T21:10:39-05:00"
     },
     "findbar": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "five-star": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "icon-button": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "infobar": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "input-color": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "input-email": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "input-folder": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "input-number": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "input-password": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "input-search": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "input-tel": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "input-text": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "input-url": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "label": {
-      "lastCommit": "b117faebe22942e5013f8265e2cebe570414c3e3",
+      "lastCommit": "2dc493b6ef099e0228fc0a2c1401580563e70a1e",
       "lastModified": "2026-09-11T16:30:47-05:00"
     },
     "message-bar": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "page-header": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "page-nav": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "page-nav-item": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "page-nav-separator": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "panel": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "panel-item": {
-      "lastCommit": "4fd4d62b257418596bbde3ce36251af32bd326e5",
+      "lastCommit": "42762f50ce8404aab4c5aab90a023fef81112d52",
       "lastModified": "2026-09-10T21:32:08-05:00"
     },
     "panel-list": {
-      "lastCommit": "4fd4d62b257418596bbde3ce36251af32bd326e5",
+      "lastCommit": "42762f50ce8404aab4c5aab90a023fef81112d52",
       "lastModified": "2026-09-10T21:32:08-05:00"
     },
     "panel-list-item": {
-      "lastCommit": "4fd4d62b257418596bbde3ce36251af32bd326e5",
+      "lastCommit": "42762f50ce8404aab4c5aab90a023fef81112d52",
       "lastModified": "2026-09-10T21:32:08-05:00"
     },
     "panel-manager": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "panel-separator": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "popup-notification": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "promo": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "radio": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "reorderable-list": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "segment": {
-      "lastCommit": "dd957ee5f556487a4514abf35a68ae24ec497c78",
+      "lastCommit": "7dfe339692bc57855c84f21846b2f1f92fa3d471",
       "lastModified": "2026-09-10T21:10:39-05:00"
     },
     "segmented-control": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "select": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "sidebar": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "sidebar-panel": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "sidebar-strip": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "split-button": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "spotlight-modal": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "stepper": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "support-link": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "tab": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "tab-group": {
-      "lastCommit": "22af93e926930dc78f27e024f91161e8c211c06e",
+      "lastCommit": "028d903f4561fb07a97acd708d20bea8e24829a7",
       "lastModified": "2026-09-10T15:05:55-05:00"
     },
     "tab-split": {
-      "lastCommit": "22af93e926930dc78f27e024f91161e8c211c06e",
+      "lastCommit": "028d903f4561fb07a97acd708d20bea8e24829a7",
       "lastModified": "2026-09-10T15:05:55-05:00"
     },
     "tabstrip": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "textarea": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "toggle": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "toolbar": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "toolbar-button": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "toolbox": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "urlbar": {
-      "lastCommit": "dd957ee5f556487a4514abf35a68ae24ec497c78",
+      "lastCommit": "7dfe339692bc57855c84f21846b2f1f92fa3d471",
       "lastModified": "2026-09-10T21:10:39-05:00"
     },
     "urlbar-action": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "urlbar-identity": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "urlbar-result": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "visual-picker": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "visual-picker-item": {
-      "lastCommit": "211282a3a776aef0c730bddea388c5b3b655be9e",
+      "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     }
   }

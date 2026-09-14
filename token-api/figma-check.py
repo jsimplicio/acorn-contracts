@@ -2,7 +2,7 @@
 """figma-check.py: for every CSS custom property this wiki's Design tokens
 table can show (across ALL component pages, not just one), record whether a
 real, name-matching variable exists in Mozilla's actual "Nova Styles
-(Experimental)" Figma file (key $FIGMA_FILE_KEY).
+(Experimental)" Figma file.
 
 Why this exists: index.html's "Design tokens" table (see buildCssPropertyRows
 / renderCssPropertyTable) already cross-references a documented CSS custom
@@ -96,10 +96,9 @@ How the match is decided (read this before trusting a "yes"):
    happens to alias to under the hood is a separate question this column
    does not answer.
 
-4. The design-system file itself: this now hits `$FIGMA_FILE_KEY`,
-   Figma's own "Nova Styles (Experimental)" file, directly -- no Supernova
-   naming ambiguity to flag anymore. See figma-variables-dump.json's
-   `sourceFile` field.
+4. The design-system file itself: Figma's own "Nova Styles (Experimental)"
+   file, hit directly, with no Supernova naming ambiguity to flag. Its key
+   is not committed; see figma-variables-dump.json's `sourceFile` field.
 
 Inputs (all read-only, nothing here re-fetches from Figma):
   - id-map.json + component-api/*.json's `cssProperties` -> the exact same
@@ -281,7 +280,7 @@ def main():
             "found populated on only 2 of 718 kept variables (nowhere near a usable general "
             "signal), so matching is by normalized-word-tuple comparison of the CSS custom "
             "property name against every real Figma variable name in Nova Styles "
-            "(Experimental) ($FIGMA_FILE_KEY), not codeSyntax. This checks a name "
+            "(Experimental), not codeSyntax. This checks a name "
             "against its OWN name only -- it deliberately does not follow a token's resolved "
             "alias chain to count a match under some other, differently-named Figma "
             "variable, since the point of this column is catching Figma and code drifting "

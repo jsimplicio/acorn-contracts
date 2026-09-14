@@ -1,7 +1,7 @@
 {
   "_comment": [
     "Direct pull of every real Figma VARIABLE in Mozilla's authoritative 'Nova Styles",
-    "(Experimental)' file (key $FIGMA_FILE_KEY), via a single unauthenticated-",
+    "(Experimental)' file , via a single unauthenticated-",
     "except-for-a-token REST call: GET /v1/files/{FILE_ID}/variables/local. This",
     "REPLACES an earlier Supernova-MCP-sourced dump (see git history for",
     "figma-token-dump.json) that the repo maintainer rejected as the wrong source for",

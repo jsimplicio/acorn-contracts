@@ -58,9 +58,12 @@
     },
     "color": {
       "@base": {
-        "$value": "FieldText",
+        "$value": "{text.color.@base}",
         "$extensions": {
           "org.mozilla.themes": {
+            "brand": {
+              "default": "{text.color.@base}"
+            },
             "nativeTheme": "FieldText",
             "platform": {
               "light": "rgb(21, 20, 26)",
@@ -110,6 +113,12 @@
             }
           }
         },
+        "$type": "dimension"
+      }
+    },
+    "icon": {
+      "size": {
+        "$value": "{input.text.icon.size}",
         "$type": "dimension"
       }
     }

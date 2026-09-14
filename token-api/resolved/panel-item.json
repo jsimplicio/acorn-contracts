@@ -30,13 +30,12 @@
       ]
     },
     "panel-item.button.margin": {
-      "value": "{panel-menuitem.margin.block} {panel-menuitem.margin.inline}",
+      "value": "0 {panel-menuitem.margin.inline}",
       "type": "dimension",
       "chain": [
         "panel-menuitem.margin.@base"
       ],
       "unresolvedRefs": [
-        "panel-menuitem.margin.block",
         "panel-menuitem.margin.inline"
       ]
     },
@@ -67,6 +66,11 @@
         "space.small"
       ]
     },
+    "panel-item.fill": {
+      "value": "currentColor",
+      "type": "color",
+      "chain": []
+    },
     "panel-menuitem.border.radius": {
       "value": "16px",
       "type": "dimension",
@@ -75,18 +79,12 @@
       ]
     },
     "panel-menuitem.margin.@base": {
-      "value": "{panel-menuitem.margin.block} {panel-menuitem.margin.inline}",
+      "value": "0 {panel-menuitem.margin.inline}",
       "type": "dimension",
       "chain": [],
       "unresolvedRefs": [
-        "panel-menuitem.margin.block",
         "panel-menuitem.margin.inline"
       ]
-    },
-    "panel-menuitem.margin.block": {
-      "value": "0",
-      "type": "dimension",
-      "chain": []
     },
     "panel-menuitem.margin.inline": {
       "value": "8px",

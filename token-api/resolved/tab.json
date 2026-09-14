@@ -12,12 +12,24 @@
         "color.green.40"
       ]
     },
+    "tab.background.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.@base"
+      ]
+    },
     "tab.background.color.hover": {
-      "value": "color-mix(in srgb, currentColor 17%, transparent)",
+      "value": "rgba(117, 102, 159, 0.25)",
       "type": "color",
       "chain": [
         "toolbarbutton.background.color.hover"
       ]
+    },
+    "tab.background.color.pinned": {
+      "value": "unset",
+      "type": "color",
+      "chain": []
     },
     "tab.background.color.selected": {
       "value": "#ffffff",
@@ -27,6 +39,25 @@
         "color.white.@base"
       ]
     },
+    "tab.background.width.pinned.expanded": {
+      "value": "40px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.border.@base": {
+      "value": "{border.width} solid {tab.border.color.@base}",
+      "type": null,
+      "chain": [],
+      "unresolvedRefs": [
+        "border.width",
+        "tab.border.color.@base"
+      ]
+    },
+    "tab.border.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
     "tab.border.color.accent": {
       "value": "linear-gradient(96deg, {tab.border.color.selected.leading} 20.68%, {tab.border.color.selected.trailing} 79.34%)",
       "type": "color",
@@ -34,6 +65,23 @@
       "unresolvedRefs": [
         "tab.border.color.selected.leading",
         "tab.border.color.selected.trailing"
+      ]
+    },
+    "tab.border.color.hover": {
+      "value": "transparent",
+      "type": "color",
+      "chain": []
+    },
+    "tab.border.color.selected.@base": {
+      "value": "#764edd",
+      "type": "color",
+      "chain": [
+        "toolbarbutton.outline.color.selected",
+        "toolbarbutton.outline.color.active",
+        "button.border.color.active",
+        "button.border.color.@base",
+        "color.accent.primary.@base",
+        "color.violet.50"
       ]
     },
     "tab.border.color.selected.leading": {
@@ -64,39 +112,90 @@
       "type": null,
       "chain": []
     },
+    "tab.close.button.background.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.ghost.@base",
+        "button.background.color.@base"
+      ]
+    },
+    "tab.close.button.background.color.active": {
+      "value": "rgba(117, 102, 159, 0.4)",
+      "type": "color",
+      "chain": [
+        "toolbarbutton.background.color.active"
+      ]
+    },
+    "tab.close.button.background.color.hover": {
+      "value": "rgba(117, 102, 159, 0.25)",
+      "type": "color",
+      "chain": [
+        "toolbarbutton.background.color.hover"
+      ]
+    },
+    "tab.close.button.border.color.@base": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "tab.border.color.@base"
+      ]
+    },
+    "tab.close.button.border.color.active": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "tab.border.color.@base"
+      ]
+    },
+    "tab.close.button.border.color.hover": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "tab.border.color.@base"
+      ]
+    },
     "tab.close.button.padding": {
       "value": "6px",
       "type": "dimension",
       "chain": []
     },
-    "tab.hover.outline.color": {
-      "value": "transparent",
+    "tab.close.button.text.color.@base": {
+      "value": "{toolbox.text.color.current} (unresolved)",
       "type": "color",
-      "chain": []
-    },
-    "tab.icon.end.margin": {
-      "value": "5.5px",
-      "type": "dimension",
-      "chain": []
-    },
-    "tab.inline.padding": {
-      "value": "8px",
-      "type": "dimension",
-      "chain": []
-    },
-    "tab.inner.inline.margin": {
-      "value": "0.75rem",
-      "type": "dimension",
       "chain": [
-        "space.medium"
+        "tab.text.color.@base"
+      ],
+      "unresolvedRefs": [
+        "toolbox.text.color.current"
       ]
     },
-    "tab.label.line.height": {
-      "value": 1.7,
+    "tab.close.button.text.color.active": {
+      "value": "{toolbox.text.color.current} (unresolved)",
+      "type": "color",
+      "chain": [
+        "tab.text.color.@base"
+      ],
+      "unresolvedRefs": [
+        "toolbox.text.color.current"
+      ]
+    },
+    "tab.close.button.text.color.hover": {
+      "value": "{toolbox.text.color.current} (unresolved)",
+      "type": "color",
+      "chain": [
+        "tab.text.color.@base"
+      ],
+      "unresolvedRefs": [
+        "toolbox.text.color.current"
+      ]
+    },
+    "tab.container.margin.inline.pinned.expanded": {
+      "value": "4px",
       "type": "dimension",
       "chain": []
     },
-    "tab.loading.fill": {
+    "tab.icon.fill.loading": {
       "value": "#764edd",
       "type": "color",
       "chain": [
@@ -104,23 +203,43 @@
         "color.violet.50"
       ]
     },
-    "tab.margin.block": {
+    "tab.icon.margin.inline.end": {
+      "value": "5.5px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.label.line.height": {
+      "value": 1.7,
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.margin.block.@base": {
       "value": "6px",
       "type": "dimension",
       "chain": []
     },
-    "tab.outline.@base": {
-      "value": "{border.width} solid {tab.outline.color}",
-      "type": null,
-      "chain": [],
-      "unresolvedRefs": [
-        "border.width",
-        "tab.outline.color"
+    "tab.margin.block.vertical": {
+      "value": "2px",
+      "type": "dimension",
+      "chain": []
+    },
+    "tab.margin.inline.inner": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "chain": [
+        "space.medium"
       ]
     },
-    "tab.outline.color": {
-      "value": "transparent",
-      "type": "color",
+    "tab.margin.inline.pinned.expanded": {
+      "value": "0.25rem",
+      "type": "dimension",
+      "chain": [
+        "space.xsmall"
+      ]
+    },
+    "tab.margin.overflow.clip": {
+      "value": "2px",
+      "type": "dimension",
       "chain": []
     },
     "tab.outline.offset": {
@@ -128,50 +247,40 @@
       "type": "dimension",
       "chain": []
     },
-    "tab.overflow.clip.margin": {
-      "value": "2px",
+    "tab.padding.inline.@base": {
+      "value": "8px",
       "type": "dimension",
       "chain": []
     },
-    "tab.pinned.container.margin.inline.expanded": {
-      "value": "0.5rem",
-      "type": "dimension",
-      "chain": [
-        "space.small"
-      ]
-    },
-    "tab.pinned.expanded.background.width": {
-      "value": "40px",
-      "type": "dimension",
-      "chain": []
-    },
-    "tab.pinned.margin.inline.expanded": {
-      "value": "0.25rem",
-      "type": "dimension",
-      "chain": [
-        "space.xsmall"
-      ]
-    },
-    "tab.selected.outline.color": {
-      "value": "transparent",
-      "type": "color",
-      "chain": []
-    },
-    "tab.selected.textcolor": {
-      "value": "rgb(21, 20, 26)",
-      "type": "color",
-      "chain": []
-    },
-    "tab.vertical.block.margin": {
-      "value": "2px",
-      "type": "dimension",
-      "chain": []
-    },
-    "tab.vertical.inline.padding": {
+    "tab.padding.inline.vertical": {
       "value": "0.75rem",
       "type": "dimension",
       "chain": [
         "space.medium"
+      ]
+    },
+    "tab.text.color.@base": {
+      "value": "{toolbox.text.color.current} (unresolved)",
+      "type": "color",
+      "chain": [],
+      "unresolvedRefs": [
+        "toolbox.text.color.current"
+      ]
+    },
+    "tab.text.color.hover": {
+      "value": "{toolbox.text.color.current} (unresolved)",
+      "type": "color",
+      "chain": [],
+      "unresolvedRefs": [
+        "toolbox.text.color.current"
+      ]
+    },
+    "tab.text.color.selected": {
+      "value": "{toolbox.text.color.@base} (unresolved)",
+      "type": "color",
+      "chain": [],
+      "unresolvedRefs": [
+        "toolbox.text.color.@base"
       ]
     }
   }

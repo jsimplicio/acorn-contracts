@@ -1,19 +1,58 @@
 {
-  "margin": {
-    "block": {
-      "$value": "6px",
-      "$type": "dimension"
+  "background": {
+    "color": {
+      "@base": {
+        "$value": "{button.background.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "transparent",
+            "default": "{button.background.color.@base}"
+          }
+        },
+        "$type": "color"
+      },
+      "selected": {
+        "$value": "{background.color.box.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "{toolbar.background.color}",
+            "default": "{background.color.box.@base}",
+            "forcedColors": "{button.background.color.selected}"
+          }
+        },
+        "$type": "color"
+      }
     }
   },
   "border": {
     "color": {
+      "@base": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "forcedColors": "{button.border.color.@base}"
+          }
+        },
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "forcedColors": "{button.border.color.hover}"
+          }
+        },
+        "$type": "color"
+      },
       "selected": {
         "leading": {
           "$value": "{color.violet.30}",
           "$extensions": {
             "org.mozilla.themes": {
               "default": "{color.violet.30}",
-              "forcedColors": "{border.color.@base}"
+              "forcedColors": "{tab.border.color.selected.@base}"
             }
           },
           "$type": "color"
@@ -23,7 +62,7 @@
           "$extensions": {
             "org.mozilla.themes": {
               "default": "{color.orange.30}",
-              "forcedColors": "{border.color.@base}"
+              "forcedColors": "{tab.border.color.selected.@base}"
             }
           },
           "$type": "color"
@@ -38,10 +77,32 @@
       }
     }
   },
+  "margin": {
+    "block": {
+      "@base": {
+        "$value": "6px",
+        "$type": "dimension"
+      }
+    }
+  },
   "outline": {
     "offset": {
       "$value": "-1px",
       "$type": "dimension"
+    }
+  },
+  "text": {
+    "color": {
+      "selected": {
+        "$value": "{toolbox.text.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "{toolbar.text.color}",
+            "default": "{toolbox.text.color.@base}"
+          }
+        },
+        "$type": "color"
+      }
     }
   },
   "group": {

@@ -1,42 +1,6 @@
 {
   "background": {
     "color": {
-      "@base": {
-        "$value": "transparent",
-        "$extensions": {
-          "org.mozilla.themes": {
-            "nativeTheme": "color-mix(in srgb, currentColor 13%, transparent)",
-            "default": "transparent",
-            "forcedColors": "ButtonFace"
-          }
-        },
-        "$description": "TODO Bug 1821203 - Gray use needs to be consolidated",
-        "$type": "color"
-      },
-      "hover": {
-        "$value": "{color.violet-desaturated.20}",
-        "$extensions": {
-          "org.mozilla.themes": {
-            "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)",
-            "light": "{color.violet-desaturated.20}",
-            "dark": "{color.violet-desaturated.50}",
-            "forcedColors": "SelectedItemText"
-          }
-        },
-        "$type": "color"
-      },
-      "active": {
-        "$value": "{color.violet-desaturated.30}",
-        "$extensions": {
-          "org.mozilla.themes": {
-            "nativeTheme": "color-mix(in srgb, currentColor 30%, transparent)",
-            "light": "{color.violet-desaturated.30}",
-            "dark": "{color.violet-desaturated.40}",
-            "forcedColors": "SelectedItemText"
-          }
-        },
-        "$type": "color"
-      },
       "disabled": {
         "$value": "{button.background.color.@base}",
         "$type": "color"
@@ -112,16 +76,6 @@
           },
           "$type": "color"
         },
-        "disabled": {
-          "$value": "{button.background.color.ghost.@base}",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "default": "{button.background.color.ghost.@base}",
-              "forcedColors": "{button.background.color.disabled}"
-            }
-          },
-          "$type": "color"
-        },
         "selected": {
           "$value": "{button.background.color.selected}",
           "$type": "color"
@@ -182,18 +136,6 @@
           "$type": "color"
         }
       },
-      "menu": {
-        "@base": {
-          "$value": "{button.background.color.ghost.@base}",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "default": "{button.background.color.ghost.@base}",
-              "forcedColors": "{button.background.color.@base}"
-            }
-          },
-          "$type": "color"
-        }
-      },
       "selected": {
         "$value": "{button.background.color.active}",
         "$extensions": {
@@ -208,16 +150,6 @@
   },
   "border": {
     "color": {
-      "@base": {
-        "$value": "{color.accent.primary.@base}",
-        "$extensions": {
-          "org.mozilla.themes": {
-            "default": "{color.accent.primary.@base}",
-            "forcedColors": "{border.color.interactive.@base}"
-          }
-        },
-        "$type": "color"
-      },
       "destructive": {
         "@base": {
           "$value": "{button.border.color.ghost.@base}",
@@ -394,18 +326,6 @@
       "$type": "dimension"
     }
   },
-  "opacity": {
-    "disabled": {
-      "$value": "0.7",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "default": "0.7",
-          "forcedColors": "1"
-        }
-      },
-      "$type": "number"
-    }
-  },
   "padding": {
     "inline": {
       "small": {
@@ -472,48 +392,6 @@
           "$type": "color"
         }
       },
-      "ghost": {
-        "@base": {
-          "$value": "{button.text.color.@base}",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "default": "{button.text.color.@base}",
-              "forcedColors": "ButtonText"
-            }
-          },
-          "$type": "color"
-        },
-        "active": {
-          "$value": "{button.text.color.ghost.@base}",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "default": "{button.text.color.ghost.@base}",
-              "forcedColors": "{button.text.color.active}"
-            }
-          },
-          "$type": "color"
-        },
-        "disabled": {
-          "$value": "{button.text.color.ghost.@base}",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "default": "{button.text.color.ghost.@base}",
-              "forcedColors": "GrayText"
-            }
-          },
-          "$type": "color"
-        },
-        "hover": {
-          "$value": "{button.text.color.ghost.@base}",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "default": "{button.text.color.ghost.@base}",
-              "forcedColors": "{button.text.color.ghost.active}"
-            }
-          },
-          "$type": "color"
-        }
-      },
       "muted": {
         "@base": {
           "$value": "{button.text.color.@base}",
@@ -574,6 +452,17 @@
               "light": "{button.text.color.ghost.disabled}",
               "dark": "{button.text.color.disabled}",
               "forcedColors": "{button.text.color.disabled}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{button.text.color.ghost.hover}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "light": "{button.text.color.ghost.hover}",
+              "dark": "{button.text.color.hover}",
+              "forcedColors": "-moz-menuhovertext"
             }
           },
           "$type": "color"

@@ -1,56 +1,11 @@
 {
   "color": {
-    "@base": {
-      "$value": "{color.gray.30}",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "light": "{color.gray.30}",
-          "dark": "{color.gray.40}",
-          "forcedColors": "CanvasText"
-        }
-      },
-      "$type": "color"
-    },
-    "transparent": {
-      "$value": "transparent",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "default": "transparent",
-          "forcedColors": "CanvasText"
-        }
-      },
-      "$type": "color"
-    },
-    "deemphasized": {
-      "@base": {
-        "$value": "{color.gray.20}",
-        "$extensions": {
-          "org.mozilla.themes": {
-            "light": "{color.gray.20}",
-            "dark": "{color.gray.50}",
-            "forcedColors": "CanvasText"
-          }
-        },
-        "$type": "color"
-      }
-    },
     "interactive": {
-      "@base": {
-        "$value": "{color.gray.35}",
-        "$extensions": {
-          "org.mozilla.themes": {
-            "light": "{color.gray.35}",
-            "dark": "{color.gray.40}",
-            "forcedColors": "ButtonText"
-          }
-        },
-        "$type": "color"
-      },
       "hover": {
-        "$value": "{color.gray.45}",
+        "$value": "{color.gray.50}",
         "$extensions": {
           "org.mozilla.themes": {
-            "light": "{color.gray.45}",
+            "light": "{color.gray.50}",
             "dark": "{color.gray.20}",
             "forcedColors": "SelectedItem"
           }
@@ -79,17 +34,6 @@
         },
         "$type": "color"
       }
-    },
-    "error": {
-      "$value": "{color.red.50}",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "light": "{color.red.50}",
-          "dark": "{color.red.20}",
-          "forcedColors": "{border.color.@base}"
-        }
-      },
-      "$type": "color"
     }
   },
   "radius": {

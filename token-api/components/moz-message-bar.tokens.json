@@ -37,7 +37,11 @@
       "$extensions": {
         "org.mozilla.themes": {
           "default": "oklch(from {message-bar.icon.color} l c h / 20%)",
-          "prefersContrast": "{border.color.@base}"
+          "prefersContrast": "{border.color.@base}",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma",
+            "value": "oklch(from {message-bar.icon.color} l c h / 12%)"
+          }
         }
       },
       "$type": "color"
@@ -49,6 +53,36 @@
     "width": {
       "$value": "{border.width}",
       "$type": "dimension"
+    }
+  },
+  "close": {
+    "margin": {
+      "inline-end": {
+        "$value": "0px",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "0px",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma, and we need the unit for calculations",
+              "value": "8px"
+            }
+          }
+        },
+        "$type": "dimension"
+      },
+      "block-start": {
+        "$value": "0px",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "0px",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma, and we need the unit for calculations",
+              "value": "{space.small}"
+            }
+          }
+        },
+        "$type": "dimension"
+      }
     }
   },
   "container": {
@@ -63,13 +97,26 @@
     "padding": {
       "block": {
         "$value": "{space.small}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{space.small}",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "0"
+            }
+          }
+        },
         "$type": "dimension"
       },
       "inline": {
         "$value": "{space.medium} {space.small}",
         "$extensions": {
           "org.mozilla.themes": {
-            "default": "{space.medium} {space.small}"
+            "default": "{space.medium} {space.small}",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "0"
+            }
           }
         },
         "$type": "dimension"
@@ -80,6 +127,34 @@
     "gap": {
       "$value": "{space.small} {space.medium}",
       "$type": "dimension"
+    },
+    "padding": {
+      "block": {
+        "$value": "0",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "0",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "{space.small}"
+            }
+          }
+        },
+        "$type": "dimension"
+      },
+      "inline": {
+        "$value": "0",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "0",
+            "nova": {
+              "comment": "Using rem-based space tokens ends up causing subpixel rendering issues that cause the icon to look uncentered",
+              "value": "8px"
+            }
+          }
+        },
+        "$type": "dimension"
+      }
     }
   },
   "icon": {
@@ -108,6 +183,18 @@
       "$type": "color"
     },
     "container": {
+      "align-items": {
+        "$value": "center",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "center",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "flex-start"
+            }
+          }
+        }
+      },
       "border": {
         "@base": {
           "$value": "none",
@@ -127,7 +214,64 @@
         },
         "radius": {
           "$value": "{border.radius.circle}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{border.radius.circle}",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "calc({message-bar.border.radius} - 1px)"
+              }
+            }
+          },
           "$type": "dimension"
+        },
+        "radius-start-start": {
+          "$value": "{message-bar.icon.container.border.radius}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{message-bar.icon.container.border.radius}",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "{message-bar.icon.container.border.radius}"
+              }
+            }
+          }
+        },
+        "radius-start-end": {
+          "$value": "{message-bar.icon.container.border.radius}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{message-bar.icon.container.border.radius}",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "0"
+              }
+            }
+          }
+        },
+        "radius-end-start": {
+          "$value": "{message-bar.icon.container.border.radius}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{message-bar.icon.container.border.radius}",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "{message-bar.icon.container.border.radius}"
+              }
+            }
+          }
+        },
+        "radius-end-end": {
+          "$value": "{message-bar.icon.container.border.radius}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{message-bar.icon.container.border.radius}",
+              "nova": {
+                "comment": "There is no equivalent value for this token in Figma",
+                "value": "0"
+              }
+            }
+          }
         }
       },
       "height": {
@@ -137,7 +281,7 @@
             "default": "min-content",
             "nova": {
               "comment": "There is no equivalent value for this token in Figma",
-              "value": "{message-bar.icon.size}"
+              "value": "auto"
             }
           }
         },
@@ -201,6 +345,18 @@
             }
           },
           "$type": "dimension"
+        }
+      },
+      "padding-block-start": {
+        "$value": "{message-bar.icon.container.padding.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{message-bar.icon.container.padding.@base}",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "calc({space.small} + {space.small})"
+            }
+          }
         }
       }
     },

@@ -5,27 +5,19 @@
   ],
   "tokens": {
     "moz-toggle.background.color.@base": {
-      "value": "transparent",
+      "value": "SelectedItemText",
       "type": "color",
-      "chain": [
-        "button.background.color.@base"
-      ]
+      "chain": []
     },
     "moz-toggle.background.color.active": {
-      "value": "#b6aad9",
+      "value": "SelectedItemText",
       "type": "color",
-      "chain": [
-        "button.background.color.active",
-        "color.violet-desaturated.30"
-      ]
+      "chain": []
     },
     "moz-toggle.background.color.hover": {
-      "value": "#d2c8ec",
+      "value": "SelectedItemText",
       "type": "color",
-      "chain": [
-        "button.background.color.hover",
-        "color.violet-desaturated.20"
-      ]
+      "chain": []
     },
     "moz-toggle.background.color.pressed.@base": {
       "value": "#764edd",
@@ -55,11 +47,11 @@
       ]
     },
     "moz-toggle.border.color.@base": {
-      "value": "#a6a4a9",
+      "value": "#817f84",
       "type": "color",
       "chain": [
         "border.color.interactive.@base",
-        "color.gray.35"
+        "color.gray.45"
       ]
     },
     "moz-toggle.border.color.active": {
@@ -71,11 +63,11 @@
       ]
     },
     "moz-toggle.border.color.hover": {
-      "value": "#817f84",
+      "value": "#67666a",
       "type": "color",
       "chain": [
         "border.color.interactive.hover",
-        "color.gray.45"
+        "color.gray.50"
       ]
     },
     "moz-toggle.border.radius": {
@@ -93,13 +85,9 @@
       ]
     },
     "moz-toggle.dot.background.color.@base": {
-      "value": "#a6a4a9",
+      "value": "ButtonText",
       "type": "color",
-      "chain": [
-        "toggle.border.color.@base",
-        "border.color.interactive.@base",
-        "color.gray.35"
-      ]
+      "chain": []
     },
     "moz-toggle.dot.background.color.active": {
       "value": "#67666a",
@@ -111,12 +99,12 @@
       ]
     },
     "moz-toggle.dot.background.color.hover": {
-      "value": "#817f84",
+      "value": "#67666a",
       "type": "color",
       "chain": [
         "toggle.border.color.hover",
         "border.color.interactive.hover",
-        "color.gray.45"
+        "color.gray.50"
       ]
     },
     "moz-toggle.dot.background.color.on-pressed": {
@@ -177,7 +165,7 @@
       "chain": []
     },
     "moz-toggle.opacity.disabled": {
-      "value": "0.7",
+      "value": "0.5",
       "type": "number",
       "chain": [
         "button.opacity.disabled"

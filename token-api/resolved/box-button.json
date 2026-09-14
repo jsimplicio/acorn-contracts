@@ -14,10 +14,13 @@
       ]
     },
     "moz-box.button.background.color.active": {
-      "value": "ButtonText",
+      "value": "#b6aad9",
       "type": "color",
       "chain": [
-        "button.background.color.menu.active"
+        "button.background.color.menu.active",
+        "button.background.color.ghost.active",
+        "button.background.color.active",
+        "color.violet-desaturated.30"
       ]
     },
     "moz-box.button.background.color.disabled": {
@@ -31,10 +34,13 @@
       ]
     },
     "moz-box.button.background.color.hover": {
-      "value": "ButtonText",
+      "value": "#d2c8ec",
       "type": "color",
       "chain": [
-        "button.background.color.menu.hover"
+        "button.background.color.menu.hover",
+        "button.background.color.ghost.hover",
+        "button.background.color.hover",
+        "color.violet-desaturated.20"
       ]
     },
     "moz-box.button.text.color.@base": {

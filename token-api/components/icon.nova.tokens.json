@@ -18,50 +18,6 @@
           "$type": "color"
         }
       }
-    },
-    "information": {
-      "$value": "{color.violet.50}",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "light": "{color.violet.50}",
-          "dark": "{color.violet.20}",
-          "forcedColors": "{icon.color.@base}"
-        }
-      },
-      "$type": "color"
-    },
-    "success": {
-      "$value": "{color.green.50}",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "light": "{color.green.50}",
-          "dark": "{color.green.20}",
-          "forcedColors": "{icon.color.@base}"
-        }
-      },
-      "$type": "color"
-    },
-    "warning": {
-      "$value": "{color.yellow.50}",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "light": "{color.yellow.50}",
-          "dark": "{color.yellow.20}",
-          "forcedColors": "{icon.color.@base}"
-        }
-      },
-      "$type": "color"
-    },
-    "critical": {
-      "$value": "{color.red.50}",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "light": "{color.red.50}",
-          "dark": "{color.red.20}",
-          "forcedColors": "{icon.color.@base}"
-        }
-      },
-      "$type": "color"
     }
   },
   "size": {

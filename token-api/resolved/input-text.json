@@ -5,11 +5,11 @@
   ],
   "tokens": {
     "input.border.color": {
-      "value": "#a6a4a9",
+      "value": "#817f84",
       "type": "color",
       "chain": [
         "border.color.interactive.@base",
-        "color.gray.35"
+        "color.gray.45"
       ]
     },
     "input.folder.gap": {
@@ -33,16 +33,28 @@
         "border.radius.circle"
       ]
     },
+    "input.search.icon.size": {
+      "value": "16px",
+      "type": "dimension",
+      "chain": [
+        "icon.size.small",
+        "size.item.small"
+      ]
+    },
     "input.text.background.color.@base": {
-      "value": "Field",
+      "value": "#ffffff",
       "type": "color",
-      "chain": []
+      "chain": [
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
     },
     "input.text.background.color.disabled": {
       "value": "transparent",
       "type": "color",
       "chain": [
-        "button.background.color.disabled",
+        "button.background.color.ghost.disabled",
+        "button.background.color.ghost.@base",
         "button.background.color.@base"
       ]
     },
@@ -79,15 +91,20 @@
       ]
     },
     "input.text.color.@base": {
-      "value": "FieldText",
-      "type": "color",
-      "chain": []
-    },
-    "input.text.color.disabled": {
-      "value": "FieldText",
+      "value": "#180e30",
       "type": "color",
       "chain": [
-        "input.text.color.@base"
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "input.text.color.disabled": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "input.text.color.@base",
+        "text.color.@base",
+        "color.violet-desaturated.90"
       ]
     },
     "input.text.icon.size": {
@@ -107,7 +124,7 @@
       ]
     },
     "input.text.opacity.disabled": {
-      "value": "0.7",
+      "value": "0.5",
       "type": "number",
       "chain": [
         "button.opacity.disabled"

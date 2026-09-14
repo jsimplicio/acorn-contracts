@@ -12,18 +12,8 @@
         "color.violet-desaturated.20"
       ]
     },
-    "info-bar.margin.block.end": {
+    "info-bar.margin": {
       "value": "0",
-      "type": "dimension",
-      "chain": []
-    },
-    "info-bar.margin.block.start": {
-      "value": "4px",
-      "type": "dimension",
-      "chain": []
-    },
-    "info-bar.margin.inline": {
-      "value": "4px",
       "type": "dimension",
       "chain": []
     },

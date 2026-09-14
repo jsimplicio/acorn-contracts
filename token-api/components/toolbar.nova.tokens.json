@@ -72,18 +72,5 @@
         }
       }
     }
-  },
-  "background": {
-    "color": {
-      "$value": "{background.color.box.@base}",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "nativeTheme": "color-mix(in srgb, -moz-dialog 85%, {color.white.@base})",
-          "default": "{background.color.box.@base}",
-          "forcedColors": "Canvas"
-        }
-      },
-      "$type": "color"
-    }
   }
 }

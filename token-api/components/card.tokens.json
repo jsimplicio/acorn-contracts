@@ -22,6 +22,9 @@
           "dark": "color-mix(in srgb, currentColor 6%, transparent)",
           "prefersContrast": "color-mix(in srgb, currentColor 41%, transparent)",
           "forcedColors": "CanvasText"
+        },
+        "org.mozilla.meta": {
+          "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
         }
       },
       "$type": "color"

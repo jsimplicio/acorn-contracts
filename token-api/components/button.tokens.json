@@ -13,6 +13,12 @@
             "platform": {
               "light": "rgba(207, 207, 216, 0.33)",
               "dark": "rgba(0, 0, 0, 0.33)"
+            },
+            "nova": {
+              "value": {
+                "default": "transparent",
+                "forcedColors": "ButtonFace"
+              }
             }
           }
         },
@@ -31,6 +37,14 @@
             "platform": {
               "light": "rgba(207, 207, 216, 0.66)",
               "dark": "rgba(207, 207, 216, 0.2)"
+            },
+            "nova": {
+              "value": {
+                "nativeTheme": "color-mix(in srgb, AccentColor 20%, transparent)",
+                "light": "{color.violet-desaturated.20}",
+                "dark": "{color.violet-desaturated.50}",
+                "forcedColors": "SelectedItemText"
+              }
             }
           }
         },
@@ -48,6 +62,14 @@
             "platform": {
               "light": "rgb(207, 207, 216)",
               "dark": "rgba(207, 207, 216, 0.4)"
+            },
+            "nova": {
+              "value": {
+                "nativeTheme": "color-mix(in srgb, AccentColor 30%, transparent)",
+                "light": "{color.violet-desaturated.30}",
+                "dark": "{color.violet-desaturated.40}",
+                "forcedColors": "SelectedItemText"
+              }
             }
           }
         },
@@ -185,6 +207,9 @@
               "brand": {
                 "forcedColors": "{button.background.color.disabled}"
               }
+            },
+            "org.mozilla.meta": {
+              "ignoreFigma": "Preserve token structure that can't be replicated in Figma"
             }
           },
           "$type": "color"
@@ -223,6 +248,12 @@
       "menu": {
         "@base": {
           "$value": "{button.background.color.ghost.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.background.color.ghost.@base}",
+              "forcedColors": "Menu"
+            }
+          },
           "$type": "color"
         },
         "active": {
@@ -230,13 +261,7 @@
           "$extensions": {
             "org.mozilla.themes": {
               "default": "{button.background.color.ghost.active}",
-              "forcedColors": "{button.background.color.primary.@base}",
-              "nova": {
-                "comment": "The HCM value in Figma needs to be updated",
-                "value": {
-                  "forcedColors": "ButtonText"
-                }
-              }
+              "forcedColors": "{button.background.color.menu.hover}"
             }
           },
           "$type": "color"
@@ -250,13 +275,7 @@
           "$extensions": {
             "org.mozilla.themes": {
               "default": "{button.background.color.ghost.hover}",
-              "forcedColors": "{button.background.color.primary.@base}",
-              "nova": {
-                "comment": "The HCM value in Figma needs to be updated",
-                "value": {
-                  "forcedColors": "ButtonText"
-                }
-              }
+              "forcedColors": "-moz-menuhover"
             }
           },
           "$type": "color"
@@ -278,15 +297,11 @@
       },
       "toolbar": {
         "@base": {
-          "$value": "transparent",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "default": "transparent",
-              "brand": {
-                "forcedColors": "{button.background.color.@base}"
-              }
-            }
-          },
+          "$value": "{toolbarbutton.background.color.@base}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{toolbarbutton.background.color.hover}",
           "$type": "color"
         },
         "active": {
@@ -294,19 +309,13 @@
           "$type": "color"
         },
         "disabled": {
-          "$value": "{button.background.color.ghost.@base}",
+          "$value": "{toolbarbutton.background.color.@base}",
           "$extensions": {
             "org.mozilla.themes": {
-              "default": "{button.background.color.ghost.@base}",
-              "brand": {
-                "forcedColors": "{button.background.color.disabled}"
-              }
+              "default": "{toolbarbutton.background.color.@base}",
+              "forcedColors": "{button.background.color.disabled}"
             }
           },
-          "$type": "color"
-        },
-        "hover": {
-          "$value": "{toolbarbutton.background.color.hover}",
           "$type": "color"
         },
         "selected": {
@@ -339,7 +348,13 @@
           "org.mozilla.themes": {
             "default": "transparent",
             "prefersContrast": "{button.text.color.@base}",
-            "forcedColors": "{border.color.interactive.@base}"
+            "forcedColors": "{border.color.interactive.@base}",
+            "nova": {
+              "comment": "Preserve prefersContrast value",
+              "value": {
+                "default": "{color.accent.primary.@base}"
+              }
+            }
           }
         },
         "$type": "color"
@@ -573,19 +588,28 @@
       },
       "toolbar": {
         "@base": {
-          "$value": "{button.border.color.@base}",
+          "$value": "{toolbarbutton.outline.color.@base}",
           "$extensions": {
             "org.mozilla.themes": {
-              "default": "{button.border.color.@base}"
+              "default": "{toolbarbutton.outline.color.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{toolbarbutton.outline.color.hover}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{toolbarbutton.outline.color.hover}"
             }
           },
           "$type": "color"
         },
         "active": {
-          "$value": "{button.border.color.active}",
+          "$value": "{toolbarbutton.outline.color.active}",
           "$extensions": {
             "org.mozilla.themes": {
-              "default": "{button.border.color.active}"
+              "default": "{toolbarbutton.outline.color.active}"
             }
           },
           "$type": "color"
@@ -595,15 +619,6 @@
           "$extensions": {
             "org.mozilla.themes": {
               "default": "{button.border.color.disabled}"
-            }
-          },
-          "$type": "color"
-        },
-        "hover": {
-          "$value": "{button.border.color.hover}",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "default": "{button.border.color.hover}"
             }
           },
           "$type": "color"
@@ -848,6 +863,15 @@
               "brand": {
                 "prefersContrast": "{button.text.color.@base}",
                 "forcedColors": "{button.text.color.@base}"
+              },
+              "nova": {
+                "comment": "Preserve token structure that can't be replicated in Figma",
+                "value": {
+                  "brand": {
+                    "default": "{button.text.color.@base}",
+                    "forcedColors": "ButtonText"
+                  }
+                }
               }
             }
           },
@@ -859,7 +883,13 @@
             "org.mozilla.themes": {
               "default": "inherit",
               "prefersContrast": "{button.text.color.active}",
-              "forcedColors": "{button.text.color.active}"
+              "forcedColors": "{button.text.color.active}",
+              "nova": {
+                "comment": "Preserve prefersContrast value",
+                "value": {
+                  "default": "{button.text.color.ghost.@base}"
+                }
+              }
             }
           },
           "$type": "color"
@@ -872,6 +902,15 @@
               "brand": {
                 "prefersContrast": "{button.text.color.disabled}",
                 "forcedColors": "{button.text.color.disabled}"
+              },
+              "nova": {
+                "comment": "Preserve token structure that can't be replicated in Figma",
+                "value": {
+                  "brand": {
+                    "default": "{button.text.color.ghost.@base}",
+                    "forcedColors": "GrayText"
+                  }
+                }
               }
             }
           },
@@ -883,7 +922,14 @@
             "org.mozilla.themes": {
               "default": "inherit",
               "prefersContrast": "{button.text.color.hover}",
-              "forcedColors": "{button.text.color.hover}"
+              "forcedColors": "{button.text.color.hover}",
+              "nova": {
+                "comment": "Preserve prefersContrast value",
+                "value": {
+                  "default": "{button.text.color.ghost.@base}",
+                  "forcedColors": "{button.text.color.ghost.active}"
+                }
+              }
             }
           },
           "$type": "color"
@@ -928,6 +974,12 @@
       "menu": {
         "@base": {
           "$value": "{button.text.color.ghost.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.text.color.ghost.@base}",
+              "forcedColors": "MenuText"
+            }
+          },
           "$type": "color"
         },
         "active": {
@@ -935,13 +987,11 @@
           "$extensions": {
             "org.mozilla.themes": {
               "default": "{button.text.color.ghost.active}",
-              "forcedColors": "{button.text.color.primary.@base}",
+              "forcedColors": "{button.text.color.menu.hover}",
               "nova": {
-                "comment": "The HCM value in Figma needs to be updated",
                 "value": {
                   "light": "{button.text.color.ghost.active}",
-                  "dark": "{button.text.color.active}",
-                  "forcedColors": "ButtonFace"
+                  "dark": "{button.text.color.active}"
                 }
               }
             }
@@ -957,15 +1007,7 @@
           "$extensions": {
             "org.mozilla.themes": {
               "default": "{button.text.color.ghost.hover}",
-              "forcedColors": "{button.text.color.primary.@base}",
-              "nova": {
-                "comment": "The HCM value in Figma needs to be updated",
-                "value": {
-                  "light": "{button.text.color.ghost.hover}",
-                  "dark": "{button.text.color.hover}",
-                  "forcedColors": "ButtonFace"
-                }
-              }
+              "forcedColors": "-moz-menuhovertext"
             }
           },
           "$type": "color"
@@ -1030,49 +1072,40 @@
       },
       "toolbar": {
         "@base": {
-          "$value": "inherit",
+          "$value": "currentColor",
           "$extensions": {
             "org.mozilla.themes": {
-              "default": "inherit",
-              "brand": {
-                "prefersContrast": "{button.text.color.@base}",
-                "forcedColors": "{button.text.color.@base}"
-              }
+              "default": "currentColor",
+              "forcedColors": "{button.text.color.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "currentColor",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "currentColor",
+              "forcedColors": "{button.text.color.hover}"
             }
           },
           "$type": "color"
         },
         "active": {
-          "$value": "inherit",
+          "$value": "currentColor",
           "$extensions": {
             "org.mozilla.themes": {
-              "default": "inherit",
-              "prefersContrast": "{button.text.color.active}",
+              "default": "currentColor",
               "forcedColors": "{button.text.color.active}"
             }
           },
           "$type": "color"
         },
         "disabled": {
-          "$value": "inherit",
+          "$value": "{button.text.color.disabled}",
           "$extensions": {
             "org.mozilla.themes": {
-              "default": "inherit",
-              "brand": {
-                "prefersContrast": "{button.text.color.disabled}",
-                "forcedColors": "{button.text.color.disabled}"
-              }
-            }
-          },
-          "$type": "color"
-        },
-        "hover": {
-          "$value": "inherit",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "default": "inherit",
-              "prefersContrast": "{button.text.color.hover}",
-              "forcedColors": "{button.text.color.hover}"
+              "default": "{button.text.color.disabled}"
             }
           },
           "$type": "color"

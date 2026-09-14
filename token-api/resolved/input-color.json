@@ -28,11 +28,11 @@
       ]
     },
     "moz-input-color.border.color.@base": {
-      "value": "#a6a4a9",
+      "value": "#817f84",
       "type": "color",
       "chain": [
         "border.color.interactive.@base",
-        "color.gray.35"
+        "color.gray.45"
       ]
     },
     "moz-input-color.border.color.active": {
@@ -44,11 +44,11 @@
       ]
     },
     "moz-input-color.border.color.hover": {
-      "value": "#817f84",
+      "value": "#67666a",
       "type": "color",
       "chain": [
         "border.color.interactive.hover",
-        "color.gray.45"
+        "color.gray.50"
       ]
     },
     "moz-input-color.border.radius": {

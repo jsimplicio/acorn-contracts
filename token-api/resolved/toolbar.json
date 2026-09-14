@@ -5,20 +5,15 @@
   ],
   "tokens": {
     "toolbar.background.color": {
-      "value": "#ffffff",
+      "value": "rgba(255, 255, 255, 0.4)",
       "type": "color",
-      "chain": [
-        "background.color.box.@base",
-        "color.white.@base"
-      ]
+      "chain": []
     },
     "toolbar.field.background.color.@base": {
-      "value": "#ffffff",
+      "value": "rgba(255, 255, 255, 0.4)",
       "type": "color",
       "chain": [
-        "toolbar.background.color",
-        "background.color.box.@base",
-        "color.white.@base"
+        "toolbar.background.color"
       ]
     },
     "toolbar.field.background.color.focus": {

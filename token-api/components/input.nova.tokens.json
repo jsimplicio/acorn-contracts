@@ -1,0 +1,30 @@
+{
+  "text": {
+    "background": {
+      "color": {
+        "@base": {
+          "$value": "{background.color.box.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "nativeTheme": "Field",
+              "default": "{background.color.box.@base}"
+            }
+          },
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{button.background.color.ghost.disabled}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "search": {
+    "icon": {
+      "size": {
+        "$value": "{icon.size.small}",
+        "$type": "dimension"
+      }
+    }
+  }
+}

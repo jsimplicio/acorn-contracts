@@ -124,9 +124,13 @@
       ]
     },
     "button.background.color.menu.active": {
-      "value": "ButtonText",
+      "value": "#b6aad9",
       "type": "color",
-      "chain": []
+      "chain": [
+        "button.background.color.ghost.active",
+        "button.background.color.active",
+        "color.violet-desaturated.30"
+      ]
     },
     "button.background.color.menu.disabled": {
       "value": "transparent",
@@ -138,9 +142,13 @@
       ]
     },
     "button.background.color.menu.hover": {
-      "value": "ButtonText",
+      "value": "#d2c8ec",
       "type": "color",
-      "chain": []
+      "chain": [
+        "button.background.color.ghost.hover",
+        "button.background.color.hover",
+        "color.violet-desaturated.20"
+      ]
     },
     "button.background.color.menu.selected": {
       "value": "#b6aad9",
@@ -240,10 +248,12 @@
     "button.background.color.toolbar.@base": {
       "value": "transparent",
       "type": "color",
-      "chain": []
+      "chain": [
+        "toolbarbutton.background.color.@base"
+      ]
     },
     "button.background.color.toolbar.active": {
-      "value": "color-mix(in srgb, currentColor 30%, transparent)",
+      "value": "rgba(117, 102, 159, 0.4)",
       "type": "color",
       "chain": [
         "toolbarbutton.background.color.active"
@@ -253,12 +263,11 @@
       "value": "transparent",
       "type": "color",
       "chain": [
-        "button.background.color.ghost.@base",
-        "button.background.color.@base"
+        "toolbarbutton.background.color.@base"
       ]
     },
     "button.background.color.toolbar.hover": {
-      "value": "color-mix(in srgb, currentColor 17%, transparent)",
+      "value": "rgba(117, 102, 159, 0.25)",
       "type": "color",
       "chain": [
         "toolbarbutton.background.color.hover"
@@ -530,18 +539,17 @@
       ]
     },
     "button.border.color.toolbar.@base": {
-      "value": "#764edd",
+      "value": "transparent",
       "type": "color",
       "chain": [
-        "button.border.color.@base",
-        "color.accent.primary.@base",
-        "color.violet.50"
+        "toolbarbutton.outline.color.@base"
       ]
     },
     "button.border.color.toolbar.active": {
       "value": "#764edd",
       "type": "color",
       "chain": [
+        "toolbarbutton.outline.color.active",
         "button.border.color.active",
         "button.border.color.@base",
         "color.accent.primary.@base",
@@ -562,6 +570,7 @@
       "value": "#764edd",
       "type": "color",
       "chain": [
+        "toolbarbutton.outline.color.hover",
         "button.border.color.hover",
         "button.border.color.@base",
         "color.accent.primary.@base",
@@ -651,7 +660,7 @@
       ]
     },
     "button.opacity.disabled": {
-      "value": "0.7",
+      "value": "0.5",
       "type": "number",
       "chain": []
     },
@@ -1002,22 +1011,26 @@
       ]
     },
     "button.text.color.toolbar.@base": {
-      "value": "inherit",
+      "value": "currentColor",
       "type": "color",
       "chain": []
     },
     "button.text.color.toolbar.active": {
-      "value": "inherit",
+      "value": "currentColor",
       "type": "color",
       "chain": []
     },
     "button.text.color.toolbar.disabled": {
-      "value": "inherit",
+      "value": "#161423",
       "type": "color",
-      "chain": []
+      "chain": [
+        "button.text.color.disabled",
+        "button.text.color.@base",
+        "color.violet.90"
+      ]
     },
     "button.text.color.toolbar.hover": {
-      "value": "inherit",
+      "value": "currentColor",
       "type": "color",
       "chain": []
     },

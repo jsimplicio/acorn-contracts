@@ -6,11 +6,11 @@
     "Source is a direct Figma REST API pull (GET /v1/files/$FIGMA_FILE_KEY/variables/local), never Supernova, whose sync of this design system has known gaps elsewhere in this project family. See figma-variables-dump.json's own `_comment` for what was fetched and excluded."
   ],
   "counts": {
-    "yes_exact": 324,
-    "yes_reordered": 11,
-    "no_near_miss": 126,
-    "no_total_mismatch": 179,
-    "total": 640
+    "yes_exact": 343,
+    "yes_reordered": 13,
+    "no_near_miss": 136,
+    "no_total_mismatch": 192,
+    "total": 684
   },
   "properties": {
     "--badge-background-color": {
@@ -1158,6 +1158,11 @@
       "matchType": null,
       "matchedPath": null
     },
+    "--info-bar-margin": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "info-bar/margin/inline"
+    },
     "--info-bar-margin-block-end": {
       "status": "no",
       "matchType": null,
@@ -1274,6 +1279,11 @@
       "matchedPath": null
     },
     "--input-search-border-radius": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-search-icon-size": {
       "status": "no",
       "matchType": null,
       "matchedPath": null
@@ -1408,6 +1418,16 @@
       "matchType": "exact",
       "matchedPath": "message-bar/border/width"
     },
+    "--message-bar-close-margin-block-start": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/close/margin/block-start"
+    },
+    "--message-bar-close-margin-inline-end": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/close/margin/inline-end"
+    },
     "--message-bar-container-gap": {
       "status": "yes",
       "matchType": "exact",
@@ -1432,6 +1452,16 @@
       "status": "no",
       "matchType": null,
       "matchedPath": null
+    },
+    "--message-bar-content-padding-block": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/content/padding/block"
+    },
+    "--message-bar-content-padding-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/content/padding/inline"
     },
     "--message-bar-icon-background-color": {
       "status": "yes",
@@ -1458,6 +1488,11 @@
       "matchType": "exact",
       "matchedPath": "message-bar/icon/color"
     },
+    "--message-bar-icon-container-align-items": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
     "--message-bar-icon-container-border": {
       "status": "no",
       "matchType": "near-miss",
@@ -1472,6 +1507,26 @@
       "status": "no",
       "matchType": "near-miss",
       "matchedPath": "message-bar/icon/container/border/radius-end-end"
+    },
+    "--message-bar-icon-container-border-radius-end-end": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/icon/container/border/radius-end-end"
+    },
+    "--message-bar-icon-container-border-radius-end-start": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "message-bar/icon/container/border/radius-start-end"
+    },
+    "--message-bar-icon-container-border-radius-start-end": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "message-bar/icon/container/border/radius-start-end"
+    },
+    "--message-bar-icon-container-border-radius-start-start": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "message-bar/icon/container/border/radius-start-end"
     },
     "--message-bar-icon-container-height": {
       "status": "no",
@@ -1489,6 +1544,11 @@
       "matchedPath": null
     },
     "--message-bar-icon-container-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--message-bar-icon-container-padding-block-start": {
       "status": "no",
       "matchType": null,
       "matchedPath": null
@@ -1758,6 +1818,11 @@
       "matchType": null,
       "matchedPath": null
     },
+    "--panel-item-fill": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
     "--panel-list-background-color": {
       "status": "no",
       "matchType": "near-miss",
@@ -1791,11 +1856,6 @@
     "--panel-menuitem-margin": {
       "status": "no",
       "matchType": "near-miss",
-      "matchedPath": "panel-menuitem/margin/block"
-    },
-    "--panel-menuitem-margin-block": {
-      "status": "yes",
-      "matchType": "exact",
       "matchedPath": "panel-menuitem/margin/block"
     },
     "--panel-menuitem-margin-inline": {
@@ -2008,6 +2068,11 @@
       "matchType": "near-miss",
       "matchedPath": "select/border/color"
     },
+    "--select-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "select/border/color"
+    },
     "--select-border-color-disabled": {
       "status": "yes",
       "matchType": "exact",
@@ -2133,20 +2198,55 @@
       "matchType": "exact",
       "matchedPath": "tab/attention/dot/color"
     },
+    "--tab-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/background/color"
+    },
     "--tab-background-color-hover": {
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "tab/background/color/hover"
+    },
+    "--tab-background-color-pinned": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/background/color"
     },
     "--tab-background-color-selected": {
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "tab/background/color/selected"
     },
+    "--tab-background-width-pinned-expanded": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/width/pinned/expanded"
+    },
+    "--tab-border": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/border/radius"
+    },
+    "--tab-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/border/color"
+    },
     "--tab-border-color-accent": {
       "status": "no",
       "matchType": "near-miss",
       "matchedPath": "tab/border/color"
+    },
+    "--tab-border-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/border/color/hover"
+    },
+    "--tab-border-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/border/color/selected"
     },
     "--tab-border-color-selected-leading": {
       "status": "yes",
@@ -2168,10 +2268,55 @@
       "matchType": "exact",
       "matchedPath": "tab/box/shadow/selected"
     },
+    "--tab-close-button-background-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-close-button-background-color-active": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-close-button-background-color-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-close-button-border-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-close-button-border-color-active": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-close-button-border-color-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
     "--tab-close-button-padding": {
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "tab/close/button/padding"
+    },
+    "--tab-close-button-text-color": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-close-button-text-color-active": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--tab-close-button-text-color-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
     },
     "--tab-collapsed-background-width": {
       "status": "no",
@@ -2187,6 +2332,11 @@
       "status": "no",
       "matchType": null,
       "matchedPath": null
+    },
+    "--tab-container-margin-inline-pinned-expanded": {
+      "status": "yes",
+      "matchType": "reordered",
+      "matchedPath": "tab/margin/inline/pinned/container/expanded"
     },
     "--tab-context-line-block-offset": {
       "status": "no",
@@ -2543,6 +2693,16 @@
       "matchType": "reordered",
       "matchedPath": "tab/icon/margin-end"
     },
+    "--tab-icon-fill-loading": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/loading/fill"
+    },
+    "--tab-icon-margin-inline-end": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/icon/margin-end"
+    },
     "--tab-inline-padding": {
       "status": "yes",
       "matchType": "reordered",
@@ -2572,6 +2732,26 @@
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "tab/margin/block"
+    },
+    "--tab-margin-block-vertical": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/margin/block/vertical"
+    },
+    "--tab-margin-inline-inner": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/margin/inline/inner"
+    },
+    "--tab-margin-inline-pinned-expanded": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/margin/inline/pinned/expanded"
+    },
+    "--tab-margin-overflow-clip": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/margin/overflow/clip"
     },
     "--tab-max-width": {
       "status": "no",
@@ -2633,6 +2813,16 @@
       "matchType": null,
       "matchedPath": null
     },
+    "--tab-padding-inline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/padding/inline"
+    },
+    "--tab-padding-inline-vertical": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "tab/padding/inline"
+    },
     "--tab-pinned-container-margin-inline-expanded": {
       "status": "yes",
       "matchType": "reordered",
@@ -2672,6 +2862,21 @@
       "status": "no",
       "matchType": null,
       "matchedPath": null
+    },
+    "--tab-text-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/text/color"
+    },
+    "--tab-text-color-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/text/color/hover"
+    },
+    "--tab-text-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/text/color/selected"
     },
     "--tab-vertical-block-margin": {
       "status": "yes",
@@ -2903,6 +3108,11 @@
       "matchType": "near-miss",
       "matchedPath": "text/color"
     },
+    "--toolbarbutton-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toolbarbutton/background/color/active"
+    },
     "--toolbarbutton-background-color-active": {
       "status": "yes",
       "matchType": "exact",
@@ -3068,6 +3278,11 @@
       "matchType": "exact",
       "matchedPath": "toolbox/text/color"
     },
+    "--toolbox-text-color-current": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbox/text/color/current"
+    },
     "--toolbox-text-color-inactive": {
       "status": "yes",
       "matchType": "exact",
@@ -3111,6 +3326,11 @@
     "--urlbar-box-text-color": {
       "status": "yes",
       "matchType": "exact",
+      "matchedPath": "urlbar/box/text/color"
+    },
+    "--urlbar-box-text-color-active": {
+      "status": "no",
+      "matchType": "near-miss",
       "matchedPath": "urlbar/box/text/color"
     },
     "--urlbar-box-text-color-hover": {

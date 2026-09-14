@@ -17,9 +17,13 @@
   },
   "border": {
     "@base": {
-      "$value": "{button.border.@base}"
+      "$value": "{border.width} solid {select.border.color.@base}"
     },
     "color": {
+      "@base": {
+        "$value": "{button.border.color.@base}",
+        "$type": "color"
+      },
       "hover": {
         "$value": "{button.border.color.hover}",
         "$type": "color"

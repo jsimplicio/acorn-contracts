@@ -10,11 +10,9 @@
       "chain": []
     },
     "sidebar.border.color": {
-      "value": "rgba(0, 0, 0, 0.06)",
+      "value": "var(--chrome-content-separator-color)",
       "type": "color",
-      "chain": [
-        "card.border.color"
-      ]
+      "chain": []
     },
     "sidebar.text.color": {
       "value": "rgb(21, 20, 26)",

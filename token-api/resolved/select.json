@@ -28,14 +28,20 @@
       ]
     },
     "moz-select.border.@base": {
-      "value": "{border.width} solid {button.border.color.@base}",
+      "value": "{border.width} solid {select.border.color.@base}",
       "type": null,
-      "chain": [
-        "button.border.@base"
-      ],
+      "chain": [],
       "unresolvedRefs": [
         "border.width",
-        "button.border.color.@base"
+        "select.border.color.@base"
+      ]
+    },
+    "moz-select.border.color.@base": {
+      "value": "#817f84",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.@base",
+        "color.gray.45"
       ]
     },
     "moz-select.border.color.disabled": {
@@ -47,11 +53,11 @@
       ]
     },
     "moz-select.border.color.hover": {
-      "value": "#817f84",
+      "value": "#67666a",
       "type": "color",
       "chain": [
         "border.color.interactive.hover",
-        "color.gray.45"
+        "color.gray.50"
       ]
     },
     "moz-select.border.radius": {
@@ -108,7 +114,7 @@
       ]
     },
     "moz-select.opacity.disabled": {
-      "value": "0.7",
+      "value": "0.5",
       "type": "number",
       "chain": [
         "button.opacity.disabled"

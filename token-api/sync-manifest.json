@@ -10,13 +10,12 @@
       "toolkit/content/widgets/* (components, one level deep)"
     ],
     "ref_requested": "(default branch)",
-    "commit": "8a99ef927ea16827f2089e2bdf6a1188ddf645e7",
-    "commit_date": "2026-09-01T21:50:16Z",
+    "commit": "1713b2fe116495380852077e8f7f3618d4380721",
+    "commit_date": "2026-09-14T10:26:05Z",
     "fetch_method": "github-sparse-clone:https://github.com/mozilla-firefox/firefox"
   },
-  "generated_at": "2026-09-01T22:52:29.116955+00:00",
+  "generated_at": "2026-09-14T14:31:41.247205+00:00",
   "files_converted": [
-    "base/background.nova.tokens.json",
     "base/background.tokens.json",
     "base/border.nova.tokens.json",
     "base/border.tokens.json",
@@ -37,6 +36,7 @@
     "components/icon.nova.tokens.json",
     "components/icon.tokens.json",
     "components/info-bar.tokens.json",
+    "components/input.nova.tokens.json",
     "components/input.tokens.json",
     "components/link.tokens.json",
     "components/opacity.tokens.json",
@@ -49,7 +49,6 @@
     "components/popup.nova.tokens.json",
     "components/popup.tokens.json",
     "components/sidebar.tokens.json",
-    "components/table.nova.tokens.json",
     "components/table.tokens.json",
     "components/toolbar.nova.tokens.json",
     "components/toolbar.tokens.json",
@@ -81,14 +80,12 @@
     "components/moz-segmented-control.tokens.json",
     "components/moz-select.nova.tokens.json",
     "components/moz-select.tokens.json",
-    "components/moz-toggle.nova.tokens.json",
     "components/moz-toggle.tokens.json",
     "components/moz-visual-picker-item.tokens.json",
     "components/panel-item.tokens.json",
     "components/panel-list.tokens.json"
   ],
   "source_paths": {
-    "base/background.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/background.nova.tokens.json",
     "base/background.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/background.tokens.json",
     "base/border.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
     "base/border.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
@@ -109,6 +106,7 @@
     "components/icon.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
     "components/icon.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
     "components/info-bar.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/info-bar.tokens.json",
+    "components/input.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/input.nova.tokens.json",
     "components/input.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/input.tokens.json",
     "components/link.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/link.tokens.json",
     "components/opacity.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/opacity.tokens.json",
@@ -121,7 +119,6 @@
     "components/popup.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/popup.nova.tokens.json",
     "components/popup.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/popup.tokens.json",
     "components/sidebar.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/sidebar.tokens.json",
-    "components/table.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/table.nova.tokens.json",
     "components/table.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/table.tokens.json",
     "components/toolbar.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
     "components/toolbar.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
@@ -153,21 +150,20 @@
     "components/moz-segmented-control.tokens.json": "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.tokens.json",
     "components/moz-select.nova.tokens.json": "toolkit/content/widgets/moz-select/moz-select.nova.tokens.json",
     "components/moz-select.tokens.json": "toolkit/content/widgets/moz-select/moz-select.tokens.json",
-    "components/moz-toggle.nova.tokens.json": "toolkit/content/widgets/moz-toggle/moz-toggle.nova.tokens.json",
     "components/moz-toggle.tokens.json": "toolkit/content/widgets/moz-toggle/moz-toggle.tokens.json",
     "components/moz-visual-picker-item.tokens.json": "toolkit/content/widgets/moz-visual-picker/moz-visual-picker-item.tokens.json",
     "components/panel-item.tokens.json": "toolkit/content/widgets/panel-list/panel-item.tokens.json",
     "components/panel-list.tokens.json": "toolkit/content/widgets/panel-list/panel-list.tokens.json"
   },
-  "leaf_token_total": 1147,
-  "theme_object_total": 402,
+  "leaf_token_total": 1161,
+  "theme_object_total": 405,
   "type_counts": {
-    "color": 824,
-    "dimension": 277,
+    "color": 830,
+    "dimension": 280,
     "fontWeight": 8,
-    "number": 9
+    "number": 8
   },
-  "omitted_type_count": 29,
+  "omitted_type_count": 35,
   "omitted_type_examples": [
     {
       "path": "box-shadow.level-1",
@@ -246,12 +242,12 @@
       "reason": "ambiguous group path, no type rule matched"
     },
     {
-      "path": "tab.box.shadow.selected",
-      "reason": "ambiguous group path, no type rule matched"
+      "path": "tab.border.@base",
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
     },
     {
-      "path": "tab.outline.@base",
-      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+      "path": "tab.box.shadow.selected",
+      "reason": "ambiguous group path, no type rule matched"
     },
     {
       "path": "tabs-navbar.separator.style",
@@ -262,7 +258,31 @@
       "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
     },
     {
+      "path": "moz-message-bar.icon.container.align-items",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
       "path": "moz-message-bar.icon.container.border.@base",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "moz-message-bar.icon.container.border.radius-start-start",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "moz-message-bar.icon.container.border.radius-start-end",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "moz-message-bar.icon.container.border.radius-end-start",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "moz-message-bar.icon.container.border.radius-end-end",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "moz-message-bar.icon.container.padding-block-start",
       "reason": "ambiguous group path, no type rule matched"
     },
     {
@@ -275,7 +295,7 @@
     },
     {
       "path": "moz-select.border.@base",
-      "reason": "ambiguous group path, no type rule matched"
+      "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
     },
     {
       "path": "moz-toggle.dot.transform-x",
@@ -287,6 +307,12 @@
     }
   ],
   "extra_key_flags": [
+    {
+      "path": "border.color.transparent",
+      "keys": {
+        "ignoreFigma": "Use prefersContrast over forcedColors"
+      }
+    },
     {
       "path": "border.radius.xlarge",
       "keys": {
@@ -450,6 +476,18 @@
       }
     },
     {
+      "path": "button.background.color.ghost.disabled",
+      "keys": {
+        "ignoreFigma": "Preserve token structure that can't be replicated in Figma"
+      }
+    },
+    {
+      "path": "card.border.color",
+      "keys": {
+        "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+      }
+    },
+    {
       "path": "icon.color.accent.primary.desaturated",
       "keys": {
         "override": true
@@ -457,18 +495,6 @@
     },
     {
       "path": "panel.separator.color",
-      "keys": {
-        "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
-      }
-    },
-    {
-      "path": "toolbarbutton.background.color.hover",
-      "keys": {
-        "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
-      }
-    },
-    {
-      "path": "toolbarbutton.background.color.active",
       "keys": {
         "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
       }
@@ -492,9 +518,29 @@
       }
     },
     {
+      "path": "toolbox.text.color.current",
+      "keys": {
+        "nova": {
+          "value": "currentColor"
+        }
+      }
+    },
+    {
+      "path": "tab.background.color.pinned",
+      "keys": {
+        "override": true
+      }
+    },
+    {
       "path": "tab.border.color.accent",
       "keys": {
         "override": true
+      }
+    },
+    {
+      "path": "tab.border.color.selected.@base",
+      "keys": {
+        "ignoreFigma": "Figma uses a gradient, so its values are empty"
       }
     },
     {
@@ -510,9 +556,15 @@
       }
     },
     {
-      "path": "tab.outline.color",
+      "path": "tab.margin.inline.inner",
       "keys": {
-        "ignoreFigma": "Tab HCM overrides are handled in CSS, so we don't want the forcedColors value from Figma"
+        "ignoreFigma": "Prefer space token over pixel value from Figma."
+      }
+    },
+    {
+      "path": "tab.margin.inline.pinned.expanded",
+      "keys": {
+        "ignoreFigma": "The 0px value from Figma causes pinned tabs to touch."
       }
     },
     {

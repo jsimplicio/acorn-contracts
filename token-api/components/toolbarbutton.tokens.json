@@ -138,16 +138,23 @@
   },
   "background": {
     "color": {
+      "@base": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "forcedColors": "{button.background.color.@base}"
+          }
+        },
+        "$type": "color"
+      },
       "hover": {
         "$value": "color-mix(in srgb, currentColor 17%, transparent)",
         "$extensions": {
           "org.mozilla.themes": {
             "default": "color-mix(in srgb, currentColor 17%, transparent)",
-            "forcedColors": "{button.background.color.hover}",
-            "nativeTheme": "{button.background.color.ghost.hover}"
-          },
-          "org.mozilla.meta": {
-            "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+            "forcedColors": "{button.background.color.ghost.hover}",
+            "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)"
           }
         },
         "$type": "color"
@@ -157,11 +164,8 @@
         "$extensions": {
           "org.mozilla.themes": {
             "default": "color-mix(in srgb, currentColor 30%, transparent)",
-            "forcedColors": "{button.background.color.active}",
-            "nativeTheme": "{button.background.color.ghost.active}"
-          },
-          "org.mozilla.meta": {
-            "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"
+            "forcedColors": "{button.background.color.ghost.active}",
+            "nativeTheme": "color-mix(in srgb, currentColor 30%, transparent)"
           }
         },
         "$type": "color"
@@ -189,7 +193,13 @@
           "org.mozilla.themes": {
             "default": "transparent",
             "prefersContrast": "currentColor",
-            "forcedColors": "SelectedItem"
+            "forcedColors": "SelectedItem",
+            "nova": {
+              "comment": "Preserve the base prefersContrast value",
+              "value": {
+                "forcedColors": "{button.border.color.hover}"
+              }
+            }
           }
         },
         "$type": "color"
@@ -200,7 +210,13 @@
           "org.mozilla.themes": {
             "default": "transparent",
             "prefersContrast": "currentColor",
-            "forcedColors": "ButtonText"
+            "forcedColors": "ButtonText",
+            "nova": {
+              "comment": "Preserve the base prefersContrast value",
+              "value": {
+                "forcedColors": "{button.border.color.active}"
+              }
+            }
           }
         },
         "$type": "color"

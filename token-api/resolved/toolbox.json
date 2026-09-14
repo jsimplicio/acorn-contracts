@@ -5,9 +5,11 @@
   ],
   "tokens": {
     "toolbox.background.color.@base": {
-      "value": "rgb(234, 234, 237)",
+      "value": "#ffffff",
       "type": "color",
-      "chain": []
+      "chain": [
+        "color.white.@base"
+      ]
     },
     "toolbox.background.color.gradient-leading": {
       "value": "#eaddff",
@@ -41,6 +43,15 @@
       "value": "#180e30",
       "type": "color",
       "chain": [
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "toolbox.text.color.current": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "toolbox.text.color.@base",
         "text.color.@base",
         "color.violet-desaturated.90"
       ]

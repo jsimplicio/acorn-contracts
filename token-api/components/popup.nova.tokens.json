@@ -1,13 +1,11 @@
 {
   "border": {
     "color": {
-      "$value": "{color.gray.10}",
+      "$value": "{border.color.deemphasized.@base}",
       "$extensions": {
         "org.mozilla.themes": {
           "nativeTheme": "{border.color.deemphasized.@base}",
-          "light": "{color.gray.10}",
-          "dark": "{color.gray.65}",
-          "forcedColors": "{border.color.@base}"
+          "default": "{border.color.deemphasized.@base}"
         }
       },
       "$type": "color"

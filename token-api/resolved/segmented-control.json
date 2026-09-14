@@ -14,11 +14,11 @@
       ]
     },
     "moz-segmented-control.border.color": {
-      "value": "#a6a4a9",
+      "value": "#817f84",
       "type": "color",
       "chain": [
         "border.color.interactive.@base",
-        "color.gray.35"
+        "color.gray.45"
       ]
     },
     "moz-segmented-control.border.radius": {

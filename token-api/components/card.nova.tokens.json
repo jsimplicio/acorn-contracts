@@ -1,17 +1,4 @@
 {
-  "border": {
-    "color": {
-      "$value": "rgba(0, 0, 0, 0.06)",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "light": "rgba(0, 0, 0, 0.06)",
-          "dark": "rgba(255, 255, 255, 0.04)",
-          "forcedColors": "CanvasText"
-        }
-      },
-      "$type": "color"
-    }
-  },
   "gap": {
     "@base": {
       "$value": "{space.medium}",

@@ -14,28 +14,16 @@
     }
   },
   "margin": {
-    "block": {
-      "start": {
-        "$value": "4px",
-        "$type": "dimension"
-      },
-      "end": {
-        "$value": "4px",
-        "$extensions": {
-          "org.mozilla.themes": {
-            "default": "4px",
-            "nova": {
-              "comment": "There is no equivalent value for this token in Figma",
-              "value": "0"
-            }
-          }
-        },
-        "$type": "dimension"
+    "$value": "4px",
+    "$extensions": {
+      "org.mozilla.themes": {
+        "default": "4px",
+        "nova": {
+          "comment": "There is no equivalent value for this token in Figma",
+          "value": "0"
+        }
       }
     },
-    "inline": {
-      "$value": "4px",
-      "$type": "dimension"
-    }
+    "$type": "dimension"
   }
 }

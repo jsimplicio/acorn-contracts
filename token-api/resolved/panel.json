@@ -29,11 +29,12 @@
       ]
     },
     "panel.border.color": {
-      "value": "#efedf2",
+      "value": "#d6d5da",
       "type": "color",
       "chain": [
         "popup.border.color",
-        "color.gray.10"
+        "border.color.deemphasized.@base",
+        "color.gray.20"
       ]
     },
     "panel.border.radius": {
@@ -113,10 +114,11 @@
       ]
     },
     "popup.border.color": {
-      "value": "#efedf2",
+      "value": "#d6d5da",
       "type": "color",
       "chain": [
-        "color.gray.10"
+        "border.color.deemphasized.@base",
+        "color.gray.20"
       ]
     },
     "popup.border.radius": {

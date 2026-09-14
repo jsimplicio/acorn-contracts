@@ -6,24 +6,16 @@
         "$type": "color"
       },
       "warning": {
-        "$value": "{message-bar.background.color.@base}",
+        "$value": "{background.color.box.@base}",
         "$type": "color"
       },
       "success": {
-        "$value": "{message-bar.background.color.@base}",
+        "$value": "{background.color.box.@base}",
         "$type": "color"
       },
       "critical": {
-        "$value": "{message-bar.background.color.@base}",
+        "$value": "{background.color.box.@base}",
         "$type": "color"
-      }
-    }
-  },
-  "container": {
-    "padding": {
-      "inline": {
-        "$value": "8px",
-        "$type": "dimension"
       }
     }
   },

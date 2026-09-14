@@ -7,6 +7,13 @@
       },
       "active": {
         "$value": "{button.background.color.active}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{button.background.color.active}",
+            "dark": "{color.violet-desaturated.60}",
+            "forcedColors": "{button.background.color.active}"
+          }
+        },
         "$type": "color"
       },
       "hover": {

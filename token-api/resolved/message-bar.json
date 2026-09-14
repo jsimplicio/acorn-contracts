@@ -32,7 +32,6 @@
       "value": "#ffffff",
       "type": "color",
       "chain": [
-        "message-bar.background.color.@base",
         "background.color.box.@base",
         "color.white.@base"
       ]
@@ -41,7 +40,6 @@
       "value": "#ffffff",
       "type": "color",
       "chain": [
-        "message-bar.background.color.@base",
         "background.color.box.@base",
         "color.white.@base"
       ]
@@ -50,13 +48,12 @@
       "value": "#ffffff",
       "type": "color",
       "chain": [
-        "message-bar.background.color.@base",
         "background.color.box.@base",
         "color.white.@base"
       ]
     },
     "moz-message-bar.border.color": {
-      "value": "oklch(from {message-bar.icon.color} l c h / 20%)",
+      "value": "oklch(from {message-bar.icon.color} l c h / 12%)",
       "type": "color",
       "chain": [],
       "unresolvedRefs": [
@@ -77,6 +74,18 @@
         "border.width"
       ]
     },
+    "moz-message-bar.close.margin.block-start": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "moz-message-bar.close.margin.inline-end": {
+      "value": "8px",
+      "type": "dimension",
+      "chain": []
+    },
     "moz-message-bar.container.gap": {
       "value": "0.5rem",
       "type": "dimension",
@@ -92,14 +101,12 @@
       ]
     },
     "moz-message-bar.container.padding.block": {
-      "value": "0.5rem",
+      "value": "0",
       "type": "dimension",
-      "chain": [
-        "space.small"
-      ]
+      "chain": []
     },
     "moz-message-bar.container.padding.inline": {
-      "value": "8px",
+      "value": "0",
       "type": "dimension",
       "chain": []
     },
@@ -111,6 +118,18 @@
         "space.small",
         "space.medium"
       ]
+    },
+    "moz-message-bar.content.padding.block": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
+    "moz-message-bar.content.padding.inline": {
+      "value": "8px",
+      "type": "dimension",
+      "chain": []
     },
     "moz-message-bar.icon.background.color.@base": {
       "value": "#eaddff",
@@ -152,6 +171,11 @@
         "color.violet.50"
       ]
     },
+    "moz-message-bar.icon.container.align-items": {
+      "value": "flex-start",
+      "type": null,
+      "chain": []
+    },
     "moz-message-bar.icon.container.border.@base": {
       "value": "1px solid {message-bar.icon.container.border.color}",
       "type": null,
@@ -166,21 +190,47 @@
       "chain": []
     },
     "moz-message-bar.icon.container.border.radius": {
-      "value": "9999px",
+      "value": "calc({message-bar.border.radius} - 1px)",
       "type": "dimension",
+      "chain": [],
+      "unresolvedRefs": [
+        "message-bar.border.radius"
+      ]
+    },
+    "moz-message-bar.icon.container.border.radius-end-end": {
+      "value": "0",
+      "type": null,
+      "chain": []
+    },
+    "moz-message-bar.icon.container.border.radius-end-start": {
+      "value": "calc({message-bar.border.radius} - 1px)",
+      "type": null,
       "chain": [
-        "border.radius.circle"
+        "message-bar.icon.container.border.radius"
+      ],
+      "unresolvedRefs": [
+        "message-bar.border.radius"
+      ]
+    },
+    "moz-message-bar.icon.container.border.radius-start-end": {
+      "value": "0",
+      "type": null,
+      "chain": []
+    },
+    "moz-message-bar.icon.container.border.radius-start-start": {
+      "value": "calc({message-bar.border.radius} - 1px)",
+      "type": null,
+      "chain": [
+        "message-bar.icon.container.border.radius"
+      ],
+      "unresolvedRefs": [
+        "message-bar.border.radius"
       ]
     },
     "moz-message-bar.icon.container.height": {
-      "value": "16px",
+      "value": "auto",
       "type": "dimension",
-      "chain": [
-        "message-bar.icon.size",
-        "icon.size.@base",
-        "icon.size.small",
-        "size.item.small"
-      ]
+      "chain": []
     },
     "moz-message-bar.icon.container.margin.block.start.@base": {
       "value": "0px",
@@ -191,6 +241,14 @@
       "value": "0px",
       "type": "dimension",
       "chain": []
+    },
+    "moz-message-bar.icon.container.padding-block-start": {
+      "value": "calc({space.small} + {space.small})",
+      "type": null,
+      "chain": [],
+      "unresolvedRefs": [
+        "space.small"
+      ]
     },
     "moz-message-bar.icon.container.padding.@base": {
       "value": "0.5rem",

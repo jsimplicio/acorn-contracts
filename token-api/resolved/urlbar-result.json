@@ -5,7 +5,7 @@
   ],
   "tokens": {
     "urlbarview.action.button.background.color.@base": {
-      "value": "color-mix(in srgb, currentColor 17%, transparent)",
+      "value": "rgba(117, 102, 159, 0.25)",
       "type": "color",
       "chain": [
         "urlbar.box.background.color.@base",
@@ -14,7 +14,7 @@
       ]
     },
     "urlbarview.action.button.background.color.hover": {
-      "value": "color-mix(in srgb, currentColor 30%, transparent)",
+      "value": "rgba(117, 102, 159, 0.4)",
       "type": "color",
       "chain": [
         "urlbar.box.background.color.hover",
@@ -23,14 +23,14 @@
       ]
     },
     "urlbarview.background.color.hover": {
-      "value": "color-mix(in srgb, currentColor 17%, transparent)",
+      "value": "rgba(117, 102, 159, 0.25)",
       "type": "color",
       "chain": [
         "toolbarbutton.background.color.hover"
       ]
     },
     "urlbarview.background.color.selected": {
-      "value": "color-mix(in srgb, currentColor 30%, transparent)",
+      "value": "rgba(117, 102, 159, 0.4)",
       "type": "color",
       "chain": [
         "toolbarbutton.background.color.active"

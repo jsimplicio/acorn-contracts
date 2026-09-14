@@ -20,245 +20,197 @@ python3 token-api/sync.py
 
 That's it. Every run:
 
-1. Does a shallow, blobless, sparse-checkout `git clone` of
-   `https://github.com/mozilla-firefox/firefox`, restricted to every real
-   location a `*.tokens.json` file actually lives (see "Where these files
-   really live" below), into a scratch temp directory (deleted automatically
-   after the run). This is a real network fetch of the actual upstream repo
-   every time, not a copy of some convenient local checkout that happened to
-   already exist on this machine.
-2. Converts every `*.tokens.json` file found in any of those locations and
-   writes one converted file per source file under `token-api/base/` (only
-   the central base/ files) or `token-api/components/` (the central
-   components/ files, plus every colocated one, flattened by basename), so
-   a converted file diffs cleanly against its source, line for line, group
-   for group.
-3. Overwrites `token-api/sync-manifest.json` with the exact commit fetched,
-   fetch timestamp, per-run token/type counts, and the list of tokens where a
-   `$type` was deliberately omitted or a non-standard key was preserved (see
-   below), so every run is auditable against the last one.
-4. Resolves the same `button.padding.inline.@base` → `space.large` →
-   `dimension.relative.100` → `1rem` alias chain documented below, as a
-   smoke test that the output is genuinely walkable end to end, and fails
-   loudly (non-zero exit) if it doesn't resolve to `1rem`.
+1. **Clone.** A shallow, blobless, sparse checkout of
+   `mozilla-firefox/firefox` into a temp directory, restricted to the
+   locations below and deleted afterwards. A real network fetch every time,
+   never a local checkout that happens to already exist.
+2. **Convert.** One output file per source file, under `base/` or
+   `components/`, so a converted file diffs cleanly against its source line
+   for line.
+3. **Record.** `sync-manifest.json` gets the commit fetched, the timestamp,
+   per-run counts, and every token where a `$type` was omitted or a
+   non-standard key preserved. Each run is auditable against the last.
+4. **Verify.** Resolves `button.padding.inline.@base` → `space.large` →
+   `dimension.relative.100` → `1rem` as a smoke test, and exits non-zero if
+   it does not.
 
-Useful flags:
-
-- `--ref <branch-or-sha>`: fetch a specific ref instead of the default
-  branch tip (e.g. to pin a sync to a known-good commit, or reproduce an old
-  one).
-- `--local-checkout <path>`: **dev/test only.** Skips the network fetch
-  entirely and reads tokens from an existing local firefox checkout instead.
-  Prints a loud warning banner and is recorded in the manifest as a bypass.
-  This exists purely to make iterating on the converter itself faster; it is
-  never the path a real sync should take, and the manifest makes it obvious
-  if someone ran it this way by mistake.
+| Flag | Effect |
+|---|---|
+| `--ref <branch-or-sha>` | Fetch a specific ref instead of the default branch tip, to pin a sync or reproduce an old one. |
+| `--local-checkout <path>` | **Dev only.** Skips the fetch and reads a local firefox checkout. Prints a warning banner and records the bypass in the manifest, so a run this way is obvious afterwards. |
 
 ## Where these files really live
 
-Firefox's tokens are **not** all under one central directory. Besides the
-obvious `toolkit/themes/shared/design-system/src/tokens/{base,components}/`,
-two more patterns feed real components:
+Firefox's tokens are **not** all in one place. The central set is under
+`toolkit/themes/shared/design-system/src/tokens/{base,components}/`. Three
+other patterns feed real components, all in the same Style-Dictionary
+format, so only `SOURCE_ROOTS` in `sync.py` widens for a new location.
 
-- **Feature-area-owned files**: `browser/themes/shared/tabbrowser/*.tokens.json`
-  (tab, tab.nova, tabs-navbar) and `browser/themes/shared/urlbar/*.tokens.json`
-  (urlbar, urlbar.nova, urlbarview, urlbarview.nova).
-- **Component-colocated files**: several real components under
-  `toolkit/content/widgets/` keep their own `*.tokens.json` directly next to
-  their `.mjs`/`.css` rather than in the central tree (moz-badge, moz-toggle,
-  moz-select, moz-message-bar, moz-page-nav, moz-promo, moz-input-color,
-  moz-breadcrumb, moz-segmented-control, moz-reorderable-list,
-  moz-visual-picker-item, panel-item, panel-list), plus a shared
-  `moz-box.tokens.json` sitting directly in `toolkit/content/widgets/`
-  itself (consumed by both moz-box-item and moz-box-group).
+| Also in | Holds |
+|---|---|
+| `browser/themes/shared/tabbrowser/` | tab, tab.nova, tabs-navbar |
+| `browser/themes/shared/urlbar/` | urlbar, urlbar.nova, urlbarview, urlbarview.nova |
+| `toolkit/content/widgets/<component>/` | components keeping tokens beside their own `.mjs` |
+| `toolkit/content/widgets/moz-box.tokens.json` | shared by moz-box-item and moz-box-group |
 
-All of them use the same Style-Dictionary-flavored format, so only
-`SOURCE_ROOTS` in `sync.py` has to widen to pick up a new location.
+## `id-map.json`
 
-**`id-map.json`** maps each component id to its real basename(s), because
-Firefox's naming often differs from the id used here (`info-bar` vs
-`infobar`, `toolbarbutton` vs `toolbar-button`) and some ids draw from more
-than one file. It is published data rather than logic inside `index.html`,
-so a consumer reading only `token-api/` can see the mapping. Schema:
+Maps each component id to its real basename(s), because Firefox's naming
+often differs from the id used here (`info-bar` vs `infobar`, `toolbarbutton`
+vs `toolbar-button`) and some ids draw from more than one file. Published
+data rather than logic inside `index.html`, so a consumer reading only
+`token-api/` can see the mapping. Schema:
 
 ```jsonc
 {
-  // Loaded unconditionally for every component, since these basenames are
-  // referenced by many unrelated component files, so treated as de-facto
-  // foundational despite living in components/, not base/.
   "foundational": ["button", "icon"],
-  // component id -> real basename(s). A plain array means every basename
-  // listed is genuinely this id's own content, displayed as this id's
-  // rows. More than one entry means the real component genuinely draws
-  // from more than one file (panel-item's own colocated badge/button
-  // extras file, for example).
   "map": {
     "panel-item": ["panel-menuitem", "panel-item"],
-    // {own, resolve} instead of a plain array when this id's own tokens
-    // alias into a basename that ALSO has its own separate id/page
-    // elsewhere: "own" is what's displayed as this id's rows, "resolve"
-    // is loaded into the lookup so those aliases still resolve, but never
-    // displayed here too (button aliases into two of Toolbar Button's
-    // tokens; Toolbar Button already has its own page for its own full
-    // set, so button's page shows only its own rows, not a second copy).
     "button": { "own": ["button"], "resolve": ["toolbarbutton"] },
-    // An "own" entry can also be {basename, onlySegment} instead of a
-    // bare string, for when this id's real tokens are a subset of a
-    // larger file that ALSO has its own separate id/page: only tokens
-    // with that exact segment somewhere in their dotted path are
-    // exported (never a substring match). Icon Button is the 6 real
-    // button.tokens.json tokens with an exact "icon" segment
-    // (button.icon.fill, button.padding.icon, button.size.icon.@base,
-    // ...), not the whole file Button's own page already shows.
-    "icon-button": { "own": [{ "basename": "button", "onlySegment": "icon" }], "resolve": [] },
-    "...": ["..."]
+    "icon-button": { "own": [{ "basename": "button", "onlySegment": "icon" }], "resolve": [] }
   }
 }
 ```
 
-Why a segment match, not a fixed position: this repo's own real design token
+**`foundational`** is loaded for every component, because these basenames are
+referenced by many unrelated files. They live in `components/` but behave as
+base tokens.
+
+| Shape under `map` | Means |
+|---|---|
+| `["a", "b"]` | Every basename listed is this id's own content and is displayed as its rows. More than one means the component genuinely draws from more than one file. |
+| `{ "own": [...], "resolve": [...] }` | `own` is displayed; `resolve` is loaded so aliases still resolve but is never shown here. For when this id aliases into a basename that has its own page. `button` aliases into two of Toolbar Button's tokens. |
+| `{ "basename": "x", "onlySegment": "y" }` | Inside `own`: export only tokens carrying that exact dotted-path segment. Icon Button is the 6 `button.tokens.json` tokens with an exact `icon` segment, not the whole file Button already shows. |
+
+
+**Why a segment match, not a fixed position.** This repo's own token
 taxonomy (Ecosystem > Domain > Object > Pattern > Component > Element >
 Category > Type > Concept > Property > Modifier > Variant > State > Scale,
-see acorn.firefox.com's "How design tokens work: taxonomy" page) explicitly
-says a token name only includes "enough levels to describe and communicate
-[its] intent", not every level every time. That means the same taxonomy
-level (e.g. a "Modifier" like `icon`) can land at a different position in
-different token names, so anchoring `onlySegment` to a fixed position
-(like "right after the basename") would miss real matches. An exact
-dotted-path-segment match works regardless of position; a substring match
-would not (it would false-positive on any path that happens to contain a
-segment's letters without being that segment).
+see acorn.firefox.com's "How design tokens work: taxonomy" page) says a
+token name only includes "enough levels to describe and communicate [its]
+intent", not every level every time.
 
-An id with no entry in `map` falls back to trying `<id>.tokens.json`
-directly (in case a future sync adds a file that happens to match the
-id itself), same fallback `index.html` uses.
+So the same level (a "Modifier" like `icon`, say) lands at different
+positions in different names. Anchoring `onlySegment` to a fixed position
+would miss real matches; an exact dotted-path-segment match works wherever
+it sits. A substring match would not, false-positiving on any path that
+merely contains a segment's letters.
 
-**Known limitation:** a component's token file can alias into a *different*
-component's own file. `button` and `icon` are covered unconditionally (see
-`foundational` above), every real cross-reference into a basename with its
-own separate id/page uses `{own, resolve}` as above, and every other real
-cross-reference (into a basename with no id/page of its own, e.g. `panel`
-including `popup`, since `panel.nova.tokens.json` genuinely aliases into
-`{popup.border.radius}`) is listed as a plain extra array entry, since
-there's no separate page for it to duplicate against either way. A
-reference to some *other* file not covered by any of those would only
-resolve while viewing a page that happens to already load that file for
-its own reasons; there's no fully general cross-component alias
-resolution. Shows up as a `(unresolved)` diagnostic in `index.html` rather
-than a silently wrong value, so it's visible when it happens, just not
-automatically fixed.
+**Fallback.** An id with no entry in `map` tries `<id>.tokens.json`
+directly, in case a future sync adds a file matching the id itself. Same
+fallback `index.html` uses.
+
+**Known limitation.** A component's token file can alias into a *different*
+component's file. Three cases are covered:
+
+- **`button` and `icon`** — unconditionally, via `foundational` above.
+- **A basename with its own id/page** — `{own, resolve}`, so it resolves
+  without being displayed twice.
+- **A basename with no page of its own** — a plain extra array entry, since
+  there is nothing to duplicate against. `panel` picks up `popup` this way,
+  because `panel.nova.tokens.json` aliases into `{popup.border.radius}`.
+
+Anything else resolves only while viewing a page that already loads that file
+for its own reasons. There is no general cross-component alias resolution, and
+it surfaces as an `(unresolved)` diagnostic in `index.html` rather than a
+silently wrong value.
 
 ## How to resolve a real token's value
 
-This is the exact algorithm, not a description of what happens to already
-be true of `index.html`. Any consumer reading only `token-api/`'s files, no
-`index.html`, can reproduce the same resolved values by following it:
+The exact algorithm, not a description of what `index.html` happens to do.
+A consumer reading only `token-api/` can reproduce the same values.
 
-1. **Build the shared lookup.** For every file in `base/*.tokens.json`
-   (skip `.nova.` ones for now), flatten it into a flat
-   `"<basename>.<dotted.path>"` -> token map, keyed by the file's own
-   filename stem (`space.tokens.json` -> prefix `space`). Then flatten
-   `components/<name>.tokens.json` for every `name` in `id-map.json`'s
-   `foundational` list into that same map, same rule (prefix by that file's
-   own basename, `button`/`icon`).
-1b. **Proton scale steps Nova replaced are already gone.** Firefox ships both
-   generations side by side: `color.tokens.json` is the Proton ramp (steps
-   0-110, oklch) and `color.nova.tokens.json` is the Nova one (0-90, hex), on
-   different scales. Merging them key by key (step 2) does not remove a step
-   Nova dropped, it keeps the Proton one, which then lands at the end of a
-   scale it does not belong to: `color.gray.100` (#15141a) is visibly
-   *lighter* than `color.gray.90` (#121114), and `border.radius.xxlarge`
-   was listed when Nova has no such radius. `sync.py` drops those at
-   conversion time (`prune_superseded_scale_steps`), so nothing downstream
-   has to know about it. Four guards keep it off anything live:
+1. **Build the shared lookup.** Flatten every `base/*.tokens.json` (skip the
+   `.nova.` ones for now) into a `"<basename>.<dotted.path>"` map keyed by
+   each file's own stem, then the `foundational` files from `components/`
+   the same way.
+2. **Layer Nova on top, in a second pass.** Flatten every
+   `base/*.nova.tokens.json`, and every `components/<name>.nova.tokens.json`
+   for a `foundational` name, under its **non-nova** stem and merge,
+   overwriting matching keys.
+3. **Add the component's own files.** Look up the id in `id-map.json`'s `map`
+   (fall back to `[id]`). For each basename, merge `<basename>.tokens.json`,
+   then `<basename>.nova.tokens.json` on top.
+4. **Resolve a value.** If `$value` matches `^\{([^{}]+)\}$`, look the captured
+   path up in the merged map and repeat on that token, tracking each hop.
+   Anything else is already the answer.
+5. **Theme-dimension values.** An object `$value` has already been reduced by
+   `sync.py` to one branch per `DEFAULT_PICK_ORDER`; the full original set is
+   preserved under `$extensions["org.mozilla.themes"]`.
 
-   - **`base/` only.** A component token's real consumer is CSS in
-     mozilla-central, not another token, so "nothing aliases it" says
-     nothing about whether it is live. Applying this to `components/` would
-     delete ~45 real tokens (`moz-toggle.dot.width`, `card.gap.compact`).
-   - **Only a group Nova rewrote.** Nova defines no `white`/`black` group at
-     all, so those are the only ramp there is and they stay.
-   - **Only a flat scale** (every member a leaf). `background.color` holds
-     nested groups (`box`, `list`, `dimmed`) so it is never touched;
-     `border.radius` is seven flat leaves so it is.
-   - **Only a step nothing references under Nova.** Not a raw scan of the
-     files: both generations live in the same file, so a blanket scan counts
-     a reference that exists only in a superseded Proton definition, which is
-     enough to keep a dead token alive forever. A Proton token its own
-     `.nova` sibling redefines is skipped, as is the non-nova half of a token
-     carrying its own `nova` branch. `color.gray.100` is the worked example:
-     a raw scan finds 10 tokens pointing at it, but 8 are Proton definitions
-     Nova replaces, leaving 2 real ones (`toolbar.text.color` and
-     `table.header.text.color.@base`, neither of which has a Nova
-     definition yet).
+> **Warning** Step 2 has to be a separate, later pass. A nova file and its
+> non-nova sibling write the same keys, so merging both in one pass leaves the
+> winner depending on fetch timing rather than on Nova being intended.
 
-   19 steps go: `100`/`110` on red, orange, yellow, green, cyan, blue,
-   violet, purple and pink, plus `border.radius.xxlarge`. `color.gray.100`
-   and `border.radius.circle`/`large` stay, all three still aliased by real
-   tokens with no Nova replacement.
+> **Warning** The foundational half of step 2 is the easy half to miss, and
+> silently wrong when missed. `icon.color.information` is `{color.blue.60}` in
+> `icon.tokens.json` and `{color.violet.50}` in `icon.nova.tokens.json`, so
+> skipping it hands every component resolving through `icon.*` a Proton blue
+> where Nova is violet.
 
-2. **Layer Nova on top, in a second pass.** For every `base/*.nova.tokens.json`
-   file **and every `components/<name>.nova.tokens.json` for a `name` in
-   `foundational`**, flatten it under its **non-nova** stem
-   (`border.nova.tokens.json` -> prefix `border`, the same prefix as step 1's
-   `border.tokens.json`) and merge into the *same* map, overwriting matching
-   keys. The foundational half is easy to miss and silently wrong when
-   missed: `icon.color.information` is `{color.blue.60}` in
-   `icon.tokens.json` and `{color.violet.50}` in `icon.nova.tokens.json`, so
-   skipping it hands every component that resolves through `icon.*` a Proton
-   blue where Nova is violet. This has to be a
-   second, later pass, not combined with step 1: a nova file and its
-   non-nova sibling write the same keys, so if both were merged in one
-   pass with no ordering guarantee, which one "wins" would depend on fetch
-   timing, not on Nova actually being the intended winner.
-2b. **A `moz-*` file also registers under its unprefixed name.** Firefox's
-   own files refer to these components without the prefix:
-   `moz-message-bar.tokens.json` contains
-   `oklch(from {message-bar.icon.color} l c h / 20%)` and
-   `moz-toggle.tokens.json` aliases `{toggle.dot.height}`. That is the same
-   convention the generated CSS custom property names follow (`moz-select`
-   -> `--select-*`). Flatten such a file a second time under the bare name
-   and merge those keys into the lookup too, or those aliases resolve to
-   nothing. Lookup only: a token's own displayed/exported path keeps the
-   file's real basename.
+> **Warning** A `nova` branch wins over `$value`. 38 tokens carry
+> `$extensions["org.mozilla.themes"].nova`, shaped `{comment?, value}`; that
+> branch is the real Nova value and `$value` is the Proton one `pick_default`
+> surfaced. `text.color.@base` is the clearest case: `$value` is
+> `{color.gray.100}`, a Proton grey, while its Nova value is
+> `{color.violet-desaturated.90}` light / `{color.violet-desaturated.0}` dark.
+> Resolving `$value` alone silently shows Proton.
 
-3. **Add the component's own files.** Look up the id in `id-map.json`'s
-   `map` (fall back to `[id]` if absent). For each basename in that list,
-   flatten `components/<basename>.tokens.json` under its own basename and
-   merge into the map (still step-1-style, non-nova first), then flatten
-   `components/<basename>.nova.tokens.json` the same way and merge on top
-   (Nova wins, same reason as step 2).
-4. **Resolve a value.** Given a token's `$value`: if it's not a string
-   matching `^\{([^{}]+)\}$`, that literal value (or object, for a
-   theme-dimension-keyed token, see below) is the answer. If it does match,
-   look up the captured path in the merged map from steps 1-3 and repeat
-   this step on *that* token's `$value`, tracking each hop. If a path
-   isn't in the map, stop and report it unresolved (don't guess); a real
-   depth cap (12) guards against an accidental cycle, never expected to
-   trigger on real data.
-4b. **A `nova` branch wins over `$value`.** 38 tokens carry a
-   `$extensions["org.mozilla.themes"].nova` branch, shaped
-   `{comment?, value}`, where `value` is a literal or another theme object
-   with its own `light`/`dark`. That branch is the real Nova value and
-   `$value` is the Proton one `pick_default` surfaced, so it has to win
-   wherever it exists. `text.color.@base` is the clearest case: `$value` is
-   `{color.gray.100}`, a Proton grey, while its Nova value is
-   `{color.violet-desaturated.90}` light / `{color.violet-desaturated.0}`
-   dark. Resolving `$value` alone silently shows Proton.
+> **Note** A `moz-*` file also registers under its unprefixed name. Firefox's
+> own files refer to these components without the prefix:
+> `moz-message-bar.tokens.json` contains
+> `oklch(from {message-bar.icon.color} l c h / 20%)`, and
+> `moz-toggle.tokens.json` aliases `{toggle.dot.height}`. Flatten such a file
+> a second time under the bare name, or those aliases resolve to nothing.
+> Lookup only: the token's own exported path keeps the real basename.
 
-5. **Theme-dimension values.** If a token's `$value` is itself an object
-   (not a string), it's already been reduced by `sync.py` to the single
-   most-typical branch per `DEFAULT_PICK_ORDER` above; the full original
-   set of theme branches is preserved losslessly under
-   `$extensions["org.mozilla.themes"]` if a consumer needs a *different*
-   theme's value specifically.
+> **Note** In step 4, a path missing from the map is reported unresolved
+> rather than guessed, and a depth cap of 12 guards against an accidental
+> cycle. It is not expected to trigger on real data.
+
+**Proton scale steps Nova replaced are already gone.** Firefox ships both
+generations side by side: `color.tokens.json` is the Proton ramp (steps
+0-110, oklch), `color.nova.tokens.json` the Nova one (0-90, hex), on
+different scales. Merging them key by key does not remove a step Nova
+dropped, it keeps the Proton one, which then lands at the end of a scale it
+does not belong to. `color.gray.100` (#15141a) is visibly *lighter* than
+`color.gray.90` (#121114), and `border.radius.xxlarge` was listed when Nova
+has no such radius.
+
+`sync.py` drops those at conversion time (`prune_superseded_scale_steps`), so
+nothing downstream has to know. Four guards keep it off anything live:
+
+- **`base/` only.** A component token's real consumer is CSS in
+  mozilla-central, not another token, so "nothing aliases it" says nothing
+  about whether it is live. Applying this to `components/` would delete ~45
+  real tokens (`moz-toggle.dot.width`, `card.gap.compact`).
+- **Only a group Nova rewrote.** Nova defines no `white`/`black` group at all,
+  so those are the only ramp there is and they stay.
+- **Only a flat scale** (every member a leaf). `background.color` holds nested
+  groups (`box`, `list`, `dimmed`) so it is never touched; `border.radius` is
+  seven flat leaves so it is.
+- **Only a step nothing references under Nova.** Not a raw scan: both
+  generations live in the same file, so a blanket scan counts a reference that
+  exists only in a superseded Proton definition, which would keep a dead token
+  alive forever. A Proton token its own `.nova` sibling redefines is skipped,
+  as is the non-nova half of a token carrying its own `nova` branch.
+
+`color.gray.100` is the worked example. A raw scan finds 10 tokens pointing at
+it, but 8 are Proton definitions Nova replaces, leaving 2 real ones
+(`toolbar.text.color` and `table.header.text.color.@base`, neither with a Nova
+definition yet).
+
+19 steps go: `100`/`110` on red, orange, yellow, green, cyan, blue, violet,
+purple and pink, plus `border.radius.xxlarge`. `color.gray.100` and
+`border.radius.circle`/`large` stay, all three still aliased by real tokens
+with no Nova replacement.
 
 ## Figma existence check: figma-check.py
 
 The "In Figma" column on every component page answers one narrow question:
 does this row's own CSS custom property name also exist as a real variable in
 Mozilla's "Nova Styles (Experimental)" Figma file (key
-`$FIGMA_FILE_KEY`)? It is a name-vs-name sync check, not "can this
+the Nova Styles file)? It is a name-vs-name sync check, not "can this
 value be traced back to Figma somehow."
 
 **Always the Figma REST API directly, never Supernova.** Supernova's sync of
@@ -274,7 +226,7 @@ matching once something better exists.
 
 **The three files.**
 
-1. **`figma-variables-dump.json`**: every variable in the file, one REST call.
+**Step 1 — `figma-variables-dump.json`.** every variable in the file, one REST call.
    Needs a Figma personal access token; this repo has none of its own.
 
    ```sh
@@ -286,7 +238,7 @@ matching once something better exists.
    See the file's own `_comment` for what is kept per variable and why 2 of
    the 720 raw variables (Figma's `deletedButReferenced` ghosts) are dropped.
 
-2. **`figma-check.py`**: pure local computation, no network. Rerun it any time
+**Step 2 — `figma-check.py`.** pure local computation, no network. Rerun it any time
    `resolved/*.json`, `component-api/*.json` or the dump changes:
 
    ```sh
@@ -300,7 +252,7 @@ matching once something better exists.
    correctly with Figma's `box / shadow` without a hardcoded list of which
    basenames are "really" two words.
 
-3. **`figma-token-map.json`**: the output that `index.html` fetches at render
+**Step 3 — `figma-token-map.json`.** the output that `index.html` fetches at render
    time. A baked lookup file rather than a live query, for the same reason
    `id-map.json` and `sync-manifest.json` are files: the page is static.
 
@@ -354,18 +306,13 @@ for this converter:
   `prefersContrast` / `light` / `dark` / `default`, each holding a different
   value for that context. Real and common, seen in roughly a third of
   converted tokens.
-- **`.nova.tokens.json` files** are a second, orthogonal axis: Firefox's
-  build supports whole override files, one per "override identifier"
-  (currently only `nova`, gated behind the `browser.nova.enabled` pref, see
-  `config/override-identifiers.js` upstream), which redefine a subset of
-  tokens with alternate values. They're structurally identical
-  `*.tokens.json` files, just consumed differently at build time (as a
-  `@media -moz-pref(...)` override layer rather than the base cascade).
-  These are genuinely part of `base/*.tokens.json` and
-  `components/*.tokens.json`, so this sync includes them, converting and
-  naming them exactly like their non-`.nova` counterparts (e.g.
-  `color.nova.tokens.json` next to `color.tokens.json`) so they stay
-  independently diffable against source.
+- **`.nova.tokens.json` files** are a second, orthogonal axis: whole override
+  files, one per "override identifier" (only `nova` today, gated behind
+  `browser.nova.enabled`, see `config/override-identifiers.js` upstream),
+  redefining a subset of tokens. Structurally identical `*.tokens.json`
+  files, just consumed at build time as a `@media -moz-pref(...)` layer
+  rather than the base cascade. This sync includes them, named exactly like
+  their non-`.nova` counterparts so they stay independently diffable.
 - **`"override": true`** is a separate, per-token flag (unrelated to the
   `.nova` file mechanism above) seen only in
   `color.tokens.json`, `border.tokens.json`, `icon.tokens.json`, and
@@ -399,72 +346,57 @@ for this converter:
    it explicit means a reference is always a literal, directly-walkable JSON
    path with no implicit-default convention a consumer has to separately
    know about.
-4. **Theme-dimension-keyed values** get a single representative `$value` at
-   the top level, plus the complete original object preserved losslessly
-   under `$extensions["org.mozilla.themes"]`. Every `forcedColors`/`brand`/
-   `nativeTheme`/`platform`/`light`/`dark`/`prefersContrast` variant that
-   exists in the source is still present, verbatim, in the output, nothing
-   is dropped, only "flattened" for the top-level `$value` convenience. The
-   picking rule, in priority order: an explicit `default` key if present,
-   else recurse into `brand` (itself often `{default: ...}`), else `light`,
-   else `nativeTheme`, else `forcedColors`, else recurse into `platform`,
-   else `prefersContrast`, else `dark`, else (last resort) whatever key is
-   left. Implemented in `sync.py`'s `pick_default()` and
-   `DEFAULT_PICK_ORDER`. `default` beats `brand` deliberately: a token that
-   states an explicit default is telling you that value applies regardless
-   of brand/platform, which is a stronger and more literal signal than
-   "whatever `brand` happens to be."
+4. **Theme-dimension-keyed values** get one representative `$value` at the
+   top level, plus the complete original object under
+   `$extensions["org.mozilla.themes"]`. Every variant in the source is still
+   there verbatim; the flattening is for top-level convenience only.
+   Picking order, in `sync.py`'s `pick_default()` / `DEFAULT_PICK_ORDER`:
+   `default`, then `brand` (itself often `{default: ...}`), `light`,
+   `nativeTheme`, `forcedColors`, `platform`, `prefersContrast`, `dark`, and
+   last whatever key is left. `default` beats `brand` deliberately: a token
+   stating an explicit default says that value applies regardless of brand or
+   platform, a stronger signal than whatever `brand` happens to be.
 5. **`"override": true`** and any other non-`value`/`comment` sibling key
    found on a leaf is preserved verbatim under
    `$extensions["org.mozilla.meta"]`, so it isn't silently lost even though
    DTCG has no first-class slot for it.
-6. **`$type` is inferred first from the value's own shape, then from the
-   token's own group path**, not guessed per-value:
-   - the value itself is a literal color function/hex (`rgb(`, `rgba(`,
-     `hsl(`, `hsla(`, `oklch(`, `oklab(`, `lab(`, `lch(`, `color-mix(`, or a
-     `#`-prefixed hex triple), or a pure `{alias}` reference whose first path
-     segment is literally `color` (e.g. `{color.blue.50}`) → `color`. This
-     catches real tokens like `tab.selected.textcolor`, whose own path never
-     spells out "color", "fill", or "stroke" at all, but whose value is
-     unambiguous.
-   - failing that, path contains `color`, `fill`, or `stroke` → `color` (the
-     latter two are a deliberate extension beyond a literal "color" keyword:
-     Firefox has tokens like `button.icon.fill`/`button.icon.stroke` whose
-     values are unambiguously colors but whose path never spells out
-     "color")
-   - `font` + `weight` in path → `fontWeight`; `font` + `family` → `fontFamily`
-   - `opacity` in path → `number`
-   - path contains any of `space`/`dimension`/`padding`/`gap`/`size`/`radius`/
-     `width`/`height`/`min-height`/`min-width`/`max-width`/`inset`/`offset`/
-     `margin` → `dimension`
-   - **omitted entirely**, and logged, when none of the above apply, or when
-     the value is a composite string DTCG doesn't sanction flattening into a
-     scalar type, specifically: a full `{width} solid {color}` border
-     shorthand (DTCG has a composite `border` type with `{width, style,
-     color}` sub-fields, but the source stores this as one flat string, not
-     decomposed, so forcing `$type: "border"` on a bare string would be
-     wrong), and multi-layer `box-shadow` strings (same issue, DTCG's
-     `shadow` type expects structured layers, not a flat comma-joined
-     string). Decomposing either into real DTCG composite objects is
-     possible (the real shapes are consistent enough to parse: border is
-     always exactly `<width> solid <color>`, shadow layers are comma-
-     separated with the color always last) but was deliberately not done
-     here, since it would mean replacing `$value` with a structured object
-     instead of the original string, breaking the explicit "diffs cleanly
-     against source, line for line" guarantee above. This category also
-     covers a bare CSS keyword with no DTCG type at all
-     (`button.content.alignment`, `"center"`; `card.cover.image.object.fit`,
-     `"cover"`) and an alias that points *at* an already-composite token
-     (e.g. `popup.box.shadow` → `{box-shadow.level-3}`). See
-     `sync-manifest.json`'s `omitted_type_examples` for the current list.
-   - **Known limitation:** type inference does not generally follow alias
-     chains. A token whose `$value` is a pure alias to another token doesn't
-     inherit that target's `$type` from a multi-hop chain, it's inferred
-     independently (the one deliberate exception is the direct
-     `{color.*}` check above, a single, structural hop, not chain-walking).
-     In practice this lands on the same answer either way, except for the
-     alias-to-composite cases just above, which correctly stay untyped
-     either way since their target is itself undecomposed.
+6. **`$type` is inferred, never guessed per-value.** The value's own shape is
+   tested first, then the token's path.
+
+| Test, in order | `$type` |
+|---|---|
+| Value is a literal colour function (`rgb(`, `rgba(`, `hsl(`, `hsla(`, `oklch(`, `oklab(`, `lab(`, `lch(`, `color-mix(`) or a `#` hex triple, or an alias whose first path segment is `color` | `color` |
+| Path contains `color`, `fill` or `stroke` | `color` |
+| Path contains `font` plus `weight`, or `font` plus `family` | `fontWeight`, `fontFamily` |
+| Path contains `opacity` | `number` |
+| Path contains `space`, `dimension`, `padding`, `gap`, `size`, `radius`, `width`, `height`, `min-height`, `min-width`, `max-width`, `inset`, `offset` or `margin` | `dimension` |
+| Nothing matches, or the value is a composite that cannot flatten to a scalar | omitted, and logged |
+
+**Why the value is tested before the path.** It catches tokens like
+`tab.selected.textcolor`, whose own path never spells out "color", "fill" or
+"stroke", but whose value leaves no doubt.
+
+**`fill` and `stroke` are a deliberate extension** past a literal "color"
+keyword. `button.icon.fill` and `button.icon.stroke` hold unambiguous colours
+with no "color" anywhere in the path.
+
+**What counts as an un-flattenable composite.** A `{width} solid {color}`
+border shorthand, a multi-layer `box-shadow` string, a bare CSS keyword
+(`button.content.alignment`, `"center"`), or an alias pointing at an
+already-composite token (`popup.box.shadow` → `{box-shadow.level-3}`).
+
+**Why those are not decomposed.** DTCG has composite `border` and `shadow`
+types, and the real shapes parse cleanly enough to build them. Doing so would
+replace `$value` with a structured object instead of the source's own string,
+breaking the "diffs cleanly against source, line for line" guarantee above.
+See `sync-manifest.json`'s `omitted_type_examples` for the current list.
+
+**Known limitation.** Type inference does not generally follow alias chains. A
+token whose `$value` is a pure alias does not inherit its target's `$type`
+through multiple hops; it is inferred independently. The one exception is the
+direct `{color.*}` check above, a single structural hop rather than
+chain-walking. In practice both routes land on the same answer, except for the
+alias-to-composite cases, which correctly stay untyped either way.
 
 ## Verifying the output resolves correctly
 
@@ -490,65 +422,32 @@ so there's no reason to expect others to behave differently).
 
 ## Files
 
-- `sync.py`: the fetch + convert script, rerun any time upstream tokens
-  change. Read its docstring for the mechanics; this README covers the *why*
-  behind each rule.
-- `sync-manifest.json`: output of the last run: exact commit fetched, fetch
-  timestamp, per-file/type counts, `source_paths` (each output file's real
-  upstream path, since output no longer mirrors one single source tree), the
-  full list of `$type`-omitted and `$extensions.org.mozilla.meta`-flagged
-  tokens, and the verification chain result. Overwritten every run, check it
-  after rerunning to see what changed upstream.
-- `base/*.tokens.json`: the converted central base tokens (colors, space,
-  dimension, ...), one file per upstream source file, same filenames
-  (`.nova.` variants included).
-- `components/*.tokens.json`: every converted component-level token file,
-  central AND colocated flattened together by basename (guaranteed not to
-  collide), same filenames as their real source. See `sync-manifest.json`'s
-  `source_paths` for exactly where each
-  one really came from, and `id-map.json` for how a component id maps
-  to its real basename(s).
-- `id-map.json`: real, published mapping from component id to real
-  token basename(s), plus the small `foundational` list (see "Where these
-  files really live" above for the schema). Maintained by hand alongside
-  this script, not generated, since the id-to-file mapping requires a
-  judgment call (which real component's CSS actually consumes which file's
-  custom properties) that isn't mechanically derivable from the token files
-  themselves.
-- `schema.json`: `base/`/`components/`'s DTCG-shaped tree as a real,
-  machine-checkable JSON Schema (draft 2020-12), not just this README's
-  prose. Validated against real data, and confirmed to reject a malformed
-  leaf.
-- `resolve.py` / `resolved/*.json`: a pre-resolved export, every real
-  token's `$value` already walked to its final literal (see "How to resolve
-  a real token's value" above) so a simple consumer doesn't have to
-  reimplement that algorithm just to get an answer. `base/`, `components/`,
-  and `id-map.json` remain the real source of truth; this is a derived
-  convenience, re-run `python3 token-api/resolve.py` any time those change.
-  Cross-checked against `index.html`'s own live-rendered values before being
-  trusted, and kept in sync the same way after any change to the algorithm.
+| File | What it is |
+|---|---|
+| `sync.py` | The fetch and convert script. Its docstring covers the mechanics; this README covers the why. |
+| `sync-manifest.json` | Last run's record: commit, timestamp, counts, `source_paths`, every `$type`-omitted and meta-flagged token, and the verification chain. Overwritten each run. |
+| `base/*.tokens.json` | Converted central base tokens, one file per source file, same filenames, `.nova.` variants included. |
+| `components/*.tokens.json` | Every component-level file, central and colocated, flattened together by basename. `source_paths` records where each came from. |
+| `id-map.json` | Component id to token basename(s), plus the `foundational` list. |
+| `schema.json` | The `base/`/`components/` tree as a draft 2020-12 JSON Schema, enforced by `validate-schemas.py`. |
+| `resolve.py`, `resolved/*.json` | Pre-resolved export: every `$value` already walked to its literal, so a simple consumer need not reimplement the algorithm. Derived, not a source of truth. |
+| `figma-variables-dump.json`, `figma-check.py`, `figma-token-map.json` | The "In Figma" column. The dump is a credential-scoped REST snapshot; `figma-check.py` is pure local computation; the map is what `index.html` fetches. |
 
-  "Already walked to its final literal" has one real exception, and the
-  export now states it. A value holding a reference inside a longer string
-  (`{border.width} solid {button.border.color.@base}`, or `oklch(from
-  {message-bar.icon.color} l c h / 20%)`) is not substituted: the resolver
-  only walks a value that is entirely one alias, which is the same
-  deliberate rule `index.html` follows when printing a value. 45 tokens are
-  in this position, and each carries an `unresolvedRefs` array naming the
-  references still present in its `value`. Before, those were
-  indistinguishable from a plain literal, because both reported an empty
-  `chain`. A consumer wanting a fully-substituted string has to substitute
-  those refs itself; `unresolvedRefs` is how it knows it needs to, and
-  which ones.
-- `figma-variables-dump.json` / `figma-check.py` / `figma-token-map.json`:
-  the "In Figma" column on every component page's Design tokens table (see
-  "Figma existence check" above for the full pipeline and matching rule).
-  `figma-variables-dump.json` is a direct Figma REST API snapshot (`GET
-  /v1/files/$FIGMA_FILE_KEY/variables/local`), a real credential-
-  scoped rerunnable fetch, no agent/MCP session needed; `figma-check.py` is
-  pure local computation, re-run any time `resolved/*.json`,
-  `component-api/*.json`, or the dump change; `figma-token-map.json` is
-  what `index.html` actually fetches.
+**`id-map.json` is hand-maintained, not generated.** Which real component's CSS
+consumes which file's custom properties is a judgment call, not something
+derivable from the token files themselves.
+
+**`resolved/` has one exception to "walked to its final literal".** A value
+holding a reference inside a longer string (`{border.width} solid
+{button.border.color.@base}`, or `oklch(from {message-bar.icon.color} l c h /
+20%)`) is not substituted. The resolver only walks a value that is entirely
+one alias, the same deliberate rule `index.html` follows when printing one.
+
+Each such token carries an `unresolvedRefs` array naming the references still
+in its `value`. Without it they were indistinguishable from a plain literal,
+since both reported an empty `chain`. A consumer wanting a fully-substituted
+string has to do that substitution itself, and `unresolvedRefs` says which
+refs to do it for.
 
 ## Scope
 

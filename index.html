@@ -341,20 +341,15 @@
     body.nav-open .nav-toggle-bars::after { transform: translateY(-6px) rotate(-45deg); }
   }
 
-  /* Code scrolls rather than wraps; wrapped JSON is worse than a scrollbar.
-     Prose code and file citations break instead, since a long unbreakable
-     path is what pushes a phone-width page sideways. */
+  /* Code scrolls; wrapped JSON is worse than a scrollbar. */
   pre { overflow-x: auto; max-width: 100%; }
   :not(pre) > code, .file-link { overflow-wrap: anywhere; }
 
   @media (max-width: 600px) {
     #main { padding: 72px 16px 40px; }
     #nav { width: min(84vw, 300px); }
-    h1 { font-size: 26px; }
-    /* Phone only. A five-column coverage table has a min-content width no
-       amount of wrapping gets under 320px, so it scrolls inside its own
-       box. Above this width tables stay real tables and narrow instead,
-       which is what keeps the page itself from scrolling sideways. */
+    h1 { font-size: 32px; }
+    /* Scrolls in its own box; above this width tables narrow instead. */
     table { display: block; overflow-x: auto; }
     /* Headers on one line, so a squeezed column reads "Default" rather
        than "Def aul" and the table scrolls instead of compressing. */
@@ -369,9 +364,9 @@
     .nav-toggle-bars::before, .nav-toggle-bars::after { transition: none; }
   }
 
-  h1 { font-size: 28px; font-weight: 700; margin: 0 0 4px; }
-  #doc-body h3 { font-size: 18px; font-weight: 700; }
-  .meta { color: var(--text-muted); font-size: 13px; margin-bottom: 24px; }
+  h1 { font-size: 42px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.02em; line-height: 1.12; }
+  #doc-body h3 { font-size: 30px; font-weight: 700; margin: 44px 0 12px; letter-spacing: -0.015em; line-height: 1.2; }
+  .meta { color: var(--text-muted); margin-bottom: 24px; }
   /* Shared instead of each repeating the same font stack: .mono is the
      stack alone (for anything that just needs monospace, like a link to a
      real file path), .token-id adds the pink used everywhere a real token
@@ -390,6 +385,14 @@
   td .classif { margin-left: 0; font-size: 13px; padding: 2px 7px; white-space: nowrap; }
   h3.table-group { font-size: 14px; margin: 24px 0 8px; }
   .check.na { color: var(--neutral); font-weight: normal; }
+  .callout { display: flex; gap: 12px; margin: 0 0 20px; padding: 12px 14px; border-radius: 6px;
+    background: var(--bg-accent-soft); }
+  .callout-label { flex: 0 0 auto; font-family: "Freight Sans", -apple-system, sans-serif; font-weight: 700;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); padding-top: 3px; }
+  .callout.warning { background: var(--note-bg); }
+  .callout.warning .callout-label { color: var(--warn); }
+  .callout > div > :first-child { margin-top: 0; }
+  .callout > div > :last-child { margin-bottom: 0; }
   .legend-table { margin: 4px 0 20px; }
   .legend-table td { font-size: 13px; color: var(--text-secondary); vertical-align: top; }
 
@@ -411,10 +414,7 @@
   /* Sticky header. border-collapse:collapse means the cell's own border
      does not travel with it, so the rule underneath is an inset shadow. */
   th { background: var(--bg-raised); }
-  /* Pulled up 1px: with border-collapse the cell's top border belongs to
-     the table, not the cell, so the stuck header's top edge is a
-     transparent line that rows show through. Parking it just off-screen
-     (or under the app bar) is what hides it. */
+  /* -1px parks the cell's border-less top edge off-screen. */
   thead th { position: sticky; top: calc(var(--table-sticky-top, 0px) - 1px); z-index: 2; box-shadow: inset 0 -1px 0 var(--border); }
   td.check { text-align: center; }
   .yes { color: var(--ok); font-weight: bold; }
@@ -422,10 +422,10 @@
   .unknown { color: var(--warn); font-weight: bold; }
 
   /* Page sections */
-  h2.section { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); border-bottom: 1px solid var(--border-hairline); padding-bottom: 6px; margin: 32px 0 12px; }
+  h2.section { font-size: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); border-bottom: 1px solid var(--border-hairline); padding-bottom: 8px; margin: 38px 0 12px; }
   h2.section:first-of-type { margin-top: 28px; }
   .plain-summary { font-size: 17px; color: var(--text); line-height: 1.5; margin: 16px 0 8px; }
-  p { line-height: 1.55; }
+  p { line-height: 1.55; margin: 0 0 22px; }
   ul { line-height: 1.6; }
   /* Absolute, not relative (was 0.92em): a relative size multiplies down
      against whatever ambient font-size a <code> span happens to sit inside,
@@ -1085,6 +1085,9 @@
     out = out.replace(/`([^`]+)`/g, (m, code) => `<code>${code}</code>`);
     out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, label, url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`);
     out = out.replace(/\*\*([^*]+)\*\*/g, (m, b) => `<strong>${b}</strong>`);
+    // After bold, so ** is already gone. No < or > inside: that stops a pair
+    // of literal asterisks in two separate code spans matching across them.
+    out = out.replace(/\*([^*<>\n]+)\*/g, (m, i) => `<em>${i}</em>`);
     return out;
   }
 
@@ -1110,7 +1113,24 @@
     const flushPara = () => {
       if (paraLines.length) { html += `<p>${inlineMd(paraLines.join(" "))}</p>`; paraLines = []; }
     };
-    const closeList = () => { if (listType) { html += `</${listType}>`; listType = null; } };
+    // An item stays open so its continuation lines join it, instead of the
+    // first source line becoming the whole <li> and the rest a sibling <p>.
+    let itemLines = null;
+    const closeItem = () => {
+      if (itemLines) { html += `<li>${inlineMd(itemLines.join(" "))}</li>`; itemLines = null; }
+    };
+    const closeList = () => { closeItem(); if (listType) { html += `</${listType}>`; listType = null; } };
+    let quoteLines = [];
+    const flushQuote = () => {
+      if (!quoteLines.length) return;
+      const body = quoteLines.join(" ");
+      const m = body.match(/^\*\*(Note|Warning|Tip)\*\*\s*(.*)$/);
+      const label = m ? m[1] : "Note";
+      html += `<div class="callout ${label.toLowerCase()}">` +
+              `<span class="callout-label">${label}</span>` +
+              `<div>${inlineMd(m ? m[2] : body)}</div></div>`;
+      quoteLines = [];
+    };
     const flushTable = () => {
       if (!tableRows || !tableRows.length) { tableRows = null; return; }
       const [header, ...body] = tableRows;
@@ -1145,6 +1165,10 @@
       }
       flushTable();
 
+      const quote = line.match(/^\s*>\s?(.*)$/);
+      if (quote) { flushPara(); closeList(); quoteLines.push(quote[1]); continue; }
+      flushQuote();
+
       const h = line.match(/^(#{1,6})\s+(.*)$/);
       if (h) {
         flushPara(); closeList();
@@ -1160,18 +1184,19 @@
       const ul = line.match(/^\s*[-*]\s+(.*)$/);
       const ol = line.match(/^\s*\d+\.\s+(.*)$/);
       if (ul) {
-        flushPara();
+        flushPara(); closeItem();
         if (listType !== "ul") { closeList(); html += "<ul>"; listType = "ul"; }
-        html += `<li>${inlineMd(ul[1])}</li>`;
+        itemLines = [ul[1]];
         continue;
       }
       if (ol) {
-        flushPara();
+        flushPara(); closeItem();
         if (listType !== "ol") { closeList(); html += "<ol>"; listType = "ol"; }
-        html += `<li>${inlineMd(ol[1])}</li>`;
+        itemLines = [ol[1]];
         continue;
       }
       if (line.trim() === "") { flushPara(); closeList(); continue; }
+      if (itemLines) { itemLines.push(line.trim()); continue; }
       paraLines.push(line.trim());
     }
     flushTable();

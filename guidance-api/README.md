@@ -36,10 +36,18 @@ That's the whole schema. No `severity`, `tags`, `author`, `dates`, or similar me
 
 ## Files in this directory
 
-- `_skeleton.json`: empty/templated example showing the shape, for someone about to author a new component's guidance.
-- `schema.json`: the shape above as a real, machine-checkable JSON Schema (draft 2020-12), not just this README's prose. Enforced by `validate-schemas.py`, run on every push by `check-contracts.yml`.
-- `_meta.json`: per-id `lastCommit`/`lastModified`, each one's real last commit in this repo's own git history (not a fabricated timestamp), plus the repo `HEAD` this was generated against. Says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.
-- One `<id>.json` per component with real, populated guidance, matching the same `id` used in the Component API. `toolbox` is included deliberately as a "pattern" case: its guidance is about not expecting a component to exist at all, not about component props. Several other entries (Toolbar, Sidebar, Bookmarks Toolbar, URL Bar Action/Identity/Result, Panel Separator, Page Nav Separator, Chip, Details) are the same kind of case: real, user-facing patterns worth documenting even though no dedicated widget class backs them.
+| File | What it is |
+|---|---|
+| `<id>.json` | One per component, matching the `id` used in the Component API. |
+| `_skeleton.json` | Empty templated example of the shape, for authoring a new entry. |
+| `schema.json` | The shape above as a draft 2020-12 JSON Schema. Enforced by `validate-schemas.py` on every push. |
+| `_meta.json` | Per-id `lastCommit`/`lastModified` from this repo's own history, plus the `HEAD` it was generated against. Says when the JSON was last edited here, not when it was last verified against Firefox source. |
+
+**Pattern entries are deliberate.** `toolbox` is included even though no
+component exists: its guidance is about not expecting one. Toolbar, Sidebar,
+Bookmarks Toolbar, URL Bar Action/Identity/Result, Panel Separator, Page Nav
+Separator, Chip and Details are the same kind of case, real user-facing
+patterns worth documenting with no dedicated widget class behind them.
 
 ## Coverage
 

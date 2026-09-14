@@ -365,7 +365,7 @@
   }
 
   h1 { font-size: 42px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.02em; line-height: 1.12; }
-  #doc-body h3 { font-size: 30px; font-weight: 700; margin: 44px 0 12px; letter-spacing: -0.015em; line-height: 1.2; }
+  #doc-body h3, h3.sub { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); margin: 30px 0 8px; }
   .meta { color: var(--text-muted); margin-bottom: 24px; }
   /* Shared instead of each repeating the same font stack: .mono is the
      stack alone (for anything that just needs monospace, like a link to a
@@ -422,7 +422,7 @@
   .unknown { color: var(--warn); font-weight: bold; }
 
   /* Page sections */
-  h2.section { font-size: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); border-bottom: 1px solid var(--border-hairline); padding-bottom: 8px; margin: 38px 0 12px; }
+  h2.section { font-size: 30px; font-weight: 700; color: var(--text); letter-spacing: -0.015em; line-height: 1.2; border-bottom: 1px solid var(--border-hairline); padding-bottom: 10px; margin: 44px 0 14px; }
   h2.section:first-of-type { margin-top: 28px; }
   .plain-summary { font-size: 17px; color: var(--text); line-height: 1.5; margin: 16px 0 8px; }
   p { line-height: 1.55; margin: 0 0 22px; }
@@ -1175,8 +1175,8 @@
         // Map the README's own h1/h2 onto this page's existing section
         // heading style instead of introducing a second native <h1>, which
         // would visually clash with this view's own top-of-page <h1>.
-        const tag = h[1].length === 1 ? "h2" : "h3";
-        const cls = h[1].length === 1 ? ' class="section"' : "";
+        const tag = h[1].length <= 2 ? "h2" : "h3";
+        const cls = h[1].length <= 2 ? ' class="section"' : "";
         html += `<${tag}${cls}>${inlineMd(h[2])}</${tag}>`;
         continue;
       }
@@ -2119,7 +2119,7 @@
   // What a docs page and the home page each call a section. Both are
   // decorated from more than one call site.
   function decorateDocSections() {
-    decorateSections(document.getElementById("doc-body"), null, "h2.section, h3");
+    decorateSections(document.getElementById("doc-body"), null, "h2.section");
   }
 
   function decorateHomeSections() {

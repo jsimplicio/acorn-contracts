@@ -28,6 +28,7 @@ DOC_PAGES = {
     "doc-component-api": ("Component API", "component-api/README.md"),
     "doc-guidance-api": ("Guidance API", "guidance-api/README.md"),
     "doc-token-api": ("Token API", "token-api/README.md"),
+    "doc-faq": ("FAQ", "FAQ.md"),
 }
 
 
@@ -52,12 +53,13 @@ def squash(text):
 
 def strip_markdown(md):
     """README prose only: no fences, tables, links-as-URLs or heading marks."""
-    md = re.sub(r"```.*?```", " ", md, flags=re.S)
+    md = re.sub(r"```[a-z]*\n?", " ", md)  # keep the code, drop the fences
     md = re.sub(r"`([^`]*)`", r"\1", md)
-    md = re.sub(r"^\s*\|.*$", " ", md, flags=re.M)      # table rows
+    md = re.sub(r"^\s*\|[\s|:-]*\|\s*$", " ", md, flags=re.M)  # table rules
+    md = re.sub(r"\|", " ", md)                       # cell text is real content
     md = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", md)    # keep link text
     md = re.sub(r"^#{1,6}\s*", "", md, flags=re.M)
-    md = re.sub(r"[*_>]", "", md)
+    md = re.sub(r"[*>]", "", md)  # not _, it is in real names like _meta.json
     md = re.sub(r"\\(.)", r"\1", md)  # \" and friends, escapes for markdown, not for a reader
     return squash(md)
 
@@ -72,6 +74,7 @@ def build():
         pid = data["id"]
         p = page(pid, data.get("name", pid), "Component")
         p["text"].append(data.get("description", ""))
+        p["text"].append(data.get("usage", ""))
         for group in MEMBER_GROUPS:
             for m in data.get(group) or []:
                 if isinstance(m, dict):

@@ -36,7 +36,7 @@
     {
       "name": "size",
       "type": "string",
-      "description": "Options: default, small, large. Affects icon-button square dimensions via --button-size-icon(-small|-large).",
+      "description": "Options: `default`, `small`, `large`. Affects icon-button square dimensions via `--button-size-icon(-small|-large)`.",
       "figmaConfig": true,
       "default": "default"
     },

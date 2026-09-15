@@ -17,14 +17,14 @@
     {
       "name": "type",
       "type": "string",
-      "description": "The button type. Options: default, primary, destructive, icon, icon ghost, ghost, split (plus icon neutral/neutral seen in Figma Code Connect).",
+      "description": "The button type. Options: `default`, `primary`, `destructive`, `icon`, `icon ghost`, `ghost`, `split` (plus `icon neutral`/`neutral` seen in Figma Code Connect).",
       "figmaConfig": true,
       "default": "default"
     },
     {
       "name": "size",
       "type": "string",
-      "description": "The button size. Options: default, small, large.",
+      "description": "The button size. Options: `default`, `small`, `large`.",
       "figmaConfig": true,
       "default": "default"
     },
@@ -93,7 +93,7 @@
     {
       "name": "iconPosition",
       "type": "string",
-      "description": "The icon's position relative to the button label. Options: start, end.",
+      "description": "The icon's position relative to the button label. Options: `start`, `end`.",
       "figmaConfig": true,
       "default": "start"
     },

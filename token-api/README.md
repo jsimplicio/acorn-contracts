@@ -205,13 +205,50 @@ purple and pink, plus `border.radius.xxlarge`. `color.gray.100` and
 `border.radius.circle`/`large` stay, all three still aliased by real tokens
 with no Nova replacement.
 
+## Light and dark, and what the theme toggle actually switches
+
+Every token page resolves its values for one theme at a time, and the theme
+toggle re-resolves the whole page rather than swapping a stylesheet. A token
+that reads the same in both is genuinely the same value, not a page that
+failed to update.
+
+A token's theme values live in
+`$extensions["org.mozilla.themes"]`, as `light` and `dark` alongside
+`nativeTheme`, `forcedColors` and `prefersContrast`. Plain `$value` is the
+fallback when a token declares no themes block at all.
+
+A row can change in dark mode three ways, and only the first is visible in
+the token's own definition:
+
+1. **It declares its own `dark`.** `color.accent.primary.@base` is
+   `{color.violet.50}` light and `{color.violet.30}` dark.
+2. **It aliases something that does.** `color.accent.primary.selected`
+   declares no `dark` of its own in the Nova generation; it points at
+   `button.background.color.primary.active`, which resolves through to
+   `color.accent.primary.active`, which does. Resolution has to take the
+   dark branch at *every* hop, not just the first, or the last hop quietly
+   hands back a light value.
+3. **Its value is relative to `currentColor`.** `text.color.deemphasized` is
+   `color-mix(in srgb, currentColor 69%, transparent)`. The string is
+   identical in both themes, but it renders from whatever text colour is in
+   force, and that flips. See the round-trip section below for why these
+   tokens are a special case in more ways than this one.
+
+So "does this change in dark mode" cannot be answered by comparing two
+declarations. Only a fully resolved value per theme answers it, which is
+what the pages do and what any consumer of this directory has to do too.
+
+Primitives (`color.blue.50`, `space.small`, every `font.*` and `size.*`) have
+no theme variance at all and are not expected to: the semantic layer above
+them is where light and dark diverge.
+
 ## Figma existence check: figma-check.py
 
-The "In Figma" column on every component page answers one narrow question:
-does this row's own CSS custom property name also exist as a real variable in
-Mozilla's "Nova Styles (Experimental)" Figma file (key
-the Nova Styles file)? It is a name-vs-name sync check, not "can this
-value be traced back to Figma somehow."
+The "In Figma" column on every component page and every base token page
+answers one narrow question: does this row's own CSS custom property name
+also exist as a real variable in Mozilla's "Nova Styles (Experimental)"
+Figma file? It is a name-vs-name sync check, not "can this value be traced
+back to Figma somehow."
 
 **Always the Figma REST API directly, never Supernova.** Supernova's sync of
 this design system has known gaps, and its token detail could not confirm
@@ -239,14 +276,15 @@ matching once something better exists.
    the 720 raw variables (Figma's `deletedButReferenced` ghosts) are dropped.
 
 **Step 2 — `figma-check.py`.** pure local computation, no network. Rerun it any time
-   `resolved/*.json`, `component-api/*.json` or the dump changes:
+   `resolved/*.json`, `component-api/*.json`, `base/*.tokens.json` or the
+   dump changes:
 
    ```sh
    python3 token-api/figma-check.py
    ```
 
    It builds the same universe of property names `index.html` would render
-   across every component page, then normalizes each name and each Figma
+   across every component page *and* every base token family, then normalizes each name and each Figma
    variable name to a tuple of lowercase words, splitting on every
    non-alphanumeric character. That split is what makes `box-shadow` collide
    correctly with Figma's `box / shadow` without a hardcoded list of which
@@ -263,6 +301,54 @@ matching once something better exists.
 | same words, same order | `yes` |
 | same words, different order | `yes`, `matchType: "reordered"` |
 | anything else | `no` |
+| token declares `ignoreFigma` | `ignored`, with the design system's own `reason` |
+
+### Why some values cannot round-trip at all
+
+A design token wants to be format-agnostic: one fact, expressible in CSS, in
+Figma, in iOS, anywhere. Most are. A few are not, and it is worth being
+precise about where each layer gives out, because the answer is not "Figma is
+behind."
+
+Take the two that upstream flags hardest:
+
+```jsonc
+"deemphasized": { "$value": "color-mix(in srgb, currentColor 69%, transparent)", "$type": "color" }
+```
+
+**Layer 1, the token format.** That entry claims `$type: "color"`, but its
+value is a CSS *expression*, not a colour. DTCG's colour type is a literal:
+a concrete value in a named colour space. The format has no expression
+syntax, no function calls, no arithmetic. So this token is already outside
+what DTCG can represent. It survives the conversion only because the value
+rides through as an opaque string that happens to be valid CSS. Nothing
+downstream can interpret it, reason about it, or convert it.
+
+**Layer 2, `currentColor`.** Even granting the expression, `currentColor` is
+not a colour. It is a reference to whatever `color` is inherited at the point
+of use. The same token is grey at 69% in body text, red at 69% inside an
+error region, and follows a theme flip for free. That is deliberate and it is
+the whole point of the token: it is defined *relative to its context*.
+
+**Layer 3, Figma.** A Figma colour variable holds a resolved RGBA. The alpha
+half is expressible, `color-mix(in srgb, X 69%, transparent)` is exactly X at
+69% alpha. What is not expressible is "69% of whatever colour this inherits",
+because there is no inheritance to refer to. Figma has to bake in one base
+colour, which is correct for exactly one context and silently wrong in every
+other. `border.color.transparent` fails one layer earlier and for a different
+reason: it exists to be overridden by `prefers-contrast`, a media query, which
+is not a colour question at all.
+
+So a hex-with-alpha in Figma is not Figma being lossy about a colour. It is a
+static answer standing in for a value that was defined as dynamic, two layers
+after the token format already stopped being able to describe it.
+
+**This does not change the "In Figma" answer.** That column asks whether the
+name exists, and for these it does: four of the five have an exact same-named
+variable. A token carrying `$extensions["org.mozilla.meta"].ignoreFigma`
+keeps its real `yes`/`no` and carries the reason as `valueCaveat`, surfaced
+in the cell's tooltip rather than as a third status. The five today are two
+`text.color.*`, two `focus.outline.*`, and `border.color.transparent`.
 
 **Strictly two states, never three.** A near miss (one word off) is recorded
 as `no` with `matchType: "near-miss"` and the close variable in
@@ -279,8 +365,10 @@ Two kinds of `no` are expected rather than bugs: near misses, and entire
 component families this Figma file simply does not cover (no urlbar, panel,
 toolbar, sidebar, checkbox or `moz-*` semantic colour groups appear in it).
 
-Current totals: 640 property names against 718 variables, 335 `yes`
-(324 exact + 11 reordered), 305 `no`.
+Deliberately not restated here as a total: the last version of this line
+said 640 property names and was stale by 273 the moment base families were
+added. `figma-token-map.json`'s own `counts` block has the current numbers,
+and `python3 token-api/figma-check.py` prints them.
 
 ## Source format (Firefox's native tokens)
 

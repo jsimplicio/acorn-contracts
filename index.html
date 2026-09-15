@@ -78,8 +78,12 @@
     --err: #cc0000;
     --warn: #b8860b;
     --neutral: #999999;
-    --token-pink: #a3238e;
-    --prop-blue: #1a6b96;
+    --token-pink: #c33086;
+    --code-inline: #6762c1;
+    --code-bg: #fdf6e3; --code-fg: #5f747b;
+    --code-name: #2076b2; --code-attr: #8f6c00; --code-str: #217e77;
+    --code-lit: #cf2d7b; --code-comment: #647373;
+    --prop-blue: #1d73a6;
     --value-orange: #b35900;
     --badge-modern-bg: #d9f2e3; --badge-modern-fg: #1a7f37;
     --badge-classic-bg: #fdeecb; --badge-classic-fg: #a15c00;
@@ -121,6 +125,10 @@
     --warn: #e0b64a;
     --neutral: #8a8a95;
     --token-pink: #f291d8;
+    --code-inline: #c3b5fb;
+    --code-bg: #1e1e2e; --code-fg: #d4d4e0;
+    --code-name: #f291d8; --code-attr: #7cc9f0; --code-str: #f0ad6a;
+    --code-lit: #7ee0a3; --code-comment: #85858f;
     --prop-blue: #7cc9f0;
     --value-orange: #f0ad6a;
     --badge-modern-bg: #1c3a29; --badge-modern-fg: #7ee0a3;
@@ -159,6 +167,10 @@
       --warn: #e0b64a;
       --neutral: #8a8a95;
       --token-pink: #f291d8;
+      --code-inline: #c3b5fb;
+      --code-bg: #1e1e2e; --code-fg: #d4d4e0;
+      --code-name: #f291d8; --code-attr: #7cc9f0; --code-str: #f0ad6a;
+      --code-lit: #7ee0a3; --code-comment: #85858f;
       --prop-blue: #7cc9f0;
       --value-orange: #f0ad6a;
       --badge-modern-bg: #1c3a29; --badge-modern-fg: #7ee0a3;
@@ -186,7 +198,7 @@
      <body> otherwise made every table label read as content. */
   /* .coverage-line is the Figma/Supernova/Storybook row at the top of a
      component page: labelled status glyphs, chrome rather than prose. */
-  h1, h2, h3, h4, h5, h6, th, #nav, #topbar, #section-nav, .coverage-line { font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1, h2, h3, h4, h5, h6, th, strong, b, #nav, #topbar, #section-nav, .coverage-line { font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 
   /* Sidebar: #nav itself never scrolls, it's a fixed-height flex column.
      #nav-title is a fixed-size item so it always stays visible; #nav-scroll
@@ -208,6 +220,8 @@
   #nav-results .r-snip { display: block; margin-top: 3px; font-size: 13px; line-height: 1.45; color: var(--text-faint); }
   #nav-results mark { background: var(--bg-accent-soft); color: var(--accent); font-weight: 600; }
   #nav-results .r-empty { padding: 10px 20px; font-size: 13px; color: var(--text-faint); }
+  mark.search-hit { background: var(--bg-accent-soft); color: inherit; border-radius: 2px; box-shadow: 0 0 0 3px var(--bg-accent-soft); animation: hit-fade 2.2s ease forwards; }
+  @keyframes hit-fade { 0%, 60% { opacity: 1; } 100% { opacity: 0.25; } }
   #nav h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-faint); margin: 18px 20px 6px; }
   #nav h2.hidden, #nav a.hidden { display: none; }
   #nav h2:first-child { margin-top: 0; }
@@ -374,7 +388,8 @@
     .nav-toggle-bars::before, .nav-toggle-bars::after { transition: none; }
   }
 
-  h1 { font-size: 42px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.02em; line-height: 1.12; }
+  h1 { font-size: 42px; font-weight: 700; margin: 0 0 28px; letter-spacing: -0.02em; line-height: 1.12; }
+  #doc-body h3 code, h3.sub code { text-transform: none; }
   #doc-body h3, h3.sub { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); margin: 30px 0 8px; }
   .meta { color: var(--text-muted); margin-bottom: 24px; }
   /* Shared instead of each repeating the same font stack: .mono is the
@@ -382,18 +397,17 @@
      real file path), .token-id adds the pink used everywhere a real token
      or tag identifier is shown (tag pills, the Token column, alias-chain
      hops), so both properties live in exactly one place each. */
-  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; }
   .tag { background: var(--bg-code); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
   .file-link { color: var(--accent); text-decoration: none; }
   .file-link:hover { text-decoration: underline; }
 
-  .classif { display: inline-block; font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+  .classif { display: inline-block; font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
   .classif.modern { background: var(--badge-modern-bg); color: var(--badge-modern-fg); }
   .classif.classic { background: var(--badge-classic-bg); color: var(--badge-classic-fg); }
-  .classif.none { background: var(--badge-none-bg); color: var(--badge-none-fg); }
   .classif.dual { background: var(--badge-dual-bg); color: var(--badge-dual-fg); }
-  td .classif { margin-left: 0; font-size: 13px; padding: 2px 7px; white-space: nowrap; }
-  h3.table-group { font-size: 14px; margin: 24px 0 8px; }
+  td .classif { margin-left: 0; font-size: 12px; padding: 2px 7px; white-space: nowrap; }
+  h3.table-group { margin: 24px 0 8px; }
   .check.na { color: var(--neutral); font-weight: normal; }
   .callout { display: flex; gap: 12px; margin: 0 0 20px; padding: 12px 14px; border-radius: 6px;
     background: var(--bg-accent-soft); }
@@ -404,7 +418,7 @@
   .callout > div > :first-child { margin-top: 0; }
   .callout > div > :last-child { margin-bottom: 0; }
   .legend-table { margin: 4px 0 20px; }
-  .legend-table td { font-size: 13px; color: var(--text-secondary); vertical-align: top; }
+  .legend-table td { color: var(--text-secondary); vertical-align: top; }
 
   /* Every table on this page: full content width, and every column in it
      an equal share of that width.
@@ -419,7 +433,7 @@
      narrow table simply didn't reach the right edge. Fixed layout plus
      overflow-wrap:anywhere below means a long value now wraps inside its
      own cell instead of needing anywhere to scroll to. */
-  table { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: 14px; margin-bottom: 8px; }
+  table { border-collapse: collapse; width: 100%; table-layout: fixed; margin-bottom: 8px; }
   th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; overflow-wrap: anywhere; }
   /* Sticky header. border-collapse:collapse means the cell's own border
      does not travel with it, so the rule underneath is an inset shadow. */
@@ -427,6 +441,19 @@
   /* -1px parks the cell's border-less top edge off-screen. */
   thead th { position: sticky; top: calc(var(--table-sticky-top, 0px) - 1px); z-index: 2; box-shadow: inset 0 -1px 0 var(--border); }
   td.check { text-align: center; }
+  /* Same shape and font as .classif, so a state badge reads as part of the
+     page's existing vocabulary rather than as an error state. */
+  .state-badge { display: inline-block; font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+    padding: 2px 8px; border-radius: 10px; }
+  .state-badge.live { background: var(--badge-modern-bg); color: var(--badge-modern-fg); }
+  .state-badge.missing { background: var(--badge-none-bg); color: var(--badge-none-fg); }
+  .state-badge.na { background: var(--bg-raised); color: var(--text-muted); }
+  td.figma-col { text-align: left; }
+  /* <wbr> after each "/" in the markup, so a long path wraps at its own
+     segment boundaries instead of mid-word. */
+  .figma-var { font-size: 13px; color: var(--text-muted); background: none; padding: 0; }
+  .figma-note { display: block; font-size: 11px; color: var(--text-faint); }
   .yes { color: var(--ok); font-weight: bold; }
   .no { color: var(--err); }
   .unknown { color: var(--warn); font-weight: bold; }
@@ -434,6 +461,7 @@
   /* Page sections */
   h2.section { font-size: 30px; font-weight: 700; color: var(--text); letter-spacing: -0.015em; line-height: 1.2; border-bottom: 1px solid var(--border-hairline); padding-bottom: 10px; margin: 44px 0 14px; }
   h2.section:first-of-type { margin-top: 28px; }
+  #view-dynamic h1, #view-generic h1 { margin-bottom: 6px; }
 
   /* Must sit after the sizes it overrides, not with the other mobile rules
      further up: same specificity, so source order is all that decides. */
@@ -450,16 +478,27 @@
      against whatever ambient font-size a <code> span happens to sit inside,
      and several real contexts on this page (.attrs-table td at 13.5px, for
      instance) pushed the computed result under the 13px floor. */
-  code { background: var(--bg-code); padding: 1px 4px; border-radius: 3px; font-size: 13px; font-family: "JetBrains Mono", ui-monospace, monospace; }
-  pre { background: #1e1e2e; color: #d4d4e0; padding: 14px 16px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.5; }
+  code { background: var(--bg-code); color: var(--code-inline); padding: 1px 4px; border-radius: 3px; font-size: 13px; font-family: "JetBrains Mono", ui-monospace, monospace; }
+  /* Light mode is Solarized Light's hues on its base3 ground, keeping
+     Schoonover's role mapping (blue names things, cyan is a string,
+     magenta a constant), but each accent darkened along its own hue until
+     it clears 4.5:1: stock Solarized Light fails AA on every role, comments
+     worst at 2.48. Dark keeps this page's own vocabulary: pink names
+     things, blue is a property, orange a value. */
+  .hl-name { color: var(--code-name); }
+  .hl-attr { color: var(--code-attr); }
+  .hl-str { color: var(--code-str); }
+  .hl-lit { color: var(--code-lit); }
+  .hl-comment { color: var(--code-comment); font-style: italic; }
+  pre code { color: inherit; background: none; padding: 0; }
+  pre { background: var(--code-bg); color: var(--code-fg); padding: 14px 16px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.5; }
   pre code { background: none; padding: 0; color: inherit; }
   .schema-details summary { cursor: pointer; font-weight: 600; margin-bottom: 10px; }
 
-  .attrs-table th, .attrs-table td { font-size: 13.5px; }
   /* Purely structural (first cell of any attrs-table row), no class to hang
      .token-id off of in the generated markup, so it shares the same
      declaration by joining the selector instead of repeating the values. */
-  .attrs-table td:first-child, .token-id { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--token-pink); }
+  .attrs-table td:first-child, .variant-table td:first-child, .token-id { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; color: var(--token-pink); }
   /* CSS custom property column in the merged Design tokens table: its own
      distinct color, not the Token column's pink, so the two real but
      different identifiers (a token path vs. its generated --var name)
@@ -474,11 +513,6 @@
      this orange color fighting .token-id's pink on specificity, the two
      rules were equally applicable to the same element otherwise. */
   .attrs-table td.value-col code:not(.token-id) { color: var(--value-orange); }
-  /* A base token page's table has no "In Figma" column (the component
-     page's does): figma-check.py only ever checks component-level custom
-     properties (component-api/*.json's cssProperties plus resolved/*.json,
-     see its own docstring), so every cell here would be an unchecked "?"
-     rather than a real answer. */
   /* Preview column: the token's resolved value applied to a small sample of
      the thing that token actually controls -- a radius token bends a
      corner, a shadow token casts a shadow, a space token is a bar you can
@@ -549,18 +583,16 @@
 
   .dodont { display: flex; gap: 20px; flex-wrap: wrap; }
   .dodont > div { flex: 1 1 280px; }
-  .dodont h3 { font-size: 13px; margin: 0 0 8px; }
+  .dodont h3 { margin: 0 0 8px; }
   .dodont .do h3 { color: var(--ok); }
   .dodont .dont h3 { color: var(--err); }
-  .dodont ul { padding-left: 18px; margin: 0; font-size: 13.5px; }
+  .dodont ul { padding-left: 18px; margin: 0; }
 
-  .variant-table th, .variant-table td { font-size: 13px; }
 
   .source-note { background: var(--note-bg); border: 1px solid var(--note-border); color: var(--note-text); padding: 12px 16px; border-radius: 6px; font-size: 13.5px; margin-top: 16px; }
   .source-note code { background: var(--note-code-bg); }
 
   /* Auto-rendered classification view (everything not hand-written yet) */
-  .kv-table th, .kv-table td { font-size: 14px; }
   .kv-table td:first-child { width: 160px; color: var(--text-secondary); }
 </style>
 <script>
@@ -615,6 +647,7 @@
     <a data-show="doc-component-api">Component API</a>
     <a data-show="doc-guidance-api">Guidance API</a>
     <a data-show="doc-token-api">Token API</a>
+    <a data-show="doc-faq">FAQ</a>
   </div>
 </nav>
 
@@ -623,12 +656,12 @@
   <!-- HOME: coverage table -->
   <section id="view-home" class="view active">
     <h1>Home</h1>
-    <p class="meta">Where each real Firefox component actually exists today, across Figma, Supernova (documented), and Storybook, plus how it is really implemented (modern, classic, or a plain pattern with no dedicated class). A row with no implementation badge at all has no real Firefox equivalent, see its file citation for what actually exists instead.</p>
+    <p class="meta">Where each real Firefox component actually exists today, across Figma, Supernova (documented), and Storybook, plus how it is really implemented (modern, classic, or both). A row with no implementation badge at all has no dedicated widget class of its own, see its file citation for what actually exists instead.</p>
     <table class="legend-table">
       <tbody>
-        <tr><td><span class="check yes">&check;</span></td><td>Real and documented there.</td></tr>
-        <tr><td><span class="check no">&cross;</span></td><td>Not yet, a real, closeable gap.</td></tr>
-        <tr><td><span class="check na">n/a</span></td><td>Not a reusable widget class, this kind of coverage was never going to apply here regardless of effort.</td></tr>
+        <tr><td><span class="yes">&check;</span> <span class="state-badge live">live</span></td><td>Real and documented there.</td></tr>
+        <tr><td><span class="no">&cross;</span> <span class="state-badge missing">missing</span></td><td>Not yet, a real, closeable gap.</td></tr>
+        <tr><td><span class="state-badge na">n/a</span></td><td>Not a reusable widget class, this kind of coverage was never going to apply here regardless of effort.</td></tr>
         <tr><td><span class="check unknown">in: [parent]</span></td><td>Covered under its parent's own entry, not separately (see the Notes below for why).</td></tr>
       </tbody>
     </table>
@@ -636,12 +669,13 @@
 
     <h2 class="section">Notes</h2>
     <ul>
+      <li>A design token is meant to be one fact that any target can express, and most are. A few are not, and the layer that gives out first is usually not Figma. Two of Firefox's text colours are authored as <code>color-mix(in srgb, currentColor 69%, transparent)</code>: that is a CSS expression, and the W3C DTCG token format has no expression syntax at all, so it is already outside what the format can describe before any tool sees it. <code>currentColor</code> then makes the value deliberately context-dependent, and a Figma variable holds one resolved colour with no inheritance to refer to. See <a data-show="doc-token-api" href="docs/token-api">Token API</a> for the full walk through each layer.</li>
       <li>No chrome or structural component has a Supernova documentation page or a Storybook story. The only doc coverage for this whole category is one narrative page, Desktop/Patterns/Browser anatomy/Overview.</li>
       <li>Checkbox and Radio each ship both a modern version and a classic version at the same time, marked "modern + classic" rather than picking one.</li>
-      <li>A row with no real Firefox equivalent (Chip, Details) gets no implementation badge at all: that is the absence of an implementation, not a kind of one. See its file citation for what actually exists instead (a Figma-only pattern, a distinct real feature that only looks similar, native HTML doing the job, etc.). This is different from the "pattern" badge (red), which means the real thing exists as page wiring with no dedicated class.</li>
+      <li>A row with no real Firefox equivalent (Chip, Details) gets no implementation badge at all: that is the absence of an implementation, not a kind of one. See its file citation for what actually exists instead (a Figma-only pattern, a distinct real feature that only looks similar, native HTML doing the job, etc.). A sub-item (Panel Separator, say) shows its parent's badge instead, because it is part of that parent's implementation.</li>
       <li>Figma has some internal duplication for chrome entries (Sidebar, Infobar and Info bar, Bookmarks toolbar and Bookmarks Toolbar, and a few more each show up as two near-identical nodes), most likely stale-versus-current branches rather than distinct concepts.</li>
       <li>tagName is optional, not universal: most "classic" entries do have a real customElements.define tag (panel, dialog, tab-group), but some are built-in XUL tags with no class behind them (toolbar, toolbox), and some real implementations (Spotlight, Callout) are plain classes or React, not custom elements at all.</li>
-      <li>A grey "n/a" in the Storybook column is a different claim than a red cross: it means the real implementation isn't a reusable widget class at all (a plain module like Spotlight, a React render method like Stepper, or page wiring with no class like Toolbox), so a story was never going to exist regardless of effort. A red cross means a real widget class exists and simply hasn't been storied yet, a genuine closeable gap (popup-notification, for example).</li>
+      <li>A grey "n/a" in the Storybook column is a different claim than "missing": it means the real implementation isn't a reusable widget class at all (a plain module like Spotlight, a React render method like Stepper, or page wiring with no class like Toolbox), so a story was never going to exist regardless of effort. "missing" means a real widget class exists and simply hasn't been storied yet, a genuine closeable gap (popup-notification, for example).</li>
       <li>Rows with no Figma node or Storybook story of their own (Panel Item, Panel Separator, Page Nav Item and Separator, Segment, Icon Button, Split Button, Visual Picker Item) are listed indented under the parent whose Figma node or Storybook story actually covers them, marked "in: [parent name]".</li>
     </ul>
   </section>
@@ -651,7 +685,7 @@
        to scan as one scroll). -->
   <section id="view-doc" class="view">
     <h1 id="doc-title">-</h1>
-    <p class="meta">Loaded and rendered live from the real README, not copy-pasted, so this page can't drift from the real docs.</p>
+    <p class="meta" id="doc-source-note"></p>
     <div id="doc-body"></div>
   </section>
 
@@ -661,7 +695,6 @@
        page and a second home for them could only drift from the first. -->
   <section id="view-tokens" class="view">
     <h1 id="tokens-title">-</h1>
-    <p class="meta" id="tokens-meta"></p>
     <div id="tokens-body"></div>
     <p class="source-note" id="tokens-note"></p>
   </section>
@@ -715,15 +748,15 @@
     { id: "button-group", name: "Button Group", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-button-group", file: "toolkit/content/widgets/moz-button-group/moz-button-group.mjs" },
     { id: "callout", name: "Callout", group: "generic", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/asrouter/modules/FeatureCallout.sys.mjs, plain class, not a custom element or XUL" },
     { id: "card", name: "Card", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-card", file: "toolkit/content/widgets/moz-card/moz-card.mjs" },
-    { id: "checkbox", name: "Checkbox", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-checkbox / checkbox", file: "moz-checkbox.mjs and toolkit/content/widgets/checkbox.js both exist" },
+    { id: "checkbox", name: "Checkbox", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-checkbox / checkbox", file: "toolkit/content/widgets/moz-checkbox/moz-checkbox.mjs and toolkit/content/widgets/checkbox.js both exist" },
     { id: "chip", name: "Chip", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "missing", tagName: null, file: "closest analog: browser/components/aiwindow/ui/components/ai-website-chip/ai-website-chip.mjs, a distinct feature component" },
     { id: "details", name: "Details", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "missing", tagName: null, file: "chrome uses the native <details>/<summary> elements directly" },
-    { id: "dialog", name: "Dialog", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "dialog", file: "toolkit/content/widgets/dialog.js (no Storybook story exists at all)" },
+    { id: "dialog", name: "Dialog", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "dialog", file: "toolkit/content/widgets/dialog.js" },
     { id: "fieldset", name: "Fieldset", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-fieldset", file: "toolkit/content/widgets/moz-fieldset/moz-fieldset.mjs" },
     { id: "findbar", name: "Findbar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "findbar", file: "toolkit/content/widgets/findbar.js, MozFindbar extends MozXULElement" },
     { id: "five-star", name: "Five Star", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-five-star", file: "toolkit/content/widgets/moz-five-star/moz-five-star.mjs" },
-    { id: "icon-button", name: "Icon Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-button", file: "moz-button.mjs, icon-only variant", parentId: "button" },
-    { id: "infobar", name: "Infobar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "dual", tagName: "notification-message", file: "toolkit/content/widgets/notificationbox.js, notification-message extends the modern moz-message-bar (corrected from old: this is dual, not classic)" },
+    { id: "icon-button", name: "Icon Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-button", file: "toolkit/content/widgets/moz-button/moz-button.mjs, icon-only variant", parentId: "button" },
+    { id: "infobar", name: "Infobar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "dual", tagName: "notification-message", file: "toolkit/content/widgets/notificationbox.js, notification-message extends the modern moz-message-bar" },
     { id: "input-color", name: "Input Color", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-input-color", file: "toolkit/content/widgets/moz-input-color/moz-input-color.mjs" },
     { id: "input-email", name: "Input Email", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-email", file: "toolkit/content/widgets/moz-input-email/moz-input-email.mjs" },
     { id: "input-folder", name: "Input Folder", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-folder", file: "toolkit/content/widgets/moz-input-folder/moz-input-folder.mjs" },
@@ -735,21 +768,21 @@
     { id: "input-url", name: "Input Url", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-url", file: "toolkit/content/widgets/moz-input-url/moz-input-url.mjs" },
     { id: "label", name: "Label", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "classic", tagName: "moz-label", file: "toolkit/content/widgets/moz-label/moz-label.mjs" },
     { id: "message-bar", name: "Message Bar", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-message-bar", file: "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs" },
-    { id: "page-header", name: "Page Header", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-page-header", file: "toolkit/content/widgets/moz-page-header/moz-page-header.mjs, corrects an earlier prototype-only assumption" },
+    { id: "page-header", name: "Page Header", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-page-header", file: "toolkit/content/widgets/moz-page-header/moz-page-header.mjs" },
     { id: "page-nav", name: "Page Nav", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-page-nav", file: "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs, used in about:preferences and Firefox View" },
-    { id: "page-nav-item", name: "Page Nav Item", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-page-nav-button", file: "same file, class MozPageNavButton", parentId: "page-nav" },
-    { id: "page-nav-separator", name: "Page Nav Separator", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "none", tagName: null, file: "no dedicated separator element found in moz-page-nav", parentId: "page-nav" },
+    { id: "page-nav-item", name: "Page Nav Item", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-page-nav-button", file: "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs, class MozPageNavButton", parentId: "page-nav" },
+    { id: "page-nav-separator", name: "Page Nav Separator", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "none", tagName: null, file: "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs, a plain <hr> in render(), no dedicated class", parentId: "page-nav" },
     { id: "panel", name: "Panel", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "panel", file: "toolkit/content/widgets/panel.js, MozPanel", rich: true },
     { id: "panel-item", name: "Panel Item", group: "chrome", figma: "nested", supernova: "no", storybook: "no", kind: "classic", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, class PanelItem (plain custom element: no legacy XUL base, but no Lit either)", parentId: "panel" },
     { id: "panel-list", name: "Panel List", group: "chrome", figma: "yes", supernova: "no", storybook: "yes", kind: "classic", tagName: "panel-list", file: "toolkit/content/widgets/panel-list/panel-list.mjs" },
-    { id: "panel-list-item", name: "Panel List Item", group: "chrome", figma: "nested", supernova: "no", storybook: "nested", kind: "classic", tagName: "panel-item", file: "same panel-item tag as Panel Item, no upstream distinction", parentId: "panel-list" },
+    { id: "panel-list-item", name: "Panel List Item", group: "chrome", figma: "nested", supernova: "no", storybook: "nested", kind: "classic", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, same panel-item tag as Panel Item", parentId: "panel-list" },
     { id: "panel-manager", name: "Panel Manager", group: "chrome", figma: "no", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/customizableui/PanelMultiView.sys.mjs, real class, not a custom element" },
-    { id: "panel-separator", name: "Panel Separator", group: "chrome", figma: "nested", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "plain <hr>, no dedicated class", parentId: "panel" },
+    { id: "panel-separator", name: "Panel Separator", group: "chrome", figma: "nested", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "toolkit/content/widgets/panel-list/panel-list.mjs, a slotted plain <hr>, no dedicated class", parentId: "panel" },
     { id: "popup-notification", name: "Popup Notification", group: "chrome", figma: "non1to1", supernova: "no", storybook: "no", kind: "classic", tagName: "popupnotification", file: "toolkit/content/widgets/popupnotification.js" },
     { id: "promo", name: "Promo", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-promo", file: "toolkit/content/widgets/moz-promo/moz-promo.mjs" },
-    { id: "radio", name: "Radio", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-radio-group / radio", file: "moz-radio-group.mjs and toolkit/content/widgets/radio.js both exist" },
+    { id: "radio", name: "Radio", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-radio-group / radio", file: "toolkit/content/widgets/moz-radio-group/moz-radio-group.mjs and toolkit/content/widgets/radio.js both exist" },
     { id: "reorderable-list", name: "Reorderable List", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-reorderable-list", file: "toolkit/content/widgets/moz-reorderable-list/moz-reorderable-list.mjs" },
-    { id: "segment", name: "Segment", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-segmented-control-item", file: "moz-segmented-control.mjs, class MozSegmentedControlItem", parentId: "segmented-control" },
+    { id: "segment", name: "Segment", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-segmented-control-item", file: "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs, class MozSegmentedControlItem", parentId: "segmented-control" },
     { id: "segmented-control", name: "Segmented Control", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-segmented-control", file: "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs" },
     { id: "select", name: "Select", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-select", file: "toolkit/content/widgets/moz-select/moz-select.mjs" },
     { id: "sidebar", name: "Sidebar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/sidebar/browser-sidebar.js, SidebarController singleton" },
@@ -762,7 +795,7 @@
     { id: "tab", name: "Tab", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tabbrowser-tab", file: "browser/components/tabbrowser/content/tab.js" },
     { id: "tab-group", name: "Tab Group", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tab-group", file: "browser/components/tabbrowser/content/tabgroup.mjs" },
     { id: "tab-split", name: "Tab Split", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tab-split-view-wrapper", file: "browser/components/tabbrowser/content/tabsplitview.mjs" },
-    { id: "tabstrip", name: "Tab Strip", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tabbrowser-tabs", file: "browser/components/tabbrowser/content/tabs.js" },
+    { id: "tabstrip", name: "Tab Strip", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tabbrowser-tabs", file: "browser/components/tabbrowser/content/tabs.mjs" },
     { id: "textarea", name: "Textarea", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-textarea", file: "toolkit/content/widgets/moz-textarea/moz-textarea.mjs" },
     { id: "toggle", name: "Toggle", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-toggle", file: "toolkit/content/widgets/moz-toggle/moz-toggle.mjs" },
     { id: "toolbar", name: "Toolbar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: "toolbar", file: "browser/base/content/navigator-toolbox.inc.xhtml, a built-in XUL tag with no dedicated class" },
@@ -771,9 +804,9 @@
     { id: "urlbar", name: "URL Bar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "moz-urlbar", file: "browser/components/urlbar/content/UrlbarInput.mjs, tag predates the moz-* convention" },
     { id: "urlbar-action", name: "URL Bar Action", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/urlbar/content/UrlbarView.mjs, plain markup" },
     { id: "urlbar-identity", name: "URL Bar Identity", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/base/content/browser-siteIdentity.js, gIdentityHandler singleton" },
-    { id: "urlbar-result", name: "URL Bar Result", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "UrlbarView.mjs, plain div rows" },
+    { id: "urlbar-result", name: "URL Bar Result", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/urlbar/content/UrlbarView.mjs, plain div rows" },
     { id: "visual-picker", name: "Visual Picker", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-visual-picker", file: "toolkit/content/widgets/moz-visual-picker/moz-visual-picker.mjs" },
-    { id: "visual-picker-item", name: "Visual Picker Item", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-visual-picker-item", file: "same file, class MozVisualPickerItem", parentId: "visual-picker" },
+    { id: "visual-picker-item", name: "Visual Picker Item", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-visual-picker-item", file: "toolkit/content/widgets/moz-visual-picker/moz-visual-picker.mjs, class MozVisualPickerItem", parentId: "visual-picker" },
   ];
 
   // The axis is whether a component is Lit, not whether it carries the
@@ -815,6 +848,9 @@
   function checkCell(v, parentName, kind) {
     const s = checkSymbol(v, parentName, kind);
     const titleAttr = s.title ? ` title="${escapeHtml(s.title)}"` : "";
+    if (v === "yes") return `<td class="check"${titleAttr}><span class="state-badge live">live</span></td>`;
+    if (v === "no") return `<td class="check"${titleAttr}><span class="state-badge missing">missing</span></td>`;
+    if (v === "na") return `<td class="check"${titleAttr}><span class="state-badge na">${s.text}</span></td>`;
     return `<td class="check ${s.cls}"${titleAttr}>${s.text}</td>`;
   }
 
@@ -1066,19 +1102,49 @@
   // Wraps inline code mentioned in prose (tags, attrs, filenames, etc.) in
   // <code>. Order matters: earlier patterns win a span first.
   const CODE_SPAN_RE = new RegExp([
+    "\\*\\*[^*]+\\*\\*",                             // **bold** lead-in
     "`[^`]+`",                                        // `already-marked` code span
     "<\\/?[A-Za-z][\\w-]*(?:\\s+[\\w-]+(?:=\"[^\"]*\")?)*\\s*\\/?>", // <tag>, </tag>, <tag attr="x">
     "\\b[A-Za-z][\\w-]*=\"[^\"]*\"",                  // bare attr="value", not inside a tag above
-    "\\b[\\w.-]+\\.(?:mjs|jsx?|json|xhtml|html|css|py|sh)\\b", // a/file/path.ext
-    "\\b[A-Za-z_$][\\w]*\\(\\)",                      // functionCall()
+    "\\b[\\w.$#-]+\\s*(?:===|!==|==|!=|=)\\s*(?:\"[^\"]*\"|'[^']*'|[\\w.-]+)", // a whole comparison or assignment: x === "y", role=option, open = true
+    "\\b[\\w.-]+(?:/[\\w.-]+)*\\.(?:mjs|jsx?|tsx?|json|xhtml|html|css|py|sh|svg|ftl|properties)\\b", // a/real/file/path.ext, slashes and all
+    "\\b[A-Za-z_$][\\w.]*\\([^()]{0,60}\\)",             // functionCall(), this.closest(\"x\"), document.getElementById(id)
+    "::[a-z-]+(?:\\([^()]*(?:\\([^()]*\\)[^()]*)*\\))?",   // ::part(x), ::slotted(hr:not([hidden]))
+    "--[a-z][\\w-]*",                                 // --custom-property
+    "#[A-Za-z][\\w-]*",                               // #ElementId, and JS #privateMethod
+    "\\b[a-z][\\w-]*(?:\\.[a-z][\\w-]+)+\\b",           // this.value, browser.tabs.groups, a pref path
+    "\\b[A-Za-z]+[a-z][A-Z][A-Za-z]*\\b",               // camelCase and PascalCase identifiers
+    "\\b[a-z][a-z0-9]*(?:_[a-z0-9]+)+\\b",              // snake_case, e.g. a telemetry trigger value
+    "\\b[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)+\\b",              // UPPER_CONST
+    "\\b(?:moz|aria|data)-[a-z][\\w-]*\\b",             // only these prefixes: a bare kebab word is usually English (built-in, drag-and-drop)
     "\\.[a-z][a-z0-9]*(?:-[a-z0-9]+)+\\b",            // .css-class-name (hyphenated, so a plain sentence-ending period never matches)
   ].join("|"), "g");
 
+  // The identifier shapes above are deliberately broad, which catches two
+  // kinds of real prose. Audited against every entry: these are the only
+  // live false positives, the rest of the 276 camelCase and 48 dotted
+  // matches are genuine identifiers.
+  const NOT_CODE = new Set(["macOS", "iOS", "iPadOS", "JavaScript", "TypeScript", "GitHub", "YouTube"]);
+  const DOMAIN_RE = /\.(?:org|com|net|io|dev)$/;
+
   function formatProse(value) {
     return wrapMatches(value, CODE_SPAN_RE, match => {
+      if (match.startsWith("**")) return `<strong>${formatProse(match.slice(2, -2))}</strong>`;
       const inner = (match.startsWith("`") && match.endsWith("`")) ? match.slice(1, -1) : match;
+      if (NOT_CODE.has(inner) || DOMAIN_RE.test(inner)) return escapeHtml(inner);
       return `<code>${escapeHtml(inner)}</code>`;
     });
+  }
+
+  // A blank line in a contract description is a real paragraph break, so a
+  // long entry can be structured instead of one wall of text.
+  function formatProseBlocks(value) {
+    return String(value == null ? "" : value)
+      .split(/\n\s*\n/)
+      .map(part => part.trim())
+      .filter(Boolean)
+      .map(part => `<p>${formatProse(part)}</p>`)
+      .join("");
   }
 
   // Small, purpose-built markdown renderer covering what the three real
@@ -1105,11 +1171,60 @@
 
   const TABLE_SEPARATOR_RE = /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$/;
 
+  // Two languages actually appear on this page: JSON(C) in the schemas and
+  // READMEs, and HTML in the usage snippets. One alternation per language,
+  // scanned once; anything unmatched stays plain escaped text. No capture
+  // groups inside the patterns, findIndex below relies on that.
+  const HL_RULES = {
+    json: [
+      ["comment", /\/\/[^\n]*|\/\*[\s\S]*?\*\//],
+      ["attr", /"(?:\\.|[^"\\])*"(?=\s*:)/],
+      ["str", /"(?:\\.|[^"\\])*"/],
+      ["lit", /\b(?:true|false|null)\b|-?\d+(?:\.\d+)?/],
+    ],
+    html: [
+      ["comment", /<!--[\s\S]*?-->/],
+      ["name", /<\/?[A-Za-z][\w-]*/],
+      ["attr", /[A-Za-z_:][\w:.-]*(?==)/],
+      ["str", /"[^"]*"|'[^']*'/],
+    ],
+    sh: [["comment", /#[^\n]*/]],
+  };
+  const HL_CACHE = {};
+
+  function highlightCode(text, lang) {
+    const rules = HL_RULES[lang];
+    if (!rules) return escapeHtml(text);
+    const re = HL_CACHE[lang] ||
+      (HL_CACHE[lang] = new RegExp(rules.map(r => `(${r[1].source})`).join("|"), "g"));
+    let out = "", last = 0;
+    for (const m of text.matchAll(re)) {
+      out += escapeHtml(text.slice(last, m.index));
+      const i = m.slice(1).findIndex(g => g !== undefined);
+      out += `<span class="hl-${rules[i][0]}">${escapeHtml(m[0])}</span>`;
+      last = m.index + m[0].length;
+    }
+    return out + escapeHtml(text.slice(last));
+  }
+
+  // A fence may name its language; an untagged block gets guessed from its
+  // first character, which is all these two languages need.
+  function codeLang(tag, text) {
+    const named = { json: "json", jsonc: "json", html: "html", xml: "html",
+                    sh: "sh", bash: "sh", shell: "sh" }[(tag || "").toLowerCase()];
+    if (named) return named;
+    const first = text.trim()[0];
+    if (first === "<") return "html";
+    if (first === "{" || first === "[") return "json";
+    return null;
+  }
+
   function renderMarkdown(md) {
     const lines = md.split("\n");
     let html = "";
     let inCode = false;
     let codeLines = [];
+    let codeTag = "";
     let listType = null;
     let paraLines = [];
     let tableRows = null;
@@ -1147,8 +1262,12 @@
     for (const line of lines) {
       if (line.trim().startsWith("```")) {
         flushTable();
-        if (!inCode) { flushPara(); closeList(); inCode = true; codeLines = []; }
-        else { inCode = false; html += `<pre><code>${escapeHtml(codeLines.join("\n"))}</code></pre>`; }
+        if (!inCode) { flushPara(); closeList(); inCode = true; codeLines = []; codeTag = line.trim().slice(3).trim(); }
+        else {
+          inCode = false;
+          const body = codeLines.join("\n");
+          html += `<pre><code>${highlightCode(body, codeLang(codeTag, body))}</code></pre>`;
+        }
         continue;
       }
       if (inCode) { codeLines.push(line); continue; }
@@ -1217,6 +1336,7 @@
     "doc-component-api": { title: "Component API", file: "component-api/README.md", schema: "component-api/schema.json" },
     "doc-guidance-api": { title: "Guidance API", file: "guidance-api/README.md", schema: "guidance-api/schema.json" },
     "doc-token-api": { title: "Token API", file: "token-api/README.md", schema: "token-api/schema.json" },
+    "doc-faq": { title: "FAQ", file: "FAQ.md" },
   };
   const docHtmlCache = {};
 
@@ -1277,6 +1397,8 @@
   async function loadDocPage(id) {
     const doc = DOC_FILES[id];
     document.getElementById("doc-title").textContent = doc.title;
+    document.getElementById("doc-source-note").textContent =
+      `Loaded and rendered live from ${doc.file}, not copy-pasted, so this page can't drift from the real file.`;
     if (docHtmlCache[id]) {
       document.getElementById("doc-body").innerHTML = docHtmlCache[id];
       decorateDocSections();
@@ -1317,7 +1439,7 @@
       return `<h2 class="section">schema.json</h2>
         <details class="schema-details">
           <summary>View the real, live <code>${escapeHtml(schemaPath)}</code></summary>
-          <pre><code>${escapeHtml(pretty)}</code></pre>
+          <pre><code>${highlightCode(pretty, "json")}</code></pre>
         </details>`;
     } catch (e) {
       return `<h2 class="section">schema.json</h2><p class="meta">Could not load ${escapeHtml(schemaPath)} (${escapeHtml(e.message)}).</p>`;
@@ -1638,20 +1760,18 @@
     return `<td class="preview-col">${tokenPreview(path || "", token, lookup)}</td>`;
   }
 
-  // Same three identifier colours as a component page's Design tokens
-  // table (Token pink, Value orange, CSS custom property blue, all from
-  // .attrs-table), minus its "In Figma" column -- see the
-  // .base-tokens-table CSS comment for why that column can't be answered
-  // here rather than being answered with a shrug.
-  function renderBaseTokenTable(paths, flat, lookup) {
+  // Same columns as a component page's Design tokens table, including the
+  // real "In Figma" answer: figma-check.py now checks base families too.
+  function renderBaseTokenTable(paths, flat, lookup, figmaMap) {
     const trs = paths.map(path =>
       `<tr><td><code>${escapeHtml(path)}</code></td>` +
       `<td class="value-col">${formatResolvedValue(flat[path], lookup)}</td>` +
       previewCell(path, flat[path], lookup) +
-      `<td class="css-prop-col"><code>${escapeHtml(deriveCssVarName(path))}</code></td></tr>`
+      `<td class="css-prop-col"><code>${escapeHtml(deriveCssVarName(path))}</code></td>` +
+      figmaCheckCell(deriveCssVarName(path), figmaMap) + `</tr>`
     ).join("");
     return `<table class="attrs-table base-tokens-table"><thead><tr><th>Token</th><th>Value</th>` +
-      `<th>Preview</th><th>CSS custom property</th></tr></thead><tbody>${trs}</tbody></table>`;
+      `<th>Preview</th><th>CSS custom property</th><th>In Figma</th></tr></thead><tbody>${trs}</tbody></table>`;
   }
 
   // One page per family, cached after the first render: switching between
@@ -1663,11 +1783,9 @@
     const inPlace = !!(opts && opts.inPlace);
     const [, stem, group] = id.split("/");
     const titleEl = document.getElementById("tokens-title");
-    const metaEl = document.getElementById("tokens-meta");
     const bodyEl = document.getElementById("tokens-body");
     const noteEl = document.getElementById("tokens-note");
     titleEl.textContent = "Loading...";
-    metaEl.textContent = "";
     bodyEl.innerHTML = "";
     noteEl.textContent = "";
 
@@ -1675,43 +1793,26 @@
     const family = families.find(f => f.stem === stem);
     if (!family) {
       titleEl.textContent = "No such token family";
-      metaEl.textContent = "";
-      bodyEl.innerHTML = `<p class="stub-note">token-api/sync-manifest.json lists no ` +
+        bodyEl.innerHTML = `<p class="stub-note">token-api/sync-manifest.json lists no ` +
         `<code>base/${escapeHtml(stem)}.tokens.json</code>. The real families are: ` +
         `${families.map(f => escapeHtml(f.stem)).join(", ") || "none, sync-manifest.json could not be read"}.</p>`;
       return;
     }
 
     titleEl.textContent = family.title;
-    // Counted from the real files, not asserted: "the toggle does nothing on
-    // this page" and "these tokens have no dark value" look identical
-    // otherwise, and for Colour, Space, Size, Font and Focus the second one
-    // is the true answer.
-    const paths = Object.keys(family.flat);
-    const withDark = paths.filter(path =>
-      themedValue(family.flat[path], "light") !== themedValue(family.flat[path], "dark")).length;
-    // Kept to what a reader cannot work out by looking: where the numbers
-    // come from, and whether the theme toggle will change anything on this
-    // particular page. The preview column and the CSS custom property
-    // column explain themselves; they used to be described here too, and
-    // the paragraph was longer than some of the tables.
-    const themeLine = withDark === 0
-      ? `None of them declares a dark value, so every row reads the same in both themes.`
-      : `${withDark} of them declare their own dark value, which the theme toggle switches between.`;
-    metaEl.textContent = `${paths.length} real Firefox base tokens, live from ` +
-      `token-api/base/${family.stem}.tokens.json and its .nova sibling, Nova winning. ` + themeLine;
 
     if (!tokenPageCache[stem]) {
       const lookup = await loadBaseTokenLookup();
+      const figmaMap = await loadFigmaTokenMap();
       let html = "";
       // Loose top-level tokens first, under no heading of their own: the
       // Token column already spells out each full path, so a heading
       // repeating the family name above them would say nothing new.
-      if (family.loose.length) html += renderBaseTokenTable(orderTokenPaths(family.loose), family.flat, lookup);
+      if (family.loose.length) html += renderBaseTokenTable(orderTokenPaths(family.loose), family.flat, lookup, figmaMap);
       family.groups.forEach(g => {
         const paths = orderTokenPaths(Object.keys(family.flat).filter(path => tokenGroupOf(stem, path) === g));
         html += `<h2 class="section" id="${groupAnchorId(stem, g)}">${escapeHtml(g)}</h2>`;
-        html += renderBaseTokenTable(paths, family.flat, lookup);
+        html += renderBaseTokenTable(paths, family.flat, lookup, figmaMap);
       });
       tokenPageCache[stem] = html;
     }
@@ -1724,7 +1825,9 @@
     if (await fetchTokenJson(`base/${family.stem}.nova.tokens.json`)) {
       files.push(`token-api/base/${family.stem}.nova.tokens.json`);
     }
-    noteEl.textContent = `Source: ${files.join(", ")}`;
+    noteEl.textContent = files.length > 1
+      ? `Loaded live from ${files.join(" and ")}. Both write the same token names, so Nova wins wherever they overlap.`
+      : `Loaded live from ${files[0]}. This family has no .nova sibling.`;
 
     if (inPlace) {
       // Re-rendered the page the reader is already reading. Jumping to the
@@ -1996,35 +2099,37 @@
 
   // "In Figma" cell: looks up this row's own CSS custom property name in
   // the figma-token-map (keyed by that exact name, see loadFigmaTokenMap
-  // and token-api/figma-check.py). Reuses the SAME .check/.yes/.no/.unknown
-  // classes and &check;/&cross; glyphs the home coverage table already uses
-  // for Figma/Supernova/Storybook (see checkSymbol/checkCell above), so
-  // "confirmed in Figma" reads as visually the same kind of fact here as it
-  // does there, instead of introducing a second, different-looking
-  // yes/no vocabulary for the same concept. A strict two-state check, not
-  // three: figma-check.py only ever emits "yes" (an exact or reordered
-  // word-tuple match against a real Figma variable name) or "no" (anything
-  // else, including a one-word-off near miss -- deliberately NOT treated as
-  // "close enough," see that script's own docstring for why a near miss
-  // stays a real "no" rather than a hedge). .unknown/amber "?" is reserved
-  // for a name genuinely absent from the map (it failed to load, or was
-  // generated before this property existed), a "not checked" state, not a
-  // third answer to "does this exist in Figma."
+  // and token-api/figma-check.py). Names the matched variable rather than
+  // ticking a box, since the path is the useful half of the answer, and
+  // shares the .state-badge vocabulary the home table uses for a miss.
+  //
+  // Still a strict two-state check: "yes" (an exact or reordered word-tuple
+  // match) or "no" (anything else, including a one-word-off near miss,
+  // deliberately NOT "close enough"). valueCaveat rides along on a yes
+  // without softening it, and "?" means a name absent from the map (not
+  // checked), never a third answer to "does this exist in Figma."
   function figmaCheckCell(name, figmaMap) {
     const entry = figmaMap[name];
     if (!entry) {
       return `<td class="check unknown" title="Not checked against the Figma token map">?</td>`;
     }
     if (entry.status === "yes") {
-      const title = entry.matchType === "reordered"
-        ? `Matches Figma variable \`${entry.matchedPath}\` (same taxonomy words, different order)`
-        : `Matches Figma variable \`${entry.matchedPath}\``;
-      return `<td class="check yes" title="${escapeHtml(title)}">&check;</td>`;
+      let title = entry.matchType === "reordered"
+        ? "Same taxonomy words as this CSS custom property, in a different order"
+        : "Exact name match with this CSS custom property";
+      const note = entry.matchType === "reordered" ? "reordered" : "";
+      // The name matches; the value separately may not round-trip. Kept in
+      // the tooltip rather than the cell, see token-api/README.md.
+      if (entry.valueCaveat) {
+        title += `. The name matches, but the value cannot round-trip: ${entry.valueCaveat}`;
+      }
+      return `<td class="figma-col" title="${escapeHtml(title)}"><code class="figma-var">${escapeHtml(entry.matchedPath).replace(/\//g, "/<wbr>")}</code>` +
+        (note ? `<span class="figma-note">${note}</span>` : "") + `</td>`;
     }
     const title = entry.matchType === "near-miss"
       ? `No matching variable in the Nova Styles (Experimental) Figma file (closest is \`${entry.matchedPath}\`, but that's a different name, not a match)`
       : "No matching variable found in the Nova Styles (Experimental) Figma file";
-    return `<td class="check no" title="${escapeHtml(title)}">&cross;</td>`;
+    return `<td class="figma-col" title="${escapeHtml(title)}"><span class="state-badge missing">missing</span></td>`;
   }
 
   // effectiveTokens is already the Nova-wins merge, so a token's value here
@@ -2328,10 +2433,10 @@
       html += `<p class="plain-summary">${formatProse(api.summary)}</p>`;
     }
     if (api.description) {
-      html += `<h2 class="section">Description</h2><p>${formatProse(api.description)}</p>`;
+      html += `<h2 class="section">Description</h2>` + formatProseBlocks(api.description);
     }
     if (api.usage) {
-      html += `<h2 class="section">Usage</h2><pre><code>${escapeHtml(api.usage)}</code></pre>`;
+      html += `<h2 class="section">Usage</h2><pre><code>${highlightCode(api.usage, codeLang(null, api.usage))}</code></pre>`;
     }
     if (api.attributes && api.attributes.length) {
       html += `<h2 class="section">Attributes and properties</h2><table class="attrs-table"><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>`;
@@ -2367,9 +2472,6 @@
       const rows = buildCssPropertyRows(api.cssProperties, effectiveTokens);
       const figmaMap = await loadFigmaTokenMap();
       html += `<h2 class="section">Design tokens</h2>`;
-      if (Object.keys(effectiveTokens).length) {
-        html += `<p class="meta">Real tokens from token-api/components/{${escapeHtml(basenames.join(", "))}}.tokens.json, alias chains resolved against the base token set. "In Figma" is a build-time name check against the real Nova Styles (Experimental) file, not a live query: &check; means an exact match, &cross; means none (a near miss counts as none, deliberately), ? means unchecked. See token-api/README.md.</p>`;
-      }
       html += renderCssPropertyTable(rows, effectiveTokens, effectiveLookup, figmaMap);
       const hasAnyToken = rows.some(r => r.tokenPath);
       if (api.cssProperties && api.cssProperties.length && !hasAnyToken) {
@@ -2387,7 +2489,7 @@
     }
     if (api.variants && api.variants.length) {
       html += `<h2 class="section">Variants</h2><table class="variant-table"><thead><tr><th>Name</th><th>Values</th></tr></thead><tbody>`;
-      api.variants.forEach(v => { html += `<tr><td>${escapeHtml(v.axis)}</td><td>${escapeHtml(v.values.join(", "))}</td></tr>`; });
+      api.variants.forEach(v => { html += `<tr><td>${escapeHtml(v.axis)}</td><td>` + v.values.map(x => `<code>${escapeHtml(x)}</code>`).join(" ") + `</td></tr>`; });
       html += `</tbody></table>`;
     }
     const body = document.getElementById("dyn-body");
@@ -2498,7 +2600,7 @@
     const path = idToPath(id);
     if (location.pathname !== path) history.pushState({ id }, "", path);
     setNavOpen(false);
-    show(id);
+    return show(id);
   }
 
   // A real click (plain left click, no modifier) does SPA-style in-page
@@ -2520,6 +2622,9 @@
   Object.keys(DOC_FILES).forEach(id => {
     wireNavLink(document.querySelector(`#nav a[data-show="${id}"]`), id);
   });
+  // Static prose can link to a route too; without this a content link is a
+  // full page load rather than an SPA move.
+  document.querySelectorAll("a[data-show]:not(#nav a)").forEach(a => wireNavLink(a, a.dataset.show));
 
   window.addEventListener("popstate", () => show(pathToId(location.pathname)));
 
@@ -2606,10 +2711,77 @@
         : escapeHtml(r.page.text.slice(0, SNIPPET_PAD * 2)) + "&hellip;";
       a.innerHTML = `<span class="r-title">${markAt(r.page.title, r.titleAt, query.length)}</span>` +
         `<span class="r-snip">${snippet}</span>`;
-      wireNavLink(a, r.id);
-      a.addEventListener("click", () => { searchInput.value = ""; runSearch(); });
+      a.href = idToPath(r.id);
+      a.dataset.show = r.id;
+      a.addEventListener("click", (e) => {
+        if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        const q = query;
+        searchInput.value = "";
+        runSearch();
+        Promise.resolve(navigate(r.id)).then(() => revealMatch(q));
+      });
       box.appendChild(a);
     });
+  }
+
+  // Landing at the top of a long page hides the thing you searched for.
+  // The hit is found in the rendered DOM rather than recorded in the index:
+  // no slug to keep in sync, and it works the same on every view.
+  const HIT_FLASH_MS = 2200;
+  let hitTimer = null;
+
+  function clearHit() {
+    clearTimeout(hitTimer);
+    document.querySelectorAll("mark.search-hit").forEach(m => {
+      const parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    });
+  }
+
+  function revealMatch(query) {
+    clearHit();
+    const main = document.getElementById("main");
+    if (!main || !query) return;
+    const q = query.toLowerCase();
+    // Matched against the page's text as one string, not node by node:
+    // syntax highlighting splits a usage snippet into spans, so a query
+    // like `<moz-button type=` spans several text nodes and no single one
+    // contains it. The mark covers the part of the hit that falls in the
+    // node the match starts in, which is enough to scroll to and see.
+    const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    let flat = "", n;
+    while ((n = walker.nextNode())) {
+      nodes.push({ node: n, start: flat.length });
+      flat += n.nodeValue;
+    }
+    const at = flat.toLowerCase().indexOf(q);
+    if (at >= 0) {
+      const hit = nodes[nodes.findLastIndex(e => e.start <= at)];
+      const offset = at - hit.start;
+      const node = hit.node;
+      const len = Math.min(query.length, node.nodeValue.length - offset);
+      const tail = node.splitText(offset);
+      if (len < tail.nodeValue.length) tail.splitText(len);
+      const mark = document.createElement("mark");
+      mark.className = "search-hit";
+      mark.textContent = tail.nodeValue;
+      tail.parentNode.replaceChild(mark, tail);
+      mark.scrollIntoView({ block: "center" });
+      // Point the URL at the section it landed in, so the link is shareable
+      // and a refresh comes back to the same place.
+      const id = pathToId(location.pathname);
+      const heads = [...main.querySelectorAll("h2.section")];
+      const before = heads.filter(h =>
+        h.compareDocumentPosition(mark) & Node.DOCUMENT_POSITION_FOLLOWING);
+      const head = before[before.length - 1];
+      if (head && head.id && dynamicIds.has(id)) {
+        history.replaceState({ id }, "", idToPath(id + "/" + head.id));
+      }
+      hitTimer = setTimeout(clearHit, HIT_FLASH_MS);
+    }
   }
 
   const searchInput = document.getElementById("nav-search");

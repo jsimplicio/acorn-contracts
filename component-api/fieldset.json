@@ -49,7 +49,7 @@
     {
       "name": "badge",
       "type": "string",
-      "description": "Includes a moz-badge of this type next to the legend. Options: beta, new.",
+      "description": "Includes a moz-badge of this type next to the legend. Options: `beta`, `new`.",
       "figmaConfig": true
     },
     {

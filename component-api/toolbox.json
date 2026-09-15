@@ -2,7 +2,7 @@
   "id": "toolbox",
   "summary": "The whole top area of the browser window: the tab strip, navigation toolbar, and bookmarks bar together.",
   "tagName": "toolbox",
-  "description": "The real XUL <toolbox> element, the container holding every browser toolbar. A built-in XUL widget tag with no JS class and no registered custom element: navigator-toolbox.inc.xhtml declares it carrying nothing but an id, and the 578 lines of navigator-toolbox.js are event delegation hung on #navigator-toolbox by id (popupshowing, command) rather than anything reading configuration off the element. Classified classic as a real XUL widget tag rather than none, but unlike <toolbar> it exposes no attributes worth documenting.",
+  "description": "The real XUL <toolbox> element, the container holding every browser toolbar.\n\n**A built-in XUL widget tag with no JS class and no registered custom element:** navigator-toolbox.inc.xhtml declares it carrying nothing but an id, and the 578 lines of navigator-toolbox.js are event delegation hung on #navigator-toolbox by id (popupshowing, command) rather than anything reading configuration off the element.\n\n**Classified classic** as a real XUL widget tag rather than none, but unlike <toolbar> it exposes no attributes worth documenting.",
   "implementation": {
     "kind": "classic",
     "file": "browser/base/content/navigator-toolbox.inc.xhtml"

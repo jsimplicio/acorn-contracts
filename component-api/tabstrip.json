@@ -5,7 +5,7 @@
   "description": "The container that holds and manages all open tabs, tab groups, and split-view wrappers in a browser window. A customized built-in element extending the toolkit <tabs> element (is=\"tabbrowser-tabs\"); handles layout (horizontal/vertical), overflow scrolling, drag and drop, and keyboard navigation across tabs/groups/split views.",
   "implementation": {
     "kind": "classic",
-    "file": "browser/components/tabbrowser/content/tabs.js"
+    "file": "browser/components/tabbrowser/content/tabs.mjs"
   },
   "attributes": [
     {

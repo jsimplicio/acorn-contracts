@@ -42,7 +42,7 @@
     {
       "name": "badge",
       "type": "string",
-      "description": "Includes a moz-badge of this type with matching text. Options: beta, new.",
+      "description": "Includes a moz-badge of this type with matching text. Options: `beta`, `new`.",
       "figmaConfig": true
     },
     {

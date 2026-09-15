@@ -108,6 +108,11 @@ Inputs (all read-only, nothing here re-fetches from Figma):
     the pre-resolved export resolve.py already produces from those same
     inputs, since its "tokens" keys are exactly the per-id effective token
     set buildCssPropertyRows() would show as rows).
+  - base/*.tokens.json (which stems exist comes from sync-manifest.json) ->
+    the base token families, keyed by the same derived CSS custom property
+    name, so a base token page's "In Figma" column is a real answer rather
+    than an unchecked "?". A token declaring ignoreFigma is reported as
+    "ignored" with that reason, keeping any name match it does have.
   - figma-variables-dump.json -> the direct Figma variables/local snapshot
     (see that file's own `_comment` for exactly what was fetched, what was
     excluded, and why).
@@ -115,6 +120,7 @@ Inputs (all read-only, nothing here re-fetches from Figma):
 Output:
   - figma-token-map.json: { "--custom-property-name": {status, matchType,
     matchedPath} } for every distinct name, plus a `counts` summary.
+    status is "yes", "no" or "ignored" (the last carrying a `reason`).
     matchType is one of "exact", "reordered", "near-miss" or null, and
     index.html's loadFigmaTokenMap()/figmaCheckCell() consume it.
 
@@ -169,6 +175,49 @@ def token_path_to_css_var(path):
     return "--" + first + ("-" + "-".join(rest) if rest else "")
 
 
+def collect_base_token_names():
+    """Base token families (color, space, border, ...) keyed by the same
+    CSS custom property name the component side uses, mapped to their
+    ignoreFigma reason where the design system declares one.
+
+    Which stems exist comes from sync-manifest.json rather than a hardcoded
+    list, the same way index.html's loadBaseFamilies() discovers them, so a
+    family added upstream is picked up without editing this script. A
+    family's plain file and its .nova sibling write the SAME keys, so they
+    are flattened plain-then-nova to make "nova wins" a rule rather than a
+    race, again matching index.html."""
+    manifest_file = SCRIPT_DIR / "sync-manifest.json"
+    if not manifest_file.exists():
+        return {}
+    manifest = json.loads(manifest_file.read_text(encoding="utf-8"))
+    stems = sorted({
+        Path(f).name.replace(".nova", "")[: -len(".tokens.json")]
+        for f in manifest.get("files_converted", [])
+        if f.startswith("base/") and f.endswith(".tokens.json")
+    })
+
+    names = {}
+    for stem in stems:
+        for suffix in (".tokens.json", ".nova.tokens.json"):
+            f = SCRIPT_DIR / "base" / (stem + suffix)
+            if not f.exists():
+                continue
+            _flatten_base(json.loads(f.read_text(encoding="utf-8")), [stem], names)
+    return names
+
+
+def _flatten_base(node, trail, out):
+    if not isinstance(node, dict):
+        return
+    if "$value" in node:
+        meta = (node.get("$extensions") or {}).get("org.mozilla.meta") or {}
+        out[token_path_to_css_var(".".join(trail))] = meta.get("ignoreFigma")
+        return
+    for key, child in node.items():
+        if not key.startswith("$"):
+            _flatten_base(child, trail + [key], out)
+
+
 def collect_acorn_css_property_names():
     """Every distinct CSS custom property name index.html's own
     buildCssPropertyRows() would show as a row, across ALL component pages,
@@ -191,6 +240,7 @@ def collect_acorn_css_property_names():
         data = json.loads(f.read_text(encoding="utf-8"))
         for prop in data.get("cssProperties") or []:
             names.add(prop["name"])
+    names.update(collect_base_token_names())
     return names
 
 
@@ -236,6 +286,7 @@ def main():
     exact_index, multiset_index, all_tuples = load_figma_words(dump)
 
     names = collect_acorn_css_property_names()
+    ignored = {k: v for k, v in collect_base_token_names().items() if v}
     results = {}
     counts = {"yes_exact": 0, "yes_reordered": 0, "no_near_miss": 0, "no_total_mismatch": 0}
 
@@ -272,6 +323,16 @@ def main():
         results[name] = {"status": "no", "matchType": None, "matchedPath": None}
         counts["no_total_mismatch"] += 1
 
+    # A caveat on the answer, never a third status. ignoreFigma is the design
+    # system saying a token's VALUE will not round-trip (color-mix on
+    # currentColor is dynamic in a way a static hex+alpha cannot be), which
+    # is a different question from the one this column asks. All five do
+    # have a same-named Figma variable, so all five are a real "yes"; the
+    # reason rides along so the page can surface it.
+    for name, reason in ignored.items():
+        if name in results:
+            results[name]["valueCaveat"] = reason
+
     out = {
         "generatedBy": "token-api/figma-check.py",
         "generatedFrom": "token-api/figma-variables-dump.json",
@@ -285,6 +346,11 @@ def main():
             "alias chain to count a match under some other, differently-named Figma "
             "variable, since the point of this column is catching Figma and code drifting "
             "apart, and backfilling through an alias would hide exactly that. Strict "
+            "Covers base token families as well as component properties. A token carrying "
+            "$extensions['org.mozilla.meta'].ignoreFigma keeps its real yes/no answer and "
+            "carries the reason as `valueCaveat`: that flag is about the VALUE not round-"
+            "tripping (color-mix on currentColor is dynamic in a way a static hex+alpha is "
+            "not), which is a different question from whether the name exists. A strict "
             "two-state result (yes/no), not three: a one-word-off near miss is still 'no', "
             "recorded with matchType 'near-miss' purely as a diagnostic, not a softer status. "
             "See this script's own docstring for the full rule."

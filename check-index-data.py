@@ -186,7 +186,13 @@ def main():
         if impl["kind"] != "dual":
             in_data = set(FILE_PATH_RE.findall(row.get("file") or ""))
             in_api = set(FILE_PATH_RE.findall(impl.get("file") or ""))
-            if in_data and in_api and not (in_data & in_api):
+            # "DATA cites nothing" used to skip silently, which is how
+            # page-nav-separator sat there asserting no separator exists
+            # while its own contract cited the file that renders one.
+            if in_api and not in_data:
+                problems.append((cid, "file", "(no path cited)",
+                                 ", ".join(sorted(in_api))))
+            elif in_data and in_api and not (in_data & in_api):
                 problems.append((cid, "file", ", ".join(sorted(in_data)),
                                  ", ".join(sorted(in_api))))
 

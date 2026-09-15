@@ -2,7 +2,7 @@
   "id": "radio",
   "summary": "A round selectable button used to pick one option from a group, with a label next to it.",
   "tagName": "moz-radio-group / radio",
-  "description": "Modern Lit-based radio group (moz-radio-group) that groups and associates moz-radio items so they function as a single form control. A legacy XUL-style <radiogroup>/<radio> pair (toolkit/content/widgets/radio.js, registered as tags \"radiogroup\" and \"radio\") also still exists in the tree for older UI: it implements roving-tabindex keyboard navigation (arrow keys, wrapping), a selectedItem/selectedIndex/value API, and dispatches a plain \"select\" event on selection, with attribute inheritance for disabled/selected/label/accesskey/crop/src. The attrs/slots/events below describe the actively-recommended moz-radio-group and its moz-radio children.",
+  "description": "Modern Lit-based radio group (moz-radio-group) that groups and associates moz-radio items so they function as a single form control.\n\n**A legacy XUL-style pair also exists** in the tree for older UI: <radiogroup>/<radio> (toolkit/content/widgets/radio.js, registered as tags \"radiogroup\" and \"radio\"). It implements roving-tabindex keyboard navigation (arrow keys, wrapping), a selectedItem/selectedIndex/value API, and dispatches a plain \"select\" event on selection, with attribute inheritance for disabled/selected/label/accesskey/crop/src.\n\n**The tables below describe the modern one:** moz-radio-group and its moz-radio children, which is the actively-recommended pair.",
   "implementation": {
     "kind": "dual",
     "file": "toolkit/content/widgets/moz-radio-group/moz-radio-group.mjs"

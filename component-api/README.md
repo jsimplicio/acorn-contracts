@@ -35,7 +35,7 @@ So this schema uses **`id`**, a stable slug matching the `id` field in `index.ht
 | `methods` | array, optional | Real public methods on the class, beyond standard property accessors. |
 | `cssProperties` | array, optional | Real CSS custom properties the component's stylesheet reads (JSDoc `@cssproperty`, or `var(--foo, ...)` usage in the component's own CSS). |
 | `cssProperties[].default` | string, optional | CEM's own field name. The property's real literal value set directly in the component's own CSS, for a property with no backing design token (token-api coverage takes precedence when both exist). Omitted, not guessed, when no such real default exists (e.g. a value only ever set inline per-instance). |
-| `cssParts` | array, optional | CEM's own field name. Real `::part()` names found in the component's own shadow-DOM render output, or a shared base class it genuinely extends (e.g. Box Item's `support-link`, inherited nowhere; Radio's `fieldset`, inherited from `SelectControlBaseElement`). Acorn is mostly light-DOM by design, so most entries have none of these; light-DOM components can't expose real parts at all. |
+| `cssParts` | array, optional | CEM's own field name. Real `::part()` names found in the component's own shadow-DOM render output, or a shared base class it genuinely extends (e.g. Box Item's `support-link`, inherited nowhere; Radio's `fieldset`, inherited from `SelectControlBaseElement`). Most entries have none, but not because Acorn is light-DOM: Firefox's Lit components render into a shadow root by default and `MozLitElement` does not override `createRenderRoot`, so a modern component with no `cssParts` genuinely declares no `part=` in its own template. The entries that have none are mostly the `classic` ones and the sub-items documented under a parent, neither of which has a shadow template to expose parts from. A real light-DOM case does exist and is the exception: a customized built-in like `moz-support-link` has no shadow root at all. |
 | `variants` | array, optional | Enum-style axes: an attribute/property with a fixed set of allowed string values (e.g. `type`), surfaced separately from the flat `attributes` list because these are the values worth showing side-by-side in Figma/Storybook variant pickers. |
 | `usage` | string, optional | A realistic, real-attribute usage example, pulled from a Storybook story, a Figma Code Connect example, or otherwise hand-built strictly from attributes actually found in source. Not a hypothetical. |
 
@@ -43,16 +43,18 @@ Every array/field is **omitted, not padded**, when genuinely empty or unknown fo
 
 ## Minimal shape for `none` / `missing` components
 
-Components with `implementation.kind` of `none` or `missing` have no real attributes/slots/events/etc. to document, that would be fabrication. Their JSON files carry only `id`, `tagName: null`, `description`, and `implementation`. Example (`toolbox`):
+Components with `implementation.kind` of `none` or `missing` have no real attributes/slots/events/etc. to document, that would be fabrication. Their JSON files carry only `id`, `tagName: null`, `description`, and `implementation`. Example (`panel-separator`, a plain `<hr>` a consumer slots into `<panel-list>`, with no tag or class of its own):
 
 ```jsonc
 {
-  "id": "toolbox",
+  "id": "panel-separator",
   "tagName": null,
   "description": "...",
-  "implementation": { "kind": "none", "file": "browser/base/content/navigator-toolbox.js" }
+  "implementation": { "kind": "none", "file": "toolkit/content/widgets/panel-list/panel-list.mjs" }
 }
 ```
+
+Only `panel-separator` and `page-nav-separator` are `none` today. Both really are plain `<hr>`s, which is why the XUL-tag rule above does not make them `classic`.
 
 ## Source of the worklist
 

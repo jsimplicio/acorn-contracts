@@ -1,18 +1,73 @@
 {
   "generatedBy": "token-api/figma-check.py",
   "generatedFrom": "token-api/figma-variables-dump.json",
-  "matchMethod": "codeSyntax checked directly against this Figma file's own variable data and found populated on only 2 of 718 kept variables (nowhere near a usable general signal), so matching is by normalized-word-tuple comparison of the CSS custom property name against every real Figma variable name in Nova Styles (Experimental), not codeSyntax. This checks a name against its OWN name only -- it deliberately does not follow a token's resolved alias chain to count a match under some other, differently-named Figma variable, since the point of this column is catching Figma and code drifting apart, and backfilling through an alias would hide exactly that. Strict two-state result (yes/no), not three: a one-word-off near miss is still 'no', recorded with matchType 'near-miss' purely as a diagnostic, not a softer status. See this script's own docstring for the full rule.",
+  "matchMethod": "codeSyntax checked directly against this Figma file's own variable data and found populated on only 2 of 718 kept variables (nowhere near a usable general signal), so matching is by normalized-word-tuple comparison of the CSS custom property name against every real Figma variable name in Nova Styles (Experimental), not codeSyntax. This checks a name against its OWN name only -- it deliberately does not follow a token's resolved alias chain to count a match under some other, differently-named Figma variable, since the point of this column is catching Figma and code drifting apart, and backfilling through an alias would hide exactly that. Strict Covers base token families as well as component properties. A token carrying $extensions['org.mozilla.meta'].ignoreFigma keeps its real yes/no answer and carries the reason as `valueCaveat`: that flag is about the VALUE not round-tripping (color-mix on currentColor is dynamic in a way a static hex+alpha is not), which is a different question from whether the name exists. A strict two-state result (yes/no), not three: a one-word-off near miss is still 'no', recorded with matchType 'near-miss' purely as a diagnostic, not a softer status. See this script's own docstring for the full rule.",
   "notes": [
     "Source is a direct Figma REST API pull (GET /v1/files/$FIGMA_FILE_KEY/variables/local), never Supernova, whose sync of this design system has known gaps elsewhere in this project family. See figma-variables-dump.json's own `_comment` for what was fetched and excluded."
   ],
   "counts": {
-    "yes_exact": 343,
+    "yes_exact": 525,
     "yes_reordered": 13,
-    "no_near_miss": 136,
-    "no_total_mismatch": 192,
-    "total": 684
+    "no_near_miss": 141,
+    "no_total_mismatch": 234,
+    "total": 913
   },
   "properties": {
+    "--background-color-box": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "background/color/box"
+    },
+    "--background-color-box-info": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "background/color/box/info"
+    },
+    "--background-color-canvas": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "background/color/canvas"
+    },
+    "--background-color-critical": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "background/color/critical"
+    },
+    "--background-color-dimmed": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--background-color-dimmed-further": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--background-color-information": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "background/color/information"
+    },
+    "--background-color-list-item-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--background-color-overlay": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--background-color-success": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "background/color/success"
+    },
+    "--background-color-warning": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "background/color/warning"
+    },
     "--badge-background-color": {
       "status": "yes",
       "matchType": "exact",
@@ -67,6 +122,87 @@
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "badge/text/color/filled"
+    },
+    "--border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/color"
+    },
+    "--border-color-deemphasized": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/color/deemphasized"
+    },
+    "--border-color-error": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/color/error"
+    },
+    "--border-color-interactive": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/color/interactive"
+    },
+    "--border-color-interactive-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/color/interactive/active"
+    },
+    "--border-color-interactive-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/color/interactive/disabled"
+    },
+    "--border-color-interactive-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/color/interactive/hover"
+    },
+    "--border-color-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/color/selected"
+    },
+    "--border-color-transparent": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/color/transparent",
+      "valueCaveat": "Use prefersContrast over forcedColors"
+    },
+    "--border-radius-circle": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/radius/circle"
+    },
+    "--border-radius-large": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/radius/large"
+    },
+    "--border-radius-medium": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/radius/medium"
+    },
+    "--border-radius-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/radius/small"
+    },
+    "--border-radius-xlarge": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/radius/xlarge"
+    },
+    "--border-radius-xsmall": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/radius/xsmall"
+    },
+    "--border-width": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "border/width"
     },
     "--box-border": {
       "status": "no",
@@ -149,6 +285,46 @@
       "matchedPath": null
     },
     "--box-padding": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--box-shadow-color-darker-layer-1": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "box-shadow/color/darker/layer-1"
+    },
+    "--box-shadow-color-darker-layer-2": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "box-shadow/color/darker/layer-2"
+    },
+    "--box-shadow-color-lighter-layer-1": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "box-shadow/color/lighter/layer-1"
+    },
+    "--box-shadow-color-lighter-layer-2": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "box-shadow/color/lighter/layer-2"
+    },
+    "--box-shadow-level-1": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "box-shadow/level-1/shadow-1/blur"
+    },
+    "--box-shadow-level-2": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "box-shadow/level-2/shadow-2/blur"
+    },
+    "--box-shadow-level-3": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--box-shadow-level-4": {
       "status": "no",
       "matchType": null,
       "matchedPath": null
@@ -1048,6 +1224,731 @@
       "matchType": "exact",
       "matchedPath": "checkbox/size"
     },
+    "--color-accent-attention": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/accent/attention"
+    },
+    "--color-accent-primary": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/accent/primary"
+    },
+    "--color-accent-primary-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/accent/primary/active"
+    },
+    "--color-accent-primary-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/accent/primary/hover"
+    },
+    "--color-accent-primary-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/accent/primary/selected"
+    },
+    "--color-black": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-black-alpha-10": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-black-alpha-20": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-black-alpha-30": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-black-alpha-40": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-black-alpha-50": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-black-alpha-60": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-black-alpha-70": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-black-alpha-80": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-black-alpha-90": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-blue-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/blue/0"
+    },
+    "--color-blue-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/blue/10"
+    },
+    "--color-blue-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/blue/20"
+    },
+    "--color-blue-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/blue/30"
+    },
+    "--color-blue-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/blue/40"
+    },
+    "--color-blue-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/blue/50"
+    },
+    "--color-blue-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/blue/60"
+    },
+    "--color-blue-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/blue/70"
+    },
+    "--color-blue-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/blue/80"
+    },
+    "--color-blue-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/blue/90"
+    },
+    "--color-cyan-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/cyan/0"
+    },
+    "--color-cyan-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/cyan/10"
+    },
+    "--color-cyan-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/cyan/20"
+    },
+    "--color-cyan-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/cyan/30"
+    },
+    "--color-cyan-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/cyan/40"
+    },
+    "--color-cyan-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/cyan/50"
+    },
+    "--color-cyan-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/cyan/60"
+    },
+    "--color-cyan-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/cyan/70"
+    },
+    "--color-cyan-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/cyan/80"
+    },
+    "--color-cyan-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/cyan/90"
+    },
+    "--color-gray-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/0"
+    },
+    "--color-gray-05": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/05"
+    },
+    "--color-gray-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/10"
+    },
+    "--color-gray-100": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/100"
+    },
+    "--color-gray-15": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/15"
+    },
+    "--color-gray-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/20"
+    },
+    "--color-gray-25": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/25"
+    },
+    "--color-gray-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/30"
+    },
+    "--color-gray-35": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/35"
+    },
+    "--color-gray-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/40"
+    },
+    "--color-gray-45": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/45"
+    },
+    "--color-gray-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/50"
+    },
+    "--color-gray-55": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/55"
+    },
+    "--color-gray-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/60"
+    },
+    "--color-gray-65": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/65"
+    },
+    "--color-gray-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/70"
+    },
+    "--color-gray-75": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/75"
+    },
+    "--color-gray-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/80"
+    },
+    "--color-gray-85": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/85"
+    },
+    "--color-gray-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/gray/90"
+    },
+    "--color-green-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/green/0"
+    },
+    "--color-green-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/green/10"
+    },
+    "--color-green-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/green/20"
+    },
+    "--color-green-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/green/30"
+    },
+    "--color-green-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/green/40"
+    },
+    "--color-green-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/green/50"
+    },
+    "--color-green-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/green/60"
+    },
+    "--color-green-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/green/70"
+    },
+    "--color-green-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/green/80"
+    },
+    "--color-green-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/green/90"
+    },
+    "--color-orange-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/orange/0"
+    },
+    "--color-orange-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/orange/10"
+    },
+    "--color-orange-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/orange/20"
+    },
+    "--color-orange-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/orange/30"
+    },
+    "--color-orange-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/orange/40"
+    },
+    "--color-orange-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/orange/50"
+    },
+    "--color-orange-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/orange/60"
+    },
+    "--color-orange-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/orange/70"
+    },
+    "--color-orange-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/orange/80"
+    },
+    "--color-orange-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/orange/90"
+    },
+    "--color-pink-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/pink/0"
+    },
+    "--color-pink-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/pink/10"
+    },
+    "--color-pink-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/pink/20"
+    },
+    "--color-pink-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/pink/30"
+    },
+    "--color-pink-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/pink/40"
+    },
+    "--color-pink-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/pink/50"
+    },
+    "--color-pink-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/pink/60"
+    },
+    "--color-pink-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/pink/70"
+    },
+    "--color-pink-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/pink/80"
+    },
+    "--color-pink-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/pink/90"
+    },
+    "--color-purple-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/purple/0"
+    },
+    "--color-purple-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/purple/10"
+    },
+    "--color-purple-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/purple/20"
+    },
+    "--color-purple-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/purple/30"
+    },
+    "--color-purple-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/purple/40"
+    },
+    "--color-purple-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/purple/50"
+    },
+    "--color-purple-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/purple/60"
+    },
+    "--color-purple-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/purple/70"
+    },
+    "--color-purple-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/purple/80"
+    },
+    "--color-purple-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/purple/90"
+    },
+    "--color-red-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/red/0"
+    },
+    "--color-red-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/red/10"
+    },
+    "--color-red-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/red/20"
+    },
+    "--color-red-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/red/30"
+    },
+    "--color-red-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/red/40"
+    },
+    "--color-red-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/red/50"
+    },
+    "--color-red-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/red/60"
+    },
+    "--color-red-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/red/70"
+    },
+    "--color-red-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/red/80"
+    },
+    "--color-red-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/red/90"
+    },
+    "--color-violet-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet/0"
+    },
+    "--color-violet-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet/10"
+    },
+    "--color-violet-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet/20"
+    },
+    "--color-violet-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet/30"
+    },
+    "--color-violet-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet/40"
+    },
+    "--color-violet-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet/50"
+    },
+    "--color-violet-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet/60"
+    },
+    "--color-violet-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet/70"
+    },
+    "--color-violet-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet/80"
+    },
+    "--color-violet-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet/90"
+    },
+    "--color-violet-desaturated-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet-desaturated/0"
+    },
+    "--color-violet-desaturated-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet-desaturated/10"
+    },
+    "--color-violet-desaturated-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet-desaturated/20"
+    },
+    "--color-violet-desaturated-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet-desaturated/30"
+    },
+    "--color-violet-desaturated-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet-desaturated/40"
+    },
+    "--color-violet-desaturated-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet-desaturated/50"
+    },
+    "--color-violet-desaturated-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet-desaturated/60"
+    },
+    "--color-violet-desaturated-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet-desaturated/70"
+    },
+    "--color-violet-desaturated-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet-desaturated/80"
+    },
+    "--color-violet-desaturated-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/violet-desaturated/90"
+    },
+    "--color-white": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/white"
+    },
+    "--color-white-alpha-10": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-white-alpha-20": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-white-alpha-30": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-white-alpha-40": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-white-alpha-50": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-white-alpha-60": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-white-alpha-70": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-white-alpha-80": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-white-alpha-90": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--color-yellow-0": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/yellow/0"
+    },
+    "--color-yellow-10": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/yellow/10"
+    },
+    "--color-yellow-20": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/yellow/20"
+    },
+    "--color-yellow-30": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/yellow/30"
+    },
+    "--color-yellow-40": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/yellow/40"
+    },
+    "--color-yellow-50": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/yellow/50"
+    },
+    "--color-yellow-60": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/yellow/60"
+    },
+    "--color-yellow-70": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/yellow/70"
+    },
+    "--color-yellow-80": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/yellow/80"
+    },
+    "--color-yellow-90": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "color/yellow/90"
+    },
     "--dragover-tab-group-color": {
       "status": "no",
       "matchType": null,
@@ -1072,6 +1973,98 @@
       "status": "no",
       "matchType": null,
       "matchedPath": null
+    },
+    "--focus-outline": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "focus/outline",
+      "valueCaveat": "Figma only includes the width for this token value"
+    },
+    "--focus-outline-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "focus/outline/color"
+    },
+    "--focus-outline-inset": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "focus/outline/inset",
+      "valueCaveat": "Preserve the calc in case the focus outline width is changed via CSS"
+    },
+    "--focus-outline-offset": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "focus/outline/offset"
+    },
+    "--focus-outline-width": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "focus/outline/width"
+    },
+    "--font-size-heading-large": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "font/size/heading/large"
+    },
+    "--font-size-heading-medium": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "font/size/heading/medium"
+    },
+    "--font-size-heading-xlarge": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "font/size/heading/xlarge"
+    },
+    "--font-size-large": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "font/size/heading/large"
+    },
+    "--font-size-root": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "font/size/root"
+    },
+    "--font-size-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "font/size/small"
+    },
+    "--font-size-xlarge": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "font/size/heading/xlarge"
+    },
+    "--font-size-xxlarge": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--font-size-xxxlarge": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--font-weight": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "badge/font/weight"
+    },
+    "--font-weight-bold": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "font/weight/bold"
+    },
+    "--font-weight-heading": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--font-weight-semibold": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "font/weight/semibold"
     },
     "--icon-color": {
       "status": "yes",
@@ -2183,6 +3176,131 @@
       "matchType": "near-miss",
       "matchedPath": "text/color"
     },
+    "--size-image-large": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-image-medium": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-image-small": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-image-xlarge": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-image-xsmall": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-image-xxlarge": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-item-large": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "size/item/large"
+    },
+    "--size-item-medium": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "size/item/medium"
+    },
+    "--size-item-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "size/item/small"
+    },
+    "--size-item-xlarge": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "size/item/xlarge"
+    },
+    "--size-item-xsmall": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "size/item/xsmall"
+    },
+    "--size-layout-large": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-layout-medium": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-layout-small": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-layout-xlarge": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-layout-xsmall": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-sidebar": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--size-sidebar-narrow": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--space-large": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "space/large"
+    },
+    "--space-medium": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "space/medium"
+    },
+    "--space-small": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "space/small"
+    },
+    "--space-xlarge": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "space/xlarge"
+    },
+    "--space-xsmall": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "space/xsmall"
+    },
+    "--space-xxlarge": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "space/xxlarge"
+    },
+    "--space-xxsmall": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "space/xxsmall"
+    },
     "--split-view-padding-block": {
       "status": "no",
       "matchType": null,
@@ -2944,6 +4062,38 @@
       "matchedPath": null
     },
     "--tabstrip-min-height": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--text-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "text/color"
+    },
+    "--text-color-accent-primary-selected": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "text/color/accent/primary/selected"
+    },
+    "--text-color-deemphasized": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "text/color/deemphasized",
+      "valueCaveat": "color-mix with currentColor cannot be expressed in Figma"
+    },
+    "--text-color-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "text/color/disabled",
+      "valueCaveat": "color-mix with currentColor cannot be expressed in Figma"
+    },
+    "--text-color-error": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "text/color/error"
+    },
+    "--text-color-list-item-hover": {
       "status": "no",
       "matchType": null,
       "matchedPath": null

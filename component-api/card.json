@@ -17,7 +17,7 @@
     {
       "name": "headingLevel",
       "type": "number",
-      "description": "Specifies whether the heading renders as h1-h6 instead of a plain span (0/unset = span).",
+      "description": "Specifies whether the heading renders as h1-h6 instead of a plain span (0 or unset renders a span).",
       "figmaConfig": true,
       "default": "0"
     },

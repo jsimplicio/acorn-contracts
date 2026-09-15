@@ -2,7 +2,7 @@
   "id": "toolbar",
   "summary": "A row of buttons and controls, like the main navigation bar with back/forward/reload.",
   "tagName": "toolbar",
-  "description": "The real XUL <toolbar> element. Not Lit and not a registered custom element: <toolbar> is a built-in XUL tag with no dedicated JS class, which is why navigator-toolbox.js delegates events on the outer #navigator-toolbox container rather than on any individual toolbar. Its configuration is still real and citable, though: navigator-toolbox.inc.xhtml declares five of them (toolbar-menubar, TabsToolbar, nav-bar, PersonalToolbar, notifications-toolbar) carrying attributes CustomizableUI reads to decide whether an area is customizable, where widgets actually land, and how overflow behaves.",
+  "description": "The real XUL <toolbar> element.\n\n**Not Lit and not a registered custom element:** <toolbar> is a built-in XUL tag with no dedicated JS class, which is why navigator-toolbox.js delegates events on the outer #navigator-toolbox container rather than on any individual toolbar.\n\n**Its configuration is still real and citable:** navigator-toolbox.inc.xhtml declares five of them (toolbar-menubar, TabsToolbar, nav-bar, PersonalToolbar, notifications-toolbar) carrying attributes CustomizableUI reads to decide whether an area is customizable, where widgets actually land, and how overflow behaves.",
   "implementation": {
     "kind": "classic",
     "file": "browser/base/content/navigator-toolbox.inc.xhtml"

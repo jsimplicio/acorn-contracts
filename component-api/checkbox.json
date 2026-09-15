@@ -2,7 +2,7 @@
   "id": "checkbox",
   "summary": "A standard checkbox you can check or uncheck, with a label next to it.",
   "tagName": "moz-checkbox / checkbox",
-  "description": "Modern Lit-based checkbox input with a label, description, and optional icon/support link. A legacy XUL-style <checkbox> (toolkit/content/widgets/checkbox.js, registered as tag \"checkbox\") also still exists in the tree for older UI: it renders a checkbox-check image plus a checkbox-label-box (icon + label) and exposes only a simple reflected `checked` boolean, with attribute inheritance for disabled/checked/native/label/accesskey/src. The attrs/slots/events below describe the actively-recommended moz-checkbox.",
+  "description": "Modern Lit-based checkbox input with a label, description, and optional icon/support link.\n\n**A legacy XUL-style <checkbox> still exists** in the tree for older UI (toolkit/content/widgets/checkbox.js, registered as tag \"checkbox\"). It renders a checkbox-check image plus a checkbox-label-box (icon + label) and exposes only a simple reflected `checked` boolean, with attribute inheritance for disabled/checked/native/label/accesskey/src.\n\n**The attrs/slots/events below describe the modern one:** moz-checkbox, which is the actively-recommended implementation.",
   "implementation": {
     "kind": "dual",
     "file": "toolkit/content/widgets/moz-checkbox/moz-checkbox.mjs"

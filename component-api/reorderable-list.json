@@ -2,7 +2,7 @@
   "id": "reorderable-list",
   "summary": "A wrapper that lets you drag and drop its children to reorder them.",
   "tagName": "moz-reorderable-list",
-  "description": "A light wrapper that makes its slotted children (matched by itemSelector, or a narrower dragSelector for a drag handle) draggable and reorderable via native HTML5 drag-and-drop. Shows a drop-position indicator and dispatches dragstarted/dragended/reorder events carrying the dragged/target elements and computed indices; consumers perform the actual DOM reordering in response. Also exports a standalone isReorderKeyboardEvent(event) helper (ctrl+shift+up/down) for wiring an equivalent keyboard-driven reorder outside the component's own automatic handling.",
+  "description": "A light wrapper that makes its slotted children (matched by itemSelector, or a narrower dragSelector for a drag handle) draggable and reorderable via native HTML5 drag-and-drop.\n\n**Consumers do the reordering, not the component:** it shows a drop-position indicator and dispatches dragstarted/dragended/reorder events carrying the dragged/target elements and computed indices; consumers perform the actual DOM reordering in response.\n\n**Keyboard reordering is opt-in:** it also exports a standalone isReorderKeyboardEvent(event) helper (ctrl+shift+up/down) for wiring an equivalent keyboard-driven reorder outside the component's own automatic handling.",
   "implementation": {
     "kind": "modern",
     "file": "toolkit/content/widgets/moz-reorderable-list/moz-reorderable-list.mjs"

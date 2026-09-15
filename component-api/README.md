@@ -82,5 +82,9 @@ It only reports; it never writes to any `<id>.json`. Use its output as the workl
 | `schema.json` | The schema above as a draft 2020-12 JSON Schema, not just this README's prose. Enforced by `validate-schemas.py` on every push. |
 | `_meta.json` | Per-id `lastCommit`/`lastModified`, each one's real last commit in this repo's history, plus the `HEAD` it was generated against. |
 
+An entry may also carry `implementation.verifiedAt`: `{commit, date, scope}`, recording when its contents were last confirmed against real upstream source. That is a different question from `_meta.json`'s, which says when the JSON was last edited *here*. It is deliberately not backfilled, because for most of the inventory nobody knows the answer, and inventing one would be exactly the kind of fiction the rest of this directory avoids. An absent `verifiedAt` means unconfirmed since the field existed.
+
+Set it only after actually reading the cited source. Never from `check-drift.py`'s hash comparison, and never from a name-presence check: `support-link` and `label` both kept every documented member name while their class declarations changed to `StylesMixin(...)` under them, so both of those signals would have said "unchanged". `scope: "implementation"` records the weaker claim that only the kind/file/tagName line was checked.
+
 **`_meta.json` says when the JSON was last edited here**, not when it was last
 verified against real Firefox source. Those can differ.

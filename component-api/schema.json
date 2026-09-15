@@ -4,7 +4,11 @@
   "title": "Component API entry",
   "description": "Schema for one component-api/<id>.json file. See component-api/README.md for the full field-by-field rationale, this file is the machine-checkable version of that same schema.",
   "type": "object",
-  "required": ["id", "description", "implementation"],
+  "required": [
+    "id",
+    "description",
+    "implementation"
+  ],
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -16,7 +20,10 @@
       "description": "One plain-language sentence, no implementation detail, for someone who wants to know what the thing is before reading the technical description."
     },
     "tagName": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "The real, registered custom element tag name, if one exists. null for none/missing kinds, and sometimes for modern/classic kinds where no distinct tag was ever registered. A dual-kind entry may record both real tags in one string (e.g. \"button (classic) / moz-button (modern)\")."
     },
     "description": {
@@ -25,16 +32,52 @@
     },
     "implementation": {
       "type": "object",
-      "required": ["kind", "file"],
+      "required": [
+        "kind",
+        "file"
+      ],
       "additionalProperties": false,
       "properties": {
         "kind": {
           "type": "string",
-          "enum": ["modern", "classic", "none", "missing", "dual"]
+          "enum": [
+            "modern",
+            "classic",
+            "none",
+            "missing",
+            "dual"
+          ]
         },
         "file": {
           "type": "string",
           "description": "Path relative to the mozilla-central root. The primary source-of-truth file this JSON was derived from."
+        },
+        "verifiedAt": {
+          "type": "object",
+          "description": "When this entry's contents were last confirmed against real upstream source, as opposed to when the JSON was last edited here (that is _meta.json's job). Optional and deliberately not backfilled: an absent verifiedAt means nobody has confirmed this entry since the field existed, which is the honest answer for most of the inventory. Set it only after actually reading the cited source, never from a hash comparison or a name-presence check, both of which catch removals and miss semantic change.",
+          "required": [
+            "commit",
+            "date"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "commit": {
+              "type": "string",
+              "description": "Full mozilla-central commit SHA the entry was read against."
+            },
+            "date": {
+              "type": "string",
+              "description": "ISO date the reading happened, YYYY-MM-DD."
+            },
+            "scope": {
+              "type": "string",
+              "enum": [
+                "full",
+                "implementation"
+              ],
+              "description": "full: every documented member was checked against source. implementation: only the kind/file/tagName line was confirmed. Absent means full."
+            }
+          }
         }
       }
     },
@@ -42,12 +85,21 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["name", "description"],
+        "required": [
+          "name",
+          "description"
+        ],
         "additionalProperties": false,
         "properties": {
-          "name": { "type": "string" },
-          "type": { "type": "string" },
-          "description": { "type": "string" },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
           "default": {
             "type": "string",
             "description": "CEM's own field name. This attribute's real default value/state when not otherwise set. Omitted, not guessed, when source doesn't establish one explicitly."
@@ -63,11 +115,18 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "additionalProperties": false,
         "properties": {
-          "name": { "type": "string", "description": "The default slot is named \"(default)\"." },
-          "description": { "type": "string" }
+          "name": {
+            "type": "string",
+            "description": "The default slot is named \"(default)\"."
+          },
+          "description": {
+            "type": "string"
+          }
         }
       }
     },
@@ -75,11 +134,17 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "additionalProperties": false,
         "properties": {
-          "name": { "type": "string" },
-          "description": { "type": "string" }
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
         }
       }
     },
@@ -87,11 +152,17 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "additionalProperties": false,
         "properties": {
-          "name": { "type": "string" },
-          "description": { "type": "string" }
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
         }
       }
     },
@@ -99,11 +170,17 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "additionalProperties": false,
         "properties": {
-          "name": { "type": "string" },
-          "description": { "type": "string" },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
           "default": {
             "type": "string",
             "description": "CEM's own field for this property's real literal value, used here for a property with no backing design token. Omitted, not guessed, when no such real default exists."
@@ -116,11 +193,17 @@
       "description": "CEM's own field name. Real `::part()` names found in the component's own shadow-DOM render output (or a shared base class it genuinely extends), for shadow-DOM components only. Acorn is mostly light-DOM by design, so most entries have none.",
       "items": {
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "additionalProperties": false,
         "properties": {
-          "name": { "type": "string" },
-          "description": { "type": "string" }
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
         }
       }
     },
@@ -128,11 +211,21 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["axis", "values"],
+        "required": [
+          "axis",
+          "values"
+        ],
         "additionalProperties": false,
         "properties": {
-          "axis": { "type": "string" },
-          "values": { "type": "array", "items": { "type": "string" } }
+          "axis": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       }
     },

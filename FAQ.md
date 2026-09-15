@@ -16,7 +16,7 @@ These contracts document real Firefox, so they carry real Firefox vocabulary. Th
 
 ### Why is something `classic` when it has a `moz-` name?
 
-**Because the `moz-` prefix is naming, not architecture.** `moz-support-link` is `class MozSupportLink extends HTMLAnchorElement`, registered as `customElements.define("moz-support-link", MozSupportLink, { extends: "a" })` in `toolkit/content/widgets/moz-support-link/moz-support-link.mjs`. It is a customized built-in, and a customized built-in cannot be Lit, so it is `classic`: see `component-api/support-link.json`. `moz-label` is the same shape, `customElements.define("moz-label", MozTextLabel, { extends: "label" })`.
+**Because the `moz-` prefix is naming, not architecture.** `moz-support-link` is `class MozSupportLink extends StylesMixin(HTMLAnchorElement, styles)`, a subclass of `HTMLAnchorElement` through one mixin layer, registered as `customElements.define("moz-support-link", MozSupportLink, { extends: "a" })` in `toolkit/content/widgets/moz-support-link/moz-support-link.mjs`. It is a customized built-in, and a customized built-in cannot be Lit, so it is `classic`: see `component-api/support-link.json`. `moz-label` is the same shape, `customElements.define("moz-label", MozTextLabel, { extends: "label" })`.
 
 ### Customized built-in vs autonomous custom element
 

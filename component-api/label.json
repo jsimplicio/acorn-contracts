@@ -2,10 +2,15 @@
   "id": "label",
   "summary": "A form label that underlines its keyboard shortcut letter and focuses its control when clicked.",
   "tagName": "moz-label",
-  "description": "A customized built-in <label is=\"moz-label\"> (extends HTMLLabelElement).\n\n**Accesskey rendering:** it underlines, or appends in parentheses, the character in its text content matching its accesskey, following the platform convention of whether accesskeys are shown underlined at all.\n\n**Click forwarding:** it focuses and activates the control referenced by its control attribute, or the labelable control it wraps, when clicked.",
+  "description": "A customized built-in <label is=\"moz-label\">. Its class extends StylesMixin(HTMLLabelElement, styles), so it is a subclass of HTMLLabelElement that also adopts moz-label.css onto its root.\n\n**Accesskey rendering:** it underlines, or appends in parentheses, the character in its text content matching its accesskey, following the platform convention of whether accesskeys are shown underlined at all.\n\n**Click forwarding:** it focuses and activates the control referenced by its control attribute, or the labelable control it wraps, when clicked.",
   "implementation": {
     "kind": "classic",
-    "file": "toolkit/content/widgets/moz-label/moz-label.mjs"
+    "file": "toolkit/content/widgets/moz-label/moz-label.mjs",
+    "verifiedAt": {
+      "commit": "6cb29c3545ab0b1a126d684674ed819666ac5aec",
+      "date": "2026-09-15",
+      "scope": "full"
+    }
   },
   "attributes": [
     {

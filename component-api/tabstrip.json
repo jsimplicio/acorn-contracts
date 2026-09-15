@@ -2,7 +2,7 @@
   "id": "tabstrip",
   "summary": "The row of tabs across the top of the browser window.",
   "tagName": "tabbrowser-tabs",
-  "description": "The container that holds and manages all open tabs, tab groups, and split-view wrappers in a browser window. A customized built-in element extending the toolkit <tabs> element (is=\"tabbrowser-tabs\"); handles layout (horizontal/vertical), overflow scrolling, drag and drop, and keyboard navigation across tabs/groups/split views.",
+  "description": "The container that holds and manages all open tabs, tab groups, and split-view wrappers in a browser window.\n\n**A customized built-in element** extending the toolkit <tabs> element (is=\"tabbrowser-tabs\").\n\n**What it handles:** layout (horizontal/vertical), overflow scrolling, drag and drop, and keyboard navigation across tabs/groups/split views.",
   "implementation": {
     "kind": "classic",
     "file": "browser/components/tabbrowser/content/tabs.mjs"

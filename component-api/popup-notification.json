@@ -2,7 +2,7 @@
   "id": "popup-notification",
   "summary": "A popup that asks for a decision, like allowing a permission, anchored under the address bar.",
   "tagName": "popupnotification",
-  "description": "A XUL widget rendering a single doorhanger notification (icon, origin, description, optional checkbox/warning/hint, close button, and primary/secondary moz-button pair) inside the panel managed by PopupNotifications.sys.mjs. Light-DOM widget: child elements are placed by tag-name lookup (querySelector) rather than native <slot> projection.",
+  "description": "A XUL widget rendering a single doorhanger notification (icon, origin, description, optional checkbox/warning/hint, close button, and primary/secondary moz-button pair) inside the panel managed by PopupNotifications.sys.mjs.\n\n**A light-DOM widget:** child elements are placed by tag-name lookup (querySelector) rather than native <slot> projection.",
   "implementation": {
     "kind": "classic",
     "file": "toolkit/content/widgets/popupnotification.js"
@@ -135,15 +135,15 @@
   "slots": [
     {
       "name": "popupnotificationheader",
-      "description": "Not a real <slot> — a child element with this tag name is moved into the header container above the icon/body row, if present."
+      "description": "Not a real <slot>: a child element with this tag name is moved into the header container above the icon/body row, if present."
     },
     {
       "name": "popupnotificationcontent",
-      "description": "Not a real <slot> — each child element with this tag name is appended before .popup-notification-bottom-content via appendNotificationContent(); repeatable."
+      "description": "Not a real <slot>: each child element with this tag name is appended before .popup-notification-bottom-content via appendNotificationContent(); repeatable."
     },
     {
       "name": "popupnotificationfooter",
-      "description": "Not a real <slot> — a child element with this tag name is moved into the footer container below the body, if present."
+      "description": "Not a real <slot>: a child element with this tag name is moved into the footer container below the body, if present."
     }
   ],
   "events": [

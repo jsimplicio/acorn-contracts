@@ -2,7 +2,7 @@
   "id": "page-nav-item",
   "summary": "A single clickable link inside the page navigation menu.",
   "tagName": "moz-page-nav-button",
-  "description": "A navigation button intended to change the selected view within a moz-page-nav. Renders as a tab-role button by default, or as a link (external href or SUMO support-page) when href/supportPage is set. Defined as a second customElements.define in the same file as moz-page-nav (class MozPageNavButton), documented here as its own component.",
+  "description": "A navigation button intended to change the selected view within a moz-page-nav.\n\n**Renders two ways:** as a tab-role button by default, or as a link (external href or SUMO support-page) when href/supportPage is set.\n\n**Shares a file with its parent:** defined as a second customElements.define in the same file as moz-page-nav (class MozPageNavButton), documented here as its own component.",
   "implementation": {
     "kind": "modern",
     "file": "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs"
@@ -42,7 +42,7 @@
     {
       "name": "view",
       "type": "string",
-      "description": "Read via getAttribute(\"view\") (not a declared Lit property) — identifies which view this button activates; compared against the parent moz-page-nav's currentView.",
+      "description": "Read via getAttribute(\"view\") (not a declared Lit property): identifies which view this button activates; compared against the parent moz-page-nav's currentView.",
       "figmaConfig": true
     }
   ],

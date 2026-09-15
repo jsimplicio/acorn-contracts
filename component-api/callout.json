@@ -2,7 +2,7 @@
   "id": "callout",
   "summary": "A small pop-up tip that points at part of the browser to highlight or explain a feature.",
   "tagName": null,
-  "description": "FeatureCallout is a plain ES class (not a custom element) that renders ASRouter/onboarding tour messages as a popup anchored to a CSS-selected element — a XUL <panel> in the browser chrome (when a panel_position is configured), or an absolutely/relatively positioned <div> in content pages such as Firefox View. Manages multi-screen tour progress via a pref, screen advancement, and focus/positioning lifecycle.",
+  "description": "FeatureCallout is a plain ES class (not a custom element) that renders ASRouter/onboarding tour messages as a popup anchored to a CSS-selected element.\n\n**Two anchoring modes:** a XUL <panel> in the browser chrome when a panel_position is configured, or an absolutely/relatively positioned <div> in content pages such as Firefox View.\n\n**It owns the tour, not just the popup:** it manages multi-screen tour progress via a pref, screen advancement, and focus/positioning lifecycle.",
   "implementation": {
     "kind": "classic",
     "file": "browser/components/asrouter/modules/FeatureCallout.sys.mjs"

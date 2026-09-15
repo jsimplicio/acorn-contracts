@@ -2,7 +2,7 @@
   "id": "urlbar",
   "summary": "The address bar where you type or see the current website's URL.",
   "tagName": "moz-urlbar",
-  "description": "The browser's address bar input. Despite the moz- prefix (which predates the modern naming convention) this is a classic custom element with no JSDoc/Lit conventions; it wraps a plain <input> and drives search mode, autofill, and the results view (UrlbarView). UrlbarInput.mjs now only registers the moz-urlbar tag on a thin subclass (`export class UrlbarInput extends UrlbarInputBase {}`); the real implementation lives in the sibling UrlbarInputBase.mjs.",
+  "description": "The browser's address bar input. It wraps a plain <input> and drives search mode, autofill, and the results view (UrlbarView).\n\n**Classic despite the moz- prefix,** which predates the modern naming convention: this is a classic custom element with no JSDoc/Lit conventions.\n\n**The tag and the implementation live in different files:** UrlbarInput.mjs now only registers the moz-urlbar tag on a thin subclass (`export class UrlbarInput extends UrlbarInputBase {}`), and the real implementation lives in the sibling UrlbarInputBase.mjs.",
   "implementation": {
     "kind": "classic",
     "file": "browser/components/urlbar/content/UrlbarInputBase.mjs"

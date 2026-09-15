@@ -11,7 +11,7 @@
     {
       "name": "type",
       "type": "string",
-      "description": "The type of the displayed message, drives the icon shown. Values with dedicated icon/l10n mappings in code: info, warning, success, error, critical (critical uses the same icon/l10n as error and is a legacy alias — Storybook's documented options list only info/warning/success/error, while the Figma Code Connect file also references \"critical\" and \"information\" as design-side type names).",
+      "description": "The type of the displayed message, drives the icon shown. Values with dedicated icon/l10n mappings in code: info, warning, success, error, critical (critical uses the same icon/l10n as error and is a legacy alias; Storybook's documented options list only info/warning/success/error, while the Figma Code Connect file also references \"critical\" and \"information\" as design-side type names).",
       "figmaConfig": true,
       "default": "info"
     },
@@ -81,7 +81,7 @@
     },
     {
       "name": "message-bar:user-dismissed",
-      "description": "Fired when the user clicks the dismiss/close button, before the element removes itself; cancelable — calling preventDefault() stops the automatic close()."
+      "description": "Fired when the user clicks the dismiss/close button, before the element removes itself; cancelable: calling preventDefault() stops the automatic close()."
     }
   ],
   "variants": [

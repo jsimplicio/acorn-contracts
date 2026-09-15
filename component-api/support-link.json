@@ -2,7 +2,7 @@
   "id": "support-link",
   "summary": "A \"Learn more\" style link that points to a Mozilla support (SUMO) page.",
   "tagName": "moz-support-link",
-  "description": "A customized built-in <a is=\"moz-support-link\"> (extends HTMLAnchorElement) for linking to Mozilla's SUMO support documentation. Builds its href from a support-page short-hand plus the app's support base URL (optionally appending AMO-only UTM parameters via utm-content), always opens in a new tab/window via openTrustedLinkIn, and fills its own localized text via Fluent when no content or data-l10n-id is supplied.",
+  "description": "A customized built-in <a is=\"moz-support-link\"> (extends HTMLAnchorElement) for linking to Mozilla's SUMO support documentation.\n\n**It builds its own href** from a support-page short-hand plus the app's support base URL, optionally appending AMO-only UTM parameters via utm-content, and always opens in a new tab/window via openTrustedLinkIn.\n\n**It fills its own localized text** via Fluent when no content or data-l10n-id is supplied.",
   "implementation": {
     "kind": "classic",
     "file": "toolkit/content/widgets/moz-support-link/moz-support-link.mjs"

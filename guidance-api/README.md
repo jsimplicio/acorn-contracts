@@ -1,10 +1,10 @@
 # Guidance API
 
-The Guidance API captures do's and don'ts for Acorn components: usage advice, common mistakes, and the kind of thing an experienced maintainer would tell you before you shipped a bug. This is the second half of a two-part documentation-data effort. The first half is the **[Component API](../component-api/README.md)**, a Custom Elements Manifest (CEM)-based structural spec: real attributes, slots, events, and methods, mechanically derived from source.
+The Guidance API captures do's and don'ts for Acorn components: usage advice, common mistakes, and the kind of thing an experienced maintainer would tell you before you shipped a bug. This is the second half of a two-part documentation-data effort. The first half is the **[Component API](../component-api/README.md)**, a Custom Elements Manifest (CEM)-shaped structural spec: real attributes, slots, events, and methods, read out of real source entry by entry.
 
 ## Why this is a separate API, not a field inside the Component API
 
-CEM, and API-shaped data generally, only models structural surface: what attributes exist, what type they are, what slots and events a component exposes. That's mechanically derivable from source code by parsing it.
+CEM, and API-shaped data generally, only models structural surface: what attributes exist, what type they are, what slots and events a component exposes. That is the half of the job a parser could in principle do, whether or not one is used here.
 
 Do's and don'ts are categorically different. They require human judgment about real usage patterns and real mistakes. Nothing in `moz-button`'s source tells you "don't set `type=\"split\"` without `menuId`, the chevron renders but has nothing to open": that's a failure mode someone has to have seen, understood, and written down. It isn't in the type signature.
 

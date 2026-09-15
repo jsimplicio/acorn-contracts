@@ -58,7 +58,7 @@
     },
     {
       "name": "TabSplitViewDeactivate",
-      "description": "Dispatched on this.container; detail: {tabs, splitview: this}; fired from both real teardown (#deactivate()) and temporary hide-while-switching (#suspend()) — same event name covers both cases."
+      "description": "Dispatched on this.container; detail: {tabs, splitview: this}; fired from both real teardown (#deactivate()) and temporary hide-while-switching (#suspend()); the same event name covers both cases."
     }
   ],
   "methods": [

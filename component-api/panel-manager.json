@@ -2,7 +2,7 @@
   "id": "panel-manager",
   "summary": "The system that manages panels made of multiple linked pages, like the app menu's forward/back subviews.",
   "tagName": null,
-  "description": "PanelMultiView and PanelView are plain ES classes (not custom elements) that attach behavior to <panelmultiview> and <panelview> XUL elements via a WeakMap-backed lazy association (AssociatedToNode.forNode). PanelMultiView manages a XUL <panel>'s open/close lifecycle and slide transitions between a main view and stacked subviews; PanelView wraps a single <panelview> and its header/sizing state.",
+  "description": "PanelMultiView and PanelView are plain ES classes (not custom elements) that attach behavior to <panelmultiview> and <panelview> XUL elements via a WeakMap-backed lazy association (AssociatedToNode.forNode).\n\n**PanelMultiView** manages a XUL <panel>'s open/close lifecycle and slide transitions between a main view and stacked subviews.\n\n**PanelView** wraps a single <panelview> and its header/sizing state.",
   "implementation": {
     "kind": "classic",
     "file": "browser/components/customizableui/PanelMultiView.sys.mjs"

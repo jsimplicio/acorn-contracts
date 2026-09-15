@@ -68,7 +68,7 @@
     },
     {
       "name": "(default)",
-      "description": "The card's content. Note: the class JSDoc labels this slot \"content\", but the rendered <slot> in both the default and accordion templates has no name attribute — it is the unnamed/default slot, not a named \"content\" slot."
+      "description": "The card's content. Note: the class JSDoc labels this slot \"content\", but the rendered <slot> in both the default and accordion templates has no name attribute, so it is the unnamed/default slot, not a named \"content\" slot."
     }
   ],
   "events": [

@@ -2,7 +2,7 @@
   "id": "stepper",
   "summary": "One screen in a multi-step onboarding flow, like a welcome tour with next/back navigation.",
   "tagName": null,
-  "description": "MultiStageProtonScreen (function component) and ProtonScreen (React.PureComponent it renders) implement one step of the multi-screen stepper-style onboarding flow used by about:welcome, Spotlight, and FeatureCallout tours — rendering the step-progress indicator (StepsIndicator or ProgressBar), title/subtitle, hero image/tiles, and action buttons for the current screen's content config. A real React implementation, not a custom element.",
+  "description": "MultiStageProtonScreen (function component) and ProtonScreen (React.PureComponent it renders) implement one step of the multi-screen stepper-style onboarding flow used by about:welcome, Spotlight, and FeatureCallout tours.\n\n**What one step renders:** the step-progress indicator (StepsIndicator or ProgressBar), title/subtitle, hero image/tiles, and action buttons for the current screen's content config.\n\n**A real React implementation,** not a custom element.",
   "implementation": {
     "kind": "classic",
     "file": "browser/components/asrouter/content-src/components/MultiStageProtonScreen.jsx"
@@ -51,7 +51,7 @@
     {
       "name": "advanceOnExperimentLoad",
       "type": "object",
-      "description": "Optional; alternative to autoAdvance — waits for window.AWWaitForNimbus() (bounded by minDisplayMs/maxDisplayMs) then calls navigate(false)."
+      "description": "Optional; alternative to autoAdvance: waits for window.AWWaitForNimbus() (bounded by minDisplayMs/maxDisplayMs) then calls navigate(false)."
     },
     {
       "name": "isFirstScreen",

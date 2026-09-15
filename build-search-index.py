@@ -120,12 +120,20 @@ def build():
         p = page(f"tokens/{stem}", stem.replace("-", " ").title(), "Tokens")
         p["text"].append(" ".join(sorted(set(names))))
 
+    # A doc page's own headings are what it DEFINES, as opposed to the terms
+    # it merely mentions, so the runtime can rank a definition above a
+    # passing reference.
     for pid, (title, path) in DOC_PAGES.items():
         with open(os.path.join(ROOT, path), encoding="utf-8") as f:
-            page(pid, title, "Guide")["text"].append(strip_markdown(f.read()))
+            raw = f.read()
+        p = page(pid, title, "Guide")
+        p["text"].append(strip_markdown(raw))
+        p["heads"] = [squash(re.sub(r"[`*]", "", h)) for h in
+                      re.findall(r"^#{2,3}\s+(.+?)\s*$", raw, flags=re.M)]
 
     for p in pages.values():
         p["text"] = squash(" ".join(p["text"]))
+        p.setdefault("heads", [])
 
     return {"pages": pages}
 

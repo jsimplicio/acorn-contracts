@@ -2,7 +2,7 @@
   "id": "spotlight-modal",
   "summary": "A full-screen overlay used for onboarding or feature-announcement flows.",
   "tagName": null,
-  "description": "Spotlight is a plain exported object (export const Spotlight = {...}), not a class or custom element, that opens ASRouter/onboarding 'spotlight' messages as an HTML dialog (chrome://browser/content/spotlight.html) rendered either tab-modal or window-modal, via the browser's tab dialog box or gDialogBox.",
+  "description": "Spotlight is a plain exported object (export const Spotlight = {...}), not a class or custom element.\n\n**What it opens:** ASRouter/onboarding 'spotlight' messages as an HTML dialog (chrome://browser/content/spotlight.html) rendered either tab-modal or window-modal, via the browser's tab dialog box or gDialogBox.",
   "implementation": {
     "kind": "classic",
     "file": "browser/components/asrouter/modules/Spotlight.sys.mjs"

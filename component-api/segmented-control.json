@@ -2,7 +2,7 @@
   "id": "segmented-control",
   "summary": "A row of connected buttons where only one can be selected at a time, like a toggle switch group.",
   "tagName": "moz-segmented-control",
-  "description": "A segmented control that groups moz-segmented-control-item children and lets a user switch between them, functioning as either a tab switcher (when wired to a named-deck via the deck attribute) or a radio button group. Extends the shared SelectControlBaseElement, so it also inherits label, description, name, and orientation handling from that base class even though this subclass's own JSDoc only documents deck/value/name/disabled.",
+  "description": "A segmented control that groups moz-segmented-control-item children and lets a user switch between them, functioning as either a tab switcher (when wired to a named-deck via the deck attribute) or a radio button group.\n\n**It inherits more than its own JSDoc documents:** it extends the shared SelectControlBaseElement, so it also gets label, description, name, and orientation handling from that base class even though this subclass's own JSDoc only documents deck/value/name/disabled.",
   "implementation": {
     "kind": "modern",
     "file": "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs"

@@ -2,7 +2,7 @@
   "id": "segment",
   "summary": "A single clickable option inside a segmented control, like one button in a set of toggle buttons.",
   "tagName": "moz-segmented-control-item",
-  "description": "A single item within a moz-segmented-control, rendered as a button that can be selected. Implemented as MozSegmentedControlItem, which mixes SelectControlItemMixin into MozButton, in the same file as moz-segmented-control. Note: the Acorn API's coverage table lists this tagName as null/unregistered, but the file does call customElements.define(\"moz-segmented-control-item\", MozSegmentedControlItem), so it is a real registered custom element.",
+  "description": "A single item within a moz-segmented-control, rendered as a button that can be selected.\n\n**Implemented as MozSegmentedControlItem,** which mixes SelectControlItemMixin into MozButton, in the same file as moz-segmented-control.\n\n**It is a real registered custom element:** the Acorn API's coverage table lists this tagName as null/unregistered, but the file does call customElements.define(\"moz-segmented-control-item\", MozSegmentedControlItem).",
   "implementation": {
     "kind": "modern",
     "file": "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs"

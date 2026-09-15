@@ -1153,7 +1153,11 @@
   function inlineMd(text) {
     let out = escapeHtml(text);
     out = out.replace(/`([^`]+)`/g, (m, code) => `<code>${code}</code>`);
-    out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, label, url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`);
+    out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, label, url) => {
+      const docId = docIdForFile(url);
+      if (docId) return `<a data-show="${docId}" href="${idToPath(docId)}">${label}</a>`;
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    });
     out = out.replace(/\*\*([^*]+)\*\*/g, (m, b) => `<strong>${b}</strong>`);
     // After bold, so ** is already gone. No < or > inside: that stops a pair
     // of literal asterisks in two separate code spans matching across them.
@@ -1217,6 +1221,12 @@
     if (first === "<") return "html";
     if (first === "{" || first === "[") return "json";
     return null;
+  }
+
+  // "token-api/README.md" or "../component-api/README.md" -> its route id.
+  function docIdForFile(url) {
+    const clean = String(url).replace(/^(\.\.?\/)+/, "").split("#")[0];
+    return Object.keys(DOC_FILES).find(id => DOC_FILES[id].file === clean) || null;
   }
 
   function renderMarkdown(md) {
@@ -2228,7 +2238,13 @@
   // What a docs page and the home page each call a section. Both are
   // decorated from more than one call site.
   function decorateDocSections() {
-    decorateSections(document.getElementById("doc-body"), null, "h2.section");
+    const body = document.getElementById("doc-body");
+    body.querySelectorAll("h3").forEach(h => {
+      const slug = sectionSlug(h.textContent);
+      if (slug && !h.id) h.id = slug;
+    });
+    decorateSections(body, null, "h2.section");
+    body.querySelectorAll("a[data-show]").forEach(a => wireNavLink(a, a.dataset.show));
   }
 
   function decorateHomeSections() {
@@ -2685,12 +2701,15 @@
       const page = searchIndex[id];
       const titleAt = page.title.toLowerCase().indexOf(q);
       const bodyAt = page.text.toLowerCase().indexOf(q);
-      if (titleAt < 0 && bodyAt < 0) continue;
-      results.push({
-        id, page, titleAt, bodyAt,
-        // Title hits first, earliest hit first within each half.
-        rank: titleAt > -1 ? titleAt : 1000 + bodyAt,
-      });
+      // A page whose own heading names the query defines it, rather than
+      // just mentioning it, so it outranks every body hit.
+      const headAt = (page.heads || []).some(h => h.toLowerCase().includes(q)) ? 0 : -1;
+      if (titleAt < 0 && headAt < 0 && bodyAt < 0) continue;
+      let rank;
+      if (titleAt > -1) rank = titleAt;
+      else if (headAt > -1) rank = 1000;
+      else rank = 2000 + bodyAt;
+      results.push({ id, page, titleAt, bodyAt, rank });
     }
     results.sort((a, b) => a.rank - b.rank || a.id.localeCompare(b.id));
     return results.slice(0, SEARCH_LIMIT);

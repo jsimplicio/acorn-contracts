@@ -19,9 +19,9 @@
     {
       "name": "type",
       "type": {
-        "text": "string"
+        "text": "'default' | 'primary' | 'destructive' | 'ghost' | 'icon' | 'icon ghost' | 'muted' | 'icon muted' | 'split' | 'menuitem' | 'toolbar'"
       },
-      "description": "The button type. Options: `default`, `primary`, `destructive`, `icon`, `icon ghost`, `ghost`, `split` (plus `icon neutral`/`neutral` seen in Figma Code Connect).",
+      "description": "The button type. The legal set is asserted by this contract, not read from source: Lit declares only `{ type: String }`, so the values live in moz-button.css's own selectors. `primary`, `destructive` and `split` are matched exactly; `ghost`, `icon`, `muted`, `menuitem` and `toolbar` are matched as words, which is what makes a compound like `icon ghost` work. `menuitem` and `toolbar` are context declarations set by the surrounding component rather than style choices. `default` has no rule of its own, it is the unstyled baseline set in the constructor.\n\nTwo values Figma Code Connect still emits are not in this set. `neutral` and `icon neutral` match no CSS rule at all: the design system renamed that variant to `muted`, which is what both moz-button.css and Figma's own variables now say, and moz-button.figma.ts was never updated. `icon primary` matches only `[type~=\"icon\"]`, because `[type=\"primary\"]` is an exact match a compound cannot satisfy, so it renders as a plain icon button with no primary colour.",
       "figmaConfig": true,
       "default": "default"
     },
@@ -209,12 +209,11 @@
         "default",
         "primary",
         "destructive",
+        "ghost",
         "icon",
         "icon ghost",
-        "icon primary",
-        "icon neutral",
-        "ghost",
-        "neutral",
+        "muted",
+        "icon muted",
         "split"
       ]
     },

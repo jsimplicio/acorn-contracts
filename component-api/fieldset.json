@@ -61,7 +61,7 @@
     {
       "name": "badge",
       "type": {
-        "text": "string"
+        "text": "\"beta\" | \"new\" | undefined"
       },
       "description": "Includes a moz-badge of this type next to the legend. Options: `beta`, `new`.",
       "figmaConfig": true

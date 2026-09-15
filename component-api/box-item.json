@@ -43,7 +43,7 @@
     {
       "name": "layout",
       "type": {
-        "text": "string"
+        "text": "\"default\" | \"medium-icon\" | \"large-icon\""
       },
       "description": "Layout style for the box content, reflected attribute.",
       "figmaConfig": true,

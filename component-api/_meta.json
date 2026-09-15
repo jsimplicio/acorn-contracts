@@ -1,8 +1,8 @@
 {
   "note": "lastModified/lastCommit are this file's real last commit in this repo's own git history (git log -1 -- <file>), not a fabricated timestamp. This says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.",
   "repoHead": {
-    "commit": "54ae4229b19eb475894b2991cdfb7f25dde4c006",
-    "date": "2026-09-15T16:12:39-05:00"
+    "commit": "1d62cbeac518313abd79727edc82e5a0f88d4760",
+    "date": "2026-09-15T16:12:48-05:00"
   },
   "files": {
     "badge": {

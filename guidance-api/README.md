@@ -43,11 +43,11 @@ That's the whole schema. No `severity`, `tags`, `author`, `dates`, or similar me
 | `schema.json` | The shape above as a draft 2020-12 JSON Schema. Enforced by `validate-schemas.py` on every push. |
 | `_meta.json` | Per-id `lastCommit`/`lastModified` from this repo's own history, plus the `HEAD` it was generated against. Says when the JSON was last edited here, not when it was last verified against Firefox source. |
 
-**Pattern entries are deliberate.** `toolbox` is included even though no
-component exists: its guidance is about not expecting one. Toolbar, Sidebar,
+**Entries with no widget class are deliberate.** Toolbar, Toolbox, Sidebar,
 Bookmarks Toolbar, URL Bar Action/Identity/Result, Panel Separator, Page Nav
 Separator, Chip and Details are the same kind of case, real user-facing
-patterns worth documenting with no dedicated widget class behind them.
+real, user-facing surfaces worth documenting even with no dedicated widget
+class behind them.
 
 ## Coverage
 
@@ -60,4 +60,4 @@ sentence said all 57 components were covered and went quietly wrong the
 moment the inventory grew to 71. Run `python3 check-index-data.py` for the
 current numbers.
 
-Every entry that does exist is grounded in the component's real source (a specific method, property, or lifecycle behavior), not generic UX advice, including the pattern entries that have no dedicated widget class: their guidance points to the real file or singleton that actually owns the behavior instead.
+Every entry that does exist is grounded in the component's real source (a specific method, property, or lifecycle behavior), not generic UX advice, including the entries with no dedicated widget class: their guidance points to the real file or singleton that actually owns the behavior instead.

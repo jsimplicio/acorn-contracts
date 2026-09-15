@@ -193,12 +193,12 @@
   #nav { width: 240px; flex: 0 0 240px; background: var(--bg-sidebar); border-right: 1px solid var(--border); height: 100vh; position: sticky; top: 0; display: flex; flex-direction: column; }
   #nav-title { flex: 0 0 auto; font-size: 17px; font-weight: 700; color: var(--text); padding: 20px 20px 14px; margin-bottom: 0; border-bottom: 1px solid var(--border-soft); }
   #nav-scroll { flex: 1 1 auto; overflow-y: auto; padding: 6px 0 20px; }
-  #nav-search { display: block; width: calc(100% - 32px); margin: 8px 16px 14px; padding: 6px 10px; font-size: 13px; font-family: inherit; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-input); color: var(--text); }
+  #nav-search { display: block; width: calc(100% - 32px); margin: 8px 16px 14px; padding: 6px 10px; font: inherit; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-input); color: var(--text); }
   #nav-search:focus { outline: none; border-color: var(--accent); }
   #nav h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-faint); margin: 18px 20px 6px; }
   #nav h2.hidden, #nav a.hidden { display: none; }
   #nav h2:first-child { margin-top: 0; }
-  #nav a { display: block; padding: 5px 20px; font-size: 13.5px; color: var(--text-nav); text-decoration: none; cursor: pointer; }
+  #nav a { display: block; padding: 5px 20px; color: var(--text-nav); text-decoration: none; cursor: pointer; }
   #nav a:hover { background: var(--bg-hover); }
   #nav a.active { background: var(--bg-accent-soft); color: var(--accent); font-weight: 600; }
   /* Nested nav: a top-level item with real sub-items (e.g. Panel Item under
@@ -212,10 +212,8 @@
   .nav-parent-row.expanded .nav-chevron svg { transform: rotate(90deg); }
   .nav-children { display: none; }
   .nav-children.expanded { display: block; }
-  /* #nav a's own padding/font-size are set via an id selector, which beats
-     a plain class selector on specificity regardless of source order --
-     has to be qualified under #nav too or this indent silently never
-     applies (it didn't, until this fix). */
+  /* Qualified under #nav: #nav a's padding is set by an id selector, which
+     beats a plain class selector whatever the source order. */
   #nav .nav-children a { font-size: 13px; margin-inline-start: 20px; padding-inline-start: 12px; border-inline-start: 2px solid var(--border-soft); }
   .nav-children.hidden { display: none !important; }
   .nav-parent-row.hidden { display: none; }
@@ -603,7 +601,7 @@
   <!-- HOME: coverage table -->
   <section id="view-home" class="view active">
     <h1>Home</h1>
-    <p class="meta">Where each real Firefox component or pattern actually exists today, across Figma, Supernova (documented), and Storybook, plus how it is really implemented (modern, classic, or a plain pattern with no dedicated class). A row with no implementation badge at all has no real Firefox equivalent, see its file citation for what actually exists instead.</p>
+    <p class="meta">Where each real Firefox component actually exists today, across Figma, Supernova (documented), and Storybook, plus how it is really implemented (modern, classic, or a plain pattern with no dedicated class). A row with no implementation badge at all has no real Firefox equivalent, see its file citation for what actually exists instead.</p>
     <table class="legend-table">
       <tbody>
         <tr><td><span class="check yes">&check;</span></td><td>Real and documented there.</td></tr>
@@ -618,9 +616,9 @@
     <ul>
       <li>No chrome or structural component has a Supernova documentation page or a Storybook story. The only doc coverage for this whole category is one narrative page, Desktop/Patterns/Browser anatomy/Overview.</li>
       <li>Checkbox and Radio each ship both a modern version and a classic version at the same time, marked "modern + classic" rather than picking one.</li>
-      <li>A row with no real Firefox equivalent (Chip, Details) gets no implementation badge at all, not a "pattern" badge of its own: it isn't an implementation kind, just the absence of one. See its file citation for what actually exists instead (a Figma-only pattern, a distinct real feature that only looks similar, native HTML doing the job, etc.). This is different from the "pattern" badge (red), which means the real thing exists as page wiring with no dedicated class.</li>
+      <li>A row with no real Firefox equivalent (Chip, Details) gets no implementation badge at all: that is the absence of an implementation, not a kind of one. See its file citation for what actually exists instead (a Figma-only pattern, a distinct real feature that only looks similar, native HTML doing the job, etc.). This is different from the "pattern" badge (red), which means the real thing exists as page wiring with no dedicated class.</li>
       <li>Figma has some internal duplication for chrome entries (Sidebar, Infobar and Info bar, Bookmarks toolbar and Bookmarks Toolbar, and a few more each show up as two near-identical nodes), most likely stale-versus-current branches rather than distinct concepts.</li>
-      <li>tagName is optional, not universal: most "classic" entries do have a real customElements.define tag (panel, dialog, tab-group), but "pattern" entries never do, and some real implementations (Spotlight, Callout) are plain classes or React, not custom elements at all.</li>
+      <li>tagName is optional, not universal: most "classic" entries do have a real customElements.define tag (panel, dialog, tab-group), but some are built-in XUL tags with no class behind them (toolbar, toolbox), and some real implementations (Spotlight, Callout) are plain classes or React, not custom elements at all.</li>
       <li>A grey "n/a" in the Storybook column is a different claim than a red cross: it means the real implementation isn't a reusable widget class at all (a plain module like Spotlight, a React render method like Stepper, or page wiring with no class like Toolbox), so a story was never going to exist regardless of effort. A red cross means a real widget class exists and simply hasn't been storied yet, a genuine closeable gap (popup-notification, for example).</li>
       <li>Rows with no Figma node or Storybook story of their own (Panel Item, Panel Separator, Page Nav Item and Separator, Segment, Icon Button, Split Button, Visual Picker Item) are listed indented under the parent whose Figma node or Storybook story actually covers them, marked "in: [parent name]".</li>
     </ul>
@@ -745,9 +743,9 @@
     { id: "tabstrip", name: "Tab Strip", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tabbrowser-tabs", file: "browser/components/tabbrowser/content/tabs.js" },
     { id: "textarea", name: "Textarea", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-textarea", file: "toolkit/content/widgets/moz-textarea/moz-textarea.mjs" },
     { id: "toggle", name: "Toggle", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-toggle", file: "toolkit/content/widgets/moz-toggle/moz-toggle.mjs" },
-    { id: "toolbar", name: "Toolbar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "navigator-toolbox.js wiring, no dedicated class" },
+    { id: "toolbar", name: "Toolbar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: "toolbar", file: "browser/base/content/navigator-toolbox.inc.xhtml, a built-in XUL tag with no dedicated class" },
     { id: "toolbar-button", name: "Toolbar Button", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "toolbarbutton", file: "toolkit/content/widgets/toolbarbutton.js" },
-    { id: "toolbox", name: "Toolbox", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "browser/base/content/navigator-toolbox.js" },
+    { id: "toolbox", name: "Toolbox", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: "toolbox", file: "browser/base/content/navigator-toolbox.inc.xhtml, a built-in XUL tag with no dedicated class" },
     { id: "urlbar", name: "URL Bar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "moz-urlbar", file: "browser/components/urlbar/content/UrlbarInput.mjs, tag predates the moz-* convention" },
     { id: "urlbar-action", name: "URL Bar Action", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/urlbar/content/UrlbarView.mjs, plain markup" },
     { id: "urlbar-identity", name: "URL Bar Identity", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/base/content/browser-siteIdentity.js, gIdentityHandler singleton" },
@@ -758,25 +756,17 @@
 
   // The axis is whether a component is Lit, not whether it carries the
   // moz-* prefix; see component-api/README.md.
-  const KIND_LABEL = { modern: "modern", classic: "classic", none: "pattern", dual: "modern + classic" };
+  const KIND_LABEL = { modern: "modern", classic: "classic", dual: "modern + classic" };
   const KIND_DEFINITION = {
     modern: "A real, modern Lit-based custom element, the current convention for new widgets (customElements.define, extends MozLitElement).",
     classic: "A real, shipping implementation that isn't Lit: usually an old XUL binding, sometimes a plain custom element in a current module (still often has a real tagName, just not the newer pattern).",
-    none: "Real page structure with no dedicated class behind it, no customElements.define, nothing to document as a component API.",
     dual: "Both a modern Lit version and an older non-Lit version exist and ship at the same time, neither has replaced the other yet.",
   };
   function kindBadge(kind) {
     return KIND_LABEL[kind] ? `<span class="classif ${kind}">${KIND_LABEL[kind]}</span>` : "";
   }
-  // A sub-item (parentId set) is a real part of its parent's own
-  // implementation, not a separate thing that happens to have no class of
-  // its own -- Panel Separator IS part of Panel, the same way Panel Item
-  // is. Badging it "pattern" on its own implied it had nothing to do with
-  // Panel at all, which reads as wrong once it's shown nested under Panel
-  // everywhere else. Walk up to the real parent's kind for display; a
-  // sub-item's OWN kind is still what's used to decide whether it belongs
-  // in the Components vs Patterns nav section in the first place (see
-  // buildNav), this only changes what badge gets shown once placed.
+  // A sub-item is part of its parent's implementation, so it shows the
+  // parent's badge: Panel Separator IS part of Panel.
   function effectiveKind(d) {
     if (!d || !d.parentId) return d ? d.kind : undefined;
     const parent = DATA.find(p => p.id === d.parentId);
@@ -790,10 +780,8 @@
     if (v === "yes") return { cls: "yes", text: "&check;" };
     if (v === "no") return { cls: "no", text: "&cross;" };
     if (v === "na") {
-      // "na" (storybook only) means "not a reusable widget class" -- always
-      // say what it actually IS instead of leaving that unstated, so the
-      // reader isn't left to guess whether that's a classic implementation,
-      // a plain pattern with no class at all, etc.
+      // "na" (storybook only) means "not a reusable widget class" -- name
+      // what it actually is rather than leaving the reader to guess.
       const kindLabel = KIND_LABEL[kind];
       const suffix = kindLabel ? ` (${escapeHtml(kindLabel)})` : "";
       return { cls: "na", text: `n/a${suffix}`, title: "Not a reusable widget class, a story/doc was never going to apply here regardless of effort" };
@@ -872,15 +860,9 @@
 
   function buildNav() {
     const nav = document.getElementById("nav-scroll");
-    // One unified section, not a Components/Patterns split: every entry in
-    // this inventory is a real, citable Figma component (even Toolbar and
-    // Toolbox, kind "none", which just have no dedicated Firefox class
-    // behind them) -- the per-item kind badge already tells that story on
-    // each item's own page, so a separate "is this a pattern" nav bucket
-    // was redundant with a system that now labels the real distinction
-    // directly. effectiveKind() (defined above, next to kindBadge) still
-    // matters here: it keeps a whole parent/child family (e.g. Panel
-    // Separator under Panel) grouped and ordered together.
+    // One unified section: every entry is a real, citable Figma component,
+    // and the per-item kind badge carries the distinction. effectiveKind()
+    // keeps a parent/child family (Panel Separator under Panel) together.
     const groups = [
       { title: "Components", match: () => true },
     ];

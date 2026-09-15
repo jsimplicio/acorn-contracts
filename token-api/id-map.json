@@ -1,39 +1,228 @@
 {
-  "foundational": ["button", "icon"],
+  "foundational": [
+    "button",
+    "icon"
+  ],
   "map": {
-    "toolbox": ["toolbox"],
-    "toolbar": { "own": ["toolbar"], "resolve": ["input"] },
-    "toolbar-button": ["toolbarbutton"],
-    "tabstrip": ["tabs-navbar"],
-    "tab": { "own": [{ "basename": "tab", "excludeSegments": ["group"] }], "resolve": ["toolbarbutton"] },
-    "tab-group": { "own": [{ "basename": "tab", "onlySegment": "group" }], "resolve": [] },
-    "sidebar": { "own": ["sidebar"], "resolve": ["card"] },
-    "infobar": ["info-bar", "toolbarseparator"],
-    "urlbar": { "own": ["urlbar", "popup"], "resolve": ["toolbar", "urlbarview", "toolbarbutton"] },
-    "urlbar-result": { "own": ["urlbarview"], "resolve": ["toolbar", "urlbar", "toolbarbutton", "popup"] },
-    "panel": ["panel", "popup"],
-    "panel-item": ["panel-menuitem", "panel-item"],
-    "panel-separator": { "own": [{ "basename": "panel", "onlySegment": "separator" }], "resolve": [] },
-    "panel-list": { "own": ["panel-list", "popup"], "resolve": ["panel"] },
-    "badge": ["moz-badge"],
-    "box-group": { "own": [{ "basename": "moz-box", "excludeSegments": ["button"] }], "resolve": [] },
-    "box-item": { "own": [{ "basename": "moz-box", "excludeSegments": ["button"] }], "resolve": [] },
-    "box-button": { "own": [{ "basename": "moz-box", "onlySegment": "button" }], "resolve": [] },
-    "box-link": { "own": [{ "basename": "moz-box", "onlySegment": "button" }], "resolve": [] },
-    "breadcrumb": ["moz-breadcrumb", "link"],
-    "button": { "own": ["button"], "resolve": ["toolbarbutton"] },
-    "icon-button": { "own": [{ "basename": "button", "onlySegment": "icon" }], "resolve": [] },
-    "split-button": { "own": [{ "basename": "button", "onlySegment": "split" }], "resolve": [] },
-    "card": ["card"],
-    "checkbox": ["checkbox"],
-    "input-color": ["moz-input-color"],
-    "input-text": ["input"],
-    "message-bar": ["moz-message-bar"],
-    "page-nav": ["page", "moz-page-nav"],
-    "promo": ["moz-promo"],
-    "segmented-control": ["moz-segmented-control"],
-    "select": ["moz-select"],
-    "toggle": ["moz-toggle"],
-    "visual-picker-item": ["moz-visual-picker-item"]
+    "badge": [
+      "moz-badge"
+    ],
+    "box-button": {
+      "own": [
+        {
+          "basename": "moz-box",
+          "onlySegment": "button"
+        }
+      ],
+      "resolve": []
+    },
+    "box-group": {
+      "own": [
+        {
+          "basename": "moz-box",
+          "excludeSegments": [
+            "button"
+          ]
+        }
+      ],
+      "resolve": []
+    },
+    "box-item": {
+      "own": [
+        {
+          "basename": "moz-box",
+          "excludeSegments": [
+            "button"
+          ]
+        }
+      ],
+      "resolve": []
+    },
+    "box-link": {
+      "own": [
+        {
+          "basename": "moz-box",
+          "onlySegment": "button"
+        }
+      ],
+      "resolve": []
+    },
+    "breadcrumb": [
+      "moz-breadcrumb",
+      "link"
+    ],
+    "button": {
+      "own": [
+        "button"
+      ],
+      "resolve": [
+        "toolbarbutton"
+      ]
+    },
+    "card": [
+      "card"
+    ],
+    "checkbox": [
+      "checkbox"
+    ],
+    "icon-button": {
+      "own": [
+        {
+          "basename": "button",
+          "onlySegment": "icon"
+        }
+      ],
+      "resolve": []
+    },
+    "infobar": [
+      "info-bar",
+      "toolbarseparator"
+    ],
+    "input-color": [
+      "moz-input-color"
+    ],
+    "input-text": [
+      "input"
+    ],
+    "message-bar": [
+      "moz-message-bar"
+    ],
+    "page-nav": [
+      "page",
+      "moz-page-nav"
+    ],
+    "panel": [
+      "panel",
+      "popup"
+    ],
+    "panel-item": [
+      "panel-menuitem",
+      "panel-item"
+    ],
+    "panel-list": {
+      "own": [
+        "panel-list",
+        "popup"
+      ],
+      "resolve": [
+        "panel"
+      ]
+    },
+    "panel-separator": {
+      "own": [
+        {
+          "basename": "panel",
+          "onlySegment": "separator"
+        }
+      ],
+      "resolve": []
+    },
+    "promo": [
+      "moz-promo"
+    ],
+    "segmented-control": [
+      "moz-segmented-control"
+    ],
+    "select": [
+      "moz-select"
+    ],
+    "sidebar": {
+      "own": [
+        "sidebar"
+      ],
+      "resolve": [
+        "card"
+      ]
+    },
+    "split-button": {
+      "own": [
+        {
+          "basename": "button",
+          "onlySegment": "split"
+        }
+      ],
+      "resolve": []
+    },
+    "tab": {
+      "own": [
+        {
+          "basename": "tab",
+          "excludeSegments": [
+            "group"
+          ]
+        }
+      ],
+      "resolve": [
+        "toolbarbutton"
+      ]
+    },
+    "tab-group": {
+      "own": [
+        {
+          "basename": "tab",
+          "onlySegment": "group"
+        }
+      ],
+      "resolve": []
+    },
+    "tabstrip": [
+      "tabs-navbar"
+    ],
+    "toggle": [
+      "moz-toggle"
+    ],
+    "toolbar": {
+      "own": [
+        "toolbar"
+      ],
+      "resolve": [
+        "input"
+      ]
+    },
+    "toolbar-button": [
+      "toolbarbutton"
+    ],
+    "toolbox": [
+      "toolbox"
+    ],
+    "urlbar": {
+      "own": [
+        "urlbar",
+        "popup"
+      ],
+      "resolve": [
+        "toolbar",
+        "urlbarview",
+        "toolbarbutton"
+      ]
+    },
+    "urlbar-action": {
+      "own": [
+        {
+          "basename": "urlbarview",
+          "onlySegment": "action"
+        }
+      ],
+      "resolve": [
+        "toolbar",
+        "urlbar",
+        "toolbarbutton",
+        "popup"
+      ]
+    },
+    "urlbar-result": {
+      "own": [
+        "urlbarview"
+      ],
+      "resolve": [
+        "toolbar",
+        "urlbar",
+        "toolbarbutton",
+        "popup"
+      ]
+    },
+    "visual-picker-item": [
+      "moz-visual-picker-item"
+    ]
   }
 }

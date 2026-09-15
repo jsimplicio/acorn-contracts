@@ -1,0 +1,35 @@
+{
+  "id": "urlbar-action",
+  "basenames": [
+    "urlbarview"
+  ],
+  "tokens": {
+    "urlbarview.action.button.background.color.@base": {
+      "value": "rgba(117, 102, 159, 0.25)",
+      "type": "color",
+      "chain": [
+        "urlbar.box.background.color.@base",
+        "urlbarview.background.color.hover",
+        "toolbarbutton.background.color.hover"
+      ]
+    },
+    "urlbarview.action.button.background.color.hover": {
+      "value": "rgba(117, 102, 159, 0.4)",
+      "type": "color",
+      "chain": [
+        "urlbar.box.background.color.hover",
+        "urlbarview.background.color.selected",
+        "toolbarbutton.background.color.active"
+      ]
+    },
+    "urlbarview.text.color.action": {
+      "value": "#3e315f",
+      "type": "color",
+      "chain": [
+        "toolbar.field.text.color.focus",
+        "toolbar.field.text.color.@base",
+        "color.violet-desaturated.70"
+      ]
+    }
+  }
+}

@@ -1,10 +1,10 @@
 {
   "id": "toolbox",
   "summary": "The whole top area of the browser window: the tab strip, navigation toolbar, and bookmarks bar together.",
-  "tagName": null,
-  "description": "No class or customElements.define; navigator-toolbox.js attaches a single DOMContentLoaded listener to the #navigator-toolbox and #widget-overflow elements that delegates command/click/mousedown/mouseup/keypress/drag-and-drop events (by target id/selector) to the right chrome handler for buttons like back/forward/reload, bookmarks star, identity/tracking-protection icons, downloads, sync, and unified extensions.",
+  "tagName": "toolbox",
+  "description": "The real XUL <toolbox> element, the container holding every browser toolbar. A built-in XUL widget tag with no JS class and no registered custom element: navigator-toolbox.inc.xhtml declares it carrying nothing but an id, and the 578 lines of navigator-toolbox.js are event delegation hung on #navigator-toolbox by id (popupshowing, command) rather than anything reading configuration off the element. Classified classic as a real XUL widget tag rather than none, but unlike <toolbar> it exposes no attributes worth documenting.",
   "implementation": {
-    "kind": "none",
-    "file": "browser/base/content/navigator-toolbox.js"
+    "kind": "classic",
+    "file": "browser/base/content/navigator-toolbox.inc.xhtml"
   }
 }

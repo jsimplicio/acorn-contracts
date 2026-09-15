@@ -1,10 +1,42 @@
 {
   "id": "toolbar",
   "summary": "A row of buttons and controls, like the main navigation bar with back/forward/reload.",
-  "tagName": null,
-  "description": "No dedicated class exists for the generic XUL <toolbar> tag itself; navigator-toolbox.js's event delegation is attached to the outer #navigator-toolbox container (the toolbox), not to any individual <toolbar> (nav-bar, PersonalToolbar, TabsToolbar), so there is no meaningful implementation distinct from 'toolbox' in this file beyond the fact that events bubble up from buttons inside those toolbars to the container's listeners.",
+  "tagName": "toolbar",
+  "description": "The real XUL <toolbar> element. Not Lit and not a registered custom element: <toolbar> is a built-in XUL tag with no dedicated JS class, which is why navigator-toolbox.js delegates events on the outer #navigator-toolbox container rather than on any individual toolbar. Its configuration is still real and citable, though: navigator-toolbox.inc.xhtml declares five of them (toolbar-menubar, TabsToolbar, nav-bar, PersonalToolbar, notifications-toolbar) carrying attributes CustomizableUI reads to decide whether an area is customizable, where widgets actually land, and how overflow behaves.",
   "implementation": {
-    "kind": "none",
-    "file": "browser/base/content/navigator-toolbox.js"
-  }
+    "kind": "classic",
+    "file": "browser/base/content/navigator-toolbox.inc.xhtml"
+  },
+  "attributes": [
+    {
+      "name": "customizable",
+      "type": "boolean",
+      "description": "Presence-only. CustomizableUI checks hasAttribute(\"customizable\") to decide whether this toolbar is a customizable area at all.",
+      "figmaConfig": false
+    },
+    {
+      "name": "customizationtarget",
+      "type": "string",
+      "description": "Id of the element that actually receives widgets. CustomizableUI falls back to the toolbar node itself when the attribute is absent.",
+      "figmaConfig": false
+    },
+    {
+      "name": "overflowable",
+      "type": "boolean",
+      "description": "Marks the area as overflowable, gating CustomizableUI's overflow handling. Immutable once the area is registered.",
+      "figmaConfig": false
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Area type read by CustomizableUI, and immutable once registered. \"menubar\" on toolbar-menubar.",
+      "figmaConfig": false
+    },
+    {
+      "name": "context",
+      "type": "string",
+      "description": "Id of the context menu to open on right-click; read by CustomizableUI. \"toolbar-context-menu\" on nav-bar.",
+      "figmaConfig": false
+    }
+  ]
 }

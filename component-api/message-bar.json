@@ -11,9 +11,9 @@
     {
       "name": "type",
       "type": {
-        "text": "string"
+        "text": "'info' | 'warning' | 'success' | 'error' | 'critical'"
       },
-      "description": "The type of the displayed message, drives the icon shown. Values with dedicated icon/l10n mappings in code: info, warning, success, error, critical (critical uses the same icon/l10n as error and is a legacy alias; Storybook's documented options list only info/warning/success/error, while the Figma Code Connect file also references \"critical\" and \"information\" as design-side type names).",
+      "description": "The type of the displayed message, drives the icon shown. Values with dedicated icon/l10n mappings in code: info, warning, success, error, critical (critical uses the same icon/l10n as error and is a legacy alias; Storybook's documented options list only info/warning/success/error, while the Figma Code Connect file also references \"critical\" and \"information\" as design-side type names). Figma Code Connect emits `information` where the code expects `info`; because `info` is the unstyled baseline, that mismatch renders acceptably by accident rather than by design.",
       "figmaConfig": true,
       "default": "info"
     },
@@ -107,7 +107,8 @@
         "info",
         "warning",
         "success",
-        "error"
+        "error",
+        "critical"
       ]
     }
   ],

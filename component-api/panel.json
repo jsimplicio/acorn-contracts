@@ -115,7 +115,8 @@
   "events": [
     {
       "name": "AlertActive",
-      "description": "Legacy Events-type event dispatched unconditionally from on_popupshown when event.target == this, for accessibility APIs."
+      "description": "Legacy Events-type event dispatched unconditionally from on_popupshown when event.target == this, for accessibility APIs.",
+      "deprecated": "Legacy Events-type event kept for accessibility APIs."
     }
   ],
   "methods": [

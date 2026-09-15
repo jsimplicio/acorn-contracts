@@ -123,7 +123,8 @@
     },
     {
       "name": "ValueChange",
-      "description": "Legacy accessibility event fired when the value changes."
+      "description": "Legacy accessibility event fired when the value changes.",
+      "deprecated": "Legacy accessibility event."
     },
     {
       "name": "searchmodechanged",

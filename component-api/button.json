@@ -28,7 +28,7 @@
     {
       "name": "size",
       "type": {
-        "text": "string"
+        "text": "'default' | 'small' | 'large'"
       },
       "description": "The button size. Options: `default`, `small`, `large`.",
       "figmaConfig": true,
@@ -119,7 +119,7 @@
     {
       "name": "iconPosition",
       "type": {
-        "text": "string"
+        "text": "'start' | 'end'"
       },
       "description": "The icon's position relative to the button label. Options: `start`, `end`.",
       "figmaConfig": true,

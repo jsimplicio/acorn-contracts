@@ -27,7 +27,7 @@
     {
       "name": "type",
       "type": {
-        "text": "string"
+        "text": "'default' | 'mobile'"
       },
       "description": "The type of the component. \"mobile\" shows a hamburger menu button before the logo/heading; default (unset) shows the standard nav.",
       "default": "default",

@@ -117,6 +117,13 @@
           "figmaConfig": {
             "type": "boolean",
             "description": "Whether this attribute is real user-facing configuration vs. internal/plumbing-only state. Omitted, not guessed, when genuinely unclear."
+          },
+          "deprecated": {
+            "type": [
+              "string",
+              "boolean"
+            ],
+            "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
           }
         }
       }
@@ -136,6 +143,13 @@
           },
           "description": {
             "type": "string"
+          },
+          "deprecated": {
+            "type": [
+              "string",
+              "boolean"
+            ],
+            "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
           }
         }
       }
@@ -154,6 +168,13 @@
           },
           "description": {
             "type": "string"
+          },
+          "deprecated": {
+            "type": [
+              "string",
+              "boolean"
+            ],
+            "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
           }
         }
       }
@@ -172,6 +193,13 @@
           },
           "description": {
             "type": "string"
+          },
+          "deprecated": {
+            "type": [
+              "string",
+              "boolean"
+            ],
+            "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
           }
         }
       }
@@ -194,6 +222,13 @@
           "default": {
             "type": "string",
             "description": "CEM's own field for this property's real literal value, used here for a property with no backing design token. Omitted, not guessed, when no such real default exists."
+          },
+          "deprecated": {
+            "type": [
+              "string",
+              "boolean"
+            ],
+            "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
           }
         }
       }
@@ -213,6 +248,13 @@
           },
           "description": {
             "type": "string"
+          },
+          "deprecated": {
+            "type": [
+              "string",
+              "boolean"
+            ],
+            "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
           }
         }
       }

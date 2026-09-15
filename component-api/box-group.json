@@ -11,7 +11,7 @@
     {
       "name": "type",
       "type": {
-        "text": "string"
+        "text": "'list' | 'reorderable-list' | undefined"
       },
       "description": "The type of the group, either \"list\", \"reorderable-list\", or undefined. Note that \"reorderable-list\" only works with moz-box-item elements for now.",
       "figmaConfig": true

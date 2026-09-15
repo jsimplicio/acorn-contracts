@@ -449,6 +449,7 @@
   .state-badge.live { background: var(--badge-modern-bg); color: var(--badge-modern-fg); }
   .state-badge.missing { background: var(--badge-none-bg); color: var(--badge-none-fg); }
   .state-badge.na { background: var(--bg-raised); color: var(--text-muted); }
+  .state-badge.deprecated { background: var(--badge-classic-bg); color: var(--badge-classic-fg); }
   td.figma-col { text-align: left; }
   /* <wbr> after each "/" in the markup, so a long path wraps at its own
      segment boundaries instead of mid-word. */
@@ -2094,12 +2095,20 @@
   // already-escaped HTML for the name cell. The Description column is
   // omitted when nothing in the collection has one: most methods carry no
   // description, and a blank column reads worse than no column.
+  // A deprecated member is still real and still documented, so it keeps its
+  // row and gets a badge rather than being hidden or struck through.
+  function deprecatedBadge(i) {
+    if (!i.deprecated) return "";
+    const why = typeof i.deprecated === "string" ? i.deprecated : "Deprecated";
+    return ` <span class="state-badge deprecated" title="${escapeHtml(why)}">deprecated</span>`;
+  }
+
   function renderNameTable(items, format) {
     const described = items.some(i => i.description);
     const head = described ? `<tr><th>Name</th><th>Description</th></tr>` : `<tr><th>Name</th></tr>`;
     const row = i => described
-      ? `<tr><td>${format(i)}</td><td>${i.description ? formatProse(i.description) : ""}</td></tr>`
-      : `<tr><td>${format(i)}</td></tr>`;
+      ? `<tr><td>${format(i)}${deprecatedBadge(i)}</td><td>${i.description ? formatProse(i.description) : ""}</td></tr>`
+      : `<tr><td>${format(i)}${deprecatedBadge(i)}</td></tr>`;
     return `<table class="attrs-table"><thead>${head}</thead><tbody>`
       + items.map(row).join("")
       + `</tbody></table>`;
@@ -2471,7 +2480,7 @@
       html += `<h2 class="section">Attributes and properties</h2><table class="attrs-table"><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>`;
       api.attributes.forEach(a => {
         const def = a.default ? `<code>${escapeHtml(a.default)}</code>` : "";
-        html += `<tr><td>${escapeHtml(a.name)}</td><td><code>${escapeBreakable(typeText(a.type))}</code></td><td>${def}</td><td>${formatProse(a.description)}</td></tr>`;
+        html += `<tr><td>${escapeHtml(a.name)}${deprecatedBadge(a)}</td><td><code>${escapeBreakable(typeText(a.type))}</code></td><td>${def}</td><td>${formatProse(a.description)}</td></tr>`;
       });
       html += `</tbody></table>`;
     }

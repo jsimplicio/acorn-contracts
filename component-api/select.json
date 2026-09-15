@@ -19,7 +19,7 @@
     {
       "name": "size",
       "type": {
-        "text": "string"
+        "text": "'default' | 'small'"
       },
       "description": "The select size. Options: `default`, `small`.",
       "figmaConfig": true,

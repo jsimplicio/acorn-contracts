@@ -36,16 +36,16 @@
     {
       "name": "type",
       "type": {
-        "text": "string"
+        "text": "'default' | 'accordion'"
       },
-      "description": "The card type. Default (unset) or \"accordion\".",
+      "description": "The card type. Default (unset) or \"accordion\". Figma Code Connect also offers a `slot` value, which matches no CSS rule here and is not a real card type.",
       "figmaConfig": true,
       "default": "default"
     },
     {
       "name": "spacing",
       "type": {
-        "text": "string"
+        "text": "'default' | 'compact'"
       },
       "description": "The spacing level applied to the card. Default or \"compact\" (reduced spacing).",
       "figmaConfig": true,

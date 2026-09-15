@@ -19,7 +19,7 @@
     {
       "name": "type",
       "type": {
-        "text": "string"
+        "text": "'icon' | 'icon ghost' | 'icon muted'"
       },
       "description": "Must include the \"icon\" token to get icon-only sizing/layout (CSS selector `[type~=\"icon\"]:not(.labelled)`). Supported combinations in moz-button.mjs/.css: \"icon\" (default theme) and \"icon ghost\" (ghost theme, via `[type~=\"ghost\"]`). Figma Code Connect (moz-button.figma.ts) also lists \"icon primary\" and \"icon neutral\", but no matching CSS rule exists for those combos: `[type=\"primary\"]` is an exact match, not a `~=` token match, so \"icon primary\" does not pick up primary styling.",
       "figmaConfig": true,
@@ -44,7 +44,7 @@
     {
       "name": "size",
       "type": {
-        "text": "string"
+        "text": "'default' | 'small' | 'large'"
       },
       "description": "Options: `default`, `small`, `large`. Affects icon-button square dimensions via `--button-size-icon(-small|-large)`.",
       "figmaConfig": true,

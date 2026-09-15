@@ -57,6 +57,17 @@ jobs:
           fi
           echo "token-api/figma-token-map.json matches its sources."
 
+  search-index:
+    # search-index.json is the corpus the sidebar search reads. It is built
+    # from the contracts and the READMEs, so any edit to either can leave it
+    # stale, and a stale index silently searches the old text.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check search-index.json is current
+        run: python3 build-search-index.py --check
+
   meta:
     # component-api/_meta.json and guidance-api/_meta.json record each file's
     # real last commit. They go stale two ways, both of which have happened:

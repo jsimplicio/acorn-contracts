@@ -84,7 +84,7 @@
     --code-name: #2076b2; --code-attr: #8f6c00; --code-str: #217e77;
     --code-lit: #cf2d7b; --code-comment: #647373;
     --prop-blue: #1d73a6;
-    --value-orange: #b35900;
+    --value-orange: #ac5500;
     --badge-modern-bg: #d9f2e3; --badge-modern-fg: #1a7f37;
     --badge-classic-bg: #fdeecb; --badge-classic-fg: #a15c00;
     --badge-none-bg: #f0d9d9; --badge-none-fg: #a11d1d;
@@ -368,7 +368,7 @@
 
   /* Code scrolls; wrapped JSON is worse than a scrollbar. */
   pre { overflow-x: auto; max-width: 100%; }
-  :not(pre) > code, .file-link { overflow-wrap: anywhere; }
+  :not(pre) > code, .file-link { overflow-wrap: break-word; }
 
   @media (max-width: 600px) {
     #main { padding: 72px 16px 40px; }
@@ -1070,6 +1070,12 @@
   // ── Token API loading + alias resolution ──────────────────────────────
   // Some real descriptions contain literal HTML (e.g. "details" mentions
   // <details>/<summary>); escape every data-sourced value before interpolating.
+  // Escaped text plus a <wbr> after every separator, so a long identifier
+  // wraps at its own segment boundaries instead of mid-word.
+  function escapeBreakable(value) {
+    return escapeHtml(value).replace(/([._\/-])/g, "$1<wbr>");
+  }
+
   function escapeHtml(value) {
     if (value === null || value === undefined) return "";
     return String(value)
@@ -1774,10 +1780,10 @@
   // real "In Figma" answer: figma-check.py now checks base families too.
   function renderBaseTokenTable(paths, flat, lookup, figmaMap) {
     const trs = paths.map(path =>
-      `<tr><td><code>${escapeHtml(path)}</code></td>` +
+      `<tr><td><code>${escapeBreakable(path)}</code></td>` +
       `<td class="value-col">${formatResolvedValue(flat[path], lookup)}</td>` +
       previewCell(path, flat[path], lookup) +
-      `<td class="css-prop-col"><code>${escapeHtml(deriveCssVarName(path))}</code></td>` +
+      `<td class="css-prop-col"><code>${escapeBreakable(deriveCssVarName(path))}</code></td>` +
       figmaCheckCell(deriveCssVarName(path), figmaMap) + `</tr>`
     ).join("");
     return `<table class="attrs-table base-tokens-table"><thead><tr><th>Token</th><th>Value</th>` +
@@ -2064,15 +2070,15 @@
     const raw = themedValue(t);
     if (typeof raw === "string" && ALIAS_PATTERN.test(raw)) {
       const resolved = resolveAlias(raw, lookup, 0);
-      if (!resolved.chain.length) return `<code>${escapeHtml(resolved.value)}</code>`;
+      if (!resolved.chain.length) return `<code>${escapeBreakable(resolved.value)}</code>`;
       // Same &#8618; hooked-arrow used for a nested sub-component under its
       // parent on the home table, one per line, since an alias chain is the
       // same shape: each hop is a real step down to the next real token,
       // not one flat "via A, B, C" list.
-      const hops = resolved.chain.map(hop => `<div class="alias-chain-hop">&#8618; <code class="token-id">${escapeHtml(hop)}</code></div>`).join("");
-      return `<code>${escapeHtml(resolved.value)}</code><div class="alias-chain">${hops}</div>`;
+      const hops = resolved.chain.map(hop => `<div class="alias-chain-hop">&#8618; <code class="token-id">${escapeBreakable(hop)}</code></div>`).join("");
+      return `<code>${escapeBreakable(resolved.value)}</code><div class="alias-chain">${hops}</div>`;
     }
-    return `<code>${escapeHtml(raw)}</code>`;
+    return `<code>${escapeBreakable(raw)}</code>`;
   }
 
 
@@ -2148,7 +2154,7 @@
   // blank Value cell.
   function renderCssPropertyTable(rows, effectiveTokens, resolveLookup, figmaMap) {
     const trs = rows.map(r => {
-      const tokenCell = r.tokenPath ? `<code>${escapeHtml(r.tokenPath)}</code>` : `<span class="meta">not a design token</span>`;
+      const tokenCell = r.tokenPath ? `<code>${escapeBreakable(r.tokenPath)}</code>` : `<span class="meta">not a design token</span>`;
       const valueCell = r.tokenPath ? formatResolvedValue(effectiveTokens[r.tokenPath], resolveLookup)
         : r.default ? `<code>${escapeHtml(r.default)}</code>` : "";
       // A row with no token but a real CEM default still has a real value
@@ -2158,7 +2164,7 @@
       const previewToken = r.tokenPath ? effectiveTokens[r.tokenPath] : (r.default ? { $value: r.default } : null);
       return `<tr><td>${tokenCell}</td><td class="value-col">${valueCell}</td>` +
         previewCell(r.tokenPath || r.name, previewToken, resolveLookup) +
-        `<td class="css-prop-col"><code>${escapeHtml(r.name)}</code></td>${figmaCheckCell(r.name, figmaMap)}</tr>`;
+        `<td class="css-prop-col"><code>${escapeBreakable(r.name)}</code></td>${figmaCheckCell(r.name, figmaMap)}</tr>`;
     }).join("");
     return `<table class="attrs-table tokens-table"><thead><tr><th>Token</th><th>Value</th><th>Preview</th><th>CSS custom property</th><th>In Figma</th></tr></thead><tbody>${trs}</tbody></table>`;
   }

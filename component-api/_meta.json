@@ -1,8 +1,8 @@
 {
   "note": "lastModified/lastCommit are this file's real last commit in this repo's own git history (git log -1 -- <file>), not a fabricated timestamp. This says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.",
   "repoHead": {
-    "commit": "b003fde7a86c3c3324a4642922baa881c6bd20f7",
-    "date": "2026-09-15T16:29:00-05:00"
+    "commit": "88b735ad567a95176a59f2b561b16ba4a085b0ed",
+    "date": "2026-09-15T17:02:41-05:00"
   },
   "files": {
     "badge": {
@@ -18,8 +18,8 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "box-group": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "88b735ad567a95176a59f2b561b16ba4a085b0ed",
+      "lastModified": "2026-09-15T17:02:41-05:00"
     },
     "box-item": {
       "lastCommit": "b74655b504f1cb551fe54776f8b10011123fb806",
@@ -34,8 +34,8 @@
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "button": {
-      "lastCommit": "54ae4229b19eb475894b2991cdfb7f25dde4c006",
-      "lastModified": "2026-09-15T16:12:39-05:00"
+      "lastCommit": "88b735ad567a95176a59f2b561b16ba4a085b0ed",
+      "lastModified": "2026-09-15T17:02:41-05:00"
     },
     "button-group": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -46,8 +46,8 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "card": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "88b735ad567a95176a59f2b561b16ba4a085b0ed",
+      "lastModified": "2026-09-15T17:02:41-05:00"
     },
     "checkbox": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -78,8 +78,8 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "icon-button": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "88b735ad567a95176a59f2b561b16ba4a085b0ed",
+      "lastModified": "2026-09-15T17:02:41-05:00"
     },
     "infobar": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -126,16 +126,16 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "message-bar": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "88b735ad567a95176a59f2b561b16ba4a085b0ed",
+      "lastModified": "2026-09-15T17:02:41-05:00"
     },
     "page-header": {
       "lastCommit": "b74655b504f1cb551fe54776f8b10011123fb806",
       "lastModified": "2026-09-15T16:28:59-05:00"
     },
     "page-nav": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "88b735ad567a95176a59f2b561b16ba4a085b0ed",
+      "lastModified": "2026-09-15T17:02:41-05:00"
     },
     "page-nav-item": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -146,8 +146,8 @@
       "lastModified": "2026-09-15T12:01:02-05:00"
     },
     "panel": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "88b735ad567a95176a59f2b561b16ba4a085b0ed",
+      "lastModified": "2026-09-15T17:02:41-05:00"
     },
     "panel-item": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -194,8 +194,8 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "select": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "88b735ad567a95176a59f2b561b16ba4a085b0ed",
+      "lastModified": "2026-09-15T17:02:41-05:00"
     },
     "sidebar": {
       "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
@@ -262,8 +262,8 @@
       "lastModified": "2026-09-14T21:05:27-05:00"
     },
     "urlbar": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "88b735ad567a95176a59f2b561b16ba4a085b0ed",
+      "lastModified": "2026-09-15T17:02:41-05:00"
     },
     "urlbar-action": {
       "lastCommit": "cc6dc4f1e9cb6e4199b8bc36dad2be7e5629352b",

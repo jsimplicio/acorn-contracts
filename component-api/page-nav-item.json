@@ -10,38 +10,50 @@
   "attributes": [
     {
       "name": "href",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Optional URL for an external link if not a support page URL; when set, the button renders as an <a target=\"_blank\"> instead of a <button>.",
       "figmaConfig": true
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The chrome:// URL for the icon used for the button (reflected attribute).",
       "figmaConfig": true
     },
     {
       "name": "selected",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the button is currently selected; managed by the parent moz-page-nav based on currentView, but reflects the button's own state.",
       "default": "false",
       "figmaConfig": false
     },
     {
       "name": "supportPage",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Optional short name for a support page a secondary link should launch to (attribute: support-page); when set, renders as a moz-support-link anchor.",
       "figmaConfig": true
     },
     {
       "name": "title",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Title used for the button or link; should always be set so the control is still identifiable when moz-page-nav is collapsed and its slotted text is hidden. Used in shadow DOM, not reflected as an attribute on the host.",
       "figmaConfig": true
     },
     {
       "name": "view",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Read via getAttribute(\"view\") (not a declared Lit property): identifies which view this button activates; compared against the parent moz-page-nav's currentView.",
       "figmaConfig": true
     }

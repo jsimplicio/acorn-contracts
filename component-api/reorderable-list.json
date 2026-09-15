@@ -10,14 +10,18 @@
   "attributes": [
     {
       "name": "itemSelector",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Selector for slotted elements that should be reorderable. Reflected as the lowercase HTML attribute itemselector (no explicit attribute name is set on the property, so Lit uses its lowercased default).",
       "figmaConfig": true,
       "default": "li"
     },
     {
       "name": "dragSelector",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Selector used when only part of a reorderable item should be the drag handle (e.g. a button or icon), instead of the whole item. Reflected as the lowercase HTML attribute dragselector.",
       "figmaConfig": true
     }

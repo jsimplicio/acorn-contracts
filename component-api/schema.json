@@ -95,7 +95,17 @@
             "type": "string"
           },
           "type": {
-            "type": "string"
+            "type": "object",
+            "description": "CEM's own Type object, not a bare string. `text` is the full type as written in whatever syntax the source uses, so an enumerated attribute is a TypeScript-style union. Note that Lit only declares `{ type: String }`, so a union here is this contract asserting the legal set, not a fact recovered from the source.",
+            "required": [
+              "text"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "text": {
+                "type": "string"
+              }
+            }
           },
           "description": {
             "type": "string"

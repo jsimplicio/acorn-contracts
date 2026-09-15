@@ -10,23 +10,31 @@
   "attributes": [
     {
       "name": "message.content.modal",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "\"tab\" opens the dialog tab-modal via gBrowser's tab dialog box; any other value (or omitted) opens it window-modal via gDialogBox."
     },
     {
       "name": "message.content.metrics",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "\"block\" suppresses IMPRESSION/DISMISS telemetry dispatch and CFR action dispatch for this message."
     },
     {
       "name": "message.content.write_in_microsurvey",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "When true, added to the telemetry event_context for user-event telemetry.",
       "default": "false"
     },
     {
       "name": "message.trigger.id",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "When \"lastWindowClose\", replaces any already-open dialog and aborts other tab dialogs on the selected browser so this modal takes priority before the window closes."
     }
   ],

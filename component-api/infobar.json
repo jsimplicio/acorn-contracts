@@ -10,67 +10,89 @@
   "attributes": [
     {
       "name": "value",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Notification id, set via setAttribute(\"value\", type); used to look up a specific open notification.",
       "figmaConfig": true
     },
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Derived from priority: \"system\", \"critical\", \"info\", or \"warning\"; drives icon/color styling. Inherited property from moz-message-bar.",
       "figmaConfig": true
     },
     {
       "name": "message-bar-type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Set unconditionally to \"infobar\" by appendNotification(); internal CSS-targeting hook, not caller-facing config."
     },
     {
       "name": "dismissable",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Inherited from moz-message-bar; controls whether the close button is shown.",
       "figmaConfig": true,
       "default": "true"
     },
     {
       "name": "heading",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited property from moz-message-bar for an optional bold heading line.",
       "figmaConfig": true
     },
     {
       "name": "message",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited property from moz-message-bar; the notification's body text (also settable via the label setter, which accepts a string or an {l10n-id, l10n-args} object).",
       "figmaConfig": true
     },
     {
       "name": "supportPage",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited from moz-message-bar; when set, renders a \"Learn more\" support link."
     },
     {
       "name": "priority",
-      "type": "number",
+      "type": {
+        "text": "number"
+      },
       "description": "Plain JS instance property (0-9, PRIORITY_SYSTEM through PRIORITY_CRITICAL_HIGH) set by appendNotification(); determines the type attribute.",
       "figmaConfig": true,
       "default": "0"
     },
     {
       "name": "persistence",
-      "type": "number",
+      "type": {
+        "text": "number"
+      },
       "description": "Plain JS instance property; number of location changes the notification survives before auto-removal.",
       "default": "0"
     },
     {
       "name": "timeout",
-      "type": "number",
+      "type": {
+        "text": "number"
+      },
       "description": "Plain JS instance property; a timestamp after which the notification is treated as expired.",
       "default": "0"
     },
     {
       "name": "role",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Managed internally via setAlertRole(); typically \"alert\", not caller-set."
     }
   ],

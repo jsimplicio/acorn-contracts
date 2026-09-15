@@ -10,46 +10,62 @@
   "attributes": [
     {
       "name": "mainViewId",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Attribute on <panelmultiview>; id of the <panelview> shown as the main view when the panel opens."
     },
     {
       "name": "viewCacheId",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Attribute on <panelmultiview>; id of an element that subviews are moved into (via _moveOutKids()) before the panel is removed, so they survive removePopup()."
     },
     {
       "name": "disablekeynav",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Attribute on <panelmultiview>; when present, arrow-key/Tab view navigation (the capturing keydown listener added on popupshowing) is not registered.",
       "default": "false"
     },
     {
       "name": "lockpanelvertical",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Attribute read from the first open view's node (openViews[0].node); when \"true\", a subview's height is locked to the previous view's height instead of resizing to fit."
     },
     {
       "name": "mainview",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Set on a <panelview>'s node by the mainview setter, true while that view is being shown as the panel's main view (vs. a pushed subview).",
       "default": "false"
     },
     {
       "name": "no-back-button",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Attribute on a <panelview>; suppresses the automatic back button that headerText would otherwise prepend.",
       "default": "false"
     },
     {
       "name": "has-custom-header",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Attribute on a <panelview>; keeps a custom header element from being removed when headerText is cleared.",
       "default": "false"
     },
     {
       "name": "mainview-with-header",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Attribute on a <panelview>; same effect as has-custom-header, keeps the header even with no title.",
       "default": "false"
     }

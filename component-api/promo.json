@@ -10,53 +10,69 @@
   "attributes": [
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The type of promo, either \"default\" or \"vibrant\". Determines the colors of the promotional element.",
       "figmaConfig": true,
       "default": "default"
     },
     {
       "name": "heading",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The heading of the promo element.",
       "figmaConfig": true
     },
     {
       "name": "message",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The message of the promo element.",
       "figmaConfig": true
     },
     {
       "name": "imageSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The main image of the promo element.",
       "figmaConfig": true
     },
     {
       "name": "imageAlignment",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "How the image should be aligned. Can be \"start\", \"end\", or \"center\".",
       "figmaConfig": true,
       "default": "start"
     },
     {
       "name": "imageWidth",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "How big the image is sized. Can be \"default\", \"small\" or \"large\".",
       "figmaConfig": true,
       "default": "small"
     },
     {
       "name": "imageDisplay",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Whether the image touches the edge of the promo or has a little padding around it. Can be \"cover\" or \"padded\".",
       "figmaConfig": true,
       "default": "padded"
     },
     {
       "name": "dismissable",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the promo can be dismissed via a close button.",
       "figmaConfig": true,
       "default": "false"

@@ -10,45 +10,59 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The group's display name; setter falls back to a zero-width space so layout stays stable, updates aria/tooltip, and fires TabGroupUpdate on change. Aliased as \"name\".",
       "figmaConfig": true,
       "default": "\\u200b (zero-width space, used when label is empty)"
     },
     {
       "name": "collapsed",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the group's tabs are collapsed/hidden; setter unlocks tab widths, updates aria/tooltip/overflow, and fires TabGroupCollapse/TabGroupExpand.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "color",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Not attribute-backed: the setter writes six CSS custom properties (--tab-group-color, -color-invert, -color-pale, -background-color, -background-color-hover, -text-color, -text-color-invert) pointing at the matching palette token set. Valid values: blue, cyan, gray, green, orange, pink, purple, red, yellow.",
       "figmaConfig": true
     },
     {
       "name": "hasactivetab",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Reflects whether one of the group's member tabs is currently active; updated in response to TabSelect/SplitViewTabChange.",
       "default": "false"
     },
     {
       "name": "movingtabgroup",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal drag/drop coordination flag, backed by the isBeingDragged getter/setter.",
       "default": "false"
     },
     {
       "name": "previewpanelactive",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal flag for the hover-preview panel, gated behind the browser.tabs.groups.hoverPreview.enabled pref.",
       "default": "false"
     },
     {
       "name": "hasmultipletabs",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal CSS hook toggled by #updateOverflowLabel() to control overflow-count display."
     }
   ],

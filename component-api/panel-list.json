@@ -10,56 +10,76 @@
   "attributes": [
     {
       "name": "open",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Reflected get/set property; observed attribute. Toggling it drives attributeChangedCallback, which calls onShow()/onHide() (alignment, popover show/hide, focus, hide-listener registration).",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "stay-open",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "get/set stayOpen. When present (and the anchor doesn't have a submenu), addHideListeners() is skipped entirely, so the panel never auto-dismisses; intended for inspecting panels/submenus in Storybook.",
       "default": "false"
     },
     {
       "name": "suppress-contextmenu",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "When present, addHideListeners() also registers a contextmenu listener so context menus are suppressed inside the open panel. Never wired up when stay-open short-circuits addHideListeners()."
     },
     {
       "name": "min-width-from-anchor",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "When present, setAlign() uses the anchor element's width (instead of the panel's own measured width) as the effective width for alignment, and sets min-width to the anchor's width.",
       "default": "false"
     },
     {
       "name": "popover",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Managed internally by initializePopover()/show(): set to \"auto\" (light-dismissable) or \"manual\", or removed entirely when embedded in a XUL panel or acting as a submenu. Not meant to be set directly by consumers."
     },
     {
       "name": "has-submenu",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Set on the panel-list by a child panel-item when that item has a submenu, so submenu-specific layout CSS can apply. Internal state, not consumer-set."
     },
     {
       "name": "align",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Internal, computed by setAlign(): \"left\" or \"right\", recorded so CSS can position the panel relative to its anchor."
     },
     {
       "name": "valign",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Internal, computed by setAlign(): \"top\" or \"bottom\"."
     },
     {
       "name": "inxulpanel",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal; reflects whether this panel-list is embedded inside a XUL <panel> (parentIsXULPanel()), which changes how positioning and open/close are handled."
     },
     {
       "name": "showing",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal, transient; set during layout measurement in setAlign()/setSubmenuAlign() to hide the panel until its position is computed, then removed."
     }
   ],

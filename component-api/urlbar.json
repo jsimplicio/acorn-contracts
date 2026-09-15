@@ -10,58 +10,78 @@
   "attributes": [
     {
       "name": "sap-name",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Which surface this instance represents: \"urlbar\", \"searchbar\", or \"smartbar\"; backed by the sapName getter."
     },
     {
       "name": "pageproxystate",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "\"valid\" when the displayed value matches the loaded page URL, \"invalid\" once the user starts typing/searching; gates autofill and search-mode behavior.",
       "figmaConfig": true,
       "default": "invalid"
     },
     {
       "name": "open",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Observed attribute; reflects whether the results view (breakout/expanded state) is open. Toggled by UrlbarView.",
       "figmaConfig": true
     },
     {
       "name": "focused",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Reflects focus state on the container for styling purposes.",
       "default": "false"
     },
     {
       "name": "actiontype",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Reflects a result's action type when autofilling a suggestion."
     },
     {
       "name": "textoverflow",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "\"start\" or \"end\"; controls which side the value text-overflow fade appears on."
     },
     {
       "name": "searchmode",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Present while a search mode (e.g. a specific search engine or local scope) is active; removed on exit.",
       "figmaConfig": true
     },
     {
       "name": "persistsearchterms",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Controls whether search terms persist in the input after a search is performed.",
       "default": "false"
     },
     {
       "name": "action-override",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Internal override used to force a specific action/result type."
     },
     {
       "name": "readOnly",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "JS getter/setter property (not a plain attribute) that reflects to the underlying input field's readOnly state.",
       "default": "false"
     }

@@ -10,70 +10,92 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The text of the label element.",
       "figmaConfig": true
     },
     {
       "name": "name",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The name of the checkbox input control.",
       "figmaConfig": false
     },
     {
       "name": "value",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The value of the checkbox input control. Defaults to \"on\" if unset.",
       "figmaConfig": false,
       "default": "on"
     },
     {
       "name": "checked",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The state of the checkbox element; also controls whether the checkbox is initially rendered as checked.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The disabled state of the checkbox input.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The src for an optional icon.",
       "figmaConfig": true
     },
     {
       "name": "description",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Text for the description element that helps describe the checkbox.",
       "figmaConfig": true
     },
     {
       "name": "supportPage",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Name of the SUMO support page to link to.",
       "figmaConfig": true
     },
     {
       "name": "ariaLabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The aria-label text when there is no visible label.",
       "figmaConfig": false
     },
     {
       "name": "ariaDescription",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The aria-description text when there is no visible description.",
       "figmaConfig": false
     },
     {
       "name": "title",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The title attribute, mapped onto the inner input.",
       "figmaConfig": false
     }

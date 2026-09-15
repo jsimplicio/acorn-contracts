@@ -10,50 +10,66 @@
   "attributes": [
     {
       "name": "accesskey",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Observed attribute; mirrored to the internal label's accessKey. Stashed and blanked while the owning panel is closed, restored on the panel's shown event (workaround for bug 1588156).",
       "figmaConfig": true
     },
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Observed attribute, getter/setter, defaults to \"button\". Only recognized special value is \"checkbox\", which sets role=menuitemcheckbox and enables the checked property.",
       "figmaConfig": true,
       "default": "button"
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Observed attribute, getter/setter; reflected onto the internal button.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "badge-type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Observed attribute; lazily creates a <moz-badge> element after the label and sets its type, or removes it when cleared.",
       "figmaConfig": true
     },
     {
       "name": "aria-haspopup",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Observed attribute; mirrored onto the internal button as an ARIA passthrough."
     },
     {
       "name": "submenu",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Not observed (read only once at connectedCallback via the hasSubmenu getter). Identifies the id of a nested panel-list placed in the submenu slot.",
       "figmaConfig": true
     },
     {
       "name": "badged",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Pure CSS attribute-selector hook (:host([badged]) button::after draws a small dot); not read by any JS in this component. Distinct from badge-type.",
       "figmaConfig": true
     },
     {
       "name": "checked",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Getter/setter, only meaningful when type=\"checkbox\"; otherwise the getter always returns false and the setter is a no-op.",
       "default": "false"
     }

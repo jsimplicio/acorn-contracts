@@ -10,31 +10,41 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Label for the link. Inherited from MozBoxBase (toolkit/content/widgets/lit-utils.mjs).",
       "figmaConfig": true
     },
     {
       "name": "description",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Descriptive text for the link. Inherited from MozBoxBase.",
       "figmaConfig": true
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The src for an optional icon. Inherited from MozBoxBase.",
       "figmaConfig": true
     },
     {
       "name": "href",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The href of the link. Ignored when supportPage is set (a support-link anchor is rendered instead).",
       "figmaConfig": true
     },
     {
       "name": "supportPage",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Name of a SUMO support page; when set, renders an is=\"moz-support-link\" anchor instead of a plain href anchor (attribute support-page).",
       "figmaConfig": true
     }

@@ -10,13 +10,17 @@
   "attributes": [
     {
       "name": "view",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The view id of the panel this header belongs to; forwarded to the internal close moz-button and the sidebar-panel-switcher.",
       "figmaConfig": false
     },
     {
       "name": "heading",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The panel title text rendered in the header.",
       "figmaConfig": true
     }

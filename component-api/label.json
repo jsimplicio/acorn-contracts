@@ -15,25 +15,33 @@
   "attributes": [
     {
       "name": "accesskey",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Key used for keyboard access; also propagated onto the labeled control element. Only the first character is used.",
       "figmaConfig": true
     },
     {
       "name": "shownaccesskey",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "A key to underline for display purposes without registering it as the real accesskey; works around multiple-accesskey elements being focused instead of activated.",
       "figmaConfig": false
     },
     {
       "name": "enable-center-crop",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Presence-only. Sets crop=\"center\" and, if no value attribute is set yet, copies the element's current textContent into it. While present, the overridden textContent getter returns the value attribute instead of the element's real text.",
       "figmaConfig": false
     },
     {
       "name": "control",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The id of the control this label is for; used to look up labeledControlElement.",
       "figmaConfig": true
     }

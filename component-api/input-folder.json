@@ -10,89 +10,117 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The text of the label element. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "name",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The name of the input control. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "value",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The path to the selected folder. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "displayValue",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The value shown in the input, when it should differ from the real value.",
       "figmaConfig": true,
       "default": ""
     },
     {
       "name": "dialogTitle",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Text to display as the file-picker dialog's title.",
       "figmaConfig": true,
       "default": ""
     },
     {
       "name": "folder",
-      "type": "object",
+      "type": {
+        "text": "object"
+      },
       "description": "Read-only getter for the nsIFile representing the currently selected folder (or null). Not a settable property.",
       "figmaConfig": false
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The disabled state of the component. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "readonly",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The readonly state of the input control; forced back to true on every update (willUpdate always resets it), since the value is only ever set via the folder picker, not typed directly.",
       "figmaConfig": false,
       "default": "true"
     },
     {
       "name": "required",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The required state of the input control. Inherited from MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The src for an optional icon in the label. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "description",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Text for the description element that helps describe the input control. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "supportPage",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "placeholder",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Text to display when the input has no value. Inherited from MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "title",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The title attribute, mapped onto the inner input. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": false
     }

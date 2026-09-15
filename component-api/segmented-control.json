@@ -10,25 +10,33 @@
   "attributes": [
     {
       "name": "deck",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Optional ID of a named-deck to control for tab switching.",
       "figmaConfig": true
     },
     {
       "name": "value",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Currently selected value.",
       "figmaConfig": true
     },
     {
       "name": "name",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Form control name.",
       "figmaConfig": false
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the control is disabled.",
       "figmaConfig": true,
       "default": "false"

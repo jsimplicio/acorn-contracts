@@ -10,106 +10,140 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The text of the label element. Inherited from MozBaseInputElement.",
       "figmaConfig": true
     },
     {
       "name": "name",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The name of the input control. Inherited from MozBaseInputElement.",
       "figmaConfig": true
     },
     {
       "name": "value",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The value of the input control. Inherited from MozBaseInputElement.",
       "figmaConfig": true
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The disabled state of the input control. Inherited from MozBaseInputElement.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "readonly",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The readonly state of the input control.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "required",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The required state of the input control. Declared directly in moz-input-text.mjs's own static properties, not inherited from MozBaseInputElement.",
       "figmaConfig": true
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The src for an optional icon. Inherited from MozBaseInputElement.",
       "figmaConfig": true
     },
     {
       "name": "description",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Text for the description element that helps describe the input control. Inherited from MozBaseInputElement.",
       "figmaConfig": true
     },
     {
       "name": "supportPage",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited from MozBaseInputElement.",
       "figmaConfig": true
     },
     {
       "name": "placeholder",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Text to display when the input has no value.",
       "figmaConfig": true
     },
     {
       "name": "ariaLabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The aria-label text when there is no visible label. Inherited from MozBaseInputElement.",
       "figmaConfig": false
     },
     {
       "name": "ariaDescription",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The aria-description text when there is no visible description. Inherited from MozBaseInputElement.",
       "figmaConfig": false
     },
     {
       "name": "invalid",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Plain HTML attribute (not a declared Lit reactive property) toggled by the consumer to show an error state, styled via the :host([invalid]) CSS selector (red border/accent-color). Used in moz-input-text.stories.mjs; not documented in the class JSDoc.",
       "figmaConfig": true
     },
     {
       "name": "parentDisabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal: set by a parent input/fieldset to cascade a disabled state. Inherited from MozBaseInputElement.",
       "figmaConfig": false
     },
     {
       "name": "inputLayout",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Internal layout mode (\"inline\" | \"block\" | \"inline-end\"); moz-input-text overrides the base default to \"block\". Inherited from MozBaseInputElement.",
       "figmaConfig": false,
       "default": "block"
     },
     {
       "name": "accessKey",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Mapped accesskey attribute. Inherited from MozBaseInputElement.",
       "figmaConfig": false
     },
     {
       "name": "title",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The title attribute, mapped onto the inner input. Inherited from MozBaseInputElement (`title: { type: String, mapped: true }`).",
       "figmaConfig": false
     }

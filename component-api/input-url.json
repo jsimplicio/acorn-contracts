@@ -10,81 +10,107 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The text of the label element. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "name",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The name of the input control. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "value",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The value of the input control. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The disabled state of the input control. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "readonly",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The readonly state of the input control. Inherited from MozInputText.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "required",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The required state of the input control. Inherited from MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The src for an optional icon. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "description",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Text for the description element that helps describe the input control. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "supportPage",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "placeholder",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Text to display when the input has no value. Inherited from MozInputText.",
       "figmaConfig": true
     },
     {
       "name": "ariaLabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The aria-label text when there is no visible label. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": false
     },
     {
       "name": "ariaDescription",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The aria-description text when there is no visible description. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": false
     },
     {
       "name": "title",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The title attribute, mapped onto the inner input. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": false
     }

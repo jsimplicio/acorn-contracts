@@ -10,108 +10,144 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Text label rendered in .toolbarbutton-text; re-rendered on change via attributeChangedCallback.",
       "figmaConfig": true
     },
     {
       "name": "wrap",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "If \"true\", label text wraps onto multiple lines instead of using a single-line value attribute.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "image",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as src on .toolbarbutton-icon; the icon image URL.",
       "figmaConfig": true
     },
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited from MozButtonBase; e.g. \"menu\", \"checkbox\", \"radio\" changes activation/rendering behavior.",
       "figmaConfig": true
     },
     {
       "name": "consumeanchor",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited attribute forwarded to .toolbarbutton-icon; used for anchoring popups to the button."
     },
     {
       "name": "badged",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "When \"true\", renders the badged fragment (icon + badge stack) instead of the plain icon/label fragment.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "badge",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as text content of .toolbarbutton-badge; the badge label text.",
       "figmaConfig": true
     },
     {
       "name": "badgeStyle",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the style attribute of .toolbarbutton-badge for custom badge styling."
     },
     {
       "name": "accesskey",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited attribute forwarded to .toolbarbutton-text; keyboard access key.",
       "figmaConfig": true
     },
     {
       "name": "crop",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited attribute forwarded to .toolbarbutton-text controlling label text cropping (default \"end\").",
       "default": "end"
     },
     {
       "name": "dragover-top",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited attribute forwarded to .toolbarbutton-text, used for drag-and-drop visual state."
     },
     {
       "name": "move-after-stack",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "On a child element, when \"true\" the child is appended after the badge stack rather than inserted before the icon (badged mode only).",
       "default": "false"
     },
     {
       "name": "validate",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited attribute forwarded to .toolbarbutton-icon."
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Inherited from MozButtonBase; disables the button and blocks click/keypress activation.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "checked",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Inherited from MozButtonBase; toggled for checkbox/radio type buttons.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "group",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited from MozButtonBase; groups radio-type buttons so only one in the group is checked."
     },
     {
       "name": "open",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Inherited from MozButtonBase; reflects/controls whether the button's menu is open.",
       "default": "false"
     },
     {
       "name": "hasbeenopened",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Set on the parent panel by the popupshowing listener; triggers deferred render() of buttons inside popups."
     }
   ],

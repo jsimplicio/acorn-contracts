@@ -1072,6 +1072,13 @@
   // <details>/<summary>); escape every data-sourced value before interpolating.
   // Escaped text plus a <wbr> after every separator, so a long identifier
   // wraps at its own segment boundaries instead of mid-word.
+  // CEM's Type object. Tolerates a bare string so an older cached copy of a
+  // contract still renders rather than printing "[object Object]".
+  function typeText(t) {
+    if (t == null) return "";
+    return typeof t === "string" ? t : (t.text || "");
+  }
+
   function escapeBreakable(value) {
     return escapeHtml(value).replace(/([._\/-])/g, "$1<wbr>");
   }
@@ -2464,7 +2471,7 @@
       html += `<h2 class="section">Attributes and properties</h2><table class="attrs-table"><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>`;
       api.attributes.forEach(a => {
         const def = a.default ? `<code>${escapeHtml(a.default)}</code>` : "";
-        html += `<tr><td>${escapeHtml(a.name)}</td><td><code>${escapeHtml(a.type)}</code></td><td>${def}</td><td>${formatProse(a.description)}</td></tr>`;
+        html += `<tr><td>${escapeHtml(a.name)}</td><td><code>${escapeBreakable(typeText(a.type))}</code></td><td>${def}</td><td>${formatProse(a.description)}</td></tr>`;
       });
       html += `</tbody></table>`;
     }

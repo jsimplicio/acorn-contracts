@@ -10,30 +10,40 @@
   "attributes": [
     {
       "name": "hasactivetab",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Reflects whether one of the two wrapped tabs is currently active; drives internal activate()/suspend() behavior.",
       "default": "false"
     },
     {
       "name": "multiselected",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Get-only in this file; set externally by multi-select code elsewhere.",
       "default": "false"
     },
     {
       "name": "splitViewId",
-      "type": "number",
+      "type": {
+        "text": "number"
+      },
       "description": "Mixed-case attribute holding a numeric session-restore identity for the split view, exposed via the state getter.",
       "figmaConfig": true
     },
     {
       "name": "hidden",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Toggled based on the visible getter; watched by the element's own subtree MutationObserver."
     },
     {
       "name": "dragtarget",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "External-only hook: referenced in tabs.css for drag styling but never set or read inside this file; managed by drag-and-drop code elsewhere."
     }
   ],

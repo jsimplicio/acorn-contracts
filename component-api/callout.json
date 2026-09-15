@@ -10,38 +10,52 @@
   "attributes": [
     {
       "name": "win",
-      "type": "Window",
+      "type": {
+        "text": "Window"
+      },
       "description": "Constructor option; the window the callout will render into."
     },
     {
       "name": "pref",
-      "type": "{ name: string, defaultValue?: string }",
+      "type": {
+        "text": "{ name: string, defaultValue?: string }"
+      },
       "description": "Constructor option; optional pref used to track progress through a multi-screen tour, e.g. { name: \"browser.pdfjs.feature-tour\" }."
     },
     {
       "name": "location",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Constructor option; string passed as the page when requesting messages from ASRouter and sending telemetry."
     },
     {
       "name": "context",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Constructor option; \"chrome\" when shown in the browser chrome, \"content\" when shown in a content page (e.g. Firefox View)."
     },
     {
       "name": "browser",
-      "type": "MozBrowser",
+      "type": {
+        "text": "MozBrowser"
+      },
       "description": "Constructor option; the <browser> element the callout is being shown in/for. Defaults to win.docShell.chromeEventHandler.",
       "default": "win.docShell.chromeEventHandler"
     },
     {
       "name": "listener",
-      "type": "function",
+      "type": {
+        "text": "function"
+      },
       "description": "Constructor option; callback invoked on various callout lifecycle events to keep an external broker informed of state."
     },
     {
       "name": "theme",
-      "type": "object",
+      "type": {
+        "text": "object"
+      },
       "description": "Constructor option; see FeatureCallout's themePresets for accepted shapes."
     }
   ],

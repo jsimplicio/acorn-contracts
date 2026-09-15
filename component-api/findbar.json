@@ -10,25 +10,33 @@
   "attributes": [
     {
       "name": "browserid",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Read via getAttribute to resolve the associated <browser> the findbar operates on; set by embedding chrome.",
       "figmaConfig": true
     },
     {
       "name": "prefillwithselection",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Backs the prefillWithSelection JS property (getter returns getAttribute(...) != \"false\"); controls whether the find field is prefilled with the current selection.",
       "default": "true"
     },
     {
       "name": "hidden",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Standard DOM property toggled by open()/close() to show or hide the bar.",
       "figmaConfig": true
     },
     {
       "name": "noanim",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal animation-suppression flag set during open()/close(), consumed by CSS."
     }
   ],

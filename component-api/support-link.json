@@ -15,19 +15,25 @@
   "attributes": [
     {
       "name": "support-page",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Short-hand string identifying the specific SUMO support page; combined with the app's support base URL to build href. Also exposed as the supportPage JS property.",
       "figmaConfig": true
     },
     {
       "name": "utm-content",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "UTM content parameter appended to the URL, only applied when the resulting URL is an AMO (mozilla.org/allizom.org) URL.",
       "figmaConfig": false
     },
     {
       "name": "data-l10n-id",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Fluent id used to generate the link's text content when none is otherwise provided.",
       "figmaConfig": true
     }

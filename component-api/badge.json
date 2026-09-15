@@ -10,25 +10,33 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Text to display on the badge, by default inferred from type (falls back to a fluent id per type when unset).",
       "figmaConfig": true
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The src for an optional icon shown next to the label.",
       "figmaConfig": true
     },
     {
       "name": "title",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The title of the badge, appears as a tooltip on hover.",
       "figmaConfig": true
     },
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The type of badge.",
       "figmaConfig": true,
       "default": "default"

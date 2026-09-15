@@ -10,19 +10,25 @@
   "attributes": [
     {
       "name": "value",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "A CSS hex value shown in the swatch area.",
       "figmaConfig": true
     },
     {
       "name": "name",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Name associated with the nested native input element; useful in forms.",
       "figmaConfig": false
     },
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The text of the label shown next to the swatch.",
       "figmaConfig": true
     }

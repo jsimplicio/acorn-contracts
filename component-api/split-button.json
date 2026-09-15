@@ -10,28 +10,38 @@
   "attributes": [
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "On classic <button>: \"menu\" renders the real dropmarker split-button fragment (MozButton.menuFragment). Other classic values (checkbox, radio) are unrelated modes of the same MozButtonBase class, not split-button variants."
     },
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Classic <button>'s visible text; inherited onto .button-text along with accesskey and crop (static inheritedAttributes)."
     },
     {
       "name": "image",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Path to the icon image; inherited onto .button-icon's src (inheritedAttributes: \"src=image\")."
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Classic <button>'s disabled state, reflected via MozButtonBase and inherited onto the dropmarker too.",
       "default": "false"
     },
     {
       "name": "open",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Reflects/controls the associated <menupopup>'s open state via hasMenu()/openMenu().",
       "default": "false"
     }

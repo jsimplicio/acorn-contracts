@@ -10,114 +10,150 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The button's label, will be overridden by slotted content.",
       "figmaConfig": true
     },
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The button type. Options: `default`, `primary`, `destructive`, `icon`, `icon ghost`, `ghost`, `split` (plus `icon neutral`/`neutral` seen in Figma Code Connect).",
       "figmaConfig": true,
       "default": "default"
     },
     {
       "name": "size",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The button size. Options: `default`, `small`, `large`.",
       "figmaConfig": true,
       "default": "default"
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "The disabled state.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "title",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The button's title attribute, used in shadow DOM and therefore not as an attribute on moz-button.",
       "figmaConfig": false
     },
     {
       "name": "tooltipText",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Set the title property; the title attribute will be used first.",
       "figmaConfig": false
     },
     {
       "name": "ariaLabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The button's aria-label attribute, used in shadow DOM and therefore not as an attribute on moz-button.",
       "figmaConfig": false
     },
     {
       "name": "ariaHasPopup",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The button's aria-haspopup attribute, indicates a popup element can be triggered by the button.",
       "figmaConfig": false
     },
     {
       "name": "ariaExpanded",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The button's aria-expanded attribute, indicates whether the controlled elements are displayed or hidden.",
       "figmaConfig": false
     },
     {
       "name": "ariaPressed",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The button's aria-pressed attribute, used in shadow DOM and therefore not as an attribute on moz-button.",
       "figmaConfig": false
     },
     {
       "name": "ariaChecked",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The button's aria-checked attribute, used in shadow DOM and therefore not as an attribute on moz-button.",
       "figmaConfig": false
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Path to the icon that should be displayed in the button.",
       "figmaConfig": true
     },
     {
       "name": "attention",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Show a dot notification on the button if true.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "iconPosition",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The icon's position relative to the button label. Options: `start`, `end`.",
       "figmaConfig": true,
       "default": "start"
     },
     {
       "name": "menuId",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "A CSS selector string that identifies the associated panel-list menu element controlled by the button.",
       "figmaConfig": true
     },
     {
       "name": "parentDisabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "When the parent of this component is disabled.",
       "figmaConfig": false
     },
     {
       "name": "accessKey",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Internal, maps the accesskey attribute to the accessKey JS property (mapped, not in the top JSDoc block but declared in static properties).",
       "figmaConfig": false
     },
     {
       "name": "hasVisibleLabel",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal, tracks whether or not the button has a visible label (state property, not a real attribute).",
       "figmaConfig": false
     }

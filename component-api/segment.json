@@ -10,59 +10,77 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Label text for the button.",
       "figmaConfig": true
     },
     {
       "name": "value",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Value for this option.",
       "figmaConfig": true
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Optional icon to display.",
       "figmaConfig": true
     },
     {
       "name": "checked",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether this item is selected. Internally toggles the underlying moz-button's type between \"primary\" (checked) and \"ghost\" (unchecked).",
       "figmaConfig": false,
       "default": "false"
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether this item is disabled.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "parentDisabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Set by the parent moz-segmented-control when it is disabled.",
       "figmaConfig": false,
       "default": "false"
     },
     {
       "name": "size",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Button size, \"default\" or \"small\".",
       "figmaConfig": true,
       "default": "default"
     },
     {
       "name": "accessKey",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Access key for keyboard shortcut.",
       "figmaConfig": false
     },
     {
       "name": "ariaLabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Accessible label when no visible label is present.",
       "figmaConfig": false
     }

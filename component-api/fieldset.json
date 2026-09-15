@@ -10,63 +10,83 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The label for the fieldset's legend.",
       "figmaConfig": true
     },
     {
       "name": "description",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The description text for the fieldset.",
       "figmaConfig": true
     },
     {
       "name": "supportPage",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Name of the SUMO support page to link to (attribute: support-page). When unset, a named \"support-link\" slot is rendered instead so callers can supply their own link.",
       "figmaConfig": true
     },
     {
       "name": "headingLevel",
-      "type": "number",
+      "type": {
+        "text": "number"
+      },
       "description": "Renders the legend as h1-h6 instead of plain legend text. Default is -1 (no heading).",
       "figmaConfig": true,
       "default": "-1"
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Disables the fieldset and, via a MutationObserver-style pass over children, propagates a disabled/parentDisabled state to nested form controls that support it.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Src for an optional icon shown next to the legend.",
       "figmaConfig": true
     },
     {
       "name": "badge",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Includes a moz-badge of this type next to the legend. Options: `beta`, `new`.",
       "figmaConfig": true
     },
     {
       "name": "ariaLabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Accessible label, mapped from the aria-label attribute.",
       "figmaConfig": false
     },
     {
       "name": "ariaOrientation",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Mapped aria-orientation attribute for the fieldset.",
       "figmaConfig": false
     },
     {
       "name": "role",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Mapped role attribute for the inner fieldset element, applied only when set.",
       "figmaConfig": false
     }

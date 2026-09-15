@@ -10,44 +10,58 @@
   "attributes": [
     {
       "name": "heading",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The page title text.",
       "figmaConfig": true
     },
     {
       "name": "description",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Secondary text shown under the heading.",
       "figmaConfig": true
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Src for an optional icon shown next to the heading.",
       "figmaConfig": true
     },
     {
       "name": "supportPage",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Optional SUMO support page slug (attribute: support-page) for a related support article link.",
       "figmaConfig": true
     },
     {
       "name": "backButton",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the header includes a back button; fires navigate-back when clicked.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "badge",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Includes a moz-badge of this type with matching text. Options: `beta`, `new`.",
       "figmaConfig": true
     },
     {
       "name": "headingLevel",
-      "type": "number",
+      "type": {
+        "text": "number"
+      },
       "description": "Heading level to render (1-6). Defaults to 2.",
       "figmaConfig": true,
       "default": "2"

@@ -10,45 +10,59 @@
   "attributes": [
     {
       "name": "pressed",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether or not the element is pressed (on).",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether or not the element is disabled.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The label text.",
       "figmaConfig": true
     },
     {
       "name": "description",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The description text.",
       "figmaConfig": true
     },
     {
       "name": "ariaLabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The aria-label text when there is no visible label.",
       "figmaConfig": false
     },
     {
       "name": "ariaDescription",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The aria-description text when there is no visible description.",
       "figmaConfig": false
     },
     {
       "name": "title",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The title attribute, mapped onto the inner button.",
       "figmaConfig": false
     }

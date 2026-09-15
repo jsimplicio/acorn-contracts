@@ -10,47 +10,61 @@
   "attributes": [
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Observed attribute. \"checkbox\" gives the internal button role=\"menuitemcheckbox\" and an aria-checked reflection; any other value (default \"button\") gives role=\"menuitem\".",
       "figmaConfig": true,
       "default": "button"
     },
     {
       "name": "disabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Observed attribute; get/set property. Toggles the disabled attribute on the internal button.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "checked",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "get/set property (not in observedAttributes). Only meaningful when type=\"checkbox\"; toggles the checked attribute and the internal button's aria-checked.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "accesskey",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Observed attribute. Moved onto an internal XUL <label> for display; temporarily cleared while the parent panel-list is closed and restored when it reopens (bug 1588156 workaround).",
       "figmaConfig": true
     },
     {
       "name": "badge-type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Observed attribute. When set, inserts a <moz-badge type=\"...\"> element right after the label; removed when the attribute is cleared.",
       "figmaConfig": true
     },
     {
       "name": "submenu",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Presence flag (hasAttribute(\"submenu\")), read once in connectedCallback. When present, adds a submenu-icon and a named \"submenu\" slot for a nested panel-list, and sets has-submenu on the parent panel-list.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "aria-haspopup",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Observed attribute; forwarded verbatim to the internal button's aria-haspopup."
     }
   ],

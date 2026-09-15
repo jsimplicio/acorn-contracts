@@ -10,39 +10,51 @@
   "attributes": [
     {
       "name": "currentView",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The currently selected view; matched against each moz-page-nav-button's view attribute.",
       "figmaConfig": true
     },
     {
       "name": "heading",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "A heading displayed at the top of the navigation.",
       "figmaConfig": true
     },
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The type of the component. \"mobile\" shows a hamburger menu button before the logo/heading; default (unset) shows the standard nav.",
       "default": "default",
       "figmaConfig": true
     },
     {
       "name": "allowNoSelection",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "When false (default), the component auto-selects the first visible button whenever currentView does not match any button. When true, a non-matching currentView is allowed to persist without forcing a selection (used by about:preferences for sub-pages/search-results states where no category should be highlighted).",
       "default": "false",
       "figmaConfig": false
     },
     {
       "name": "pageNavButtons",
-      "type": "array",
+      "type": {
+        "text": "array"
+      },
       "description": "Internal/read state: the array of all slotted primary moz-page-nav-button elements, derived from slotchange.",
       "figmaConfig": false
     },
     {
       "name": "secondaryNavButtons",
-      "type": "array",
+      "type": {
+        "text": "array"
+      },
       "description": "Internal/read state: the array of all slotted secondary-nav moz-page-nav-button elements, derived from slotchange.",
       "figmaConfig": false
     }

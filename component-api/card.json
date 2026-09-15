@@ -10,53 +10,69 @@
   "attributes": [
     {
       "name": "heading",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The heading text used for the card.",
       "figmaConfig": true
     },
     {
       "name": "headingLevel",
-      "type": "number",
+      "type": {
+        "text": "number"
+      },
       "description": "Specifies whether the heading renders as h1-h6 instead of a plain span (0 or unset renders a span).",
       "figmaConfig": true,
       "default": "0"
     },
     {
       "name": "iconSrc",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Path to an optional icon shown next to the heading.",
       "figmaConfig": true
     },
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The card type. Default (unset) or \"accordion\".",
       "figmaConfig": true,
       "default": "default"
     },
     {
       "name": "spacing",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The spacing level applied to the card. Default or \"compact\" (reduced spacing).",
       "figmaConfig": true,
       "default": "default"
     },
     {
       "name": "expanded",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "For accordion cards, whether the content section is expanded on initial render (and reflects current open/closed state after user toggling).",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "role",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Optional ARIA role for the card's article element.",
       "figmaConfig": false
     },
     {
       "name": "summaryTabIndex",
-      "type": "number",
+      "type": {
+        "text": "number"
+      },
       "description": "Optional tabindex for the accordion summary element.",
       "figmaConfig": false
     }

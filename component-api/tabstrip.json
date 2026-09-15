@@ -10,48 +10,64 @@
   "attributes": [
     {
       "name": "orient",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The only observedAttribute; \"horizontal\" or \"vertical\" tab layout. Backs the verticalMode getter and is propagated to the pinned-tabs container.",
       "figmaConfig": true,
       "default": "horizontal"
     },
     {
       "name": "overflow",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Reflected state attribute set when the tabstrip's scrollbox is overflowing; not meant to be set by a consumer.",
       "default": "false"
     },
     {
       "name": "closebuttons",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Controls close-button visibility policy, e.g. \"activetab\" shows the close button only on the active tab.",
       "figmaConfig": true
     },
     {
       "name": "expanded",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Reflected state for the vertical-tabs sidebar expanded/collapsed layout."
     },
     {
       "name": "tablist-has-focus",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal accessibility-focus bookkeeping, backed by the tablistHasFocus getter/setter.",
       "default": "false"
     },
     {
       "name": "movingtab",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal state set while a tab drag is in progress.",
       "default": "false"
     },
     {
       "name": "using-closing-tabs-spacer",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal state used while a closing-tab width-preserving spacer is active."
     },
     {
       "name": "hiddensoundplaying",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal state reflecting whether a hidden tab is currently playing audio."
     }
   ],

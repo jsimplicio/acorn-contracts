@@ -10,31 +10,41 @@
   "attributes": [
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Label for the group of elements.",
       "figmaConfig": true
     },
     {
       "name": "description",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Description for the group of elements.",
       "figmaConfig": true
     },
     {
       "name": "name",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Name used to associate items in the group. Propagates to moz-visual-picker-item children.",
       "figmaConfig": false
     },
     {
       "name": "value",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Selected value for the group. Changing the value updates the checked state of moz-visual-picker-item children and vice versa.",
       "figmaConfig": true
     },
     {
       "name": "orientation",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Layout orientation of the picker, \"horizontal\" (default) or \"vertical\". Propagates to moz-visual-picker-item children.",
       "figmaConfig": true,
       "default": "horizontal"

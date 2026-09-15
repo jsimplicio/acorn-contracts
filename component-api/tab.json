@@ -10,114 +10,150 @@
   "attributes": [
     {
       "name": "pinned",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the tab is pinned to the start of the tabstrip.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "selected",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the tab is the active tab; set via the internal _selected setter, actual selection is driven by gBrowser.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "multiselected",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the tab is part of a multi-selection.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "muted",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether audio playback on the tab is muted.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "soundplaying",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the tab is currently playing audio.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "pictureinpicture",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the tab has an active picture-in-picture window.",
       "default": "false"
     },
     {
       "name": "activemedia-blocked",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether autoplay media on the tab was blocked.",
       "default": "false"
     },
     {
       "name": "usercontextid",
-      "type": "number",
+      "type": {
+        "text": "number"
+      },
       "description": "The container (contextual identity) id the tab belongs to.",
       "figmaConfig": true,
       "default": "0"
     },
     {
       "name": "undiscardable",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the tab is protected from automatic memory-saving discard.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "attention",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the tab is showing an attention dot (e.g. a background alert).",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "The tab's title text, inherited onto the internal .tab-label element.",
       "figmaConfig": true
     },
     {
       "name": "tab-note",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Whether the tab has an attached note, backed by the hasTabNote getter/setter.",
       "figmaConfig": true,
       "default": "false"
     },
     {
       "name": "visuallyselected",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal e10s tab-switch visual state, distinct from logical selection.",
       "default": "false"
     },
     {
       "name": "busy",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal loading-state flag driving the throbber."
     },
     {
       "name": "bursting",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal flag driving the throbber's completion \"burst\" animation."
     },
     {
       "name": "textoverflow",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Internal CSS hook for label text-overflow fade direction."
     },
     {
       "name": "soundplaying-scheduledremoval",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal grace-period flag before the sound icon is removed; drives --soundplaying-removal-delay."
     },
     {
       "name": "customizemode",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Internal state reflecting whether the browser is in toolbar customize mode."
     }
   ],

@@ -10,31 +10,41 @@
   "attributes": [
     {
       "name": "customizable",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Presence-only. CustomizableUI checks hasAttribute(\"customizable\") to decide whether this toolbar is a customizable area at all.",
       "figmaConfig": false
     },
     {
       "name": "customizationtarget",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Id of the element that actually receives widgets. CustomizableUI falls back to the toolbar node itself when the attribute is absent.",
       "figmaConfig": false
     },
     {
       "name": "overflowable",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Marks the area as overflowable, gating CustomizableUI's overflow handling. Immutable once the area is registered.",
       "figmaConfig": false
     },
     {
       "name": "type",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Area type read by CustomizableUI, and immutable once registered. \"menubar\" on toolbar-menubar.",
       "figmaConfig": false
     },
     {
       "name": "context",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Id of the context menu to open on right-click; read by CustomizableUI. \"toolbar-context-menu\" on nav-bar.",
       "figmaConfig": false
     }

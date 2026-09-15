@@ -10,124 +10,170 @@
   "attributes": [
     {
       "name": "popupid",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Forwarded to the icon, body, and description parts; used to build data-l10n-id-style identifiers for the notification.",
       "figmaConfig": true
     },
     {
       "name": "icon",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as src on .popup-notification-icon.",
       "figmaConfig": true
     },
     {
       "name": "iconclass",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as an additional class on .popup-notification-icon."
     },
     {
       "name": "hasicon",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Inherited presence flag forwarded to .popup-notification-icon."
     },
     {
       "name": "origin",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as both the value and tooltiptext of the .popup-notification-origin link (the site/origin the notification is about).",
       "figmaConfig": true
     },
     {
       "name": "descriptionid",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the id of .popup-notification-description."
     },
     {
       "name": "label",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the first text span in the compound description sentence.",
       "figmaConfig": true
     },
     {
       "name": "name",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the bold '.popup-notification-description-name' span (e.g. a site or permission name)."
     },
     {
       "name": "endlabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the second text span in the description."
     },
     {
       "name": "secondname",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the trailing bold span in the description."
     },
     {
       "name": "secondendlabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the final text span in the description."
     },
     {
       "name": "hinttext",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the text of .popup-notification-hint-text, a secondary line below the main description."
     },
     {
       "name": "closebuttonhidden",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Inherited as hidden on the close toolbarbutton."
     },
     {
       "name": "learnmoreurl",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as href on the 'Learn more' link.",
       "figmaConfig": true
     },
     {
       "name": "warninghidden",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Inherited as hidden on the warning description."
     },
     {
       "name": "warninglabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the text of the warning description."
     },
     {
       "name": "secondarybuttonlabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the label of the secondary moz-button.",
       "figmaConfig": true
     },
     {
       "name": "secondarybuttonaccesskey",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the accesskey of the secondary moz-button."
     },
     {
       "name": "secondarybuttonhidden",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Inherited as hidden on both the secondary button and the 'more actions' menupopup."
     },
     {
       "name": "buttonlabel",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the label of the primary moz-button.",
       "figmaConfig": true
     },
     {
       "name": "buttonaccesskey",
-      "type": "string",
+      "type": {
+        "text": "string"
+      },
       "description": "Inherited as the accesskey of the primary moz-button."
     },
     {
       "name": "mainactiondisabled",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "Inherited as disabled on the primary moz-button."
     },
     {
       "name": "dropmarkerhidden",
-      "type": "boolean",
+      "type": {
+        "text": "boolean"
+      },
       "description": "When present, forces the secondary button's type to \"default\" instead of \"split\" (hiding its chevron/menu affordance).",
       "default": "false"
     }

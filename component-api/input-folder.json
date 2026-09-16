@@ -123,6 +123,41 @@
       },
       "description": "The title attribute, mapped onto the inner input. Inherited from MozBaseInputElement via MozInputText.",
       "figmaConfig": false
+    },
+    {
+      "name": "accessKey",
+      "type": {
+        "text": "string"
+      },
+      "description": "Mapped accesskey attribute. Inherited from MozBaseInputElement via MozInputText."
+    },
+    {
+      "name": "inputLayout",
+      "type": {
+        "text": "string"
+      },
+      "description": "Internal layout mode (\"inline\" | \"block\" | \"inline-end\"); moz-input-text overrides the base default to \"block\". Inherited from MozBaseInputElement via MozInputText."
+    },
+    {
+      "name": "ariaLabel",
+      "type": {
+        "text": "string"
+      },
+      "description": "Mapped aria-label attribute. Inherited from MozBaseInputElement via MozInputText."
+    },
+    {
+      "name": "ariaDescription",
+      "type": {
+        "text": "string"
+      },
+      "description": "Mapped aria-description attribute. Inherited from MozBaseInputElement via MozInputText."
+    },
+    {
+      "name": "parentDisabled",
+      "type": {
+        "text": "boolean"
+      },
+      "description": "Internal: set by a parent input/fieldset to cascade a disabled state. Inherited from MozBaseInputElement via MozInputText."
     }
   ],
   "slots": [

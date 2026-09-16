@@ -647,6 +647,7 @@
     <div id="nav-results"></div>
     <a data-show="home" class="active">Home</a>
     <h2>Docs</h2>
+    <a data-show="doc-readme">Overview</a>
     <a data-show="doc-component-api">Component API</a>
     <a data-show="doc-guidance-api">Guidance API</a>
     <a data-show="doc-token-api">Token API</a>
@@ -672,6 +673,7 @@
 
     <h2 class="section">Notes</h2>
     <ul>
+      <li>This repo has <strong>one</strong> third-party dependency, <code>jsonschema</code>, used only by <code>validate-schemas.py</code>. No <code>package.json</code>, no <code>node_modules</code>, and this page itself loads no CDN, framework or external script. The full breakdown is in <a data-show="doc-readme" href="docs/readme">Overview</a>, rendered live from <code>README.md</code> rather than restated here.</li>
       <li>A design token is meant to be one fact that any target can express, and most are. A few are not, and the layer that gives out first is usually not Figma. Two of Firefox's text colours are authored as <code>color-mix(in srgb, currentColor 69%, transparent)</code>: that is a CSS expression, and the W3C DTCG token format has no expression syntax at all, so it is already outside what the format can describe before any tool sees it. <code>currentColor</code> then makes the value deliberately context-dependent, and a Figma variable holds one resolved colour with no inheritance to refer to. See <a data-show="doc-token-api" href="docs/token-api">Token API</a> for the full walk through each layer.</li>
       <li>No chrome or structural component has a Supernova documentation page or a Storybook story. The only doc coverage for this whole category is one narrative page, Desktop/Patterns/Browser anatomy/Overview.</li>
       <li>Checkbox and Radio each ship both a modern version and a classic version at the same time, marked "modern + classic" rather than picking one.</li>
@@ -1362,6 +1364,7 @@
     "doc-component-api": { title: "Component API", file: "component-api/README.md", schema: "component-api/schema.json" },
     "doc-guidance-api": { title: "Guidance API", file: "guidance-api/README.md", schema: "guidance-api/schema.json" },
     "doc-token-api": { title: "Token API", file: "token-api/README.md", schema: "token-api/schema.json" },
+    "doc-readme": { title: "Overview", file: "README.md" },
     "doc-faq": { title: "FAQ", file: "FAQ.md" },
   };
   const docHtmlCache = {};

@@ -28,6 +28,7 @@ DOC_PAGES = {
     "doc-component-api": ("Component API", "component-api/README.md"),
     "doc-guidance-api": ("Guidance API", "guidance-api/README.md"),
     "doc-token-api": ("Token API", "token-api/README.md"),
+    "doc-readme": ("Overview", "README.md"),
     "doc-faq": ("FAQ", "FAQ.md"),
 }
 

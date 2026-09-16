@@ -37,7 +37,7 @@ python3 -m pip install jsonschema   # the only install this repo needs
 python3 serve.sh                    # view the site locally
 ```
 
-| | |
+| what | status |
 |---|---|
 | Third-party Python | `jsonschema` |
 | Everything else | stdlib: `json`, `re`, `glob`, `os`, `sys`, `pathlib`, `subprocess`, `hashlib`, `tempfile`, `argparse`, `collections` |

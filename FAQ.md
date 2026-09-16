@@ -6,7 +6,7 @@ These contracts document real Firefox, so they carry real Firefox vocabulary. Th
 
 ### Acorn
 
-**Acorn is Firefox's design system, and it is what this repo is named after rather than what this repo documents.** Every entry here describes mozilla-central itself: the real component, the real guidance and the real tokens that ship in Firefox, joined per component by a stable `id`. The root `README.md` states the boundary directly: nothing here describes the Acorn prototype's own naming or structure.
+**Acorn is Firefox's design system, and it is what this repo is named after rather than what this repo documents.** Every entry here describes mozilla-central itself: the real component, the real guidance and the real tokens that ship in Firefox, joined per component by a stable `id`. The root [README.md](README.md) states the boundary directly: everything here documents mozilla-central itself, not any other naming or structure.
 
 ## Classification
 

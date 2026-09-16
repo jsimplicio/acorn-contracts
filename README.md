@@ -1,6 +1,6 @@
 # Acorn Contracts
 
-Machine-readable contracts documenting REAL Firefox design-system components: what their real API surface is (`component-api/`), how to actually use them (`guidance-api/`), and what real design tokens they're built from (`token-api/`). Nothing here describes the Acorn prototype's own naming or structure, this documents mozilla-central itself.
+Machine-readable contracts documenting REAL Firefox design-system components: what their real API surface is (`component-api/`), how to actually use them (`guidance-api/`), and what real design tokens they're built from (`token-api/`). Everything here documents mozilla-central itself, not any other naming or structure.
 
 A small site (`index.html`, `python3 serve.sh` to view it, and published to GitHub Pages by `.github/workflows/pages.yml` on every push to `main`) renders all three live. Start there for the human-readable version; this README and `manifest.json` are for a consumer who wants the raw data directly.
 

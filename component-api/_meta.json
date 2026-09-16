@@ -1,8 +1,8 @@
 {
   "note": "lastModified/lastCommit are this file's real last commit in this repo's own git history (git log -1 -- <file>), not a fabricated timestamp. This says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.",
   "repoHead": {
-    "commit": "a931100642072f7549997e80d41bc676c30f59b0",
-    "date": "2026-09-16T10:53:16-05:00"
+    "commit": "e0d0a5e6632551538607e08516fbb163dbccc2f0",
+    "date": "2026-09-16T10:59:51-05:00"
   },
   "files": {
     "badge": {
@@ -90,36 +90,36 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "input-email": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "e0d0a5e6632551538607e08516fbb163dbccc2f0",
+      "lastModified": "2026-09-16T10:59:51-05:00"
     },
     "input-folder": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "e0d0a5e6632551538607e08516fbb163dbccc2f0",
+      "lastModified": "2026-09-16T10:59:51-05:00"
     },
     "input-number": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "e0d0a5e6632551538607e08516fbb163dbccc2f0",
+      "lastModified": "2026-09-16T10:59:51-05:00"
     },
     "input-password": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "e0d0a5e6632551538607e08516fbb163dbccc2f0",
+      "lastModified": "2026-09-16T10:59:51-05:00"
     },
     "input-search": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "e0d0a5e6632551538607e08516fbb163dbccc2f0",
+      "lastModified": "2026-09-16T10:59:51-05:00"
     },
     "input-tel": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "e0d0a5e6632551538607e08516fbb163dbccc2f0",
+      "lastModified": "2026-09-16T10:59:51-05:00"
     },
     "input-text": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "input-url": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "e0d0a5e6632551538607e08516fbb163dbccc2f0",
+      "lastModified": "2026-09-16T10:59:51-05:00"
     },
     "label": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -242,8 +242,8 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "textarea": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "e0d0a5e6632551538607e08516fbb163dbccc2f0",
+      "lastModified": "2026-09-16T10:59:51-05:00"
     },
     "toggle": {
       "lastCommit": "38d3a509c3471a975ba3b069278c02bf48c5159f",

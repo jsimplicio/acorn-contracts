@@ -63,10 +63,20 @@ the pre-push hook does.
 
 `manifest.json` carries a `schemaVersion`. Bump it when a published field
 changes shape, so a consumer can detect the change instead of breaking
-quietly. `1.0.0` is the first version to say so out loud; before it, field
-shapes changed with no signal at all. An attribute's `type` moved from a
-bare string to CEM's `{ "text": ... }` object on 2026-09-15, which is
-exactly the kind of change this exists to announce.
+quietly.
+
+**It is `0.x` on purpose.** Per semver that means the shape may change at
+any time and should not be treated as stable, which is the honest position:
+nothing consumes this data yet, fields are still landing, and an
+attribute's `type` moved from a bare string to CEM's `{ "text": ... }`
+object as recently as 2026-09-15. Before `0.1.0` there was no signal at
+all, so a consumer built against the old shape could not have detected that
+change.
+
+`1.0.0` would mean something specific and is not claimed yet: a real
+consumer exists, and this repo is willing to keep the shape stable for it
+or to bump a major version when it cannot. Until both are true, `0.x` is
+the accurate label.
 
 ## What is machine-readable, and what is not yet
 

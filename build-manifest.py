@@ -25,8 +25,11 @@ OUT = os.path.join(ROOT, "manifest.json")
 SKIP = {"schema.json", "drift-manifest.json", "sync-manifest.json"}
 
 # Bumped when a published field changes shape, so a consumer can detect it
-# rather than breaking silently. See the Versioning note in README.md.
-SCHEMA_VERSION = "1.0.0"
+# rather than breaking silently. Deliberately 0.x: per semver that means the
+# shape may change at any time and is not to be treated as stable, which is
+# the honest position while nothing consumes this and fields are still
+# landing. See the Versioning note in README.md for what 1.0.0 would mean.
+SCHEMA_VERSION = "0.1.0"
 
 APIS = {
     "componentApi": "component-api/<id>.json",

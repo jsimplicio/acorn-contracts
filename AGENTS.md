@@ -34,6 +34,19 @@ It only reads. `token-api/resolved/` and `figma-token-map.json` are verified in 
 
 Triaging a flagged component is much cheaper than re-reading its source: diff the two commits for that one file (`git diff <manifest commit> <new commit> -- <path>`) and check whether anything the entry documents actually moved. Most hash changes are comments, CSS or refactors that leave every documented field true — of the 20 flagged on 2026-09-10, 16 were no-ops.
 
+## Comparing a component against its Figma Code Connect file
+
+23 components upstream have a `<name>.figma.ts` beside them. Diffing one against its contract is how the drift recorded in `~/Documents/acorn-figma-code-drift.md` was found: five real bugs, including a Figma variant that emits no Dev Mode snippet at all. Worth doing when a component's variants change. No configuration needed: the `.css` and `.figma.ts` are siblings of `implementation.file`.
+
+The comparison that works: take the values the contract declares (`variants`, and the union in `type.text`), the values the component's own CSS selects on (`[attr="x"]` exact, `[attr~="x"]` word match), and the right-hand values of each `figma.enum(...)`. A healthy component satisfies **declared == CSS + default**, because a `default` value never carries a selector of its own and Figma never lists it.
+
+**The part that's an instruction rather than reference: four things look like drift and are not.** Each of these was flagged, investigated and found innocent on 2026-09-16, so don't re-file them.
+
+1. **A `figma.enum`/`boolean`/`string` prop is an input to a code snippet, not an element attribute.** `moz-input-text.figma.ts` has `errorMessage` and `text`; neither is a property on any input class. Compare against the attributes the `example` template actually emits, not the prop names.
+2. **`moz-label.figma.ts` deliberately maps props that are not label attributes**, and says so in its own comment: the Figma Label component stands for the label-plus-description-plus-icon cluster that moz-checkbox, moz-radio, moz-toggle and moz-fieldset render internally.
+3. **One file can hold several `figma.connect` blocks for different tags.** `panel-list.figma.ts` covers both `panel-list` and `panel-item`. Merging their props makes panel-item's `label`/`iconSrc`/`badged`/`submenu`/`rule` look undocumented.
+4. **Check which base class a component actually extends before diffing inherited members.** `MozBoxButton extends MozBoxBase`, not `MozBaseInputElement`, so comparing it against the latter's 13 properties invents seven gaps.
+
 ## Checking whether a token/CSS custom property exists in Figma
 
 Every component page's Design tokens table has an "In Figma" column, built from `token-api/figma-token-map.json`. The source rule (always the Figma REST API, never Supernova), the matching algorithm, the strict two-state `yes`/`no` result, why alias chains are never followed, and how to regenerate both the map and the dump behind it are all in `token-api/README.md`'s "Figma existence check" section, with the full match algorithm in `token-api/figma-check.py`'s own docstring. Read one of those before touching that column or its data; don't re-derive the rules from this file.

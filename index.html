@@ -449,6 +449,8 @@
   .state-badge.live { background: var(--badge-modern-bg); color: var(--badge-modern-fg); }
   .state-badge.missing { background: var(--badge-none-bg); color: var(--badge-none-fg); }
   .state-badge.na { background: var(--bg-raised); color: var(--text-muted); }
+  /* Sits under the Figma column's own verdict rather than beside it. */
+  .cc-stacked { display: block; width: fit-content; margin: 4px auto 0; }
   .state-badge.deprecated { background: var(--badge-classic-bg); color: var(--badge-classic-fg); }
   .inherited-note { display: block; margin-top: 3px; font-size: 12px; color: var(--text-faint); }
   .inherited-note code { font-size: 12px; background: none; padding: 0; color: inherit; }
@@ -742,58 +744,58 @@
     // the sidebar's real order is this array's order. The group field
     // (chrome/generic) still separates the two home-page coverage tables,
     // independent of this array's physical order.
-    { id: "badge", name: "Badge", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-badge", file: "toolkit/content/widgets/moz-badge/moz-badge.mjs" },
+    { id: "badge", name: "Badge", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-badge", file: "toolkit/content/widgets/moz-badge/moz-badge.mjs", codeConnect: true },
     { id: "bookmarks-toolbar", name: "Bookmarks Toolbar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/places/content/browserPlacesViews.js, PlacesToolbar" },
-    { id: "box-button", name: "Box Button", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-button", file: "toolkit/content/widgets/moz-box-button/moz-box-button.mjs" },
-    { id: "box-group", name: "Box Group", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-group", file: "toolkit/content/widgets/moz-box-group/moz-box-group.mjs" },
-    { id: "box-item", name: "Box Item", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-item", file: "toolkit/content/widgets/moz-box-item/moz-box-item.mjs" },
-    { id: "box-link", name: "Box Link", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-link", file: "toolkit/content/widgets/moz-box-link/moz-box-link.mjs" },
+    { id: "box-button", name: "Box Button", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-button", file: "toolkit/content/widgets/moz-box-button/moz-box-button.mjs", codeConnect: true },
+    { id: "box-group", name: "Box Group", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-group", file: "toolkit/content/widgets/moz-box-group/moz-box-group.mjs", codeConnect: true },
+    { id: "box-item", name: "Box Item", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-item", file: "toolkit/content/widgets/moz-box-item/moz-box-item.mjs", codeConnect: true },
+    { id: "box-link", name: "Box Link", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-box-link", file: "toolkit/content/widgets/moz-box-link/moz-box-link.mjs", codeConnect: true },
     { id: "breadcrumb", name: "Breadcrumb", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-breadcrumb-group", file: "toolkit/content/widgets/moz-breadcrumb-group/moz-breadcrumb-group.mjs" },
-    { id: "button", name: "Button", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-button", file: "toolkit/content/widgets/moz-button/moz-button.mjs", rich: true },
-    { id: "button-group", name: "Button Group", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-button-group", file: "toolkit/content/widgets/moz-button-group/moz-button-group.mjs" },
+    { id: "button", name: "Button", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-button", file: "toolkit/content/widgets/moz-button/moz-button.mjs", rich: true, codeConnect: true },
+    { id: "button-group", name: "Button Group", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-button-group", file: "toolkit/content/widgets/moz-button-group/moz-button-group.mjs", codeConnect: true },
     { id: "callout", name: "Callout", group: "generic", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/asrouter/modules/FeatureCallout.sys.mjs, plain class, not a custom element or XUL" },
-    { id: "card", name: "Card", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-card", file: "toolkit/content/widgets/moz-card/moz-card.mjs" },
-    { id: "checkbox", name: "Checkbox", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-checkbox / checkbox", file: "toolkit/content/widgets/moz-checkbox/moz-checkbox.mjs and toolkit/content/widgets/checkbox.js both exist" },
+    { id: "card", name: "Card", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-card", file: "toolkit/content/widgets/moz-card/moz-card.mjs", codeConnect: true },
+    { id: "checkbox", name: "Checkbox", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-checkbox / checkbox", file: "toolkit/content/widgets/moz-checkbox/moz-checkbox.mjs and toolkit/content/widgets/checkbox.js both exist", codeConnect: true },
     { id: "chip", name: "Chip", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "missing", tagName: null, file: "closest analog: browser/components/aiwindow/ui/components/ai-website-chip/ai-website-chip.mjs, a distinct feature component" },
     { id: "details", name: "Details", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "missing", tagName: null, file: "chrome uses the native <details>/<summary> elements directly" },
     { id: "dialog", name: "Dialog", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "dialog", file: "toolkit/content/widgets/dialog.js" },
-    { id: "fieldset", name: "Fieldset", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-fieldset", file: "toolkit/content/widgets/moz-fieldset/moz-fieldset.mjs" },
+    { id: "fieldset", name: "Fieldset", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-fieldset", file: "toolkit/content/widgets/moz-fieldset/moz-fieldset.mjs", codeConnect: true },
     { id: "findbar", name: "Findbar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "findbar", file: "toolkit/content/widgets/findbar.js, MozFindbar extends MozXULElement" },
-    { id: "five-star", name: "Five Star", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-five-star", file: "toolkit/content/widgets/moz-five-star/moz-five-star.mjs" },
-    { id: "icon-button", name: "Icon Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-button", file: "toolkit/content/widgets/moz-button/moz-button.mjs, icon-only variant", parentId: "button" },
+    { id: "five-star", name: "Five Star", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-five-star", file: "toolkit/content/widgets/moz-five-star/moz-five-star.mjs", codeConnect: true },
+    { id: "icon-button", name: "Icon Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-button", file: "toolkit/content/widgets/moz-button/moz-button.mjs, icon-only variant", parentId: "button", codeConnect: true },
     { id: "infobar", name: "Infobar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "dual", tagName: "notification-message", file: "toolkit/content/widgets/notificationbox.js, notification-message extends the modern moz-message-bar" },
-    { id: "input-color", name: "Input Color", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-input-color", file: "toolkit/content/widgets/moz-input-color/moz-input-color.mjs" },
+    { id: "input-color", name: "Input Color", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-input-color", file: "toolkit/content/widgets/moz-input-color/moz-input-color.mjs", codeConnect: true },
     { id: "input-email", name: "Input Email", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-email", file: "toolkit/content/widgets/moz-input-email/moz-input-email.mjs" },
     { id: "input-folder", name: "Input Folder", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-folder", file: "toolkit/content/widgets/moz-input-folder/moz-input-folder.mjs" },
     { id: "input-number", name: "Input Number", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-number", file: "toolkit/content/widgets/moz-input-number/moz-input-number.mjs" },
-    { id: "input-password", name: "Input Password", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-password", file: "toolkit/content/widgets/moz-input-password/moz-input-password.mjs" },
-    { id: "input-search", name: "Input Search", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-search", file: "toolkit/content/widgets/moz-input-search/moz-input-search.mjs" },
+    { id: "input-password", name: "Input Password", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-password", file: "toolkit/content/widgets/moz-input-password/moz-input-password.mjs", codeConnect: true },
+    { id: "input-search", name: "Input Search", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-search", file: "toolkit/content/widgets/moz-input-search/moz-input-search.mjs", codeConnect: true },
     { id: "input-tel", name: "Input Tel", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-tel", file: "toolkit/content/widgets/moz-input-tel/moz-input-tel.mjs" },
-    { id: "input-text", name: "Input Text", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-input-text", file: "toolkit/content/widgets/moz-input-text/moz-input-text.mjs" },
+    { id: "input-text", name: "Input Text", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-input-text", file: "toolkit/content/widgets/moz-input-text/moz-input-text.mjs", codeConnect: true },
     { id: "input-url", name: "Input Url", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-url", file: "toolkit/content/widgets/moz-input-url/moz-input-url.mjs" },
-    { id: "label", name: "Label", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "classic", tagName: "moz-label", file: "toolkit/content/widgets/moz-label/moz-label.mjs" },
-    { id: "message-bar", name: "Message Bar", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-message-bar", file: "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs" },
+    { id: "label", name: "Label", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "classic", tagName: "moz-label", file: "toolkit/content/widgets/moz-label/moz-label.mjs", codeConnect: true },
+    { id: "message-bar", name: "Message Bar", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-message-bar", file: "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs", codeConnect: true },
     { id: "page-header", name: "Page Header", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-page-header", file: "toolkit/content/widgets/moz-page-header/moz-page-header.mjs" },
-    { id: "page-nav", name: "Page Nav", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-page-nav", file: "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs, used in about:preferences and Firefox View" },
-    { id: "page-nav-item", name: "Page Nav Item", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-page-nav-button", file: "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs, class MozPageNavButton", parentId: "page-nav" },
-    { id: "page-nav-separator", name: "Page Nav Separator", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "none", tagName: null, file: "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs, a plain <hr> in render(), no dedicated class", parentId: "page-nav" },
+    { id: "page-nav", name: "Page Nav", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-page-nav", file: "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs, used in about:preferences and Firefox View", codeConnect: true },
+    { id: "page-nav-item", name: "Page Nav Item", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-page-nav-button", file: "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs, class MozPageNavButton", parentId: "page-nav", codeConnect: true },
+    { id: "page-nav-separator", name: "Page Nav Separator", group: "generic", figma: "nested", supernova: "no", storybook: "nested", kind: "none", tagName: null, file: "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs, a plain <hr> in render(), no dedicated class", parentId: "page-nav", codeConnect: true },
     { id: "panel", name: "Panel", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "panel", file: "toolkit/content/widgets/panel.js, MozPanel", rich: true },
-    { id: "panel-item", name: "Panel Item", group: "chrome", figma: "nested", supernova: "no", storybook: "no", kind: "classic", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, class PanelItem (plain custom element: no legacy XUL base, but no Lit either)", parentId: "panel" },
-    { id: "panel-list", name: "Panel List", group: "chrome", figma: "yes", supernova: "no", storybook: "yes", kind: "classic", tagName: "panel-list", file: "toolkit/content/widgets/panel-list/panel-list.mjs" },
-    { id: "panel-list-item", name: "Panel List Item", group: "chrome", figma: "nested", supernova: "no", storybook: "nested", kind: "classic", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, same panel-item tag as Panel Item", parentId: "panel-list" },
+    { id: "panel-item", name: "Panel Item", group: "chrome", figma: "nested", supernova: "no", storybook: "no", kind: "classic", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, class PanelItem (plain custom element: no legacy XUL base, but no Lit either)", parentId: "panel", codeConnect: true },
+    { id: "panel-list", name: "Panel List", group: "chrome", figma: "yes", supernova: "no", storybook: "yes", kind: "classic", tagName: "panel-list", file: "toolkit/content/widgets/panel-list/panel-list.mjs", codeConnect: true },
+    { id: "panel-list-item", name: "Panel List Item", group: "chrome", figma: "nested", supernova: "no", storybook: "nested", kind: "classic", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, same panel-item tag as Panel Item", parentId: "panel-list", codeConnect: true },
     { id: "panel-manager", name: "Panel Manager", group: "chrome", figma: "no", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/customizableui/PanelMultiView.sys.mjs, real class, not a custom element" },
-    { id: "panel-separator", name: "Panel Separator", group: "chrome", figma: "nested", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "toolkit/content/widgets/panel-list/panel-list.mjs, a slotted plain <hr>, no dedicated class", parentId: "panel" },
+    { id: "panel-separator", name: "Panel Separator", group: "chrome", figma: "nested", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "toolkit/content/widgets/panel-list/panel-list.mjs, a slotted plain <hr>, no dedicated class", parentId: "panel", codeConnect: true },
     { id: "popup-notification", name: "Popup Notification", group: "chrome", figma: "non1to1", supernova: "no", storybook: "no", kind: "classic", tagName: "popupnotification", file: "toolkit/content/widgets/popupnotification.js" },
-    { id: "promo", name: "Promo", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-promo", file: "toolkit/content/widgets/moz-promo/moz-promo.mjs" },
-    { id: "radio", name: "Radio", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-radio-group / radio", file: "toolkit/content/widgets/moz-radio-group/moz-radio-group.mjs and toolkit/content/widgets/radio.js both exist" },
+    { id: "promo", name: "Promo", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-promo", file: "toolkit/content/widgets/moz-promo/moz-promo.mjs", codeConnect: true },
+    { id: "radio", name: "Radio", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-radio-group / radio", file: "toolkit/content/widgets/moz-radio-group/moz-radio-group.mjs and toolkit/content/widgets/radio.js both exist", codeConnect: true },
     { id: "reorderable-list", name: "Reorderable List", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-reorderable-list", file: "toolkit/content/widgets/moz-reorderable-list/moz-reorderable-list.mjs" },
     { id: "segment", name: "Segment", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-segmented-control-item", file: "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs, class MozSegmentedControlItem", parentId: "segmented-control" },
     { id: "segmented-control", name: "Segmented Control", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-segmented-control", file: "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs" },
-    { id: "select", name: "Select", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-select", file: "toolkit/content/widgets/moz-select/moz-select.mjs" },
+    { id: "select", name: "Select", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-select", file: "toolkit/content/widgets/moz-select/moz-select.mjs", codeConnect: true },
     { id: "sidebar", name: "Sidebar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/sidebar/browser-sidebar.js, SidebarController singleton" },
     { id: "sidebar-panel", name: "Sidebar Panel", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "modern", tagName: "sidebar-panel-header", file: "browser/components/sidebar/sidebar-panel-header.mjs" },
     { id: "sidebar-strip", name: "Sidebar Strip", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "modern", tagName: "sidebar-main", file: "browser/components/sidebar/sidebar-main.mjs, class SidebarMain" },
-    { id: "split-button", name: "Split Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "dual", tagName: "button / moz-button", file: "toolkit/content/widgets/button.js, class MozButton (classic, real dropmarker via type=\"menu\") and moz-button.mjs, type=\"split\" (modern). Corrected: earlier cited toolbarbutton.js, which was checked and has no menu/dropmarker rendering branch at all, so was never the real split-button implementation.", parentId: "button" },
+    { id: "split-button", name: "Split Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "dual", tagName: "button / moz-button", file: "toolkit/content/widgets/button.js, class MozButton (classic, real dropmarker via type=\"menu\") and moz-button.mjs, type=\"split\" (modern). Corrected: earlier cited toolbarbutton.js, which was checked and has no menu/dropmarker rendering branch at all, so was never the real split-button implementation.", parentId: "button", codeConnect: true },
     { id: "spotlight-modal", name: "Spotlight Modal", group: "generic", figma: "yes", supernova: "yes", storybook: "na", kind: "classic", tagName: null, file: "browser/components/asrouter/modules/Spotlight.sys.mjs, plain exported object, not a custom element" },
     { id: "stepper", name: "Stepper", group: "generic", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/asrouter/content-src/components/MultiStageProtonScreen.jsx, a React render method" },
     { id: "support-link", name: "Support Link", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "classic", tagName: "moz-support-link", file: "toolkit/content/widgets/moz-support-link/moz-support-link.mjs" },
@@ -802,7 +804,7 @@
     { id: "tab-split", name: "Tab Split", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tab-split-view-wrapper", file: "browser/components/tabbrowser/content/tabsplitview.mjs" },
     { id: "tabstrip", name: "Tab Strip", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tabbrowser-tabs", file: "browser/components/tabbrowser/content/tabs.mjs" },
     { id: "textarea", name: "Textarea", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-textarea", file: "toolkit/content/widgets/moz-textarea/moz-textarea.mjs" },
-    { id: "toggle", name: "Toggle", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-toggle", file: "toolkit/content/widgets/moz-toggle/moz-toggle.mjs" },
+    { id: "toggle", name: "Toggle", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-toggle", file: "toolkit/content/widgets/moz-toggle/moz-toggle.mjs", codeConnect: true },
     { id: "toolbar", name: "Toolbar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: "toolbar", file: "browser/base/content/navigator-toolbox.inc.xhtml, a built-in XUL tag with no dedicated class" },
     { id: "toolbar-button", name: "Toolbar Button", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "toolbarbutton", file: "toolkit/content/widgets/toolbarbutton.js" },
     { id: "toolbox", name: "Toolbox", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: "toolbox", file: "browser/base/content/navigator-toolbox.inc.xhtml, a built-in XUL tag with no dedicated class" },
@@ -850,13 +852,14 @@
     return { cls: "unknown", text: escapeHtml(v) };
   }
 
-  function checkCell(v, parentName, kind) {
+  function checkCell(v, parentName, kind, extra) {
     const s = checkSymbol(v, parentName, kind);
     const titleAttr = s.title ? ` title="${escapeHtml(s.title)}"` : "";
-    if (v === "yes") return `<td class="check"${titleAttr}><span class="state-badge live">live</span></td>`;
-    if (v === "no") return `<td class="check"${titleAttr}><span class="state-badge missing">missing</span></td>`;
-    if (v === "na") return `<td class="check"${titleAttr}><span class="state-badge na">${s.text}</span></td>`;
-    return `<td class="check ${s.cls}"${titleAttr}>${s.text}</td>`;
+    const more = extra || "";
+    if (v === "yes") return `<td class="check"${titleAttr}><span class="state-badge live">live</span>${more}</td>`;
+    if (v === "no") return `<td class="check"${titleAttr}><span class="state-badge missing">missing</span>${more}</td>`;
+    if (v === "na") return `<td class="check"${titleAttr}><span class="state-badge na">${s.text}</span>${more}</td>`;
+    return `<td class="check ${s.cls}"${titleAttr}>${s.text}${more}</td>`;
   }
 
   function checkInline(v, parentName, kind) {
@@ -900,7 +903,9 @@
     const name = `<code>${escapeHtml(d.name)}</code>`;
     const nameCell = indented ? `<td style="padding-left: 28px;">&#8618; ${name}</td>` : `<td>${name}</td>`;
     return `<tr>${nameCell}` +
-      checkCell(d.figma, parentName) +
+      checkCell(d.figma, parentName, null, d.codeConnect
+        ? `<span class="state-badge live cc-stacked" title="Has a Figma Code Connect file">code connected</span>`
+        : "") +
       checkCell(d.supernova, parentName) +
       checkCell(d.storybook, parentName, effectiveKind(d)) +
       `<td>${kindBadge(effectiveKind(d))} ${linkifyFilePaths(d.file)}</td>` +
@@ -2480,7 +2485,7 @@
       const parentName = d.parentId ? (DATA.find(p => p.id === d.parentId) || {}).name : null;
       const cc = api && api.implementation && api.implementation.codeConnect;
       const ccPart = cc
-        ? `<span class="state-badge live" title="${escapeHtml("Figma Code Connect: " + cc)}">code connect</span> `
+        ? `<span class="state-badge live" title="${escapeHtml("Figma Code Connect: " + cc)}">code connected</span> `
         : "";
       html += `<p class="meta coverage-line">Figma ${ccPart}${checkInline(d.figma, parentName)} &nbsp; Supernova ${checkInline(d.supernova, parentName)} &nbsp; Storybook ${checkInline(d.storybook, parentName, effectiveKind(d))}</p>`;
     }

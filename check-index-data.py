@@ -95,10 +95,13 @@ def data_rows():
     block = html[start:html.index("\n  ];", start)]
     rows = []
     for match in re.finditer(r"\{(.*?)\}", block, re.S):
+        # Unquoted true/false too: `rich: true` and `codeConnect: true` are
+        # real DATA fields, and quoting a boolean to satisfy the parser would
+        # be the parser dictating the data.
         fields = re.findall(
-            r"(\w+)\s*:\s*(\"(?:[^\"\\]|\\.)*\"|'(?:[^'\\]|\\.)*')", match.group(1)
+            r"(\w+)\s*:\s*(\"(?:[^\"\\]|\\.)*\"|'(?:[^'\\]|\\.)*'|true|false)", match.group(1)
         )
-        row = {key: value[1:-1] for key, value in fields}
+        row = {key: (value[1:-1] if value[0] in "\"'" else value) for key, value in fields}
         if "id" in row:
             rows.append(row)
     return rows
@@ -176,6 +179,14 @@ def main():
         row, entry = by_id[cid], real[cid]
         impl = entry["implementation"]
 
+        # DATA carries a codeConnect flag so the home table can stack the
+        # badge without fetching 70 files; component-api holds the real path.
+        data_cc = row.get("codeConnect") == "true"
+        api_cc = bool(impl.get("codeConnect"))
+        if data_cc != api_cc:
+            problems.append((cid, "codeConnect",
+                             "true" if data_cc else "absent",
+                             impl.get("codeConnect") or "absent"))
         if row.get("kind") != impl["kind"]:
             problems.append((cid, "kind", row.get("kind"), impl["kind"]))
 

@@ -45,7 +45,8 @@ The comparison that works: take the values the contract declares (`variants`, an
 1. **A `figma.enum`/`boolean`/`string` prop is an input to a code snippet, not an element attribute.** `moz-input-text.figma.ts` has `errorMessage` and `text`; neither is a property on any input class. Compare against the attributes the `example` template actually emits, not the prop names.
 2. **`moz-label.figma.ts` deliberately maps props that are not label attributes**, and says so in its own comment: the Figma Label component stands for the label-plus-description-plus-icon cluster that moz-checkbox, moz-radio, moz-toggle and moz-fieldset render internally.
 3. **One file can hold several `figma.connect` blocks for different tags.** `panel-list.figma.ts` covers both `panel-list` and `panel-item`. Merging their props makes panel-item's `label`/`iconSrc`/`badged`/`submenu`/`rule` look undocumented.
-4. **Check which base class a component actually extends before diffing inherited members.** `MozBoxButton extends MozBoxBase`, not `MozBaseInputElement`, so comparing it against the latter's 13 properties invents seven gaps.
+4. **A `.figma.ts` basename is the Figma component's name, not the element's.** `toolkit/content/widgets/moz-input-color/color-picker.figma.ts` is `moz-input-color`'s file. Map by directory, not by filename, or a component looks untracked when it is not.
+5. **Check which base class a component actually extends before diffing inherited members.** `MozBoxButton extends MozBoxBase`, not `MozBaseInputElement`, so comparing it against the latter's 13 properties invents seven gaps.
 
 ## Checking whether a token/CSS custom property exists in Figma
 

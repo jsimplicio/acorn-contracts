@@ -2,7 +2,7 @@
   "id": "toggle",
   "summary": "An on/off switch, like a light switch, used to turn a setting on or off.",
   "tagName": "moz-toggle",
-  "description": "A simple toggle switch used to switch between two states (on/off), with an optional label and description.",
+  "description": "A simple toggle switch used to switch between two states (on/off), with an optional label and description.\n\n**`MozToggle extends MozBaseInputElement`** and is tiny: it declares only `pressed`, sets `static activatedProperty = \"pressed\"`, and overrides `inputTemplate()` to render a single `<button>` carrying `name`, `value` and `accesskey`. Everything else in the tables below is inherited and rendered by the base class's wrapper around that template, which is why the attribute list is longer than the class itself.",
   "implementation": {
     "kind": "modern",
     "file": "toolkit/content/widgets/moz-toggle/moz-toggle.mjs"
@@ -65,6 +65,55 @@
       },
       "description": "The title attribute, mapped onto the inner button.",
       "figmaConfig": false
+    },
+    {
+      "name": "name",
+      "type": {
+        "text": "string"
+      },
+      "description": "The name of the input control, rendered onto the internal <button>. Inherited from MozBaseInputElement."
+    },
+    {
+      "name": "value",
+      "type": {
+        "text": "string"
+      },
+      "description": "The value of the input control, rendered onto the internal <button>. Inherited from MozBaseInputElement."
+    },
+    {
+      "name": "iconSrc",
+      "type": {
+        "text": "string"
+      },
+      "description": "The src for an optional icon. Inherited from MozBaseInputElement."
+    },
+    {
+      "name": "supportPage",
+      "type": {
+        "text": "string"
+      },
+      "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited from MozBaseInputElement."
+    },
+    {
+      "name": "accessKey",
+      "type": {
+        "text": "string"
+      },
+      "description": "Mapped accesskey attribute, applied to the internal <button>. Inherited from MozBaseInputElement."
+    },
+    {
+      "name": "inputLayout",
+      "type": {
+        "text": "string"
+      },
+      "description": "Internal layout mode (attribute: inputlayout). Inherited from MozBaseInputElement."
+    },
+    {
+      "name": "parentDisabled",
+      "type": {
+        "text": "boolean"
+      },
+      "description": "Internal: set by a parent input/fieldset to cascade a disabled state. Inherited from MozBaseInputElement."
     }
   ],
   "slots": [

@@ -72,6 +72,28 @@
       },
       "description": "Selected value for the group. Changing the value updates the checked state of moz-radio children and vice versa.",
       "figmaConfig": true
+    },
+    {
+      "name": "checked",
+      "type": {
+        "text": "boolean"
+      },
+      "description": "Whether this moz-radio item is the selected one in its group. Declared by SelectControlItemMixin, and moz-radio sets `static activatedProperty = \"checked\"` so it drives activation.",
+      "inheritedFrom": {
+        "name": "SelectControlItemMixin",
+        "module": "toolkit/content/widgets/lit-select-control.mjs"
+      }
+    },
+    {
+      "name": "iconSrc",
+      "type": {
+        "text": "string"
+      },
+      "description": "The src for an optional icon shown next to a moz-radio item's label.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     }
   ],
   "slots": [

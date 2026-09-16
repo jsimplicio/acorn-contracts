@@ -38,6 +38,26 @@ So this schema uses **`id`**, a stable slug matching the `id` field in `index.ht
 | `cssParts` | array, optional | CEM's own field name. Real `::part()` names found in the component's own shadow-DOM render output, or a shared base class it genuinely extends (e.g. Box Item's `support-link`, inherited nowhere; Radio's `fieldset`, inherited from `SelectControlBaseElement`). Most entries have none, but not because Acorn is light-DOM: Firefox's Lit components render into a shadow root by default and `MozLitElement` does not override `createRenderRoot`, so a modern component with no `cssParts` genuinely declares no `part=` in its own template. The entries that have none are mostly the `classic` ones and the sub-items documented under a parent, neither of which has a shadow template to expose parts from. A real light-DOM case does exist and is the exception: a customized built-in like `moz-support-link` has no shadow root at all. |
 | `variants` | array, optional | Enum-style axes: an attribute/property with a fixed set of allowed string values (e.g. `type`), surfaced separately from the flat `attributes` list because these are the values worth showing side-by-side in Figma/Storybook variant pickers. |
 | `usage` | string, optional | A realistic, real-attribute usage example, pulled from a Storybook story, a Figma Code Connect example, or otherwise hand-built strictly from attributes actually found in source. Not a hypothetical. |
+| `attributes[].type` | object, optional | CEM's own field name and shape: `{ "text": "..." }`, where `text` is the type as written in whatever syntax the source uses. An enumerated attribute's legal set is a TypeScript-style union. Note Lit usually declares only `{ type: String }`, so a union here is this contract asserting the set, not a fact recovered from source. |
+| `*[].inheritedFrom` | object, optional | CEM's own field name. A `Reference`, `{name, module?}`, naming the class that **declares** the member rather than the component documenting it. CEM's Reference holds one name, so an intermediate hop stays in the description ("Inherited via MozInputText"). |
+| `*[].deprecated` | string \| boolean, optional | CEM's own field name. A string is the reason. CEM has no per-VALUE form, so a legacy value of an enumerated attribute stays described in prose. |
+| `implementation.verifiedAt` | object, optional | **Not CEM.** `{commit, date, scope}`, when this entry was last confirmed against real upstream source. Different from `_meta.json`, which records when the JSON was last edited here. Deliberately not backfilled. |
+| `implementation.codeConnect` | string, optional | **Not CEM.** Path to the component's Figma Code Connect file. A path rather than a boolean so `check-drift.py` can report it moving. |
+
+### Which fields are CEM's and which are ours
+
+The shape follows [CEM](https://github.com/webcomponents/custom-elements-manifest) wherever CEM has an opinion, and diverges deliberately in ten places. CEM permits extra properties (it sets `additionalProperties: false` nowhere) but defines no formal extension mechanism, so ours stay flat and are listed here rather than wrapped in a namespace.
+
+| ours, not CEM's | why |
+|---|---|
+| `id` | The primary key. CEM keys on tag name, and several real entries have no tag at all. |
+| `implementation` and its `kind`, `file`, `verifiedAt`, `codeConnect` | CEM describes a manifest of modules; it has no place to say "this is the real Firefox file, and here is how modern it is". |
+| `variants` | The designer-facing subset of an enumerated attribute's values, for a Figma or Storybook variant picker. May be narrower than the legal set in `type.text`. |
+| `usage` | A realistic example. CEM has `demos`, which points at URLs rather than inline snippets. |
+| `attributes[].figmaConfig` | Whether an attribute is user-facing configuration rather than internal plumbing. |
+| `methods` as a top-level array | CEM puts methods and fields together in one `members` array with a `kind` discriminator. Splitting them reads better on a page, at the cost of a restructure. |
+
+Everything else in the table above uses CEM's own field name and, where CEM defines one, its shape.
 
 Every array/field is **omitted, not padded**, when genuinely empty or unknown for a given component. Every field that is present must trace back to a real, cited source file, nothing here is invented.
 

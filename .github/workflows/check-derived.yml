@@ -57,6 +57,17 @@ jobs:
           fi
           echo "token-api/figma-token-map.json matches its sources."
 
+  manifest:
+    # manifest.json is the discovery entry point a consumer fetches first,
+    # and it was the only derived file with no check. It drifted: eight
+    # components gained guidance and it still reported them as having none.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check manifest.json is current
+        run: python3 build-manifest.py --check
+
   search-index:
     # search-index.json is the corpus the sidebar search reads. It is built
     # from the contracts and the READMEs, so any edit to either can leave it

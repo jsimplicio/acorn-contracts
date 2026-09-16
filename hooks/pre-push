@@ -45,6 +45,7 @@ else
 fi
 
 run "index.html DATA agrees with component-api, guidance coverage" python3 check-index-data.py
+run "manifest.json is current" python3 build-manifest.py --check
 run "search-index.json is current" python3 build-search-index.py --check
 run "_meta.json is current" python3 update-meta.py --check
 

@@ -59,6 +59,82 @@ check.
 but only through `git` and only when run deliberately. Nothing in CI or in
 the pre-push hook does.
 
+## Versioning
+
+`manifest.json` carries a `schemaVersion`. Bump it when a published field
+changes shape, so a consumer can detect the change instead of breaking
+quietly. `1.0.0` is the first version to say so out loud; before it, field
+shapes changed with no signal at all. An attribute's `type` moved from a
+bare string to CEM's `{ "text": ... }` object on 2026-09-15, which is
+exactly the kind of change this exists to announce.
+
+## What is machine-readable, and what is not yet
+
+Everything in `component-api/` and `token-api/` is data validated against a
+real JSON Schema on every push, so a consumer can enumerate components,
+their attributes, slots, events, methods, CSS custom properties, tokens,
+inheritance and Figma wiring without parsing prose. Four gaps are worth
+knowing before you build against it. Each one says how to recount it, since
+a number written here would go stale.
+
+**1. Not every enumerated attribute declares its legal values.** An
+attribute whose `type.text` is a bare `"string"` may still only accept a
+fixed set; where that set has been established it is written as a
+TypeScript-style union, and where it has not, `"string"` is all the
+contract honestly knows. The gap is concentrated in components with no
+Figma Code Connect file, where nothing external could contradict a guess.
+
+```sh
+# axes that have a union vs. those that do not
+python3 - <<'PY'
+import json, glob, os
+for p in sorted(glob.glob("component-api/*.json")):
+    b = os.path.basename(p)
+    if b.startswith("_") or b in ("schema.json", "drift-manifest.json"): continue
+    d = json.load(open(p)); attrs = {a["name"]: a for a in d.get("attributes") or []}
+    for v in d.get("variants") or []:
+        a = attrs.get(v["axis"])
+        if not a: continue
+        t = (a.get("type") or {}).get("text") or ""
+        if t in ("boolean", "number"): continue
+        print(("union " if "|" in t else "PLAIN "), d["id"], v["axis"])
+PY
+```
+
+**2. `implementation.kind` is asserted, not derivable.** Nothing records
+what a class extends, so `modern` vs `classic` is a human judgement made by
+reading source. A machine has to take it on trust. CEM has `superclass` and
+`mixins` on a class declaration for exactly this, and neither is populated
+here. The live risk is an upstream XUL-to-Lit port silently invalidating a
+`classic` entry.
+
+**3. `implementation.verifiedAt` is sparse on purpose.** It records when an
+entry's contents were last confirmed against real upstream source, and is
+deliberately not backfilled: for most entries nobody knows the answer, and
+inventing a date would be exactly the fiction the rest of this directory
+avoids. An absent `verifiedAt` means unconfirmed since the field existed,
+not recently confirmed.
+
+**4. A few `implementation.file` values are not a bare path.** `missing`
+entries have no single real file, and one component genuinely cites two
+implementations, so that field can carry a path plus a clause. Extract paths
+with a pattern rather than assuming the whole string is one.
+
+```sh
+python3 -c "
+import json, glob, os, re
+P = re.compile(r'^[A-Za-z0-9_.@/-]+\.(?:mjs|jsx|js|css|xhtml|html|xml)\$')
+for p in sorted(glob.glob('component-api/*.json')):
+    b = os.path.basename(p)
+    if b.startswith('_') or b in ('schema.json','drift-manifest.json'): continue
+    d = json.load(open(p)); f = (d['implementation'].get('file') or '').strip()
+    if not P.match(f): print(d['id'], '->', f)"
+```
+
+**Not a gap, by design:** `guidance-api/` is prose and will stay prose. Per
+the Nathan Curtis distinction this project is built on, specs say how to
+build and guidelines say how to use; only the spec half can be structured.
+
 ## The three APIs
 
 - **[component-api/](component-api/README.md)**: real attributes, slots, events, methods, CSS custom properties. Read out of real source by hand, entry by entry, and shaped with CEM's field names. A spec, but not a generated one: see that README on why there is no regeneration pipeline.

@@ -120,6 +120,9 @@
     "promo": [
       "moz-promo"
     ],
+    "reorderable-list": [
+      "moz-reorderable-list"
+    ],
     "segmented-control": [
       "moz-segmented-control"
     ],

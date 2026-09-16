@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T00:05:25Z",
+  "schemaVersion": "1.0.0",
   "apis": {
     "componentApi": "component-api/<id>.json",
     "guidanceApi": "guidance-api/<id>.json",
@@ -83,7 +83,7 @@
     },
     "button-group": {
       "componentApi": true,
-      "guidanceApi": false,
+      "guidanceApi": true,
       "tokenApi": false,
       "tokenBasenames": [],
       "novaTokenBasenames": []
@@ -152,7 +152,7 @@
     },
     "five-star": {
       "componentApi": true,
-      "guidanceApi": false,
+      "guidanceApi": true,
       "tokenApi": false,
       "tokenBasenames": [],
       "novaTokenBasenames": []
@@ -198,7 +198,7 @@
     },
     "input-folder": {
       "componentApi": true,
-      "guidanceApi": false,
+      "guidanceApi": true,
       "tokenApi": false,
       "tokenBasenames": [],
       "novaTokenBasenames": []
@@ -219,7 +219,7 @@
     },
     "input-search": {
       "componentApi": true,
-      "guidanceApi": false,
+      "guidanceApi": true,
       "tokenApi": false,
       "tokenBasenames": [],
       "novaTokenBasenames": []
@@ -238,7 +238,9 @@
       "tokenBasenames": [
         "input"
       ],
-      "novaTokenBasenames": []
+      "novaTokenBasenames": [
+        "input"
+      ]
     },
     "input-url": {
       "componentApi": true,
@@ -249,7 +251,7 @@
     },
     "label": {
       "componentApi": true,
-      "guidanceApi": false,
+      "guidanceApi": true,
       "tokenApi": false,
       "tokenBasenames": [],
       "novaTokenBasenames": []
@@ -357,7 +359,9 @@
       "tokenBasenames": [
         "panel"
       ],
-      "novaTokenBasenames": []
+      "novaTokenBasenames": [
+        "panel"
+      ]
     },
     "popup-notification": {
       "componentApi": true,
@@ -386,7 +390,7 @@
     },
     "reorderable-list": {
       "componentApi": true,
-      "guidanceApi": false,
+      "guidanceApi": true,
       "tokenApi": true,
       "tokenBasenames": [
         "moz-reorderable-list"
@@ -446,9 +450,13 @@
     "split-button": {
       "componentApi": true,
       "guidanceApi": true,
-      "tokenApi": false,
-      "tokenBasenames": [],
-      "novaTokenBasenames": []
+      "tokenApi": true,
+      "tokenBasenames": [
+        "button"
+      ],
+      "novaTokenBasenames": [
+        "button"
+      ]
     },
     "spotlight-modal": {
       "componentApi": true,
@@ -466,7 +474,7 @@
     },
     "support-link": {
       "componentApi": true,
-      "guidanceApi": false,
+      "guidanceApi": true,
       "tokenApi": false,
       "tokenBasenames": [],
       "novaTokenBasenames": []
@@ -485,9 +493,13 @@
     "tab-group": {
       "componentApi": true,
       "guidanceApi": true,
-      "tokenApi": false,
-      "tokenBasenames": [],
-      "novaTokenBasenames": []
+      "tokenApi": true,
+      "tokenBasenames": [
+        "tab"
+      ],
+      "novaTokenBasenames": [
+        "tab"
+      ]
     },
     "tab-split": {
       "componentApi": true,
@@ -507,7 +519,7 @@
     },
     "textarea": {
       "componentApi": true,
-      "guidanceApi": false,
+      "guidanceApi": true,
       "tokenApi": false,
       "tokenBasenames": [],
       "novaTokenBasenames": []
@@ -519,9 +531,7 @@
       "tokenBasenames": [
         "moz-toggle"
       ],
-      "novaTokenBasenames": [
-        "moz-toggle"
-      ]
+      "novaTokenBasenames": []
     },
     "toolbar": {
       "componentApi": true,
@@ -572,9 +582,13 @@
     "urlbar-action": {
       "componentApi": true,
       "guidanceApi": true,
-      "tokenApi": false,
-      "tokenBasenames": [],
-      "novaTokenBasenames": []
+      "tokenApi": true,
+      "tokenBasenames": [
+        "urlbarview"
+      ],
+      "novaTokenBasenames": [
+        "urlbarview"
+      ]
     },
     "urlbar-identity": {
       "componentApi": true,

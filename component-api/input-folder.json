@@ -13,24 +13,36 @@
       "type": {
         "text": "string"
       },
-      "description": "The text of the label element. Inherited from MozBaseInputElement via MozInputText.",
-      "figmaConfig": true
+      "description": "The text of the label element. Inherited via MozInputText.",
+      "figmaConfig": true,
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "name",
       "type": {
         "text": "string"
       },
-      "description": "The name of the input control. Inherited from MozBaseInputElement via MozInputText.",
-      "figmaConfig": true
+      "description": "The name of the input control. Inherited via MozInputText.",
+      "figmaConfig": true,
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "value",
       "type": {
         "text": "string"
       },
-      "description": "The path to the selected folder. Inherited from MozBaseInputElement via MozInputText.",
-      "figmaConfig": true
+      "description": "The path to the selected folder. Inherited via MozInputText.",
+      "figmaConfig": true,
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "displayValue",
@@ -63,9 +75,13 @@
       "type": {
         "text": "boolean"
       },
-      "description": "The disabled state of the component. Inherited from MozBaseInputElement via MozInputText.",
+      "description": "The disabled state of the component. Inherited via MozInputText.",
       "figmaConfig": true,
-      "default": "false"
+      "default": "false",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "readonly",
@@ -81,93 +97,145 @@
       "type": {
         "text": "boolean"
       },
-      "description": "The required state of the input control. Inherited from MozInputText.",
-      "figmaConfig": true
+      "description": "The required state of the input control.",
+      "figmaConfig": true,
+      "inheritedFrom": {
+        "name": "MozInputText",
+        "module": "toolkit/content/widgets/moz-input-text/moz-input-text.mjs"
+      }
     },
     {
       "name": "iconSrc",
       "type": {
         "text": "string"
       },
-      "description": "The src for an optional icon in the label. Inherited from MozBaseInputElement via MozInputText.",
-      "figmaConfig": true
+      "description": "The src for an optional icon in the label. Inherited via MozInputText.",
+      "figmaConfig": true,
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "description",
       "type": {
         "text": "string"
       },
-      "description": "Text for the description element that helps describe the input control. Inherited from MozBaseInputElement via MozInputText.",
-      "figmaConfig": true
+      "description": "Text for the description element that helps describe the input control. Inherited via MozInputText.",
+      "figmaConfig": true,
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "supportPage",
       "type": {
         "text": "string"
       },
-      "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited from MozBaseInputElement via MozInputText.",
-      "figmaConfig": true
+      "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited via MozInputText.",
+      "figmaConfig": true,
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "placeholder",
       "type": {
         "text": "string"
       },
-      "description": "Text to display when the input has no value. Inherited from MozInputText.",
-      "figmaConfig": true
+      "description": "Text to display when the input has no value.",
+      "figmaConfig": true,
+      "inheritedFrom": {
+        "name": "MozInputText",
+        "module": "toolkit/content/widgets/moz-input-text/moz-input-text.mjs"
+      }
     },
     {
       "name": "title",
       "type": {
         "text": "string"
       },
-      "description": "The title attribute, mapped onto the inner input. Inherited from MozBaseInputElement via MozInputText.",
-      "figmaConfig": false
+      "description": "The title attribute, mapped onto the inner input. Inherited via MozInputText.",
+      "figmaConfig": false,
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "accessKey",
       "type": {
         "text": "string"
       },
-      "description": "Mapped accesskey attribute. Inherited from MozBaseInputElement via MozInputText."
+      "description": "Mapped accesskey attribute. Inherited via MozInputText.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "inputLayout",
       "type": {
         "text": "string"
       },
-      "description": "Internal layout mode (\"inline\" | \"block\" | \"inline-end\"); moz-input-text overrides the base default to \"block\". Inherited from MozBaseInputElement via MozInputText."
+      "description": "Internal layout mode (\"inline\" | \"block\" | \"inline-end\"); moz-input-text overrides the base default to \"block\". Inherited via MozInputText.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "ariaLabel",
       "type": {
         "text": "string"
       },
-      "description": "Mapped aria-label attribute. Inherited from MozBaseInputElement via MozInputText."
+      "description": "Mapped aria-label attribute. Inherited via MozInputText.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "ariaDescription",
       "type": {
         "text": "string"
       },
-      "description": "Mapped aria-description attribute. Inherited from MozBaseInputElement via MozInputText."
+      "description": "Mapped aria-description attribute. Inherited via MozInputText.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "parentDisabled",
       "type": {
         "text": "boolean"
       },
-      "description": "Internal: set by a parent input/fieldset to cascade a disabled state. Inherited from MozBaseInputElement via MozInputText."
+      "description": "Internal: set by a parent input/fieldset to cascade a disabled state. Inherited via MozInputText.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     }
   ],
   "slots": [
     {
       "name": "description",
-      "description": "Inherited from MozBaseInputElement: rendered when the description property is unset, letting callers supply richer description markup."
+      "description": "Rendered when the description property is unset, letting callers supply richer description markup.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "support-link",
-      "description": "Inherited from MozBaseInputElement: rendered when supportPage is unset, letting callers supply a custom support link element."
+      "description": "Rendered when supportPage is unset, letting callers supply a custom support link element.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "actions",

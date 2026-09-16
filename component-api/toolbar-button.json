@@ -38,8 +38,12 @@
       "type": {
         "text": "string"
       },
-      "description": "Inherited from MozButtonBase; e.g. \"menu\", \"checkbox\", \"radio\" changes activation/rendering behavior.",
-      "figmaConfig": true
+      "description": "e.g. \"menu\", \"checkbox\", \"radio\" changes activation/rendering behavior.",
+      "figmaConfig": true,
+      "inheritedFrom": {
+        "name": "MozButtonBase",
+        "module": "toolkit/content/widgets/button.js"
+      }
     },
     {
       "name": "consumeanchor",
@@ -115,33 +119,49 @@
       "type": {
         "text": "boolean"
       },
-      "description": "Inherited from MozButtonBase; disables the button and blocks click/keypress activation.",
+      "description": "Disables the button and blocks click/keypress activation.",
       "figmaConfig": true,
-      "default": "false"
+      "default": "false",
+      "inheritedFrom": {
+        "name": "MozButtonBase",
+        "module": "toolkit/content/widgets/button.js"
+      }
     },
     {
       "name": "checked",
       "type": {
         "text": "boolean"
       },
-      "description": "Inherited from MozButtonBase; toggled for checkbox/radio type buttons.",
+      "description": "Toggled for checkbox/radio type buttons.",
       "figmaConfig": true,
-      "default": "false"
+      "default": "false",
+      "inheritedFrom": {
+        "name": "MozButtonBase",
+        "module": "toolkit/content/widgets/button.js"
+      }
     },
     {
       "name": "group",
       "type": {
         "text": "string"
       },
-      "description": "Inherited from MozButtonBase; groups radio-type buttons so only one in the group is checked."
+      "description": "Groups radio-type buttons so only one in the group is checked.",
+      "inheritedFrom": {
+        "name": "MozButtonBase",
+        "module": "toolkit/content/widgets/button.js"
+      }
     },
     {
       "name": "open",
       "type": {
         "text": "boolean"
       },
-      "description": "Inherited from MozButtonBase; reflects/controls whether the button's menu is open.",
-      "default": "false"
+      "description": "Reflects/controls whether the button's menu is open.",
+      "default": "false",
+      "inheritedFrom": {
+        "name": "MozButtonBase",
+        "module": "toolkit/content/widgets/button.js"
+      }
     },
     {
       "name": "hasbeenopened",

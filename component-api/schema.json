@@ -124,6 +124,28 @@
               "boolean"
             ],
             "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
+          },
+          "inheritedFrom": {
+            "type": "object",
+            "description": "CEM's own field name. A Reference to the class that declares this member, as opposed to the component it is documented on. CEM's Reference holds one name, so an intermediate hop stays in the description: `label` on input-password is declared by MozBaseInputElement and reaches it via MozInputText, and only the declaring class goes here. The chain itself is CEM's superclass/mixins on a class declaration, which this schema does not model.",
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The exported class name, e.g. MozBaseInputElement."
+              },
+              "module": {
+                "type": "string",
+                "description": "Path relative to the mozilla-central root."
+              },
+              "package": {
+                "type": "string",
+                "description": "Only for a global like HTMLElement, where CEM uses \"global:\"."
+              }
+            }
           }
         }
       }
@@ -150,6 +172,28 @@
               "boolean"
             ],
             "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
+          },
+          "inheritedFrom": {
+            "type": "object",
+            "description": "CEM's own field name. A Reference to the class that declares this member, as opposed to the component it is documented on. CEM's Reference holds one name, so an intermediate hop stays in the description: `label` on input-password is declared by MozBaseInputElement and reaches it via MozInputText, and only the declaring class goes here. The chain itself is CEM's superclass/mixins on a class declaration, which this schema does not model.",
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The exported class name, e.g. MozBaseInputElement."
+              },
+              "module": {
+                "type": "string",
+                "description": "Path relative to the mozilla-central root."
+              },
+              "package": {
+                "type": "string",
+                "description": "Only for a global like HTMLElement, where CEM uses \"global:\"."
+              }
+            }
           }
         }
       }
@@ -175,6 +219,28 @@
               "boolean"
             ],
             "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
+          },
+          "inheritedFrom": {
+            "type": "object",
+            "description": "CEM's own field name. A Reference to the class that declares this member, as opposed to the component it is documented on. CEM's Reference holds one name, so an intermediate hop stays in the description: `label` on input-password is declared by MozBaseInputElement and reaches it via MozInputText, and only the declaring class goes here. The chain itself is CEM's superclass/mixins on a class declaration, which this schema does not model.",
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The exported class name, e.g. MozBaseInputElement."
+              },
+              "module": {
+                "type": "string",
+                "description": "Path relative to the mozilla-central root."
+              },
+              "package": {
+                "type": "string",
+                "description": "Only for a global like HTMLElement, where CEM uses \"global:\"."
+              }
+            }
           }
         }
       }
@@ -200,6 +266,28 @@
               "boolean"
             ],
             "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
+          },
+          "inheritedFrom": {
+            "type": "object",
+            "description": "CEM's own field name. A Reference to the class that declares this member, as opposed to the component it is documented on. CEM's Reference holds one name, so an intermediate hop stays in the description: `label` on input-password is declared by MozBaseInputElement and reaches it via MozInputText, and only the declaring class goes here. The chain itself is CEM's superclass/mixins on a class declaration, which this schema does not model.",
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The exported class name, e.g. MozBaseInputElement."
+              },
+              "module": {
+                "type": "string",
+                "description": "Path relative to the mozilla-central root."
+              },
+              "package": {
+                "type": "string",
+                "description": "Only for a global like HTMLElement, where CEM uses \"global:\"."
+              }
+            }
           }
         }
       }
@@ -229,6 +317,28 @@
               "boolean"
             ],
             "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
+          },
+          "inheritedFrom": {
+            "type": "object",
+            "description": "CEM's own field name. A Reference to the class that declares this member, as opposed to the component it is documented on. CEM's Reference holds one name, so an intermediate hop stays in the description: `label` on input-password is declared by MozBaseInputElement and reaches it via MozInputText, and only the declaring class goes here. The chain itself is CEM's superclass/mixins on a class declaration, which this schema does not model.",
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The exported class name, e.g. MozBaseInputElement."
+              },
+              "module": {
+                "type": "string",
+                "description": "Path relative to the mozilla-central root."
+              },
+              "package": {
+                "type": "string",
+                "description": "Only for a global like HTMLElement, where CEM uses \"global:\"."
+              }
+            }
           }
         }
       }
@@ -255,6 +365,28 @@
               "boolean"
             ],
             "description": "CEM's own field name. Whether this member is deprecated; a string is the reason. Note CEM has no per-VALUE deprecation, so a legacy value of an enumerated attribute stays described in prose, not marked here."
+          },
+          "inheritedFrom": {
+            "type": "object",
+            "description": "CEM's own field name. A Reference to the class that declares this member, as opposed to the component it is documented on. CEM's Reference holds one name, so an intermediate hop stays in the description: `label` on input-password is declared by MozBaseInputElement and reaches it via MozInputText, and only the declaring class goes here. The chain itself is CEM's superclass/mixins on a class declaration, which this schema does not model.",
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The exported class name, e.g. MozBaseInputElement."
+              },
+              "module": {
+                "type": "string",
+                "description": "Path relative to the mozilla-central root."
+              },
+              "package": {
+                "type": "string",
+                "description": "Only for a global like HTMLElement, where CEM uses \"global:\"."
+              }
+            }
           }
         }
       }

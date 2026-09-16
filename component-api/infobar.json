@@ -36,9 +36,13 @@
       "type": {
         "text": "boolean"
       },
-      "description": "Inherited from moz-message-bar; controls whether the close button is shown.",
+      "description": "Controls whether the close button is shown.",
       "figmaConfig": true,
-      "default": "true"
+      "default": "true",
+      "inheritedFrom": {
+        "name": "MozMessageBar",
+        "module": "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs"
+      }
     },
     {
       "name": "heading",
@@ -61,7 +65,11 @@
       "type": {
         "text": "string"
       },
-      "description": "Inherited from moz-message-bar; when set, renders a \"Learn more\" support link."
+      "description": "When set, renders a \"Learn more\" support link.",
+      "inheritedFrom": {
+        "name": "MozMessageBar",
+        "module": "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs"
+      }
     },
     {
       "name": "priority",
@@ -99,11 +107,19 @@
   "slots": [
     {
       "name": "message",
-      "description": "Inherited from moz-message-bar; falls back to the internal message span if empty."
+      "description": "Falls back to the internal message span if empty.",
+      "inheritedFrom": {
+        "name": "MozMessageBar",
+        "module": "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs"
+      }
     },
     {
       "name": "support-link",
-      "description": "Inherited from moz-message-bar; link-type buttons added via setButtons() are placed here."
+      "description": "Link-type buttons added via setButtons() are placed here.",
+      "inheritedFrom": {
+        "name": "MozMessageBar",
+        "module": "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs"
+      }
     },
     {
       "name": "actions",
@@ -117,11 +133,19 @@
     },
     {
       "name": "message-bar:close",
-      "description": "Inherited from moz-message-bar; CustomEvent dispatched in disconnectedCallback()."
+      "description": "CustomEvent dispatched in disconnectedCallback().",
+      "inheritedFrom": {
+        "name": "MozMessageBar",
+        "module": "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs"
+      }
     },
     {
       "name": "message-bar:user-dismissed",
-      "description": "Inherited from moz-message-bar; cancelable CustomEvent dispatched from dismiss(); if not defaultPrevented, the bar closes and removes itself."
+      "description": "Cancelable CustomEvent dispatched from dismiss(); if not defaultPrevented, the bar closes and removes itself.",
+      "inheritedFrom": {
+        "name": "MozMessageBar",
+        "module": "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs"
+      }
     }
   ],
   "methods": [

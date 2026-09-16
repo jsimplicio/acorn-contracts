@@ -71,49 +71,77 @@
       "type": {
         "text": "string"
       },
-      "description": "The name of the input control, rendered onto the internal <button>. Inherited from MozBaseInputElement."
+      "description": "The name of the input control, rendered onto the internal <button>.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "value",
       "type": {
         "text": "string"
       },
-      "description": "The value of the input control, rendered onto the internal <button>. Inherited from MozBaseInputElement."
+      "description": "The value of the input control, rendered onto the internal <button>.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "iconSrc",
       "type": {
         "text": "string"
       },
-      "description": "The src for an optional icon. Inherited from MozBaseInputElement."
+      "description": "The src for an optional icon.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "supportPage",
       "type": {
         "text": "string"
       },
-      "description": "Name of the SUMO support page to link to (attribute: support-page). Inherited from MozBaseInputElement."
+      "description": "Name of the SUMO support page to link to (attribute: support-page).",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "accessKey",
       "type": {
         "text": "string"
       },
-      "description": "Mapped accesskey attribute, applied to the internal <button>. Inherited from MozBaseInputElement."
+      "description": "Mapped accesskey attribute, applied to the internal <button>.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "inputLayout",
       "type": {
         "text": "string"
       },
-      "description": "Internal layout mode (attribute: inputlayout). Inherited from MozBaseInputElement."
+      "description": "Internal layout mode (attribute: inputlayout).",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     },
     {
       "name": "parentDisabled",
       "type": {
         "text": "boolean"
       },
-      "description": "Internal: set by a parent input/fieldset to cascade a disabled state. Inherited from MozBaseInputElement."
+      "description": "Internal: set by a parent input/fieldset to cascade a disabled state.",
+      "inheritedFrom": {
+        "name": "MozBaseInputElement",
+        "module": "toolkit/content/widgets/lit-utils.mjs"
+      }
     }
   ],
   "slots": [

@@ -5,7 +5,8 @@
   "description": "A MozInputText subclass rendering a native <input type=\"search\">. Debounces input by 500ms before dispatching its own MozInputSearch:search custom event, and exposes a clear() method that empties the value and fires the search event immediately.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-input-search/moz-input-search.mjs"
+    "file": "toolkit/content/widgets/moz-input-search/moz-input-search.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-input-search/moz-input-search.figma.ts"
   },
   "attributes": [
     {

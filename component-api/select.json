@@ -5,7 +5,8 @@
   "description": "A select dropdown whose options are provided as moz-option light-DOM children. Renders a native <select> when no options have icons, or a panel-list/button combo when at least one moz-option has an icon.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-select/moz-select.mjs"
+    "file": "toolkit/content/widgets/moz-select/moz-select.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-select/moz-select.figma.ts"
   },
   "attributes": [
     {

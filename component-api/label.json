@@ -10,7 +10,8 @@
       "commit": "6cb29c3545ab0b1a126d684674ed819666ac5aec",
       "date": "2026-09-15",
       "scope": "full"
-    }
+    },
+    "codeConnect": "toolkit/content/widgets/moz-label/moz-label.figma.ts"
   },
   "attributes": [
     {

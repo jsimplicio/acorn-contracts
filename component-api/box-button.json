@@ -5,7 +5,8 @@
   "description": "A button custom element used for navigating between sub-pages or opening dialogs, styled as a box row with an optional icon/description and a trailing nav arrow.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-box-button/moz-box-button.mjs"
+    "file": "toolkit/content/widgets/moz-box-button/moz-box-button.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-box-button/moz-box-button.figma.ts"
   },
   "attributes": [
     {

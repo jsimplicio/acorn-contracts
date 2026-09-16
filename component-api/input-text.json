@@ -5,7 +5,8 @@
   "description": "A single-line text input custom element with an associated label, optional description/icon/support link, and form-association support. Extends the shared MozBaseInputElement base class (toolkit/content/widgets/lit-utils.mjs), which supplies most of its attrs, slots, and layout.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-input-text/moz-input-text.mjs"
+    "file": "toolkit/content/widgets/moz-input-text/moz-input-text.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-input-text/moz-input-text.figma.ts"
   },
   "attributes": [
     {

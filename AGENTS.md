@@ -49,6 +49,8 @@ The comparison that works: take the values the contract declares (`variants`, an
 5. **Compare Figma props against slots as well as attributes.** `promo.figma.ts`'s `actions` prop is a real slot, not a missing attribute.
 6. **Check which base class a component actually extends before diffing inherited members.** `MozBoxButton extends MozBoxBase`, not `MozBaseInputElement`, so comparing it against the latter's 13 properties invents seven gaps.
 
+An entry that has one records it as `implementation.codeConnect`, the path to the file. A path rather than a boolean so it can rot visibly: `check-drift.py` fetches it alongside the implementation file and reports `CODE CONNECT GONE` if it moves, the same way it reports a moved implementation. 30 entries carry one, across 23 upstream files, because this inventory splits some things upstream keeps together (`panel-list.figma.ts` covers both `panel-list` and `panel-item`).
+
 ## Checking whether a token/CSS custom property exists in Figma
 
 Every component page's Design tokens table has an "In Figma" column, built from `token-api/figma-token-map.json`. The source rule (always the Figma REST API, never Supernova), the matching algorithm, the strict two-state `yes`/`no` result, why alias chains are never followed, and how to regenerate both the map and the dump behind it are all in `token-api/README.md`'s "Figma existence check" section, with the full match algorithm in `token-api/figma-check.py`'s own docstring. Read one of those before touching that column or its data; don't re-derive the rules from this file.

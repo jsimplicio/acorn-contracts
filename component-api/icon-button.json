@@ -5,7 +5,8 @@
   "description": "The icon-only usage mode of moz-button: an iconSrc is set with no visible label text, and type includes the \"icon\" token (optionally combined with \"ghost\") so the button renders as a square icon-only control.\n\n**Not a separate registered custom element.** It is documented separately here because it is a distinct, commonly-used configuration of moz-button; see the \"button\" component for the full element API.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-button/moz-button.mjs"
+    "file": "toolkit/content/widgets/moz-button/moz-button.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-button/moz-button.figma.ts"
   },
   "attributes": [
     {

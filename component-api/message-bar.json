@@ -5,7 +5,8 @@
   "description": "A message bar element used to display important information to users, with an icon derived from its type, optional heading, dismiss button, actions, and support link.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs"
+    "file": "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-message-bar/moz-message-bar.figma.ts"
   },
   "attributes": [
     {

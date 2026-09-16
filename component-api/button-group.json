@@ -5,7 +5,8 @@
   "description": "A light layout wrapper around a group of buttons.\n\n**It promotes the primary button itself:** it watches its default slot for <button>/<moz-button> children and automatically moves whichever one is primary (class=\"primary\", type=\"submit\", the autofocus/default attribute, or moz-button type=\"primary\"/\"destructive\") into the primary slot.\n\n**Then it reorders for the platform:** the primary button is moved to the platform-correct end of the group, start on Windows, end on macOS/Linux.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-button-group/moz-button-group.mjs"
+    "file": "toolkit/content/widgets/moz-button-group/moz-button-group.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-button-group/moz-button-group.figma.ts"
   },
   "attributes": [
     {

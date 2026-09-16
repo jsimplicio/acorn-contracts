@@ -5,6 +5,7 @@
   "description": "It's just a plain <hr> with no dedicated class/tagName, not a distinct sub-component.\n\n**Correction to the 'no separator implementation' citation:** moz-page-nav.mjs does render a real separator, `${when(this.hasSecondaryNav, () => html`<hr />`)}`, placed between the primary-nav-group and secondary-nav-group in its own render() output.",
   "implementation": {
     "kind": "none",
-    "file": "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs"
+    "file": "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-page-nav/moz-page-nav.figma.ts"
   }
 }

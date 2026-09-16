@@ -5,7 +5,8 @@
   "description": "A grouping of navigation buttons displayed at the page level, used to change the selected view, provide a heading, and link to external resources. Manages selection state across its slotted moz-page-nav-button children and supports a secondary/footer nav group.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs"
+    "file": "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-page-nav/moz-page-nav.figma.ts"
   },
   "attributes": [
     {

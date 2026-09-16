@@ -5,7 +5,8 @@
   "description": "A custom element used for highlighting important information and/or providing context for specific settings, rendered as a box row with an optional icon, label, description, support link, and start/end action slots.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-box-item/moz-box-item.mjs"
+    "file": "toolkit/content/widgets/moz-box-item/moz-box-item.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-box-item/moz-box-item.figma.ts"
   },
   "attributes": [
     {

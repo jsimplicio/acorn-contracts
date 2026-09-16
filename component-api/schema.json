@@ -78,6 +78,10 @@
               "description": "full: every documented member was checked against source. implementation: only the kind/file/tagName line was confirmed. Absent means full."
             }
           }
+        },
+        "codeConnect": {
+          "type": "string",
+          "description": "Path to this component's Figma Code Connect file, relative to the mozilla-central root, when one exists. A path rather than a boolean so it is checkable: if the file moves upstream, check-drift.py reports it the same way it reports a moved implementation file. Absent means no Code Connect file, which also means this component has no second source that can contradict the contract."
         }
       }
     },

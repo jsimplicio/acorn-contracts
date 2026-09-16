@@ -5,7 +5,8 @@
   "description": "A labeled color swatch input backed by a native <input type=\"color\">, used to pick a CSS color value.\n\n**`MozInputColor extends MozLitElement`,** not MozBaseInputElement, and declares only `value`, `name` and `label`. So it inherits none of the input family's shared members: the three attributes below are the whole surface.\n\n**Figma offers a `disabled` state this element does not have.** `color-picker.figma.ts` emits `disabled=${props.disabled}` onto `<moz-input-color>`, and `disabled` appears nowhere in moz-input-color.mjs or its CSS, so that attribute is inert.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-input-color/moz-input-color.mjs"
+    "file": "toolkit/content/widgets/moz-input-color/moz-input-color.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-input-color/color-picker.figma.ts"
   },
   "attributes": [
     {

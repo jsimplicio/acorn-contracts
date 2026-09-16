@@ -5,7 +5,8 @@
   "description": "Cards contain content and actions about a single subject. The default type has no extra functionality; the \"accordion\" type initially hides its content behind a collapsed summary and can be expanded/collapsed by the user (or forced open via the expanded attribute).",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-card/moz-card.mjs"
+    "file": "toolkit/content/widgets/moz-card/moz-card.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-card/moz-card.figma.ts"
   },
   "attributes": [
     {

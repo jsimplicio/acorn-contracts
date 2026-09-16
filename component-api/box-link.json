@@ -5,7 +5,8 @@
   "description": "A link with a box-like shape that allows for custom title and description, rendering as an anchor with a trailing external-link nav icon.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-box-link/moz-box-link.mjs"
+    "file": "toolkit/content/widgets/moz-box-link/moz-box-link.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-box-link/moz-box-link.figma.ts"
   },
   "attributes": [
     {

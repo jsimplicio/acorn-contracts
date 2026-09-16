@@ -5,7 +5,8 @@
   "description": "A button with multiple types and three sizes.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-button/moz-button.mjs"
+    "file": "toolkit/content/widgets/moz-button/moz-button.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-button/moz-button.figma.ts"
   },
   "attributes": [
     {

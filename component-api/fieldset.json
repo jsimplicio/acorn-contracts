@@ -5,7 +5,8 @@
   "description": "Fieldset wrapper used to lay out form inputs consistently, with an optional legend (label), description, icon, badge, and support link.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-fieldset/moz-fieldset.mjs"
+    "file": "toolkit/content/widgets/moz-fieldset/moz-fieldset.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-fieldset/moz-fieldset.figma.ts"
   },
   "attributes": [
     {

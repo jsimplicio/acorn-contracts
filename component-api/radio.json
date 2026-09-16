@@ -5,7 +5,8 @@
   "description": "Modern Lit-based radio group (moz-radio-group) that groups and associates moz-radio items so they function as a single form control.\n\n**A legacy XUL-style pair also exists** in the tree for older UI: <radiogroup>/<radio> (toolkit/content/widgets/radio.js, registered as tags \"radiogroup\" and \"radio\"). It implements roving-tabindex keyboard navigation (arrow keys, wrapping), a selectedItem/selectedIndex/value API, and dispatches a plain \"select\" event on selection, with attribute inheritance for disabled/selected/label/accesskey/crop/src.\n\n**The tables below describe the modern one:** moz-radio-group and its moz-radio children, which is the actively-recommended pair.",
   "implementation": {
     "kind": "dual",
-    "file": "toolkit/content/widgets/moz-radio-group/moz-radio-group.mjs"
+    "file": "toolkit/content/widgets/moz-radio-group/moz-radio-group.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-radio-group/moz-radio.figma.ts"
   },
   "attributes": [
     {

@@ -5,7 +5,8 @@
   "description": "A simple badge element that can be used to indicate status or convey simple messages.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-badge/moz-badge.mjs"
+    "file": "toolkit/content/widgets/moz-badge/moz-badge.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-badge/moz-badge.figma.ts"
   },
   "attributes": [
     {

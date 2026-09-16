@@ -2475,7 +2475,11 @@
     // anywhere real. Uses the exact same DATA row and badge rules.
     if (d.name) {
       const parentName = d.parentId ? (DATA.find(p => p.id === d.parentId) || {}).name : null;
-      html += `<p class="meta coverage-line">Figma ${checkInline(d.figma, parentName)} &nbsp; Supernova ${checkInline(d.supernova, parentName)} &nbsp; Storybook ${checkInline(d.storybook, parentName, effectiveKind(d))}</p>`;
+      const cc = api && api.implementation && api.implementation.codeConnect;
+      const ccPart = cc
+        ? ` &nbsp; <span class="state-badge live" title="${escapeHtml("Figma Code Connect: " + cc)}">code connect</span>`
+        : "";
+      html += `<p class="meta coverage-line">Figma ${checkInline(d.figma, parentName)} &nbsp; Supernova ${checkInline(d.supernova, parentName)} &nbsp; Storybook ${checkInline(d.storybook, parentName, effectiveKind(d))}${ccPart}</p>`;
     }
     // Plain-language, one sentence, no implementation detail -- the
     // technical Description below is written for someone reading the real

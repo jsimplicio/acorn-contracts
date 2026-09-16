@@ -5,7 +5,8 @@
   "description": "Renders five stars (empty, half, or full) derived from a numeric rating rounded to the nearest half. When selectable is set, clicking a star updates the rating and dispatches a select event with the new rating in its detail.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-five-star/moz-five-star.mjs"
+    "file": "toolkit/content/widgets/moz-five-star/moz-five-star.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-five-star/moz-five-star.figma.ts"
   },
   "attributes": [
     {

@@ -5,7 +5,8 @@
   "description": "A promotional callout element with an optional heading, image, actions and support link, and an optional dismiss button.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-promo/moz-promo.mjs"
+    "file": "toolkit/content/widgets/moz-promo/moz-promo.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-promo/promo.figma.ts"
   },
   "attributes": [
     {

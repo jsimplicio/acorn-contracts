@@ -5,7 +5,8 @@
   "description": "A simple toggle switch used to switch between two states (on/off), with an optional label and description.\n\n**`MozToggle extends MozBaseInputElement`** and is tiny: it declares only `pressed`, sets `static activatedProperty = \"pressed\"`, and overrides `inputTemplate()` to render a single `<button>` carrying `name`, `value` and `accesskey`. Everything else in the tables below is inherited and rendered by the base class's wrapper around that template, which is why the attribute list is longer than the class itself.",
   "implementation": {
     "kind": "modern",
-    "file": "toolkit/content/widgets/moz-toggle/moz-toggle.mjs"
+    "file": "toolkit/content/widgets/moz-toggle/moz-toggle.mjs",
+    "codeConnect": "toolkit/content/widgets/moz-toggle/moz-toggle.figma.ts"
   },
   "attributes": [
     {

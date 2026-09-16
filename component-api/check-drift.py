@@ -73,6 +73,7 @@ def load_tracked_components():
                 "file": file,
                 "kind": impl.get("kind"),
                 "tagName": data.get("tagName"),
+                "codeConnect": impl.get("codeConnect"),
             }
     return tracked
 
@@ -193,7 +194,8 @@ def main():
     # isn't in the cited file can still be traced to the sibling that
     # really defines it rather than just reported as missing.
     tracked_dirs = sorted({str(Path(info["file"]).parent) for info in tracked.values()})
-    patterns = sorted({info["file"] for info in tracked.values()}) + [
+    patterns = sorted({info["file"] for info in tracked.values()}
+                      | {i["codeConnect"] for i in tracked.values() if i.get("codeConnect")}) + [
         f"{WIDGETS_ROOT}/*.mjs", f"{WIDGETS_ROOT}/*.js",
         f"{WIDGETS_ROOT}/*/*.mjs", f"{WIDGETS_ROOT}/*/*.js",
     ] + [f"{d}/*.mjs" for d in tracked_dirs] + [f"{d}/*.js" for d in tracked_dirs]
@@ -206,6 +208,7 @@ def main():
         changed = []
         repointed = []
         missing_upstream = []
+        cc_missing = []
         tag_checked = 0
         tag_missing = []
         for cid, info in tracked.items():
@@ -213,6 +216,11 @@ def main():
             if not src.is_file():
                 missing_upstream.append((cid, info["file"]))
                 continue
+            # implementation.codeConnect is a path precisely so it can rot
+            # visibly; a boolean would not.
+            cc = info.get("codeConnect")
+            if cc and not (repo_root / cc).is_file():
+                cc_missing.append((cid, cc))
             digest = hashlib.sha256(src.read_bytes()).hexdigest()
             new_entries[cid] = {"file": info["file"], "hash": digest}
             prior_file, prior_hash = prior_entry(prior_entries, cid)
@@ -295,6 +303,12 @@ def main():
         print(f"Other untracked native widgets ({len(other_new)}), likely out of Acorn's scope, FYI only:")
         for f in other_new:
             print(f"  {f}")
+    if cc_missing:
+        print(f"CODE CONNECT GONE ({len(cc_missing)}), implementation.codeConnect points at a file that no longer exists:")
+        for cid, path in cc_missing:
+            print(f"  {cid}: {path}")
+        print()
+
     if missing_upstream:
         print()
         print(f"NOTE: {len(missing_upstream)} tracked file(s) no longer exist upstream at their recorded path (moved or removed):")

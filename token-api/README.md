@@ -148,7 +148,7 @@ A consumer reading only `token-api/` can reproduce the same values.
 > skipping it hands every component resolving through `icon.*` a Proton blue
 > where Nova is violet.
 
-> **Warning** A `nova` branch wins over `$value`. 38 tokens carry
+> **Warning** A `nova` branch wins over `$value`. Many tokens carry
 > `$extensions["org.mozilla.themes"].nova`, shaped `{comment?, value}`; that
 > branch is the real Nova value and `$value` is the Proton one `pick_default`
 > surfaced. `text.color.@base` is the clearest case: `$value` is
@@ -195,10 +195,20 @@ nothing downstream has to know. Four guards keep it off anything live:
   alive forever. A Proton token its own `.nova` sibling redefines is skipped,
   as is the non-nova half of a token carrying its own `nova` branch.
 
-`color.gray.100` is the worked example. A raw scan finds 10 tokens pointing at
-it, but 8 are Proton definitions Nova replaces, leaving 2 real ones
-(`toolbar.text.color` and `table.header.text.color.@base`, neither with a Nova
-definition yet).
+`color.gray.100` is the worked example, and the shape of the answer matters
+more than the tally, which has moved twice already. A raw scan for
+`{color.gray.100}` finds more tokens than really depend on it: some are
+Proton definitions their own `nova` branch replaces, and only the ones with
+no Nova value left are genuinely still pointing at a Proton grey. As of
+2026-09-16 that was `button.text.color.@base`,
+`toolbar.field.text.color.@base`, `toolbar.text.color` and
+`toolbox.text.color.@base`, while `text.color.@base` has a `nova` branch and
+so does not count.
+
+To recount rather than trust that list, walk every non-`.nova.` file in
+`base/` and `components/`, keep the tokens whose `$value` is exactly
+`{color.gray.100}`, and drop any that carry
+`$extensions["org.mozilla.themes"].nova`.
 
 19 steps go: `100`/`110` on red, orange, yellow, green, cyan, blue, violet,
 purple and pink, plus `border.radius.xxlarge`. `color.gray.100` and

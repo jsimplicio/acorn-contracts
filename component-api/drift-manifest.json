@@ -1,5 +1,5 @@
 {
-  "commit": "1713b2fe116495380852077e8f7f3618d4380721",
+  "commit": "6cb29c3545ab0b1a126d684674ed819666ac5aec",
   "entries": {
     "badge": {
       "file": "toolkit/content/widgets/moz-badge/moz-badge.mjs",
@@ -111,7 +111,7 @@
     },
     "label": {
       "file": "toolkit/content/widgets/moz-label/moz-label.mjs",
-      "hash": "ef9b5cd93a046fcec300e52696d96812c23d7eddb0086751f1ccb539a1971500"
+      "hash": "d229c34093cdefc08c3a690bcaaeb099aea95864bfda4db06b15c20fb9b5c029"
     },
     "message-bar": {
       "file": "toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs",
@@ -207,7 +207,7 @@
     },
     "support-link": {
       "file": "toolkit/content/widgets/moz-support-link/moz-support-link.mjs",
-      "hash": "cd71dac0b84624daaeac8752a47b6ef481b75152e989b91695b229d929a7f4ed"
+      "hash": "014daa3aefaa6871290334a3e99b3a601482f84b3704e29861bb4661b64ae0bf"
     },
     "tab-group": {
       "file": "browser/components/tabbrowser/content/tabgroup.mjs",
@@ -222,8 +222,8 @@
       "hash": "1c1a23fc37c715268cf4ccd846a0c9ceb28250bd77058725c0a6f818015c0cd7"
     },
     "tabstrip": {
-      "file": "browser/components/tabbrowser/content/tabs.js",
-      "hash": "676f1a7837144686a577a0b0deafda579a11413feff4637c529083df70389f2b"
+      "file": "browser/components/tabbrowser/content/tabs.mjs",
+      "hash": "461d9d7c5ac16f8093afcebb9eb9db8cffe1b619de4bffe242f1cd79ad4dbcec"
     },
     "textarea": {
       "file": "toolkit/content/widgets/moz-textarea/moz-textarea.mjs",
@@ -238,16 +238,16 @@
       "hash": "aca4431af17b9eed68523896bb293167b4007d1cf0a23518d25ba27bed6b256e"
     },
     "toolbar": {
-      "file": "browser/base/content/navigator-toolbox.js",
-      "hash": "5cf334ad5115b6fa819013fec74cbfdc39474b61990096f2a5000842573ed539"
+      "file": "browser/base/content/navigator-toolbox.inc.xhtml",
+      "hash": "cd803d7863168eafdfec4f50dbda27f56b4ce21642a896561de457a0913daefc"
     },
     "toolbox": {
-      "file": "browser/base/content/navigator-toolbox.js",
-      "hash": "5cf334ad5115b6fa819013fec74cbfdc39474b61990096f2a5000842573ed539"
+      "file": "browser/base/content/navigator-toolbox.inc.xhtml",
+      "hash": "cd803d7863168eafdfec4f50dbda27f56b4ce21642a896561de457a0913daefc"
     },
     "urlbar-action": {
       "file": "browser/components/urlbar/content/UrlbarView.mjs",
-      "hash": "104d33c051004df480728ff605ed6800f1a23c4eb60803627bb96c3c3621df8f"
+      "hash": "82ca546edbada6b30f5e7d16e0b03226c95077242e559fb4b638d6721fac92a4"
     },
     "urlbar-identity": {
       "file": "browser/base/content/browser-siteIdentity.js",
@@ -255,11 +255,11 @@
     },
     "urlbar-result": {
       "file": "browser/components/urlbar/content/UrlbarView.mjs",
-      "hash": "104d33c051004df480728ff605ed6800f1a23c4eb60803627bb96c3c3621df8f"
+      "hash": "82ca546edbada6b30f5e7d16e0b03226c95077242e559fb4b638d6721fac92a4"
     },
     "urlbar": {
       "file": "browser/components/urlbar/content/UrlbarInputBase.mjs",
-      "hash": "15ebd91200a7a15573d0dc8ae258cb236f52d41d6f43b37b448ba6cfed307d6b"
+      "hash": "52d276c1f3afea215285deb4567da7d5e3730e3a47842261853a8727355e27ac"
     },
     "visual-picker-item": {
       "file": "toolkit/content/widgets/moz-visual-picker/moz-visual-picker.mjs",

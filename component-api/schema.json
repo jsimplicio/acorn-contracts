@@ -33,8 +33,7 @@
     "implementation": {
       "type": "object",
       "required": [
-        "kind",
-        "file"
+        "kind"
       ],
       "additionalProperties": false,
       "properties": {
@@ -50,7 +49,7 @@
         },
         "file": {
           "type": "string",
-          "description": "Path relative to the mozilla-central root. The primary source-of-truth file this JSON was derived from."
+          "description": "Path relative to the mozilla-central root, and nothing else: the primary source-of-truth file this JSON was derived from. Absent when `kind` is `missing`, because no such file exists; what does exist instead is described in `description`. Where a component genuinely spans two implementations the primary one goes here and the other is named in the description, so this field stays parseable as a single path."
         },
         "verifiedAt": {
           "type": "object",

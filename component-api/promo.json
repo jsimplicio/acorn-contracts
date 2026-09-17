@@ -12,7 +12,7 @@
     {
       "name": "type",
       "type": {
-        "text": "string"
+        "text": "'default' | 'vibrant'"
       },
       "description": "The type of promo, either \"default\" or \"vibrant\". Determines the colors of the promotional element.",
       "figmaConfig": true,
@@ -45,7 +45,7 @@
     {
       "name": "imageAlignment",
       "type": {
-        "text": "string"
+        "text": "'start' | 'end' | 'center'"
       },
       "description": "How the image should be aligned. Can be \"start\", \"end\", or \"center\".",
       "figmaConfig": true,
@@ -54,16 +54,16 @@
     {
       "name": "imageWidth",
       "type": {
-        "text": "string"
+        "text": "'default' | 'small' | 'large'"
       },
-      "description": "How big the image is sized. Can be \"default\", \"small\" or \"large\".",
+      "description": "How big the image is sized. Can be \"default\", \"small\" or \"large\". Note the constructor default is `small`, not `default`: only `large` carries a CSS rule, so `default` and `small` render alike.",
       "figmaConfig": true,
       "default": "small"
     },
     {
       "name": "imageDisplay",
       "type": {
-        "text": "string"
+        "text": "'cover' | 'padded'"
       },
       "description": "Whether the image touches the edge of the promo or has a little padding around it. Can be \"cover\" or \"padded\".",
       "figmaConfig": true,

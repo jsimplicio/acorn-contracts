@@ -62,7 +62,7 @@
     {
       "name": "size",
       "type": {
-        "text": "string"
+        "text": "'default' | 'small'"
       },
       "description": "Button size, \"default\" or \"small\".",
       "figmaConfig": true,

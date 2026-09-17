@@ -125,21 +125,12 @@ inventing a date would be exactly the fiction the rest of this directory
 avoids. An absent `verifiedAt` means unconfirmed since the field existed,
 not recently confirmed.
 
-**4. A few `implementation.file` values are not a bare path.** `missing`
-entries have no single real file, and one component genuinely cites two
-implementations, so that field can carry a path plus a clause. Extract paths
-with a pattern rather than assuming the whole string is one.
+**4. `implementation.file` is absent for `missing` entries.** It is
+otherwise always a bare path, never a path plus prose. A `missing`
+component has no source-of-truth file by definition, and what exists
+instead is described in `description`, so check for the key rather than
+assuming every entry has one.
 
-```sh
-python3 -c "
-import json, glob, os, re
-P = re.compile(r'^[A-Za-z0-9_.@/-]+\.(?:mjs|jsx|js|css|xhtml|html|xml)\$')
-for p in sorted(glob.glob('component-api/*.json')):
-    b = os.path.basename(p)
-    if b.startswith('_') or b in ('schema.json','drift-manifest.json'): continue
-    d = json.load(open(p)); f = (d['implementation'].get('file') or '').strip()
-    if not P.match(f): print(d['id'], '->', f)"
-```
 
 **Not a gap, by design:** `guidance-api/` is prose and will stay prose. Per
 the Nathan Curtis distinction this project is built on, specs say how to

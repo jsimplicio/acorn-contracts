@@ -20,7 +20,7 @@
     {
       "name": "type",
       "type": {
-        "text": "string"
+        "text": "'button' | 'checkbox'"
       },
       "description": "Observed attribute, getter/setter, defaults to \"button\". Only recognized special value is \"checkbox\", which sets role=menuitemcheckbox and enables the checked property.",
       "figmaConfig": true,

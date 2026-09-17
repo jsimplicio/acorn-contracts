@@ -11,7 +11,7 @@
     {
       "name": "orient",
       "type": {
-        "text": "string"
+        "text": "'horizontal' | 'vertical'"
       },
       "description": "The only observedAttribute; \"horizontal\" or \"vertical\" tab layout. Backs the verticalMode getter and is propagated to the pinned-tabs container.",
       "figmaConfig": true,
@@ -28,7 +28,7 @@
     {
       "name": "closebuttons",
       "type": {
-        "text": "string"
+        "text": "'activetab'"
       },
       "description": "Controls close-button visibility policy, e.g. \"activetab\" shows the close button only on the active tab.",
       "figmaConfig": true

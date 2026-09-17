@@ -19,7 +19,7 @@
     {
       "name": "type",
       "type": {
-        "text": "string"
+        "text": "'system' | 'critical' | 'info' | 'warning'"
       },
       "description": "Derived from priority: \"system\", \"critical\", \"info\", or \"warning\"; drives icon/color styling. Inherited property from moz-message-bar.",
       "figmaConfig": true

@@ -11,7 +11,7 @@
     {
       "name": "type",
       "type": {
-        "text": "string"
+        "text": "'arrow'"
       },
       "description": "The sole gate for arrow-panel behavior: \"arrow\" enables default flip/side/position/consumeoutsideclicks values, side auto-recalculation, and the panelopen/animate lifecycle. Any other value is a plain popup.",
       "figmaConfig": true

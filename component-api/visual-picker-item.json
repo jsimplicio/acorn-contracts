@@ -92,7 +92,7 @@
     {
       "name": "labelPosition",
       "type": {
-        "text": "string"
+        "text": "'inside' | 'outside'"
       },
       "description": "Position of the label: \"inside\" (default, rendered inside the picker item button) or \"outside\" (rendered as a clickable label element that activates the item).",
       "figmaConfig": true,

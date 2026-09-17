@@ -29,7 +29,7 @@
     {
       "name": "color",
       "type": {
-        "text": "string"
+        "text": "'blue' | 'purple' | 'cyan' | 'orange' | 'yellow' | 'pink' | 'green' | 'gray' | 'red'"
       },
       "description": "Not attribute-backed: the setter writes six CSS custom properties (--tab-group-color, -color-invert, -color-pale, -background-color, -background-color-hover, -text-color, -text-color-invert) pointing at the matching palette token set. Valid values: blue, cyan, gray, green, orange, pink, purple, red, yellow.",
       "figmaConfig": true

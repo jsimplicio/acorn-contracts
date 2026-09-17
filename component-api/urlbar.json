@@ -11,14 +11,14 @@
     {
       "name": "sap-name",
       "type": {
-        "text": "string"
+        "text": "'urlbar' | 'searchbar' | 'smartbar' | 'newtab_searchbar'"
       },
       "description": "Which surface this instance represents: \"urlbar\", \"searchbar\", or \"smartbar\"; backed by the sapName getter."
     },
     {
       "name": "pageproxystate",
       "type": {
-        "text": "string"
+        "text": "'valid' | 'invalid'"
       },
       "description": "\"valid\" when the displayed value matches the loaded page URL, \"invalid\" once the user starts typing/searching; gates autofill and search-mode behavior.",
       "figmaConfig": true,
@@ -50,9 +50,9 @@
     {
       "name": "textoverflow",
       "type": {
-        "text": "string"
+        "text": "'left' | 'right' | 'both'"
       },
-      "description": "\"start\" or \"end\"; controls which side the value text-overflow fade appears on."
+      "description": "\"left\", \"right\" or \"both\"; set from the input's scroll position to say which side the value is overflowing on, so CSS can fade that edge. Removed when the field is not overflowing."
     },
     {
       "name": "searchmode",
@@ -260,8 +260,9 @@
     {
       "axis": "textoverflow",
       "values": [
-        "start",
-        "end"
+        "left",
+        "right",
+        "both"
       ]
     }
   ],

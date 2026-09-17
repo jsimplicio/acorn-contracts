@@ -462,6 +462,11 @@
   .yes { color: var(--ok); font-weight: bold; }
   .no { color: var(--err); }
   .unknown { color: var(--warn); font-weight: bold; }
+  /* --text-muted, not --text-faint: this cell is real content ("in Panel"
+     is the answer to the column's question), so it has to clear AA. Faint
+     is #888, which is 3.54:1 on white, under the 4.5:1 floor for normal
+     text; muted is 5.74:1 and still reads quieter than body text. */
+  .nested-in { color: var(--text-muted); }
 
   /* Page sections */
   h2.section { font-size: 30px; font-weight: 700; color: var(--text); letter-spacing: -0.015em; line-height: 1.2; border-bottom: 1px solid var(--border-hairline); padding-bottom: 10px; margin: 44px 0 14px; }
@@ -668,7 +673,7 @@
         <tr><td><span class="yes">&check;</span> <span class="state-badge live">live</span></td><td>Real and documented there.</td></tr>
         <tr><td><span class="no">&cross;</span> <span class="state-badge missing">missing</span></td><td>Not yet, a real, closeable gap.</td></tr>
         <tr><td><span class="state-badge na">n/a</span></td><td>Not a reusable widget class, this kind of coverage was never going to apply here regardless of effort.</td></tr>
-        <tr><td><span class="check unknown">in: [parent]</span></td><td>Covered under its parent's own entry, not separately (see the Notes below for why).</td></tr>
+        <tr><td><span class="check nested-in">in <code>Button</code></span></td><td>Covered under its parent's own entry, not separately (see the Notes below for why).</td></tr>
       </tbody>
     </table>
     <div id="home-tables"></div>
@@ -683,7 +688,7 @@
       <li>Figma has some internal duplication for chrome entries (Sidebar, Infobar and Info bar, Bookmarks toolbar and Bookmarks Toolbar, and a few more each show up as two near-identical nodes), most likely stale-versus-current branches rather than distinct concepts.</li>
       <li>tagName is optional, not universal: most "classic" entries do have a real customElements.define tag (panel, dialog, tab-group), but some are built-in XUL tags with no class behind them (toolbar, toolbox), and some real implementations (Spotlight, Callout) are plain classes or React, not custom elements at all.</li>
       <li>A grey "n/a" in the Storybook column is a different claim than "missing": it means the real implementation isn't a reusable widget class at all (a plain module like Spotlight, a React render method like Stepper, or page wiring with no class like Toolbox), so a story was never going to exist regardless of effort. "missing" means a real widget class exists and simply hasn't been storied yet, a genuine closeable gap (popup-notification, for example).</li>
-      <li>Rows with no Figma node or Storybook story of their own (Panel Item, Panel Separator, Page Nav Item and Separator, Segment, Icon Button, Split Button, Visual Picker Item) are listed indented under the parent whose Figma node or Storybook story actually covers them, marked "in: [parent name]".</li>
+      <li>Rows with no Figma node or Storybook story of their own (Panel Item, Panel Separator, Page Nav Item and Separator, Segment, Icon Button, Split Button, Visual Picker Item) are listed indented under the parent whose Figma node or Storybook story actually covers them, marked <span class="check nested-in">in <code>Parent</code></span>.</li>
     </ul>
   </section>
 
@@ -848,7 +853,7 @@
       const suffix = kindLabel ? ` (${escapeHtml(kindLabel)})` : "";
       return { cls: "na", text: `n/a${suffix}`, title: "Not a reusable widget class, a story/doc was never going to apply here regardless of effort" };
     }
-    if (v === "nested" && parentName) return { cls: "unknown", text: `in: ${escapeHtml(parentName)}` };
+    if (v === "nested" && parentName) return { cls: "nested-in", text: `in <code>${escapeHtml(parentName)}</code>` };
     return { cls: "unknown", text: escapeHtml(v) };
   }
 

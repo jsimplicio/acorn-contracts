@@ -62,7 +62,7 @@
     {
       "name": "messageL10nArgs",
       "type": {
-        "text": "string"
+        "text": "Record<string, string>"
       },
       "description": "JSON-stringified args for the message l10n ID.",
       "figmaConfig": false
@@ -110,7 +110,8 @@
         "success",
         "error",
         "critical"
-      ]
+      ],
+      "typedef": "MozMessageBarType"
     }
   ],
   "usage": "<moz-message-bar type=\"warning\" heading=\"Heads up\" message=\"Something needs your attention.\" dismissable></moz-message-bar>",

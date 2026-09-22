@@ -94,7 +94,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "The form inputs laid out inside the fieldset."
     },
     {

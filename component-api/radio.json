@@ -99,7 +99,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "The radio group's content, intended for moz-radio elements."
     },
     {

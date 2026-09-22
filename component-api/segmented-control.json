@@ -44,7 +44,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "The control's items, intended for moz-segmented-control-item children."
     }
   ],

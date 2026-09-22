@@ -62,7 +62,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Used to append moz-page-nav-button elements to the primary navigation."
     },
     {
@@ -80,7 +80,8 @@
       "values": [
         "default",
         "mobile"
-      ]
+      ],
+      "typedef": "PageNavType"
     }
   ],
   "usage": "<moz-page-nav heading=\"Settings\">\n  <moz-page-nav-button view=\"general\">General</moz-page-nav-button>\n  <moz-page-nav-button view=\"privacy\">Privacy</moz-page-nav-button>\n</moz-page-nav>"

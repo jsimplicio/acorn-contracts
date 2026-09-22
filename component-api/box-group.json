@@ -20,7 +20,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Slot for rendering various moz-box-* elements."
     },
     {

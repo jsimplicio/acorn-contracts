@@ -161,7 +161,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "The button's content, overrides label property."
     }
   ],

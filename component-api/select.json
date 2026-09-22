@@ -102,7 +102,7 @@
     {
       "name": "options",
       "type": {
-        "text": "array"
+        "text": "SelectOption[]"
       },
       "description": "Internal reactive state (state: true, not reflected): array of options read from <moz-option> children.",
       "figmaConfig": false
@@ -110,7 +110,7 @@
     {
       "name": "selectedOption",
       "type": {
-        "text": "object"
+        "text": "SelectOption"
       },
       "description": "Internal reactive state (state: true, not reflected): the currently selected option object.",
       "figmaConfig": false
@@ -134,7 +134,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "moz-option (and <hr> separator) children that populate the select's options. Read via MutationObserver, not meant to be styled directly."
     }
   ],

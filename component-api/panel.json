@@ -108,7 +108,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Default shadow-DOM slot with part=\"content\"; panel children render here."
     }
   ],

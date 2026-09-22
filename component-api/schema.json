@@ -164,7 +164,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The default slot is named \"(default)\"."
+            "description": "The default slot uses an empty string name, per the CEM spec."
           },
           "description": {
             "type": "string"
@@ -412,6 +412,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "typedef": {
+            "type": "string",
+            "description": "Upstream @typedef name for this axis, e.g. MozBadgeType."
           }
         }
       }

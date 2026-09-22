@@ -77,7 +77,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Hidden default slot; its assigned text content is harvested via MutationObserver into the internal label, since a real <slot> can't be used directly for the label."
     },
     {

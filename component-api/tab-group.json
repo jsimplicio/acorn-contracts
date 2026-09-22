@@ -68,7 +68,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Real children (tab and tab-split-view-wrapper elements) are always inserted, via an overridden appendChild, immediately before the overflow-count container, giving DOM order [label-container, ...tabs/split-views..., overflow-count-container]. There is no shadow root, so the <html:slot/> in the static markup is a positional placeholder only, not a functioning slot."
     }
   ],

@@ -98,7 +98,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Dialog body content, rendered via an <html:slot> inside the shadow DOM's .box-inherit[part=content-box]."
     }
   ],

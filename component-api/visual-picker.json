@@ -52,7 +52,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "The picker's content, intended for moz-visual-picker-item children."
     }
   ],

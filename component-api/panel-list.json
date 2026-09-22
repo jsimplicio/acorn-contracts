@@ -86,7 +86,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "panel-item elements (and other content) rendered as the menu's items, inside the shadow DOM's .list container."
     }
   ],

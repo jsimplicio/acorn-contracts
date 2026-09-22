@@ -65,7 +65,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Slot for the box item's content, which overrides label and description."
     },
     {

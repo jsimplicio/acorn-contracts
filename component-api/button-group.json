@@ -20,7 +20,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Buttons in their natural order. On slotchange, any child recognized as a primary button is automatically moved to the primary slot."
     },
     {

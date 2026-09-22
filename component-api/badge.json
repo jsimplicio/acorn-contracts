@@ -50,7 +50,8 @@
         "default",
         "beta",
         "new"
-      ]
+      ],
+      "typedef": "MozBadgeType"
     }
   ],
   "usage": "<moz-badge label=\"New\" type=\"new\"></moz-badge>"

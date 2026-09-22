@@ -101,7 +101,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "The item's content, used for what gets displayed (e.g. a custom card or avatar)."
     }
   ],

@@ -71,7 +71,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Text content; read via a MutationObserver and copied into the internal <label> element (the assigned nodes themselves stay hidden)."
     },
     {

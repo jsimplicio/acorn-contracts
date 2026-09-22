@@ -61,7 +61,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Used to append the button's (typically l10n) label text."
     }
   ],

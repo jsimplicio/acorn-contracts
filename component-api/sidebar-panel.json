@@ -27,7 +27,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Each panel's own toolbar content (search boxes, options menus, etc.), rendered below the heading row."
     }
   ],

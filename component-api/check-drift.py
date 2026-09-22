@@ -150,6 +150,18 @@ def fetch_sources(ref, workdir, patterns):
     return sha
 
 
+def discover_moz_tags(repo_root):
+    """All moz-* tag names registered via customElements.define() in the
+    discovered widget files. A classic component being ported to Lit starts
+    appearing here; comparing against the prior run's set is the port alarm."""
+    tags = set()
+    for rel_path in discover_widget_files(repo_root):
+        text = (repo_root / rel_path).read_text(encoding="utf-8", errors="ignore")
+        for m in re.finditer(r"""customElements\.define\(\s*["'](moz-[^"']+)["']""", text):
+            tags.add(m.group(1))
+    return tags
+
+
 def discover_widget_files(repo_root):
     """Every real component under toolkit/content/widgets/ (flat and one
     level deep) that actually defines a custom element, as repo-relative
@@ -255,8 +267,14 @@ def main():
         tracked_files = {info["file"] for info in tracked.values()}
         untracked = [f for f in discover_widget_files(repo_root) if f not in tracked_files]
 
+        current_moz_tags = discover_moz_tags(repo_root)
+
+    prior_moz_tags = set(prior.get("moz_tags", []))
+    new_moz_tags = sorted(current_moz_tags - prior_moz_tags)
+
     manifest_path.write_text(
-        json.dumps({"commit": commit_sha, "entries": new_entries}, indent=2, ensure_ascii=False) + "\n",
+        json.dumps({"commit": commit_sha, "entries": new_entries,
+                    "moz_tags": sorted(current_moz_tags)}, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
 
@@ -309,6 +327,11 @@ def main():
             print(f"  {cid}: {path}")
         print()
 
+    if new_moz_tags:
+        print(f"NEW moz-* TAGS IN UPSTREAM ({len(new_moz_tags)}), not present in prior run — possible Lit port:")
+        for t in new_moz_tags:
+            print(f"  {t}")
+        print()
     if missing_upstream:
         print()
         print(f"NOTE: {len(missing_upstream)} tracked file(s) no longer exist upstream at their recorded path (moved or removed):")
@@ -326,7 +349,7 @@ def main():
     # A tag defined in no fetched file at all is the genuine drift case.
     tag_lost = [m for m in tag_missing if not m[3]]
 
-    if changed or moz_new or missing_upstream or tag_lost:
+    if changed or moz_new or missing_upstream or tag_lost or new_moz_tags:
         sys.exit(1)
 
 

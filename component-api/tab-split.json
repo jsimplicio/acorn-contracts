@@ -49,7 +49,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Exactly two tab elements (the two tabs being viewed side-by-side), added/removed via addTabs()/unsplitTabs()/replaceTab(). No static template or shadow DOM."
     }
   ],

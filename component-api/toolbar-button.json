@@ -173,7 +173,7 @@
   ],
   "slots": [
     {
-      "name": "(default)",
+      "name": "",
       "description": "Child elements (menupopup, panel, tooltip, template, observes, or a plain box) are kept in place; other children are moved into the icon/label or badge-stack fragment on render."
     }
   ],

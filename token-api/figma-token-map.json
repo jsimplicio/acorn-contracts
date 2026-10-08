@@ -8,9 +8,9 @@
   "counts": {
     "yes_exact": 525,
     "yes_reordered": 13,
-    "no_near_miss": 141,
-    "no_total_mismatch": 234,
-    "total": 913
+    "no_near_miss": 154,
+    "no_total_mismatch": 226,
+    "total": 918
   },
   "properties": {
     "--background-color-box": {
@@ -32,16 +32,6 @@
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "background/color/critical"
-    },
-    "--background-color-dimmed": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
-    "--background-color-dimmed-further": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
     },
     "--background-color-information": {
       "status": "yes",
@@ -2176,7 +2166,32 @@
       "matchType": null,
       "matchedPath": null
     },
+    "--input-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "input-color/background/color/active"
+    },
+    "--input-background-color-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "input-color/background/color"
+    },
+    "--input-border": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
     "--input-border-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "input-color/border/radius"
+    },
+    "--input-border-color-disabled": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--input-border-radius": {
       "status": "no",
       "matchType": "near-miss",
       "matchedPath": "input-color/border/radius"
@@ -2271,6 +2286,21 @@
       "matchType": null,
       "matchedPath": null
     },
+    "--input-icon-size": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "icon/size"
+    },
+    "--input-min-height": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "input/text/min/height"
+    },
+    "--input-opacity-disabled": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
     "--input-search-border-radius": {
       "status": "no",
       "matchType": null,
@@ -2280,36 +2310,6 @@
       "status": "no",
       "matchType": null,
       "matchedPath": null
-    },
-    "--input-text-background-color": {
-      "status": "no",
-      "matchType": "near-miss",
-      "matchedPath": "input-color/background/color"
-    },
-    "--input-text-background-color-disabled": {
-      "status": "no",
-      "matchType": "near-miss",
-      "matchedPath": "input-color/background/color/disabled"
-    },
-    "--input-text-border": {
-      "status": "no",
-      "matchType": "near-miss",
-      "matchedPath": "input/text/border/radius"
-    },
-    "--input-text-border-color": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
-    "--input-text-border-color-disabled": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
-    "--input-text-border-radius": {
-      "status": "yes",
-      "matchType": "exact",
-      "matchedPath": "input/text/border/radius"
     },
     "--input-text-color": {
       "status": "no",
@@ -2321,25 +2321,15 @@
       "matchType": "near-miss",
       "matchedPath": "text/color/disabled"
     },
-    "--input-text-icon-size": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
-    "--input-text-min-height": {
-      "status": "yes",
-      "matchType": "exact",
-      "matchedPath": "input/text/min/height"
-    },
-    "--input-text-opacity-disabled": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
     "--input-width": {
       "status": "no",
       "matchType": null,
       "matchedPath": null
+    },
+    "--link-border-radius-focus": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "link/focus/outline/border/radius"
     },
     "--link-color": {
       "status": "yes",
@@ -2566,6 +2556,21 @@
       "matchType": "exact",
       "matchedPath": "message-bar/text/color"
     },
+    "--message-bar-text-color-critical": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "message-bar/text/color"
+    },
+    "--message-bar-text-color-success": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "message-bar/text/color"
+    },
+    "--message-bar-text-color-warning": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "message-bar/text/color"
+    },
     "--message-bar-text-container-gap": {
       "status": "no",
       "matchType": "near-miss",
@@ -2736,16 +2741,6 @@
       "matchType": "exact",
       "matchedPath": "panel/background/color"
     },
-    "--panel-background-color-dimmed": {
-      "status": "no",
-      "matchType": "near-miss",
-      "matchedPath": "panel/background/color"
-    },
-    "--panel-background-color-dimmed-further": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
     "--panel-border-color": {
       "status": "yes",
       "matchType": "exact",
@@ -2765,6 +2760,16 @@
       "status": "no",
       "matchType": "near-miss",
       "matchedPath": "panel/shadow/margin"
+    },
+    "--panel-footer-background-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/background/color"
+    },
+    "--panel-footer-text-color": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/text/color"
     },
     "--panel-item-badge-background-color": {
       "status": "no",
@@ -3386,21 +3391,6 @@
       "matchType": "exact",
       "matchedPath": "tab/box/shadow/selected"
     },
-    "--tab-close-button-background-color": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
-    "--tab-close-button-background-color-active": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
-    "--tab-close-button-background-color-hover": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
     "--tab-close-button-border-color": {
       "status": "no",
       "matchType": null,
@@ -3420,21 +3410,6 @@
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "tab/close/button/padding"
-    },
-    "--tab-close-button-text-color": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
-    "--tab-close-button-text-color-active": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
-    "--tab-close-button-text-color-hover": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
     },
     "--tab-collapsed-background-width": {
       "status": "no",
@@ -4108,6 +4083,11 @@
       "matchType": "exact",
       "matchedPath": "toggle/background/color/active"
     },
+    "--toggle-background-color-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toggle/background/color"
+    },
     "--toggle-background-color-hover": {
       "status": "yes",
       "matchType": "exact",
@@ -4123,6 +4103,11 @@
       "matchType": "exact",
       "matchedPath": "toggle/background/color/pressed/active"
     },
+    "--toggle-background-color-pressed-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toggle/background/color/pressed"
+    },
     "--toggle-background-color-pressed-hover": {
       "status": "yes",
       "matchType": "exact",
@@ -4137,6 +4122,11 @@
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "toggle/border/color/active"
+    },
+    "--toggle-border-color-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toggle/border/color"
     },
     "--toggle-border-color-hover": {
       "status": "yes",
@@ -4163,6 +4153,11 @@
       "matchType": "exact",
       "matchedPath": "toggle/dot/background/color/active"
     },
+    "--toggle-dot-background-color-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toggle/dot/background/color"
+    },
     "--toggle-dot-background-color-hover": {
       "status": "yes",
       "matchType": "exact",
@@ -4171,6 +4166,11 @@
     "--toggle-dot-background-color-on-pressed": {
       "status": "yes",
       "matchType": "exact",
+      "matchedPath": "toggle/dot/background/color/on-pressed"
+    },
+    "--toggle-dot-background-color-on-pressed-disabled": {
+      "status": "no",
+      "matchType": "near-miss",
       "matchedPath": "toggle/dot/background/color/on-pressed"
     },
     "--toggle-dot-height": {
@@ -4268,6 +4268,11 @@
       "matchType": "exact",
       "matchedPath": "toolbarbutton/background/color/active"
     },
+    "--toolbarbutton-background-color-disabled": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
     "--toolbarbutton-background-color-hover": {
       "status": "yes",
       "matchType": "exact",
@@ -4313,6 +4318,11 @@
       "matchType": "exact",
       "matchedPath": "toolbarbutton/icon/fill"
     },
+    "--toolbarbutton-icon-fill-active": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/icon/fill/active"
+    },
     "--toolbarbutton-icon-fill-attention": {
       "status": "yes",
       "matchType": "exact",
@@ -4322,6 +4332,11 @@
       "status": "no",
       "matchType": "near-miss",
       "matchedPath": "toolbarbutton/icon/fill/attention"
+    },
+    "--toolbarbutton-icon-fill-hover": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/icon/fill/hover"
     },
     "--toolbarbutton-opacity-disabled": {
       "status": "yes",
@@ -4483,6 +4498,11 @@
       "matchType": "near-miss",
       "matchedPath": "urlbar/box/text/color"
     },
+    "--urlbar-box-text-color-focus": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "urlbar/box/text/color"
+    },
     "--urlbar-box-text-color-hover": {
       "status": "yes",
       "matchType": "exact",
@@ -4552,6 +4572,11 @@
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "urlbarview/text/color/action"
+    },
+    "--urlbarview-text-color-hover": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
     },
     "--urlbarview-text-color-secondary": {
       "status": "yes",

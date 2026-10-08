@@ -40,6 +40,7 @@
       "value": "#764edd",
       "type": "color",
       "chain": [
+        "button.background.color.primary.@base",
         "color.accent.primary.@base",
         "color.violet.50"
       ]
@@ -181,11 +182,10 @@
       ]
     },
     "moz-page-nav.hr.background.color": {
-      "value": "#d6d5da",
+      "value": "color-mix(in srgb, currentColor 24%, transparent)",
       "type": "color",
       "chain": [
-        "border.color.deemphasized.@base",
-        "color.gray.20"
+        "border.color.deemphasized.@base"
       ]
     },
     "moz-page-nav.margin.block.start": {

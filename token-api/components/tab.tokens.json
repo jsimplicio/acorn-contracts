@@ -145,22 +145,6 @@
         "$value": "6px",
         "$type": "dimension"
       },
-      "background": {
-        "color": {
-          "@base": {
-            "$value": "{button.background.color.ghost.@base}",
-            "$type": "color"
-          },
-          "hover": {
-            "$value": "{toolbarbutton.background.color.hover}",
-            "$type": "color"
-          },
-          "active": {
-            "$value": "{toolbarbutton.background.color.active}",
-            "$type": "color"
-          }
-        }
-      },
       "border": {
         "color": {
           "@base": {
@@ -183,34 +167,6 @@
               "org.mozilla.themes": {
                 "default": "{tab.border.color.@base}",
                 "prefersContrast": "{button.border.color.active}"
-              }
-            },
-            "$type": "color"
-          }
-        }
-      },
-      "text": {
-        "color": {
-          "@base": {
-            "$value": "{tab.text.color.@base}",
-            "$type": "color"
-          },
-          "hover": {
-            "$value": "{tab.text.color.@base}",
-            "$extensions": {
-              "org.mozilla.themes": {
-                "default": "{tab.text.color.@base}",
-                "forcedColors": "{button.text.color.hover}"
-              }
-            },
-            "$type": "color"
-          },
-          "active": {
-            "$value": "{tab.text.color.@base}",
-            "$extensions": {
-              "org.mozilla.themes": {
-                "default": "{tab.text.color.@base}",
-                "forcedColors": "{button.text.color.active}"
               }
             },
             "$type": "color"

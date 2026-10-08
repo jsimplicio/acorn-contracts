@@ -548,12 +548,12 @@
       }
     },
     "attention": {
-      "$value": "{color.green.40}",
+      "$value": "{color.green.50}",
       "$extensions": {
         "org.mozilla.themes": {
           "nativeTheme": "AccentColor",
-          "light": "{color.green.40}",
-          "dark": "{color.green.30}",
+          "light": "{color.green.50}",
+          "dark": "{color.green.20}",
           "forcedColors": "AccentColor"
         }
       },

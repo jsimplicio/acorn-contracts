@@ -375,8 +375,22 @@
   },
   "text": {
     "color": {
-      "$value": "{text.color.@base}",
-      "$type": "color"
+      "@base": {
+        "$value": "{text.color.@base}",
+        "$type": "color"
+      },
+      "warning": {
+        "$value": "{text.color.@base}",
+        "$type": "color"
+      },
+      "success": {
+        "$value": "{text.color.@base}",
+        "$type": "color"
+      },
+      "critical": {
+        "$value": "{text.color.@base}",
+        "$type": "color"
+      }
     },
     "container": {
       "gap": {

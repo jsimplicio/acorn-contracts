@@ -1,0 +1,15 @@
+{
+  "id": "moz-input-folder",
+  "basenames": [
+    "moz-input-folder"
+  ],
+  "tokens": {
+    "moz-input-folder.gap": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "chain": [
+        "space.medium"
+      ]
+    }
+  }
+}

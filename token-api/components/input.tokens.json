@@ -1,13 +1,57 @@
 {
-  "border": {
+  "background": {
     "color": {
-      "$value": "{border.color.interactive.@base}",
-      "$type": "color"
+      "@base": {
+        "$value": "Field",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "Field",
+            "platform": {
+              "light": "{color.white.@base}",
+              "dark": "#42414d"
+            },
+            "nova": {
+              "comment": "The token name needs to be updated in Figma",
+              "value": {
+                "nativeTheme": "Field",
+                "default": "{background.color.box.@base}"
+              }
+            }
+          }
+        },
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "{button.background.color.disabled}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{button.background.color.disabled}",
+            "nova": {
+              "comment": "The token name needs to be updated in Figma",
+              "value": "{button.background.color.ghost.disabled}"
+            }
+          }
+        },
+        "$type": "color"
+      }
     }
   },
-  "folder": {
-    "gap": {
-      "$value": "{space.medium}",
+  "border": {
+    "@base": {
+      "$value": "{border.width} solid {input.border.color.@base}"
+    },
+    "color": {
+      "@base": {
+        "$value": "{border.color.interactive.@base}",
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "{border.color.interactive.disabled}",
+        "$type": "color"
+      }
+    },
+    "radius": {
+      "$value": "{border.radius.medium}",
       "$type": "dimension"
     }
   },
@@ -15,47 +59,53 @@
     "$value": "{size.item.small}",
     "$type": "dimension"
   },
-  "text": {
-    "background": {
-      "color": {
-        "@base": {
-          "$value": "Field",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "nativeTheme": "Field",
-              "platform": {
-                "light": "{color.white.@base}",
-                "dark": "#42414d"
-              }
-            }
-          },
-          "$type": "color"
-        },
-        "disabled": {
-          "$value": "{button.background.color.disabled}",
-          "$type": "color"
-        }
-      }
-    },
+  "icon": {
+    "size": {
+      "$value": "{icon.size.xsmall}",
+      "$type": "dimension"
+    }
+  },
+  "min-height": {
+    "$value": "{button.min-height.@base}",
+    "$type": "dimension"
+  },
+  "opacity": {
+    "disabled": {
+      "$value": "{button.opacity.disabled}",
+      "$type": "number"
+    }
+  },
+  "search": {
     "border": {
-      "@base": {
-        "$value": "{border.width} solid {input.text.border.color.@base}"
-      },
-      "color": {
-        "@base": {
-          "$value": "{border.color.@base}",
-          "$type": "color"
-        },
-        "disabled": {
-          "$value": "{border.color.interactive.disabled}",
-          "$type": "color"
-        }
-      },
       "radius": {
-        "$value": "{border.radius.medium}",
+        "$value": "{input.border.radius}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{input.border.radius}",
+            "nova": {
+              "value": "{border.radius.circle}"
+            }
+          }
+        },
         "$type": "dimension"
       }
     },
+    "icon": {
+      "size": {
+        "$value": "{input.icon.size}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{input.icon.size}",
+            "nova": {
+              "value": "{icon.size.small}"
+            }
+          }
+        },
+        "$type": "dimension"
+      }
+    }
+  },
+  "text": {
     "color": {
       "@base": {
         "$value": "{text.color.@base}",
@@ -82,44 +132,6 @@
           }
         },
         "$type": "color"
-      }
-    },
-    "icon": {
-      "size": {
-        "$value": "{icon.size.xsmall}",
-        "$type": "dimension"
-      }
-    },
-    "min-height": {
-      "$value": "{button.min-height.@base}",
-      "$type": "dimension"
-    },
-    "opacity": {
-      "disabled": {
-        "$value": "{button.opacity.disabled}",
-        "$type": "number"
-      }
-    }
-  },
-  "search": {
-    "border": {
-      "radius": {
-        "$value": "{input.text.border.radius}",
-        "$extensions": {
-          "org.mozilla.themes": {
-            "default": "{input.text.border.radius}",
-            "nova": {
-              "value": "{border.radius.circle}"
-            }
-          }
-        },
-        "$type": "dimension"
-      }
-    },
-    "icon": {
-      "size": {
-        "$value": "{input.text.icon.size}",
-        "$type": "dimension"
       }
     }
   },

@@ -5,11 +5,11 @@
   ],
   "tokens": {
     "button.attention.dot.color": {
-      "value": "#11ae84",
+      "value": "#008865",
       "type": "color",
       "chain": [
         "color.accent.attention",
-        "color.green.40"
+        "color.green.50"
       ]
     },
     "button.background.color.@base": {
@@ -263,6 +263,7 @@
       "value": "transparent",
       "type": "color",
       "chain": [
+        "toolbarbutton.background.color.disabled",
         "toolbarbutton.background.color.@base"
       ]
     },
@@ -283,11 +284,11 @@
       ]
     },
     "button.badge.background.color": {
-      "value": "#11ae84",
+      "value": "#008865",
       "type": "color",
       "chain": [
         "color.accent.attention",
-        "color.green.40"
+        "color.green.50"
       ]
     },
     "button.badge.size": {

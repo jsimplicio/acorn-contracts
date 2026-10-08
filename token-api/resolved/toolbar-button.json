@@ -14,6 +14,13 @@
       "type": "color",
       "chain": []
     },
+    "toolbarbutton.background.color.disabled": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "toolbarbutton.background.color.@base"
+      ]
+    },
     "toolbarbutton.background.color.hover": {
       "value": "rgba(117, 102, 159, 0.25)",
       "type": "color",
@@ -66,6 +73,14 @@
         "color.violet-desaturated.50"
       ]
     },
+    "toolbarbutton.icon.fill.active": {
+      "value": "#75669f",
+      "type": "color",
+      "chain": [
+        "toolbarbutton.icon.fill.@base",
+        "color.violet-desaturated.50"
+      ]
+    },
     "toolbarbutton.icon.fill.attention.@base": {
       "value": "#764edd",
       "type": "color",
@@ -79,6 +94,14 @@
       "type": "color",
       "chain": [
         "color.gray.20"
+      ]
+    },
+    "toolbarbutton.icon.fill.hover": {
+      "value": "#75669f",
+      "type": "color",
+      "chain": [
+        "toolbarbutton.icon.fill.@base",
+        "color.violet-desaturated.50"
       ]
     },
     "toolbarbutton.opacity.disabled": {

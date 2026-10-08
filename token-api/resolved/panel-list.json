@@ -14,13 +14,12 @@
       ]
     },
     "panel-list.border.color": {
-      "value": "#d6d5da",
+      "value": "color-mix(in srgb, currentColor 24%, transparent)",
       "type": "color",
       "chain": [
         "panel.border.color",
         "popup.border.color",
-        "border.color.deemphasized.@base",
-        "color.gray.20"
+        "border.color.deemphasized.@base"
       ]
     },
     "panel-list.border.radius": {
@@ -59,11 +58,10 @@
       ]
     },
     "popup.border.color": {
-      "value": "#d6d5da",
+      "value": "color-mix(in srgb, currentColor 24%, transparent)",
       "type": "color",
       "chain": [
-        "border.color.deemphasized.@base",
-        "color.gray.20"
+        "border.color.deemphasized.@base"
       ]
     },
     "popup.border.radius": {

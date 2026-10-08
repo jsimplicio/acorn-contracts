@@ -14,11 +14,10 @@
       ]
     },
     "popup.border.color": {
-      "value": "#d6d5da",
+      "value": "color-mix(in srgb, currentColor 24%, transparent)",
       "type": "color",
       "chain": [
-        "border.color.deemphasized.@base",
-        "color.gray.20"
+        "border.color.deemphasized.@base"
       ]
     },
     "popup.border.radius": {
@@ -65,12 +64,9 @@
       ]
     },
     "urlbar.box.background.color.@base": {
-      "value": "rgba(117, 102, 159, 0.25)",
+      "value": "color-mix(in srgb, currentColor 17%, transparent)",
       "type": "color",
-      "chain": [
-        "urlbarview.background.color.hover",
-        "toolbarbutton.background.color.hover"
-      ]
+      "chain": []
     },
     "urlbar.box.background.color.active": {
       "value": "rgba(117, 102, 159, 0.6)",
@@ -78,20 +74,17 @@
       "chain": []
     },
     "urlbar.box.background.color.focus": {
-      "value": "rgba(117, 102, 159, 0.25)",
+      "value": "color-mix(in srgb, currentColor 17%, transparent)",
       "type": "color",
       "chain": [
-        "urlbar.box.background.color.@base",
-        "urlbarview.background.color.hover",
-        "toolbarbutton.background.color.hover"
+        "urlbar.box.background.color.@base"
       ]
     },
     "urlbar.box.background.color.hover": {
-      "value": "rgba(117, 102, 159, 0.4)",
+      "value": "color-mix(in srgb, currentColor 27%, transparent)",
       "type": "color",
       "chain": [
-        "urlbarview.background.color.selected",
-        "toolbarbutton.background.color.active"
+        "urlbarview.background.color.selected"
       ]
     },
     "urlbar.box.text.color.@base": {
@@ -100,6 +93,13 @@
       "chain": []
     },
     "urlbar.box.text.color.active": {
+      "value": "inherit",
+      "type": "color",
+      "chain": [
+        "urlbar.box.text.color.@base"
+      ]
+    },
+    "urlbar.box.text.color.focus": {
       "value": "inherit",
       "type": "color",
       "chain": [

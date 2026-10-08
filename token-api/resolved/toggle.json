@@ -5,19 +5,35 @@
   ],
   "tokens": {
     "moz-toggle.background.color.@base": {
-      "value": "SelectedItemText",
+      "value": "transparent",
       "type": "color",
-      "chain": []
+      "chain": [
+        "button.background.color.@base"
+      ]
     },
     "moz-toggle.background.color.active": {
-      "value": "SelectedItemText",
+      "value": "#b6aad9",
       "type": "color",
-      "chain": []
+      "chain": [
+        "button.background.color.active",
+        "color.violet-desaturated.30"
+      ]
+    },
+    "moz-toggle.background.color.disabled": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.disabled",
+        "button.background.color.@base"
+      ]
     },
     "moz-toggle.background.color.hover": {
-      "value": "SelectedItemText",
+      "value": "#d2c8ec",
       "type": "color",
-      "chain": []
+      "chain": [
+        "button.background.color.hover",
+        "color.violet-desaturated.20"
+      ]
     },
     "moz-toggle.background.color.pressed.@base": {
       "value": "#764edd",
@@ -35,6 +51,14 @@
         "button.background.color.primary.active",
         "color.accent.primary.active",
         "color.violet.70"
+      ]
+    },
+    "moz-toggle.background.color.pressed.disabled": {
+      "value": "#75669f",
+      "type": "color",
+      "chain": [
+        "button.background.color.primary.disabled",
+        "color.violet-desaturated.50"
       ]
     },
     "moz-toggle.background.color.pressed.hover": {
@@ -62,6 +86,14 @@
         "color.gray.50"
       ]
     },
+    "moz-toggle.border.color.disabled": {
+      "value": "#c7c6cb",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.disabled",
+        "color.gray.25"
+      ]
+    },
     "moz-toggle.border.color.hover": {
       "value": "#67666a",
       "type": "color",
@@ -85,9 +117,13 @@
       ]
     },
     "moz-toggle.dot.background.color.@base": {
-      "value": "ButtonText",
+      "value": "#817f84",
       "type": "color",
-      "chain": []
+      "chain": [
+        "toggle.border.color.@base",
+        "border.color.interactive.@base",
+        "color.gray.45"
+      ]
     },
     "moz-toggle.dot.background.color.active": {
       "value": "#67666a",
@@ -96,6 +132,15 @@
         "toggle.border.color.active",
         "border.color.interactive.active",
         "color.gray.50"
+      ]
+    },
+    "moz-toggle.dot.background.color.disabled": {
+      "value": "#161423",
+      "type": "color",
+      "chain": [
+        "button.text.color.disabled",
+        "button.text.color.@base",
+        "color.violet.90"
       ]
     },
     "moz-toggle.dot.background.color.hover": {
@@ -107,11 +152,20 @@
         "color.gray.50"
       ]
     },
-    "moz-toggle.dot.background.color.on-pressed": {
+    "moz-toggle.dot.background.color.on-pressed.@base": {
       "value": "#ffffff",
       "type": "color",
       "chain": [
         "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "moz-toggle.dot.background.color.on-pressed.disabled": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "button.text.color.primary.disabled",
+        "button.text.color.primary.@base",
         "color.white.@base"
       ]
     },

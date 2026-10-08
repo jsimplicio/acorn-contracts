@@ -14,7 +14,7 @@
             "org.mozilla.themes": {
               "default": "{border.color.transparent}",
               "nativeTheme": "{border.color.transparent}",
-              "prefersContrast": "{input.border.color}"
+              "prefersContrast": "{input.border.color.@base}"
             }
           },
           "$type": "color"

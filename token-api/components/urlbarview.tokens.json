@@ -5,9 +5,18 @@
         "$value": "rgb(240, 240, 244)",
         "$extensions": {
           "org.mozilla.themes": {
-            "nativeTheme": "{background.color.dimmed.@base}",
+            "nativeTheme": "{background.color.list.item.hover}",
             "light": "rgb(240, 240, 244)",
-            "dark": "{background.color.dimmed.@base}"
+            "dark": "{background.color.list.item.hover}",
+            "prefersContrast": "color-mix(in srgb, currentColor 20%, transparent)",
+            "nova": {
+              "comment": "TODO(bug 2076362): use the ghost button colors once they follow currentColor",
+              "value": {
+                "nativeTheme": "{button.background.color.ghost.hover}",
+                "light": "color-mix(in srgb, currentColor 17%, transparent)",
+                "dark": "color-mix(in srgb, currentColor 20%, transparent)"
+              }
+            }
           }
         },
         "$type": "color"
@@ -18,7 +27,16 @@
           "org.mozilla.themes": {
             "nativeTheme": "SelectedItem",
             "light": "#e0e0e6",
-            "dark": "rgb(43, 42, 51)"
+            "dark": "rgb(43, 42, 51)",
+            "prefersContrast": "{background.color.list.item.hover}",
+            "nova": {
+              "comment": "TODO(bug 2076362): use the ghost button colors once they follow currentColor",
+              "value": {
+                "nativeTheme": "SelectedItem",
+                "light": "color-mix(in srgb, currentColor 27%, transparent)",
+                "dark": "color-mix(in srgb, currentColor 32%, transparent)"
+              }
+            }
           }
         },
         "$type": "color"
@@ -50,11 +68,33 @@
       "background": {
         "color": {
           "@base": {
-            "$value": "color-mix(in srgb, var(--urlbarview-background-color-hover) 50%, transparent)",
+            "$value": "color-mix(in srgb, {color.gray.20} 50%, transparent)",
+            "$extensions": {
+              "org.mozilla.themes": {
+                "nativeTheme": "color-mix(in srgb, currentColor 8.5%, transparent)",
+                "light": "color-mix(in srgb, {color.gray.20} 50%, transparent)",
+                "dark": "color-mix(in srgb, currentColor 8.5%, transparent)",
+                "nova": {
+                  "comment": "color-mix with currentColor cannot be expressed in Figma",
+                  "value": "{urlbar.box.background.color.@base}"
+                }
+              }
+            },
             "$type": "color"
           },
           "hover": {
-            "$value": "var(--urlbarview-background-color-hover)",
+            "$value": "{color.gray.20}",
+            "$extensions": {
+              "org.mozilla.themes": {
+                "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)",
+                "light": "{color.gray.20}",
+                "dark": "color-mix(in srgb, currentColor 17%, transparent)",
+                "nova": {
+                  "comment": "color-mix with currentColor cannot be expressed in Figma",
+                  "value": "{urlbar.box.background.color.hover}"
+                }
+              }
+            },
             "$type": "color"
           }
         }
@@ -94,6 +134,10 @@
         },
         "$type": "color"
       },
+      "hover": {
+        "$value": "currentColor",
+        "$type": "color"
+      },
       "secondary": {
         "$value": "color-mix(in srgb, currentColor 73%, transparent)",
         "$extensions": {
@@ -111,7 +155,15 @@
           "org.mozilla.themes": {
             "light": "rgb(21, 20, 26)",
             "dark": "rgb(251, 251, 254)",
-            "nativeTheme": "SelectedItemText"
+            "nativeTheme": "SelectedItemText",
+            "prefersContrast": "{text.color.list.item.hover}",
+            "nova": {
+              "comment": "currentColor resolves where it's used, so the row takes the color of the input the view belongs to",
+              "value": {
+                "nativeTheme": "SelectedItemText",
+                "default": "currentColor"
+              }
+            }
           }
         },
         "$type": "color"

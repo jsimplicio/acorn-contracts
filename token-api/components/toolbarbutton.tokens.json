@@ -87,7 +87,34 @@
           "org.mozilla.themes": {
             "light": "{color.gray.70}",
             "dark": "{color.gray.0}",
-            "nativeTheme": "currentColor"
+            "nativeTheme": "currentColor",
+            "forcedColors": "{button.text.color.@base}"
+          }
+        },
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "{toolbarbutton.icon.fill.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{toolbarbutton.icon.fill.@base}",
+            "forcedColors": "{button.text.color.ghost.hover}"
+          },
+          "org.mozilla.meta": {
+            "ignoreFigma": "TODO: Fix Figma tokens sync script issues, see bug 2072751"
+          }
+        },
+        "$type": "color"
+      },
+      "active": {
+        "$value": "{toolbarbutton.icon.fill.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{toolbarbutton.icon.fill.@base}",
+            "forcedColors": "{button.text.color.ghost.active}"
+          },
+          "org.mozilla.meta": {
+            "ignoreFigma": "TODO: Fix Figma tokens sync script issues, see bug 2072751"
           }
         },
         "$type": "color"
@@ -154,7 +181,7 @@
           "org.mozilla.themes": {
             "default": "color-mix(in srgb, currentColor 17%, transparent)",
             "forcedColors": "{button.background.color.ghost.hover}",
-            "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)"
+            "nativeTheme": "{button.background.color.ghost.hover}"
           }
         },
         "$type": "color"
@@ -165,7 +192,17 @@
           "org.mozilla.themes": {
             "default": "color-mix(in srgb, currentColor 30%, transparent)",
             "forcedColors": "{button.background.color.ghost.active}",
-            "nativeTheme": "color-mix(in srgb, currentColor 30%, transparent)"
+            "nativeTheme": "{button.background.color.ghost.active}"
+          }
+        },
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "{toolbarbutton.background.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{toolbarbutton.background.color.@base}",
+            "forcedColors": "{button.background.color.disabled}"
           }
         },
         "$type": "color"

@@ -80,11 +80,10 @@
       ]
     },
     "moz-input-color.swatch.border.color": {
-      "value": "#d6d5da",
+      "value": "color-mix(in srgb, currentColor 24%, transparent)",
       "type": "color",
       "chain": [
-        "border.color.deemphasized.@base",
-        "color.gray.20"
+        "border.color.deemphasized.@base"
       ]
     },
     "moz-input-color.swatch.border.radius": {

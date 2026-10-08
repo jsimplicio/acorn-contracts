@@ -12,16 +12,6 @@
           }
         },
         "$type": "color"
-      },
-      "dimmed": {
-        "@base": {
-          "$value": "{background.color.dimmed.@base}",
-          "$type": "color"
-        },
-        "further": {
-          "$value": "{background.color.dimmed.further}",
-          "$type": "color"
-        }
       }
     }
   },
@@ -50,6 +40,27 @@
       "margin": {
         "$value": "4px",
         "$type": "dimension"
+      }
+    }
+  },
+  "footer": {
+    "background": {
+      "color": {
+        "$value": "color-mix(in srgb, currentColor 12%, transparent)",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "color-mix(in srgb, currentColor 12%, transparent)",
+            "dark": "color-mix(in srgb, currentColor 17%, transparent)",
+            "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)"
+          }
+        },
+        "$type": "color"
+      }
+    },
+    "text": {
+      "color": {
+        "$value": "inherit",
+        "$type": "color"
       }
     }
   },
@@ -95,16 +106,18 @@
   },
   "text": {
     "color": {
-      "$value": "{color.black.@base}",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "light": "{color.black.@base}",
-          "dark": "rgb(251, 251, 254)",
-          "nativeTheme": "FieldText",
-          "forcedColors": "MenuText"
-        }
-      },
-      "$type": "color"
+      "@base": {
+        "$value": "{color.black.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "light": "{color.black.@base}",
+            "dark": "rgb(251, 251, 254)",
+            "nativeTheme": "FieldText",
+            "forcedColors": "MenuText"
+          }
+        },
+        "$type": "color"
+      }
     }
   },
   "width": {

@@ -5,6 +5,13 @@
     "link"
   ],
   "tokens": {
+    "link.border.radius.focus": {
+      "value": "4px",
+      "type": "dimension",
+      "chain": [
+        "border.radius.xsmall"
+      ]
+    },
     "link.color.@base": {
       "value": "#764edd",
       "type": "color",

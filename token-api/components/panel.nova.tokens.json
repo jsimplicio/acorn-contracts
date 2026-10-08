@@ -31,14 +31,16 @@
   },
   "text": {
     "color": {
-      "$value": "{text.color.@base}",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "nativeTheme": "FieldText",
-          "default": "{text.color.@base}"
-        }
-      },
-      "$type": "color"
+      "@base": {
+        "$value": "{text.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "nativeTheme": "FieldText",
+            "default": "{text.color.@base}"
+          }
+        },
+        "$type": "color"
+      }
     }
   }
 }

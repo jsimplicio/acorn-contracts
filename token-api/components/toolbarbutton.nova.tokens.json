@@ -39,7 +39,7 @@
         "$value": "rgba(117, 102, 159, 0.25)",
         "$extensions": {
           "org.mozilla.themes": {
-            "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)",
+            "nativeTheme": "{button.background.color.ghost.hover}",
             "light": "rgba(117, 102, 159, 0.25)",
             "dark": "rgba(182, 170, 217, 0.25)",
             "forcedColors": "{button.background.color.ghost.hover}"
@@ -51,7 +51,7 @@
         "$value": "rgba(117, 102, 159, 0.4)",
         "$extensions": {
           "org.mozilla.themes": {
-            "nativeTheme": "color-mix(in srgb, currentColor 30%, transparent)",
+            "nativeTheme": "{button.background.color.ghost.active}",
             "light": "rgba(117, 102, 159, 0.4)",
             "dark": "rgba(182, 170, 217, 0.4)",
             "forcedColors": "{button.background.color.ghost.active}"

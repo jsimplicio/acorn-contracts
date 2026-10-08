@@ -11,7 +11,13 @@
           "$type": "color"
         },
         "selected": {
-          "$value": "{color.accent.primary.@base}",
+          "$value": "{button.background.color.primary.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.background.color.primary.@base}",
+              "forcedColors": "{button.background.color.selected}"
+            }
+          },
           "$type": "color"
         }
       }
@@ -66,6 +72,12 @@
       "color": {
         "selected": {
           "$value": "{button.text.color.primary.@base}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.text.color.primary.@base}",
+              "forcedColors": "{button.text.color.selected}"
+            }
+          },
           "$type": "color"
         }
       }

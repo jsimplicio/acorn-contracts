@@ -1,0 +1,6 @@
+{
+  "gap": {
+    "$value": "{space.medium}",
+    "$type": "dimension"
+  }
+}

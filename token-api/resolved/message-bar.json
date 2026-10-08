@@ -278,7 +278,31 @@
         "space.xsmall"
       ]
     },
-    "moz-message-bar.text.color": {
+    "moz-message-bar.text.color.@base": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "moz-message-bar.text.color.critical": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "moz-message-bar.text.color.success": {
+      "value": "#180e30",
+      "type": "color",
+      "chain": [
+        "text.color.@base",
+        "color.violet-desaturated.90"
+      ]
+    },
+    "moz-message-bar.text.color.warning": {
       "value": "#180e30",
       "type": "color",
       "chain": [

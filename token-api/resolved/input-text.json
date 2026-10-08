@@ -4,7 +4,33 @@
     "input"
   ],
   "tokens": {
-    "input.border.color": {
+    "input.background.color.@base": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "input.background.color.disabled": {
+      "value": "transparent",
+      "type": "color",
+      "chain": [
+        "button.background.color.ghost.disabled",
+        "button.background.color.ghost.@base",
+        "button.background.color.@base"
+      ]
+    },
+    "input.border.@base": {
+      "value": "{border.width} solid {input.border.color.@base}",
+      "type": null,
+      "chain": [],
+      "unresolvedRefs": [
+        "border.width",
+        "input.border.color.@base"
+      ]
+    },
+    "input.border.color.@base": {
       "value": "#817f84",
       "type": "color",
       "chain": [
@@ -12,11 +38,19 @@
         "color.gray.45"
       ]
     },
-    "input.folder.gap": {
-      "value": "0.75rem",
+    "input.border.color.disabled": {
+      "value": "#c7c6cb",
+      "type": "color",
+      "chain": [
+        "border.color.interactive.disabled",
+        "color.gray.25"
+      ]
+    },
+    "input.border.radius": {
+      "value": "12px",
       "type": "dimension",
       "chain": [
-        "space.medium"
+        "border.radius.medium"
       ]
     },
     "input.height": {
@@ -24,6 +58,29 @@
       "type": "dimension",
       "chain": [
         "size.item.small"
+      ]
+    },
+    "input.icon.size": {
+      "value": "12px",
+      "type": "dimension",
+      "chain": [
+        "icon.size.xsmall",
+        "size.item.xsmall"
+      ]
+    },
+    "input.min-height": {
+      "value": "32px",
+      "type": "dimension",
+      "chain": [
+        "button.min-height.@base",
+        "size.item.large"
+      ]
+    },
+    "input.opacity.disabled": {
+      "value": "0.5",
+      "type": "number",
+      "chain": [
+        "button.opacity.disabled"
       ]
     },
     "input.search.border.radius": {
@@ -41,55 +98,6 @@
         "size.item.small"
       ]
     },
-    "input.text.background.color.@base": {
-      "value": "#ffffff",
-      "type": "color",
-      "chain": [
-        "background.color.box.@base",
-        "color.white.@base"
-      ]
-    },
-    "input.text.background.color.disabled": {
-      "value": "transparent",
-      "type": "color",
-      "chain": [
-        "button.background.color.ghost.disabled",
-        "button.background.color.ghost.@base",
-        "button.background.color.@base"
-      ]
-    },
-    "input.text.border.@base": {
-      "value": "{border.width} solid {input.text.border.color.@base}",
-      "type": null,
-      "chain": [],
-      "unresolvedRefs": [
-        "border.width",
-        "input.text.border.color.@base"
-      ]
-    },
-    "input.text.border.color.@base": {
-      "value": "#b7b6ba",
-      "type": "color",
-      "chain": [
-        "border.color.@base",
-        "color.gray.30"
-      ]
-    },
-    "input.text.border.color.disabled": {
-      "value": "#c7c6cb",
-      "type": "color",
-      "chain": [
-        "border.color.interactive.disabled",
-        "color.gray.25"
-      ]
-    },
-    "input.text.border.radius": {
-      "value": "12px",
-      "type": "dimension",
-      "chain": [
-        "border.radius.medium"
-      ]
-    },
     "input.text.color.@base": {
       "value": "#180e30",
       "type": "color",
@@ -105,29 +113,6 @@
         "input.text.color.@base",
         "text.color.@base",
         "color.violet-desaturated.90"
-      ]
-    },
-    "input.text.icon.size": {
-      "value": "12px",
-      "type": "dimension",
-      "chain": [
-        "icon.size.xsmall",
-        "size.item.xsmall"
-      ]
-    },
-    "input.text.min-height": {
-      "value": "32px",
-      "type": "dimension",
-      "chain": [
-        "button.min-height.@base",
-        "size.item.large"
-      ]
-    },
-    "input.text.opacity.disabled": {
-      "value": "0.5",
-      "type": "number",
-      "chain": [
-        "button.opacity.disabled"
       ]
     },
     "input.width": {

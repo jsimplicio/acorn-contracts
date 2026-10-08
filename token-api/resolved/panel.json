@@ -14,27 +14,12 @@
         "color.white.@base"
       ]
     },
-    "panel.background.color.dimmed.@base": {
-      "value": "color-mix(in srgb, currentColor 12%, transparent)",
-      "type": "color",
-      "chain": [
-        "background.color.dimmed.@base"
-      ]
-    },
-    "panel.background.color.dimmed.further": {
-      "value": "color-mix(in srgb, currentColor 20%, transparent)",
-      "type": "color",
-      "chain": [
-        "background.color.dimmed.further"
-      ]
-    },
     "panel.border.color": {
-      "value": "#d6d5da",
+      "value": "color-mix(in srgb, currentColor 24%, transparent)",
       "type": "color",
       "chain": [
         "popup.border.color",
-        "border.color.deemphasized.@base",
-        "color.gray.20"
+        "border.color.deemphasized.@base"
       ]
     },
     "panel.border.radius": {
@@ -56,6 +41,16 @@
     "panel.box.shadow.margin": {
       "value": "4px",
       "type": "dimension",
+      "chain": []
+    },
+    "panel.footer.background.color": {
+      "value": "color-mix(in srgb, currentColor 12%, transparent)",
+      "type": "color",
+      "chain": []
+    },
+    "panel.footer.text.color": {
+      "value": "inherit",
+      "type": "color",
       "chain": []
     },
     "panel.padding.@base": {
@@ -92,7 +87,7 @@
       "type": "dimension",
       "chain": []
     },
-    "panel.text.color": {
+    "panel.text.color.@base": {
       "value": "#180e30",
       "type": "color",
       "chain": [
@@ -114,11 +109,10 @@
       ]
     },
     "popup.border.color": {
-      "value": "#d6d5da",
+      "value": "color-mix(in srgb, currentColor 24%, transparent)",
       "type": "color",
       "chain": [
-        "border.color.deemphasized.@base",
-        "color.gray.20"
+        "border.color.deemphasized.@base"
       ]
     },
     "popup.border.radius": {

@@ -5,11 +5,11 @@
   ],
   "tokens": {
     "tab.attention.dot.color": {
-      "value": "#11ae84",
+      "value": "#008865",
       "type": "color",
       "chain": [
         "color.accent.attention",
-        "color.green.40"
+        "color.green.50"
       ]
     },
     "tab.background.color.@base": {
@@ -112,28 +112,6 @@
       "type": null,
       "chain": []
     },
-    "tab.close.button.background.color.@base": {
-      "value": "transparent",
-      "type": "color",
-      "chain": [
-        "button.background.color.ghost.@base",
-        "button.background.color.@base"
-      ]
-    },
-    "tab.close.button.background.color.active": {
-      "value": "rgba(117, 102, 159, 0.4)",
-      "type": "color",
-      "chain": [
-        "toolbarbutton.background.color.active"
-      ]
-    },
-    "tab.close.button.background.color.hover": {
-      "value": "rgba(117, 102, 159, 0.25)",
-      "type": "color",
-      "chain": [
-        "toolbarbutton.background.color.hover"
-      ]
-    },
     "tab.close.button.border.color.@base": {
       "value": "transparent",
       "type": "color",
@@ -159,36 +137,6 @@
       "value": "6px",
       "type": "dimension",
       "chain": []
-    },
-    "tab.close.button.text.color.@base": {
-      "value": "{toolbox.text.color.current} (unresolved)",
-      "type": "color",
-      "chain": [
-        "tab.text.color.@base"
-      ],
-      "unresolvedRefs": [
-        "toolbox.text.color.current"
-      ]
-    },
-    "tab.close.button.text.color.active": {
-      "value": "{toolbox.text.color.current} (unresolved)",
-      "type": "color",
-      "chain": [
-        "tab.text.color.@base"
-      ],
-      "unresolvedRefs": [
-        "toolbox.text.color.current"
-      ]
-    },
-    "tab.close.button.text.color.hover": {
-      "value": "{toolbox.text.color.current} (unresolved)",
-      "type": "color",
-      "chain": [
-        "tab.text.color.@base"
-      ],
-      "unresolvedRefs": [
-        "toolbox.text.color.current"
-      ]
     },
     "tab.container.margin.inline.pinned.expanded": {
       "value": "4px",

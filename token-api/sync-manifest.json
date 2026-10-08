@@ -10,11 +10,11 @@
       "toolkit/content/widgets/* (components, one level deep)"
     ],
     "ref_requested": "(default branch)",
-    "commit": "1713b2fe116495380852077e8f7f3618d4380721",
-    "commit_date": "2026-09-14T10:26:05Z",
+    "commit": "23fd2ecbdb459f63606a188fdea2d4dbee05507c",
+    "commit_date": "2026-10-08T14:13:08Z",
     "fetch_method": "github-sparse-clone:https://github.com/mozilla-firefox/firefox"
   },
-  "generated_at": "2026-09-14T14:31:41.247205+00:00",
+  "generated_at": "2026-10-08T15:29:56.904402+00:00",
   "files_converted": [
     "base/background.tokens.json",
     "base/border.nova.tokens.json",
@@ -36,8 +36,8 @@
     "components/icon.nova.tokens.json",
     "components/icon.tokens.json",
     "components/info-bar.tokens.json",
-    "components/input.nova.tokens.json",
     "components/input.tokens.json",
+    "components/link.nova.tokens.json",
     "components/link.tokens.json",
     "components/opacity.tokens.json",
     "components/page.nova.tokens.json",
@@ -70,6 +70,7 @@
     "components/moz-breadcrumb.tokens.json",
     "components/moz-input-color.nova.tokens.json",
     "components/moz-input-color.tokens.json",
+    "components/moz-input-folder.tokens.json",
     "components/moz-message-bar.nova.tokens.json",
     "components/moz-message-bar.tokens.json",
     "components/moz-page-nav.nova.tokens.json",
@@ -80,6 +81,7 @@
     "components/moz-segmented-control.tokens.json",
     "components/moz-select.nova.tokens.json",
     "components/moz-select.tokens.json",
+    "components/moz-toggle.nova.tokens.json",
     "components/moz-toggle.tokens.json",
     "components/moz-visual-picker-item.tokens.json",
     "components/panel-item.tokens.json",
@@ -106,8 +108,8 @@
     "components/icon.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
     "components/icon.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
     "components/info-bar.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/info-bar.tokens.json",
-    "components/input.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/input.nova.tokens.json",
     "components/input.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/input.tokens.json",
+    "components/link.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/link.nova.tokens.json",
     "components/link.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/link.tokens.json",
     "components/opacity.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/opacity.tokens.json",
     "components/page.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/page.nova.tokens.json",
@@ -140,6 +142,7 @@
     "components/moz-breadcrumb.tokens.json": "toolkit/content/widgets/moz-breadcrumb-group/moz-breadcrumb.tokens.json",
     "components/moz-input-color.nova.tokens.json": "toolkit/content/widgets/moz-input-color/moz-input-color.nova.tokens.json",
     "components/moz-input-color.tokens.json": "toolkit/content/widgets/moz-input-color/moz-input-color.tokens.json",
+    "components/moz-input-folder.tokens.json": "toolkit/content/widgets/moz-input-folder/moz-input-folder.tokens.json",
     "components/moz-message-bar.nova.tokens.json": "toolkit/content/widgets/moz-message-bar/moz-message-bar.nova.tokens.json",
     "components/moz-message-bar.tokens.json": "toolkit/content/widgets/moz-message-bar/moz-message-bar.tokens.json",
     "components/moz-page-nav.nova.tokens.json": "toolkit/content/widgets/moz-page-nav/moz-page-nav.nova.tokens.json",
@@ -150,16 +153,17 @@
     "components/moz-segmented-control.tokens.json": "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.tokens.json",
     "components/moz-select.nova.tokens.json": "toolkit/content/widgets/moz-select/moz-select.nova.tokens.json",
     "components/moz-select.tokens.json": "toolkit/content/widgets/moz-select/moz-select.tokens.json",
+    "components/moz-toggle.nova.tokens.json": "toolkit/content/widgets/moz-toggle/moz-toggle.nova.tokens.json",
     "components/moz-toggle.tokens.json": "toolkit/content/widgets/moz-toggle/moz-toggle.tokens.json",
     "components/moz-visual-picker-item.tokens.json": "toolkit/content/widgets/moz-visual-picker/moz-visual-picker-item.tokens.json",
     "components/panel-item.tokens.json": "toolkit/content/widgets/panel-list/panel-item.tokens.json",
     "components/panel-list.tokens.json": "toolkit/content/widgets/panel-list/panel-list.tokens.json"
   },
-  "leaf_token_total": 1161,
-  "theme_object_total": 405,
+  "leaf_token_total": 1169,
+  "theme_object_total": 409,
   "type_counts": {
-    "color": 830,
-    "dimension": 280,
+    "color": 837,
+    "dimension": 281,
     "fontWeight": 8,
     "number": 8
   },
@@ -218,7 +222,7 @@
       "reason": "ambiguous group path, no type rule matched"
     },
     {
-      "path": "input.text.border.@base",
+      "path": "input.border.@base",
       "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
     },
     {
@@ -500,6 +504,18 @@
       }
     },
     {
+      "path": "toolbarbutton.icon.fill.hover",
+      "keys": {
+        "ignoreFigma": "TODO: Fix Figma tokens sync script issues, see bug 2072751"
+      }
+    },
+    {
+      "path": "toolbarbutton.icon.fill.active",
+      "keys": {
+        "ignoreFigma": "TODO: Fix Figma tokens sync script issues, see bug 2072751"
+      }
+    },
+    {
       "path": "toolbox.background.color.gradient-leading",
       "keys": {
         "override": true
@@ -565,12 +581,6 @@
       "path": "tab.margin.inline.pinned.expanded",
       "keys": {
         "ignoreFigma": "The 0px value from Figma causes pinned tabs to touch."
-      }
-    },
-    {
-      "path": "urlbar.box.text.color.@base",
-      "keys": {
-        "ignoreFigma": "Figma stores a token reference that would overwrite 'inherit'"
       }
     }
   ],

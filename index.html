@@ -413,7 +413,7 @@
     background: var(--bg-accent-soft); }
   .callout-label { flex: 0 0 auto; font-family: "Freight Sans", -apple-system, sans-serif; font-weight: 700;
     font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); padding-top: 3px; }
-  .callout.warning { background: var(--note-bg); }
+  .callout.warning { background: color-mix(in srgb, var(--warn) 16%, transparent); }
   .callout.warning .callout-label { color: var(--warn); }
   .callout > div > :first-child { margin-top: 0; }
   .callout > div > :last-child { margin-bottom: 0; }
@@ -659,6 +659,7 @@
     <a data-show="doc-guidance-api">Guidance API</a>
     <a data-show="doc-token-api">Token API</a>
     <a data-show="doc-faq">FAQ</a>
+    <a data-show="doc-changelog">Changelog</a>
   </div>
 </nav>
 
@@ -667,21 +668,23 @@
   <!-- HOME: coverage table -->
   <section id="view-home" class="view active">
     <h1>Home</h1>
+    <div class="callout warning">
+      <span class="callout-label">Heads up</span>
+      <div><p>This isn't a contract yet. It's a mirror. We copy what Firefox's code and Figma already say, so you can catch when they drift apart. Right now, if Firefox or Figma says something different from what's written here, we fix this to match them, not the other way around. That makes it good for catching drift and keeping docs honest. It's not yet something either side has to answer to.</p></div>
+    </div>
     <p class="meta">Where each real Firefox component actually exists today, across Figma, Supernova (documented), and Storybook, plus how it is really implemented (modern, classic, or both). A row with no implementation badge at all has no dedicated widget class of its own, see its file citation for what actually exists instead.</p>
     <table class="legend-table">
       <tbody>
         <tr><td><span class="yes">&check;</span> <span class="state-badge live">live</span></td><td>Real and documented there.</td></tr>
         <tr><td><span class="no">&cross;</span> <span class="state-badge missing">missing</span></td><td>Not yet, a real, closeable gap.</td></tr>
         <tr><td><span class="state-badge na">n/a</span></td><td>Not a reusable widget class, this kind of coverage was never going to apply here regardless of effort.</td></tr>
-        <tr><td><span class="check nested-in">in <code>Button</code></span></td><td>Covered under its parent's own entry, not separately (see the Notes below for why).</td></tr>
+        <tr><td><span class="check nested-in">in <code>Button</code></span></td><td>Covered under its parent's own entry, not separately (see Reading this table below for why).</td></tr>
       </tbody>
     </table>
     <div id="home-tables"></div>
 
-    <h2 class="section">Notes</h2>
+    <h2 class="section">Reading this table</h2>
     <ul>
-      <li>This repo has <strong>one</strong> third-party dependency, <code>jsonschema</code>, used only by <code>validate-schemas.py</code>. No <code>package.json</code>, no <code>node_modules</code>, and this page itself loads no CDN, framework or external script. The full breakdown is in <a data-show="doc-readme" href="docs/readme">Overview</a>, rendered live from <code>README.md</code> rather than restated here.</li>
-      <li>A design token is meant to be one fact that any target can express, and most are. A few are not, and the layer that gives out first is usually not Figma. Two of Firefox's text colours are authored as <code>color-mix(in srgb, currentColor 69%, transparent)</code>: that is a CSS expression, and the W3C DTCG token format has no expression syntax at all, so it is already outside what the format can describe before any tool sees it. <code>currentColor</code> then makes the value deliberately context-dependent, and a Figma variable holds one resolved colour with no inheritance to refer to. See <a data-show="doc-token-api" href="docs/token-api">Token API</a> for the full walk through each layer.</li>
       <li>No chrome or structural component has a Supernova documentation page or a Storybook story. The only doc coverage for this whole category is one narrative page, Desktop/Patterns/Browser anatomy/Overview.</li>
       <li>Checkbox and Radio each ship both a modern version and a classic version at the same time, marked "modern + classic" rather than picking one.</li>
       <li>A row with no real Firefox equivalent (Chip, Details) gets no implementation badge at all: that is the absence of an implementation, not a kind of one. See its file citation for what actually exists instead (a Figma-only pattern, a distinct real feature that only looks similar, native HTML doing the job, etc.). A sub-item (Panel Separator, say) shows its parent's badge instead, because it is part of that parent's implementation.</li>
@@ -788,7 +791,7 @@
     { id: "panel-item", name: "Panel Item", group: "chrome", figma: "nested", supernova: "no", storybook: "no", kind: "classic", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, class PanelItem (plain custom element: no legacy XUL base, but no Lit either)", parentId: "panel", codeConnect: true },
     { id: "panel-list", name: "Panel List", group: "chrome", figma: "yes", supernova: "no", storybook: "yes", kind: "classic", tagName: "panel-list", file: "toolkit/content/widgets/panel-list/panel-list.mjs", codeConnect: true },
     { id: "panel-list-item", name: "Panel List Item", group: "chrome", figma: "nested", supernova: "no", storybook: "nested", kind: "classic", tagName: "panel-item", file: "toolkit/content/widgets/panel-list/panel-list.mjs, same panel-item tag as Panel Item", parentId: "panel-list", codeConnect: true },
-    { id: "panel-manager", name: "Panel Manager", group: "chrome", figma: "no", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/customizableui/PanelMultiView.sys.mjs, real class, not a custom element" },
+    { id: "panel-multiview", name: "Panel Multiview", group: "chrome", figma: "no", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/customizableui/PanelMultiView.sys.mjs, real class, not a custom element" },
     { id: "panel-separator", name: "Panel Separator", group: "chrome", figma: "nested", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "toolkit/content/widgets/panel-list/panel-list.mjs, a slotted plain <hr>, no dedicated class", parentId: "panel", codeConnect: true },
     { id: "popup-notification", name: "Popup Notification", group: "chrome", figma: "non1to1", supernova: "no", storybook: "no", kind: "classic", tagName: "popupnotification", file: "toolkit/content/widgets/popupnotification.js" },
     { id: "promo", name: "Promo", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-promo", file: "toolkit/content/widgets/moz-promo/moz-promo.mjs", codeConnect: true },
@@ -808,7 +811,7 @@
     { id: "tab-group", name: "Tab Group", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tab-group", file: "browser/components/tabbrowser/content/tabgroup.mjs" },
     { id: "tab-split", name: "Tab Split", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tab-split-view-wrapper", file: "browser/components/tabbrowser/content/tabsplitview.mjs" },
     { id: "tabstrip", name: "Tab Strip", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "tabbrowser-tabs", file: "browser/components/tabbrowser/content/tabs.mjs" },
-    { id: "textarea", name: "Textarea", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-textarea", file: "toolkit/content/widgets/moz-textarea/moz-textarea.mjs" },
+    { id: "textarea", name: "Textarea", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-textarea", file: "toolkit/content/widgets/moz-textarea/moz-textarea.mjs" },
     { id: "toggle", name: "Toggle", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-toggle", file: "toolkit/content/widgets/moz-toggle/moz-toggle.mjs", codeConnect: true },
     { id: "toolbar", name: "Toolbar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: "toolbar", file: "browser/base/content/navigator-toolbox.inc.xhtml, a built-in XUL tag with no dedicated class" },
     { id: "toolbar-button", name: "Toolbar Button", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "toolbarbutton", file: "toolkit/content/widgets/toolbarbutton.js" },
@@ -1376,6 +1379,7 @@
     "doc-token-api": { title: "Token API", file: "token-api/README.md", schema: "token-api/schema.json" },
     "doc-readme": { title: "Overview", file: "README.md" },
     "doc-faq": { title: "FAQ", file: "FAQ.md" },
+    "doc-changelog": { title: "Changelog", file: "CHANGELOG.md" },
   };
   const docHtmlCache = {};
 

@@ -1,5 +1,5 @@
 {
-  "id": "panel-manager",
+  "id": "panel-multiview",
   "dos": [
     { "text": "Set disablekeynav deliberately and only when you intend to lose all built-in keyboard navigation, it's checked once in the popupshowing handler, and when set, the keydown/mousemove listeners that drive arrow-key/Tab/Home/End navigation are never attached for that panel's entire lifetime, with no fallback." }
   ],

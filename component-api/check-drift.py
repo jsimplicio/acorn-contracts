@@ -35,12 +35,16 @@ that either. What it DOES do, mechanically:
    is sometimes deliberately split out from the class holding the API,
    so the citation is usually still correct and only the check is naive.
 
-Prints a report and writes component-api/drift-manifest.json (this run's
-hashes, for next run's comparison). Does not touch any component-api/
-*.json content itself; the report is the starting point for the actual
-re-derivation work (by hand or by an agent), not a replacement for it.
+Prints a report. Writes component-api/drift-manifest.json (this run's
+hashes, for next run's comparison) only with --advance, because advancing
+the baseline records every flagged component as checked against the new
+commit whether or not anyone re-derived it: do it on a look-only run and
+the next run reports nothing, with the signal spent. Does not touch any
+component-api/*.json content itself; the report is the starting point for
+the actual re-derivation work (by hand or by an agent), not a replacement
+for it.
 
-Usage: python3 component-api/check-drift.py [--ref <branch-or-sha>]
+Usage: python3 component-api/check-drift.py [--ref <branch-or-sha>] [--advance]
 """
 
 import argparse
@@ -189,6 +193,8 @@ def discover_widget_files(repo_root):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--ref", default=None, help="branch or commit SHA to fetch (default: upstream default branch tip)")
+    parser.add_argument("--advance", action="store_true",
+                        help="record this run's hashes as the new baseline. Only after the findings have actually been triaged: it marks them checked either way.")
     args = parser.parse_args()
 
     tracked = load_tracked_components()
@@ -269,14 +275,18 @@ def main():
 
         current_moz_tags = discover_moz_tags(repo_root)
 
+    # An absent key means no baseline recorded yet, not that upstream had no
+    # tags. Treating it as an empty set reports the whole tree as fresh ports.
+    moz_tags_baselined = "moz_tags" in prior
     prior_moz_tags = set(prior.get("moz_tags", []))
-    new_moz_tags = sorted(current_moz_tags - prior_moz_tags)
+    new_moz_tags = sorted(current_moz_tags - prior_moz_tags) if moz_tags_baselined else []
 
-    manifest_path.write_text(
-        json.dumps({"commit": commit_sha, "entries": new_entries,
-                    "moz_tags": sorted(current_moz_tags)}, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+    if args.advance:
+        manifest_path.write_text(
+            json.dumps({"commit": commit_sha, "entries": new_entries,
+                        "moz_tags": sorted(current_moz_tags)}, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
 
     print()
     print(f"Checked {len(tracked)} tracked components against commit {commit_sha}.")
@@ -327,7 +337,11 @@ def main():
             print(f"  {cid}: {path}")
         print()
 
-    if new_moz_tags:
+    if not moz_tags_baselined:
+        print(f"moz-* tag baseline not recorded yet ({len(current_moz_tags)} tags seen upstream); "
+              "no port comparison until --advance stores it.")
+        print()
+    elif new_moz_tags:
         print(f"NEW moz-* TAGS IN UPSTREAM ({len(new_moz_tags)}), not present in prior run — possible Lit port:")
         for t in new_moz_tags:
             print(f"  {t}")
@@ -348,6 +362,13 @@ def main():
     # (see find_tag_definer), so the citation is usually still the right one.
     # A tag defined in no fetched file at all is the genuine drift case.
     tag_lost = [m for m in tag_missing if not m[3]]
+
+    print()
+    if args.advance:
+        print(f"Baseline advanced: drift-manifest.json now records {commit_sha}.")
+    else:
+        print("Baseline NOT advanced (no --advance): nothing was written, so everything "
+              "above stays flagged until someone triages it and reruns with --advance.")
 
     if changed or moz_new or missing_upstream or tag_lost or new_moz_tags:
         sys.exit(1)

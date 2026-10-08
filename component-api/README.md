@@ -78,7 +78,7 @@ Only `panel-separator` and `page-nav-separator` are `none` today. Both really ar
 
 ## Source of the worklist
 
-The original 57-item inventory (ids, prior `kind`/`tagName`/`file` classification) came from `index.html`'s `DATA` array. This directory adds the actual API shape (attributes/slots/events/methods/cssProperties) on top of that prior classification. It does not re-derive `kind` or `file` from scratch, though a handful of entries were corrected where opening the real source contradicted the original citation (see individual file descriptions for any such notes). 14 more components (`button-group`, `five-star`, the `input-*` family, `label`, `reorderable-list`, `support-link`, `textarea`) were added later, found by `check-drift.py` below.
+The inventory's original ids (prior `kind`/`tagName`/`file` classification) came from `index.html`'s `DATA` array. This directory adds the actual API shape (attributes/slots/events/methods/cssProperties) on top of that prior classification. It does not re-derive `kind` or `file` from scratch, though a handful of entries were corrected where opening the real source contradicted the original citation (see individual file descriptions for any such notes). `button-group`, `five-star`, the `input-*` family, `label`, `reorderable-list`, `support-link`, and `textarea` were added later, found by `check-drift.py` below. The live total is whatever `component-api/*.json` holds right now (`validate-schemas.py` reports the current count), not a number worth restating here.
 
 ## Keeping the inventory current: `check-drift.py`
 
@@ -94,6 +94,18 @@ python3 component-api/check-drift.py [--ref <branch-or-sha>]
 
 It only reports; it never writes to any `<id>.json`. Use its output as the worklist for the actual documentation pass, see `AGENTS.md` for how to verify `figma`/`supernova`/`storybook` on a new find and the `index.html` nav-registration step that's easy to miss.
 
+## Checking real Figma existence: `figma-check.py`
+
+`index.html`'s `DATA` array carries a `figma: "yes"/"no"` per component: does the real Firefox component have a real node in Mozilla's actual "Nova Styles (Experimental)" Figma file. This is never checked through Supernova's own mirror of that file (see `AGENTS.md` for why), only through the real file directly. Its fileKey is deliberately not committed in this repo.
+
+```
+python3 component-api/figma-check.py [--advance]
+```
+
+It reads `figma-components-dump.json` (a full pull of every real component/component-set in that file, see the dump's own `_comment` for exact provenance) and the real tracked components out of `index.html`'s `DATA` array, matches by normalized name, and prints a report: components claiming `figma: "no"` with a real candidate match (how a newly-added Figma component first shows up, e.g. `textarea` and "Input Textarea"), components claiming `figma: "yes"` with no real match left, and real Figma components with no tracked match at all. Like `check-drift.py`, it only reports. A flagged mismatch is a worklist item for a human to confirm by eye, never something to apply mechanically, because compound Figma names (`Panel List / MenuItem`) and deliberate naming splits (`moz-input-color` to "Color picker") mean a clean mechanical match isn't always the right one.
+
+It also diffs the dump against `figma-components-manifest.json` from the last run, by Figma's own stable `nodeId`, so it can report real additions/removals/renames instead of just "currently unmatched." Same `--advance`-gated baseline pattern as `check-drift.py`'s `drift-manifest.json`, for the same reason: advancing before triaging the diff spends the signal for free. The dump itself has to be re-pulled via the Runlayer Figma MCP connector before each real check; this script only diffs whatever's currently on disk.
+
 ## Files in this directory
 
 | File | What it is |
@@ -101,6 +113,8 @@ It only reports; it never writes to any `<id>.json`. Use its output as the workl
 | `<id>.json` | One per component, the populated entries described above. `check-index-data.py` reports the current count and asserts it matches `index.html`'s inventory. |
 | `schema.json` | The schema above as a draft 2020-12 JSON Schema, not just this README's prose. Enforced by `validate-schemas.py` on every push. |
 | `_meta.json` | Per-id `lastCommit`/`lastModified`, each one's real last commit in this repo's history, plus the `HEAD` it was generated against. |
+| `figma-components-dump.json` | Full pull of the real Figma file's components, behind `figma-check.py` above. Regenerate via the Runlayer Figma MCP connector; there's no incremental update path. |
+| `figma-components-manifest.json` | `figma-check.py`'s baseline, written only by `--advance`: the last-advanced pool keyed by Figma's own `nodeId`, for diffing real additions/removals/renames on the next run. |
 
 An entry may also carry `implementation.verifiedAt`: `{commit, date, scope}`, recording when its contents were last confirmed against real upstream source. That is a different question from `_meta.json`'s, which says when the JSON was last edited *here*. It is deliberately not backfilled, because for most of the inventory nobody knows the answer, and inventing one would be exactly the kind of fiction the rest of this directory avoids. An absent `verifiedAt` means unconfirmed since the field existed.
 

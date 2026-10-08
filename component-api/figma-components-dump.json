@@ -1,0 +1,6459 @@
+{
+  "fetchedAt": "2026-10-07",
+  "_comment": [
+    "Direct pull of every real Figma COMPONENT and COMPONENT_SET in Mozillas",
+    "authoritative Nova Styles (Experimental) file, via the Runlayer Figma MCP",
+    "connector (figma_list_file_components_for_code_connect), pulled 2026-10-07.",
+    "The file's own fileKey is deliberately not committed anywhere in this repo;",
+    "whoever re-runs the fetch already has access to the real file. This is the",
+    "direct-Figma-API leg of the existence check, the same rule",
+    "token-api/figma-variables-dump.json",
+    "already established for tokens: Supernova is never the source for whether",
+    "something real exists in Figma, only Figma itself is, because Supernovas own",
+    "sync of this design system has known gaps elsewhere in this project family.",
+    "See AGENTS.md for why Supernova stays doc-coverage-only from here on.",
+    "",
+    "FULL dump: every one of the 714 real entries the endpoint returned, including",
+    "the Icons page (591 entries, pure icon assets, never components in the",
+    "component-api sense) and two Sandbox pages (draft/test content, not shipped",
+    "anything). Nothing is dropped at dump time; icons/, string sandbox, and",
+    "internal flags are recorded per entry instead so figma-check.py documents",
+    "its own filtering rather than this file silently losing rows.",
+    "",
+    "internal is true for a name starting with _ or ., which is a real Figma",
+    "convention for hide-from-Assets-panel/internal-only components (confirmed",
+    "by inspecting what the 9 so-flagged entries actually are here: annotation",
+    "helpers, a layout grid, a sub-part like Details/Details Header broken out",
+    "for the Auto Layout nesting, not independent publishable components).",
+    "Re-running the fetch regenerates this file from scratch via the same MCP",
+    "call; there is no incremental update path."
+  ],
+  "entries": [
+    {
+      "name": "_Component Card / Property",
+      "nodeId": "499:6095",
+      "type": "COMPONENT_SET",
+      "pageName": "\ud83e\uddec Firefox Desktop Anatomy",
+      "internal": true,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "_Component annotation",
+      "nodeId": "533:8043",
+      "type": "COMPONENT_SET",
+      "pageName": "\ud83e\uddec Firefox Desktop Anatomy",
+      "internal": true,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Button",
+      "nodeId": "8849:25406",
+      "type": "COMPONENT_SET",
+      "pageName": "Button",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Button group",
+      "nodeId": "1:1123",
+      "type": "COMPONENT",
+      "pageName": "Button",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Split button",
+      "nodeId": "3368:23162",
+      "type": "COMPONENT_SET",
+      "pageName": "Button",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Icon button",
+      "nodeId": "9401:35716",
+      "type": "COMPONENT_SET",
+      "pageName": "Button",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Radio / Input",
+      "nodeId": "32:678",
+      "type": "COMPONENT_SET",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Radio",
+      "nodeId": "3907:17657",
+      "type": "COMPONENT_SET",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Checkbox / Input",
+      "nodeId": "32:689",
+      "type": "COMPONENT_SET",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Checkbox",
+      "nodeId": "3907:17658",
+      "type": "COMPONENT_SET",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Toggle / Input",
+      "nodeId": "32:881",
+      "type": "COMPONENT_SET",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Toggle",
+      "nodeId": "3907:17659",
+      "type": "COMPONENT_SET",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Select / Input",
+      "nodeId": "210:1143",
+      "type": "COMPONENT_SET",
+      "pageName": "Select",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Select / Input standard",
+      "nodeId": "20666:17979",
+      "type": "COMPONENT_SET",
+      "pageName": "Select",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Select",
+      "nodeId": "5858:8185",
+      "type": "COMPONENT_SET",
+      "pageName": "Select",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Fieldset",
+      "nodeId": "2719:28745",
+      "type": "COMPONENT_SET",
+      "pageName": "Fieldset",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Visual Picker Item",
+      "nodeId": "5231:5820",
+      "type": "COMPONENT_SET",
+      "pageName": "Visual Picker",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Visual Picker",
+      "nodeId": "5231:5843",
+      "type": "COMPONENT_SET",
+      "pageName": "Visual Picker",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Card / Accordion / Header",
+      "nodeId": "477:6023",
+      "type": "COMPONENT_SET",
+      "pageName": "Card",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Card",
+      "nodeId": "538:18711",
+      "type": "COMPONENT_SET",
+      "pageName": "Card",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": ".Card Layout",
+      "nodeId": "12947:4905",
+      "type": "COMPONENT_SET",
+      "pageName": "Card",
+      "internal": true,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Dialog",
+      "nodeId": "39:433",
+      "type": "COMPONENT",
+      "pageName": "Dialog",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Dialog / Header",
+      "nodeId": "37:567",
+      "type": "COMPONENT",
+      "pageName": "Dialog",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Panel / Separator",
+      "nodeId": "37:459",
+      "type": "COMPONENT_SET",
+      "pageName": "Panel",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Panel/ MenuItem / 2-actions",
+      "nodeId": "210:530",
+      "type": "COMPONENT",
+      "pageName": "Panel",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Panel / MenuItem",
+      "nodeId": "36:360",
+      "type": "COMPONENT_SET",
+      "pageName": "Panel",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Panel / Menu / Item / Zoom",
+      "nodeId": "8781:4413",
+      "type": "COMPONENT",
+      "pageName": "Panel",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Panel / Overflow",
+      "nodeId": "37:453",
+      "type": "COMPONENT",
+      "pageName": "Panel",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Panel / Subheader",
+      "nodeId": "37:454",
+      "type": "COMPONENT",
+      "pageName": "Panel",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Panel / Header",
+      "nodeId": "37:473",
+      "type": "COMPONENT",
+      "pageName": "Panel",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Panel",
+      "nodeId": "18215:60252",
+      "type": "COMPONENT_SET",
+      "pageName": "Panel",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Panel list",
+      "nodeId": "478:7070",
+      "type": "COMPONENT",
+      "pageName": "Panel List \u2022 Context Menu (OS)",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Panel List / MenuItem",
+      "nodeId": "478:6518",
+      "type": "COMPONENT_SET",
+      "pageName": "Panel List \u2022 Context Menu (OS)",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Context menu",
+      "nodeId": "2909:4225",
+      "type": "COMPONENT_SET",
+      "pageName": "Panel List \u2022 Context Menu (OS)",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Context menu / Item",
+      "nodeId": "2909:6967",
+      "type": "COMPONENT_SET",
+      "pageName": "Panel List \u2022 Context Menu (OS)",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Context menu / Divider",
+      "nodeId": "14528:54475",
+      "type": "COMPONENT_SET",
+      "pageName": "Panel List \u2022 Context Menu (OS)",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Label",
+      "nodeId": "442:2086",
+      "type": "COMPONENT_SET",
+      "pageName": "Label",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Focus ring",
+      "nodeId": "208:533",
+      "type": "COMPONENT_SET",
+      "pageName": "Focus Outline",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Badge",
+      "nodeId": "3480:22604",
+      "type": "COMPONENT_SET",
+      "pageName": "Badge",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Box / Group",
+      "nodeId": "496:6135",
+      "type": "COMPONENT",
+      "pageName": "Box",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Box / Button",
+      "nodeId": "478:7427",
+      "type": "COMPONENT_SET",
+      "pageName": "Box",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Box / Link",
+      "nodeId": "479:5966",
+      "type": "COMPONENT_SET",
+      "pageName": "Box",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Box / Item",
+      "nodeId": "479:6030",
+      "type": "COMPONENT_SET",
+      "pageName": "Box",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Breadcrumb Group",
+      "nodeId": "13525:18998",
+      "type": "COMPONENT_SET",
+      "pageName": "Breadcrumb Group",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Chip",
+      "nodeId": "14859:31408",
+      "type": "COMPONENT_SET",
+      "pageName": "Chip",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": ".Details / Details Header",
+      "nodeId": "12949:53043",
+      "type": "COMPONENT",
+      "pageName": "Details",
+      "internal": true,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Details",
+      "nodeId": "13745:48674",
+      "type": "COMPONENT_SET",
+      "pageName": "Details",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Feature callout / Bubble",
+      "nodeId": "2006:12722",
+      "type": "COMPONENT_SET",
+      "pageName": "Spotlight Modal \u2022 Feature Callout",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Spotlight Modal / Stepper",
+      "nodeId": "2006:12819",
+      "type": "COMPONENT_SET",
+      "pageName": "Spotlight Modal \u2022 Feature Callout",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Feature callout",
+      "nodeId": "2006:12869",
+      "type": "COMPONENT_SET",
+      "pageName": "Spotlight Modal \u2022 Feature Callout",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Spotlight modal",
+      "nodeId": "2575:19573",
+      "type": "COMPONENT_SET",
+      "pageName": "Spotlight Modal \u2022 Feature Callout",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Five Stars",
+      "nodeId": "4213:3017",
+      "type": "COMPONENT_SET",
+      "pageName": "Five Stars",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Input Text",
+      "nodeId": "33:302",
+      "type": "COMPONENT_SET",
+      "pageName": "Input Text",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Input Search",
+      "nodeId": "2249:12942",
+      "type": "COMPONENT_SET",
+      "pageName": "Input Text",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Input Password",
+      "nodeId": "2249:13164",
+      "type": "COMPONENT_SET",
+      "pageName": "Input Text",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Input Textarea",
+      "nodeId": "26762:32184",
+      "type": "COMPONENT_SET",
+      "pageName": "Input Text",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Input Text / Input",
+      "nodeId": "33:125",
+      "type": "COMPONENT_SET",
+      "pageName": "Input Text",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Input Search / Input",
+      "nodeId": "2248:1536",
+      "type": "COMPONENT_SET",
+      "pageName": "Input Text",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Input Password / Input",
+      "nodeId": "2248:1756",
+      "type": "COMPONENT_SET",
+      "pageName": "Input Text",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Input Textara / Input",
+      "nodeId": "26762:30997",
+      "type": "COMPONENT_SET",
+      "pageName": "Input Text",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Color picker",
+      "nodeId": "475:5657",
+      "type": "COMPONENT_SET",
+      "pageName": "Input Color",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Message bar",
+      "nodeId": "243:1299",
+      "type": "COMPONENT_SET",
+      "pageName": "Message Bar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Message bar icon",
+      "nodeId": "12806:23729",
+      "type": "COMPONENT_SET",
+      "pageName": "Message Bar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Page navigation / Item",
+      "nodeId": "474:5947",
+      "type": "COMPONENT_SET",
+      "pageName": "Page Navigation",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Page navigation / Separator",
+      "nodeId": "14495:17151",
+      "type": "COMPONENT",
+      "pageName": "Page Navigation",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Page navigation",
+      "nodeId": "474:6445",
+      "type": "COMPONENT",
+      "pageName": "Page Navigation",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Page header",
+      "nodeId": "13525:19277",
+      "type": "COMPONENT",
+      "pageName": "Page Header",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Promo",
+      "nodeId": "4429:687",
+      "type": "COMPONENT_SET",
+      "pageName": "Promo",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Segment",
+      "nodeId": "14268:21829",
+      "type": "COMPONENT_SET",
+      "pageName": "Segmented Control",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Segmented control",
+      "nodeId": "14268:21995",
+      "type": "COMPONENT_SET",
+      "pageName": "Segmented Control",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "vpn / vpn-error-10",
+      "nodeId": "8069:32807",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-off-10",
+      "nodeId": "8069:32806",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-on-10",
+      "nodeId": "8069:32805",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / smart-window-color-64",
+      "nodeId": "13876:790",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "foxmask-v4",
+      "nodeId": "16653:10494",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "foxmask-v3",
+      "nodeId": "16653:10492",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "foxmask-v2",
+      "nodeId": "16653:10491",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "foxmask-v1",
+      "nodeId": "16653:10493",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / tab-group-label-22",
+      "nodeId": "18969:789",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / tab-group-label-fill-22",
+      "nodeId": "18969:788",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / briefcase-40",
+      "nodeId": "8069:32802",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / shopping-cart-40",
+      "nodeId": "8069:32801",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / book-40",
+      "nodeId": "8069:32803",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / flower-40",
+      "nodeId": "8069:32800",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / heart-40",
+      "nodeId": "8115:25673",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sports / cricket-32",
+      "nodeId": "8069:32798",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sports / golf-32",
+      "nodeId": "8069:32797",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sports / hockey-32",
+      "nodeId": "8069:32795",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sports / racing-32",
+      "nodeId": "8069:32794",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sports / football-32",
+      "nodeId": "8069:32796",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sports / baseball-32",
+      "nodeId": "8069:32793",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sports / basketball-32",
+      "nodeId": "8069:32792",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sports / soccer-ball-32",
+      "nodeId": "8069:32791",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / critical-20",
+      "nodeId": "8089:1462",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / critical-fill-20",
+      "nodeId": "8089:1470",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / help-20",
+      "nodeId": "8069:32772",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / help-fill-20",
+      "nodeId": "8069:32787",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / information-20",
+      "nodeId": "8069:32763",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / information-fill-20",
+      "nodeId": "8069:32774",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / update-circle-20",
+      "nodeId": "8069:32779",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / warning-20",
+      "nodeId": "8069:32764",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / warning-fill-20",
+      "nodeId": "8069:32766",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "experiments / experiments-20",
+      "nodeId": "8069:32759",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sparkles / sparkles-20",
+      "nodeId": "8089:1457",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "home / home-20",
+      "nodeId": "8089:1459",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "lock / lock-20",
+      "nodeId": "8089:1458",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "plugin / plugin-20",
+      "nodeId": "8069:32773",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "private mode / private-mode-circle-fill-20",
+      "nodeId": "8069:32756",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "search / search-20",
+      "nodeId": "8089:1463",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "settings / settings-20",
+      "nodeId": "8069:32789",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shield / shield-20",
+      "nodeId": "8089:1456",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shield / shield-blocked-20",
+      "nodeId": "8069:32754",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sync / sync-20",
+      "nodeId": "8069:32751",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "themes / themes-20",
+      "nodeId": "8069:32749",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / all-tabs-20",
+      "nodeId": "8089:1455",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "news / newsfeed-20",
+      "nodeId": "8089:1452",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "add / add-20",
+      "nodeId": "8089:1454",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "page layout / content-width-20",
+      "nodeId": "8069:32768",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "page layout / word-spacing-20",
+      "nodeId": "8069:32752",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "page layout / letter-spacing-20",
+      "nodeId": "8069:32788",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "page layout / line-spacing-20",
+      "nodeId": "8069:32746",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "page layout / justify-left-20",
+      "nodeId": "8069:32778",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "page layout / justify-center-20",
+      "nodeId": "8069:32785",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "page layout / justify-right-20",
+      "nodeId": "8069:32762",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / flower-20",
+      "nodeId": "8069:32745",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / shopping-cart-20",
+      "nodeId": "8069:32750",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / briefcase-20",
+      "nodeId": "8069:32743",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / book-20",
+      "nodeId": "8069:32782",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "bookmarks / bookmark-20",
+      "nodeId": "8089:1451",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / heart-20",
+      "nodeId": "8089:1450",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / skip-backward-20",
+      "nodeId": "8069:32741",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / skip-forward-20",
+      "nodeId": "8069:32771",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "thumbs / thumbs-up-20",
+      "nodeId": "8069:32740",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "thumbs / thumbs-down-20",
+      "nodeId": "8069:32739",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shopping / competitiveness-20",
+      "nodeId": "8069:32738",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "color picker / color-picker-20",
+      "nodeId": "8069:32775",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "gift / gift-20",
+      "nodeId": "8069:32767",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / musical-note-20",
+      "nodeId": "8069:32761",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / palette-20",
+      "nodeId": "8069:32755",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / paw-print-20",
+      "nodeId": "8069:32737",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / makeup-20",
+      "nodeId": "8069:32736",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / soccer-ball-20",
+      "nodeId": "8069:32783",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / leaf-20",
+      "nodeId": "8069:32734",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / video-game-controller-20",
+      "nodeId": "8069:32786",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / heart-rate-20",
+      "nodeId": "8069:32733",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / diamond-20",
+      "nodeId": "8069:32732",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / craft-20",
+      "nodeId": "8069:32731",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / sparkle-single-20",
+      "nodeId": "8069:32730",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / airplane-20",
+      "nodeId": "8069:32729",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / hammer-20",
+      "nodeId": "8069:32735",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / barbell-20",
+      "nodeId": "8069:32728",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / bike-20",
+      "nodeId": "8069:32727",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "languages / languages-20",
+      "nodeId": "8069:32726",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "mail / email-mask-20",
+      "nodeId": "8069:32725",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "mail / email-shield-20",
+      "nodeId": "8069:32724",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "stocks / stocks-20",
+      "nodeId": "8069:32723",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "location / location-20",
+      "nodeId": "8069:32722",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "weather / weather-20",
+      "nodeId": "8069:32721",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "calendar, date / calendar-20",
+      "nodeId": "8069:32720",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "passkey / passkey-20",
+      "nodeId": "8069:32719",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "delete / delete-20",
+      "nodeId": "8089:1449",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "extensions / extension-20",
+      "nodeId": "8089:1448",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "extensions / extension-fill-20",
+      "nodeId": "8089:1447",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "globe / globe-20",
+      "nodeId": "8089:1453",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "history / history-20",
+      "nodeId": "8089:1461",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "swap / swap-horizontal-20",
+      "nodeId": "13802:57445",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / memories-slash-20",
+      "nodeId": "13876:778",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / memories-20",
+      "nodeId": "13876:780",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / ask-20",
+      "nodeId": "13876:782",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / custom-model-20",
+      "nodeId": "19568:798",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / send-tab-to-device-left-20",
+      "nodeId": "20535:17207",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / send-tab-to-device-right-20",
+      "nodeId": "20535:17208",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-rules-20",
+      "nodeId": "26314:15365",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "mini-window / mini-window-20",
+      "nodeId": "26314:15372",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / permission-20",
+      "nodeId": "26375:1067",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "add / add-16",
+      "nodeId": "8069:32590",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "add / add-circle-fill-16",
+      "nodeId": "8069:32618",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / critical-16",
+      "nodeId": "8069:32609",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / critical-fill-16",
+      "nodeId": "8069:32616",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / error-16",
+      "nodeId": "8069:32589",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / error-fill-16",
+      "nodeId": "8069:32587",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / help-16",
+      "nodeId": "8069:32614",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / help-fill-16",
+      "nodeId": "8069:32602",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / information-16",
+      "nodeId": "8069:32610",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / information-fill-16",
+      "nodeId": "8069:32622",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / update-circle-fill-16",
+      "nodeId": "8069:32570",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / warning-16",
+      "nodeId": "8069:32576",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "alerts, notifications, help / warning-fill-16",
+      "nodeId": "8069:32604",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / back-16",
+      "nodeId": "8069:32607",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-double-right-16",
+      "nodeId": "8069:32583",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-down-16",
+      "nodeId": "8069:32565",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-down-small-16",
+      "nodeId": "8069:32569",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-up-small-16",
+      "nodeId": "8069:36607",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-left-16",
+      "nodeId": "8069:32620",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-right-16",
+      "nodeId": "8069:32603",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-up-16",
+      "nodeId": "8069:32600",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / cursor-arrow-16",
+      "nodeId": "8069:32599",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / line-arrow-up-16",
+      "nodeId": "8069:32592",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / arrow-down-line-16",
+      "nodeId": "8089:1497",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / arrow-trending-16",
+      "nodeId": "8069:32595",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / forward-16",
+      "nodeId": "8069:32594",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / forward-small-16",
+      "nodeId": "8069:32591",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / back-small-16",
+      "nodeId": "8115:25685",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / update-16",
+      "nodeId": "8069:32588",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / arrow-clockwise-16",
+      "nodeId": "8069:32582",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "app menu / app-menu-space-16",
+      "nodeId": "8069:32585",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "app menu / app-menu-16",
+      "nodeId": "8069:32579",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "avatars / avatar-signed-out-16",
+      "nodeId": "8069:32575",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "avatars / avatar-signed-in-fill-16",
+      "nodeId": "8069:32624",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "avatars / avatar-signed-in-fill-custom-initial-16",
+      "nodeId": "8069:32574",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "avatars / avatar-signed-in-fill-profile-picture-16",
+      "nodeId": "8069:32527",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "bookmarks / bookmark-16",
+      "nodeId": "8069:32613",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "bookmarks / bookmark-fill-16",
+      "nodeId": "8069:32571",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "bookmarks / bookmarks-tray-16",
+      "nodeId": "8069:32601",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "checkmarks / checkmark-16",
+      "nodeId": "8069:32566",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "checkmarks / checkmark-circle-fill-16",
+      "nodeId": "8069:32619",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "close, cancel, dismiss / close-16",
+      "nodeId": "8069:32612",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "close, cancel, dismiss / close-circle-fill-16",
+      "nodeId": "8069:32568",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "globe / globe-16",
+      "nodeId": "8069:32564",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "delete / delete-16",
+      "nodeId": "8069:32578",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "downloads / downloads-16",
+      "nodeId": "8069:32563",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pen, pencil / edit-active-16",
+      "nodeId": "8069:32562",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pen, pencil / edit-squiggle-16",
+      "nodeId": "8069:32621",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "extensions / extension-16",
+      "nodeId": "8069:32586",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "extensions / extension-fill-16",
+      "nodeId": "8069:32560",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "external Link / external-link-16",
+      "nodeId": "8069:32581",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "folder / folder-16",
+      "nodeId": "8069:32573",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "folder / folder-fill-16",
+      "nodeId": "8069:32559",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "folder / folder-arrow-down-16",
+      "nodeId": "8069:32615",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "fullscreen / fullscreen-disabled-16",
+      "nodeId": "8069:32557",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "hand / hand-16",
+      "nodeId": "8069:32556",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "fullscreen / fullscreen-exit-16",
+      "nodeId": "8069:32554",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "fullscreen / fullscreen-expand-16",
+      "nodeId": "8069:32552",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sparkles / sparkles-16",
+      "nodeId": "8069:32648",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "history / history-16",
+      "nodeId": "8069:32550",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "home / home-16",
+      "nodeId": "8069:32611",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "import & export / export-data-16",
+      "nodeId": "8069:32617",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "import & export / import-data-16",
+      "nodeId": "8069:32561",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "import & export / import-export-16",
+      "nodeId": "8069:32549",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "library / library-16",
+      "nodeId": "8069:32623",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "lightbulb / lightbulb-16",
+      "nodeId": "8069:32572",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "lock / lock-16",
+      "nodeId": "8069:32547",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "lock / lock-slash-16",
+      "nodeId": "8069:32545",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "lock / lock-warning-16",
+      "nodeId": "8069:32544",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "lock / lock-document-16",
+      "nodeId": "8069:32539",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / audio-16",
+      "nodeId": "8069:32605",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / audio-muted-16",
+      "nodeId": "8069:32538",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / pause-fill-16",
+      "nodeId": "8069:32536",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / play-fill-16",
+      "nodeId": "8069:32580",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / print-16",
+      "nodeId": "8069:32535",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "page actions / page-actions-16",
+      "nodeId": "8069:32608",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / page-landscape-16",
+      "nodeId": "8069:32567",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / page-portrait-16",
+      "nodeId": "8069:32542",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / page-scrolling-16",
+      "nodeId": "8069:32533",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / wrapped-scrolling-16",
+      "nodeId": "8069:32543",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / vertical-scrolling-16",
+      "nodeId": "8069:32540",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / horizontal-scrolling-16",
+      "nodeId": "8069:32532",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / current-view-16",
+      "nodeId": "8069:32537",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / presentation-mode-16",
+      "nodeId": "8069:32555",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / no-spreads-16",
+      "nodeId": "8069:32546",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / odd-spreads-16",
+      "nodeId": "8069:32531",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / / even-spreads-16",
+      "nodeId": "8069:32534",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / / page-thumbnails-16",
+      "nodeId": "8069:32529",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / permission-16",
+      "nodeId": "8120:9931",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / auto-play-16",
+      "nodeId": "8069:29775",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / camera-16",
+      "nodeId": "8069:29786",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / canvas-16",
+      "nodeId": "8069:29793",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / location-16",
+      "nodeId": "8069:29804",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / login-16",
+      "nodeId": "13805:58002",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / mic-16",
+      "nodeId": "8069:29817",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / midi-16",
+      "nodeId": "13805:58011",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / notifications-16",
+      "nodeId": "8069:29830",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / show password-16",
+      "nodeId": "8069:29841",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / plugin-16",
+      "nodeId": "8069:29850",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / blocked-popup-16",
+      "nodeId": "13805:58034",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / popup-subitem-16",
+      "nodeId": "13805:58113",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / screenshare-16",
+      "nodeId": "8069:29865",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / storage-16",
+      "nodeId": "8069:29874",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / xr-16",
+      "nodeId": "8069:29884",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "picture in picture (PiP) / picture-in-picture-open-16",
+      "nodeId": "8069:32681",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "picture in picture (PiP) / picture-in-picture-closed-16",
+      "nodeId": "8069:32699",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pin / pin-16",
+      "nodeId": "8069:32689",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pin / pin-fill-16",
+      "nodeId": "8069:32684",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pocket / pocket-16",
+      "nodeId": "8069:32646",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pocket / pocket-fill-16",
+      "nodeId": "8069:32677",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "private mode / private-mode-fill-16",
+      "nodeId": "8069:32661",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "private mode / private-mode-circle-fill-16",
+      "nodeId": "8069:32694",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "reader mode / reader-mode-16",
+      "nodeId": "8069:32692",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "search / search-16",
+      "nodeId": "8069:32702",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "search / search-in-circle-16",
+      "nodeId": "8069:32696",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "search / search-in-circle-right-16",
+      "nodeId": "8069:32678",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "settings / settings-16",
+      "nodeId": "8069:32690",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "share / share-macos-16",
+      "nodeId": "8069:32687",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "share / share-winos-16",
+      "nodeId": "8069:32682",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shield / shield-16",
+      "nodeId": "8069:32706",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shield / shield-slash-16",
+      "nodeId": "8069:32697",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shield / shield-exclamation-mark-16",
+      "nodeId": "8069:32680",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shield / shield-cross-16",
+      "nodeId": "8069:32704",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shield / shield-checkmark-16",
+      "nodeId": "8069:32683",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sidebar / sidebar-right-16",
+      "nodeId": "8069:32679",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sidebar / sidebar-left-16",
+      "nodeId": "8069:32674",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sort, filter / sort-16",
+      "nodeId": "8069:32671",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "subtract / subtract-16",
+      "nodeId": "8069:32672",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "subtract / subtract-circle-fill-16",
+      "nodeId": "8069:32669",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sync / sync-16",
+      "nodeId": "8069:32691",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / tab-16",
+      "nodeId": "8069:32668",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sync / synced-tabs-16",
+      "nodeId": "8069:32693",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "text / text-cursor-16",
+      "nodeId": "8069:32667",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / all-tabs-16",
+      "nodeId": "8069:32666",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "themes / themes-16",
+      "nodeId": "8069:32705",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "top sites / top-sites-16",
+      "nodeId": "8069:32651",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "trackers / cryptominer-16",
+      "nodeId": "8069:30001",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "trackers / fingerprinter-16",
+      "nodeId": "8069:30008",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "trackers / footprints-16",
+      "nodeId": "8069:30020",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "trackers / image-tracker-16",
+      "nodeId": "8069:30033",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "trackers / social-tracker-16",
+      "nodeId": "8069:30044",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "trackers / tracking-cookies-fill-16",
+      "nodeId": "8069:30053",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "trackers / tracking-cookies-16",
+      "nodeId": "8074:36882",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "lightning bolt / lightning-bolt-16",
+      "nodeId": "8069:32718",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "window / window-16",
+      "nodeId": "8069:32717",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "closed caption / closed-caption-16",
+      "nodeId": "8069:32558",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / playback-forward-16",
+      "nodeId": "8069:32551",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / playback-rewind-16",
+      "nodeId": "8069:32530",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / arrow-counterclockwise-16",
+      "nodeId": "8069:32528",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "layer / layer-16",
+      "nodeId": "8069:32598",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "paperclip / paperclip-16",
+      "nodeId": "8069:32553",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sort, filter / list-16",
+      "nodeId": "8069:32698",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sort, filter / list-arrow-left-16",
+      "nodeId": "8069:32662",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "translate / translate-16",
+      "nodeId": "8069:32716",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "view / fx-view-16",
+      "nodeId": "8069:32714",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / vertical-tabs-16",
+      "nodeId": "8069:32660",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / tab-group-16",
+      "nodeId": "8069:32657",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / closed-tabs-16",
+      "nodeId": "8069:32664",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / open-tabs-16",
+      "nodeId": "8069:32685",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "data clearance / data-clearance-16",
+      "nodeId": "8069:32548",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shopping / quality-16",
+      "nodeId": "8069:32700",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shopping / price-16",
+      "nodeId": "8069:32673",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shopping / packaging-16",
+      "nodeId": "8069:32703",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shopping / shipping-16",
+      "nodeId": "8069:32656",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shopping / competitiveness-16",
+      "nodeId": "8069:32653",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shopping / shopping-16",
+      "nodeId": "8069:32652",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "highlighter / highlighter-16",
+      "nodeId": "8069:32541",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "passkey / passkey-16",
+      "nodeId": "8069:32526",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "text / add-text-16",
+      "nodeId": "8069:32649",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "news / newsfeed-16",
+      "nodeId": "8069:32524",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / flower-16",
+      "nodeId": "8069:32647",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / heart-16",
+      "nodeId": "8069:32645",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / briefcase-16",
+      "nodeId": "8069:32644",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / book-16",
+      "nodeId": "8069:32643",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / shopping-cart-16",
+      "nodeId": "8069:32642",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "firefox-bridge / firefox-bridge-16",
+      "nodeId": "8069:32597",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "firefox-bridge / firefox-browser-bridge-16",
+      "nodeId": "8069:32523",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sidebar / sidebar-hidden-16",
+      "nodeId": "8069:32641",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sidebar / sidebar-expanded-right-16",
+      "nodeId": "8069:32663",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sidebar / sidebar-expanded-16",
+      "nodeId": "8069:32640",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sidebar / sidebar-collapsed-16",
+      "nodeId": "8069:32639",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sidebar / sidebar-collapsed-right-16",
+      "nodeId": "8069:32638",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "extensions / extension-warning-16",
+      "nodeId": "8069:32525",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "extensions / extension-critical-16",
+      "nodeId": "8069:32522",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "gift / gift-16",
+      "nodeId": "8069:32521",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "devices / device-mobile-16",
+      "nodeId": "8069:32520",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "extensions / extension-cut-16",
+      "nodeId": "8069:32519",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "color picker / color-picker-16",
+      "nodeId": "8069:32577",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / taskbar-remove-tab-16",
+      "nodeId": "8069:32637",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / taskbar-move-tab-16",
+      "nodeId": "8069:32636",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / taskbar-add-tab-16",
+      "nodeId": "8069:32676",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pen, pencil / signature-16",
+      "nodeId": "8069:32518",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / musical-note-16",
+      "nodeId": "8069:32650",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / sparkle-single-16",
+      "nodeId": "8069:32701",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / craft-16",
+      "nodeId": "8069:32665",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / leaf-16",
+      "nodeId": "8069:32675",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / soccer-ball-16",
+      "nodeId": "8069:32686",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / paw-print-16",
+      "nodeId": "8069:32655",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / makeup-16",
+      "nodeId": "8069:32635",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / heart-rate-16",
+      "nodeId": "8069:32633",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / palette-16",
+      "nodeId": "8069:32632",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / video-game-controller-16",
+      "nodeId": "8069:32631",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / diamond-16",
+      "nodeId": "8069:32630",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / barbell-16",
+      "nodeId": "8069:32628",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / bike-16",
+      "nodeId": "8069:32627",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / hammer-16",
+      "nodeId": "8069:32670",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / plane-16",
+      "nodeId": "8069:32659",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "mail / email-mask-16",
+      "nodeId": "8069:32517",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "mail / email-shield-16",
+      "nodeId": "8069:32516",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "screenshot / screenshot-16",
+      "nodeId": "8069:32626",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "search / find-in-page-16",
+      "nodeId": "8069:32634",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / localhost-16",
+      "nodeId": "8069:30377",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "permissions / local-network-16",
+      "nodeId": "8069:30382",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "move / move-16",
+      "nodeId": "8069:32515",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "globe / globe-slash-16",
+      "nodeId": "8069:32514",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "split view / split-view-16",
+      "nodeId": "8069:32629",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "split view / split-view-left-16",
+      "nodeId": "8069:32695",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "split view / split-view-right-16",
+      "nodeId": "8069:32688",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "comment / comment-16",
+      "nodeId": "8069:32513",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "downloads / downloaded-file-16",
+      "nodeId": "8069:32512",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "user / single-user-16",
+      "nodeId": "8069:32715",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "user / users-16",
+      "nodeId": "8069:32712",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "user / authenticated-user-16",
+      "nodeId": "8069:32711",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "user / unauthenticated-user-16",
+      "nodeId": "8069:32710",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "user / add-user-16",
+      "nodeId": "8069:32709",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "user / remove-user-16",
+      "nodeId": "8069:32708",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "window / window-firefox-16",
+      "nodeId": "8069:32713",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "dashboard / dashboard-16",
+      "nodeId": "8069:32511",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "user / identity-16",
+      "nodeId": "8069:32707",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "activity / activity-16",
+      "nodeId": "8069:32510",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "action / copy-16",
+      "nodeId": "8069:36763",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "organizational unit / organizational-unit-16",
+      "nodeId": "8069:32584",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "policy / policy-16",
+      "nodeId": "8069:32625",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "policy / applied-policy-16",
+      "nodeId": "8069:32654",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "off / off-16",
+      "nodeId": "8069:32593",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / tab-notes-16",
+      "nodeId": "8069:32658",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pen, pencil / signature-properties-16",
+      "nodeId": "8069:32509",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "payment methods / payment-methods-16",
+      "nodeId": "8069:32508",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / microphone-16",
+      "nodeId": "8069:36651",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "home / home-fill-16",
+      "nodeId": "8074:36830",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "custom / download-progress-16",
+      "nodeId": "9231:49997",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "block / block-16",
+      "nodeId": "13802:57433",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "block / block-download-16",
+      "nodeId": "13802:57432",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-on-off-site-16",
+      "nodeId": "13802:57505",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "webserial / webserial-16",
+      "nodeId": "14743:1045",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-on-16",
+      "nodeId": "13802:57507",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-off-16",
+      "nodeId": "13802:57506",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-disconnected-16",
+      "nodeId": "13802:57508",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "globe / globe-warning-16",
+      "nodeId": "13802:57516",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "routed / routed-16",
+      "nodeId": "13802:57530",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "accessibility / accessibility-16",
+      "nodeId": "13802:57542",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "logo / mozilla-16",
+      "nodeId": "13802:57562",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "logo / firefox-16",
+      "nodeId": "13802:57563",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "labs / labs-16",
+      "nodeId": "13802:57575",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / memories-16",
+      "nodeId": "13876:760",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / memories-slash-16",
+      "nodeId": "13876:762",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / ask-16",
+      "nodeId": "13876:764",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / smart-window-color-16",
+      "nodeId": "13876:766",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / smart-window-16",
+      "nodeId": "13876:771",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / site-restrictions-16",
+      "nodeId": "15225:5470",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pdf, page / pdf-16",
+      "nodeId": "15593:16981",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / play-circle-fill-16",
+      "nodeId": "15593:968",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / stop-fill-16",
+      "nodeId": "15593:972",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / send-tab-to-device-left-16",
+      "nodeId": "16253:3421",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / send-tab-to-device-right-16",
+      "nodeId": "16253:3420",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "themes / sun-16",
+      "nodeId": "16611:12413",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "themes / moon-16",
+      "nodeId": "16611:12414",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / tab-group-label-fill-16",
+      "nodeId": "16611:12422",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / tab-group-label-16",
+      "nodeId": "18969:775",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "archive / archive-16",
+      "nodeId": "18918:1046",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "restore / restore-16",
+      "nodeId": "18918:1045",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "routed / routed-slash-16",
+      "nodeId": "18970:1050",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / custom-model-16",
+      "nodeId": "19568:784",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "lock / lock-slash-duotone-16",
+      "nodeId": "19594:771",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "shield / shield-slash-duotone-16",
+      "nodeId": "19594:774",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "food / knife-and-fork-16",
+      "nodeId": "20192:1053",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "food / apple-16",
+      "nodeId": "20192:1052",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "devices / keyboard-16",
+      "nodeId": "21288:1024",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "playback speed / playback-speed-16",
+      "nodeId": "22031:1029",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "mail / email-16",
+      "nodeId": "22098:1031",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "container / dollar-sign-circle-16",
+      "nodeId": "22098:1079",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "container / dog-16",
+      "nodeId": "22098:1088",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "container / glasses-16",
+      "nodeId": "22098:1096",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "container / fence-16",
+      "nodeId": "22098:1102",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "container / tree-16",
+      "nodeId": "22171:1040",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "link / link-16",
+      "nodeId": "22334:1037",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "qr-code / qr-code-16",
+      "nodeId": "22334:1039",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "translate / translations-companion-16",
+      "nodeId": "22604:1037",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sort, filter / filter-16",
+      "nodeId": "22806:1039",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "checkmarks / double-checkmark-16",
+      "nodeId": "22907:1045",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / chat-history-16",
+      "nodeId": "23575:1037",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "smart window / new-chat-16",
+      "nodeId": "25099:1037",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / search-tabs-16",
+      "nodeId": "25690:1037",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-rules-16",
+      "nodeId": "26314:15360",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "mini window / mini-window-16",
+      "nodeId": "26314:15358",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "expand, collapse  / collapse-all-16",
+      "nodeId": "26896:1094",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "expand, collapse / expand-all-16",
+      "nodeId": "26896:1093",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "search / search-12",
+      "nodeId": "8089:1371",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "sync / sync-12",
+      "nodeId": "8069:32498",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs: audio & media / media-fill-no-circle-12",
+      "nodeId": "8069:32489",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs: audio & media / play-circle-fill-slash-12",
+      "nodeId": "8069:32503",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / pause-fill-12",
+      "nodeId": "8069:32502",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "media / play-fill-12",
+      "nodeId": "8069:32500",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "close, cancel, dismiss / close-12",
+      "nodeId": "8089:1372",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "close, cancel, stop / close-circle-fill-12",
+      "nodeId": "8069:32493",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-down-12",
+      "nodeId": "8089:1373",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-left-12",
+      "nodeId": "8089:1368",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-right-12",
+      "nodeId": "8089:1370",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "arrows & chevrons / chevron-up-12",
+      "nodeId": "8089:1367",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "badges / notification-fill-12",
+      "nodeId": "8069:32483",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "badges / bookmark-fill-12",
+      "nodeId": "8069:32481",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "badges / pin-fill-12",
+      "nodeId": "8069:32480",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "badges / warning-fill-12",
+      "nodeId": "8069:32482",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "add / add-12",
+      "nodeId": "8089:1366",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "add / add-circle-fill-12",
+      "nodeId": "8069:32478",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "external link / external-link-12",
+      "nodeId": "8069:32476",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / heart-12",
+      "nodeId": "8089:1365",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / flower-12",
+      "nodeId": "8069:32491",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / briefcase-12",
+      "nodeId": "8069:32472",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / book-12",
+      "nodeId": "8069:32490",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / shopping-cart-12",
+      "nodeId": "8069:32485",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "bookmarks / bookmark-12",
+      "nodeId": "8089:1364",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs: audio & media / audio-muted-12",
+      "nodeId": "8069:32499",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs: audio & media / audio-muted-smaller-12",
+      "nodeId": "8069:32497",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs: audio & media / audio-smaller-12",
+      "nodeId": "8069:32470",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs: audio & media / audio-12",
+      "nodeId": "8069:32468",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs: audio & media / play-circle-fill-12",
+      "nodeId": "8069:32504",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / craft-12",
+      "nodeId": "8069:32467",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / sparkle-single-12",
+      "nodeId": "8069:32466",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / heart-rate-12",
+      "nodeId": "8069:32465",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / diamond-12",
+      "nodeId": "8069:32464",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / soccer-ball-12",
+      "nodeId": "8069:32469",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / paw-print-12",
+      "nodeId": "8069:32462",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / leaf-12",
+      "nodeId": "8069:32506",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / palette-12",
+      "nodeId": "8069:32463",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "globe / globe-12",
+      "nodeId": "8089:1363",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / gift-box-12",
+      "nodeId": "8069:32494",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / video-game-controller-12",
+      "nodeId": "8069:32461",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / makeup-12",
+      "nodeId": "8069:32496",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / musical-note-12",
+      "nodeId": "8069:32479",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / airplane-12",
+      "nodeId": "8069:32477",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / hammer-12",
+      "nodeId": "8069:32475",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / barbell-12",
+      "nodeId": "8069:32487",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "profile / bike-12",
+      "nodeId": "8069:32473",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "mail / email-mask-12",
+      "nodeId": "8069:32460",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "mail / email-shield-12",
+      "nodeId": "8069:32459",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "pen, pencil / edit-active-12",
+      "nodeId": "8089:1369",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "tabs / tab-notes-12",
+      "nodeId": "8069:32457",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-on-off-site-12",
+      "nodeId": "13802:57467",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-off-12",
+      "nodeId": "13802:57468",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-disconnected-12",
+      "nodeId": "13802:57470",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "vpn / vpn-on-12",
+      "nodeId": "13802:57469",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "devices / keyboard-12",
+      "nodeId": "21288:1033",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "mini window / mini-window-12",
+      "nodeId": "26314:1123",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "_Cursors_MacOS",
+      "nodeId": "8069:33283",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": true,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / ibeam",
+      "nodeId": "8069:33602",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / default pointer",
+      "nodeId": "8069:33601",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / zip",
+      "nodeId": "8069:34172",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / json Fx",
+      "nodeId": "8069:34169",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / html Fx",
+      "nodeId": "8069:34170",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / http",
+      "nodeId": "8069:34168",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / txt",
+      "nodeId": "8069:34167",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / m4a",
+      "nodeId": "8069:34166",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / mp4",
+      "nodeId": "8069:34165",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / mov",
+      "nodeId": "8069:34164",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / png",
+      "nodeId": "8069:34163",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / jpg",
+      "nodeId": "8069:34162",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / gif",
+      "nodeId": "8069:34171",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / generic document",
+      "nodeId": "8069:34161",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / font",
+      "nodeId": "8069:34160",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / dmg",
+      "nodeId": "8069:34159",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / pdf",
+      "nodeId": "8069:34158",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / gslides",
+      "nodeId": "8069:34157",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / gsheets",
+      "nodeId": "8069:34156",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / gform",
+      "nodeId": "8069:34155",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / gdoc",
+      "nodeId": "8069:34154",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / xlsx",
+      "nodeId": "8069:34153",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / docx",
+      "nodeId": "8069:34152",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / fig",
+      "nodeId": "8069:34151",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MacOS / ai",
+      "nodeId": "8069:34150",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / zip",
+      "nodeId": "8069:34208",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / txt3",
+      "nodeId": "8069:34206",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / txt2",
+      "nodeId": "8069:34205",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / txt",
+      "nodeId": "8069:34207",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / cd",
+      "nodeId": "8069:34204",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / music2",
+      "nodeId": "8069:34203",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / music",
+      "nodeId": "8069:34202",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / mp4",
+      "nodeId": "8069:34201",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / image",
+      "nodeId": "8069:34200",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win /  generic document",
+      "nodeId": "8069:34199",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / font",
+      "nodeId": "8069:34198",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Win / dmg",
+      "nodeId": "8069:34197",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Favicon-16",
+      "nodeId": "8069:34103",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Favicon-24",
+      "nodeId": "8069:34102",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Favicon-40",
+      "nodeId": "8069:34101",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Icon 16x16",
+      "nodeId": "8090:28930",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Icon 12x12",
+      "nodeId": "8090:28940",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Icon 20x20",
+      "nodeId": "8090:28944",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Icon 32x32",
+      "nodeId": "8115:25503",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Icon 40x40",
+      "nodeId": "8115:25502",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Adidas",
+      "nodeId": "8116:24119",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Airbnb",
+      "nodeId": "8116:24112",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Amazon",
+      "nodeId": "8116:24071",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "AP News",
+      "nodeId": "8116:24124",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Apple",
+      "nodeId": "8116:24121",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Apple Music",
+      "nodeId": "8116:24125",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "BBC News",
+      "nodeId": "8116:24089",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Bing",
+      "nodeId": "8116:24117",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Bluesky",
+      "nodeId": "8116:24082",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Bon Appetit",
+      "nodeId": "8116:24098",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Bugzilla",
+      "nodeId": "8116:24094",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "CBC",
+      "nodeId": "8116:24114",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "ChatGPT",
+      "nodeId": "8116:24091",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Chrome",
+      "nodeId": "8116:24087",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Claude",
+      "nodeId": "8116:24109",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Confluence",
+      "nodeId": "8116:24105",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Discord",
+      "nodeId": "8116:24104",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Dribble",
+      "nodeId": "8116:24103",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Duck Duck Go",
+      "nodeId": "8116:24099",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Ebay",
+      "nodeId": "8116:24096",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Edge",
+      "nodeId": "8116:24111",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Etsy",
+      "nodeId": "8116:24093",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Expedia",
+      "nodeId": "8116:24102",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Facebook",
+      "nodeId": "8116:24090",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Facebook Messenger",
+      "nodeId": "8116:24088",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Figma",
+      "nodeId": "8116:24086",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Firefox",
+      "nodeId": "8116:24100",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Github",
+      "nodeId": "8116:24116",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Gmail",
+      "nodeId": "8116:24120",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Google",
+      "nodeId": "8116:24080",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Google Calendar",
+      "nodeId": "8116:24122",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Google Docs",
+      "nodeId": "8116:24110",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Google Drive",
+      "nodeId": "8116:24113",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Google Flights",
+      "nodeId": "8116:24092",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Google Maps",
+      "nodeId": "8116:24085",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Google Play",
+      "nodeId": "8116:24081",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Google Sheets",
+      "nodeId": "8116:24118",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Hotels.com",
+      "nodeId": "8116:24079",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Instagram",
+      "nodeId": "8116:24115",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Jira",
+      "nodeId": "8116:24078",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "LinkedIn",
+      "nodeId": "8116:24074",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "MDN",
+      "nodeId": "8116:24075",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Medium",
+      "nodeId": "8116:24083",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Mozilla",
+      "nodeId": "8116:24073",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "NYTimes",
+      "nodeId": "8116:24107",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Netflix",
+      "nodeId": "8116:24077",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Notion",
+      "nodeId": "8116:24072",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Opera",
+      "nodeId": "8116:24070",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Paypal",
+      "nodeId": "8116:24084",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Pinterest",
+      "nodeId": "8116:24069",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Quora",
+      "nodeId": "8116:24106",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Reddit",
+      "nodeId": "8116:24123",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Safari",
+      "nodeId": "8116:24068",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Signal",
+      "nodeId": "8116:24097",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Skyscanner",
+      "nodeId": "8116:24076",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Slack",
+      "nodeId": "8116:24067",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Slate",
+      "nodeId": "8116:24066",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Snapchat",
+      "nodeId": "8116:24065",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Spotify",
+      "nodeId": "8116:24064",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Stack Overflow",
+      "nodeId": "8116:24062",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Stripe",
+      "nodeId": "8116:24061",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Tech Crunch",
+      "nodeId": "8116:24108",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "TikTok",
+      "nodeId": "8116:24060",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Trello",
+      "nodeId": "8116:24059",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Trip Advisor",
+      "nodeId": "8116:24058",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Tumblr",
+      "nodeId": "8116:24057",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Twitch",
+      "nodeId": "8116:24063",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Twitter",
+      "nodeId": "8116:24095",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Verge",
+      "nodeId": "8116:24056",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Vimeo",
+      "nodeId": "8116:24055",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Walmart",
+      "nodeId": "8116:24101",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Whatsapp",
+      "nodeId": "8116:24054",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Wikipedia",
+      "nodeId": "8116:24053",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Yahoo",
+      "nodeId": "8116:24052",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "YouTube",
+      "nodeId": "8116:24051",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Zoom",
+      "nodeId": "8116:24050",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Default",
+      "nodeId": "8116:24049",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Privacy Badger",
+      "nodeId": "8150:37898",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Extension x",
+      "nodeId": "8150:37896",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "ColorZilla",
+      "nodeId": "8150:37895",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Extension x",
+      "nodeId": "8150:37894",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Extension x",
+      "nodeId": "8150:37893",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Firefox smart window",
+      "nodeId": "12237:22497",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Firefox private mode",
+      "nodeId": "12237:22498",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Perplexity",
+      "nodeId": "22859:1055",
+      "type": "COMPONENT",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "logo-firefox",
+      "nodeId": "13117:6447",
+      "type": "COMPONENT_SET",
+      "pageName": "Icons",
+      "internal": false,
+      "sandbox": false,
+      "icons": true
+    },
+    {
+      "name": "Browser",
+      "nodeId": "541:11853",
+      "type": "COMPONENT_SET",
+      "pageName": "Browser",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Toolbox",
+      "nodeId": "8188:30664",
+      "type": "COMPONENT_SET",
+      "pageName": "Toolbox",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Toolbar Button",
+      "nodeId": "1:589",
+      "type": "COMPONENT_SET",
+      "pageName": "Toolbar Button",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "_Attention dot",
+      "nodeId": "9229:27659",
+      "type": "COMPONENT_SET",
+      "pageName": "Toolbar Button",
+      "internal": true,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Urlbarview / List item",
+      "nodeId": "307:1597",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Urlbar / Identity box",
+      "nodeId": "307:1791",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Urlbar / Searchmode Switcher",
+      "nodeId": "310:2459",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Urlbar / Action Button",
+      "nodeId": "460:2276",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Urlbar / Zoom Controls",
+      "nodeId": "307:1786",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Address bar / List item / Icons",
+      "nodeId": "307:1582",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Urlbar / Input field",
+      "nodeId": "453:2488",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Urlbar",
+      "nodeId": "453:2662",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Tabstrip",
+      "nodeId": "287:1342",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Toolbar / Icon / Downloads",
+      "nodeId": "306:2001",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Toolbar / Icon / Firefox accounts",
+      "nodeId": "306:1964",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Toolbar / Icon / App menu",
+      "nodeId": "306:1936",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Toolbar / Icon / Extensions",
+      "nodeId": "306:1952",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Tabstrip / Tab",
+      "nodeId": "287:1297",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "_Tabstrip / Actions",
+      "nodeId": "287:1261",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": true,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "_Tab Strip / Window controls",
+      "nodeId": "287:1234",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": true,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Toolbox / Tab Group",
+      "nodeId": "460:4996",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Toolbar / VPN button",
+      "nodeId": "8119:46231",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Tabstrip / Tab group label",
+      "nodeId": "8121:32597",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Navigation Toolbar",
+      "nodeId": "8184:44423",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Tab close control",
+      "nodeId": "8229:15517",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Tab collapsed audio control",
+      "nodeId": "8229:16725",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Account Status",
+      "nodeId": "8327:25307",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Chrome divider",
+      "nodeId": "9278:19414",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Tabstrip / Split view Tab",
+      "nodeId": "9819:13587",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Split View Tag",
+      "nodeId": "9819:42655",
+      "type": "COMPONENT",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Tabstrip vertical",
+      "nodeId": "461:13931",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Window switcher",
+      "nodeId": "12303:45759",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Smart Window / Ask Button",
+      "nodeId": "12484:21343",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Drag bar",
+      "nodeId": "9819:18779",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Tab collapsed close control",
+      "nodeId": "13118:33778",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Tab hover preview",
+      "nodeId": "18179:24224",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Tab hover note",
+      "nodeId": "18179:24260",
+      "type": "COMPONENT",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Urlbar / Icon Button",
+      "nodeId": "19109:27456",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "New tab button",
+      "nodeId": "25705:20115",
+      "type": "COMPONENT_SET",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Bookmarks Toolbar",
+      "nodeId": "460:3086",
+      "type": "COMPONENT_SET",
+      "pageName": "Bookmarks Toolbar \u2022 Infobar \u2022 Findbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Infobar",
+      "nodeId": "460:4085",
+      "type": "COMPONENT",
+      "pageName": "Bookmarks Toolbar \u2022 Infobar \u2022 Findbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Findbar",
+      "nodeId": "460:4449",
+      "type": "COMPONENT",
+      "pageName": "Bookmarks Toolbar \u2022 Infobar \u2022 Findbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Bookmarks Toolbar / Item",
+      "nodeId": "20861:1433",
+      "type": "COMPONENT_SET",
+      "pageName": "Bookmarks Toolbar \u2022 Infobar \u2022 Findbar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Sidebar panel",
+      "nodeId": "461:18616",
+      "type": "COMPONENT_SET",
+      "pageName": "Sidebar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "_Sidebar / Tab group icon",
+      "nodeId": "9090:30522",
+      "type": "COMPONENT_SET",
+      "pageName": "Sidebar",
+      "internal": true,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Sidebar panel tab group",
+      "nodeId": "9124:34091",
+      "type": "COMPONENT_SET",
+      "pageName": "Sidebar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Sidebar vertical",
+      "nodeId": "8155:57139",
+      "type": "COMPONENT_SET",
+      "pageName": "Sidebar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Sidebar",
+      "nodeId": "8158:16086",
+      "type": "COMPONENT_SET",
+      "pageName": "Sidebar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "Start bar",
+      "nodeId": "9519:16245",
+      "type": "COMPONENT_SET",
+      "pageName": "Start Bar",
+      "internal": false,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": ".Page layout",
+      "nodeId": "12824:12539",
+      "type": "COMPONENT_SET",
+      "pageName": "Layout",
+      "internal": true,
+      "sandbox": false,
+      "icons": false
+    },
+    {
+      "name": "_drag bars_Browser",
+      "nodeId": "26952:38073",
+      "type": "COMPONENT_SET",
+      "pageName": "      Sandbox: Browser",
+      "internal": true,
+      "sandbox": true,
+      "icons": false
+    },
+    {
+      "name": "_TEST Tabstrip / Tab group",
+      "nodeId": "13809:28877",
+      "type": "COMPONENT_SET",
+      "pageName": "      Sandbox: Tab group hover, restructure",
+      "internal": true,
+      "sandbox": true,
+      "icons": false
+    },
+    {
+      "name": "_test Tabstrip / Tab group label",
+      "nodeId": "24741:20729",
+      "type": "COMPONENT_SET",
+      "pageName": "      Sandbox: Tab group hover, restructure",
+      "internal": true,
+      "sandbox": true,
+      "icons": false
+    }
+  ]
+}

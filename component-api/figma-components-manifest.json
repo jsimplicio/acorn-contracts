@@ -1,0 +1,560 @@
+{
+  "fetchedAt": "2026-10-07",
+  "entries": {
+    "8849:25406": {
+      "name": "Button",
+      "pageName": "Button",
+      "type": "COMPONENT_SET"
+    },
+    "1:1123": {
+      "name": "Button group",
+      "pageName": "Button",
+      "type": "COMPONENT"
+    },
+    "3368:23162": {
+      "name": "Split button",
+      "pageName": "Button",
+      "type": "COMPONENT_SET"
+    },
+    "9401:35716": {
+      "name": "Icon button",
+      "pageName": "Button",
+      "type": "COMPONENT_SET"
+    },
+    "32:678": {
+      "name": "Radio / Input",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "type": "COMPONENT_SET"
+    },
+    "3907:17657": {
+      "name": "Radio",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "type": "COMPONENT_SET"
+    },
+    "32:689": {
+      "name": "Checkbox / Input",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "type": "COMPONENT_SET"
+    },
+    "3907:17658": {
+      "name": "Checkbox",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "type": "COMPONENT_SET"
+    },
+    "32:881": {
+      "name": "Toggle / Input",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "type": "COMPONENT_SET"
+    },
+    "3907:17659": {
+      "name": "Toggle",
+      "pageName": "Checkbox \u2022 Radio \u2022 Toggle",
+      "type": "COMPONENT_SET"
+    },
+    "210:1143": {
+      "name": "Select / Input",
+      "pageName": "Select",
+      "type": "COMPONENT_SET"
+    },
+    "20666:17979": {
+      "name": "Select / Input standard",
+      "pageName": "Select",
+      "type": "COMPONENT_SET"
+    },
+    "5858:8185": {
+      "name": "Select",
+      "pageName": "Select",
+      "type": "COMPONENT_SET"
+    },
+    "2719:28745": {
+      "name": "Fieldset",
+      "pageName": "Fieldset",
+      "type": "COMPONENT_SET"
+    },
+    "5231:5820": {
+      "name": "Visual Picker Item",
+      "pageName": "Visual Picker",
+      "type": "COMPONENT_SET"
+    },
+    "5231:5843": {
+      "name": "Visual Picker",
+      "pageName": "Visual Picker",
+      "type": "COMPONENT_SET"
+    },
+    "477:6023": {
+      "name": "Card / Accordion / Header",
+      "pageName": "Card",
+      "type": "COMPONENT_SET"
+    },
+    "538:18711": {
+      "name": "Card",
+      "pageName": "Card",
+      "type": "COMPONENT_SET"
+    },
+    "39:433": {
+      "name": "Dialog",
+      "pageName": "Dialog",
+      "type": "COMPONENT"
+    },
+    "37:567": {
+      "name": "Dialog / Header",
+      "pageName": "Dialog",
+      "type": "COMPONENT"
+    },
+    "37:459": {
+      "name": "Panel / Separator",
+      "pageName": "Panel",
+      "type": "COMPONENT_SET"
+    },
+    "210:530": {
+      "name": "Panel/ MenuItem / 2-actions",
+      "pageName": "Panel",
+      "type": "COMPONENT"
+    },
+    "36:360": {
+      "name": "Panel / MenuItem",
+      "pageName": "Panel",
+      "type": "COMPONENT_SET"
+    },
+    "8781:4413": {
+      "name": "Panel / Menu / Item / Zoom",
+      "pageName": "Panel",
+      "type": "COMPONENT"
+    },
+    "37:453": {
+      "name": "Panel / Overflow",
+      "pageName": "Panel",
+      "type": "COMPONENT"
+    },
+    "37:454": {
+      "name": "Panel / Subheader",
+      "pageName": "Panel",
+      "type": "COMPONENT"
+    },
+    "37:473": {
+      "name": "Panel / Header",
+      "pageName": "Panel",
+      "type": "COMPONENT"
+    },
+    "18215:60252": {
+      "name": "Panel",
+      "pageName": "Panel",
+      "type": "COMPONENT_SET"
+    },
+    "478:7070": {
+      "name": "Panel list",
+      "pageName": "Panel List \u2022 Context Menu (OS)",
+      "type": "COMPONENT"
+    },
+    "478:6518": {
+      "name": "Panel List / MenuItem",
+      "pageName": "Panel List \u2022 Context Menu (OS)",
+      "type": "COMPONENT_SET"
+    },
+    "2909:4225": {
+      "name": "Context menu",
+      "pageName": "Panel List \u2022 Context Menu (OS)",
+      "type": "COMPONENT_SET"
+    },
+    "2909:6967": {
+      "name": "Context menu / Item",
+      "pageName": "Panel List \u2022 Context Menu (OS)",
+      "type": "COMPONENT_SET"
+    },
+    "14528:54475": {
+      "name": "Context menu / Divider",
+      "pageName": "Panel List \u2022 Context Menu (OS)",
+      "type": "COMPONENT_SET"
+    },
+    "442:2086": {
+      "name": "Label",
+      "pageName": "Label",
+      "type": "COMPONENT_SET"
+    },
+    "208:533": {
+      "name": "Focus ring",
+      "pageName": "Focus Outline",
+      "type": "COMPONENT_SET"
+    },
+    "3480:22604": {
+      "name": "Badge",
+      "pageName": "Badge",
+      "type": "COMPONENT_SET"
+    },
+    "496:6135": {
+      "name": "Box / Group",
+      "pageName": "Box",
+      "type": "COMPONENT"
+    },
+    "478:7427": {
+      "name": "Box / Button",
+      "pageName": "Box",
+      "type": "COMPONENT_SET"
+    },
+    "479:5966": {
+      "name": "Box / Link",
+      "pageName": "Box",
+      "type": "COMPONENT_SET"
+    },
+    "479:6030": {
+      "name": "Box / Item",
+      "pageName": "Box",
+      "type": "COMPONENT_SET"
+    },
+    "13525:18998": {
+      "name": "Breadcrumb Group",
+      "pageName": "Breadcrumb Group",
+      "type": "COMPONENT_SET"
+    },
+    "14859:31408": {
+      "name": "Chip",
+      "pageName": "Chip",
+      "type": "COMPONENT_SET"
+    },
+    "13745:48674": {
+      "name": "Details",
+      "pageName": "Details",
+      "type": "COMPONENT_SET"
+    },
+    "2006:12722": {
+      "name": "Feature callout / Bubble",
+      "pageName": "Spotlight Modal \u2022 Feature Callout",
+      "type": "COMPONENT_SET"
+    },
+    "2006:12819": {
+      "name": "Spotlight Modal / Stepper",
+      "pageName": "Spotlight Modal \u2022 Feature Callout",
+      "type": "COMPONENT_SET"
+    },
+    "2006:12869": {
+      "name": "Feature callout",
+      "pageName": "Spotlight Modal \u2022 Feature Callout",
+      "type": "COMPONENT_SET"
+    },
+    "2575:19573": {
+      "name": "Spotlight modal",
+      "pageName": "Spotlight Modal \u2022 Feature Callout",
+      "type": "COMPONENT_SET"
+    },
+    "4213:3017": {
+      "name": "Five Stars",
+      "pageName": "Five Stars",
+      "type": "COMPONENT_SET"
+    },
+    "33:302": {
+      "name": "Input Text",
+      "pageName": "Input Text",
+      "type": "COMPONENT_SET"
+    },
+    "2249:12942": {
+      "name": "Input Search",
+      "pageName": "Input Text",
+      "type": "COMPONENT_SET"
+    },
+    "2249:13164": {
+      "name": "Input Password",
+      "pageName": "Input Text",
+      "type": "COMPONENT_SET"
+    },
+    "26762:32184": {
+      "name": "Input Textarea",
+      "pageName": "Input Text",
+      "type": "COMPONENT_SET"
+    },
+    "33:125": {
+      "name": "Input Text / Input",
+      "pageName": "Input Text",
+      "type": "COMPONENT_SET"
+    },
+    "2248:1536": {
+      "name": "Input Search / Input",
+      "pageName": "Input Text",
+      "type": "COMPONENT_SET"
+    },
+    "2248:1756": {
+      "name": "Input Password / Input",
+      "pageName": "Input Text",
+      "type": "COMPONENT_SET"
+    },
+    "26762:30997": {
+      "name": "Input Textara / Input",
+      "pageName": "Input Text",
+      "type": "COMPONENT_SET"
+    },
+    "475:5657": {
+      "name": "Color picker",
+      "pageName": "Input Color",
+      "type": "COMPONENT_SET"
+    },
+    "243:1299": {
+      "name": "Message bar",
+      "pageName": "Message Bar",
+      "type": "COMPONENT_SET"
+    },
+    "12806:23729": {
+      "name": "Message bar icon",
+      "pageName": "Message Bar",
+      "type": "COMPONENT_SET"
+    },
+    "474:5947": {
+      "name": "Page navigation / Item",
+      "pageName": "Page Navigation",
+      "type": "COMPONENT_SET"
+    },
+    "14495:17151": {
+      "name": "Page navigation / Separator",
+      "pageName": "Page Navigation",
+      "type": "COMPONENT"
+    },
+    "474:6445": {
+      "name": "Page navigation",
+      "pageName": "Page Navigation",
+      "type": "COMPONENT"
+    },
+    "13525:19277": {
+      "name": "Page header",
+      "pageName": "Page Header",
+      "type": "COMPONENT"
+    },
+    "4429:687": {
+      "name": "Promo",
+      "pageName": "Promo",
+      "type": "COMPONENT_SET"
+    },
+    "14268:21829": {
+      "name": "Segment",
+      "pageName": "Segmented Control",
+      "type": "COMPONENT_SET"
+    },
+    "14268:21995": {
+      "name": "Segmented control",
+      "pageName": "Segmented Control",
+      "type": "COMPONENT_SET"
+    },
+    "541:11853": {
+      "name": "Browser",
+      "pageName": "Browser",
+      "type": "COMPONENT_SET"
+    },
+    "8188:30664": {
+      "name": "Toolbox",
+      "pageName": "Toolbox",
+      "type": "COMPONENT_SET"
+    },
+    "1:589": {
+      "name": "Toolbar Button",
+      "pageName": "Toolbar Button",
+      "type": "COMPONENT_SET"
+    },
+    "307:1597": {
+      "name": "Urlbarview / List item",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "307:1791": {
+      "name": "Urlbar / Identity box",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "310:2459": {
+      "name": "Urlbar / Searchmode Switcher",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "460:2276": {
+      "name": "Urlbar / Action Button",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "307:1786": {
+      "name": "Urlbar / Zoom Controls",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "307:1582": {
+      "name": "Address bar / List item / Icons",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "453:2488": {
+      "name": "Urlbar / Input field",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "453:2662": {
+      "name": "Urlbar",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "287:1342": {
+      "name": "Tabstrip",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "306:2001": {
+      "name": "Toolbar / Icon / Downloads",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "306:1964": {
+      "name": "Toolbar / Icon / Firefox accounts",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "306:1936": {
+      "name": "Toolbar / Icon / App menu",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "306:1952": {
+      "name": "Toolbar / Icon / Extensions",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "287:1297": {
+      "name": "Tabstrip / Tab",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "460:4996": {
+      "name": "Toolbox / Tab Group",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "8119:46231": {
+      "name": "Toolbar / VPN button",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "8121:32597": {
+      "name": "Tabstrip / Tab group label",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "8184:44423": {
+      "name": "Navigation Toolbar",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "8229:15517": {
+      "name": "Tab close control",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "8229:16725": {
+      "name": "Tab collapsed audio control",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "8327:25307": {
+      "name": "Account Status",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "9278:19414": {
+      "name": "Chrome divider",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "9819:13587": {
+      "name": "Tabstrip / Split view Tab",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "9819:42655": {
+      "name": "Split View Tag",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT"
+    },
+    "461:13931": {
+      "name": "Tabstrip vertical",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "12303:45759": {
+      "name": "Window switcher",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "12484:21343": {
+      "name": "Smart Window / Ask Button",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "9819:18779": {
+      "name": "Drag bar",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "13118:33778": {
+      "name": "Tab collapsed close control",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "18179:24224": {
+      "name": "Tab hover preview",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "18179:24260": {
+      "name": "Tab hover note",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT"
+    },
+    "19109:27456": {
+      "name": "Urlbar / Icon Button",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "25705:20115": {
+      "name": "New tab button",
+      "pageName": "Tabstrip \u2022 Navigation Toolbar \u2022 Urlbar",
+      "type": "COMPONENT_SET"
+    },
+    "460:3086": {
+      "name": "Bookmarks Toolbar",
+      "pageName": "Bookmarks Toolbar \u2022 Infobar \u2022 Findbar",
+      "type": "COMPONENT_SET"
+    },
+    "460:4085": {
+      "name": "Infobar",
+      "pageName": "Bookmarks Toolbar \u2022 Infobar \u2022 Findbar",
+      "type": "COMPONENT"
+    },
+    "460:4449": {
+      "name": "Findbar",
+      "pageName": "Bookmarks Toolbar \u2022 Infobar \u2022 Findbar",
+      "type": "COMPONENT"
+    },
+    "20861:1433": {
+      "name": "Bookmarks Toolbar / Item",
+      "pageName": "Bookmarks Toolbar \u2022 Infobar \u2022 Findbar",
+      "type": "COMPONENT_SET"
+    },
+    "461:18616": {
+      "name": "Sidebar panel",
+      "pageName": "Sidebar",
+      "type": "COMPONENT_SET"
+    },
+    "9124:34091": {
+      "name": "Sidebar panel tab group",
+      "pageName": "Sidebar",
+      "type": "COMPONENT_SET"
+    },
+    "8155:57139": {
+      "name": "Sidebar vertical",
+      "pageName": "Sidebar",
+      "type": "COMPONENT_SET"
+    },
+    "8158:16086": {
+      "name": "Sidebar",
+      "pageName": "Sidebar",
+      "type": "COMPONENT_SET"
+    },
+    "9519:16245": {
+      "name": "Start bar",
+      "pageName": "Start Bar",
+      "type": "COMPONENT_SET"
+    }
+  }
+}

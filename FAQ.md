@@ -34,7 +34,7 @@ These contracts document real Firefox, so they carry real Firefox vocabulary. Th
 
 ### Supernova
 
-**Supernova is the design-system documentation platform Mozilla keeps an instance of this design system in, and the Supernova column on the site's coverage tables records whether the real Firefox component has an entry in it**, checked against its component lists as `AGENTS.md` describes. For tokens it is deliberately not trusted: [token-api/README.md](token-api/README.md) sets the standing rule to always use the Figma REST API directly and never Supernova, because Supernova's sync of this design system has known gaps and its token detail could not confirm which Figma file it was even reading.
+**Supernova is the design-system documentation platform Mozilla keeps an instance of this design system in, and the Supernova column on the site's coverage tables records whether the real Firefox component has an entry in it**, checked against its component lists as `AGENTS.md` describes. For tokens and component Figma existence alike it is deliberately not trusted: [token-api/README.md](token-api/README.md) and `AGENTS.md`'s "Verify `figma`/`supernova`" section set the standing rule to always check Figma directly (the REST API for tokens, the Runlayer Figma MCP connector for components) and never through Supernova's own mirror, because Supernova's sync of this design system has known gaps and its token detail could not confirm which Figma file it was even reading.
 
 ### Figma Code Connect
 

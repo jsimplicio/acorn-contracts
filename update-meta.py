@@ -32,8 +32,10 @@ import sys
 
 DIRS = ("component-api", "guidance-api")
 # Not component entries: the metadata itself, the schema, the drift script's
-# own state file, and guidance-api's authoring skeleton.
-SKIP = {"schema.json", "drift-manifest.json"}
+# own state file, the Figma check's dump/baseline files, and guidance-api's
+# authoring skeleton.
+SKIP = {"schema.json", "drift-manifest.json", "figma-components-dump.json",
+        "figma-components-manifest.json"}
 
 
 def git(*args):

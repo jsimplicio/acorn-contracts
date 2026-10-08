@@ -16,8 +16,9 @@ What gets validated against what:
   token-api/base/*.json,
   token-api/components/* -> token-api/schema.json
 
-Skipped everywhere: schema.json itself, _meta.json, drift-manifest.json, and
-any _-prefixed file (guidance-api/_skeleton.json is an authoring template,
+Skipped everywhere: schema.json itself, _meta.json, drift-manifest.json,
+figma-components-dump.json, figma-components-manifest.json, and any
+_-prefixed file (guidance-api/_skeleton.json is an authoring template,
 not an entry). token-api/resolved/ is deliberately not checked here; it is a
 derived artifact with its own shape, already guarded by check-derived.yml
 regenerating it and diffing.
@@ -48,7 +49,8 @@ TARGETS = [
     ("token-api/schema.json", ["token-api/base", "token-api/components"]),
 ]
 
-SKIP_NAMES = {"schema.json", "_meta.json", "drift-manifest.json"}
+SKIP_NAMES = {"schema.json", "_meta.json", "drift-manifest.json", "figma-components-dump.json",
+              "figma-components-manifest.json"}
 
 
 def entries(dirname):

@@ -30,6 +30,7 @@ DOC_PAGES = {
     "doc-token-api": ("Token API", "token-api/README.md"),
     "doc-readme": ("Overview", "README.md"),
     "doc-faq": ("FAQ", "FAQ.md"),
+    "doc-changelog": ("Changelog", "CHANGELOG.md"),
 }
 
 
@@ -40,7 +41,8 @@ def load(path):
 
 def entries(pattern):
     """Every real contract file under a directory, skipping the machinery."""
-    skip = {"schema.json", "drift-manifest.json", "sync-manifest.json"}
+    skip = {"schema.json", "drift-manifest.json", "sync-manifest.json",
+            "figma-components-dump.json", "figma-components-manifest.json"}
     for path in sorted(glob.glob(os.path.join(ROOT, pattern))):
         name = os.path.basename(path)
         if name.startswith("_") or name in skip:

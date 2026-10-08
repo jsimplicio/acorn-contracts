@@ -49,7 +49,8 @@ ROOT = Path(__file__).resolve().parent
 INDEX = ROOT / "index.html"
 COMPONENT_API = ROOT / "component-api"
 GUIDANCE_API = ROOT / "guidance-api"
-SKIP_NAMES = {"schema.json", "_meta.json", "drift-manifest.json"}
+SKIP_NAMES = {"schema.json", "_meta.json", "drift-manifest.json", "figma-components-dump.json",
+              "figma-components-manifest.json"}
 
 # component-api ids with no guidance-api entry, and why each one is left.
 # Recorded here rather than described in guidance-api/README.md so that a

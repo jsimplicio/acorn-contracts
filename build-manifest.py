@@ -22,7 +22,8 @@ import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "manifest.json")
-SKIP = {"schema.json", "drift-manifest.json", "sync-manifest.json"}
+SKIP = {"schema.json", "drift-manifest.json", "sync-manifest.json",
+        "figma-components-dump.json", "figma-components-manifest.json"}
 
 # Bumped when a published field changes shape, so a consumer can detect it
 # rather than breaking silently. Deliberately 0.x: per semver that means the

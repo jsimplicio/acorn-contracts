@@ -1,13 +1,13 @@
 {
   "note": "lastModified/lastCommit are this file's real last commit in this repo's own git history (git log -1 -- <file>), not a fabricated timestamp. This says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.",
   "repoHead": {
-    "commit": "4c2a9d2d7de506926c5a79293b8909c5926d02ba",
-    "date": "2026-09-16T19:32:06-05:00"
+    "commit": "d7f642e863a0917889016fe8633d02ad2d849d54",
+    "date": "2026-10-08T14:25:50-05:00"
   },
   "files": {
     "badge": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "bookmarks-toolbar": {
       "lastCommit": "cc6dc4f1e9cb6e4199b8bc36dad2be7e5629352b",
@@ -18,12 +18,12 @@
       "lastModified": "2026-09-16T12:20:11-05:00"
     },
     "box-group": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "box-item": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "d7f642e863a0917889016fe8633d02ad2d849d54",
+      "lastModified": "2026-10-08T14:25:50-05:00"
     },
     "box-link": {
       "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
@@ -34,20 +34,20 @@
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "button": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "d7f642e863a0917889016fe8633d02ad2d849d54",
+      "lastModified": "2026-10-08T14:25:50-05:00"
     },
     "button-group": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "callout": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "card": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "checkbox": {
       "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
@@ -62,12 +62,12 @@
       "lastModified": "2026-09-16T19:03:55-05:00"
     },
     "dialog": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "fieldset": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "d7f642e863a0917889016fe8633d02ad2d849d54",
+      "lastModified": "2026-10-08T14:25:50-05:00"
     },
     "findbar": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -126,44 +126,44 @@
       "lastModified": "2026-09-16T12:20:11-05:00"
     },
     "message-bar": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "page-header": {
       "lastCommit": "625724735c97bbe77c7d819faa0ff5269a2f5bc4",
       "lastModified": "2026-09-15T16:28:59-05:00"
     },
     "page-nav": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "page-nav-item": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "page-nav-separator": {
       "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
       "lastModified": "2026-09-16T12:20:11-05:00"
     },
     "panel": {
-      "lastCommit": "4c2a9d2d7de506926c5a79293b8909c5926d02ba",
-      "lastModified": "2026-09-16T19:32:06-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "panel-item": {
-      "lastCommit": "4c2a9d2d7de506926c5a79293b8909c5926d02ba",
-      "lastModified": "2026-09-16T19:32:06-05:00"
+      "lastCommit": "d7f642e863a0917889016fe8633d02ad2d849d54",
+      "lastModified": "2026-10-08T14:25:50-05:00"
     },
     "panel-list": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "panel-list-item": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "d7f642e863a0917889016fe8633d02ad2d849d54",
+      "lastModified": "2026-10-08T14:25:50-05:00"
     },
-    "panel-manager": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+    "panel-multiview": {
+      "lastCommit": "c450150543636df50971c6dc9e9626af83e4dfe7",
+      "lastModified": "2026-10-08T14:24:42-05:00"
     },
     "panel-separator": {
       "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
@@ -178,8 +178,8 @@
       "lastModified": "2026-09-16T19:03:55-05:00"
     },
     "radio": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "reorderable-list": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -190,20 +190,20 @@
       "lastModified": "2026-09-16T19:03:55-05:00"
     },
     "segmented-control": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "select": {
-      "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
-      "lastModified": "2026-09-16T12:20:11-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "sidebar": {
       "lastCommit": "1fff49802b1ae1bbfa405a1dbaeff8f237ccf64f",
       "lastModified": "2026-09-10T14:56:23-05:00"
     },
     "sidebar-panel": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "sidebar-strip": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -218,8 +218,8 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "stepper": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "d7f642e863a0917889016fe8633d02ad2d849d54",
+      "lastModified": "2026-10-08T14:25:50-05:00"
     },
     "support-link": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -230,16 +230,16 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "tab-group": {
-      "lastCommit": "4c2a9d2d7de506926c5a79293b8909c5926d02ba",
-      "lastModified": "2026-09-16T19:32:06-05:00"
+      "lastCommit": "d7f642e863a0917889016fe8633d02ad2d849d54",
+      "lastModified": "2026-10-08T14:25:50-05:00"
     },
     "tab-split": {
-      "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
-      "lastModified": "2026-09-15T15:41:25-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "tabstrip": {
-      "lastCommit": "4c2a9d2d7de506926c5a79293b8909c5926d02ba",
-      "lastModified": "2026-09-16T19:32:06-05:00"
+      "lastCommit": "d7f642e863a0917889016fe8633d02ad2d849d54",
+      "lastModified": "2026-10-08T14:25:50-05:00"
     },
     "textarea": {
       "lastCommit": "1236c8954dda0887cb9069df38146fa57afecb20",
@@ -254,8 +254,8 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "toolbar-button": {
-      "lastCommit": "1236c8954dda0887cb9069df38146fa57afecb20",
-      "lastModified": "2026-09-16T11:53:32-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "toolbox": {
       "lastCommit": "4d60160fba5d0f1e0e61d7837e3568397276f89a",
@@ -278,12 +278,12 @@
       "lastModified": "2026-09-15T12:01:02-05:00"
     },
     "visual-picker": {
-      "lastCommit": "4c2a9d2d7de506926c5a79293b8909c5926d02ba",
-      "lastModified": "2026-09-16T19:32:06-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "visual-picker-item": {
-      "lastCommit": "4c2a9d2d7de506926c5a79293b8909c5926d02ba",
-      "lastModified": "2026-09-16T19:32:06-05:00"
+      "lastCommit": "f87b1d1d7b5a2a57aa81565f3e7baa0ef9512fa2",
+      "lastModified": "2026-09-22T14:50:44-05:00"
     }
   }
 }

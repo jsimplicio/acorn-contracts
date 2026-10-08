@@ -36,7 +36,18 @@ WHAT THIS DOES
    the result.
 6. Prints a "What's new since last sync" summary: commit/leaf-count deltas
    against the manifest this run just overwrote, plus a real `git diff
-   --stat` against the last commit for the actual per-file changes.
+   --stat` against the last commit for the actual per-file changes, plus a
+   token-level added/removed/changed report grouped by the real file stem
+   and annotated with (a) which tracked component-api id(s) own that stem,
+   from `id-map.json`, and (b) whether each added/changed token's derived
+   `--css-var-name` currently has a match in `figma-token-map.json` -- so a
+   change like bug 2075554's new `--message-bar-text-color-{warning,
+   success,critical}` tokens shows up already joined to "message-bar" and
+   already flagged as not yet matched in Figma, instead of as three bare
+   token paths a human has to manually connect to both. Regenerate
+   `figma-token-map.json` (`token-api/figma-check.py`) after a sync for
+   this annotation to reflect the tokens that just changed, not a stale
+   prior sync's set.
 
 See `token-api/README.md` for the full write-up of *why* each conversion rule
 is shaped the way it is (the theme-dimension `$extensions` convention, the
@@ -74,6 +85,10 @@ from pathlib import Path
 
 REPO_URL = "https://github.com/mozilla-firefox/firefox"
 SCRIPT_DIR = Path(__file__).resolve().parent
+
+# Per-category line cap on the token-level change report, so a large sync
+# stays readable in a terminal. The counts above it are never truncated.
+TOKEN_REPORT_CAP = 25
 
 # Where real *.tokens.json files actually live upstream, found by sweeping a
 # full local clone of REPO_URL with `find . -iname '*.tokens.json'` (not
@@ -695,6 +710,160 @@ def _print_change_summary(prior, current, out_files):
             print("\n".join(f"  {line}" for line in diff.splitlines()))
     except Exception:
         pass  # not a git repo, or git unavailable; the counts above still stand
+
+    try:
+        added, removed, changed = _token_level_changes(new_files | old_files)
+    except Exception:
+        return  # no git baseline to compare against; the file-level report stands
+    if not (added or removed or changed):
+        return
+    print()
+    print(f"  token changes vs last commit: "
+          f"{len(added)} added, {len(removed)} removed, {len(changed)} changed")
+    id_map = _load_id_map()
+    figma_map = _load_figma_map()
+    annotate_figma = ("+", "~")  # a removed token's old CSS var name tells us nothing new
+    for marker, items in (("+", added), ("-", removed), ("~", changed)):
+        shown, last_stem = items[:TOKEN_REPORT_CAP], None
+        for stem, path in shown:
+            if stem != last_stem:
+                # A nova sibling file is still the same real component as
+                # its non-nova stem (id-map.json records ownership once, by
+                # the non-nova basename -- "link" covers both link.tokens.json
+                # and link.nova.tokens.json), so a bare stem lookup alone
+                # would wrongly call every nova-only addition ownerless.
+                owners = id_map.get(stem) or (
+                    id_map.get(stem[:-len(".nova")]) if stem.endswith(".nova") else None)
+                owner_note = f" ({', '.join(owners)})" if owners else " (base token, or not yet in id-map.json)"
+                print(f"    {stem}{owner_note}:")
+                last_stem = stem
+            line = f"      {marker} {path}"
+            if marker in annotate_figma:
+                var_name = _derive_css_var_name(stem, path)
+                status = figma_map.get(var_name)
+                if status is not None:
+                    line += f"  [figma {status}: {var_name}]"
+                else:
+                    line += f"  [figma: {var_name} not in figma-token-map.json -- regenerate it]"
+            print(line)
+        if len(items) > TOKEN_REPORT_CAP:
+            print(f"    ... and {len(items) - TOKEN_REPORT_CAP} more {marker}")
+
+
+def _flatten_leaves(node, path_parts, out):
+    """Every DTCG leaf under node as dotted path -> canonical JSON of the
+    whole leaf, not just its $value: a rewritten nova/theme branch under
+    $extensions is a real change to the token and $value alone misses it."""
+    if isinstance(node, dict) and "$value" in node:
+        out[".".join(path_parts)] = json.dumps(node, sort_keys=True)
+        return
+    if isinstance(node, dict):
+        for key, child in node.items():
+            _flatten_leaves(child, path_parts + [key], out)
+
+
+def _token_level_changes(rel_paths):
+    """Added/removed/changed (stem, path) pairs against the committed copy of
+    each file. Baseline is HEAD, same as the diff --stat above, so two runs
+    with no commit in between report cumulatively rather than per-run.
+    Returns (stem, path) tuples rather than pre-joined "stem.path" strings so
+    callers can still recover the real stem exactly -- a stem can itself
+    contain dots (moz-message-bar.nova.tokens.json's stem is
+    "moz-message-bar.nova"), so re-splitting a joined string on "." cannot
+    reliably tell stem from path back apart."""
+    added, removed, changed = [], [], []
+    for rel in sorted(rel_paths):
+        old = {}
+        try:
+            old_raw = subprocess.run(
+                ["git", "-C", str(SCRIPT_DIR), "show", f"HEAD:./{rel}"],
+                check=True, capture_output=True, text=True,
+            ).stdout
+            _flatten_leaves(json.loads(old_raw), [], old)
+        except Exception:
+            pass  # not committed yet, so every token in it reads as added
+        new = {}
+        path = SCRIPT_DIR / rel
+        if path.is_file():
+            _flatten_leaves(json.loads(path.read_text(encoding="utf-8")), [], new)
+        # The file stem is the namespace an {alias} resolves into, so
+        # prefixing it makes each line a real, referenceable token path.
+        stem = Path(rel).name[: -len(".tokens.json")]
+        added += [(stem, p) for p in sorted(set(new) - set(old))]
+        removed += [(stem, p) for p in sorted(set(old) - set(new))]
+        changed += [(stem, p) for p in sorted(set(old) & set(new)) if old[p] != new[p]]
+    return added, removed, changed
+
+
+def _token_label(stem, path):
+    return f"{stem}.{path}"
+
+
+def _derive_css_var_name(stem, path):
+    """The --css-var-name this (stem, path) resolves to on the live site,
+    mirroring index.html's own deriveCssVarName(): strip a leading "moz-"
+    from the real component name, drop "@base" segments, join with "-".
+    Also drops a literal "nova" segment/stem suffix, which deriveCssVarName
+    itself never has to do only because index.html's own flattening step
+    (flattenTokens + promoteInlineNova) already merges a nova sibling onto
+    its non-nova stem before deriveCssVarName ever sees a path -- this
+    script's own _flatten_leaves is a simpler, diff-only flattener that
+    keeps "nova" as a real segment, so it has to be stripped here instead."""
+    first = stem[4:] if stem.startswith("moz-") else stem
+    segs = [s for s in ([first] + path.split(".")) if s not in ("nova",)]
+    first, rest = segs[0], segs[1:]
+    first = first[:-len(".nova")] if first.endswith(".nova") else first
+    rest = [s for s in rest if s != "@base"]
+    return f"--{first}-{'-'.join(rest)}" if rest else f"--{first}"
+
+
+_ID_MAP_CACHE = None
+
+
+def _load_id_map():
+    """basename (a real token-file stem, e.g. "moz-message-bar") -> sorted
+    list of tracked component-api ids that own tokens in it, inverted from
+    token-api/id-map.json's own id -> basenames direction. That file is the
+    published, hand-maintained source for this link (see index.html's
+    loadTokenFile comment); only its "own" basenames count here; "resolve"
+    entries are cross-file alias TARGETS, not tokens the id itself owns, so
+    a change there doesn't mean that id's own tokens moved."""
+    global _ID_MAP_CACHE
+    if _ID_MAP_CACHE is not None:
+        return _ID_MAP_CACHE
+    _ID_MAP_CACHE = {}
+    path = SCRIPT_DIR / "id-map.json"
+    if not path.is_file():
+        return _ID_MAP_CACHE
+    id_map = json.loads(path.read_text(encoding="utf-8"))
+    for cid, entry in id_map.get("map", {}).items():
+        own = entry if isinstance(entry, list) else entry.get("own", [])
+        for item in own:
+            basename = item if isinstance(item, str) else item.get("basename")
+            if basename:
+                _ID_MAP_CACHE.setdefault(basename, []).append(cid)
+    for ids in _ID_MAP_CACHE.values():
+        ids.sort()
+    return _ID_MAP_CACHE
+
+
+_FIGMA_MAP_CACHE = None
+
+
+def _load_figma_map():
+    """--css-var-name -> "yes"/"no" from token-api/figma-token-map.json's own
+    last run (regenerate it via figma-check.py after a sync for this to
+    reflect the tokens that just changed, not a stale prior sync's set)."""
+    global _FIGMA_MAP_CACHE
+    if _FIGMA_MAP_CACHE is not None:
+        return _FIGMA_MAP_CACHE
+    _FIGMA_MAP_CACHE = {}
+    path = SCRIPT_DIR / "figma-token-map.json"
+    if not path.is_file():
+        return _FIGMA_MAP_CACHE
+    data = json.loads(path.read_text(encoding="utf-8"))
+    _FIGMA_MAP_CACHE = {k: v["status"] for k, v in data.get("properties", {}).items()}
+    return _FIGMA_MAP_CACHE
 
 
 def _count_leaves(node):

@@ -101,6 +101,22 @@
       "figmaConfig": false
     },
     {
+      "name": "ariaSelected",
+      "type": {
+        "text": "string"
+      },
+      "description": "The button's aria-selected attribute, used in shadow DOM and therefore not as an attribute on moz-button.",
+      "figmaConfig": false
+    },
+    {
+      "name": "buttonRole",
+      "type": {
+        "text": "string"
+      },
+      "description": "The button's role attribute in shadow DOM.",
+      "figmaConfig": false
+    },
+    {
       "name": "iconSrc",
       "type": {
         "text": "string"

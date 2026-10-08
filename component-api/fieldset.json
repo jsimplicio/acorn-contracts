@@ -72,7 +72,7 @@
       "type": {
         "text": "string"
       },
-      "description": "Accessible label, mapped from the aria-label attribute.",
+      "description": "Accessible label, mapped from the aria-label attribute. Applied to the outer fieldset normally; when inputsRole is set and there's no label/legend, moves to the #inputs container instead.",
       "figmaConfig": false
     },
     {
@@ -80,7 +80,7 @@
       "type": {
         "text": "string"
       },
-      "description": "Mapped aria-orientation attribute for the fieldset.",
+      "description": "Mapped aria-orientation attribute for the fieldset. Applied to the outer fieldset normally; moves to the #inputs container instead when inputsRole is set.",
       "figmaConfig": false
     },
     {
@@ -88,7 +88,15 @@
       "type": {
         "text": "string"
       },
-      "description": "Mapped role attribute for the inner fieldset element, applied only when set.",
+      "description": "Mapped role attribute for the outer fieldset element. Overridden to \"presentation\" whenever inputsRole is set, regardless of this value.",
+      "figmaConfig": false
+    },
+    {
+      "name": "inputsRole",
+      "type": {
+        "text": "string"
+      },
+      "description": "Internal/state property (JS-only, not an HTML attribute). When set, moves role plus the accessible name, description, orientation, and disabled state from the outer fieldset onto the #inputs container instead, so the fieldset's inputs can collectively present as e.g. a radiogroup. The outer fieldset gets role=\"presentation\" and loses those attributes.",
       "figmaConfig": false
     }
   ],

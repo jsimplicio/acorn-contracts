@@ -140,6 +140,10 @@
     },
     {
       "name": "destroy"
+    },
+    {
+      "name": "openAnimationFinished",
+      "description": "Whether a given tab has finished its opening animation. Replaces the old tab._fullyOpen check; called externally by Firefox's own BrowserTestUtils.allTabOpenAnimationsFinished()."
     }
   ],
   "cssProperties": [

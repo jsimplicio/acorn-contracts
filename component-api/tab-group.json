@@ -75,7 +75,7 @@
   "events": [
     {
       "name": "TabGroupCreate",
-      "description": "Fired once in connectedCallback on first mount; detail: {isAdoptingGroup} when created via adoption."
+      "description": "Fired once in connectedCallback on first mount; detail: {adopting}, a boolean always present (true when created via adoption)."
     },
     {
       "name": "TabGroupUpdate",
@@ -83,7 +83,7 @@
     },
     {
       "name": "TabGroupRemoved",
-      "description": "Fired by a mutation observer when the group's tab count hits 0, just before the group removes itself."
+      "description": "Fired by a mutation observer when the group's tab count hits 0, just before the group removes itself; detail: {adopting}, true when the group is being removed as part of an adoption."
     },
     {
       "name": "TabGroupCollapse",

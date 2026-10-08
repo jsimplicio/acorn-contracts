@@ -85,6 +85,16 @@
       "description": "Slot for the actions positioned at the start of the component container."
     }
   ],
+  "methods": [
+    {
+      "name": "focus",
+      "description": "focus(options): focuses the item itself if directly focusable, otherwise its first action element. Plain focus delegation only; does not inspect a keyboard event the way it once did."
+    },
+    {
+      "name": "focusFromEvent",
+      "description": "focusFromEvent(event): focuses the item in response to arrow-key navigation. Moving up/ArrowUp into an item that isn't directly focusable lands on its last action instead of the first; called by moz-box-group's own keyboard navigation."
+    }
+  ],
   "variants": [
     {
       "axis": "layout",

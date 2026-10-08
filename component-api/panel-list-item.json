@@ -67,6 +67,21 @@
         "text": "string"
       },
       "description": "Observed attribute; forwarded verbatim to the internal button's aria-haspopup."
+    },
+    {
+      "name": "aria-keyshortcuts",
+      "type": {
+        "text": "string"
+      },
+      "description": "Observed attribute; forwarded verbatim to the internal button's aria-keyshortcuts, same as aria-haspopup."
+    },
+    {
+      "name": "shortcut",
+      "type": {
+        "text": "string"
+      },
+      "description": "Observed attribute. Renders a visible, aria-hidden <span class=\"shortcut\"> after the label/badge showing this text; purely decorative, the accessible shortcut hint comes from aria-keyshortcuts instead.",
+      "figmaConfig": true
     }
   ],
   "slots": [

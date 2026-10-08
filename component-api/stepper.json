@@ -13,7 +13,14 @@
       "type": {
         "text": "object"
       },
-      "description": "Required per-screen config, read directly in ProtonScreen.render(): title, subtitle, position (\"center\"|\"split\"|\"callout\"|...), background/background_static, hero_image, tiles, primary_button/secondary_button/additional_button, dismiss_button, checkbox, progress_bar, steps_indicator, logo, narrow, fullscreen, zap_border, zap_shadow, video_container, cta_paragraph, info_text, languageSwitcher, and more."
+      "description": "Required per-screen config, read directly in ProtonScreen.render(): title, subtitle, position (\"center\"|\"center-large\"|\"split\"|\"callout\"|\"card-stack\"|...), background/background_static, hero_image, tiles, primary_button/secondary_button/additional_button, dismiss_button, checkbox, progress_bar, steps_indicator, logo, narrow, fullscreen, zap_border, zap_shadow, video_container, cta_paragraph, info_text, languageSwitcher, and more."
+    },
+    {
+      "name": "activeThemeId",
+      "type": {
+        "text": "string"
+      },
+      "description": "Sets a data-theme attribute on the rendered <main>, but only when content.position is \"card-stack\"."
     },
     {
       "name": "id",

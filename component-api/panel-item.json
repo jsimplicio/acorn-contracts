@@ -51,6 +51,21 @@
       "description": "Observed attribute; mirrored onto the internal button as an ARIA passthrough."
     },
     {
+      "name": "aria-keyshortcuts",
+      "type": {
+        "text": "string"
+      },
+      "description": "Observed attribute; mirrored onto the internal button as an ARIA passthrough, same as aria-haspopup."
+    },
+    {
+      "name": "shortcut",
+      "type": {
+        "text": "string"
+      },
+      "description": "Observed attribute; renders a visible, aria-hidden <span class=\"shortcut\"> after the label/badge showing this text. Purely visual: the accessible shortcut hint is aria-keyshortcuts, set separately.",
+      "figmaConfig": true
+    },
+    {
       "name": "submenu",
       "type": {
         "text": "string"

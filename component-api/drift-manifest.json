@@ -145,7 +145,7 @@
       "file": "toolkit/content/widgets/panel-list/panel-list.mjs",
       "hash": "b71eaa669e05f2bd8256a7b5b57aa03447994039be71bccb6356e9e6a2850218"
     },
-    "panel-manager": {
+    "panel-multiview": {
       "file": "browser/components/customizableui/PanelMultiView.sys.mjs",
       "hash": "9e42115933501772b1eaf0986c3d975034be71e7ddbf74820bc915dbe1cafb6c"
     },

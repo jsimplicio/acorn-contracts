@@ -22,9 +22,10 @@ Four assertions, in descending order of how badly a violation hurts:
    parenthetical), so raw strings can't be compared. Real paths are
    extracted from each side with the same regex index.html itself uses to
    linkify them, and the check is that they intersect. Entries where either
-   side names no resolvable path are skipped, and `dual` entries are
-   skipped entirely: DATA legitimately cites the classic implementation
-   where component-api cites the modern one.
+   side names no resolvable path are skipped. A component with a
+   coexisting classic implementation (checkbox, radio, split-button) still
+   has to cite its primary (modern) file on both sides; the classic one
+   only needs to be named in prose, not cross-checked.
 
 4. guidance-api coverage still matches GUIDANCE_GAPS. Guidance is authored
    by hand and does not cover every component, so the gap itself is
@@ -149,9 +150,9 @@ def guidance_problems(component_ids):
 
 def tag_set(value):
     """The real tag names in a tagName field, ignoring how it's annotated.
-    Both sides record dual components as two tags in one string, but not
-    identically: "button / moz-button" vs "button (classic) / moz-button
-    (modern)"."""
+    Both sides record a component with two real implementations as two tags
+    in one string, but not identically: "button / moz-button" vs "button
+    (classic) / moz-button (modern)"."""
     if not value:
         return frozenset()
     parts = (re.sub(r"\(.*?\)", "", p).strip() for p in value.split("/"))
@@ -194,19 +195,17 @@ def main():
         if tag_set(row.get("tagName")) != tag_set(entry.get("tagName")):
             problems.append((cid, "tagName", row.get("tagName"), entry.get("tagName")))
 
-        # dual entries deliberately cite different implementations on each side
-        if impl["kind"] != "dual":
-            in_data = set(FILE_PATH_RE.findall(row.get("file") or ""))
-            in_api = set(FILE_PATH_RE.findall(impl.get("file") or ""))
-            # "DATA cites nothing" used to skip silently, which is how
-            # page-nav-separator sat there asserting no separator exists
-            # while its own contract cited the file that renders one.
-            if in_api and not in_data:
-                problems.append((cid, "file", "(no path cited)",
-                                 ", ".join(sorted(in_api))))
-            elif in_data and in_api and not (in_data & in_api):
-                problems.append((cid, "file", ", ".join(sorted(in_data)),
-                                 ", ".join(sorted(in_api))))
+        in_data = set(FILE_PATH_RE.findall(row.get("file") or ""))
+        in_api = set(FILE_PATH_RE.findall(impl.get("file") or ""))
+        # "DATA cites nothing" used to skip silently, which is how
+        # page-nav-separator sat there asserting no separator exists
+        # while its own contract cited the file that renders one.
+        if in_api and not in_data:
+            problems.append((cid, "file", "(no path cited)",
+                             ", ".join(sorted(in_api))))
+        elif in_data and in_api and not (in_data & in_api):
+            problems.append((cid, "file", ", ".join(sorted(in_data)),
+                             ", ".join(sorted(in_api))))
 
     known = [p for p in problems if (p[0], p[1]) in EXCEPTIONS]
     unknown = [p for p in problems if (p[0], p[1]) not in EXCEPTIONS]

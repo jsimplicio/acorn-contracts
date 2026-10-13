@@ -4,7 +4,7 @@
   "tagName": "notification-message",
   "description": "A dismissable, prioritized notification bar shown at the top of browser content (e.g. permission prompts, site warnings).\n\n**Two layers, classified differently:** a NotificationBox container manages it, and it is rendered as a <notification-message> element that extends the modern Lit-based moz-message-bar component. The notification-message layer itself is classic (no JSDoc), lazily registered the first time a notification is shown.",
   "implementation": {
-    "kind": "dual",
+    "kind": "classic",
     "file": "toolkit/content/widgets/notificationbox.js"
   },
   "attributes": [

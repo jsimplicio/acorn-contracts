@@ -105,10 +105,10 @@ def prior_entry(prior_entries, cid):
 
 def tag_candidates(tag_name):
     """Every real tag name recorded in one entry's tagName field. A few
-    dual entries record both of theirs in a single string, sometimes with
-    a parenthetical: "moz-checkbox / checkbox", "button (classic) /
-    moz-button (modern)". Any one of them really being defined in the
-    cited file makes that citation coherent."""
+    entries with a coexisting classic implementation record both of theirs
+    in a single string, sometimes with a parenthetical: "moz-checkbox /
+    checkbox", "button (classic) / moz-button (modern)". Any one of them
+    really being defined in the cited file makes that citation coherent."""
     out = []
     for part in tag_name.split("/"):
         part = re.sub(r"\(.*?\)", "", part).strip()
@@ -314,9 +314,10 @@ def main():
     else:
         print(f"All {tag_checked} cited tag names are really defined in their cited file.")
     print()
-    # moz-* is Acorn's own tracked naming convention (every current modern/
-    # dual component matches it); other native widgets under this dir are
-    # legacy XUL-replacement elements that were never in scope, so they're
+    # moz-* is Acorn's own tracked naming convention (every current modern
+    # component matches it, including the ones with a coexisting classic
+    # implementation); other native widgets under this dir are legacy
+    # XUL-replacement elements that were never in scope, so they're
     # reported separately and don't fail the run on their own.
     moz_new = [f for f in untracked if Path(f).stem.startswith("moz-")]
     other_new = [f for f in untracked if f not in moz_new]

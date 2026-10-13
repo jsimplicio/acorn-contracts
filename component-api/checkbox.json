@@ -4,7 +4,7 @@
   "tagName": "moz-checkbox / checkbox",
   "description": "Modern Lit-based checkbox input with a label, description, and optional icon/support link.\n\n**A legacy XUL-style <checkbox> still exists** in the tree for older UI (toolkit/content/widgets/checkbox.js, registered as tag \"checkbox\"). It renders a checkbox-check image plus a checkbox-label-box (icon + label) and exposes only a simple reflected `checked` boolean, with attribute inheritance for disabled/checked/native/label/accesskey/src.\n\n**The attrs/slots/events below describe the modern one:** moz-checkbox, which is the actively-recommended implementation.\n\n**The native checkmark's color is not a checkbox token.** token-api/components/checkbox.tokens.json intentionally has only size and margin; the checked-state color comes from `accent-color: var(--color-accent-primary)`, set once globally on `:root` in toolkit/themes/shared/in-content/common-shared.css (confirmed at commit 1a097ed8d31f6b307a5d0ebc34a82ceaf7f3727b), the same real token (`color.accent.primary.@base`) that drives button's primary fill and the focus ring. Every native in-content control inherits it this way; it is not something this or any other component's own token file should restate.",
   "implementation": {
-    "kind": "dual",
+    "kind": "modern",
     "file": "toolkit/content/widgets/moz-checkbox/moz-checkbox.mjs",
     "codeConnect": "toolkit/content/widgets/moz-checkbox/moz-checkbox.figma.ts"
   },

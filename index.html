@@ -88,7 +88,6 @@
     --badge-modern-bg: #d9f2e3; --badge-modern-fg: #1a7f37;
     --badge-classic-bg: #fdeecb; --badge-classic-fg: #a15c00;
     --badge-none-bg: #f0d9d9; --badge-none-fg: #a11d1d;
-    --badge-dual-bg: #e2e2fa; --badge-dual-fg: #4433a8;
     --note-bg: #eef2ff; --note-border: #c3cdfa; --note-text: #2a3a8c; --note-code-bg: #dbe1fa;
     /* A preview's own sample surface stays light in BOTH themes: these
        tokens are Firefox's real light-theme values (a shadow token is
@@ -174,7 +173,6 @@
     --badge-modern-bg: #1c3a29; --badge-modern-fg: #7ee0a3;
     --badge-classic-bg: #3b2f16; --badge-classic-fg: #f0c274;
     --badge-none-bg: #3d2020; --badge-none-fg: #ff9b9b;
-    --badge-dual-bg: #2a2856; --badge-dual-fg: #b3b0f5;
     --note-bg: #1e2440; --note-border: #38406e; --note-text: #c3cdfa; --note-code-bg: #2b3357;
     --preview-surface: #f2f2f5;
     --preview-check: #cfcfd6;
@@ -250,7 +248,6 @@
       --badge-modern-bg: #1c3a29; --badge-modern-fg: #7ee0a3;
       --badge-classic-bg: #3b2f16; --badge-classic-fg: #f0c274;
       --badge-none-bg: #3d2020; --badge-none-fg: #ff9b9b;
-      --badge-dual-bg: #2a2856; --badge-dual-fg: #b3b0f5;
       --note-bg: #1e2440; --note-border: #38406e; --note-text: #c3cdfa; --note-code-bg: #2b3357;
       --preview-surface: #f2f2f5;
       --preview-check: #cfcfd6;
@@ -513,7 +510,6 @@
   .classif { display: inline-block; font-family: "Freight Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
   .classif.modern { background: var(--badge-modern-bg); color: var(--badge-modern-fg); }
   .classif.classic { background: var(--badge-classic-bg); color: var(--badge-classic-fg); }
-  .classif.dual { background: var(--badge-dual-bg); color: var(--badge-dual-fg); }
   td .classif { margin-left: 0; font-size: 12px; padding: 2px 7px; white-space: nowrap; }
   h3.table-group { margin: 24px 0 8px; }
   .check.na { color: var(--neutral); font-weight: normal; }
@@ -920,7 +916,7 @@
     <h2 class="section">Reading this table</h2>
     <ul>
       <li>No chrome or structural component has a Supernova documentation page or a Storybook story. The only doc coverage for this whole category is one narrative page, Desktop/Patterns/Browser anatomy/Overview.</li>
-      <li>Checkbox and Radio each ship both a modern version and a classic version at the same time, marked "modern + classic" rather than picking one.</li>
+      <li>Checkbox, Radio, and Split Button each also have a real legacy classic implementation still shipping alongside their modern one, kind reflects the actively-recommended implementation, not whether only one exists; check each entry's own description for the coexisting one. Infobar is the inverse case: its own registered element has no JSDoc and was never written as Lit, even though it extends a Lit class internally, so it's classic, not modern.</li>
       <li>A row with no real Firefox equivalent (Chip, Details) gets no implementation badge at all: that is the absence of an implementation, not a kind of one. See its file citation for what actually exists instead (a Figma-only pattern, a distinct real feature that only looks similar, native HTML doing the job, etc.). A sub-item (Panel Separator, say) shows its parent's badge instead, because it is part of that parent's implementation.</li>
       <li>Figma has some internal duplication for chrome entries (Sidebar, Infobar and Info bar, Bookmarks toolbar and Bookmarks Toolbar, and a few more each show up as two near-identical nodes), most likely stale-versus-current branches rather than distinct concepts.</li>
       <li>tagName is optional, not universal: most "classic" entries do have a real customElements.define tag (panel, dialog, tab-group), but some are built-in XUL tags with no class behind them (toolbar, toolbox), and some real implementations (Spotlight, Callout) are plain classes or React, not custom elements at all.</li>
@@ -1165,7 +1161,7 @@
     { id: "button-group", name: "Button Group", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-button-group", file: "toolkit/content/widgets/moz-button-group/moz-button-group.mjs", codeConnect: true },
     { id: "callout", name: "Callout", group: "generic", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/asrouter/modules/FeatureCallout.sys.mjs, plain class, not a custom element or XUL" },
     { id: "card", name: "Card", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-card", file: "toolkit/content/widgets/moz-card/moz-card.mjs", codeConnect: true },
-    { id: "checkbox", name: "Checkbox", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-checkbox / checkbox", file: "toolkit/content/widgets/moz-checkbox/moz-checkbox.mjs and toolkit/content/widgets/checkbox.js both exist", codeConnect: true },
+    { id: "checkbox", name: "Checkbox", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-checkbox / checkbox", file: "toolkit/content/widgets/moz-checkbox/moz-checkbox.mjs is the actively-recommended one; toolkit/content/widgets/checkbox.js (classic) also still exists", codeConnect: true },
     { id: "chip", name: "Chip", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "missing", tagName: null, file: "closest analog: browser/components/aiwindow/ui/components/ai-website-chip/ai-website-chip.mjs, a distinct feature component" },
     { id: "details", name: "Details", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "missing", tagName: null, file: "chrome uses the native <details>/<summary> elements directly" },
     { id: "dialog", name: "Dialog", group: "generic", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "dialog", file: "toolkit/content/widgets/dialog.js" },
@@ -1173,7 +1169,7 @@
     { id: "findbar", name: "Findbar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "findbar", file: "toolkit/content/widgets/findbar.js, MozFindbar extends MozXULElement" },
     { id: "five-star", name: "Five Star", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-five-star", file: "toolkit/content/widgets/moz-five-star/moz-five-star.mjs", codeConnect: true },
     { id: "icon-button", name: "Icon Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-button", file: "toolkit/content/widgets/moz-button/moz-button.mjs, icon-only variant", parentId: "button", codeConnect: true },
-    { id: "infobar", name: "Infobar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "dual", tagName: "notification-message", file: "toolkit/content/widgets/notificationbox.js, notification-message extends the modern moz-message-bar" },
+    { id: "infobar", name: "Infobar", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "classic", tagName: "notification-message", file: "toolkit/content/widgets/notificationbox.js; notification-message itself has no JSDoc and was never written as Lit, though it extends the modern moz-message-bar class internally" },
     { id: "input-color", name: "Input Color", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-input-color", file: "toolkit/content/widgets/moz-input-color/moz-input-color.mjs", codeConnect: true },
     { id: "input-email", name: "Input Email", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-email", file: "toolkit/content/widgets/moz-input-email/moz-input-email.mjs" },
     { id: "input-folder", name: "Input Folder", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-input-folder", file: "toolkit/content/widgets/moz-input-folder/moz-input-folder.mjs" },
@@ -1197,7 +1193,7 @@
     { id: "panel-separator", name: "Panel Separator", group: "chrome", figma: "nested", supernova: "no", storybook: "na", kind: "none", tagName: null, file: "toolkit/content/widgets/panel-list/panel-list.mjs, a slotted plain <hr>, no dedicated class", parentId: "panel", codeConnect: true },
     { id: "popup-notification", name: "Popup Notification", group: "chrome", figma: "non1to1", supernova: "no", storybook: "no", kind: "classic", tagName: "popupnotification", file: "toolkit/content/widgets/popupnotification.js" },
     { id: "promo", name: "Promo", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-promo", file: "toolkit/content/widgets/moz-promo/moz-promo.mjs", codeConnect: true },
-    { id: "radio", name: "Radio", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "dual", tagName: "moz-radio-group / radio", file: "toolkit/content/widgets/moz-radio-group/moz-radio-group.mjs and toolkit/content/widgets/radio.js both exist", codeConnect: true },
+    { id: "radio", name: "Radio", group: "generic", figma: "yes", supernova: "yes", storybook: "yes", kind: "modern", tagName: "moz-radio-group / radio", file: "toolkit/content/widgets/moz-radio-group/moz-radio-group.mjs is the actively-recommended one; toolkit/content/widgets/radio.js (classic) also still exists", codeConnect: true },
     { id: "reorderable-list", name: "Reorderable List", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-reorderable-list", file: "toolkit/content/widgets/moz-reorderable-list/moz-reorderable-list.mjs" },
     { id: "segment", name: "Segment", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "moz-segmented-control-item", file: "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs, class MozSegmentedControlItem", parentId: "segmented-control" },
     { id: "segmented-control", name: "Segmented Control", group: "generic", figma: "yes", supernova: "no", storybook: "yes", kind: "modern", tagName: "moz-segmented-control", file: "toolkit/content/widgets/moz-segmented-control/moz-segmented-control.mjs" },
@@ -1205,7 +1201,7 @@
     { id: "sidebar", name: "Sidebar", group: "chrome", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/sidebar/browser-sidebar.js, SidebarController singleton" },
     { id: "sidebar-panel", name: "Sidebar Panel", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "modern", tagName: "sidebar-panel-header", file: "browser/components/sidebar/sidebar-panel-header.mjs" },
     { id: "sidebar-strip", name: "Sidebar Strip", group: "chrome", figma: "yes", supernova: "no", storybook: "no", kind: "modern", tagName: "sidebar-main", file: "browser/components/sidebar/sidebar-main.mjs, class SidebarMain" },
-    { id: "split-button", name: "Split Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "dual", tagName: "button / moz-button", file: "toolkit/content/widgets/button.js, class MozButton (classic, real dropmarker via type=\"menu\") and moz-button.mjs, type=\"split\" (modern). Corrected: earlier cited toolbarbutton.js, which was checked and has no menu/dropmarker rendering branch at all, so was never the real split-button implementation.", parentId: "button", codeConnect: true },
+    { id: "split-button", name: "Split Button", group: "generic", figma: "yes", supernova: "no", storybook: "nested", kind: "modern", tagName: "button / moz-button", file: "toolkit/content/widgets/moz-button/moz-button.mjs, type=\"split\", is the actively-recommended one; toolkit/content/widgets/button.js's class MozButton (classic, real dropmarker via type=\"menu\") also still exists. Corrected: earlier cited toolbarbutton.js, which was checked and has no menu/dropmarker rendering branch at all, so was never the real split-button implementation.", parentId: "button", codeConnect: true },
     { id: "spotlight-modal", name: "Spotlight Modal", group: "generic", figma: "yes", supernova: "yes", storybook: "na", kind: "classic", tagName: null, file: "browser/components/asrouter/modules/Spotlight.sys.mjs, plain exported object, not a custom element" },
     { id: "stepper", name: "Stepper", group: "generic", figma: "yes", supernova: "no", storybook: "na", kind: "classic", tagName: null, file: "browser/components/asrouter/content-src/components/MultiStageProtonScreen.jsx, a React render method" },
     { id: "support-link", name: "Support Link", group: "generic", figma: "no", supernova: "no", storybook: "yes", kind: "classic", tagName: "moz-support-link", file: "toolkit/content/widgets/moz-support-link/moz-support-link.mjs" },
@@ -1228,11 +1224,10 @@
 
   // The axis is whether a component is Lit, not whether it carries the
   // moz-* prefix; see component-api/README.md.
-  const KIND_LABEL = { modern: "modern", classic: "classic", dual: "modern + classic" };
+  const KIND_LABEL = { modern: "modern", classic: "classic" };
   const KIND_DEFINITION = {
-    modern: "A real, modern Lit-based custom element, the current convention for new widgets (customElements.define, extends MozLitElement).",
+    modern: "A real, modern Lit-based custom element, the current convention for new widgets (customElements.define, extends MozLitElement). A few of these also have a real legacy classic implementation still shipping alongside, see that entry's own description.",
     classic: "A real, shipping implementation that isn't Lit: usually an old XUL binding, sometimes a plain custom element in a current module (still often has a real tagName, just not the newer pattern).",
-    dual: "Both a modern Lit version and an older non-Lit version exist and ship at the same time, neither has replaced the other yet.",
   };
   function kindBadge(kind) {
     return KIND_LABEL[kind] ? `<span class="classif ${kind}">${KIND_LABEL[kind]}</span>` : "";
@@ -1899,8 +1894,9 @@
   }
 
   // Links a real repo-relative path mentioned in a file citation to that
-  // file on mozilla-central. A dual-kind citation can mention two files;
-  // each gets linked independently.
+  // file on mozilla-central. A citation naming both a modern and a
+  // coexisting classic implementation can mention two files; each gets
+  // linked independently.
   const FILE_PATH_RE = /\b[\w.-]+(?:\/[\w.-]+)+\.(?:mjs|jsx?|json|xhtml)\b/g;
   const GITHUB_BLOB_BASE = "https://github.com/mozilla-firefox/firefox/blob/main/";
 

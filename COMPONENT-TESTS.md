@@ -50,7 +50,7 @@ Full list: `token-api/resolved/button.json`.
 
 ## Checkbox
 
-`id: checkbox`, kind: dual (modern `moz-checkbox` plus a legacy XUL `<checkbox>`). The entire real token file is two tokens:
+`id: checkbox`, kind: modern (`moz-checkbox`, with a legacy classic `<checkbox>` also still coexisting in the tree). The entire real token file is two tokens:
 
 ```json
 {

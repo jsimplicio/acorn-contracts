@@ -10,9 +10,9 @@ These contracts document real Firefox, so they carry real Firefox vocabulary. Th
 
 ## Classification
 
-### `modern`, `classic`, `dual`, `none` and `missing`
+### `modern`, `classic`, `none` and `missing`
 
-**`modern` means Lit, `classic` means real but not Lit, and that is the whole test.** A `modern` entry reaches Lit directly (`extends MozLitElement`) or through a shared base that does, and everything else that is a real, shipping implementation is `classic`, so a current ES module like `panel-list.mjs` is `classic` because its classes are plain `extends HTMLElement`. The other three kinds cover what is not one implementation: `dual` is a modern and a classic implementation coexisting for the same concept (checkbox, radio, infobar), `none` is a real surface with no widget behind it at all (`panel-separator` is a plain `<hr>`), and `missing` is a concept with no real Firefox equivalent. Age is not the test and neither is the tag prefix; full definitions and the dividing lines are in [component-api/README.md](component-api/README.md).
+**`modern` means Lit, `classic` means real but not Lit, and that is the whole test.** A `modern` entry reaches Lit directly (`extends MozLitElement`) or through a shared base that does, and everything else that is a real, shipping implementation is `classic`, so a current ES module like `panel-list.mjs` is `classic` because its classes are plain `extends HTMLElement`. A handful of `modern` entries (checkbox, radio, split-button) also have a real legacy classic implementation still shipping alongside, `kind` reflects the actively-recommended one, not whether only one exists; infobar is the inverse case, its own registered element has no JSDoc and was never written as Lit, even though it extends a Lit class internally, so it's `classic`. The other two kinds cover what is not one implementation at all: `none` is a real surface with no widget behind it at all (`panel-separator` is a plain `<hr>`), and `missing` is a concept with no real Firefox equivalent. Age is not the test and neither is the tag prefix; full definitions and the dividing lines are in [component-api/README.md](component-api/README.md).
 
 ### Why is something `classic` when it has a `moz-` name?
 

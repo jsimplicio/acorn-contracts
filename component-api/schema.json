@@ -24,7 +24,7 @@
         "string",
         "null"
       ],
-      "description": "The real, registered custom element tag name, if one exists. null for none/missing kinds, and sometimes for modern/classic kinds where no distinct tag was ever registered. A dual-kind entry may record both real tags in one string (e.g. \"button (classic) / moz-button (modern)\")."
+      "description": "The real, registered custom element tag name, if one exists. null for none/missing kinds, and sometimes for modern/classic kinds where no distinct tag was ever registered. A component where both a modern and a classic implementation coexist may record both real tags in one string (e.g. \"button (classic) / moz-button (modern)\"), kind reflects which is the actively-recommended one, the coexistence itself is in the description."
     },
     "description": {
       "type": "string",
@@ -43,8 +43,7 @@
             "modern",
             "classic",
             "none",
-            "missing",
-            "dual"
+            "missing"
           ]
         },
         "file": {

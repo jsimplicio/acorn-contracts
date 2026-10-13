@@ -10,11 +10,13 @@ Do's and don'ts are categorically different. They require human judgment about r
 
 `behavior` entries are a third category, added after a real, stated need: a spec-driven exercise testing whether component-api + token-api are rich enough to actually build a component (see `COMPONENT-TESTS.md`) kept finding that the single most load-bearing runtime fact about a component, which of two real implementations renders under what condition, what sequence a dismiss or toggle actually fires in, was easy to miss. Piloting it on 3 real entries (select, message-bar, card) found something worth stating plainly: in all 3 cases the fact was already there, quietly, in an attribute or event's own `description` (`select.usePanelList`, `message-bar`'s two dismiss events, `card`'s `toggle` event). `behavior` isn't filling a hole CEM structurally can't express, these 3 pilots prove it can; it's surfacing the one fact worth leading with, in one consistent, neutral-toned place, the same service dos/donts already does by restating a real fact as actionable advice instead of leaving it buried in a field someone has to think to open. Still categorically the same as dos/donts in one way: someone has to have read the real source and written it down, it isn't extracted.
 
-`configuration` entries are a fourth category, mapping to a different part of the same Curtis article: "layout and configurations", discriminated unions and other prop relationships. These are static facts, not runtime ones: which props/attributes/slots only mean something together, or are mutually exclusive, independent of whether a user ever interacts with the thing. `card.expanded` only has an effect when `type="accordion"`; a component's `supportPage` attribute and its `support-link` slot are mutually gated, setting one changes what the other even does. Component-api's flat `attributes` list and `variants` array name each prop on its own; neither states the relationship BETWEEN two of them. Named `configuration`, not `layout`: Curtis's own term bundles visual layout in with it, but this repo's visual layout and spacing already belongs to token-api, duplicating it here would just restate a value that already has a real owner. This field is only for the component's own API shape: which combination of props is even valid or renders differently, not what it looks like once it does.
+`layout` entries are a fourth category, mapping to a different part of the same Curtis article: "layout and configurations", discriminated unions and other prop relationships. These are static facts, not runtime ones: which props/attributes/slots only mean something together, or are mutually exclusive, independent of whether a user ever interacts with the thing. `card.expanded` only has an effect when `type="accordion"`; a component's `supportPage` attribute and its `support-link` slot are mutually gated, setting one changes what the other even does. Component-api's flat `attributes` list and `variants` array name each prop on its own; neither states the relationship BETWEEN two of them. This field is only for the component's own API shape: which combination of props is even valid or renders differently, not what it looks like once it does, this repo's actual visual spacing and sizing already belongs to token-api, duplicating a value here would just restate one that already has a real owner.
 
-`reference` entries are a fifth category, and a different kind of claim than all four above: an external industry convention, not a verified fact about Firefox's own real implementation. `dos`, `donts`, `behavior`, and `configuration` are all the same epistemically, someone read Firefox's actual source and wrote down what's really there. `reference` is the opposite: a real, cited, well-established external document (the W3C ARIA Authoring Practices Guide's toolbar pattern, Microsoft's own InfoBar control guidance, PatternFly's button hierarchy guidance), stating what the broader industry does for the equivalent control, not a claim about what Firefox's own code does. Every `reference` entry requires a real `source` URL for exactly this reason: unlike the other fields, where the citation lives in the prose itself (a method name, a real file), there's nothing in this repo to check a `reference` entry against, the source URL is the only thing making it a real, falsifiable claim instead of an assertion. Used sparingly: most entries won't have one, and it's only worth adding where a genuinely specific, well-established convention exists for that exact kind of control, not generic blog-post UX advice.
+`a11y` entries are a fifth category, Curtis's own "Accessibility": real accessibility facts, the same bar as behavior and layout, verified against Firefox's actual implementation, not general best-practice advice. A real ARIA role the component sets, a real keyboard interaction model, a real focus-management rule, confirmed in source the same way everything else here is.
 
-This maps directly onto a distinction Nathan Curtis (EightShapes) draws for design systems documentation: **specs say how to build, guidelines say how to use.** The Component API is the spec half, mechanical, generated by parsing source. This Guidance API is the guidelines half, editorial, written by a human (or an agent reasoning carefully about real usage) rather than extracted from code, `behavior` and `configuration` entries included: they're closer in spirit to spec (neutral fact, not advice) but can only be produced the guidelines way, by someone reading real source, so they live here rather than in component-api. `reference` entries don't fit this distinction cleanly at all, they're neither a fact about Firefox's spec nor advice about using it, which is exactly why they're the one field here that's explicitly, visibly marked as coming from somewhere else.
+A real, deliberate thing this schema does NOT do: it never stores an external industry convention (a named UX pattern, another design system's own written guidance for the equivalent control) as its own field or category. That kind of research is valuable, reading what the W3C's accessibility guide, Microsoft's own InfoBar docs, or another real design system says about the equivalent control is exactly how you learn what to go verify and look for in Firefox's actual source, but the LEARNING is the point, not the quote. Every entry in every field above is still a claim about Firefox's own real code; nothing here is ever phrased as "X says Y", only "Firefox's own Z does Y", confirmed by reading it there directly, not borrowed from somewhere else.
+
+This maps directly onto a distinction Nathan Curtis (EightShapes) draws for design systems documentation: **specs say how to build, guidelines say how to use.** The Component API is the spec half, mechanical, generated by parsing source. This Guidance API is the guidelines half, editorial, written by a human (or an agent reasoning carefully about real usage) rather than extracted from code, `behavior`, `layout`, and `a11y` entries included: they're closer in spirit to spec (neutral fact, not advice) but can only be produced the guidelines way, by someone reading real source, so they live here rather than in component-api.
 
 Keeping them as two separate, independently-produced artifacts rather than merging guidance fields into the Component API preserves that production distinction: one pipeline parses source and can be regenerated automatically any time the component changes; the other is authored content that only changes when someone deliberately revisits it. Collapsing them into one file would make it easy to assume the whole file is machine-derived and trustworthy in the same way, when the guidance half is not.
 
@@ -45,31 +47,28 @@ A `behavior` entry, from a different real component (`select`), where that's the
 }
 ```
 
-A `configuration` entry, from `card`:
+A `layout` entry, from `card`:
 
 ```jsonc
 {
   "id": "card",
   "dos": [],
   "donts": [],
-  "configuration": [
+  "layout": [
     { "text": "expanded only has an effect when type=\"accordion\"; on a default card it's inert, since there's no collapsed/expanded state to be in." }
   ]
 }
 ```
 
-A `reference` entry, from `button`, note the required `source`:
+An `a11y` entry, from `radio`:
 
 ```jsonc
 {
-  "id": "button",
+  "id": "radio",
   "dos": [],
   "donts": [],
-  "reference": [
-    {
-      "text": "PatternFly's button guidance: \"Try to limit primary buttons to one per page\", and reserves a danger-styled button exclusively \"for actions a user can take that are potentially destructive or difficult/impossible to undo\".",
-      "source": "https://www.patternfly.org/components/button/design-guidelines/"
-    }
+  "a11y": [
+    { "text": "The legacy <radiogroup>/<radio> pair, which still exists in the tree, implements real roving-tabindex keyboard navigation (arrow keys, with wrapping)." }
   ]
 }
 ```
@@ -80,8 +79,8 @@ Field by field:
 - **`dos`** (array of objects, required, may be empty): Things to do. Each entry is `{ "text": "..." }`, one sentence describing a specific, actionable practice, not a restatement of what an attribute does.
 - **`donts`** (array of objects, required, may be empty): Things to avoid. Each entry is `{ "text": "..." }`, ideally naming the concrete symptom of getting it wrong (as in the button example above: not just "don't do X" but "don't do X, here's what breaks").
 - **`behavior`** (array of objects, optional, may be absent): Real runtime facts, not advice: what condition picks between two real implementations, what actually fires and when, what real DOM element backs a stated interaction. Each entry is `{ "text": "..." }`, a neutral statement of fact citing something concrete (a property, method, or real element), the same citation bar as dos/donts, just without a "do" or "don't" framing. Most entries don't have this field yet; it was added for a real, specific need (see above), not spread across the whole inventory speculatively.
-- **`configuration`** (array of objects, optional, may be absent): Static facts about which props/attributes/slots are only meaningful together or mutually exclusive, a discriminated union in the component's own API surface. Not runtime behavior (nothing about when or what fires) and not token-api's visual layout/spacing (that already has a real owner). Most entries don't have this field yet, for the same reason as behavior.
-- **`reference`** (array of objects, optional, may be absent): An external industry convention, not a Firefox-verified fact, see above for why this is categorically different from every other field. Each entry is `{ "text": "...", "source": "https://..." }`, both required. Used sparingly, only for a genuinely specific, well-established convention (an ARIA interaction pattern, another real design system's own written guidance), never generic UX-blog advice, and never phrased as a claim about what Firefox's own code does.
+- **`layout`** (array of objects, optional, may be absent): Static facts about which props/attributes/slots are only meaningful together or mutually exclusive, a discriminated union in the component's own API surface. Not runtime behavior (nothing about when or what fires) and not token-api's visual spacing/sizing (that already has a real owner). Most entries don't have this field yet, for the same reason as behavior.
+- **`a11y`** (array of objects, optional, may be absent): Real accessibility facts, verified against Firefox's own source the same way as every other field: a real ARIA role or attribute, a real keyboard interaction model, a real focus-management rule. Not general accessibility best practice, a confirmed fact about this component's own code.
 
 That's the whole schema. No `severity`, `tags`, `author`, `dates`, or similar metadata fields, they were deliberately left out. Add a field only when there's a clear, stated need to support real consumption of this data; don't add one speculatively.
 

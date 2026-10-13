@@ -6,10 +6,10 @@
   "donts": [
     { "text": "Don't toggle disabled off on the fieldset expecting individually-disabled children to stay disabled, #updateChildDisabledState() runs querySelectorAll(\"*\") over every descendant exposing a disabled or parentDisabled property and unconditionally clears/sets disabled on all of them with no per-child state tracking." }
   ],
-  "behavior": [
+  "a11y": [
     { "text": "Setting inputsRole moves role plus the accessible name, description, and orientation off the outer fieldset onto the #inputs container instead, so the slotted inputs present collectively as e.g. a radiogroup; the outer fieldset gets role=\"presentation\" and loses those attributes." }
   ],
-  "configuration": [
+  "layout": [
     { "text": "supportPage and the support-link slot are mutually gated: the slot only renders when supportPage is unset, setting supportPage replaces it with a built-in moz-support-link instead." }
   ]
 }

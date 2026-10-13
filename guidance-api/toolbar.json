@@ -9,11 +9,5 @@
   ],
   "behavior": [
     { "text": "A <toolbar> has no interactive implementation of its own; navigator-toolbox.js delegates all real event handling (popupshowing, command) from the outer #navigator-toolbox container, the same mechanism toolbox itself uses." }
-  ],
-  "reference": [
-    {
-      "text": "The W3C ARIA Authoring Practices Guide's toolbar pattern expects roving-tabindex keyboard navigation: Tab/Shift+Tab enter and exit the whole toolbar as a single stop, and arrow keys move focus between its individual controls, reserved for grouping 3 or more controls. Not confirmed here whether Firefox's real toolbar implementation follows this exact model, only that this is the established external convention for the role.",
-      "source": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/"
-    }
   ]
 }

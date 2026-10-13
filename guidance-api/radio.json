@@ -7,5 +7,8 @@
   "donts": [
     { "text": "Don't nest moz-radio anywhere but as a direct child of moz-radio-group, the mixin's connectedCallback checks parentElement and logs \"moz-radio can only be used in moz-radio-group element\" if it isn't, so wrapping it breaks the association." },
     { "text": "Don't try to re-enable a single moz-radio by clearing its own disabled while the group stays disabled, isDisabled ORs in both parentDisabled and controller.parentDisabled, so the group's disabled state always wins (called out in the component's own docs)." }
+  ],
+  "a11y": [
+    { "text": "The legacy <radiogroup>/<radio> pair, which still exists in the tree alongside the modern moz-radio-group, implements its own real roving-tabindex keyboard navigation with wrapping arrow keys, a separate implementation from the modern pair's own orientation-driven navigation." }
   ]
 }

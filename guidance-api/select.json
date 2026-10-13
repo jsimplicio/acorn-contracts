@@ -10,5 +10,8 @@
   ],
   "behavior": [
     { "text": "Renders a native <select> when no moz-option has an icon; the internal usePanelList state flips the whole control to a custom panel-list/button combo the moment any single option has an iconSrc, a real condition, not a style choice, and not reversible per-option." }
+  ],
+  "a11y": [
+    { "text": "ArrowUp/ArrowDown don't do the same thing on every platform once usePanelList is active: handlePanelKeydown() opens the panel on Mac, but directly changes the selection via selectNextOption() on Windows/Linux, a real per-platform branch, not one keyboard model." }
   ]
 }

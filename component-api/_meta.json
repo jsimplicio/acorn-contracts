@@ -1,8 +1,8 @@
 {
   "note": "lastModified/lastCommit are this file's real last commit in this repo's own git history (git log -1 -- <file>), not a fabricated timestamp. This says when the JSON was last edited here, not when it was last verified against real Firefox source, those can differ.",
   "repoHead": {
-    "commit": "e9f9d44f81ec194e8ff702fb987c383c9984dd15",
-    "date": "2026-10-12T12:48:10-05:00"
+    "commit": "2fe29c02746f1e67e6510e656ef6ebf13db36ed8",
+    "date": "2026-10-13T12:16:12-05:00"
   },
   "files": {
     "badge": {
@@ -50,8 +50,8 @@
       "lastModified": "2026-09-22T14:50:44-05:00"
     },
     "checkbox": {
-      "lastCommit": "e9f9d44f81ec194e8ff702fb987c383c9984dd15",
-      "lastModified": "2026-10-12T12:48:10-05:00"
+      "lastCommit": "2fe29c02746f1e67e6510e656ef6ebf13db36ed8",
+      "lastModified": "2026-10-13T12:16:12-05:00"
     },
     "chip": {
       "lastCommit": "8b7dc53ba0b744ba1e239eb76e8c843be73ece35",
@@ -82,8 +82,8 @@
       "lastModified": "2026-09-16T12:20:11-05:00"
     },
     "infobar": {
-      "lastCommit": "4c2a9d2d7de506926c5a79293b8909c5926d02ba",
-      "lastModified": "2026-09-16T19:32:06-05:00"
+      "lastCommit": "2fe29c02746f1e67e6510e656ef6ebf13db36ed8",
+      "lastModified": "2026-10-13T12:16:12-05:00"
     },
     "input-color": {
       "lastCommit": "0cb3c8f3e293a7f2f2fd3e381539185efc3b4dd8",
@@ -178,8 +178,8 @@
       "lastModified": "2026-09-16T19:03:55-05:00"
     },
     "radio": {
-      "lastCommit": "e9f9d44f81ec194e8ff702fb987c383c9984dd15",
-      "lastModified": "2026-10-12T12:48:10-05:00"
+      "lastCommit": "2fe29c02746f1e67e6510e656ef6ebf13db36ed8",
+      "lastModified": "2026-10-13T12:16:12-05:00"
     },
     "reorderable-list": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",
@@ -210,8 +210,8 @@
       "lastModified": "2026-09-15T15:41:25-05:00"
     },
     "split-button": {
-      "lastCommit": "8b7dc53ba0b744ba1e239eb76e8c843be73ece35",
-      "lastModified": "2026-09-16T19:03:55-05:00"
+      "lastCommit": "2fe29c02746f1e67e6510e656ef6ebf13db36ed8",
+      "lastModified": "2026-10-13T12:16:12-05:00"
     },
     "spotlight-modal": {
       "lastCommit": "83d6292759dcad486afdaa64031d67b6a3fe454d",

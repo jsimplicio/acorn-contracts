@@ -7,5 +7,8 @@
   "donts": [
     { "text": "Don't set supportPage together with slotted support-link content expecting them to combine, supportLinkTemplate() renders the generated moz-support-link anchor or the slot, never both, so supportPage silently drops your slotted content." },
     { "text": "Don't treat \"message-bar:close\" (fired from disconnectedCallback) as proof the user dismissed the bar, it fires on any removal from the DOM, not just a close-button click." }
+  ],
+  "behavior": [
+    { "text": "Dismissal is two real, separate stages: clicking the close button fires the cancelable \"message-bar:user-dismissed\" first, and only if nothing calls preventDefault() does close() run and remove the element; \"message-bar:close\" fires separately from disconnectedCallback on any removal, dismissed or not." }
   ]
 }

@@ -824,6 +824,8 @@
   .dodont .do h3 { color: var(--ok); }
   .dodont .dont h3 { color: var(--err); }
   .dodont ul { padding-left: 18px; margin: 0; }
+  /* Neutral on purpose, no ok/err color: a fact, not advice. */
+  .behavior-list { padding-left: 18px; margin: 0 0 20px; }
 
 
   .source-note { background: var(--note-bg); border: 1px solid var(--note-border); color: var(--note-text); padding: 12px 16px; border-radius: 6px; font-size: 13.5px; margin-top: 16px; }
@@ -2962,6 +2964,10 @@
     }
     if (api.cssParts && api.cssParts.length) {
       html += `<h2 class="section">CSS parts</h2>` + renderNameTable(api.cssParts, p => `::part(${escapeHtml(p.name)})`);
+    }
+    if (guidance && guidance.behavior && guidance.behavior.length) {
+      html += `<h2 class="section">Behavior</h2><ul class="behavior-list">` +
+        guidance.behavior.map(b => `<li>${formatProse(b.text)}</li>`).join("") + `</ul>`;
     }
     if (guidance && ((guidance.dos && guidance.dos.length) || (guidance.donts && guidance.donts.length))) {
       html += `<h2 class="section">Do's and don'ts</h2><div class="dodont">`;

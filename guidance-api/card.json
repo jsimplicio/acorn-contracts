@@ -5,5 +5,8 @@
   ],
   "donts": [
     { "text": "Don't pass a headingLevel outside 1-6 expecting an error, headingTextTemplate() falls back silently to a plain <span> via `headingLevels[this.headingLevel] || headingLevels[0]`, so a typo like headingLevel=\"7\" just loses heading semantics with no warning." }
+  ],
+  "behavior": [
+    { "text": "An accordion-type card's expand/collapse is backed by a real native <details> element, not a custom open/close implementation; toggling dispatches a real ToggleEvent (newState/oldState), not a bespoke event shape." }
   ]
 }

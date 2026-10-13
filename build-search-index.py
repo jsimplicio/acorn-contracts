@@ -88,7 +88,7 @@ def build():
         pid = data["id"]
         if pid not in pages:
             continue
-        for group in ("dos", "donts"):
+        for group in ("dos", "donts", "behavior"):
             for item in data.get(group) or []:
                 pages[pid]["text"].append(item.get("text", ""))
 

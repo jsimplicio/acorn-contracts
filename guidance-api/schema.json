@@ -20,6 +20,11 @@
       "type": "array",
       "description": "Things to avoid, ideally naming the concrete symptom of getting it wrong, not just \"don't do X\".",
       "items": { "$ref": "#/$defs/entry" }
+    },
+    "behavior": {
+      "type": "array",
+      "description": "Optional. Neutral facts about how the component actually behaves at runtime (what triggers a state change, what real element or event backs an interaction, what condition picks between two real implementations). Often the single most load-bearing fact about the component, sometimes already stated quietly in an attribute or event's own description elsewhere in component-api, surfaced here in one obvious place the same way dos/donts already restate a real fact for emphasis. Not advice: a dos/donts entry says what to do about a fact, a behavior entry just states the fact. May be absent entirely; most entries won't have one yet.",
+      "items": { "$ref": "#/$defs/entry" }
     }
   },
   "$defs": {

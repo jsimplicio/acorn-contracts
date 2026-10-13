@@ -31,6 +31,7 @@ DOC_PAGES = {
     "doc-readme": ("Overview", "README.md"),
     "doc-faq": ("FAQ", "FAQ.md"),
     "doc-changelog": ("Changelog", "CHANGELOG.md"),
+    "doc-component-tests": ("Component Tests", "COMPONENT-TESTS.md"),
 }
 
 

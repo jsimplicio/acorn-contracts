@@ -8,5 +8,8 @@
   ],
   "behavior": [
     { "text": "An accordion-type card's expand/collapse is backed by a real native <details> element, not a custom open/close implementation; toggling dispatches a real ToggleEvent (newState/oldState), not a bespoke event shape." }
+  ],
+  "configuration": [
+    { "text": "expanded only has an effect when type=\"accordion\"; a default-type card has no collapsed/expanded state at all, so setting expanded on one does nothing." }
   ]
 }

@@ -6,5 +6,9 @@
   "donts": [
     { "text": "Don't expect imageAlignment=\"center\" to get its own placement logic, render() only special-cases imageAlignment==\"start\" to put the image before the text; \"center\" and \"end\" are both placed after the text and rely on CSS alone for the visual difference." },
     { "text": "Don't set imageAlignment, imageWidth, or imageDisplay expecting a visible effect without also setting imageSrc, imageTemplate() only renders when imageSrc is truthy, so those reflected attributes are inert without it." }
+  ],
+  "configuration": [
+    { "text": "imageAlignment, imageWidth, and imageDisplay are gated on imageSrc: without a real image, all three are inert attributes with nothing to apply to." },
+    { "text": "imageWidth has three enum values but only two real configurations: \"default\" and \"small\" render identically, only \"large\" carries a distinct CSS rule." }
   ]
 }

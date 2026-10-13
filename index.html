@@ -2969,6 +2969,10 @@
       html += `<h2 class="section">Behavior</h2><ul class="behavior-list">` +
         guidance.behavior.map(b => `<li>${formatProse(b.text)}</li>`).join("") + `</ul>`;
     }
+    if (guidance && guidance.configuration && guidance.configuration.length) {
+      html += `<h2 class="section">Configuration</h2><ul class="behavior-list">` +
+        guidance.configuration.map(c => `<li>${formatProse(c.text)}</li>`).join("") + `</ul>`;
+    }
     if (guidance && ((guidance.dos && guidance.dos.length) || (guidance.donts && guidance.donts.length))) {
       html += `<h2 class="section">Do's and don'ts</h2><div class="dodont">`;
       html += `<div class="do"><h3>Do</h3><ul>` + (guidance.dos || []).map(d => `<li>${formatProse(d.text)}</li>`).join("") + `</ul></div>`;

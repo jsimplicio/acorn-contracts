@@ -8,5 +8,8 @@
   ],
   "behavior": [
     { "text": "Setting inputsRole moves role plus the accessible name, description, and orientation off the outer fieldset onto the #inputs container instead, so the slotted inputs present collectively as e.g. a radiogroup; the outer fieldset gets role=\"presentation\" and loses those attributes." }
+  ],
+  "configuration": [
+    { "text": "supportPage and the support-link slot are mutually gated: the slot only renders when supportPage is unset, setting supportPage replaces it with a built-in moz-support-link instead." }
   ]
 }

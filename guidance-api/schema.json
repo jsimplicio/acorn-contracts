@@ -25,6 +25,11 @@
       "type": "array",
       "description": "Optional. Neutral facts about how the component actually behaves at runtime (what triggers a state change, what real element or event backs an interaction, what condition picks between two real implementations). Often the single most load-bearing fact about the component, sometimes already stated quietly in an attribute or event's own description elsewhere in component-api, surfaced here in one obvious place the same way dos/donts already restate a real fact for emphasis. Not advice: a dos/donts entry says what to do about a fact, a behavior entry just states the fact. May be absent entirely; most entries won't have one yet.",
       "items": { "$ref": "#/$defs/entry" }
+    },
+    "configuration": {
+      "type": "array",
+      "description": "Optional. Static facts about which props/attributes/slots are only meaningful together, mutually exclusive, or gate one another, a discriminated union in the component's own API surface. Different axis from behavior: behavior is about WHEN something happens at runtime, configuration is about which combination of props is even valid or renders differently in the first place (card.expanded only means anything when type=\"accordion\"; a component's supportPage attribute and its support-link slot are mutually gated). Not a restatement of token-api's own layout/spacing values, this is about the component's API shape, not its visual spacing. May be absent entirely; most entries won't have one yet.",
+      "items": { "$ref": "#/$defs/entry" }
     }
   },
   "$defs": {

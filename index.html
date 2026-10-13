@@ -101,6 +101,46 @@
     --preview-bar: #764edd;
     --toggle-track: #e6e6ea;
     --toggle-icon: #8a8a95;
+
+    /* Component Tests page only: real resolved Firefox token values (not
+       this page's own chrome), same convention as --preview-bar above.
+       Several components alias into the exact same real token, consolidated
+       here into one variable each rather than repeated per component,
+       itself one of the page's own findings. See COMPONENT-TESTS.md for
+       the full value tables and citations. */
+    --ct-accent: #764edd;             /* color.accent.primary.@base */
+    --ct-accent-hover: #5939a8;
+    --ct-accent-active: #3e2976;
+    --ct-gray-border: #817f84;        /* border.color.interactive.@base */
+    --ct-menu-hover: #d2c8ec;         /* button.background.color.menu/ghost.hover */
+    --ct-menu-active: #b6aad9;
+    --ct-content-text: #180e30;       /* text.color.@base, violet-tinted */
+    --ct-control-text: #161423;       /* button.text.color.@base family */
+    --ct-surface: #ffffff;            /* background.color.box.@base */
+    --ct-destructive: #c52d4f;
+    --ct-muted: #d6d5da;
+    --ct-badge-filled-bg: #008865;
+    --ct-badge-filled-text: #ffffff;
+    --ct-badge-border: rgba(21, 20, 26, 0.4);
+    --ct-promo-bg: #e3e2e7;
+    --ct-promo-bg-vibrant: #e7e1f8;
+    --ct-promo-message-vibrant: #271c48;
+    --ct-box-border: #b7b6ba;
+    --ct-toolbox-bg: #ffffff;
+    --ct-toolbox-grad-a: #eaddff;
+    --ct-toolbox-grad-b: #ffdbc5;
+    --ct-table-bg: #f8f8fa;
+    --ct-table-row-alt: #d6d5da;
+    --ct-toolbar-bg: rgba(255, 255, 255, 0.4);
+    --ct-field-border: #d6d5da;
+    --ct-field-text: #3e315f;
+    --ct-field-bg-focus: #ffffff;
+    --ct-tbb-icon: #75669f;
+    --ct-tbb-hover: rgba(117, 102, 159, 0.25);
+    --ct-tbb-active: rgba(117, 102, 159, 0.4);
+    --ct-tbb-badge: #961e3d;
+    --ct-chip-base: #eaddff;
+    --ct-chip-critical: #ffd9df;
   }
   :root[data-theme="dark"] {
     color-scheme: dark;
@@ -142,6 +182,40 @@
     --preview-bar: #a78bfa;
     --toggle-track: #34343e;
     --toggle-icon: #85858f;
+
+    --ct-accent: #b89cff;
+    --ct-accent-hover: #d4c1ff;
+    --ct-accent-active: #eaddff;
+    --ct-gray-border: #949297;
+    --ct-menu-hover: #75669f;
+    --ct-menu-active: #9687c0;
+    --ct-content-text: #f2f0f8;
+    --ct-control-text: #fcfbff;
+    --ct-surface: #171519;
+    --ct-destructive: #ff8998;
+    --ct-muted: #515054;
+    --ct-badge-filled-bg: #90e3c6;
+    --ct-badge-filled-text: #252428;
+    --ct-badge-border: rgba(251, 251, 254, 0.4);
+    --ct-promo-bg: #312f33;
+    --ct-promo-bg-vibrant: #3e315f;
+    --ct-promo-message-vibrant: #f5ecff;
+    --ct-box-border: #949297;
+    --ct-toolbox-bg: #121114;
+    --ct-toolbox-grad-a: #3e315f;
+    --ct-toolbox-grad-b: #701c07;
+    --ct-table-bg: rgb(35, 34, 43);
+    --ct-table-row-alt: #312f33;
+    --ct-toolbar-bg: rgb(43, 42, 51);
+    --ct-field-border: #3f3e42;
+    --ct-field-text: #e7e1f8;
+    --ct-field-bg-focus: #171519;
+    --ct-tbb-icon: #e7e1f8;
+    --ct-tbb-hover: rgba(182, 170, 217, 0.25);
+    --ct-tbb-active: rgba(182, 170, 217, 0.4);
+    --ct-tbb-badge: #ed566e;
+    --ct-chip-base: #111524;
+    --ct-chip-critical: #211014;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -184,6 +258,40 @@
       --preview-bar: #a78bfa;
       --toggle-track: #34343e;
       --toggle-icon: #85858f;
+
+      --ct-accent: #b89cff;
+      --ct-accent-hover: #d4c1ff;
+      --ct-accent-active: #eaddff;
+      --ct-gray-border: #949297;
+      --ct-menu-hover: #75669f;
+      --ct-menu-active: #9687c0;
+      --ct-content-text: #f2f0f8;
+      --ct-control-text: #fcfbff;
+      --ct-surface: #171519;
+      --ct-destructive: #ff8998;
+      --ct-muted: #515054;
+      --ct-badge-filled-bg: #90e3c6;
+      --ct-badge-filled-text: #252428;
+      --ct-badge-border: rgba(251, 251, 254, 0.4);
+      --ct-promo-bg: #312f33;
+      --ct-promo-bg-vibrant: #3e315f;
+      --ct-promo-message-vibrant: #f5ecff;
+      --ct-box-border: #949297;
+      --ct-toolbox-bg: #121114;
+      --ct-toolbox-grad-a: #3e315f;
+      --ct-toolbox-grad-b: #701c07;
+      --ct-table-bg: rgb(35, 34, 43);
+      --ct-table-row-alt: #312f33;
+      --ct-toolbar-bg: rgb(43, 42, 51);
+      --ct-field-border: #3f3e42;
+      --ct-field-text: #e7e1f8;
+      --ct-field-bg-focus: #171519;
+      --ct-tbb-icon: #e7e1f8;
+      --ct-tbb-hover: rgba(182, 170, 217, 0.25);
+      --ct-tbb-active: rgba(182, 170, 217, 0.4);
+      --ct-tbb-badge: #ed566e;
+      --ct-chip-base: #111524;
+      --ct-chip-critical: #211014;
       }
   }
   /* Fixed in both themes, so they never move with the palette: the thumb is
@@ -565,6 +673,129 @@
      resolving an alias instead of being the row's own token. */
   .alias-chain-hop { padding-left: 14px; font-size: 12.5px; }
 
+  /* Component Tests page: real control mockups built from the resolved
+     values above, laid out with this page's own chrome (fonts, --text,
+     --border, --bg-raised), same spirit as .preview-* but a full control
+     instead of a flat swatch. Every value is cited in COMPONENT-TESTS.md;
+     anything below with no comment citing a token is this page's own
+     layout choice, not a contract fact. */
+  /* System font, not this doc site's own Freight Sans/Tisa Pro: real
+     Firefox UI has no typeface token at all, see the Button finding
+     below, so these mockups inherit the OS font on purpose, same as the
+     real thing. */
+  /* A boxed demo area, same visual family as a <pre> code block (border,
+     radius, padding) but on --bg-raised rather than --code-bg, so a demo
+     reads as "live preview", not "code". */
+  .ct-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; margin: 10px 0 18px;
+    padding: 16px; border: 1px solid var(--border-soft); border-radius: 8px; background: var(--bg-raised);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .ct-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .ct-label { font-size: 12px; color: var(--text-faint); text-align: center; }
+  .ct-findings { margin: 0 0 12px; padding-left: 20px; }
+  .ct-findings li { margin-bottom: 4px; }
+
+  .ct-btn { font: inherit; font-size: 14px; font-weight: 600;
+    padding: 8px 16px; border-radius: 24px; border: 1px solid transparent; background: transparent;
+    color: var(--ct-control-text); cursor: default; }
+  .ct-btn.primary { background: var(--ct-accent); color: #ffffff; }
+  .ct-btn.primary:hover { background: var(--ct-accent-hover); }
+  .ct-btn.primary:active { background: var(--ct-accent-active); }
+  .ct-btn.destructive { background: var(--ct-destructive); color: #ffffff; }
+  .ct-btn.muted { background: var(--ct-muted); }
+  .ct-btn.ghost { border-color: var(--ct-accent); }
+
+  .ct-toggle { display: inline-flex; align-items: center; width: 32px; height: 16px; padding: 1px;
+    border-radius: 9999px; border: 1px solid var(--ct-gray-border); background: transparent; }
+  .ct-toggle .ct-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--ct-gray-border);
+    transition: transform 0.15s ease; }
+  .ct-toggle.on { background: var(--ct-accent); border-color: var(--ct-accent); }
+  .ct-toggle.on .ct-dot { background: #ffffff; transform: translateX(16px); }
+
+  /* Real native controls: accent-color is the actual mechanism, not CSS this
+     page invented, see Checkbox/Radio in COMPONENT-TESTS.md. */
+  .ct-checkbox, .ct-radio { width: 16px; height: 16px; accent-color: var(--ct-accent); }
+
+  .ct-badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 9999px;
+    border: 1px solid var(--ct-badge-border); color: var(--ct-content-text); }
+  .ct-badge.filled { background: var(--ct-badge-filled-bg); color: var(--ct-badge-filled-text); border-color: transparent; }
+
+  .ct-link { color: var(--ct-accent); text-decoration: underline; cursor: default; }
+  .ct-link:hover { color: var(--ct-accent-hover); }
+
+  .ct-msgbar { display: flex; align-items: stretch; max-width: 280px; border-radius: 12px; overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--ct-accent) 12%, transparent); background: var(--ct-surface);
+    color: var(--ct-content-text); font-size: 13px; }
+  .ct-msgbar .ct-chip { flex: none; width: 32px; display: flex; align-items: center; justify-content: center;
+    background: var(--ct-chip-base); color: var(--ct-accent); }
+  .ct-msgbar.critical .ct-chip { background: var(--ct-chip-critical); }
+  .ct-msgbar .ct-body { padding: 6px 10px; }
+
+  .ct-input { font-family: inherit; font-size: 14px; padding: 6px 10px; border-radius: 12px;
+    border: 1px solid var(--ct-gray-border); background: var(--ct-surface); color: var(--ct-content-text); }
+
+  .ct-card { border: 1px solid color-mix(in srgb, currentColor 10%, transparent); border-radius: 16px;
+    background: var(--ct-surface); color: var(--ct-content-text); padding: 14px; width: 180px; font-size: 13px; }
+  .ct-card h3 { margin: 0 0 4px; font-size: 14px; font-family: inherit; }
+  .ct-card p { margin: 0; color: var(--text-muted); }
+
+  .ct-select { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 24px;
+    border: 1px solid var(--ct-gray-border); font-size: 14px; font-weight: 600; color: var(--ct-control-text); }
+
+  .ct-panel { display: flex; flex-direction: column; width: 170px; padding: 4px; border-radius: 24px;
+    border: 1px solid color-mix(in srgb, currentColor 24%, transparent); background: var(--ct-surface);
+    color: var(--ct-content-text); font-size: 13px; }
+  .ct-panel-item { padding: 8px; margin: 0 8px; border-radius: 16px; }
+  .ct-panel-item:hover { background: var(--ct-menu-hover); }
+
+  .ct-promo { display: flex; gap: 10px; padding: 10px; border-radius: 12px; max-width: 220px; font-size: 13px;
+    background: var(--ct-promo-bg); color: var(--ct-content-text); }
+  .ct-promo.vibrant { background: var(--ct-promo-bg-vibrant); }
+  .ct-promo.vibrant p { color: var(--ct-promo-message-vibrant); }
+  .ct-promo .ct-swatch { flex: none; width: 40px; height: 40px; border-radius: 8px;
+    background: color-mix(in srgb, currentColor 15%, transparent); }
+  .ct-promo h4 { margin: 0 0 2px; font-size: 13px; font-family: inherit; }
+  .ct-promo p { margin: 0; }
+
+  .ct-segctrl { display: inline-flex; gap: 2px; padding: 4px; border-radius: 29px; border: 1px solid var(--ct-gray-border); }
+
+  .ct-vpi { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 70px; padding: 6px;
+    border: 1px solid var(--ct-gray-border); border-radius: 12px; font-size: 12px; }
+  .ct-vpi.checked { border-width: 3px; }
+  .ct-vpi .ct-swatch { width: 100%; height: 36px; border-radius: 6px; background: color-mix(in srgb, currentColor 15%, transparent); }
+
+  .ct-reorder-dot { width: 40px; height: 2px; border-radius: 1px; background: var(--ct-accent); }
+
+  .ct-pagenav { display: flex; flex-direction: column; gap: 2px; width: 140px; }
+  .ct-pagenav button { font: inherit; font-size: 13px; padding: 8px 12px; border: none; border-radius: 9999px;
+    background: transparent; color: var(--ct-control-text); text-align: left; cursor: default; }
+  .ct-pagenav button.selected { background: var(--ct-accent); color: #ffffff; }
+  .ct-pagenav button:not(.selected):hover { background: var(--ct-menu-hover); }
+
+  .ct-box { display: flex; align-items: center; gap: 8px; padding: 10px; border: 1px solid var(--ct-box-border);
+    border-radius: 12px; width: 180px; font-size: 13px; }
+  .ct-box.button { border: none; cursor: default; }
+  .ct-box.button:hover { background: var(--ct-menu-hover); }
+
+  .ct-toolbox { display: flex; align-items: center; padding: 12px; border-radius: 10px; font-size: 13px;
+    color: var(--ct-content-text);
+    background: linear-gradient(96deg, color-mix(in srgb, var(--ct-toolbox-grad-a) 50%, transparent) 40%, color-mix(in srgb, var(--ct-toolbox-grad-b) 50%, transparent) 100%), var(--ct-toolbox-bg); }
+
+  .ct-table { border-collapse: collapse; font-size: 13px; }
+  .ct-table th { background: var(--ct-accent); color: #ffffff; padding: 4px 10px; text-align: left; font-family: inherit; font-weight: 600; }
+  .ct-table td { padding: 4px 10px; background: var(--ct-table-bg); }
+  .ct-table tr:nth-child(even) td { background: var(--ct-table-row-alt); }
+
+  .ct-toolbar { display: flex; align-items: center; padding: 6px; border-radius: 8px; background: var(--ct-toolbar-bg); }
+  .ct-field { flex: 1; padding: 6px 10px; border-radius: 9999px; border: 1px solid var(--ct-field-border);
+    background: var(--ct-toolbar-bg); color: var(--ct-field-text); font-size: 13px; }
+  .ct-field:focus-within { background: var(--ct-field-bg-focus); border-color: var(--ct-accent); }
+
+  .ct-tbb { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
+    border-radius: 24px; border: none; background: transparent; color: var(--ct-tbb-icon); position: relative; cursor: default; }
+  .ct-tbb.active { background: var(--ct-tbb-active); outline: 1px solid var(--ct-accent); outline-offset: -1px; }
+  .ct-tbb .ct-badge-dot { position: absolute; top: 2px; right: 2px; min-width: 14px; padding: 1px 2px;
+    border-radius: 9999px; background: var(--ct-tbb-badge); color: #ffffff; font-size: 9px; text-align: center; }
+
   /* A section heading doubles as the link to itself, so every section on a
      component page has a real URL a reader can copy or link to. Inherits
      the heading's own colour rather than looking like body prose that
@@ -660,6 +891,9 @@
     <a data-show="doc-token-api">Token API</a>
     <a data-show="doc-faq">FAQ</a>
     <a data-show="doc-changelog">Changelog</a>
+    <!-- Component Tests itself, and its written report as a sub-item, are
+         built at boot via appendNavItem, the same nested chevron pattern
+         as a component with sub-items (Panel Item under Panel). -->
   </div>
 </nav>
 
@@ -735,6 +969,174 @@
       <tbody id="generic-body"></tbody>
     </table>
     <p class="source-note" id="generic-note"></p>
+  </section>
+
+  <!-- COMPONENT TESTS: a hand-authored, static view (richIds), not a
+       fetched doc. Live component mockups built from real resolved
+       values, every one cited in COMPONENT-TESTS.md. This page shows the
+       shapes; that one carries the full value tables and findings. -->
+  <section id="view-component-tests" class="view">
+    <h1>Component Tests</h1>
+    <p class="meta">A test of whether this repo's own data is rich enough to build a real component, not just describe one. Inspired by <a href="https://nathanacurtis.substack.com/p/spec-driven-ui-component-development" target="_blank" rel="noopener">Nathan Curtis on spec-driven UI development</a>. Full value tables, citations, and every gap found: <a data-show="doc-component-tests">the written report</a>.</p>
+
+    <h2 class="section">Button</h2>
+    <p>5 visual types times 5 interaction states, the richest entry tested.</p>
+    <div class="ct-row">
+      <div class="ct-item"><button class="ct-btn primary">Primary</button><span class="ct-label">primary</span></div>
+      <div class="ct-item"><button class="ct-btn destructive">Delete</button><span class="ct-label">destructive</span></div>
+      <div class="ct-item"><button class="ct-btn muted">Dismiss</button><span class="ct-label">muted</span></div>
+      <div class="ct-item"><button class="ct-btn ghost">Cancel</button><span class="ct-label">ghost</span></div>
+    </div>
+    <ul class="ct-findings"><li>No typeface token anywhere, system font is deliberate, see the written report.</li></ul>
+
+    <h2 class="section">Checkbox and Radio</h2>
+    <p>The entire real checkbox token file is two tokens (margin, size). Radio has no token file at all. Both get their checked color from one real mechanism: <code>accent-color</code>, set once globally, the same token behind button's primary fill.</p>
+    <div class="ct-row">
+      <div class="ct-item"><input class="ct-checkbox" type="checkbox" checked><span class="ct-label">checkbox</span></div>
+      <div class="ct-item"><input class="ct-radio" type="radio" checked><span class="ct-label">radio</span></div>
+    </div>
+
+    <h2 class="section">Toggle</h2>
+    <p>Off and on, both real, scheme-sensitive states.</p>
+    <div class="ct-row">
+      <div class="ct-item"><span class="ct-toggle"><span class="ct-dot"></span></span><span class="ct-label">off</span></div>
+      <div class="ct-item"><span class="ct-toggle on"><span class="ct-dot"></span></span><span class="ct-label">on</span></div>
+    </div>
+
+    <h2 class="section">Badge</h2>
+    <p>Specified but ambiguous: real tokens for both states, no documented attribute that switches between them.</p>
+    <div class="ct-row">
+      <div class="ct-item"><span class="ct-badge">Default</span></div>
+      <div class="ct-item"><span class="ct-badge filled">Beta</span></div>
+    </div>
+
+    <h2 class="section">Link</h2>
+    <p>Real, rich tokens, but no <code>component-api/link.json</code> at all.</p>
+    <div class="ct-row"><a class="ct-link">A real link token, no component entry</a></div>
+
+    <h2 class="section">Chip</h2>
+    <p>The extreme case: no tag, no attributes, no tokens, nothing to build. Correct output for a contract with nothing in it: nothing.</p>
+
+    <h2 class="section">Message bar</h2>
+    <p>46 tokens, but only the icon chip's background actually varies by type. Bar background, text, and border stay identical across every type.</p>
+    <div class="ct-row">
+      <div class="ct-item">
+        <div class="ct-msgbar"><span class="ct-chip">i</span><div class="ct-body">Same bar color as every type below.</div></div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-msgbar critical"><span class="ct-chip">!</span><div class="ct-body">Only the chip color changed.</div></div>
+      </div>
+    </div>
+
+    <h2 class="section">Input (text)</h2>
+    <p>14 tokens shared across every <code>moz-input-*</code> variant.</p>
+    <div class="ct-row"><input class="ct-input" placeholder="Display name"></div>
+
+    <h2 class="section">Card</h2>
+    <p>30 tokens, including a documented Figma gap: its border color literally can't be expressed in Figma, per the token's own data.</p>
+    <div class="ct-row">
+      <div class="ct-card"><h3>Sync history</h3><p>Bookmarks synced 2 minutes ago.</p></div>
+    </div>
+
+    <h2 class="section">Select</h2>
+    <p>Two real, different components behind one id: a plain native <code>&lt;select&gt;</code>, or a custom panel-list combo, picked by whether any option has an icon, a fact stated in the component's own description.</p>
+    <div class="ct-row">
+      <select class="ct-select"><option>Native select</option></select>
+    </div>
+
+    <h2 class="section">Panel list and panel item</h2>
+    <p>Closes a loop from Select above. One color here is a cited fact, not a guess: a badge dot's own default literally names the real accent variable.</p>
+    <div class="ct-row">
+      <div class="ct-panel">
+        <div class="ct-panel-item">Open in new tab</div>
+        <div class="ct-panel-item">Bookmark page</div>
+      </div>
+    </div>
+
+    <h2 class="section">Promo</h2>
+    <p><code>vibrant</code> recolors the background and the message text, but NOT the heading, an asymmetric split.</p>
+    <div class="ct-row">
+      <div class="ct-promo"><div class="ct-swatch"></div><div><h4>Try tab groups</h4><p>Default type.</p></div></div>
+      <div class="ct-promo vibrant"><div class="ct-swatch"></div><div><h4>Try tab groups</h4><p>Vibrant: message recolored, heading isn't.</p></div></div>
+    </div>
+
+    <h2 class="section">Segmented control</h2>
+    <p>4 tokens, the simplest molecule tested. Each item is literally a <code>moz-button</code>, toggling between <code>primary</code> and <code>ghost</code>, a cited fact.</p>
+    <div class="ct-row">
+      <div class="ct-segctrl">
+        <button class="ct-btn ghost" style="padding: 6px 14px; font-size: 13px;">List</button>
+        <button class="ct-btn primary" style="padding: 6px 14px; font-size: 13px;">Grid</button>
+      </div>
+    </div>
+
+    <h2 class="section">Visual picker item</h2>
+    <p>Checking an item changes only its border width (1px to 3px), never its color.</p>
+    <div class="ct-row">
+      <div class="ct-vpi"><div class="ct-swatch"></div><span>Light</span></div>
+      <div class="ct-vpi checked"><div class="ct-swatch"></div><span>Dark</span></div>
+    </div>
+
+    <h2 class="section">Reorderable list</h2>
+    <p>3 tokens, 1 color. Only the drop-position indicator has tokens at all, the same real accent used everywhere else.</p>
+    <div class="ct-row"><span class="ct-reorder-dot"></span></div>
+
+    <h2 class="section">Page nav</h2>
+    <p>Nova's biggest redesign found in this test: the old 4px indicator bar is explicitly zeroed out and replaced with a solid pill fill.</p>
+    <div class="ct-row">
+      <nav class="ct-pagenav">
+        <button>General</button>
+        <button class="selected">Privacy &amp; Security</button>
+        <button>Sync</button>
+      </nav>
+    </div>
+
+    <h2 class="section">Fieldset</h2>
+    <p>Zero tokens, zero <code>cssProperties</code>, the same extreme as Chip, but real structure composing checkbox and badge instead.</p>
+    <div class="ct-row">
+      <div class="ct-item"><span class="ct-badge filled" style="margin-bottom: 4px;">Beta</span></div>
+      <div class="ct-item"><input class="ct-checkbox" type="checkbox"><span class="ct-label">a grouped checkbox</span></div>
+    </div>
+
+    <h2 class="section">Box item, box button, box link</h2>
+    <p>Three ids split one real file by dotted-path segment. The button segment is a direct alias into the same color family panel-item above could only assume.</p>
+    <div class="ct-row">
+      <div class="ct-box">Firefox Account</div>
+      <button class="ct-box button">Manage extensions</button>
+    </div>
+
+    <h2 class="section">Infobar</h2>
+    <p>component-api says it outright: this literally extends message-bar, plus two real overrides.</p>
+    <div class="ct-row">
+      <div class="ct-msgbar" style="max-width: 260px;"><span class="ct-chip">i</span><div class="ct-body">example.com wants your camera.</div></div>
+    </div>
+
+    <h2 class="section">Toolbox</h2>
+    <p>The real window-chrome gradient, explicitly commented "only used for Nova" and "cannot be expressed in Figma."</p>
+    <div class="ct-row"><div class="ct-toolbox">Firefox</div></div>
+
+    <h2 class="section">Table</h2>
+    <p>Real tokens, zero component-api entry, the inverse of Link.</p>
+    <div class="ct-row">
+      <table class="ct-table">
+        <tr><th>Name</th><th>Status</th></tr>
+        <tr><td>Bookmarks</td><td>Synced</td></tr>
+        <tr><td>History</td><td>Synced</td></tr>
+      </table>
+    </div>
+
+    <h2 class="section">Toolbar</h2>
+    <p>The url field's text has its own violet tint, not the plain gray every other component in this test uses.</p>
+    <div class="ct-row">
+      <div class="ct-toolbar" style="width: 220px;"><div class="ct-field" tabindex="0">example.com</div></div>
+    </div>
+
+    <h2 class="section">Toolbar button</h2>
+    <p>Icon color never changes between idle, hover, and active, only the background and an inset outline move.</p>
+    <div class="ct-row">
+      <button class="ct-tbb" aria-label="Back">&#8592;</button>
+      <button class="ct-tbb active" aria-label="Forward">&#8594;</button>
+      <button class="ct-tbb" aria-label="Notifications">&#9679;<span class="ct-badge-dot">3</span></button>
+    </div>
   </section>
 
 </main>
@@ -1060,7 +1462,12 @@
   // and technically present but invisible.
   function expandNavTo(id) {
     let parentId = null;
-    if (isTokenId(id)) {
+    // Component Tests' own nested child isn't in DATA (it's a doc, not a
+    // component), so it needs its own case here, same idea as every
+    // DATA-driven parent/child pair below.
+    if (id === "doc-component-tests") {
+      parentId = "component-tests";
+    } else if (isTokenId(id)) {
       // tokens/color/gray sits under tokens/color; tokens/color itself is
       // already a top-level entry with nothing to expand.
       const parts = id.split("/");
@@ -1077,8 +1484,9 @@
     if (row && row.classList.contains("nav-parent-row")) row.classList.add("expanded");
   }
 
-  // Hand-written sections, if any ever get added back. Empty for now.
-  const richIds = new Set([]);
+  // Static, hand-authored views, shown as-is rather than fetched or built
+  // from DATA (see view-component-tests).
+  const richIds = new Set(["component-tests"]);
   // Every real component in the inventory now loads live from
   // component-api/ (all 57 have a file, confirmed) plus guidance-api/
   // and token-api/ when those exist for a given id (most don't yet, those
@@ -1380,6 +1788,7 @@
     "doc-readme": { title: "Overview", file: "README.md" },
     "doc-faq": { title: "FAQ", file: "FAQ.md" },
     "doc-changelog": { title: "Changelog", file: "CHANGELOG.md" },
+    "doc-component-tests": { title: "Component Tests", file: "COMPONENT-TESTS.md" },
   };
   const docHtmlCache = {};
 
@@ -2304,6 +2713,10 @@
     decorateSections(document.getElementById("view-home"), null, "h3.table-group, h2.section");
   }
 
+  function decorateComponentTestsSections() {
+    decorateSections(document.getElementById("view-component-tests"), null, "h2.section");
+  }
+
   // The rail only earns its space once a page has enough sections to be
   // worth jumping between; below that it is a list of one or two things
   // already on screen. Sections with no countable rows (Description,
@@ -2633,6 +3046,7 @@
       pending = loadComponentPage(id, { inPlace });
     } else if (richIds.has(id)) {
       document.getElementById("view-" + id).classList.add("active");
+      if (id === "component-tests") decorateComponentTestsSections();
     } else {
       const d = DATA.find(x => x.id === id);
       if (d) {
@@ -2692,9 +3106,24 @@
   }
 
   wireNavLink(document.querySelector('#nav a[data-show="home"]'), "home");
-  Object.keys(DOC_FILES).forEach(id => {
-    wireNavLink(document.querySelector(`#nav a[data-show="${id}"]`), id);
+  // Not every id here has its own top-level nav link: doc-component-tests
+  // is built below as component-tests' own nested child instead, so this
+  // skips rather than crashing on null for ids with no plain top-level <a>.
+  richIds.forEach(id => {
+    const a = document.querySelector(`#nav a[data-show="${id}"]`);
+    if (a) wireNavLink(a, id);
   });
+  Object.keys(DOC_FILES).forEach(id => {
+    const a = document.querySelector(`#nav a[data-show="${id}"]`);
+    if (a) wireNavLink(a, id);
+  });
+  // Component Tests gets the same nested chevron treatment as a component
+  // with real sub-items (Panel Item under Panel), its written report as
+  // the one child. Built here, after the two loops above, so they don't
+  // also try (and double-wire) a child <a> that doesn't exist yet.
+  appendNavItem(node => document.getElementById("nav-scroll").appendChild(node),
+    { id: "component-tests", name: "Component Tests" },
+    [{ id: "doc-component-tests", name: "Written report" }]);
   // Static prose can link to a route too; without this a content link is a
   // full page load rather than an SPA move.
   document.querySelectorAll("a[data-show]:not(#nav a)").forEach(a => wireNavLink(a, a.dataset.show));

@@ -6,5 +6,8 @@
   "donts": [
     { "text": "Don't expect removing this element from the DOM to release its listeners, there's no disconnectedCallback, only a manually-invoked destroy() that removes the pref observer and CustomizableUI listener." },
     { "text": "Don't mutate tab or tab-group DOM directly and expect allTabs, openTabs, visibleTabs, or ariaFocusableItems to reflect it immediately, these are memoized fields only invalidated by specific custom events like TabGroupCreate, TabGroupRemoved, SplitViewCreated, and SplitViewRemoved." }
+  ],
+  "behavior": [
+    { "text": "Several events tabstrip reacts to aren't dispatched by tabs.mjs itself: TabGroupCreate/TabGroupRemoved come from tabbrowser.js, SplitViewCreated/SplitViewRemoved come from tabbrowser.js too, and TabGroupExpand/TabGroupCollapse come from tab-group; tabstrip only listens, so rebuilding it standalone means also replicating those other dispatchers, not just this one file." }
   ]
 }

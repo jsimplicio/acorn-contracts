@@ -6,5 +6,8 @@
   "donts": [
     { "text": "Don't assign to .value expecting only display text to change, the setter always calls setValue(val, {allowTrim:true}), which unconditionally sets valueIsTyped to false and nulls _resultForCurrentValue, disassociating the input from whatever result was previously selected." },
     { "text": "Don't call setURI() on anything but the address bar instance, it throws \"Cannot set URI for UrlbarInput that is not an address bar\" when #isAddressbar is false, it's a hard runtime constraint rather than a silent no-op." }
+  ],
+  "behavior": [
+    { "text": "pageproxystate is the real gate on autofill and search-mode behavior: \"valid\" means the displayed value still matches the loaded page URL, and it flips to \"invalid\" the moment the user starts typing or searching." }
   ]
 }

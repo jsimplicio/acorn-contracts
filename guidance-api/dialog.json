@@ -6,5 +6,8 @@
   "donts": [
     { "text": "Don't call event.preventDefault() on a keypress expecting it to block the accept button from firing on Enter, _hitEnter() runs unconditionally for Return while cancelDialog() on Escape explicitly checks `!event.defaultPrevented` first, so the two keys aren't handled symmetrically." },
     { "text": "Don't set extra1-is-secondary expecting it to reorder buttons on every platform, attributeChangedCallback only moves the cancel/extra1 buttons when AppConstants.XP_UNIX is true, since Windows and macOS already bake the intended order into a separate _markup button-box string." }
+  ],
+  "behavior": [
+    { "text": "Closing is two real stages: activating accept/cancel/extra1/extra2/disclosure fires that button's own cancelable event first, and only if nothing calls preventDefault() does dialogclosing fire, immediately before the actual window.close()." }
   ]
 }

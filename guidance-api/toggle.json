@@ -5,5 +5,8 @@
   ],
   "donts": [
     { "text": "Don't expect the \"toggle\" event to fire synchronously on click, handleClick() dispatches it via dispatchOnUpdateComplete(), which awaits this.updateComplete first, so it fires only after Lit's update cycle for that click has finished." }
+  ],
+  "behavior": [
+    { "text": "The \"toggle\" event is dispatched asynchronously, after Lit's update cycle for the click finishes (handleClick() awaits updateComplete first), not synchronously on click." }
   ]
 }

@@ -7,5 +7,8 @@
   "donts": [
     { "text": "Don't try to control selected from outside to force a switch, it's managed by the parent moz-page-nav based on currentView, not a real standalone toggle." },
     { "text": "Don't set both href and supportPage expecting one to layer on the other, href only takes effect when supportPage isn't set." }
+  ],
+  "behavior": [
+    { "text": "Renders as a tab-role button by default, or as a link (a plain anchor for href, a moz-support-link anchor for supportPage) the moment either is set, two real different render paths, not a style variant." }
   ]
 }

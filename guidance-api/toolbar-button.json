@@ -6,5 +6,8 @@
   ],
   "donts": [
     { "text": "Don't add arbitrary child elements to a non-badged toolbarbutton before it first renders, render() only tolerates observes/template/menupopup/panel/tooltip/box children and returns early on anything else, leaving the icon and label fragment never created." }
+  ],
+  "behavior": [
+    { "text": "A toolbarbutton placed inside a <panel> that hasn't opened yet stays unrendered: connectedCallback defers render() until the panel gets hasbeenopened, set by a shared popupshowing listener the first time that panel opens, not at connect time." }
   ]
 }

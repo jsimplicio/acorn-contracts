@@ -5,5 +5,8 @@
   ],
   "donts": [
     { "text": "Don't toggle disabled off on the fieldset expecting individually-disabled children to stay disabled, #updateChildDisabledState() runs querySelectorAll(\"*\") over every descendant exposing a disabled or parentDisabled property and unconditionally clears/sets disabled on all of them with no per-child state tracking." }
+  ],
+  "behavior": [
+    { "text": "Setting inputsRole moves role plus the accessible name, description, and orientation off the outer fieldset onto the #inputs container instead, so the slotted inputs present collectively as e.g. a radiogroup; the outer fieldset gets role=\"presentation\" and loses those attributes." }
   ]
 }

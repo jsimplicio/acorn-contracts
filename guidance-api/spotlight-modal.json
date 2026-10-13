@@ -7,5 +7,8 @@
   "donts": [
     { "text": "Don't call Spotlight.close(window) from a window other than the one that opened the dialog expecting it to close, close() only acts when no window is passed or when window strictly matches the stored _dialogWindow." },
     { "text": "Don't expect IMPRESSION/DISMISS telemetry to fire when message.content.metrics === \"block\", sendUserEventTelemetry() bails out immediately and dispatchCFRAction becomes a no-op for that message." }
+  ],
+  "behavior": [
+    { "text": "Spotlight has one open dialog for the whole browser, not one per window: _dialog/_dialogWindow are module-level singleton state, so a second window calling showSpotlightDialog() while any window already has one open just returns false, except the lastWindowClose trigger, which force-replaces and aborts whatever is already open first." }
   ]
 }

@@ -7,5 +7,8 @@
   "donts": [
     { "text": "Don't use this component outside a real moz-segmented-control parent, size and parentDisabled are explicitly set by that parent, there's no standalone usage documented." },
     { "text": "Don't expect accessKey to show a visible hint on its own, it wires a real keyboard shortcut but any visible indicator is the parent's concern, not this item's." }
+  ],
+  "behavior": [
+    { "text": "Checked state isn't a separate visual toggle, it's implemented by swapping the underlying moz-button's own type attribute between \"primary\" (checked) and \"ghost\" (unchecked), the real selected look comes entirely from button's existing type styling." }
   ]
 }

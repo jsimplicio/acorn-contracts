@@ -7,5 +7,8 @@
   "donts": [
     { "text": "Don't treat hidden as a plain style toggle, its own setter lazily initializes the shadow DOM content the first time the panel is shown, so toggling it does real setup work." },
     { "text": "Don't hand-roll side or position math for an arrow panel, connectedCallback already defaults it for you unless you explicitly set your own values first." }
+  ],
+  "behavior": [
+    { "text": "type=\"arrow\" is the sole gate for arrow-panel behavior: it's the only value that gets default flip/side/position/consumeoutsideclicks values, automatic side recalculation, and the popupopen/animate lifecycle; any other type value renders as a plain popup with none of that." }
   ]
 }

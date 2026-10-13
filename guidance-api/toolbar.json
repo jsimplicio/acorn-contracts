@@ -6,5 +6,8 @@
   ],
   "donts": [
     { "text": "Don't look for a distinct \"toolbar\" implementation separate from \"toolbox\", there isn't one in this file, it's the same underlying event delegation either way." }
+  ],
+  "behavior": [
+    { "text": "A <toolbar> has no interactive implementation of its own; navigator-toolbox.js delegates all real event handling (popupshowing, command) from the outer #navigator-toolbox container, the same mechanism toolbox itself uses." }
   ]
 }

@@ -6,5 +6,8 @@
   "donts": [
     { "text": "Don't insert a notification-message element outside the stack a NotificationBox created, its close()/control getter walks up via this.closest(\".notificationbox-stack\")._notificationBox, a back-reference only set inside NotificationBox's own stack getter, so a manually-placed notification throws when closed." },
     { "text": "Don't give a button a popup id and expect a graceful no-op if it's wrong, setButtons calls document.getElementById(popup).openPopup(...) directly with no null check, so a missing popup id throws at click time." }
+  ],
+  "behavior": [
+    { "text": "Inherits message-bar's own two-stage dismiss: the close button fires the cancelable \"message-bar:user-dismissed\" first, and only if nothing prevents it does the bar remove itself; \"message-bar:close\" fires separately from disconnectedCallback on any removal, dismissed or not." }
   ]
 }

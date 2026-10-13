@@ -7,5 +7,8 @@
   "donts": [
     { "text": "Don't call endTour() expecting the same FeatureCallout instance to be fully reusable afterward, it nulls this.pref via teardownFeatureTourProgress(), but setupFeatureTourProgress() (which registers the pref observer) only ever runs from the constructor, so tour-progress tracking never comes back on that instance." },
     { "text": "Don't assume a content (div-based) callout repositions itself when its scroll container scrolls, _addPositionListeners() only wires up window \"resize\" and popup \"toggle\" events to call _positionCallout(), not scroll on an ancestor." }
+  ],
+  "behavior": [
+    { "text": "Renders into one of two real, differently-shaped containers, not one implementation with a style option: a XUL <panel> when a panel_position is configured and MozXULElement exists on the window, otherwise an absolutely/relatively positioned <div>; _createContainer() picks based on which is actually present." }
   ]
 }

@@ -6,5 +6,8 @@
   "donts": [
     { "text": "Don't call showSubView or goBack before the panel has ever been opened, openViews is only initialized inside connect(), so calling either beforehand throws a raw TypeError instead of the intended \"Cannot show a subview in a closed panel\" console error." },
     { "text": "Don't assume a second showSubView/goBack call fired mid-transition queues up, both check \"if (!prevPanelView.active) return\" with no error or logging, so a call arriving while a transition is already in flight is just silently dropped." }
+  ],
+  "behavior": [
+    { "text": "showSubView's own JSDoc says it plainly: the public method \"returns synchronously, but may eventually log an error if showing the subview fails\". It calls a private async #showSubView and discards the returned promise via .catch(console.error), so a caller gets no return value to await and no thrown error, a failed transition surfaces only as a console.error sometime later (confirmed in PanelMultiView.sys.mjs at commit d8b0cd3f8ed35b6c7094e274d180ed3ef5e7e637)." }
   ]
 }

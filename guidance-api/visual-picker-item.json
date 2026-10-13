@@ -7,5 +7,8 @@
   "donts": [
     { "text": "Don't set title expecting a normal HTML tooltip, it's mapped onto the inner shadow-DOM item and removed from the host element itself." },
     { "text": "Don't manage itemTabIndex yourself, it's a roving-tabindex pattern the parent moz-visual-picker controls so only one item is ever focusable at a time; setting it manually will fight the parent's own management." }
+  ],
+  "behavior": [
+    { "text": "The item isn't backed by a native input element; selection manually dispatches real \"input\" and \"change\" events (bubbling, composed) itself, rather than relying on native input semantics." }
   ]
 }

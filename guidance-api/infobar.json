@@ -9,5 +9,11 @@
   ],
   "behavior": [
     { "text": "Inherits message-bar's own two-stage dismiss: the close button fires the cancelable \"message-bar:user-dismissed\" first, and only if nothing prevents it does the bar remove itself; \"message-bar:close\" fires separately from disconnectedCallback on any removal, dismissed or not." }
+  ],
+  "reference": [
+    {
+      "text": "Microsoft's InfoBar control, the same kind of inline notification, ties its severity to specific real criteria: Error for a problem that's occurred, Warning for something that might cause one later, Success for a completed long-running task, Default for general information. It also explicitly recommends against this kind of control for time-sensitive alerts or for confirming a user action, a dialog is the recommended control for those instead.",
+      "source": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/infobar"
+    }
   ]
 }

@@ -30,6 +30,11 @@
       "type": "array",
       "description": "Optional. Static facts about which props/attributes/slots are only meaningful together, mutually exclusive, or gate one another, a discriminated union in the component's own API surface. Different axis from behavior: behavior is about WHEN something happens at runtime, configuration is about which combination of props is even valid or renders differently in the first place (card.expanded only means anything when type=\"accordion\"; a component's supportPage attribute and its support-link slot are mutually gated). Not a restatement of token-api's own layout/spacing values, this is about the component's API shape, not its visual spacing. May be absent entirely; most entries won't have one yet.",
       "items": { "$ref": "#/$defs/entry" }
+    },
+    "reference": {
+      "type": "array",
+      "description": "Optional, and categorically different from every other field here: an external, industry-convention fact (a named UX pattern, an established design system's own guidance for the equivalent control), not a verified fact about Firefox's own real implementation. Every other field in this schema is grounded in someone having read Firefox's actual source; a reference entry is grounded in a real, cited, external document instead, and must never be phrased as if it describes what Firefox's code does. Each entry requires a real source URL, unlike dos/donts/behavior/configuration where the citation lives inline in the prose. Used sparingly, only where a genuinely well-established, specifically-relevant convention exists (an accessibility interaction pattern from the W3C ARIA Authoring Practices Guide, another real design system's own written guidance for the equivalent control), not generic blog-post UX advice.",
+      "items": { "$ref": "#/$defs/referenceEntry" }
     }
   },
   "$defs": {
@@ -41,6 +46,22 @@
         "text": {
           "type": "string",
           "description": "One sentence, citing something concrete and specific to this component's real implementation (a method, property, or lifecycle behavior), not generic UX advice."
+        }
+      }
+    },
+    "referenceEntry": {
+      "type": "object",
+      "required": ["text", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The external convention or guidance, stated as belonging to that source, not as a fact about Firefox's own implementation."
+        },
+        "source": {
+          "type": "string",
+          "format": "uri",
+          "description": "A real, specific URL to the document this is quoting or paraphrasing. Required, this is the only field in the schema whose factual basis is unverifiable without it."
         }
       }
     }

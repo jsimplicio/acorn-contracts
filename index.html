@@ -826,6 +826,11 @@
   .dodont ul { padding-left: 18px; margin: 0; }
   /* Neutral on purpose, no ok/err color: a fact, not advice. */
   .behavior-list { padding-left: 18px; margin: 0 0 20px; }
+  /* Visually distinct from behavior/configuration on purpose: this is the
+     one field whose claim isn't a verified Firefox fact, the border marks
+     it as "from somewhere else" at a glance, not just in the prose. */
+  .reference-list { padding-left: 18px; margin: 0 0 20px; border-left: 3px solid var(--border); }
+  .reference-list li { padding-left: 4px; }
 
 
   .source-note { background: var(--note-bg); border: 1px solid var(--note-border); color: var(--note-text); padding: 12px 16px; border-radius: 6px; font-size: 13.5px; margin-top: 16px; }
@@ -1557,10 +1562,11 @@
   ].join("|"), "g");
 
   // The identifier shapes above are deliberately broad, which catches two
-  // kinds of real prose. Audited against every entry: these are the only
-  // live false positives, the rest of the 276 camelCase and 48 dotted
-  // matches are genuine identifiers.
-  const NOT_CODE = new Set(["macOS", "iOS", "iPadOS", "JavaScript", "TypeScript", "GitHub", "YouTube"]);
+  // kinds of real prose. Audited against every entry at the time each name
+  // was added (276 camelCase and 48 dotted matches at the original audit):
+  // these are the real false positives found, everything else that matches
+  // is a genuine identifier.
+  const NOT_CODE = new Set(["macOS", "iOS", "iPadOS", "JavaScript", "TypeScript", "GitHub", "YouTube", "PatternFly"]);
   const DOMAIN_RE = /\.(?:org|com|net|io|dev)$/;
 
   function formatProse(value) {
@@ -2972,6 +2978,10 @@
     if (guidance && guidance.configuration && guidance.configuration.length) {
       html += `<h2 class="section">Configuration</h2><ul class="behavior-list">` +
         guidance.configuration.map(c => `<li>${formatProse(c.text)}</li>`).join("") + `</ul>`;
+    }
+    if (guidance && guidance.reference && guidance.reference.length) {
+      html += `<h2 class="section">Reference</h2><p class="meta">External industry convention, not a verified fact about Firefox's own implementation.</p><ul class="reference-list">` +
+        guidance.reference.map(r => `<li>${formatProse(r.text)} <a href="${escapeHtml(r.source)}" target="_blank" rel="noopener noreferrer">Source</a></li>`).join("") + `</ul>`;
     }
     if (guidance && ((guidance.dos && guidance.dos.length) || (guidance.donts && guidance.donts.length))) {
       html += `<h2 class="section">Do's and don'ts</h2><div class="dodont">`;

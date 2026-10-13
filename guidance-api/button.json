@@ -7,5 +7,11 @@
   "donts": [
     { "text": "Don't set type=\"split\" without also setting menuId, the chevron renders but has nothing to open." },
     { "text": "Don't expect a plain title HTML attribute to behave like a normal tooltip from outside, the component's own JSDoc notes it is used inside shadow DOM and mapped internally, not a typical reflected attribute." }
+  ],
+  "reference": [
+    {
+      "text": "PatternFly's button guidance: \"Try to limit primary buttons to one per page\" to keep a clear visual hierarchy, and reserves a danger-styled button exclusively \"for actions a user can take that are potentially destructive or difficult/impossible to undo, like deleting or removing user data\", calling it deliberately \"the most prominent of all the button options\".",
+      "source": "https://www.patternfly.org/components/button/design-guidelines/"
+    }
   ]
 }

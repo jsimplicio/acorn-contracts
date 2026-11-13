@@ -41,6 +41,10 @@
           "$type": "dimension"
         }
       }
+    },
+    "size": {
+      "$value": "14px",
+      "$type": "dimension"
     }
   },
   "padding": {
@@ -82,11 +86,11 @@
   "icon": {
     "fill": {
       "@base": {
-        "$value": "{color.gray.70}",
+        "$value": "color-mix(in srgb, currentColor 69%, transparent)",
         "$extensions": {
           "org.mozilla.themes": {
-            "light": "{color.gray.70}",
-            "dark": "{color.gray.0}",
+            "light": "color-mix(in srgb, currentColor 69%, transparent)",
+            "dark": "currentColor",
             "nativeTheme": "currentColor",
             "forcedColors": "{button.text.color.@base}"
           }
@@ -112,6 +116,19 @@
           "org.mozilla.themes": {
             "default": "{toolbarbutton.icon.fill.@base}",
             "forcedColors": "{button.text.color.ghost.active}"
+          },
+          "org.mozilla.meta": {
+            "ignoreFigma": "TODO: Fix Figma tokens sync script issues, see bug 2072751"
+          }
+        },
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "{toolbarbutton.icon.fill.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{toolbarbutton.icon.fill.@base}",
+            "forcedColors": "{button.text.color.disabled}"
           },
           "org.mozilla.meta": {
             "ignoreFigma": "TODO: Fix Figma tokens sync script issues, see bug 2072751"
@@ -151,7 +168,8 @@
       "$extensions": {
         "org.mozilla.themes": {
           "default": "{button.opacity.disabled}",
-          "prefersContrast": 0.3
+          "prefersContrast": 0.3,
+          "forcedColors": "{button.opacity.disabled}"
         }
       },
       "$type": "number"
@@ -264,6 +282,16 @@
           "org.mozilla.themes": {
             "default": "{toolbarbutton.outline.color.active}",
             "forcedColors": "SelectedItem"
+          }
+        },
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "{toolbarbutton.outline.color.@base}",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "{toolbarbutton.outline.color.@base}",
+            "forcedColors": "{button.border.color.disabled}"
           }
         },
         "$type": "color"

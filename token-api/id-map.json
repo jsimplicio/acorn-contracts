@@ -65,6 +65,14 @@
     "checkbox": [
       "checkbox"
     ],
+    "dialog": {
+      "own": [
+        "dialog"
+      ],
+      "resolve": [
+        "popup"
+      ]
+    },
     "icon-button": {
       "own": [
         {

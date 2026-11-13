@@ -42,6 +42,21 @@
       }
     }
   },
+  "padding": {
+    "block": {
+      "$value": "{panel.padding.block}",
+      "$extensions": {
+        "org.mozilla.themes": {
+          "default": "{panel.padding.block}",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma",
+            "value": "{space.small}"
+          }
+        }
+      },
+      "$type": "dimension"
+    }
+  },
   "text": {
     "color": {
       "$value": "{text.color.@base}",

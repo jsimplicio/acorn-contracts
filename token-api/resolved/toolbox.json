@@ -11,32 +11,32 @@
         "color.white.@base"
       ]
     },
-    "toolbox.background.color.gradient-leading": {
-      "value": "#eaddff",
-      "type": "color",
-      "chain": [
-        "color.violet.10"
-      ]
-    },
-    "toolbox.background.color.gradient-trailing": {
-      "value": "#ffdbc5",
-      "type": "color",
-      "chain": [
-        "color.orange.10"
-      ]
-    },
     "toolbox.background.color.inactive": {
       "value": "transparent",
       "type": "color",
       "chain": []
     },
-    "toolbox.background.gradient": {
-      "value": "linear-gradient(96deg, color-mix({toolbox.background.color.gradient-leading} 50%, transparent) 39.84%, color-mix({toolbox.background.color.gradient-trailing} 50%, transparent) 101.72%)",
+    "toolbox.background.gradient.@base": {
+      "value": "linear-gradient(96deg, color-mix({toolbox.background.gradient.leading} 50%, transparent) 39.84%, color-mix({toolbox.background.gradient.trailing} 50%, transparent) 101.72%)",
       "type": null,
       "chain": [],
       "unresolvedRefs": [
-        "toolbox.background.color.gradient-leading",
-        "toolbox.background.color.gradient-trailing"
+        "toolbox.background.gradient.leading",
+        "toolbox.background.gradient.trailing"
+      ]
+    },
+    "toolbox.background.gradient.leading": {
+      "value": "#eaddff",
+      "type": null,
+      "chain": [
+        "color.violet.10"
+      ]
+    },
+    "toolbox.background.gradient.trailing": {
+      "value": "#ffdbc5",
+      "type": null,
+      "chain": [
+        "color.orange.10"
       ]
     },
     "toolbox.text.color.@base": {

@@ -48,15 +48,6 @@
           }
         },
         "$type": "color"
-      },
-      "pinned": {
-        "$value": "unset",
-        "$type": "color",
-        "$extensions": {
-          "org.mozilla.meta": {
-            "override": true
-          }
-        }
       }
     },
     "width": {

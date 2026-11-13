@@ -10,11 +10,11 @@
       "toolkit/content/widgets/* (components, one level deep)"
     ],
     "ref_requested": "(default branch)",
-    "commit": "23fd2ecbdb459f63606a188fdea2d4dbee05507c",
-    "commit_date": "2026-10-08T14:13:08Z",
+    "commit": "5d45f3e29ea97028031d29a53666028d6305bf93",
+    "commit_date": "2026-11-10T14:39:29Z",
     "fetch_method": "github-sparse-clone:https://github.com/mozilla-firefox/firefox"
   },
-  "generated_at": "2026-10-08T15:29:56.904402+00:00",
+  "generated_at": "2026-11-10T17:22:24.910511+00:00",
   "files_converted": [
     "base/background.tokens.json",
     "base/border.nova.tokens.json",
@@ -25,6 +25,7 @@
     "base/color.tokens.json",
     "base/focus.tokens.json",
     "base/font.tokens.json",
+    "base/motion.tokens.json",
     "base/size.tokens.json",
     "base/space.tokens.json",
     "base/text.tokens.json",
@@ -33,6 +34,7 @@
     "components/card.nova.tokens.json",
     "components/card.tokens.json",
     "components/checkbox.tokens.json",
+    "components/dialog.tokens.json",
     "components/icon.nova.tokens.json",
     "components/icon.tokens.json",
     "components/info-bar.tokens.json",
@@ -97,6 +99,7 @@
     "base/color.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
     "base/focus.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/focus.tokens.json",
     "base/font.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/font.tokens.json",
+    "base/motion.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/motion.tokens.json",
     "base/size.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/size.tokens.json",
     "base/space.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/space.tokens.json",
     "base/text.tokens.json": "toolkit/themes/shared/design-system/src/tokens/base/text.tokens.json",
@@ -105,6 +108,7 @@
     "components/card.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/card.nova.tokens.json",
     "components/card.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/card.tokens.json",
     "components/checkbox.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/checkbox.tokens.json",
+    "components/dialog.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/dialog.tokens.json",
     "components/icon.nova.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
     "components/icon.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
     "components/info-bar.tokens.json": "toolkit/themes/shared/design-system/src/tokens/components/info-bar.tokens.json",
@@ -159,15 +163,15 @@
     "components/panel-item.tokens.json": "toolkit/content/widgets/panel-list/panel-item.tokens.json",
     "components/panel-list.tokens.json": "toolkit/content/widgets/panel-list/panel-list.tokens.json"
   },
-  "leaf_token_total": 1169,
-  "theme_object_total": 409,
+  "leaf_token_total": 1185,
+  "theme_object_total": 408,
   "type_counts": {
-    "color": 837,
-    "dimension": 281,
+    "color": 833,
+    "dimension": 283,
     "fontWeight": 8,
     "number": 8
   },
-  "omitted_type_count": 35,
+  "omitted_type_count": 53,
   "omitted_type_examples": [
     {
       "path": "box-shadow.level-1",
@@ -188,6 +192,14 @@
     {
       "path": "focus.outline.@base",
       "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
+    },
+    {
+      "path": "motion.easing.emphasized",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "motion.easing.standard",
+      "reason": "ambiguous group path, no type rule matched"
     },
     {
       "path": "button.border.@base",
@@ -222,6 +234,10 @@
       "reason": "ambiguous group path, no type rule matched"
     },
     {
+      "path": "dialog.box.shadow",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
       "path": "input.border.@base",
       "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
     },
@@ -230,7 +246,59 @@
       "reason": "composite shadow (multiple comma-separated layers as a flat string, not decomposed into DTCG's shadow type)"
     },
     {
+      "path": "panel.motion.duration.enter",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "panel.motion.duration.exit",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "panel.motion.duration.fade",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "panel.motion.easing",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "panel.motion.scale",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "panel.motion.translate.y",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
       "path": "popup.box.shadow",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "sidebar.motion.duration.enter",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "sidebar.motion.duration.exit",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "sidebar.motion.easing",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "sidebar.panel.motion.duration.enter",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "sidebar.panel.motion.duration.exit",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "sidebar.panel.content.motion.duration.fade",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "sidebar.panel.content.motion.easing.fade",
       "reason": "ambiguous group path, no type rule matched"
     },
     {
@@ -238,7 +306,15 @@
       "reason": "composite border shorthand (width+style+color as a flat string, not decomposed into DTCG's {width,style,color} border type)"
     },
     {
-      "path": "toolbox.background.gradient",
+      "path": "toolbox.background.gradient.@base",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "toolbox.background.gradient.leading",
+      "reason": "ambiguous group path, no type rule matched"
+    },
+    {
+      "path": "toolbox.background.gradient.trailing",
       "reason": "ambiguous group path, no type rule matched"
     },
     {
@@ -516,19 +592,25 @@
       }
     },
     {
-      "path": "toolbox.background.color.gradient-leading",
+      "path": "toolbarbutton.icon.fill.disabled",
+      "keys": {
+        "ignoreFigma": "TODO: Fix Figma tokens sync script issues, see bug 2072751"
+      }
+    },
+    {
+      "path": "toolbox.background.gradient.@base",
       "keys": {
         "override": true
       }
     },
     {
-      "path": "toolbox.background.color.gradient-trailing",
+      "path": "toolbox.background.gradient.leading",
       "keys": {
         "override": true
       }
     },
     {
-      "path": "toolbox.background.gradient",
+      "path": "toolbox.background.gradient.trailing",
       "keys": {
         "override": true
       }
@@ -539,12 +621,6 @@
         "nova": {
           "value": "currentColor"
         }
-      }
-    },
-    {
-      "path": "tab.background.color.pinned",
-      "keys": {
-        "override": true
       }
     },
     {

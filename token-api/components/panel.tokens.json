@@ -17,18 +17,11 @@
   },
   "border": {
     "color": {
-      "$value": "rgb(240, 240, 244)",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "light": "rgb(240, 240, 244)",
-          "dark": "rgb(82, 82, 94)",
-          "nativeTheme": "{border.color.deemphasized.@base}"
-        }
-      },
+      "$value": "{popup.border.color}",
       "$type": "color"
     },
     "radius": {
-      "$value": "{border.radius.medium}",
+      "$value": "{popup.border.radius}",
       "$type": "dimension"
     }
   },
@@ -61,6 +54,30 @@
       "color": {
         "$value": "inherit",
         "$type": "color"
+      }
+    }
+  },
+  "motion": {
+    "duration": {
+      "enter": {
+        "$value": "150ms"
+      },
+      "exit": {
+        "$value": "120ms"
+      },
+      "fade": {
+        "$value": "120ms"
+      }
+    },
+    "easing": {
+      "$value": "{motion.easing.emphasized}"
+    },
+    "scale": {
+      "$value": "0.96"
+    },
+    "translate": {
+      "y": {
+        "$value": "-4px"
       }
     }
   },

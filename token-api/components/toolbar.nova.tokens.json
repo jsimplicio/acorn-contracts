@@ -24,16 +24,6 @@
     },
     "background": {
       "color": {
-        "@base": {
-          "$value": "{toolbar.background.color}",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "nativeTheme": "light-dark(rgba(0, 0, 0, 0.05), {color.black.alpha.30})",
-              "default": "{toolbar.background.color}"
-            }
-          },
-          "$type": "color"
-        },
         "focus": {
           "$value": "{background.color.box.@base}",
           "$extensions": {

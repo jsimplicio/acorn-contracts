@@ -26,11 +26,6 @@
         "toolbarbutton.background.color.hover"
       ]
     },
-    "tab.background.color.pinned": {
-      "value": "unset",
-      "type": "color",
-      "chain": []
-    },
     "tab.background.color.selected": {
       "value": "#ffffff",
       "type": "color",

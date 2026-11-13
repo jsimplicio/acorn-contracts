@@ -6,11 +6,11 @@
     "Source is a direct Figma REST API pull (GET /v1/files/$FIGMA_FILE_KEY/variables/local), never Supernova, whose sync of this design system has known gaps elsewhere in this project family. See figma-variables-dump.json's own `_comment` for what was fetched and excluded."
   ],
   "counts": {
-    "yes_exact": 525,
+    "yes_exact": 529,
     "yes_reordered": 13,
-    "no_near_miss": 154,
-    "no_total_mismatch": 226,
-    "total": 918
+    "no_near_miss": 156,
+    "no_total_mismatch": 242,
+    "total": 940
   },
   "properties": {
     "--background-color-box": {
@@ -1939,6 +1939,31 @@
       "matchType": "exact",
       "matchedPath": "color/yellow/90"
     },
+    "--dialog-background-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "dialog/background/color"
+    },
+    "--dialog-border-color": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "dialog/border/color"
+    },
+    "--dialog-border-radius": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "dialog/border/radius"
+    },
+    "--dialog-box-shadow": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--dialog-padding": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "dialog/padding"
+    },
     "--dragover-tab-group-color": {
       "status": "no",
       "matchType": null,
@@ -2536,11 +2561,6 @@
       "matchType": null,
       "matchedPath": null
     },
-    "--message-bar-icon-container-padding-offset": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
     "--message-bar-icon-size": {
       "status": "yes",
       "matchType": "exact",
@@ -2582,6 +2602,16 @@
       "matchedPath": "message-bar/text/container/padding/block"
     },
     "--message-bar-text-content-gap": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--motion-easing-emphasized": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--motion-easing-standard": {
       "status": "no",
       "matchType": null,
       "matchedPath": null
@@ -2841,6 +2871,11 @@
       "matchType": null,
       "matchedPath": null
     },
+    "--panel-list-padding-block": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "panel/padding/block"
+    },
     "--panel-list-text-color": {
       "status": "no",
       "matchType": "near-miss",
@@ -2875,6 +2910,36 @@
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "panel-menuitem/padding/inline"
+    },
+    "--panel-motion-duration-enter": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-motion-duration-exit": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-motion-duration-fade": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-motion-easing": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-motion-scale": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--panel-motion-translate-y": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
     },
     "--panel-padding": {
       "status": "yes",
@@ -3176,6 +3241,41 @@
       "matchType": "near-miss",
       "matchedPath": "border/color"
     },
+    "--sidebar-motion-duration-enter": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--sidebar-motion-duration-exit": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--sidebar-motion-easing": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--sidebar-panel-content-motion-duration-fade": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--sidebar-panel-content-motion-easing-fade": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--sidebar-panel-motion-duration-enter": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
+    "--sidebar-panel-motion-duration-exit": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
     "--sidebar-text-color": {
       "status": "no",
       "matchType": "near-miss",
@@ -3330,11 +3430,6 @@
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "tab/background/color/hover"
-    },
-    "--tab-background-color-pinned": {
-      "status": "no",
-      "matchType": "near-miss",
-      "matchedPath": "tab/background/color"
     },
     "--tab-background-color-selected": {
       "status": "yes",
@@ -4308,6 +4403,11 @@
       "matchType": "near-miss",
       "matchedPath": "badge/padding/inline"
     },
+    "--toolbarbutton-badge-size": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
+    },
     "--toolbarbutton-border-radius": {
       "status": "yes",
       "matchType": "exact",
@@ -4333,6 +4433,11 @@
       "matchType": "near-miss",
       "matchedPath": "toolbarbutton/icon/fill/attention"
     },
+    "--toolbarbutton-icon-fill-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/icon/fill/disabled"
+    },
     "--toolbarbutton-icon-fill-hover": {
       "status": "yes",
       "matchType": "exact",
@@ -4357,6 +4462,11 @@
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "toolbarbutton/outline/color/active"
+    },
+    "--toolbarbutton-outline-color-disabled": {
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "toolbarbutton/outline/color/disabled"
     },
     "--toolbarbutton-outline-color-hover": {
       "status": "yes",
@@ -4418,16 +4528,6 @@
       "matchType": "near-miss",
       "matchedPath": "toolbox/background/color/inactive"
     },
-    "--toolbox-background-color-gradient-leading": {
-      "status": "yes",
-      "matchType": "exact",
-      "matchedPath": "toolbox/background/color/gradient-leading"
-    },
-    "--toolbox-background-color-gradient-trailing": {
-      "status": "yes",
-      "matchType": "exact",
-      "matchedPath": "toolbox/background/color/gradient-trailing"
-    },
     "--toolbox-background-color-inactive": {
       "status": "yes",
       "matchType": "exact",
@@ -4437,6 +4537,16 @@
       "status": "no",
       "matchType": null,
       "matchedPath": null
+    },
+    "--toolbox-background-gradient-leading": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toolbox/background/color/gradient-leading"
+    },
+    "--toolbox-background-gradient-trailing": {
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "toolbox/background/color/gradient-trailing"
     },
     "--toolbox-text-color": {
       "status": "yes",

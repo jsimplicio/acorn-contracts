@@ -76,6 +76,16 @@
       "selected": {
         "$value": "{toolbarbutton.outline.color.active}",
         "$type": "color"
+      },
+      "disabled": {
+        "$value": "transparent",
+        "$extensions": {
+          "org.mozilla.themes": {
+            "default": "transparent",
+            "forcedColors": "{button.border.color.disabled}"
+          }
+        },
+        "$type": "color"
       }
     },
     "offset": {

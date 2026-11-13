@@ -53,6 +53,38 @@
       "type": "color",
       "chain": []
     },
+    "panel.motion.duration.enter": {
+      "value": "150ms",
+      "type": null,
+      "chain": []
+    },
+    "panel.motion.duration.exit": {
+      "value": "120ms",
+      "type": null,
+      "chain": []
+    },
+    "panel.motion.duration.fade": {
+      "value": "120ms",
+      "type": null,
+      "chain": []
+    },
+    "panel.motion.easing": {
+      "value": "cubic-bezier(0.2, 0, 0, 1)",
+      "type": null,
+      "chain": [
+        "motion.easing.emphasized"
+      ]
+    },
+    "panel.motion.scale": {
+      "value": "0.96",
+      "type": null,
+      "chain": []
+    },
+    "panel.motion.translate.y": {
+      "value": "-4px",
+      "type": null,
+      "chain": []
+    },
     "panel.padding.@base": {
       "value": "16px",
       "type": "dimension",

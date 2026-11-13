@@ -332,19 +332,6 @@
             }
           },
           "$type": "dimension"
-        },
-        "offset": {
-          "$value": "0px",
-          "$extensions": {
-            "org.mozilla.themes": {
-              "default": "0px",
-              "nova": {
-                "comment": "There is no equivalent value for this token in Figma",
-                "value": "1px"
-              }
-            }
-          },
-          "$type": "dimension"
         }
       },
       "padding-block-start": {

@@ -863,10 +863,10 @@
       },
       "ghost": {
         "@base": {
-          "$value": "inherit",
+          "$value": "currentColor",
           "$extensions": {
             "org.mozilla.themes": {
-              "default": "inherit",
+              "default": "currentColor",
               "prefersContrast": "{button.text.color.@base}",
               "forcedColors": "{button.text.color.@base}",
               "nova": {
@@ -883,10 +883,10 @@
           "$type": "color"
         },
         "active": {
-          "$value": "inherit",
+          "$value": "currentColor",
           "$extensions": {
             "org.mozilla.themes": {
-              "default": "inherit",
+              "default": "currentColor",
               "prefersContrast": "{button.text.color.active}",
               "forcedColors": "{button.text.color.active}",
               "nova": {
@@ -900,20 +900,17 @@
           "$type": "color"
         },
         "disabled": {
-          "$value": "inherit",
+          "$value": "currentColor",
           "$extensions": {
             "org.mozilla.themes": {
-              "default": "inherit",
-              "brand": {
-                "prefersContrast": "{button.text.color.disabled}",
-                "forcedColors": "{button.text.color.disabled}"
-              },
+              "default": "currentColor",
+              "prefersContrast": "currentColor",
+              "forcedColors": "{button.text.color.disabled}",
               "nova": {
                 "comment": "Preserve token structure that can't be replicated in Figma",
                 "value": {
                   "brand": {
-                    "default": "{button.text.color.ghost.@base}",
-                    "forcedColors": "GrayText"
+                    "default": "{button.text.color.ghost.@base}"
                   }
                 }
               }
@@ -922,10 +919,10 @@
           "$type": "color"
         },
         "hover": {
-          "$value": "inherit",
+          "$value": "currentColor",
           "$extensions": {
             "org.mozilla.themes": {
-              "default": "inherit",
+              "default": "currentColor",
               "prefersContrast": "{button.text.color.hover}",
               "forcedColors": "{button.text.color.hover}",
               "nova": {
@@ -994,6 +991,7 @@
           "$extensions": {
             "org.mozilla.themes": {
               "default": "{button.text.color.ghost.@base}",
+              "prefersContrast": "currentColor",
               "forcedColors": "MenuText"
             }
           },
@@ -1006,9 +1004,10 @@
               "default": "{button.text.color.ghost.active}",
               "forcedColors": "{button.text.color.menu.hover}",
               "nova": {
+                "comment": "TODO Bug 2085254 - Update Figma so menu items use the ghost text colors in dark too",
                 "value": {
-                  "light": "{button.text.color.ghost.active}",
-                  "dark": "{button.text.color.active}"
+                  "default": "{button.text.color.ghost.active}",
+                  "forcedColors": "{button.text.color.menu.hover}"
                 }
               }
             }
@@ -1017,6 +1016,19 @@
         },
         "disabled": {
           "$value": "{button.text.color.ghost.disabled}",
+          "$extensions": {
+            "org.mozilla.themes": {
+              "default": "{button.text.color.ghost.disabled}",
+              "forcedColors": "{button.text.color.disabled}",
+              "nova": {
+                "comment": "TODO Bug 2085254 - Update Figma so menu items use the ghost text colors in dark too",
+                "value": {
+                  "default": "{button.text.color.ghost.disabled}",
+                  "forcedColors": "{button.text.color.disabled}"
+                }
+              }
+            }
+          },
           "$type": "color"
         },
         "hover": {
@@ -1024,7 +1036,14 @@
           "$extensions": {
             "org.mozilla.themes": {
               "default": "{button.text.color.ghost.hover}",
-              "forcedColors": "-moz-menuhovertext"
+              "forcedColors": "-moz-menuhovertext",
+              "nova": {
+                "comment": "TODO Bug 2085254 - Update Figma so menu items use the ghost text colors in dark too",
+                "value": {
+                  "default": "{button.text.color.ghost.hover}",
+                  "forcedColors": "-moz-menuhovertext"
+                }
+              }
             }
           },
           "$type": "color"
@@ -1035,7 +1054,15 @@
             "org.mozilla.themes": {
               "default": "{button.text.color.ghost.selected}",
               "forcedColors": "{button.text.color.primary.selected}",
-              "nativeTheme": "currentColor"
+              "nativeTheme": "currentColor",
+              "nova": {
+                "comment": "TODO Bug 2085254 - Update Figma so menu items use the ghost text colors in dark too",
+                "value": {
+                  "default": "{button.text.color.ghost.selected}",
+                  "forcedColors": "{button.text.color.primary.selected}",
+                  "nativeTheme": "currentColor"
+                }
+              }
             }
           },
           "$type": "color"

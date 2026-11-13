@@ -13,22 +13,6 @@
       }
     }
   },
-  "border": {
-    "color": {
-      "$value": "{popup.border.color}",
-      "$extensions": {
-        "org.mozilla.themes": {
-          "nativeTheme": "{border.color.deemphasized.@base}",
-          "default": "{popup.border.color}"
-        }
-      },
-      "$type": "color"
-    },
-    "radius": {
-      "$value": "{popup.border.radius}",
-      "$type": "dimension"
-    }
-  },
   "text": {
     "color": {
       "@base": {

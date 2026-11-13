@@ -14,6 +14,45 @@
       "type": "color",
       "chain": []
     },
+    "sidebar.motion.duration.enter": {
+      "value": "200ms",
+      "type": null,
+      "chain": []
+    },
+    "sidebar.motion.duration.exit": {
+      "value": "160ms",
+      "type": null,
+      "chain": []
+    },
+    "sidebar.motion.easing": {
+      "value": "cubic-bezier(0.2, 0, 0, 1)",
+      "type": null,
+      "chain": [
+        "motion.easing.emphasized"
+      ]
+    },
+    "sidebar.panel.content.motion.duration.fade": {
+      "value": "130ms",
+      "type": null,
+      "chain": []
+    },
+    "sidebar.panel.content.motion.easing.fade": {
+      "value": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "type": null,
+      "chain": [
+        "motion.easing.standard"
+      ]
+    },
+    "sidebar.panel.motion.duration.enter": {
+      "value": "230ms",
+      "type": null,
+      "chain": []
+    },
+    "sidebar.panel.motion.duration.exit": {
+      "value": "190ms",
+      "type": null,
+      "chain": []
+    },
     "sidebar.text.color": {
       "value": "rgb(21, 20, 26)",
       "type": "color",

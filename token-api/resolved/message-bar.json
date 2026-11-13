@@ -257,11 +257,6 @@
         "space.small"
       ]
     },
-    "moz-message-bar.icon.container.padding.offset": {
-      "value": "1px",
-      "type": "dimension",
-      "chain": []
-    },
     "moz-message-bar.icon.size": {
       "value": "16px",
       "type": "dimension",

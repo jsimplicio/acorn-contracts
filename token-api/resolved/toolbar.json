@@ -10,10 +10,10 @@
       "chain": []
     },
     "toolbar.field.background.color.@base": {
-      "value": "rgba(255, 255, 255, 0.4)",
+      "value": "oklch(1 0 0 / 40%)",
       "type": "color",
       "chain": [
-        "toolbar.background.color"
+        "color.white.alpha.40"
       ]
     },
     "toolbar.field.background.color.focus": {

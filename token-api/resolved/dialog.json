@@ -1,0 +1,52 @@
+{
+  "id": "dialog",
+  "basenames": [
+    "dialog"
+  ],
+  "tokens": {
+    "dialog.background.color": {
+      "value": "#ffffff",
+      "type": "color",
+      "chain": [
+        "popup.background.color",
+        "background.color.box.@base",
+        "color.white.@base"
+      ]
+    },
+    "dialog.border.color": {
+      "value": "color-mix(in srgb, currentColor 24%, transparent)",
+      "type": "color",
+      "chain": [
+        "popup.border.color",
+        "border.color.deemphasized.@base"
+      ]
+    },
+    "dialog.border.radius": {
+      "value": "24px",
+      "type": "dimension",
+      "chain": [
+        "popup.border.radius",
+        "border.radius.xlarge"
+      ]
+    },
+    "dialog.box.shadow": {
+      "value": "0 0.375px 1.5px {box-shadow.color.lighter.layer-1}, 0 3px 12px {box-shadow.color.lighter.layer-2}",
+      "type": null,
+      "chain": [
+        "popup.box.shadow",
+        "box-shadow.level-3"
+      ],
+      "unresolvedRefs": [
+        "box-shadow.color.lighter.layer-1",
+        "box-shadow.color.lighter.layer-2"
+      ]
+    },
+    "dialog.padding": {
+      "value": "1rem",
+      "type": "dimension",
+      "chain": [
+        "space.large"
+      ]
+    }
+  }
+}

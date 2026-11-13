@@ -1,0 +1,27 @@
+{
+  "background": {
+    "color": {
+      "$value": "{popup.background.color}",
+      "$type": "color"
+    }
+  },
+  "border": {
+    "radius": {
+      "$value": "{popup.border.radius}",
+      "$type": "dimension"
+    },
+    "color": {
+      "$value": "{popup.border.color}",
+      "$type": "color"
+    }
+  },
+  "box": {
+    "shadow": {
+      "$value": "{popup.box.shadow}"
+    }
+  },
+  "padding": {
+    "$value": "{space.large}",
+    "$type": "dimension"
+  }
+}

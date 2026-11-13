@@ -41,6 +41,13 @@
         "panel.box.shadow.margin"
       ]
     },
+    "panel-list.padding.block": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "chain": [
+        "space.small"
+      ]
+    },
     "panel-list.text.color": {
       "value": "#180e30",
       "type": "color",

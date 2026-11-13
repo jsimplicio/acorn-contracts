@@ -30,7 +30,7 @@
       "$extensions": {
         "org.mozilla.themes": {
           "default": "color-mix(in srgb, currentColor 69%, transparent)",
-          "prefersContrast": "inherit"
+          "prefersContrast": "currentColor"
         },
         "org.mozilla.meta": {
           "ignoreFigma": "color-mix with currentColor cannot be expressed in Figma"

@@ -2,6 +2,12 @@
 
 Procedural rules for working in this repo. See `README.md` for what each API is and why it's shaped the way it is; this file is about how to do the work correctly.
 
+## Figma is read-only from here
+
+**Never write to Figma from this repo.** Every Figma touchpoint here reads: the variable and component dumps, the existence checks, Code Connect comparisons. Nothing here creates, edits, maps or uploads anything in Figma, and no task here is a reason to start. If one seems to need a write, stop and ask the person.
+
+`.claude/settings.json` enforces this for Claude Code with a `PreToolUse` hook that refuses the write-capable Figma tools (`use_figma`, `add_code_connect_map`, `send_code_connect_mappings`, `upload_assets`, `create_new_file`, `generate_diagram`). It matches by pattern rather than exact name because the exact names carry a per-connector id that differs between people and reconnects. Read tools (`get_*`, `search_design_system`, `download_assets`, `whoami`) stay allowed. A second layer by exact name, a `permissions.deny` list, belongs in your own gitignored `.claude/settings.local.json`, since those names are specific to your connector.
+
 ## Adding a new component
 
 Writing `component-api/<id>.json` and updating `manifest.json` is not enough to make a component show up on the live site (`index.html`). The nav, home tables, and per-item view are all driven by a separate, hardcoded `DATA` array inside `index.html`'s own `<script>` block, alphabetized by name. Add a matching entry there too (`id`, `name`, `group`, `figma`, `supernova`, `storybook`, `kind`, `tagName`, `file`), in alphabetical position. Without it, the component is fully documented in the data but invisible in the UI.

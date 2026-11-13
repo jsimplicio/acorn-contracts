@@ -23,6 +23,9 @@ cd "$(git rev-parse --show-toplevel)" || exit 1
 
 fail=0
 
+# Git passes the refs being pushed on stdin; the Figma id scan needs them.
+pushed=$(cat)
+
 run() {
   local label="$1"
   shift
@@ -48,6 +51,8 @@ run "index.html DATA agrees with component-api, guidance coverage" python3 check
 run "manifest.json is current" python3 build-manifest.py --check
 run "search-index.json is current" python3 build-search-index.py --check
 run "_meta.json is current" python3 update-meta.py --check
+
+printf '%s\n' "$pushed" | python3 hooks/check-no-figma-ids.py || fail=1
 
 if [ "$fail" -ne 0 ]; then
   cat <<'MSG'

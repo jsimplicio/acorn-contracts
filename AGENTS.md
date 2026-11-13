@@ -23,7 +23,7 @@ Writing `component-api/<id>.json` and updating `manifest.json` is not enough to 
 
 **Editing a `component-api/` or `guidance-api/` entry takes two commits, in this order.** Commit the entry first, then run `python3 update-meta.py` and commit the result separately. `_meta.json` records each file's real last commit, so regenerating it before the content commit records the *previous* commit and `update-meta.py --check` fails in CI. Bundling both into one commit fails the same way, and `--amend` cannot rescue it either: amending mints a new SHA that `_meta.json` would then not be citing. Two commits is structural, not a style preference.
 
-`hooks/pre-push` catches forgetting the second one. It runs the read-only checks (schema validation, `check-index-data.py`, `update-meta.py --check`) before a push leaves the machine, so the failure lands locally instead of as a red X on a public commit. It is not installed by cloning, because `.git/hooks` is not versioned:
+`hooks/pre-push` catches forgetting the second one. It runs the read-only checks (schema validation, `check-index-data.py`, `update-meta.py --check`) before a push leaves the machine, so the failure lands locally instead of as a red X on a public commit. It also refuses a push whose outgoing commits, messages or diffs, carry a Figma file URL or a file-key-shaped string (`hooks/check-no-figma-ids.py`): this repo is public, and an id in a commit message is as published as one in a file. It is not installed by cloning, because `.git/hooks` is not versioned:
 
 ```sh
 git config core.hooksPath hooks

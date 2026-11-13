@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+token-api/sync-report.html
+token-api/sync-report.json

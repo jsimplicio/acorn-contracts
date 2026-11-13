@@ -29,7 +29,12 @@ python3 build-manifest.py              # 6. token basenames may have changed
 python3 build-search-index.py          # 7. any of the above, or any doc edit, feeds this
 python3 check-index-data.py            # 8. validate index.html DATA vs component-api/
 python3 validate-schemas.py            # 9. validate every entry against its schema
+python3 token-api/sync-report.py --open  # 10. browser view of token changes, for the human to review
 ```
+
+**Step 10 is the review, not a check.** Hand the user `token-api/sync-report.html` before
+committing a token sync; it diffs the working tree against HEAD, so it only means
+something while the sync is uncommitted.
 
 **Step 4 needs a fresh pull first to mean anything.** `component-api/figma-check.py`
 only diffs whatever's sitting in `component-api/figma-components-dump.json`. It does not

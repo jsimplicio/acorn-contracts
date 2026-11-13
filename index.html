@@ -393,6 +393,8 @@
   #main { flex: 1 1 auto; min-width: 0; margin-inline: auto; padding: 40px 48px; max-width: 900px; }
   .view { display: none; }
   .view.active { display: block; }
+  #sync-report-frame { display: block; width: 100%; border: 0; min-height: 60vh; }
+  #sync-report-frame[hidden] { display: none; }
 
   #topbar, #nav-scrim { display: none; }
 
@@ -973,6 +975,12 @@
        fetched doc. Live component mockups built from real resolved
        values, every one cited in COMPONENT-TESTS.md. This page shows the
        shapes; that one carries the full value tables and findings. -->
+  <!-- Local only: token-api/sync-report.html is gitignored, so this view and its nav item exist only where sync-report.py has run. -->
+  <section id="view-sync-report" class="view">
+    <p class="meta" id="sync-report-missing" hidden>No sync report here. It is generated locally by <code>python3 token-api/sync-report.py</code> and never published.</p>
+    <iframe id="sync-report-frame" title="Token sync report"></iframe>
+  </section>
+
   <section id="view-component-tests" class="view">
     <h1>Component Tests</h1>
     <p class="meta">A test of whether this repo's own data is rich enough to build a real component, not just describe one. Inspired by <a href="https://nathanacurtis.substack.com/p/spec-driven-ui-component-development" target="_blank" rel="noopener">Nathan Curtis on spec-driven UI development</a>. Full value tables, citations, and every gap found: <a data-show="doc-component-tests">the written report</a>.</p>
@@ -1826,6 +1834,7 @@
     const withoutBase = pathname.startsWith(SITE_BASE) ? pathname.slice(SITE_BASE.length) : pathname;
     const clean = withoutBase.replace(/^\/|\/$/g, "");
     if (clean === "" || clean === "index.html") return "home";
+    if (clean === "sync-report") return "sync-report";
     const docMatch = clean.match(/^docs\/(.+)$/);
     if (docMatch) {
       const candidate = "doc-" + docMatch[1];
@@ -3046,6 +3055,9 @@
     } else if (DOC_FILES[id]) {
       document.getElementById("view-doc").classList.add("active");
       pending = loadDocPage(id);
+    } else if (id === "sync-report") {
+      document.getElementById("view-sync-report").classList.add("active");
+      pending = loadSyncReport();
     } else if (isTokenId(id)) {
       document.getElementById("view-tokens").classList.add("active");
       pending = loadTokenPage(id, { inPlace });
@@ -3140,6 +3152,54 @@
   document.querySelectorAll("a[data-show]:not(#nav a)").forEach(a => wireNavLink(a, a.dataset.show));
 
   window.addEventListener("popstate", () => show(pathToId(location.pathname)));
+
+  // ── Local sync report ─────────────────────────────────────────────────
+  // sync-report.json is gitignored and written beside the report, so the nav item appears only where it exists.
+  // Parsed as JSON on purpose: serve.sh answers a missing path with index.html and a 200.
+  function fetchSyncReportInfo() {
+    return fetch(SITE_BASE + "token-api/sync-report.json")
+      .then(res => (res.ok ? res.json() : null))
+      .then(info => (info && info.generatedAt ? info : null))
+      .catch(() => null);
+  }
+
+  function syncFrameTheme(frame) {
+    const doc = frame.contentDocument;
+    if (doc) doc.documentElement.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") || "light");
+  }
+
+  async function loadSyncReport() {
+    const frame = document.getElementById("sync-report-frame");
+    const missing = document.getElementById("sync-report-missing");
+    const info = await fetchSyncReportInfo();
+    missing.hidden = !!info;
+    frame.hidden = !info;
+    if (!info) return;
+    frame.onload = () => {
+      syncFrameTheme(frame);
+      const fit = () => { frame.style.height = frame.contentDocument.documentElement.scrollHeight + "px"; };
+      fit();
+      new ResizeObserver(fit).observe(frame.contentDocument.body);
+    };
+    frame.src = SITE_BASE + "token-api/sync-report.html?embed&t=" + encodeURIComponent(info.generatedAt);
+  }
+
+  new MutationObserver(() => syncFrameTheme(document.getElementById("sync-report-frame")))
+    .observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  fetchSyncReportInfo().then(info => {
+    if (!info) return;
+    const scroll = document.getElementById("nav-scroll");
+    const h2 = document.createElement("h2");
+    h2.textContent = "Local";
+    const a = document.createElement("a");
+    a.textContent = "Last sync report";
+    a.title = "Generated " + info.generatedAt + ", not published";
+    const changelog = scroll.querySelector('a[data-show="doc-changelog"]');
+    changelog.after(h2, a);
+    wireNavLink(a, "sync-report");
+    if (pathToId(location.pathname) === "sync-report") highlightNav("sync-report");
+  });
 
   // ── Sidebar search ────────────────────────────────────────────────────
   // A real full-text search over search-index.json, the prose corpus

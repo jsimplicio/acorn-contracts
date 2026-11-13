@@ -523,6 +523,7 @@ so there's no reason to expect others to behave differently).
 | File | What it is |
 |---|---|
 | `sync.py` | The fetch and convert script. Its docstring covers the mechanics; this README covers the why. |
+| `sync-report.py` | Writes a gitignored `sync-report.html`: every token change since HEAD, field by field, with its Nova value and Figma status. Run it after `resolve.py`, before committing a sync. While it exists, the local site's nav shows it as "Last sync report"; the published site never has it. |
 | `sync-manifest.json` | Last run's record: commit, timestamp, counts, `source_paths`, every `$type`-omitted and meta-flagged token, and the verification chain. Overwritten each run. |
 | `base/*.tokens.json` | Converted central base tokens, one file per source file, same filenames, `.nova.` variants included. |
 | `components/*.tokens.json` | Every component-level file, central and colocated, flattened together by basename. `source_paths` records where each came from. |

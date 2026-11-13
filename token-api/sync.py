@@ -762,6 +762,24 @@ def _flatten_leaves(node, path_parts, out):
             _flatten_leaves(child, path_parts + [key], out)
 
 
+def _head_and_tree_leaves(rel):
+    """(HEAD, working tree) leaf dicts for one token-api-relative file; shared with sync-report.py."""
+    old = {}
+    try:
+        old_raw = subprocess.run(
+            ["git", "-C", str(SCRIPT_DIR), "show", f"HEAD:./{rel}"],
+            check=True, capture_output=True, text=True,
+        ).stdout
+        _flatten_leaves(json.loads(old_raw), [], old)
+    except Exception:
+        pass  # not committed yet, so every token in it reads as added
+    new = {}
+    path = SCRIPT_DIR / rel
+    if path.is_file():
+        _flatten_leaves(json.loads(path.read_text(encoding="utf-8")), [], new)
+    return old, new
+
+
 def _token_level_changes(rel_paths):
     """Added/removed/changed (stem, path) pairs against the committed copy of
     each file. Baseline is HEAD, same as the diff --stat above, so two runs
@@ -773,19 +791,7 @@ def _token_level_changes(rel_paths):
     reliably tell stem from path back apart."""
     added, removed, changed = [], [], []
     for rel in sorted(rel_paths):
-        old = {}
-        try:
-            old_raw = subprocess.run(
-                ["git", "-C", str(SCRIPT_DIR), "show", f"HEAD:./{rel}"],
-                check=True, capture_output=True, text=True,
-            ).stdout
-            _flatten_leaves(json.loads(old_raw), [], old)
-        except Exception:
-            pass  # not committed yet, so every token in it reads as added
-        new = {}
-        path = SCRIPT_DIR / rel
-        if path.is_file():
-            _flatten_leaves(json.loads(path.read_text(encoding="utf-8")), [], new)
+        old, new = _head_and_tree_leaves(rel)
         # The file stem is the namespace an {alias} resolves into, so
         # prefixing it makes each line a real, referenceable token path.
         stem = Path(rel).name[: -len(".tokens.json")]

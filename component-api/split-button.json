@@ -6,7 +6,7 @@
   "implementation": {
     "kind": "modern",
     "file": "toolkit/content/widgets/moz-button/moz-button.mjs",
-    "codeConnect": "toolkit/content/widgets/moz-button/moz-button.figma.ts"
+    "codeConnect": "toolkit/content/widgets/moz-button/moz-button-split.figma.ts"
   },
   "attributes": [
     {

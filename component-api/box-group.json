@@ -74,6 +74,10 @@
     {
       "name": "handleReorder",
       "description": "Handles reordering of items in the list from a moz-reorderable-list event."
+    },
+    {
+      "name": "announceReorder",
+      "description": "announceReorder(index): announces an item's new position after a reorder (keyboard or drag) to assistive technology via ariaNotify, using the moz-box-group-reorder-announcement string; called from handleReorder()."
     }
   ],
   "variants": [

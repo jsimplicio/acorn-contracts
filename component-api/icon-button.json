@@ -6,7 +6,7 @@
   "implementation": {
     "kind": "modern",
     "file": "toolkit/content/widgets/moz-button/moz-button.mjs",
-    "codeConnect": "toolkit/content/widgets/moz-button/moz-button.figma.ts"
+    "codeConnect": "toolkit/content/widgets/moz-button/moz-button-icon.figma.ts"
   },
   "attributes": [
     {
@@ -22,7 +22,7 @@
       "type": {
         "text": "'icon' | 'icon ghost' | 'icon muted'"
       },
-      "description": "Must include the \"icon\" token to get icon-only sizing/layout (CSS selector `[type~=\"icon\"]:not(.labelled)`). Supported combinations in moz-button.mjs/.css: \"icon\" (default theme) and \"icon ghost\" (ghost theme, via `[type~=\"ghost\"]`). Figma Code Connect (moz-button.figma.ts) also lists \"icon primary\" and \"icon neutral\", but no matching CSS rule exists for those combos: `[type=\"primary\"]` is an exact match, not a `~=` token match, so \"icon primary\" does not pick up primary styling.",
+      "description": "Must include the \"icon\" token to get icon-only sizing/layout (CSS selector `[type~=\"icon\"]:not(.labelled)`). Supported combinations in moz-button.mjs/.css: \"icon\" (default theme) and \"icon ghost\" (ghost theme, via `[type~=\"ghost\"]`). Figma Code Connect (moz-button-icon.figma.ts) also lists \"icon primary\" and \"icon neutral\", but no matching CSS rule exists for those combos: `[type=\"primary\"]` is an exact match, not a `~=` token match, so \"icon primary\" does not pick up primary styling.",
       "figmaConfig": true,
       "default": "default"
     },
@@ -74,7 +74,7 @@
       "type": {
         "text": "string"
       },
-      "description": "CSS selector identifying an associated panel-list menu; integrates the icon button with panel-list open/close and aria-expanded/aria-haspopup state.",
+      "description": "The ID (not a selector) of the panel-list menu element controlled by the button; looked up as `#<menuId>`. Takes precedence over popoverTarget if both are set. Integrates the icon button with panel-list open/close and aria-expanded/aria-haspopup state.",
       "figmaConfig": false
     }
   ],

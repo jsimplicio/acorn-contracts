@@ -72,6 +72,13 @@
       "description": "Optional; when set, MultiStageProtonScreen calls handleAction automatically after a timeout (autoAdvance.actionTimeMS, default 20000ms)."
     },
     {
+      "name": "autoDismiss",
+      "type": {
+        "text": "object"
+      },
+      "description": "Optional {after} in ms; once the screen has been visible that long, dismisses the whole message via window.AWFinish() with auto_dismiss telemetry. The countdown runs only while the page is visible and restarts on each visibilitychange; values that are not finite or fall outside 0..2^31-1 are ignored."
+    },
+    {
       "name": "advanceOnExperimentLoad",
       "type": {
         "text": "object"

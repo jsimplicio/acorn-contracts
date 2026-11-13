@@ -17,6 +17,13 @@
       "default": "false"
     },
     {
+      "name": "hascontainertab",
+      "type": {
+        "text": "boolean"
+      },
+      "description": "Reflects whether either wrapped tab belongs to a container (has a usercontextid attribute); toggled whenever the wrapped tabs change."
+    },
+    {
       "name": "multiselected",
       "type": {
         "text": "boolean"

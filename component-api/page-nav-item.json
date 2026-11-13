@@ -6,7 +6,7 @@
   "implementation": {
     "kind": "modern",
     "file": "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs",
-    "codeConnect": "toolkit/content/widgets/moz-page-nav/moz-page-nav.figma.ts"
+    "codeConnect": "toolkit/content/widgets/moz-page-nav/moz-page-nav-button.figma.ts"
   },
   "attributes": [
     {

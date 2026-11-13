@@ -69,12 +69,19 @@
         "text": "boolean"
       },
       "description": "Internal state reflecting whether a hidden tab is currently playing audio."
+    },
+    {
+      "name": "tabAnimationsInProgress",
+      "type": {
+        "text": "number"
+      },
+      "description": "Read-only getter: tabs still opening plus gBrowser._removingTabs; read by Tabbrowser.sys.mjs."
     }
   ],
   "events": [
     {
       "name": "TabAnimationEnd",
-      "description": "Bubbling CustomEvent dispatched by this component on a tab element once its open/close max-width transition finishes."
+      "description": "Bubbling CustomEvent dispatched by this component on a tab element once its open/close transition finishes: max-width, or grid-template-rows while the tab has height-animating (vertical tabs). A transitioncancel with no replacement transition finishes the same way."
     },
     {
       "name": "SplitViewCreated",
@@ -144,6 +151,22 @@
     {
       "name": "openAnimationFinished",
       "description": "Whether a given tab has finished its opening animation. Replaces the old tab._fullyOpen check; called externally by Firefox's own BrowserTestUtils.allTabOpenAnimationsFinished()."
+    },
+    {
+      "name": "markTabOpening",
+      "description": "markTabOpening(tab): counts a newly added tab as opening until _handleNewTab runs for it; called by Tabbrowser.sys.mjs when it adds a tab."
+    },
+    {
+      "name": "startTabOpening",
+      "description": "startTabOpening(tab): fades the tab in, or in vertical mode grows it to full height via animateTabHeight(); called by Tabbrowser.sys.mjs."
+    },
+    {
+      "name": "animateTabHeight",
+      "description": "animateTabHeight(tab, isOpening): starts the vertical-tab height transition by setting height-animating and toggling fadein; finishes once layout shows no transition started (hidden tab, reduced motion). Called by Tabbrowser.sys.mjs on close."
+    },
+    {
+      "name": "cancelTabOpening",
+      "description": "cancelTabOpening(tab): stops counting a tab that starts closing as opening; called by Tabbrowser.sys.mjs."
     }
   ],
   "cssProperties": [

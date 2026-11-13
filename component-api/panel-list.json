@@ -101,7 +101,7 @@
     },
     {
       "name": "hidden",
-      "description": "Dispatched from onHide(), after the popover is hidden (or immediately if popover isn't supported)."
+      "description": "Dispatched from onHide() on the next animation frame after the list hides. Bubbles and is composed; detail: {anchorNode}, the anchor the list was last shown from."
     }
   ],
   "methods": [
@@ -116,6 +116,10 @@
     {
       "name": "toggle",
       "description": "toggle(triggeringEvent, target): calls show() or hide() depending on current open state."
+    },
+    {
+      "name": "getMenuItems",
+      "description": "getMenuItems({includeDisabled = false} = {}): the panel-items keyboard navigation reaches, in order (not hidden; not disabled unless includeDisabled), like XULPopupElement.getMenuItems."
     }
   ],
   "cssProperties": [
@@ -138,6 +142,10 @@
     {
       "name": "--panel-list-text-color",
       "description": "Default text color for items in the list."
+    },
+    {
+      "name": "--panel-list-padding-block",
+      "description": "Block padding of the list."
     }
   ],
   "usage": "<panel-list>\n  <panel-item>Item one</panel-item>\n  <panel-item>Item two</panel-item>\n</panel-list>"

@@ -5,7 +5,7 @@
   "description": "A single browser tab: icon, title label, audio/sharing/note indicators, and close button. A customized built-in element extending the toolkit <tab> element (is=\"tabbrowser-tab\"); builds its light-DOM structure once from a static template and drives it via an attribute-inheritance map.",
   "implementation": {
     "kind": "classic",
-    "file": "browser/components/tabbrowser/content/tab.js"
+    "file": "browser/components/tabbrowser/content/tab.mjs"
   },
   "attributes": [
     {
@@ -136,11 +136,18 @@
       "description": "Internal flag driving the throbber's completion \"burst\" animation."
     },
     {
+      "name": "height-animating",
+      "type": {
+        "text": "boolean"
+      },
+      "description": "Internal state set by the tabstrip (animateTabHeight) and Tabbrowser.sys.mjs while a vertical tab's open/close height transition runs; cleared when it finishes. Not set by consumers."
+    },
+    {
       "name": "textoverflow",
       "type": {
-        "text": "string"
+        "text": "boolean"
       },
-      "description": "Internal CSS hook for label text-overflow fade direction."
+      "description": "Not on the host: toggled on the internal .tab-label-container by its overflow/underflow events, as a CSS hook for the label's text-overflow fade."
     },
     {
       "name": "soundplaying-scheduledremoval",

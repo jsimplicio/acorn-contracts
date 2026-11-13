@@ -6,7 +6,7 @@
   "implementation": {
     "kind": "classic",
     "file": "toolkit/content/widgets/panel-list/panel-list.mjs",
-    "codeConnect": "toolkit/content/widgets/panel-list/panel-list.figma.ts"
+    "codeConnect": "toolkit/content/widgets/panel-list/panel-item.figma.ts"
   },
   "attributes": [
     {
@@ -51,19 +51,19 @@
       "description": "Observed attribute; mirrored onto the internal button as an ARIA passthrough."
     },
     {
-      "name": "aria-keyshortcuts",
-      "type": {
-        "text": "string"
-      },
-      "description": "Observed attribute; mirrored onto the internal button as an ARIA passthrough, same as aria-haspopup."
-    },
-    {
       "name": "shortcut",
       "type": {
         "text": "string"
       },
-      "description": "Observed attribute; renders a visible, aria-hidden <span class=\"shortcut\"> after the label/badge showing this text. Purely visual: the accessible shortcut hint is aria-keyshortcuts, set separately.",
+      "description": "Observed attribute; renders a <span class=\"shortcut\" part=\"shortcut\"> after the label/badge showing this text. The text is part of the item's accessible name.",
       "figmaConfig": true
+    },
+    {
+      "name": "no-icon",
+      "type": {
+        "text": "boolean"
+      },
+      "description": "CSS-only (panel-item.css `:host([no-icon])`). Items reserve space for an icon by default; set this on items with no icon to remove that space."
     },
     {
       "name": "submenu",

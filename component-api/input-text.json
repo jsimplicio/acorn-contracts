@@ -120,6 +120,13 @@
       "figmaConfig": true
     },
     {
+      "name": "maxLength",
+      "type": {
+        "text": "number"
+      },
+      "description": "The maximum number of characters the input accepts; forwarded to the internal input's maxlength attribute."
+    },
+    {
       "name": "ariaLabel",
       "type": {
         "text": "string"

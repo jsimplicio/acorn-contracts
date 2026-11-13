@@ -18,6 +18,13 @@
       "figmaConfig": true
     },
     {
+      "name": "tabs-overflow",
+      "type": {
+        "text": "boolean"
+      },
+      "description": "Internal state hook mirroring #tabbrowser-tabs[overflow] via a MutationObserver; consumed by sidebar-main.css. Not set by consumers."
+    },
+    {
       "name": "selectedView",
       "type": {
         "text": "string"
@@ -77,6 +84,12 @@
     {
       "name": "sidebar-contextmenu-ready",
       "description": "Dispatched on the host after the sidebar context menu has finished being populated asynchronously (see onSidebarPopupShowing)."
+    }
+  ],
+  "methods": [
+    {
+      "name": "focusButtonGroup",
+      "description": "focusButtonGroup(): focuses the active launcher button and returns whether focus landed on it; called by browser-sidebar.js to restore focus when a panel closes."
     }
   ]
 }

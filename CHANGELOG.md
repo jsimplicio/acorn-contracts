@@ -2,6 +2,23 @@
 
 What actually changed in this repo, by day. Not a promise of what's coming, a record of what's real now, same standard as everything else here. See `AGENTS.md` for the procedural rules behind these changes, not restated here. History before this changelog starts lives in `git log`.
 
+## 2026-11-12
+
+**Token sync to upstream `5d45f3e`.** New `base/motion` (easing) and `components/dialog` files, motion tokens on panel and sidebar, button's ghost and menu text colors reworked, toolbox gradients and tab's pinned background removed. `dialog` is now mapped in `id-map.json` with `popup` as a resolve-only basename: the dialog page already picked `dialog.tokens.json` up by name, but four of its five values rendered `(unresolved)` because nothing loaded `popup`.
+
+**New: a local sync report.** `token-api/sync-report.py` writes a gitignored page listing every token change since the last commit, field by field, with its Nova value, alias chain and Figma status. While it exists, the local site's nav shows it as "Last sync report"; the published site never has it. Rows come from the raw token files rather than `resolved/`, which only holds the Nova value and would have hidden every Proton-side and theme-branch change (all of `button`'s, this sync).
+
+**Figma is read-only from this repo**, now stated in `AGENTS.md` and enforced for Claude Code by a hook in `.claude/settings.json` that refuses the Figma write tools.
+
+**Drift triage, all 32 components `check-drift.py` flagged** between `1a097ed` and `5d45f3e`. 11 needed nothing (lint renames, refactors, l10n moves). Fixed:
+- Wrong: `panel-item` and `panel-list-item` documented `aria-keyshortcuts`, which upstream removed, and called `shortcut` aria-hidden, when its text is now part of the accessible name. `sidebar-panel` described a per-panel header with a default slot; it is now one shared header, driven by `setView()`, with no slot. `button` and `icon-button` called `menuId` a CSS selector; it is an element ID. `tab` cited `tab.js`, renamed to `tab.mjs` before the previous baseline, and listed `textoverflow` as a host attribute when it lands on an internal container. `urlbar-result` put role=option on the row; the row is role=presentation and its inner element carries role=option.
+- New surface: `button.popoverTarget` (with `ariaHasPopup` now defaulting to `menu` or `dialog`), `card`'s accordion tree-item mode (`treeItem`, `ariaLevel`, `ariaPosInSet`, `ariaSetSize`), `maxLength` on `input-text`, `textarea` and six subclasses, `promo`'s `image` slot, `box-group.announceReorder()`, `panel-list.getMenuItems()` and the `hidden` event's `anchorNode` detail, `no-icon` on panel items, `tab-split`'s `hascontainertab`, `sidebar-strip`'s `tabs-overflow` and `focusButtonGroup()`, `stepper`'s `autoDismiss`, and `tab`'s `height-animating`.
+- Code Connect: upstream rewrote every `.figma.ts` file to one Figma component per file (`figma.code` templates, no `figma.connect`), often with a `-desktop-v3.figma.ts` twin. `icon-button`, `split-button`, `panel-item`, `panel-list-item`, `select` and `page-nav-item` now cite their new files; `page-nav-separator` cites the Desktop v3 page-nav button file, the only one that emits its `<hr>`; `panel-separator` cites none, since no file emits it any more. `AGENTS.md`'s Code Connect section described the old format and is updated to match.
+
+**Possible upstream bug:** `moz-input-search` inherits `maxLength` from `MozInputText` but overrides `inputTemplate()` without forwarding it, so the property does nothing there. `input-search.json` records it that way rather than pretending it works.
+
+**Retraction: `tabstrip`'s "dead code" punt of 2026-10-08 was wrong when it was written.** `markTabOpening` and `cancelTabOpening` were already called from `Tabbrowser.sys.mjs` at the commit that entry cited; that search missed the file. Both are now documented, with `startTabOpening`, `animateTabHeight` and the `tabAnimationsInProgress` getter, and `openAnimationFinished` does not always return true.
+
 ## 2026-10-08
 
 **Supernova severed as a source of truth, for components too.** It was already excluded for token existence (`token-api/figma-variables-dump.json`'s own `_comment` documents why); `AGENTS.md`'s `figma`/`supernova` verification rule now applies the same cut to components. Supernova stays valid for exactly one question: does it have its own doc page for something. It's never a stand-in for "does Figma really have this."

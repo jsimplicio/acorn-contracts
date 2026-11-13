@@ -6,7 +6,7 @@
   "implementation": {
     "kind": "modern",
     "file": "toolkit/content/widgets/moz-select/moz-select.mjs",
-    "codeConnect": "toolkit/content/widgets/moz-select/moz-select.figma.ts"
+    "codeConnect": "toolkit/content/widgets/moz-select/moz-select-dropdown.figma.ts"
   },
   "attributes": [
     {

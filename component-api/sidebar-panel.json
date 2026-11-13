@@ -2,7 +2,7 @@
   "id": "sidebar-panel",
   "summary": "The header area at the top of whatever content is currently showing in the sidebar.",
   "tagName": "sidebar-panel-header",
-  "description": "Per-panel header for a sidebar panel, showing the panel title and a close button, plus each panel's own toolbar content (search boxes, options menus, etc.) via its default slot. In horizontal-tabs \"hide-launcher\" mode the title is replaced by the sidebar-panel-switcher dropdown, since there is no launcher to switch panels with.",
+  "description": "One shared header shown over whichever sidebar panel is open, with the panel title and a close button; the single #sidebar-panel-header instance is declared in browser-box.inc.xhtml, and browser-sidebar.js drives it with setView(). In horizontal-tabs \"hide-launcher\" mode the title is replaced by the sidebar-panel-switcher dropdown, since there is no launcher to switch panels with.",
   "implementation": {
     "kind": "modern",
     "file": "browser/components/sidebar/sidebar-panel-header.mjs"
@@ -13,7 +13,7 @@
       "type": {
         "text": "string"
       },
-      "description": "The view id of the panel this header belongs to; forwarded to the internal close moz-button and the sidebar-panel-switcher.",
+      "description": "The view id of the panel currently shown; normally set by setView(). Passed to the internal close moz-button and the sidebar-panel-switcher. The close button renders only while view is set.",
       "figmaConfig": false
     },
     {
@@ -21,14 +21,22 @@
       "type": {
         "text": "string"
       },
-      "description": "The panel title text rendered in the header.",
+      "description": "The panel title text rendered in the header; normally computed by setView() from the panel's revampL10nId (its Fluent label) or label.",
       "figmaConfig": true
+    },
+    {
+      "name": "panel-has-custom-header",
+      "type": {
+        "text": "boolean"
+      },
+      "description": "Internal state hook, toggled by setView() from the panel registry's hasCustomHeader; not set by consumers."
     }
   ],
-  "slots": [
+  "slots": [],
+  "methods": [
     {
-      "name": "",
-      "description": "Each panel's own toolbar content (search boxes, options menus, etc.), rendered below the heading row."
+      "name": "setView",
+      "description": "setView(view): sets view, computes heading from the panel registry entry, and toggles panel-has-custom-header; called by browser-sidebar.js when a panel is shown."
     }
   ],
   "usage": "<sidebar-panel-header view=\"viewBookmarksSidebar\" heading=\"Bookmarks\"></sidebar-panel-header>"

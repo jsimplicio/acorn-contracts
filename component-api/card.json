@@ -22,7 +22,7 @@
       "type": {
         "text": "number"
       },
-      "description": "Specifies whether the heading renders as h1-h6 instead of a plain span (0 or unset renders a span).",
+      "description": "Specifies whether the heading renders as h1-h6 instead of a plain span (0 or unset renders a span). Ignored when treeItem applies: the heading is then always a span.",
       "figmaConfig": true,
       "default": "0"
     },
@@ -66,7 +66,7 @@
       "type": {
         "text": "string"
       },
-      "description": "Optional ARIA role for the card's article element.",
+      "description": "Optional ARIA role for the card's article element. Ignored when treeItem applies: the article is then role=\"none\".",
       "figmaConfig": false
     },
     {
@@ -76,6 +76,35 @@
       },
       "description": "Optional tabindex for the accordion summary element.",
       "figmaConfig": false
+    },
+    {
+      "name": "treeItem",
+      "type": {
+        "text": "boolean"
+      },
+      "description": "Ignored unless type is \"accordion\". When set, the accordion summary gets role=\"treeitem\", the article becomes role=\"none\" and is no longer labelled by the heading, and the heading always renders as a span regardless of headingLevel.",
+      "default": "false"
+    },
+    {
+      "name": "ariaLevel",
+      "type": {
+        "text": "string"
+      },
+      "description": "Mapped. Moved onto the accordion summary as aria-level, only when treeItem applies; lets a tree item state its position when its siblings live in other cards."
+    },
+    {
+      "name": "ariaPosInSet",
+      "type": {
+        "text": "string"
+      },
+      "description": "Mapped. Moved onto the accordion summary as aria-posinset, only when treeItem applies; lets a tree item state its position when its siblings live in other cards."
+    },
+    {
+      "name": "ariaSetSize",
+      "type": {
+        "text": "string"
+      },
+      "description": "Mapped. Moved onto the accordion summary as aria-setsize, only when treeItem applies; lets a tree item state its position when its siblings live in other cards."
     }
   ],
   "slots": [

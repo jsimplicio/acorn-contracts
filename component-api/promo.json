@@ -87,6 +87,10 @@
     {
       "name": "support-link",
       "description": "A moz-support-link shown after the message/actions."
+    },
+    {
+      "name": "image",
+      "description": "Content rendered in place of the image when imageSrc is not set."
     }
   ],
   "events": [

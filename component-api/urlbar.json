@@ -13,7 +13,7 @@
       "type": {
         "text": "'urlbar' | 'searchbar' | 'smartbar' | 'newtab_searchbar'"
       },
-      "description": "Which surface this instance represents: \"urlbar\", \"searchbar\", or \"smartbar\"; backed by the sapName getter."
+      "description": "Which surface this instance represents: \"urlbar\", \"searchbar\", \"smartbar\" or \"newtab_searchbar\"; backed by the sapName getter."
     },
     {
       "name": "pageproxystate",

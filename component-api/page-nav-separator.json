@@ -6,6 +6,6 @@
   "implementation": {
     "kind": "none",
     "file": "toolkit/content/widgets/moz-page-nav/moz-page-nav.mjs",
-    "codeConnect": "toolkit/content/widgets/moz-page-nav/moz-page-nav.figma.ts"
+    "codeConnect": "toolkit/content/widgets/moz-page-nav/moz-page-nav-button-desktop-v3.figma.ts"
   }
 }

@@ -119,6 +119,17 @@
       }
     },
     {
+      "name": "maxLength",
+      "type": {
+        "text": "number"
+      },
+      "description": "Declared on MozInputText, but has no effect here: moz-input-search overrides inputTemplate() with its own <input> and never forwards maxlength.",
+      "inheritedFrom": {
+        "name": "MozInputText",
+        "module": "toolkit/content/widgets/moz-input-text/moz-input-text.mjs"
+      }
+    },
+    {
       "name": "ariaLabel",
       "type": {
         "text": "string"

@@ -22,7 +22,7 @@
       "type": {
         "text": "'default' | 'primary' | 'destructive' | 'ghost' | 'icon' | 'icon ghost' | 'muted' | 'icon muted' | 'split' | 'menuitem' | 'toolbar'"
       },
-      "description": "The button type. The legal set is asserted by this contract, not read from source: Lit declares only `{ type: String }`, so the values live in moz-button.css's own selectors. `primary`, `destructive` and `split` are matched exactly; `ghost`, `icon`, `muted`, `menuitem` and `toolbar` are matched as words, which is what makes a compound like `icon ghost` work. `menuitem` and `toolbar` are context declarations set by the surrounding component rather than style choices. `default` has no rule of its own, it is the unstyled baseline set in the constructor.\n\nTwo values Figma Code Connect still emits are not in this set. `neutral` and `icon neutral` match no CSS rule at all: the design system renamed that variant to `muted`, which is what both moz-button.css and Figma's own variables now say, and moz-button.figma.ts was never updated. `icon primary` matches only `[type~=\"icon\"]`, because `[type=\"primary\"]` is an exact match a compound cannot satisfy, so it renders as a plain icon button with no primary colour.",
+      "description": "The button type. The legal set is asserted by this contract, not read from source: Lit declares only `{ type: String }`, so the values live in moz-button.css's own selectors. `primary`, `destructive` and `split` are matched exactly; `ghost`, `icon`, `muted`, `menuitem` and `toolbar` are matched as words, which is what makes a compound like `icon ghost` work. `menuitem` and `toolbar` are context declarations set by the surrounding component rather than style choices. `default` has no rule of its own, it is the unstyled baseline set in the constructor.\n\nThree values Figma Code Connect still emits are not in this set. `neutral` and `icon neutral` match no CSS rule at all: the design system renamed that variant to `muted`, which is what both moz-button.css and Figma's own variables now say, and Code Connect was never updated (`neutral` in moz-button.figma.ts, `icon neutral` and `icon primary` in moz-button-icon.figma.ts). `icon primary` matches only `[type~=\"icon\"]`, because `[type=\"primary\"]` is an exact match a compound cannot satisfy, so it renders as a plain icon button with no primary colour.",
       "figmaConfig": true,
       "default": "default"
     },
@@ -73,7 +73,7 @@
       "type": {
         "text": "string"
       },
-      "description": "The button's aria-haspopup attribute, indicates a popup element can be triggered by the button.",
+      "description": "The button's aria-haspopup attribute, indicates a popup element can be triggered by the button. A value the consumer sets wins; otherwise it defaults to \"menu\" when menuId is set, \"dialog\" when popoverTarget is set, and is unset when neither is.",
       "figmaConfig": false
     },
     {
@@ -147,8 +147,15 @@
       "type": {
         "text": "string"
       },
-      "description": "A CSS selector string that identifies the associated panel-list menu element controlled by the button.",
+      "description": "The ID (not a selector) of the panel-list menu element controlled by the button; looked up as `#<menuId>`. Takes precedence over popoverTarget if both are set.",
       "figmaConfig": true
+    },
+    {
+      "name": "popoverTarget",
+      "type": {
+        "text": "string"
+      },
+      "description": "Reflected. The ID of a native popover element the button controls: the button calls its togglePopover() and tracks its toggle event. Either menuId or popoverTarget may be set, not both; menuId wins if both are."
     },
     {
       "name": "parentDisabled",

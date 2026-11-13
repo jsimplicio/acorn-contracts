@@ -50,6 +50,11 @@ the user explicitly triaging the diff first. Advancing before looking spends the
 for free. The baseline then reports nothing on the next run even though nobody actually
 checked anything. See `AGENTS.md`'s "Syncing with upstream" section for the full rule.
 
+**When you do advance, pin it to the commit you triaged:** `check-drift.py --advance --ref
+<sha>`, using the commit the triaged run printed. Without `--ref` it fetches upstream's
+current tip, which has usually moved since the triage, and records everything that landed in
+between as checked when nobody looked at it.
+
 ## Before summarizing
 
 - **Re-read the actual current output, every time.** Don't paraphrase from memory of an

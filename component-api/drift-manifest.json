@@ -1,5 +1,5 @@
 {
-  "commit": "5d45f3e29ea97028031d29a53666028d6305bf93",
+  "commit": "8cd3db740e1b95ceb81d15391f3a1b05e61f6422",
   "entries": {
     "badge": {
       "file": "toolkit/content/widgets/moz-badge/moz-badge.mjs",
@@ -7,7 +7,7 @@
     },
     "bookmarks-toolbar": {
       "file": "browser/components/places/content/browserPlacesViews.js",
-      "hash": "bcd87f1ea21da1755b5501fa129a5ff02090fb9dd5a2f8b8eccdfbb03b475376"
+      "hash": "d3d4e1bed0ee6b17dcd4cce550c71300dea800b4ffa75fe655565cda6aaf0000"
     },
     "box-button": {
       "file": "toolkit/content/widgets/moz-box-button/moz-box-button.mjs",
@@ -71,7 +71,7 @@
     },
     "infobar": {
       "file": "toolkit/content/widgets/notificationbox.js",
-      "hash": "07e18a3cf4225e25ad6885a92b610d7db26f7a99104362d1030d59a82107d1e7"
+      "hash": "5d2f5de8ab33d38ffa9c4beb1926573f3b39e56e54ba3b3de481bc69f614a83f"
     },
     "input-color": {
       "file": "toolkit/content/widgets/moz-input-color/moz-input-color.mjs",
@@ -207,7 +207,7 @@
     },
     "stepper": {
       "file": "browser/components/asrouter/content-src/components/MultiStageProtonScreen.jsx",
-      "hash": "85985d372a310dabbb3c0cae999fa9b6871aa7ec27b1d794a1a731213606e475"
+      "hash": "2b25d70dd2819346d2bc0303bfbf378f728db11f4e5dc452e14d65df8b6a65ff"
     },
     "support-link": {
       "file": "toolkit/content/widgets/moz-support-link/moz-support-link.mjs",
@@ -251,7 +251,7 @@
     },
     "urlbar-action": {
       "file": "browser/components/urlbar/content/UrlbarView.mjs",
-      "hash": "187d325026f676e7928ce4557ae1827103081cb59a1c8099df9853fde14e19e5"
+      "hash": "5793b417d9f0f4c7c1759c181342ba7826740f7729a71f1a98b412f8d2c94f52"
     },
     "urlbar-identity": {
       "file": "browser/base/content/browser-siteIdentity.js",
@@ -259,11 +259,11 @@
     },
     "urlbar-result": {
       "file": "browser/components/urlbar/content/UrlbarView.mjs",
-      "hash": "187d325026f676e7928ce4557ae1827103081cb59a1c8099df9853fde14e19e5"
+      "hash": "5793b417d9f0f4c7c1759c181342ba7826740f7729a71f1a98b412f8d2c94f52"
     },
     "urlbar": {
       "file": "browser/components/urlbar/content/UrlbarInputBase.mjs",
-      "hash": "fe4a19f7f952fa148e7acc9c64617279cae3223a23b3197fa35464fd7553ad4e"
+      "hash": "bed88e37fa3a5c0f44cdbb0aed341923fbef83b2fb7b69129d72aff94c7239ef"
     },
     "visual-picker-item": {
       "file": "toolkit/content/widgets/moz-visual-picker/moz-visual-picker.mjs",

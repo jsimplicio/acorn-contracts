@@ -10,11 +10,11 @@
       "toolkit/content/widgets/* (components, one level deep)"
     ],
     "ref_requested": "(default branch)",
-    "commit": "5d45f3e29ea97028031d29a53666028d6305bf93",
-    "commit_date": "2026-11-10T14:39:29Z",
+    "commit": "8cd3db740e1b95ceb81d15391f3a1b05e61f6422",
+    "commit_date": "2026-11-18T13:51:11Z",
     "fetch_method": "github-sparse-clone:https://github.com/mozilla-firefox/firefox"
   },
-  "generated_at": "2026-11-10T17:22:24.910511+00:00",
+  "generated_at": "2026-11-18T17:05:31.546381+00:00",
   "files_converted": [
     "base/background.tokens.json",
     "base/border.nova.tokens.json",
@@ -163,10 +163,10 @@
     "components/panel-item.tokens.json": "toolkit/content/widgets/panel-list/panel-item.tokens.json",
     "components/panel-list.tokens.json": "toolkit/content/widgets/panel-list/panel-list.tokens.json"
   },
-  "leaf_token_total": 1185,
-  "theme_object_total": 408,
+  "leaf_token_total": 1161,
+  "theme_object_total": 384,
   "type_counts": {
-    "color": 833,
+    "color": 809,
     "dimension": 283,
     "fontWeight": 8,
     "number": 8

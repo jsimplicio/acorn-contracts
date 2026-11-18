@@ -9,8 +9,8 @@
     "yes_exact": 529,
     "yes_reordered": 13,
     "no_near_miss": 156,
-    "no_total_mismatch": 242,
-    "total": 940
+    "no_total_mismatch": 243,
+    "total": 941
   },
   "properties": {
     "--background-color-box": {
@@ -873,6 +873,11 @@
       "status": "yes",
       "matchType": "exact",
       "matchedPath": "button/split/separator/background/color"
+    },
+    "--button-split-separator-height": {
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
     },
     "--button-text-color": {
       "status": "yes",

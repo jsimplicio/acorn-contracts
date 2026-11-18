@@ -2,6 +2,14 @@
 
 What actually changed in this repo, by day. Not a promise of what's coming, a record of what's real now, same standard as everything else here. See `AGENTS.md` for the procedural rules behind these changes, not restated here. History before this changelog starts lives in `git log`.
 
+## 2026-11-18
+
+**Token sync to upstream `8cd3db7`.** One change upstream (bug 2085931): the base tab token layer now carries the Nova tab group colors, so the Nova file's group overrides are gone and the Proton values live only in `tabs.css`. Base and hover colors resolve as before; the `invert` and `text.invert` variants of all eight group colors changed for real.
+
+**Drift triage, 6 components flagged** between `5d45f3e` and `8cd3db7`, 5 needing nothing. `infobar`'s notification buttons are now `<moz-button size="small">` (`type="primary"` for a primary one) and their callbacks get the `click` event; its `actions` slot and `setButtons()` now say so.
+
+**`figma-token-map.json` had gone stale** after `split-button` gained `--button-split-separator-height`, failing `check-derived.yml` on the previous push. Regenerated.
+
 ## 2026-11-12
 
 **Token sync to upstream `5d45f3e`.** New `base/motion` (easing) and `components/dialog` files, motion tokens on panel and sidebar, button's ghost and menu text colors reworked, toolbox gradients and tab's pinned background removed. `dialog` is now mapped in `id-map.json` with `popup` as a resolve-only basename: the dialog page already picked `dialog.tokens.json` up by name, but four of its five values rendered `(unresolved)` because nothing loaded `popup`.

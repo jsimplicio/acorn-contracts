@@ -123,7 +123,7 @@
     },
     {
       "name": "actions",
-      "description": "Light-DOM span (class notification-button-container) populated by setButtons() with command/primary buttons."
+      "description": "Light-DOM span (class notification-button-container) that setButtons() fills with its plain buttons, each a <moz-button size=\"small\"> (type=\"primary\" for a primary one)."
     }
   ],
   "events": [
@@ -172,7 +172,8 @@
       "name": "close"
     },
     {
-      "name": "setButtons"
+      "name": "setButtons",
+      "description": "setButtons(buttons): renders each button spec. A plain button becomes a <moz-button size=\"small\"> in the actions slot, type=\"primary\" when the spec sets primary; a supportPage or link spec becomes a moz-support-link or text-link in the support-link slot. A spec's l10n-id is applied with its optional l10n-args, and its callback is called with the notification-message, the spec, the <moz-button> and the click event; returning false closes the notification."
     },
     {
       "name": "dismiss"

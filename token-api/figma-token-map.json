@@ -8,9 +8,9 @@
   "counts": {
     "yes_exact": 530,
     "yes_reordered": 13,
-    "no_near_miss": 155,
-    "no_total_mismatch": 243,
-    "total": 941
+    "no_near_miss": 154,
+    "no_total_mismatch": 241,
+    "total": 938
   },
   "properties": {
     "--background-color-box": {
@@ -2174,21 +2174,6 @@
     "--info-bar-margin": {
       "status": "yes",
       "matchType": "exact",
-      "matchedPath": "info-bar/margin"
-    },
-    "--info-bar-margin-block-end": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
-    "--info-bar-margin-block-start": {
-      "status": "no",
-      "matchType": null,
-      "matchedPath": null
-    },
-    "--info-bar-margin-inline": {
-      "status": "no",
-      "matchType": "near-miss",
       "matchedPath": "info-bar/margin"
     },
     "--info-bar-text-color": {

@@ -204,16 +204,9 @@
       "description": "Infobar border color."
     },
     {
-      "name": "--info-bar-margin-block-start",
-      "description": "Top margin of the infobar."
-    },
-    {
-      "name": "--info-bar-margin-inline",
-      "description": "Inline margin of the infobar."
-    },
-    {
-      "name": "--info-bar-margin-block-end",
-      "description": "Bottom margin of the infobar."
+      "name": "--info-bar-margin",
+      "description": "Margin around each infobar: inline and block-end on every one, block-start too on the first. 4px by default, 0 under Nova (infobar.css, set from the info-bar.margin token).",
+      "default": "4px"
     },
     {
       "name": "--message-bar-border-color",

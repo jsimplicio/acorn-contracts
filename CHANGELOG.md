@@ -2,6 +2,12 @@
 
 What actually changed in this repo, by day. Not a promise of what's coming, a record of what's real now, same standard as everything else here. See `AGENTS.md` for the procedural rules behind these changes, not restated here. History before this changelog starts lives in `git log`.
 
+## 2026-11-19
+
+**Token API docs split by reader.** The Token API page is now reference only; everything about keeping the data current moved to a new **Maintaining** page, along with the Overview's "Keeping it current". Fixed on the way: a third "ignored" Figma status the code never produces, an undocumented `excludeSegments` shape in `id-map.json`, and hardcoded counts.
+
+**Figma variables re-pulled** (first refresh since 2026-09-03), now reproducibly through `token-api/figma-dump.py`. Figma itself barely moved: 9 variable names added, 3 removed. Five "In Figma" answers flipped. `--button-background-color-menu-selected`, `--info-bar-margin` and `--tab-group-gray` now match (Figma added the first two and renamed `grey` to `gray`). `--info-bar-margin-block-start` and `--info-bar-margin-inline` no longer match: Figma merged them into a single `info-bar/margin`, while Firefox still has both, a real disagreement one side has to resolve.
+
 ## 2026-11-18
 
 **Token sync to upstream `8cd3db7`.** One change upstream (bug 2085931): the base tab token layer now carries the Nova tab group colors, so the Nova file's group overrides are gone and the Proton values live only in `tabs.css`. Base and hover colors resolve as before; the `invert` and `text.invert` variants of all eight group colors changed for real.

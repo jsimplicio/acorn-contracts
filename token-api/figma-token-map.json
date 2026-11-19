@@ -6,9 +6,9 @@
     "Source is a direct Figma REST API pull (GET /v1/files/$FIGMA_FILE_KEY/variables/local), never Supernova, whose sync of this design system has known gaps elsewhere in this project family. See figma-variables-dump.json's own `_comment` for what was fetched and excluded."
   ],
   "counts": {
-    "yes_exact": 529,
+    "yes_exact": 530,
     "yes_reordered": 13,
-    "no_near_miss": 156,
+    "no_near_miss": 155,
     "no_total_mismatch": 243,
     "total": 941
   },
@@ -445,9 +445,9 @@
       "matchedPath": "button/background/color/menu/hover"
     },
     "--button-background-color-menu-selected": {
-      "status": "no",
-      "matchType": "near-miss",
-      "matchedPath": "button/background/color/menu"
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "button/background/color/menu/selected"
     },
     "--button-background-color-muted": {
       "status": "yes",
@@ -2172,9 +2172,9 @@
       "matchedPath": null
     },
     "--info-bar-margin": {
-      "status": "no",
-      "matchType": "near-miss",
-      "matchedPath": "info-bar/margin/inline"
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "info-bar/margin"
     },
     "--info-bar-margin-block-end": {
       "status": "no",
@@ -2182,14 +2182,14 @@
       "matchedPath": null
     },
     "--info-bar-margin-block-start": {
-      "status": "yes",
-      "matchType": "exact",
-      "matchedPath": "info-bar/margin/block/start"
+      "status": "no",
+      "matchType": null,
+      "matchedPath": null
     },
     "--info-bar-margin-inline": {
-      "status": "yes",
-      "matchType": "exact",
-      "matchedPath": "info-bar/margin/inline"
+      "status": "no",
+      "matchType": "near-miss",
+      "matchedPath": "info-bar/margin"
     },
     "--info-bar-text-color": {
       "status": "no",
@@ -3612,9 +3612,9 @@
       "matchedPath": "tab/group/cyan/text"
     },
     "--tab-group-gray": {
-      "status": "no",
-      "matchType": "near-miss",
-      "matchedPath": "tab/group/gray/active"
+      "status": "yes",
+      "matchType": "exact",
+      "matchedPath": "tab/group/gray"
     },
     "--tab-group-gray-hover": {
       "status": "yes",
@@ -3623,8 +3623,8 @@
     },
     "--tab-group-gray-invert": {
       "status": "no",
-      "matchType": null,
-      "matchedPath": null
+      "matchType": "near-miss",
+      "matchedPath": "tab/group/gray"
     },
     "--tab-group-gray-text": {
       "status": "yes",

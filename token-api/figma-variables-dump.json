@@ -1,59 +1,37 @@
 {
   "_comment": [
-    "Direct pull of every real Figma VARIABLE in Mozilla's authoritative 'Nova Styles",
-    "(Experimental)' file , via a single unauthenticated-",
-    "except-for-a-token REST call: GET /v1/files/{FILE_ID}/variables/local. This",
-    "REPLACES an earlier Supernova-MCP-sourced dump (see git history for",
-    "figma-token-dump.json) that the repo maintainer rejected as the wrong source for",
-    "this check: Supernova's sync of this file is known to have gaps elsewhere in this",
-    "project family (it mislabeled its own source file as 'Desktop Styles' and could",
-    "not confirm it was even the same file as 'Nova Styles'), so token-existence checks",
-    "against Figma must hit the Figma REST API directly, never Supernova. This is the",
-    "exact file/endpoint prototype/design-system/scripts/gen_tokens_css.py in the",
-    "sibling ai-native-ux-hub repo already pulls from to generate that project's own",
-    "tokens.css, confirmed by reading that script directly rather than assumed.",
+    "Every real Figma variable in Mozilla's 'Nova Styles (Experimental)' file, from one REST call:",
+    "GET /v1/files/$FIGMA_FILE_KEY/variables/local, converted by token-api/figma-dump.py.",
+    "The Figma REST API directly, never Supernova, whose sync of this design system has",
+    "known gaps. The file key is deliberately not committed.",
     "",
-    "This is a FULL dump: every one of the file's 720 raw variables across all 9",
-    "variable collections in the file (HCM Theme, Theme, Operating System, Surface,",
-    "Colors x2 [one is a single remote/external-library alias target, kept because it",
-    "is still a real resolvable entry in this file], Primitives, Tab Group Theme,",
-    "Components), minus the 2 variables Figma itself flags 'deletedButReferenced'",
-    "(background/color/box/accent/primary, border/color/overlay): these no longer",
-    "exist as live variables, only as dangling references something else still points",
-    "at, so counting them as 'exists in Figma' would be a false positive. Only `name`,",
-    "`type` (resolvedType), `collection`, and `remote` are kept per variable -- values,",
-    "modes, aliasing, and descriptions are dropped because figma-check.py's matching is",
-    "purely name-based and doesn't need them (see figma-check.py's own docstring for",
-    "why). Re-running the fetch (see token-api/README.md's 'Figma existence check'",
-    "section) regenerates this file from scratch; there is no incremental update path.",
-    "",
-    "codeSyntax was checked here too, the same way the earlier Supernova pass checked",
-    "it, not assumed unusable just because the prior connection lacked it: this direct",
-    "Figma API response DOES include a `codeSyntax` field per variable, but only 2 of",
-    "720 have it populated (button/background/color, tab/border/color), nowhere near",
-    "enough to be a general match signal. Matching is still by normalized name, exactly",
-    "as before; see figma-check.py's docstring for the exact rule."
+    "Kept per variable: name, type (resolvedType), collection (by name) and remote.",
+    "Values, modes, aliases, ids and descriptions are dropped: figma-check.py matches",
+    "names only. Variables Figma flags deletedButReferenced are listed separately and",
+    "excluded, since they no longer exist as live variables and counting them would be",
+    "a false 'exists in Figma'. Re-running the fetch regenerates this file from scratch;",
+    "see MAINTAINING.md's 'Figma checks' section."
   ],
-  "fetchedAt": "2026-09-03T20:56:30Z",
-  "fetchedBy": "GET https://api.figma.com/v1/files/$FIGMA_FILE_KEY/variables/local (X-Figma-Token header, see token-api/README.md)",
+  "fetchedAt": "2026-11-19T20:41:17Z",
+  "fetchedBy": "GET https://api.figma.com/v1/files/$FIGMA_FILE_KEY/variables/local (X-Figma-Token header, see MAINTAINING.md)",
   "sourceFile": {
     "name": "Nova Styles (Experimental)",
     "key": "$FIGMA_FILE_KEY"
   },
-  "totalVariablesInFile": 720,
+  "totalVariablesInFile": 750,
   "excludedDeletedButReferenced": [
     "background/color/box/accent/primary",
     "border/color/overlay"
   ],
   "variableCountByCollection": {
     "Colors": 121,
-    "Components": 101,
-    "HCM Theme": 20,
-    "Operating System": 32,
-    "Primitives": 68,
-    "Surface": 14,
+    "Components": 100,
+    "HCM Theme": 24,
+    "Operating System": 36,
+    "Primitives": 72,
+    "Surface": 17,
     "Tab Group Theme": 7,
-    "Theme": 355
+    "Theme": 371
   },
   "variables": [
     {
@@ -951,13 +929,7 @@
       "remote": false
     },
     {
-      "name": "info-bar/margin/block/start",
-      "type": "FLOAT",
-      "collection": "Components",
-      "remote": false
-    },
-    {
-      "name": "info-bar/margin/inline",
+      "name": "info-bar/margin",
       "type": "FLOAT",
       "collection": "Components",
       "remote": false
@@ -1389,6 +1361,18 @@
       "remote": false
     },
     {
+      "name": "-moz-menuhover",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "-moz-menuhovertext",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
       "name": "AccentColor",
       "type": "COLOR",
       "collection": "HCM Theme",
@@ -1486,6 +1470,18 @@
     },
     {
       "name": "MarkText",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "Menu",
+      "type": "COLOR",
+      "collection": "HCM Theme",
+      "remote": false
+    },
+    {
+      "name": "MenuText",
       "type": "COLOR",
       "collection": "HCM Theme",
       "remote": false
@@ -1599,10 +1595,22 @@
       "remote": false
     },
     {
+      "name": "platform/border-radius/chrome",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": true
+    },
+    {
       "name": "platform/border-radius/window",
       "type": "FLOAT",
       "collection": "Operating System",
       "remote": false
+    },
+    {
+      "name": "platform/border-radius/window",
+      "type": "FLOAT",
+      "collection": "Operating System",
+      "remote": true
     },
     {
       "name": "platform/font/family",
@@ -1695,16 +1703,40 @@
       "remote": false
     },
     {
+      "name": "system/is-mac",
+      "type": "BOOLEAN",
+      "collection": "Operating System",
+      "remote": true
+    },
+    {
       "name": "system/is-windows",
       "type": "BOOLEAN",
       "collection": "Operating System",
       "remote": false
     },
     {
+      "name": "system/is-windows",
+      "type": "BOOLEAN",
+      "collection": "Operating System",
+      "remote": true
+    },
+    {
+      "name": "border/radius/circle",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": true
+    },
+    {
       "name": "border/radius/circle",
       "type": "FLOAT",
       "collection": "Primitives",
       "remote": false
+    },
+    {
+      "name": "border/radius/large",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": true
     },
     {
       "name": "border/radius/large",
@@ -1735,6 +1767,18 @@
       "type": "FLOAT",
       "collection": "Primitives",
       "remote": false
+    },
+    {
+      "name": "border/radius/xxlarge",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": true
+    },
+    {
+      "name": "border/width",
+      "type": "FLOAT",
+      "collection": "Primitives",
+      "remote": true
     },
     {
       "name": "border/width",
@@ -2160,6 +2204,12 @@
       "name": "space/small",
       "type": "FLOAT",
       "collection": "Surface",
+      "remote": true
+    },
+    {
+      "name": "space/small",
+      "type": "FLOAT",
+      "collection": "Surface",
       "remote": false
     },
     {
@@ -2172,6 +2222,12 @@
       "name": "space/xsmall",
       "type": "FLOAT",
       "collection": "Surface",
+      "remote": true
+    },
+    {
+      "name": "space/xsmall",
+      "type": "FLOAT",
+      "collection": "Surface",
       "remote": false
     },
     {
@@ -2179,6 +2235,12 @@
       "type": "FLOAT",
       "collection": "Surface",
       "remote": false
+    },
+    {
+      "name": "space/xxsmall",
+      "type": "FLOAT",
+      "collection": "Surface",
+      "remote": true
     },
     {
       "name": "space/xxsmall",
@@ -2247,6 +2309,12 @@
       "remote": false
     },
     {
+      "name": "background/color/box",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
+    },
+    {
       "name": "background/color/box/info",
       "type": "COLOR",
       "collection": "Theme",
@@ -2269,6 +2337,12 @@
       "type": "COLOR",
       "collection": "Theme",
       "remote": false
+    },
+    {
+      "name": "background/color/information",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
     },
     {
       "name": "background/color/success",
@@ -2347,6 +2421,12 @@
       "type": "COLOR",
       "collection": "Theme",
       "remote": false
+    },
+    {
+      "name": "border/color/interactive",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
     },
     {
       "name": "border/color/interactive/active",
@@ -2566,6 +2646,12 @@
     },
     {
       "name": "button/background/color/menu/hover",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
+      "name": "button/background/color/menu/selected",
       "type": "COLOR",
       "collection": "Theme",
       "remote": false
@@ -3061,6 +3147,18 @@
       "type": "COLOR",
       "collection": "Theme",
       "remote": false
+    },
+    {
+      "name": "chrome/content/separator/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
+    },
+    {
+      "name": "chrome/content/separator/color-opaque",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
     },
     {
       "name": "color/accent/attention",
@@ -3603,6 +3701,12 @@
       "remote": false
     },
     {
+      "name": "tab/group/gray",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": false
+    },
+    {
       "name": "tab/group/gray/active",
       "type": "COLOR",
       "collection": "Theme",
@@ -3652,12 +3756,6 @@
     },
     {
       "name": "tab/group/green/text",
-      "type": "COLOR",
-      "collection": "Theme",
-      "remote": false
-    },
-    {
-      "name": "tab/group/grey",
       "type": "COLOR",
       "collection": "Theme",
       "remote": false
@@ -3933,6 +4031,12 @@
       "remote": false
     },
     {
+      "name": "text/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
+    },
+    {
       "name": "text/color/accent/primary/selected",
       "type": "COLOR",
       "collection": "Theme",
@@ -3943,6 +4047,12 @@
       "type": "COLOR",
       "collection": "Theme",
       "remote": false
+    },
+    {
+      "name": "text/color/deemphasized",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
     },
     {
       "name": "text/color/disabled",
@@ -4065,6 +4175,12 @@
       "remote": false
     },
     {
+      "name": "toolbar/background/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
+    },
+    {
       "name": "toolbar/field/background/color",
       "type": "COLOR",
       "collection": "Theme",
@@ -4101,6 +4217,12 @@
       "remote": false
     },
     {
+      "name": "toolbar/field/text/color/focus",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
+    },
+    {
       "name": "toolbarbutton/background/color/active",
       "type": "COLOR",
       "collection": "Theme",
@@ -4123,6 +4245,12 @@
       "type": "COLOR",
       "collection": "Theme",
       "remote": false
+    },
+    {
+      "name": "toolbarbutton/icon/fill",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
     },
     {
       "name": "toolbarbutton/icon/fill/active",
@@ -4149,6 +4277,12 @@
       "remote": false
     },
     {
+      "name": "toolbarbutton/icon/fill/ghost",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
+    },
+    {
       "name": "toolbarbutton/icon/fill/hover",
       "type": "COLOR",
       "collection": "Theme",
@@ -4165,6 +4299,12 @@
       "type": "COLOR",
       "collection": "Theme",
       "remote": false
+    },
+    {
+      "name": "toolbarbutton/outline/color",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
     },
     {
       "name": "toolbarbutton/outline/color/active",
@@ -4209,10 +4349,22 @@
       "remote": false
     },
     {
+      "name": "toolbox/background/color/gradient-leading",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
+    },
+    {
       "name": "toolbox/background/color/gradient-trailing",
       "type": "COLOR",
       "collection": "Theme",
       "remote": false
+    },
+    {
+      "name": "toolbox/background/color/gradient-trailing",
+      "type": "COLOR",
+      "collection": "Theme",
+      "remote": true
     },
     {
       "name": "toolbox/background/color/inactive",
@@ -4363,6 +4515,12 @@
       "type": "BOOLEAN",
       "collection": "Theme",
       "remote": false
+    },
+    {
+      "name": "window-type/is-smart",
+      "type": "BOOLEAN",
+      "collection": "Theme",
+      "remote": true
     }
   ]
 }

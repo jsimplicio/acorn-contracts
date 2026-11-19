@@ -111,8 +111,8 @@ Inputs (all read-only, nothing here re-fetches from Figma):
   - base/*.tokens.json (which stems exist comes from sync-manifest.json) ->
     the base token families, keyed by the same derived CSS custom property
     name, so a base token page's "In Figma" column is a real answer rather
-    than an unchecked "?". A token declaring ignoreFigma is reported as
-    "ignored" with that reason, keeping any name match it does have.
+    than an unchecked "?". A token declaring ignoreFigma keeps its real
+    yes/no and carries the reason as valueCaveat, never a third status.
   - figma-variables-dump.json -> the direct Figma variables/local snapshot
     (see that file's own `_comment` for exactly what was fetched, what was
     excluded, and why).
@@ -120,7 +120,7 @@ Inputs (all read-only, nothing here re-fetches from Figma):
 Output:
   - figma-token-map.json: { "--custom-property-name": {status, matchType,
     matchedPath} } for every distinct name, plus a `counts` summary.
-    status is "yes", "no" or "ignored" (the last carrying a `reason`).
+    status is "yes" or "no"; an ignoreFigma token also carries `valueCaveat`.
     matchType is one of "exact", "reordered", "near-miss" or null, and
     index.html's loadFigmaTokenMap()/figmaCheckCell() consume it.
 

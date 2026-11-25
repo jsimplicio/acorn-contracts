@@ -1975,7 +1975,7 @@
     // {color.gray.100}, a Proton grey, while its real Nova value is
     // {color.violet-desaturated.90} light / {color.violet-desaturated.0}
     // dark. Nova is the truth this whole page is written against, so the
-    // nova branch wins wherever a token has one. 38 tokens do.
+    // nova branch wins wherever a token has one.
     // Its shape is {comment?, value} where value is either a plain literal
     // or another theme object with its own light/dark inside.
     const nova = themes.nova;
@@ -2004,7 +2004,7 @@
   }
 
   // Baked once by token-api/figma-check.py (see that script's docstring and
-  // token-api/README.md's "Figma existence check" section for exactly how
+  // token-api/README.md's "The 'In Figma' column" section for exactly how
   // "yes"/"no" are decided), not a live Figma call: index.html is a static
   // page with no server-side code, so this has to be
   // a build-time lookup file, the same reason id-map.json and
@@ -2333,9 +2333,8 @@
         // ...and their nova siblings, which phase 2 below layers on exactly
         // like a base file's. Without these the shared lookup held Proton
         // values for button.* and icon.*, so anything resolving through them
-        // showed Proton: icon.color.information is {color.blue.60} in
-        // icon.tokens.json and {color.violet.50} in icon.nova.tokens.json,
-        // which is why Message Bar's icon colour read blue.
+        // showed Proton: icon.color.@base is {color.gray.70} in
+        // icon.tokens.json and {text.color.@base} in icon.nova.tokens.json.
         const extraFoundationalNova = idMap.foundational.map(name => `components/${name}.nova.tokens.json`);
 
         async function loadInto(relPath) {
@@ -2441,10 +2440,10 @@
     } catch (e) { return null; }
   }
 
-  // input/moz-select/panel-item/panel-list nest Nova overrides under a
-  // literal "nova" key inside the base file instead of a sibling
-  // .nova.tokens.json. Promote onto the real path so it wins like any
-  // other Nova value, instead of showing up as a second, unmerged row.
+  // Defensive: promote a literal "nova" path segment onto the real path so
+  // it wins like any other Nova value. No file has one as of the last sync;
+  // input, panel-item and panel-list carry nova inside theme-keyed values,
+  // which sync.py converts to $extensions nova branches instead.
   function promoteInlineNova(flat, basename) {
     const prefix = `${basename}.nova.`;
     Object.keys(flat).filter(k => k.startsWith(prefix)).forEach(k => {

@@ -45,10 +45,10 @@ def flatten(node, path_parts, out):
 
 
 def promote_inline_nova(flat, stem):
-    """input/moz-select/panel-item/panel-list nest Nova overrides under a
-    literal "nova" key inside the base file instead of a sibling
-    .nova.tokens.json. Promote onto the real path so it wins like any
-    other Nova value, instead of showing up as a second, unmerged path."""
+    """Defensive: promote a literal "nova" path segment onto the real path so
+    it wins like any other Nova value. No file has one as of the last sync;
+    input, panel-item and panel-list carry nova inside theme-keyed values,
+    which sync.py converts to $extensions nova branches instead."""
     prefix = f"{stem}.nova."
     for key in [k for k in flat if k.startswith(prefix)]:
         flat[stem + "." + key[len(prefix):]] = flat.pop(key)
@@ -83,9 +83,9 @@ def build_base_lookup(id_map):
         lookup.update(load_and_flatten(f"base/{f.name}", stem_override=non_nova_stem))
     # The foundational component files get their nova siblings layered on in
     # this same second pass. Without it the shared lookup kept Proton values
-    # for button.* and icon.*: icon.color.information is {color.blue.60} in
-    # icon.tokens.json and {color.violet.50} in icon.nova.tokens.json, so
-    # every component resolving through it exported a Proton blue.
+    # for button.* and icon.*: icon.color.@base is {color.gray.70} in
+    # icon.tokens.json and {text.color.@base} in icon.nova.tokens.json, so
+    # every component resolving through it exported the Proton value.
     for name in id_map["foundational"]:
         lookup.update(
             load_and_flatten(f"components/{name}.nova.tokens.json", stem_override=name)
@@ -122,13 +122,13 @@ def _pick(value):
 def effective_value(token):
     """A token's real Nova value, which is not always its $value.
 
-    38 tokens carry $extensions["org.mozilla.themes"].nova, shaped
+    Many tokens carry $extensions["org.mozilla.themes"].nova, shaped
     {comment?, value}: that branch is the Nova value and $value is the
     Proton one pick_default surfaced at conversion time. text.color.@base is
     the clearest case, $value is {color.gray.100} (a Proton grey) while its
     Nova value is {color.violet-desaturated.90}. Nova is what this export is
     written against, so the nova branch wins wherever a token has one.
-    See token-api/README.md step 4b."""
+    See token-api/README.md, step 4 of the resolve algorithm."""
     if not isinstance(token, dict):
         return None
     themes = (token.get("$extensions") or {}).get("org.mozilla.themes") or {}

@@ -22,16 +22,16 @@ own token detail couldn't confirm its source file, named "Desktop Styles",
 was even the same file as "Nova Styles"). That rule holds for every
 token/variable-existence-in-Figma check in this project family. See
 figma-variables-dump.json's own `_comment` for exactly what was fetched and
-why, and token-api/README.md's "Figma existence check" section for the full
-pipeline.
+why, token-api/README.md's "The 'In Figma' column" section for the rules,
+and MAINTAINING.md's "Figma checks" section for the full pipeline.
 
 How the match is decided (read this before trusting a "yes"):
 
 1. codeSyntax was checked first, not assumed absent. The Figma API response
-   DOES include a `codeSyntax` field per variable -- but only 2 of 718 kept
-   variables have it populated (button/background/color, tab/border/color;
-   see figma-variables-dump.json's `_comment`), nowhere near enough to be a
-   general match signal. So every match below is by normalized name instead.
+   DOES include a `codeSyntax` field per variable, but it was nearly empty
+   when last counted (figma-dump.py now records which variables populate it,
+   as the dump's `codeSyntaxPopulated`), nowhere near enough to be a general
+   match signal. So every match below is by normalized name instead.
    If a future Figma publish starts populating codeSyntax broadly, prefer it
    over this name-matching and say so explicitly in `matchMethod`.
 
@@ -61,9 +61,9 @@ How the match is decided (read this before trusting a "yes"):
      color, button/background/color/active, border/color/interactive,
      tab/text/color/deemphasized, text/color/list/item/hover, ...).
    - "yes" (reordered): the word tuples match as a SET but not in the same
-     order. token-api/README.md's own id-map.json documentation notes real
-     precedent for this ("the same taxonomy level... can land at a
-     different position in different token names"), so an order-insensitive
+     order. token-api/README.md's id-map.json section notes the precedent:
+     the token taxonomy only includes the levels a name needs, so the same
+     level lands at different positions in different names. An order-insensitive
      match is still a real match, just flagged differently from an exact
      one so a maintainer can tell them apart.
    - anything else: "no", including a one-word-off near miss (e.g. an
@@ -120,7 +120,7 @@ Inputs (all read-only, nothing here re-fetches from Figma):
 Output:
   - figma-token-map.json: { "--custom-property-name": {status, matchType,
     matchedPath} } for every distinct name, plus a `counts` summary.
-    status is "yes" or "no"; an ignoreFigma token also carries `valueCaveat`.
+    status is "yes" or "no"; an ignoreFigma base token also carries `valueCaveat`.
     matchType is one of "exact", "reordered", "near-miss" or null, and
     index.html's loadFigmaTokenMap()/figmaCheckCell() consume it.
 
@@ -132,7 +132,7 @@ change:
 
 Refreshing figma-variables-dump.json itself is a plain, credential-scoped
 REST call (no agent session or MCP connection needed at all): see
-token-api/README.md's "Figma existence check" section for the exact command.
+MAINTAINING.md's "Figma checks" section for the exact command.
 """
 
 import json
@@ -284,6 +284,9 @@ def near_miss_path(acorn_words, all_tuples, exact_index):
 def main():
     dump = json.loads((SCRIPT_DIR / "figma-variables-dump.json").read_text(encoding="utf-8"))
     exact_index, multiset_index, all_tuples = load_figma_words(dump)
+    cs = dump.get("codeSyntaxPopulated")
+    cs_note = (f"codeSyntax populated on {len(cs)} of {len(dump['variables'])} kept variables"
+               if cs is not None else "codeSyntax population not recorded in this dump")
 
     names = collect_acorn_css_property_names()
     ignored = {k: v for k, v in collect_base_token_names().items() if v}
@@ -337,20 +340,19 @@ def main():
         "generatedBy": "token-api/figma-check.py",
         "generatedFrom": "token-api/figma-variables-dump.json",
         "matchMethod": (
-            "codeSyntax checked directly against this Figma file's own variable data and "
-            "found populated on only 2 of 718 kept variables (nowhere near a usable general "
-            "signal), so matching is by normalized-word-tuple comparison of the CSS custom "
+            f"{cs_note}. Matching is by normalized-word-tuple comparison of the CSS custom "
             "property name against every real Figma variable name in Nova Styles "
             "(Experimental), not codeSyntax. This checks a name "
             "against its OWN name only -- it deliberately does not follow a token's resolved "
             "alias chain to count a match under some other, differently-named Figma "
             "variable, since the point of this column is catching Figma and code drifting "
             "apart, and backfilling through an alias would hide exactly that. Strict "
-            "Covers base token families as well as component properties. A token carrying "
+            "Covers base token families as well as component properties. A base token carrying "
             "$extensions['org.mozilla.meta'].ignoreFigma keeps its real yes/no answer and "
             "carries the reason as `valueCaveat`: that flag is about the VALUE not round-"
             "tripping (color-mix on currentColor is dynamic in a way a static hex+alpha is "
-            "not), which is a different question from whether the name exists. A strict "
+            "not), which is a different question from whether the name exists. Component-level "
+            "ignoreFigma flags are not carried into valueCaveat yet. A strict "
             "two-state result (yes/no), not three: a one-word-off near miss is still 'no', "
             "recorded with matchType 'near-miss' purely as a diagnostic, not a softer status. "
             "See this script's own docstring for the full rule."

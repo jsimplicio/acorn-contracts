@@ -30,8 +30,8 @@ WHAT THIS DOES
    fetched, when, per-file/token counts, and each output file's real source
    path (since output no longer mirrors one single source tree), so a
    re-run is auditable.
-5. Resolves the button -> space -> dimension alias chain
-   (`button.padding.inline.@base` -> `space.large` -> `dimension.relative.100`)
+5. Resolves the button -> space alias chain
+   (`button.padding.inline.@base` -> `space.large`)
    as a smoke test that the converted output is actually walkable, and prints
    the result.
 6. Prints a "What's new since last sync" summary: commit/leaf-count deltas
@@ -49,7 +49,7 @@ WHAT THIS DOES
    this annotation to reflect the tokens that just changed, not a stale
    prior sync's set.
 
-See `token-api/README.md` for the full write-up of *why* each conversion rule
+See MAINTAINING.md ("Token sync") for the full write-up of *why* each conversion rule
 is shaped the way it is (the theme-dimension `$extensions` convention, the
 `$type` inference rules, the `.@base` decision, etc). This docstring only
 covers mechanics.
@@ -198,7 +198,7 @@ def pick_default(value):
     """Given Firefox's theme-dimension-keyed `value` object (or a plain
     literal), return the single most-typical value to surface as $value.
 
-    Rule (documented in README.md): prefer an explicit "default" key, else
+    Rule (documented in MAINTAINING.md, "Conversion rules"): prefer an explicit "default" key, else
     recurse into "brand" (itself often `{default: ...}`), else "light", else
     nativeTheme, forcedColors, platform (recursed), prefersContrast, dark, in
     that order, whichever theme axis is present first. Falls back to the
@@ -467,11 +467,11 @@ def _collect_alias_refs(namespaces):
     .nova sibling redefines outright, and the non-nova half of a token that
     carries its own `nova` branch.
 
-    color.gray.100 is the worked example. A raw scan finds 10 tokens
-    pointing at it; 8 of those are Proton definitions that Nova replaces
-    (button.text.color.@base is {color.violet.90} in button.nova, and
-    text.color.@base's nova branch is {color.violet-desaturated.90}), so only
-    2 are real.
+    color.gray.100 is the worked example. A raw scan finds more tokens
+    pointing at it than really depend on it: most are Proton definitions that
+    Nova replaces (button.text.color.@base is {color.violet.90} in
+    button.nova, and text.color.@base's nova branch is
+    {color.violet-desaturated.90}), and only the rest are real.
     """
     refs = set()
     for stem, tree in namespaces.items():
@@ -513,7 +513,8 @@ def prune_superseded_scale_steps(namespaces, base_stems):
     is not removed, it survives from the Proton file and lands at the end of
     the Nova scale it does not belong to. That is why color.gray.100
     (#15141a) reads LIGHTER than color.gray.90 (#121114), and why
-    border.radius.xxlarge is still listed when Nova has no such radius.
+    border.radius.xxlarge was listed when Nova has no such radius. gray.100
+    itself stays, because real tokens still alias it (see the guards below).
 
     Four guards keep this from deleting anything real:
       * base/ only. A component token's real consumer is CSS in
@@ -525,7 +526,7 @@ def prune_superseded_scale_steps(namespaces, base_stems):
         group at all, so those are the only ramp there is and they stay.
       * only a flat scale (see _is_scale_group), never a semantic group.
       * only a step nothing anywhere references, nova branches included.
-        color.gray.100 is still aliased by 8 real tokens with no Nova
+        color.gray.100 is still aliased by real tokens with no Nova
         replacement, and border.radius.circle/large are aliased too, so all
         three stay rather than being deleted out from under their consumers.
     Returns the sorted paths dropped, for the run's own change summary.
@@ -618,7 +619,7 @@ def _run_conversion(repo_root, fetch_method, commit_sha, commit_date, ref_arg):
         out_files.append(out_entry)
         source_paths[out_entry] = f"{rel_dir}/{filename}"
 
-    # --- verification: walk the real button -> space -> dimension alias chain ---
+    # --- verification: walk the real button -> space alias chain ---
     chain_ok, chain_trail, chain_value = _verify_chain(converted_namespaces)
 
     # --- manifest ---
@@ -645,7 +646,7 @@ def _run_conversion(repo_root, fetch_method, commit_sha, commit_date, ref_arg):
             {"path": p, "keys": k} for p, k in report.extra_keys
         ],
         "verification": {
-            "chain": "button.padding.inline.@base -> space.large -> dimension.relative.100",
+            "chain": "button.padding.inline.@base -> space.large",
             "trail": chain_trail,
             "resolved_value": chain_value,
             "expected": "1rem",

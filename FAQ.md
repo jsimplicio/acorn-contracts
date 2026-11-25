@@ -128,11 +128,11 @@ These contracts document real Firefox, so they carry real Firefox vocabulary. Th
 
 ### Design token
 
-**A design token is one named design decision, stored as data so it can be consumed by CSS, by Figma and by anything else.** Firefox's live in `toolkit/themes/shared/design-system/src/tokens/{base,components}/`, plus a few component-local and theme-local locations listed in [token-api/README.md](token-api/README.md). Each one surfaces in the browser as a CSS custom property.
+**A design token is one named design decision, stored as data so it can be consumed by CSS, by Figma and by anything else.** Firefox's live in `toolkit/themes/shared/design-system/src/tokens/{base,components}/`, plus a few component-local and theme-local locations listed on the [Maintaining](MAINTAINING.md) page. Each one surfaces in the browser as a CSS custom property.
 
 ### DTCG
 
-**DTCG is the [W3C Design Tokens Community Group](https://tr.designtokens.org/format/) format, the `$value`/`$type`/`$description` shape.** Firefox's own token files are in a Style-Dictionary-flavored format instead; `token-api/sync.py` converts them to DTCG, which is what `token-api/` publishes. The conversion rules, and the places where a Firefox value does not fit DTCG cleanly, are documented in [token-api/README.md](token-api/README.md).
+**DTCG is the [W3C Design Tokens Community Group](https://tr.designtokens.org/format/) format, the `$value`/`$type`/`$description` shape.** Firefox's own token files are in a Style-Dictionary-flavored format instead; `token-api/sync.py` converts them to DTCG, which is what `token-api/` publishes. How to read the converted files is in [token-api/README.md](token-api/README.md)'s "Reading the files"; the full conversion rules, and the places where a Firefox value does not fit DTCG cleanly, are on the [Maintaining](MAINTAINING.md) page.
 
 ### Alias
 
@@ -142,11 +142,17 @@ These contracts document real Firefox, so they carry real Firefox vocabulary. Th
 
 ### What does the "In Figma" column actually check?
 
-**Only whether a variable of the same name exists in Mozilla's Figma file. It says nothing about whether the values agree.** It is a name-vs-name existence check with a strict two-state `yes`/`no` answer, deliberately not following alias chains. The rule, the normalization, and why a row full of `no`s is a real finding rather than a bug are in [token-api/README.md](token-api/README.md)'s "Figma existence check: figma-check.py" section.
+**Only whether a variable of the same name exists in Mozilla's Figma file. It says nothing about whether the values agree.** It is a name-vs-name existence check with a strict two-state `yes`/`no` answer, deliberately not following alias chains. The rule, the normalization, and why a row full of `no`s is a real finding rather than a bug are in [token-api/README.md](token-api/README.md)'s "The 'In Figma' column" section.
 
 ### Why do some tokens say they cannot round-trip to Figma?
 
-**Because a few Firefox tokens are defined as context-dependent expressions, and no static format can hold one.** `text.color.deemphasized` is `color-mix(in srgb, currentColor 69%, transparent)`, which is neither a literal colour DTCG can represent nor a value Figma can bake without picking one context and being wrong in the others. [token-api/README.md](token-api/README.md)'s "Why some values cannot round-trip at all" names the layer that gives out in each case.
+**Because a few Firefox tokens are defined as context-dependent expressions, and no static format can hold one.** `text.color.deemphasized` is `color-mix(in srgb, currentColor 69%, transparent)`, which is neither a literal colour DTCG can represent nor a value Figma can bake without picking one context and being wrong in the others. Three layers give out, one after another:
+
+- **The token format.** The entry claims `$type: "color"`, but its value is a CSS *expression*. DTCG's colour type is a literal in a named colour space, with no expression syntax, function calls or arithmetic, so the value only survives conversion as an opaque string that happens to be valid CSS.
+- **`currentColor`.** Even granting the expression, `currentColor` is not a colour but a reference to whatever `color` is inherited at the point of use. The same token is grey at 69% in body text and red at 69% inside an error region, and follows a theme flip for free. That is the point of the token.
+- **Figma.** A Figma colour variable holds a resolved RGBA. The alpha half is expressible, but "69% of whatever colour this inherits" is not, so Figma has to bake in one base colour, right for one context and silently wrong in every other. `border.color.transparent` fails earlier and differently: it exists to be overridden by `prefers-contrast`, a media query, which is not a colour question at all.
+
+So a hex-with-alpha in Figma is not Figma being lossy about a colour; it is a static answer standing in for a value defined as dynamic. Upstream marks these tokens `$extensions["org.mozilla.meta"].ignoreFigma`. This does not change the "In Figma" answer, which asks whether the name exists: they keep their real `yes`/`no`, and a base token also carries the reason as `valueCaveat`, shown in a `yes` cell's tooltip (component-level flags are not carried yet).
 
 ## Localization
 

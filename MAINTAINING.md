@@ -42,7 +42,7 @@ Every run:
 | `--ref <branch-or-sha>` | Fetch a specific ref instead of the default branch tip, to pin a sync or reproduce an old one. |
 | `--local-checkout <path>` | **Dev only.** Skips the fetch and reads a local firefox checkout. Prints a warning banner and records the bypass in the manifest, so a run this way is obvious afterwards. |
 
-Before committing a sync, `python3 token-api/sync-report.py --open` writes a gitignored page of every token change since the last commit, field by field.
+After `resolve.py` and `figma-check.py`, and before committing, `python3 token-api/sync-report.py --open` writes a gitignored page of every token change since the last commit, field by field. While it exists, the local site's nav shows it as "Last sync report"; the published site never has it.
 
 ### Where the sources live
 
@@ -91,14 +91,14 @@ Testing the value first catches tokens like `tab.selected.textcolor`, whose path
 
 ### Superseded Proton scale steps
 
-Firefox ships two generations side by side: `color.tokens.json` is the Proton ramp, `color.nova.tokens.json` the Nova one, on different scales. Merging them key by key keeps a Proton step Nova dropped, which then sits at the end of a scale it does not belong to (`color.gray.100` is visibly *lighter* than `color.gray.90`). `sync.py` drops those at conversion time (`prune_superseded_scale_steps`), under four guards:
+Firefox ships two generations side by side: `color.tokens.json` is the Proton ramp, `color.nova.tokens.json` the Nova one, on different scales. Merging them key by key keeps a Proton step Nova dropped, which then sits at the end of a scale it does not belong to (Proton's `100` and `110` steps sit past Nova's `90`, and `border.radius.xxlarge` was listed when Nova has no such radius). `sync.py` drops those at conversion time (`prune_superseded_scale_steps`), under four guards:
 
 - **`base/` only.** A component token's real consumer is CSS in mozilla-central, not another token, so "nothing aliases it" says nothing about whether it is live.
 - **Only a group Nova rewrote.** Nova defines no `white`/`black` group, so those stay.
 - **Only a flat scale** (every member a leaf). `background.color` holds nested groups and is never touched; `border.radius` is flat leaves, so it is.
 - **Only a step nothing references under Nova.** A Proton token its own `.nova` sibling redefines is skipped, as is the non-nova half of a token carrying its own `nova` branch; a blanket scan would count references that exist only in superseded definitions and keep dead tokens alive forever.
 
-To see what is still genuinely pointing at a Proton step, walk every non-`.nova.` file in `base/` and `components/`, keep the tokens whose `$value` is exactly that step (say `{color.gray.100}`), and drop any that carry `$extensions["org.mozilla.themes"].nova`.
+A step that real tokens still alias with no Nova replacement stays, which is why `color.gray.100` and `border.radius.circle`/`large` are still in `base/`. What counts as a live reference is `sync.py`'s `_collect_alias_refs` and `_live_under_nova`: a token's Nova value if it has one, otherwise its `$value` and theme branches, across `.nova.` files too. Read those rather than recounting by hand, since a reference can sit in a theme branch or a Nova value as well as in `$value`.
 
 ### Smoke test
 
@@ -106,8 +106,7 @@ The namespace an `{alias}` resolves into is the source file's stem (`space.token
 
 ```
 components/button.tokens.json  → padding.inline.@base  → "{space.large}"
-base/space.tokens.json         → large                 → "{dimension.relative.100}"
-base/dimension.tokens.json     → relative.100          → "1rem"
+base/space.tokens.json         → large                 → "1rem"
 ```
 
 and fails the run if it does not end at `"1rem"`. It proves the converted files are walkable by something reading only `token-api/`, not that every alias in the corpus resolves.
@@ -126,19 +125,19 @@ curl -s -H "X-Figma-Token: $FIGMA_TOKEN" \
   -o /tmp/figma-variables-raw.json
 ```
 
-Then convert it, which keeps only each variable's name, type, collection and remote flag, drops Figma's `deletedButReferenced` ghosts, and writes the dump:
+Then convert it, which keeps only each variable's name, type, collection and remote flag, drops Figma's `deletedButReferenced` ghosts, lists which variables populate `codeSyntax`, and writes the dump:
 
 ```sh
 python3 token-api/figma-dump.py /tmp/figma-variables-raw.json
 ```
 
-The raw response carries Figma ids and keys, so it stays outside the repo; delete it afterwards. Never commit the file key: name the file ("Nova Styles (Experimental)") and keep `$FIGMA_FILE_KEY` as the placeholder.
+It refuses an error response, an empty or malformed one, and one with under half the existing dump's variables, and stops if the existing dump itself is not valid (pass `--allow-shrink` in either case if replacing it is intended). The raw response carries Figma ids and keys, so it stays outside the repo; delete it afterwards. Never commit the file key: name the file ("Nova Styles (Experimental)") and keep `$FIGMA_FILE_KEY` as the placeholder.
 
 **2. Run `python3 token-api/figma-check.py`.** Pure local computation, no network. Rerun it whenever `resolved/*.json`, `component-api/*.json`, `base/*.tokens.json` or the dump changes. It builds the same set of property names the site renders (every component page and every base token family), then normalizes each name and each Figma variable name to a tuple of lowercase words, splitting on every non-alphanumeric character. That split is what makes `box-shadow` match Figma's `box / shadow` without a hardcoded list of two-word basenames.
 
 **3. Commit `token-api/figma-token-map.json`**, the baked lookup the site fetches, since the page is static. CI regenerates it and fails if it differs.
 
-Matching is by name because Figma's `codeSyntax` field is nearly empty in this file (`figma-check.py` records how sparse in the map's `matchMethod`). If a future publish fills it in broadly, it should become the primary signal.
+Matching is by name because Figma's `codeSyntax` field was nearly empty when last counted, from a pull before `figma-dump.py` existed. `figma-dump.py` now records which variables populate it, as the dump's `codeSyntaxPopulated`; the committed dump predates that, so the next pull is the first that records it. If a future publish fills it in broadly, it should become the primary signal.
 
 ### Components
 

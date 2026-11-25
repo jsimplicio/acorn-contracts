@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/FirefoxUX/acorn-contracts/token-api/schema.json",
   "title": "Token API file",
-  "description": "Schema for one base/<name>.tokens.json or components/<name>.tokens.json file: a W3C DTCG-shaped tree (https://tr.designtokens.org/format/). See token-api/README.md for the full conversion-rule rationale and the resolution algorithm; this file is the machine-checkable version of the output shape only, it does not (and can't) encode the resolution algorithm itself.",
+  "description": "Schema for one base/<name>.tokens.json or components/<name>.tokens.json file: a W3C DTCG-shaped tree (https://tr.designtokens.org/format/). See MAINTAINING.md for the conversion-rule rationale and token-api/README.md for the resolution algorithm; this file is the machine-checkable version of the output shape only, it does not (and can't) encode the resolution algorithm itself.",
   "$ref": "#/$defs/group",
   "$defs": {
     "group": {
@@ -30,7 +30,7 @@
         },
         "$type": {
           "type": "string",
-          "description": "Present when sync.py's infer_type() could determine one (see README \"Conversion rules applied\"). Absent, not guessed, when genuinely ambiguous or when decomposing a composite (border/shadow) would require restructuring $value itself."
+          "description": "Present when sync.py's infer_type() could determine one (see MAINTAINING.md \"Conversion rules\"). Absent, not guessed, when genuinely ambiguous or when decomposing a composite (border/shadow) would require restructuring $value itself."
         },
         "$description": {
           "type": "string",

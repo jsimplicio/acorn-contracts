@@ -68,15 +68,11 @@
       "chain": []
     },
     "tab.border.color.selected.@base": {
-      "value": "#764edd",
+      "value": "transparent",
       "type": "color",
       "chain": [
         "toolbarbutton.outline.color.selected",
-        "toolbarbutton.outline.color.active",
-        "button.border.color.active",
-        "button.border.color.@base",
-        "color.accent.primary.@base",
-        "color.violet.50"
+        "toolbarbutton.outline.color.active"
       ]
     },
     "tab.border.color.selected.leading": {

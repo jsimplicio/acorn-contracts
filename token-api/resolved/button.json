@@ -547,14 +547,10 @@
       ]
     },
     "button.border.color.toolbar.active": {
-      "value": "#764edd",
+      "value": "transparent",
       "type": "color",
       "chain": [
-        "toolbarbutton.outline.color.active",
-        "button.border.color.active",
-        "button.border.color.@base",
-        "color.accent.primary.@base",
-        "color.violet.50"
+        "toolbarbutton.outline.color.active"
       ]
     },
     "button.border.color.toolbar.disabled": {
@@ -568,14 +564,10 @@
       ]
     },
     "button.border.color.toolbar.hover": {
-      "value": "#764edd",
+      "value": "transparent",
       "type": "color",
       "chain": [
-        "toolbarbutton.outline.color.hover",
-        "button.border.color.hover",
-        "button.border.color.@base",
-        "color.accent.primary.@base",
-        "color.violet.50"
+        "toolbarbutton.outline.color.hover"
       ]
     },
     "button.border.color.toolbar.selected": {

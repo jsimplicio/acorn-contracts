@@ -2,6 +2,14 @@
 
 What actually changed in this repo, by day. Not a promise of what's coming, a record of what's real now, same standard as everything else here. See `AGENTS.md` for the procedural rules behind these changes, not restated here. History before this changelog starts lives in `git log`.
 
+## 2026-11-25
+
+**`resolved/` no longer exports high-contrast colours as normal values.** A Nova branch holding only high-contrast keys (`forcedColors`, `prefersContrast`) was reduced to that key, so `toolbarbutton.outline.color.hover` and `.active`, and the four tokens aliasing them (`toolbarbutton.outline.color.selected`, `tab.border.color.selected.@base`, `button.border.color.toolbar.hover`/`.active`), exported a forced-colors purple instead of `transparent`. `resolve.py` now uses a Nova branch only when it sets a normal-mode value, the same test upstream's build applies, and the six now match upstream's `tokens-shared.css` (and `tab.tokens.css` for the tab border). The site already showed `transparent`.
+
+**Docs from the Token API split, reviewed.** An independent review of last week's docs split, then repeated reviews of the fix until a pass found nothing to fix, restored the FAQ's round-trip explanation, repointed about ten references to sections that had moved, and corrected several false statements: which Figma families have no variables at all, whether `color.gray.100` is pruned, which tokens carry a `valueCaveat`, and what the resolve algorithm reproduces. `figma-dump.py` now refuses empty, malformed or drastically smaller responses instead of overwriting the dump.
+
+**Two known gaps stay documented** in the Token API page: `moz-toggle`'s `*.disabled` colours get their forced-colors value as `$value` at conversion, and where upstream gives a token different chrome and in-content values, both `resolved/` and the site show the in-content one for every current token, except a Nova branch holding just `brand.default`, where the site shows the chrome value. Showing both is planned.
+
 ## 2026-11-19
 
 **Token API docs split by reader.** The Token API page is now reference only; everything about keeping the data current moved to a new **Maintaining** page, along with the Overview's "Keeping it current". Fixed on the way: a third "ignored" Figma status the code never produces, an undocumented `excludeSegments` shape in `id-map.json`, and hardcoded counts.

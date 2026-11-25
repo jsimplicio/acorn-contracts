@@ -137,14 +137,9 @@
       "chain": []
     },
     "toolbarbutton.outline.color.active": {
-      "value": "#764edd",
+      "value": "transparent",
       "type": "color",
-      "chain": [
-        "button.border.color.active",
-        "button.border.color.@base",
-        "color.accent.primary.@base",
-        "color.violet.50"
-      ]
+      "chain": []
     },
     "toolbarbutton.outline.color.disabled": {
       "value": "transparent",
@@ -152,24 +147,15 @@
       "chain": []
     },
     "toolbarbutton.outline.color.hover": {
-      "value": "#764edd",
+      "value": "transparent",
       "type": "color",
-      "chain": [
-        "button.border.color.hover",
-        "button.border.color.@base",
-        "color.accent.primary.@base",
-        "color.violet.50"
-      ]
+      "chain": []
     },
     "toolbarbutton.outline.color.selected": {
-      "value": "#764edd",
+      "value": "transparent",
       "type": "color",
       "chain": [
-        "toolbarbutton.outline.color.active",
-        "button.border.color.active",
-        "button.border.color.@base",
-        "color.accent.primary.@base",
-        "color.violet.50"
+        "toolbarbutton.outline.color.active"
       ]
     },
     "toolbarbutton.outline.offset": {

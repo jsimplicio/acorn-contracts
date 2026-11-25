@@ -93,8 +93,7 @@ def build_base_lookup(id_map):
     return lookup
 
 
-# Same order sync.py's pick_default uses, so a nova branch reduced here and a
-# $value reduced at conversion time can never disagree about which axis wins.
+# sync.py's pick_default order; _pick also skips the high-contrast keys and dark.
 NOVA_PICK_ORDER = (
     "default",
     "brand",
@@ -107,15 +106,28 @@ NOVA_PICK_ORDER = (
 )
 
 
+HIGH_CONTRAST_KEYS = ("forcedColors", "prefersContrast")
+
+
 def _pick(value):
+    """First key in NOVA_PICK_ORDER that emits a normal-mode value, as upstream's layers do."""
     if not isinstance(value, dict):
         return value
     for key in NOVA_PICK_ORDER:
-        if key in value:
-            return _pick(value[key])
-    for key, sub in value.items():
-        if key != "comment":
-            return _pick(sub)
+        if key in HIGH_CONTRAST_KEYS or key not in value:
+            continue
+        sub = value[key]
+        if key == "default" and not _truthy(sub):
+            continue
+        if key == "light" and not _truthy(value.get("dark")):
+            continue
+        if key == "dark":
+            continue
+        if key in ("brand", "platform") and not _has_normal_value(sub):
+            continue
+        if key == "nativeTheme" and not _truthy(sub):
+            continue
+        return _pick(sub)
     return None
 
 
@@ -127,15 +139,41 @@ def effective_value(token):
     Proton one pick_default surfaced at conversion time. text.color.@base is
     the clearest case, $value is {color.gray.100} (a Proton grey) while its
     Nova value is {color.violet-desaturated.90}. Nova is what this export is
-    written against, so the nova branch wins wherever a token has one.
+    written against, so the nova branch wins wherever it carries a
+    normal-mode value; one holding only high-contrast keys does not.
     See token-api/README.md, step 4 of the resolve algorithm."""
     if not isinstance(token, dict):
         return None
     themes = (token.get("$extensions") or {}).get("org.mozilla.themes") or {}
     nova = themes.get("nova")
-    if isinstance(nova, dict) and "value" in nova:
+    if isinstance(nova, dict) and _truthy(nova.get("value")) and _has_normal_value(nova["value"]):
         return _pick(nova["value"])
     return token.get("$value")
+
+
+def _truthy(value):
+    # JS truthiness for the scalars token JSON holds (an empty {} or [] differs; none occur).
+    return bool(value)
+
+
+def _emits(value):
+    # Mirrors upstream format-token.mjs: a layer emits from a literal, a default, or light+dark.
+    if isinstance(value, bool):
+        return False
+    if isinstance(value, (str, int, float)):
+        return True
+    return isinstance(value, dict) and (_truthy(value.get("default"))
+                                        or (_truthy(value.get("light")) and _truthy(value.get("dark"))))
+
+
+def _has_normal_value(value):
+    """Whether a Nova value sets a normal-mode value on any surface, per upstream's layers."""
+    if _emits(value):
+        return True
+    if not isinstance(value, dict):
+        return False
+    return (any(_emits(value.get(s)) for s in ("brand", "platform"))
+            or _truthy(value.get("nativeTheme")))
 
 
 def resolve_alias(value, lookup, depth=0):
